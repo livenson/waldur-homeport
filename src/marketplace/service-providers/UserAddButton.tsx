@@ -36,7 +36,7 @@ export const UserAddButton: FunctionComponent<UserAddButtonProps> = ({
         dispatch(
           openModalDialog(AddUserDialog, {
             refetch,
-            level: 'call_organizer',
+            level: 'service_provider',
             title: translate('Add member'),
           }),
         )

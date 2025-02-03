@@ -20,6 +20,8 @@ export const PermissionMap = {
   offering: 'OFFERING.CREATE_PERMISSION',
   call: 'CALL.CREATE_PERMISSION',
   proposal: 'PROPOSAL.MANAGE',
+  call_organizer: 'CUSTOMER.CREATE_PERMISSION',
+  service_provider: 'CUSTOMER.CREATE_PERMISSION',
 };
 
 export const PermissionEnum = {

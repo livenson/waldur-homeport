@@ -384,7 +384,7 @@
     "message": "Add key"
   },
   "Add member": {
-    "description": "customer/team/UserAddButton.tsx, proposals/call-management/UserAddButton.tsx",
+    "description": "customer/team/UserAddButton.tsx, marketplace/service-providers/UserAddButton.tsx, proposals/call-management/UserAddButton.tsx",
     "message": "Add member"
   },
   "Add new": {
@@ -476,7 +476,7 @@
     "message": "Add {category}"
   },
   "Add": {
-    "description": "administration/providers/CreateProviderDialog.tsx, core/AddButton.tsx, customer/list/OrganizationCreateButton.tsx, customer/team/AddProjectUserButton.tsx, customer/team/UserAddButton.tsx, marketplace/deploy/DeployPage.tsx, openstack/OpenStackExternalIpsField.tsx, openstack/openstack-backup/actions/NetworksList.tsx, openstack/openstack-instance/actions/update-floating-ips/FloatingIpsList.tsx, openstack/openstack-instance/deploy/FormNetworkStep.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, project/create/GlobalProjectCreateButton.tsx, project/create/ProjectCreateButton.tsx, proposals/call-management/UserAddButton.tsx, rancher/cluster/create/FormNodesStep.tsx",
+    "description": "administration/providers/CreateProviderDialog.tsx, core/AddButton.tsx, customer/list/OrganizationCreateButton.tsx, customer/team/AddProjectUserButton.tsx, customer/team/UserAddButton.tsx, marketplace/deploy/DeployPage.tsx, marketplace/service-providers/UserAddButton.tsx, openstack/OpenStackExternalIpsField.tsx, openstack/openstack-backup/actions/NetworksList.tsx, openstack/openstack-instance/actions/update-floating-ips/FloatingIpsList.tsx, openstack/openstack-instance/deploy/FormNetworkStep.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, project/create/GlobalProjectCreateButton.tsx, project/create/ProjectCreateButton.tsx, proposals/call-management/UserAddButton.tsx, rancher/cluster/create/FormNodesStep.tsx",
     "message": "Add"
   },
   "Additional account description invisible to user": {
@@ -1732,7 +1732,7 @@
     "message": "Call manager"
   },
   "Call managing organization": {
-    "description": "administration/organizations/OrganizationsFilter.tsx",
+    "description": "administration/organizations/OrganizationsFilter.tsx, permissions/constants.tsx",
     "message": "Call managing organization"
   },
   "Call must have a round to be activated.": {
@@ -3616,7 +3616,7 @@
     "message": "Email verification has been sent. Please check your inbox."
   },
   "Email": {
-    "description": "administration/InvitationList.tsx, administration/hooks/HooksList.tsx, administration/organizations/OrganizationGroupOrganizationsList.tsx, administration/providers/ProviderUsersDialog.tsx, broadcasts/RecipientsList.tsx, customer/details/CustomerContactPanel.tsx, customer/details/EditFieldDialog.tsx, customer/list/ExportAsEmailDialog.tsx, customer/list/OrganizationCard.tsx, customer/team/CustomerUsersList.tsx, customer/team/UserGroup.tsx, invitations/InvitationsList.tsx, invitations/actions/create/EmailsListGroup.tsx, project/team/InvitationsList.tsx, project/team/ProjectUsersList.tsx, project/team/UserGroup.tsx, proposals/call-management/CallManagementTeamPage.tsx, proposals/round/reviewers/RoundReviewersList.tsx, proposals/team/InvitationsList.tsx, proposals/team/UsersList.tsx, user/affiliations/OrganizationsList.tsx, user/affiliations/SummaryTeamTable.tsx, user/hooks/HookTypeField.tsx, user/support/UserDetailsTable.tsx, user/support/UserEditRows.tsx, user/support/UserEmailChangeDialog.tsx, user/support/UserList.tsx",
+    "description": "administration/InvitationList.tsx, administration/hooks/HooksList.tsx, administration/organizations/OrganizationGroupOrganizationsList.tsx, administration/providers/ProviderUsersDialog.tsx, broadcasts/RecipientsList.tsx, customer/details/CustomerContactPanel.tsx, customer/details/EditFieldDialog.tsx, customer/list/ExportAsEmailDialog.tsx, customer/list/OrganizationCard.tsx, customer/team/CustomerUsersList.tsx, customer/team/UserGroup.tsx, invitations/InvitationsList.tsx, invitations/actions/create/EmailsListGroup.tsx, marketplace/service-providers/ProviderTeamPage.tsx, project/team/InvitationsList.tsx, project/team/ProjectUsersList.tsx, project/team/UserGroup.tsx, proposals/call-management/CallManagementTeamPage.tsx, proposals/round/reviewers/RoundReviewersList.tsx, proposals/team/InvitationsList.tsx, proposals/team/UsersList.tsx, user/affiliations/OrganizationsList.tsx, user/affiliations/SummaryTeamTable.tsx, user/hooks/HookTypeField.tsx, user/support/UserDetailsTable.tsx, user/support/UserEditRows.tsx, user/support/UserEmailChangeDialog.tsx, user/support/UserList.tsx",
     "message": "Email"
   },
   "Email: {email}": {
@@ -8667,10 +8667,6 @@
     "description": "proposals/proposal/create-review/steps/FormSummaryStep.tsx",
     "message": "Rate"
   },
-  "Rating": {
-    "description": "marketplace/deploy/CheckoutFooter.tsx",
-    "message": "Rating"
-  },
   "Read-only field": {
     "description": "user/support/UserEditRows.tsx",
     "message": "Read-only field"
@@ -9624,7 +9620,7 @@
     "message": "Reviews in final states are not editable"
   },
   "Reviews": {
-    "description": "customer/routes.ts, marketplace/offerings/OfferingPublicUIView.tsx, marketplace/offerings/details/PublicOfferingReviews.tsx, navigation/sidebar/CallPublicMenu.tsx, proposals/review/CustomerReviewsList.tsx, proposals/routes.ts, proposals/update/rounds/CallRoundsList.tsx",
+    "description": "customer/routes.ts, navigation/sidebar/CallPublicMenu.tsx, proposals/review/CustomerReviewsList.tsx, proposals/routes.ts, proposals/update/rounds/CallRoundsList.tsx",
     "message": "Reviews"
   },
   "Revoke": {
@@ -9664,7 +9660,7 @@
     "message": "Role details: {roleName}"
   },
   "Role expiration": {
-    "description": "customer/team/CustomerUsersList.tsx, project/team/ProjectUsersList.tsx, proposals/call-management/CallManagementTeamPage.tsx, user/affiliations/SummaryTeamTable.tsx",
+    "description": "customer/team/CustomerUsersList.tsx, marketplace/service-providers/ProviderTeamPage.tsx, project/team/ProjectUsersList.tsx, proposals/call-management/CallManagementTeamPage.tsx, user/affiliations/SummaryTeamTable.tsx",
     "message": "Role expiration"
   },
   "Role expires on": {
@@ -10394,6 +10390,10 @@
   "Service provider has been registered.": {
     "description": "customer/details/CustomerMarketplacePanel.tsx",
     "message": "Service provider has been registered."
+  },
+  "Service provider organization": {
+    "description": "permissions/constants.tsx",
+    "message": "Service provider organization"
   },
   "Service provider profile has been disabled.": {
     "description": "customer/details/CustomerMarketplacePanel.tsx",
@@ -11264,7 +11264,7 @@
     "message": "Team member has been removed."
   },
   "Team members": {
-    "description": "administration/roles/PermissionOptions.tsx, customer/team/CustomerUsersList.tsx, project/team/ProjectUsersList.tsx, proposals/call-management/CallManagementTeamPage.tsx, user/affiliations/SummaryTeamTable.tsx",
+    "description": "administration/roles/PermissionOptions.tsx, customer/team/CustomerUsersList.tsx, marketplace/service-providers/ProviderTeamPage.tsx, project/team/ProjectUsersList.tsx, proposals/call-management/CallManagementTeamPage.tsx, user/affiliations/SummaryTeamTable.tsx",
     "message": "Team members"
   },
   "Team size": {
@@ -11276,7 +11276,7 @@
     "message": "Team verification"
   },
   "Team": {
-    "description": "customer/routes.ts, project/ProjectUsersBadge.tsx, project/routes.ts, proposals/routes.ts, user/affiliations/OrganizationExpandableRow.tsx, user/affiliations/ProjectExpandableRow.tsx",
+    "description": "customer/routes.ts, marketplace/routes.ts, project/ProjectUsersBadge.tsx, project/routes.ts, proposals/routes.ts, user/affiliations/OrganizationExpandableRow.tsx, user/affiliations/ProjectExpandableRow.tsx",
     "message": "Team"
   },
   "Technical code used by accounting software.": {
@@ -13824,7 +13824,7 @@
     "message": "User's"
   },
   "User": {
-    "description": "customer/team/UserGroup.tsx, events/BaseEventsList.tsx, events/ExpandableEventDetailsTable.tsx, issues/feedback/SupportFeedbackList.tsx, issues/feedback/SupportFeedbackListFilter.tsx, marketplace/offerings/details/CreateOfferingUserDialog.tsx, marketplace/offerings/details/permissions/OfferingPermissionCreateDialog.tsx, marketplace/offerings/details/permissions/OfferingPermissionsList.tsx, marketplace/resources/users/AddUserDialog.tsx, marketplace/resources/users/ResourceUsersList.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx, marketplace/service-providers/OfferingPermissionCreateDialog.tsx, marketplace/service-providers/OfferingPermissionsList.tsx, marketplace/service-providers/ProviderOfferingUsersList.tsx, marketplace/service-providers/ProviderUsersList.tsx, project/team/AddUserDialog.tsx, project/team/UserGroup.tsx, proposals/call-management/CallManagementTeamPage.tsx, proposals/team/AddUserDialog.tsx, proposals/team/UsersList.tsx, slurm/details/AllocationJobsTable.tsx, support/SupportEventsFilter.tsx, user/UserManageContainer.tsx",
+    "description": "customer/team/UserGroup.tsx, events/BaseEventsList.tsx, events/ExpandableEventDetailsTable.tsx, issues/feedback/SupportFeedbackList.tsx, issues/feedback/SupportFeedbackListFilter.tsx, marketplace/offerings/details/CreateOfferingUserDialog.tsx, marketplace/offerings/details/permissions/OfferingPermissionCreateDialog.tsx, marketplace/offerings/details/permissions/OfferingPermissionsList.tsx, marketplace/resources/users/AddUserDialog.tsx, marketplace/resources/users/ResourceUsersList.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx, marketplace/service-providers/OfferingPermissionCreateDialog.tsx, marketplace/service-providers/OfferingPermissionsList.tsx, marketplace/service-providers/ProviderOfferingUsersList.tsx, marketplace/service-providers/ProviderTeamPage.tsx, marketplace/service-providers/ProviderUsersList.tsx, project/team/AddUserDialog.tsx, project/team/UserGroup.tsx, proposals/call-management/CallManagementTeamPage.tsx, proposals/team/AddUserDialog.tsx, proposals/team/UsersList.tsx, slurm/details/AllocationJobsTable.tsx, support/SupportEventsFilter.tsx, user/UserManageContainer.tsx",
     "message": "User"
   },
   "Username anonymized prefix": {
@@ -14202,10 +14202,6 @@
   "Workloads": {
     "description": "rancher/cluster/tabs.ts",
     "message": "Workloads"
-  },
-  "Write a review": {
-    "description": "marketplace/offerings/details/PublicOfferingReviews.tsx",
-    "message": "Write a review"
   },
   "YAML has been imported.": {
     "description": "rancher/cluster/ImportYAMLDialog.tsx",

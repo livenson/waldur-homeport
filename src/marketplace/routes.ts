@@ -265,6 +265,21 @@ export const states: StateDeclaration[] = [
   },
 
   {
+    name: 'marketplace-provider-tean',
+    parent: 'marketplace-provider',
+    component: lazyComponent(() =>
+      import('./service-providers/ProviderTeamPage').then((module) => ({
+        default: module.ProviderTeamPage,
+      })),
+    ),
+    url: 'team',
+    data: {
+      breadcrumb: () => translate('Team'),
+      priority: 155,
+    },
+  },
+
+  {
     name: 'provider-marketplace',
     abstract: true,
     parent: 'marketplace-provider',

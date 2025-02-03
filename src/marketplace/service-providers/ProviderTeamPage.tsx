@@ -1,7 +1,6 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
-import { ENV } from '@waldur/configs/default';
 import { renderRoleExpirationDate } from '@waldur/customer/team/CustomerUsersList';
 import { translate } from '@waldur/i18n';
 import { GenericPermission } from '@waldur/permissions/types';
@@ -12,18 +11,17 @@ import { getCustomer } from '@waldur/workspace/selectors';
 
 import { UserAddButton } from './UserAddButton';
 
-export const CallManagementTeamPage = () => {
+export const ProviderTeamPage = () => {
   const customer = useSelector(getCustomer);
-  const url = `${ENV.apiEndpoint}api/call-managing-organisations/${customer.call_managing_organization_uuid}/`;
   const usersFilter = useMemo(
     () => ({
-      scope: url,
+      scope: customer.service_provider,
     }),
-    [url],
+    [customer.service_provider],
   );
   const tableProps = useTable({
-    table: `CallManagementTeamPage/${customer.call_managing_organization_uuid}`,
-    fetchData: createFetcher(`${url}list_users`),
+    table: `ProviderTeamPage/${customer.call_managing_organization_uuid}`,
+    fetchData: createFetcher(`${customer.service_provider}list_users`),
     filter: usersFilter,
     queryField: 'search_string',
   });
