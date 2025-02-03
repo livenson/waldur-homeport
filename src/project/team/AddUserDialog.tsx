@@ -12,10 +12,15 @@ import { AwesomeCheckboxField } from '@waldur/form/AwesomeCheckboxField';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
-import { addCustomerUser, addProjectUser } from '@waldur/permissions/api';
+import {
+  addCallOrganizationUser,
+  addCustomerUser,
+  addProjectUser,
+  addServiceProviderUser,
+} from '@waldur/permissions/api';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';
-import { Role } from '@waldur/permissions/types';
+import { Role, RoleType } from '@waldur/permissions/types';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { type RootState } from '@waldur/store/reducers';
 import { getCurrentUser } from '@waldur/user/UsersService';
@@ -40,7 +45,7 @@ interface AddUserDialogFormData {
 
 interface AddUserDialogProps {
   refetch;
-  level?: 'project' | 'organization';
+  level?: RoleType;
   title?: string;
 }
 
@@ -102,6 +107,42 @@ export const AddUserDialog = reduxForm<
       } catch (error) {
         dispatch(showErrorResponse(error, translate('Unable to add user.')));
       }
+    } else if (formData.role.content_type === 'call_organizer') {
+      try {
+        await addCallOrganizationUser({
+          uuid: currentCustomer.call_managing_organization_uuid,
+          user: formData.user.uuid,
+          role: formData.role.name,
+          expiration_time: formData.expiration_time,
+        });
+        if (currentUser.uuid === formData.user.uuid) {
+          const newUser = await getCurrentUser();
+          dispatch(setCurrentUser(newUser));
+        }
+        await refetch();
+        dispatch(showSuccess('User has been added to organization.'));
+        dispatch(closeModalDialog());
+      } catch (error) {
+        dispatch(showErrorResponse(error, translate('Unable to add user.')));
+      }
+    } else if (formData.role.content_type === 'service_provider') {
+      try {
+        await addServiceProviderUser({
+          uuid: currentCustomer.service_provider_uuid,
+          user: formData.user.uuid,
+          role: formData.role.name,
+          expiration_time: formData.expiration_time,
+        });
+        if (currentUser.uuid === formData.user.uuid) {
+          const newUser = await getCurrentUser();
+          dispatch(setCurrentUser(newUser));
+        }
+        await refetch();
+        dispatch(showSuccess('User has been added to organization.'));
+        dispatch(closeModalDialog());
+      } catch (error) {
+        dispatch(showErrorResponse(error, translate('Unable to add user.')));
+      }
     }
   };
 
@@ -146,16 +187,16 @@ export const AddUserDialog = reduxForm<
           )}
           <RoleGroup
             types={
-              level === 'organization' &&
+              level === 'customer' &&
               hasPermission(currentUser, {
                 permission: PermissionEnum.CREATE_CUSTOMER_PERMISSION,
                 customerId: currentCustomer.uuid,
               })
                 ? ['customer', 'project']
-                : ['project']
+                : [level]
             }
           />
-          {level === 'organization' && role?.content_type === 'project' && (
+          {level === 'customer' && role?.content_type === 'project' && (
             <OrganizationProjectSelectField />
           )}
           <ExpirationTimeGroup />

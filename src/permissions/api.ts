@@ -110,3 +110,37 @@ export const fetchAllProjectUsers = (projectId: string) =>
       field: ['user_uuid', 'user_full_name', 'user_email', 'role_name'],
     },
   });
+
+export const addCallOrganizationUser = ({
+  uuid,
+  user,
+  role,
+  expiration_time,
+}: {
+  uuid;
+  user;
+  role;
+  expiration_time?;
+}) =>
+  post(`/call-managing-organisations/${uuid}/add_user/`, {
+    user,
+    role,
+    expiration_time,
+  });
+
+export const addServiceProviderUser = ({
+  uuid,
+  user,
+  role,
+  expiration_time,
+}: {
+  uuid;
+  user;
+  role;
+  expiration_time?;
+}) =>
+  post(`/marketplace-service-providers/${uuid}/add_user/`, {
+    user,
+    role,
+    expiration_time,
+  });
