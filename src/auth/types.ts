@@ -1,3 +1,5 @@
+import { OIDCConfig } from '@waldur/administration/types';
+
 interface SAML2AuthConfiguration {
   ENABLE_SINGLE_LOGOUT: boolean;
   ALLOW_TO_SELECT_IDENTITY_PROVIDER: boolean;
@@ -19,9 +21,9 @@ interface ValimoAuthConfiguration {
 
 interface CoreConfiguration {
   INVITATION_USE_WEBHOOKS: boolean;
+  DEFAULT_IDP: Pick<OIDCConfig, 'provider' | 'auth_url' | 'client_id'>;
   ANONYMOUS_USER_CAN_VIEW_OFFERINGS: boolean;
   ENABLE_RESOURCE_END_DATE: boolean;
-  DEFAULT_IDP: { provider: string; auth_url: string; client_id: string };
   MATOMO_URL_BASE: string;
   MATOMO_SITE_ID: number;
   MASTERMIND_URL: string;
