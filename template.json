@@ -5723,8 +5723,12 @@
     "description": "core/InfiniteList.tsx, marketplace/deploy/steps/FormCloudStep.tsx",
     "message": "Loading more..."
   },
+  "Loading total cost": {
+    "description": "customer/list/TotalCostComponent.tsx",
+    "message": "Loading total cost"
+  },
   "Loading": {
-    "description": "core/InfiniteList.tsx, customer/list/TotalCostComponent.tsx, marketplace/deploy/steps/FormCloudStep.tsx, vmware/deploy/FormTemplateStep.tsx",
+    "description": "core/InfiniteList.tsx, marketplace/deploy/steps/FormCloudStep.tsx, vmware/deploy/FormTemplateStep.tsx",
     "message": "Loading"
   },
   "Loading...": {
