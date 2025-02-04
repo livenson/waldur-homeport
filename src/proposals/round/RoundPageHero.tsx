@@ -47,7 +47,7 @@ export const RoundPageHero: FC<RoundPageHeroProps> = ({ round, call }) => {
           state="protected-call.main"
           params={{ call_uuid: call.uuid }}
           label={translate('See call')}
-          className="btn btn-light w-50"
+          className="btn btn-outline btn-outline-default w-50"
         />
       }
       quickBody={<RoundQuotas round={round} />}

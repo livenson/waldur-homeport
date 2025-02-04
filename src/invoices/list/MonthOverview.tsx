@@ -131,7 +131,7 @@ export const MonthOverview: FunctionComponent<MonthOverviewProps> = ({
                     uuid: customer.uuid,
                     invoice_uuid: invoice.uuid,
                   }}
-                  className="btn btn-light btn-sm"
+                  className="btn btn-outline btn-outline-default btn-sm"
                 >
                   {translate('Details')}
                 </Link>
