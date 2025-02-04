@@ -1,3 +1,4 @@
+import { LightbulbFilament } from '@phosphor-icons/react';
 import { useMutation } from '@tanstack/react-query';
 import { Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
@@ -27,10 +28,14 @@ const ResourceNameField = (props) => {
       </div>
       {project ? (
         <Button
-          variant="primary"
+          variant="outline"
+          className="btn-outline-default"
           onClick={() => suggestName()}
           disabled={isLoading}
         >
+          <span className="svg-icon svg-icon-2">
+            <LightbulbFilament weight="bold" />
+          </span>
           {translate('Suggest name')}
         </Button>
       ) : (
@@ -38,7 +43,10 @@ const ResourceNameField = (props) => {
           id="ResourceNameField"
           label={translate('Organization and project need to be selected.')}
         >
-          <Button variant="primary" disabled>
+          <Button variant="outline" className="btn-outline-default" disabled>
+            <span className="svg-icon svg-icon-2">
+              <LightbulbFilament weight="bold" />
+            </span>
             {translate('Suggest name')}
           </Button>
         </Tip>

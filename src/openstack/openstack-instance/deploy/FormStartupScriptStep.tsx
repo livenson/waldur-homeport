@@ -1,10 +1,10 @@
 import { useState } from 'react';
 import { Field } from 'redux-form';
 
+import { AccordionCard } from '@waldur/core/AccordionCard';
 import { AwesomeCheckbox } from '@waldur/core/AwesomeCheckbox';
-import { TextField } from '@waldur/form';
+import { FormGroup, TextField } from '@waldur/form';
 import { MonacoField } from '@waldur/form/MonacoField';
-import { VStepperFormStepCard } from '@waldur/form/VStepperFormStep';
 import { translate } from '@waldur/i18n';
 import { FormStepProps } from '@waldur/marketplace/deploy/types';
 
@@ -12,32 +12,38 @@ export const FormStartupScriptStep = (props: FormStepProps) => {
   const [scriptEnabled, setScriptEnabled] = useState(false);
 
   return (
-    <VStepperFormStepCard
-      title={translate('Startup script')}
-      step={props.step}
+    <AccordionCard
+      title={translate('Automation')}
       id={props.id}
-      completed={props.observed}
-      disabled={props.disabled}
-      required={props.required}
-      actions={
-        <AwesomeCheckbox value={scriptEnabled} onChange={setScriptEnabled} />
-      }
+      className="step-card"
     >
-      {scriptEnabled ? (
-        <Field
-          name="startup_script"
-          language="shell"
-          component={MonacoField}
-          height={200}
-        />
-      ) : (
-        <TextField
-          disabled
-          placeholder={translate(
-            'This field is only editable when startup script is enabled.',
-          )}
-        />
-      )}
-    </VStepperFormStepCard>
+      <Field
+        name="startup_script"
+        component={FormGroup}
+        label={translate('Start script')}
+        spaceless
+        description={
+          scriptEnabled
+            ? null
+            : translate(
+                'This field is only editable when startup script is enabled.',
+              )
+        }
+        quickAction={
+          <AwesomeCheckbox
+            value={scriptEnabled}
+            size="sm"
+            onChange={setScriptEnabled}
+            className="align-self-center"
+          />
+        }
+      >
+        {scriptEnabled ? (
+          <MonacoField language="shell" height={200} />
+        ) : (
+          <TextField disabled rows={3} />
+        )}
+      </Field>
+    </AccordionCard>
   );
 };

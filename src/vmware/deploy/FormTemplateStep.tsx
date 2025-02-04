@@ -71,11 +71,8 @@ export const FormTemplateStep = (props: FormStepProps) => {
   return (
     <VStepperFormStepCard
       title={translate('Template')}
-      step={props.step}
       id={props.id}
-      completed={props.observed}
       disabled={props.disabled}
-      required={props.required}
       actions={
         showExperimentalUiComponents ? (
           <StepCardTabs tabs={tabs} tab={tab} setTab={setTab} />

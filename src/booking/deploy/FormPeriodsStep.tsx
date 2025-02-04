@@ -176,12 +176,9 @@ export const FormPeriodsStep = (props: FormStepProps) => {
   return (
     <VStepperFormStepCard
       title={translate('Periods')}
-      step={props.step}
       id={props.id}
-      completed={props.observed}
       loading={isLoading}
       disabled={props.disabled}
-      required={props.required}
     >
       <FieldArray
         name="attributes.schedules"

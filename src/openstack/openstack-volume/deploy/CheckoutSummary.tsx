@@ -1,10 +1,12 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
+import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { formatFilesize } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';
 import { CheckoutFooter } from '@waldur/marketplace/deploy/CheckoutFooter';
 import { CheckoutPricingRow } from '@waldur/marketplace/deploy/CheckoutPricingRow';
+import { DeployPageTotalCard } from '@waldur/marketplace/deploy/DeployPageTotalCard';
 import {
   formErrorsSelector,
   formIsValidSelector,
@@ -62,8 +64,11 @@ export const CheckoutSummary = ({
   );
 
   return (
-    <>
-      <div className="block-summary bg-gray-100 mb-10 fs-8 fw-bold">
+    <DeployPageTotalCard
+      total={defaultCurrency(prices.total || 0)}
+      offering={offering}
+    >
+      <div className="mb-8 fs-6">
         {formAttributesData.name && (
           <CheckoutPricingRow
             label={translate('Name')}
@@ -76,11 +81,7 @@ export const CheckoutSummary = ({
             value={formatFilesize(formAttributesData.size)}
           />
         )}
-        <CheckoutFooter
-          dailyPrice={dailyPrice}
-          totalPrice={prices.total}
-          offering={offering}
-        />
+        <CheckoutFooter dailyPrice={dailyPrice} offering={offering} />
       </div>
 
       <OrderSubmitButton
@@ -90,6 +91,6 @@ export const CheckoutSummary = ({
         errors={errors}
         formValid={formIsValid}
       />
-    </>
+    </DeployPageTotalCard>
   );
 };

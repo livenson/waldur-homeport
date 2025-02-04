@@ -19,6 +19,7 @@ import { calculateSystemVolumeSize } from '@waldur/openstack/openstack-instance/
 import { MARKETPLACE_RANCHER } from '@waldur/rancher/cluster/create/constants';
 
 import { getOrderFormComponent } from '../common/registry';
+import { PageBarProvider } from '../context';
 import { ORDER_FORM_ID } from '../details/constants';
 import { getMarketplaceFilters } from '../landing/filter/store/selectors';
 import { getDefaultLimits } from '../offerings/utils';
@@ -28,6 +29,7 @@ import {
   orderFormDataSelector,
 } from '../utils';
 
+import { DeployForm } from './DeployForm';
 import { DeployPageActions } from './DeployPageActions';
 import { DeployPageSidebar } from './DeployPageSidebar';
 import { formProjectSelector, hasStepWithField } from './utils';
@@ -241,18 +243,13 @@ export const BaseDeployPage = ({
           {formSteps.map((step, i) => (
             <div ref={stepRefs.current[i]} key={step.id}>
               <step.component
-                step={i + 1}
                 id={step.id}
                 title={step.label}
                 offering={selectedOffering}
-                observed={completedSteps[i]}
                 change={props.change}
                 params={step.params}
-                disabled={
-                  step.id !== 'step-project' &&
-                  isProjectInactive &&
-                  step.id !== 'step-customer'
-                }
+                disabled={step.id !== 'step-general' && isProjectInactive}
+                previewMode
               />
             </div>
           ))}
@@ -262,47 +259,45 @@ export const BaseDeployPage = ({
   }
 
   return (
-    <SidebarLayout.Container>
-      <SidebarLayout.Body>
-        <div className="d-flex justify-content-between align-items-center pt-10">
-          <h1 className="mb-0">
-            {isEdit ? translate('Edit') : translate('Add')}{' '}
-            {selectedOffering.name}
-          </h1>
-          {showExperimentalUiComponents && <DeployPageActions />}
-        </div>
-
-        {formSteps.map((step, i) => (
-          <div ref={stepRefs.current[i]} key={step.id}>
-            <step.component
-              step={i + 1}
-              id={step.id}
-              title={step.label}
-              offering={selectedOffering}
-              observed={completedSteps[i]}
-              change={props.change}
-              params={step.params}
-              required={Boolean(step.requiredFields?.length)}
-              disabled={
-                step.id !== 'step-project' &&
-                isProjectInactive &&
-                step.id !== 'step-customer'
-              }
-            />
+    <DeployForm handleSubmit={props.handleSubmit} offering={selectedOffering}>
+      <PageBarProvider scrollTrackSide="top" scrollOffset={200}>
+        <SidebarLayout.Header>
+          <div className="d-flex justify-content-between align-items-center w-100">
+            <h1 className="mb-0 flex-grow-1">
+              {isEdit ? translate('Edit') : translate('Add')}{' '}
+              {selectedOffering.name}
+            </h1>
+            {showExperimentalUiComponents && <DeployPageActions />}
           </div>
-        ))}
-      </SidebarLayout.Body>
+        </SidebarLayout.Header>
+        <SidebarLayout.Container>
+          <SidebarLayout.Body>
+            {formSteps.map((step, i) => (
+              <div ref={stepRefs.current[i]} key={step.id}>
+                <step.component
+                  id={step.id}
+                  title={step.label}
+                  offering={selectedOffering}
+                  change={props.change}
+                  params={step.params}
+                  disabled={step.id !== 'step-general' && isProjectInactive}
+                />
+              </div>
+            ))}
+          </SidebarLayout.Body>
 
-      <SidebarLayout.Sidebar>
-        <DeployPageSidebar
-          steps={formSteps}
-          offering={selectedOffering}
-          completedSteps={completedSteps}
-          updateMode={props.updateMode}
-          cartItem={props.cartItem}
-        />
-      </SidebarLayout.Sidebar>
-    </SidebarLayout.Container>
+          <SidebarLayout.Sidebar transparent>
+            <DeployPageSidebar
+              steps={formSteps}
+              offering={selectedOffering}
+              completedSteps={completedSteps}
+              updateMode={props.updateMode}
+              cartItem={props.cartItem}
+            />
+          </SidebarLayout.Sidebar>
+        </SidebarLayout.Container>
+      </PageBarProvider>
+    </DeployForm>
   );
 };
 
@@ -313,6 +308,18 @@ export const DeployPage = reduxForm<{}, DeployPageProps>({
   const formData = useSelector(orderFormDataSelector);
   const selectedOffering: Offering = formData?.offering || props?.offering;
   const OrderFormComponent = getOrderFormComponent(selectedOffering.type);
+
+  // Reset the form when the offering changes
+  useEffect(() => {
+    if (
+      props.offering &&
+      formData.offering &&
+      props.offering?.uuid !== formData.offering?.uuid
+    ) {
+      props.reset();
+    }
+  }, [props.offering, formData]);
+
   return (
     <OrderFormComponent
       selectedOffering={selectedOffering}

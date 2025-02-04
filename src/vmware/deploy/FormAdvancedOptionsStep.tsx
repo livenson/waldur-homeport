@@ -26,12 +26,9 @@ export const FormAdvancedOptionsStep = (props: FormStepProps) => {
   return (
     <VStepperFormStepCard
       title={translate('Advanced options')}
-      step={props.step}
       id={props.id}
-      completed={props.observed}
       loading={isLoading}
       disabled={props.disabled}
-      required={props.required}
     >
       {data && (
         <FormContainer submitting={false} className="size-xl">

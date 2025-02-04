@@ -54,6 +54,8 @@ export interface TableOptionsType<RowType = any> {
 export interface Column<RowType = any> {
   id?: string;
   title: ReactNode;
+  /** `meta` is placed in the header in front of the column name. */
+  meta?: ReactNode;
   render: React.ComponentType<{ row: RowType }>;
   className?: string;
   orderField?: string;
@@ -160,6 +162,8 @@ export interface TableProps<RowType = any> extends TableState {
   tableActions?: React.ReactNode;
   verboseName?: string;
   className?: string;
+  headerClassName?: string;
+  titleClassName?: string;
   id?: string;
   rowClass?: (({ row }) => string) | string;
   hoverable?: boolean;

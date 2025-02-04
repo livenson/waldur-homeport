@@ -35,7 +35,7 @@ export const FilterBox: FC<FilterBoxProps> = ({
         type="text"
         className={classNames(
           solid && 'form-control-solid',
-          'ps-13 placeholder-gray-700 fs-4',
+          'ps-13 placeholder-gray-500 fs-4',
           inputClassName,
         )}
         {...props}

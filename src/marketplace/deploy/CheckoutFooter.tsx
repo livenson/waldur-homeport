@@ -12,7 +12,7 @@ import {
   formProjectSelector,
 } from './utils';
 
-export const CheckoutFooter = ({ dailyPrice, totalPrice, offering }) => {
+export const CheckoutFooter = ({ dailyPrice, offering }) => {
   const customer = useSelector(formCustomerSelector);
   const project = useSelector(formProjectSelector);
   const shouldConcealPrices = useSelector(concealPricesSelector);
@@ -59,10 +59,6 @@ export const CheckoutFooter = ({ dailyPrice, totalPrice, offering }) => {
           </ProviderLink>
         }
       />
-      <div className="d-flex justify-content-between fs-4">
-        <p className="mb-0">{translate('Total')}</p>
-        <p className="mb-0">{defaultCurrency(totalPrice)}</p>
-      </div>
     </>
   );
 };

@@ -9,19 +9,21 @@ import { FormGroup, SelectField } from '@waldur/form';
 import { VStepperFormStepCard } from '@waldur/form/VStepperFormStep';
 import { translate } from '@waldur/i18n';
 import { FormStepProps } from '@waldur/marketplace/deploy/types';
-import { getCustomer } from '@waldur/workspace/selectors';
+import { orderCustomerSelector } from '@waldur/marketplace/details/utils';
 
 export const FormTenantStep = (props: FormStepProps) => {
-  const customer = useSelector(getCustomer);
+  const customer = useSelector(orderCustomerSelector);
   const { data, isLoading } = useQuery(
-    ['tenant-step', customer.uuid],
+    ['tenant-step', customer?.uuid],
     () =>
-      getAll<any>('/openstack-tenants/', {
-        params: {
-          customer_uuid: customer.uuid,
-          field: ['name', 'url', 'uuid'],
-        },
-      }),
+      customer
+        ? getAll<any>('/openstack-tenants/', {
+            params: {
+              customer_uuid: customer.uuid,
+              field: ['name', 'url', 'uuid'],
+            },
+          })
+        : null,
     { staleTime: 3 * 60 * 1000 },
   );
 
@@ -34,12 +36,9 @@ export const FormTenantStep = (props: FormStepProps) => {
   return (
     <VStepperFormStepCard
       title={translate('Tenant')}
-      step={props.step}
       id={props.id}
-      completed={props.observed}
       loading={isLoading}
       disabled={props.disabled}
-      required={props.required}
     >
       <Field name="attributes.tenant" component={FormGroup} validate={required}>
         <SelectField

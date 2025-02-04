@@ -21,7 +21,7 @@ export const CustomerField: FC<{ organizationGroups }> = ({
   const dispatch = useDispatch();
   const customer = useSelector(orderCustomerSelector);
   return (
-    <FormGroup required={true}>
+    <FormGroup label={translate('Organization')} required={true} spaceless>
       <Field
         name="customer"
         validate={required}
@@ -75,6 +75,8 @@ export const CustomerField: FC<{ organizationGroups }> = ({
             noOptionsMessage={() => translate('No organizations found')}
             getOptionLabel={(option) => option.name}
             getOptionValue={(option) => option.uuid}
+            className="metronic-select-container"
+            classNamePrefix="metronic-select"
           />
         )}
       />

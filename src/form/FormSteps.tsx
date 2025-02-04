@@ -1,11 +1,9 @@
-import { WarningCircle, XCircle } from '@phosphor-icons/react';
-import classNames from 'classnames';
+import { CheckCircle, WarningCircle, XCircle } from '@phosphor-icons/react';
 import { FC, useMemo } from 'react';
-import { FormCheck } from 'react-bootstrap';
 
 import { Tip } from '@waldur/core/Tooltip';
 import { flattenObject } from '@waldur/core/utils';
-import { scrollToView } from '@waldur/marketplace/deploy/utils';
+import { PageBarTabs } from '@waldur/marketplace/common/PageBarTabs';
 
 import { FieldError } from './FieldError';
 import { VStepperFormStep } from './VStepperFormStep';
@@ -55,82 +53,51 @@ export const FormSteps: FC<{
     return result;
   }, [criticalErrors]);
 
-  return (
-    <div className="stepper stepper-pills stepper-column d-flex flex-column mb-10">
-      <div className="d-flex flex-row-auto w-100 w-lg-300px">
-        <div className="stepper-nav">
-          {steps.map((step, i) => (
-            <div
-              key={i}
-              className={classNames(
-                'stepper-item me-5',
-                completedSteps[i] && 'completed',
-              )}
-            >
-              <div className="stepper-wrapper d-flex align-items-center">
-                {step.fields &&
-                step.fields.some((key) => criticalErrorsMap[key]) ? (
-                  <Tip
-                    label={
-                      <FieldError
-                        error={step.fields
-                          .map((key) => criticalErrorsMap[key])
-                          .flat()
-                          .filter(Boolean)}
-                      />
-                    }
-                    className="stepper-icon critical-error"
-                    id={`stepperErrorTip-${i}`}
-                    placement="left"
-                    autoWidth
-                  >
-                    <XCircle />
-                  </Tip>
-                ) : step.fields &&
-                  step.fields.some((key) => nonRequiredErrors[key]) ? (
-                  <Tip
-                    label={
-                      <FieldError
-                        error={step.fields
-                          .map((key) => nonRequiredErrors[key])
-                          .flat()
-                          .filter(Boolean)}
-                      />
-                    }
-                    className="stepper-icon error"
-                    id={`stepperErrorTip-${i}`}
-                    placement="left"
-                    autoWidth
-                  >
-                    <WarningCircle />
-                  </Tip>
-                ) : (
-                  <FormCheck className="stepper-icon form-check form-check-custom form-check-sm">
-                    <FormCheck.Input
-                      type="checkbox"
-                      checked={completedSteps[i]}
-                      className="rounded-circle"
-                      readOnly
-                    />
-                  </FormCheck>
-                )}
-
-                <div
-                  className="stepper-label"
-                  aria-hidden="true"
-                  onClick={() => scrollToView(step.id)}
-                >
-                  <h3 className="stepper-title">
-                    {i + 1}. {step.label}
-                  </h3>
-                </div>
-              </div>
-
-              <div className="stepper-line h-20px" />
-            </div>
-          ))}
-        </div>
+  const tabs = steps.map((step, i) => ({
+    key: step.id,
+    title: (
+      <div className="d-flex justify-content-between">
+        {step.label}
+        {step.fields && step.fields.some((key) => criticalErrorsMap[key]) ? (
+          <Tip
+            label={
+              <FieldError
+                error={step.fields
+                  .map((key) => criticalErrorsMap[key])
+                  .flat()
+                  .filter(Boolean)}
+              />
+            }
+            className="stepper-icon critical-error"
+            id={`stepperErrorTip-${i}`}
+            placement="left"
+            autoWidth
+          >
+            <XCircle weight="bold" className="text-danger" size={20} />
+          </Tip>
+        ) : step.fields && step.fields.some((key) => nonRequiredErrors[key]) ? (
+          <Tip
+            label={
+              <FieldError
+                error={step.fields
+                  .map((key) => nonRequiredErrors[key])
+                  .flat()
+                  .filter(Boolean)}
+              />
+            }
+            className="stepper-icon error"
+            id={`stepperErrorTip-${i}`}
+            placement="left"
+            autoWidth
+          >
+            <WarningCircle weight="bold" className="text-warning" size={20} />
+          </Tip>
+        ) : completedSteps[i] ? (
+          <CheckCircle weight="bold" className="text-success" size={20} />
+        ) : null}
       </div>
-    </div>
-  );
+    ),
+  }));
+
+  return <PageBarTabs tabs={tabs} mode="tabs-left" />;
 };

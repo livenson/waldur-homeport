@@ -1,10 +1,7 @@
-import { Question } from '@phosphor-icons/react';
-import { uniqueId } from 'lodash-es';
 import React, { FC, PropsWithChildren } from 'react';
-import { Card, FormCheck } from 'react-bootstrap';
+import { Card } from 'react-bootstrap';
 
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
-import { Tip } from '@waldur/core/Tooltip';
 import { RefreshButton } from '@waldur/marketplace/offerings/update/components/RefreshButton';
 
 export interface VStepperFormStep<T = VStepperFormStepProps> {
@@ -19,11 +16,8 @@ export interface VStepperFormStep<T = VStepperFormStepProps> {
 }
 
 export interface VStepperFormStepProps {
-  step?: number;
   id: string;
   title?: string;
-  observed?: boolean;
-  required?: boolean;
   disabled?: boolean;
   change?(field: string, value: any): void;
   params?: VStepperFormStep['params'];
@@ -31,15 +25,11 @@ export interface VStepperFormStepProps {
 
 interface StepCardProps {
   title: string;
-  helpText?: string;
   actions?: React.ReactNode;
-  step?: number;
   id?: string;
-  completed?: boolean;
   loading?: boolean;
   className?: string;
   disabled?: boolean;
-  required?: boolean;
   refetch?(): void;
   refetching?: boolean;
 }
@@ -48,29 +38,13 @@ export const VStepperFormStepCard: FC<PropsWithChildren<StepCardProps>> = (
   props,
 ) => {
   return (
-    <Card className={'step-card card-flush ' + props.className} id={props.id}>
-      <Card.Header className="ps-5">
+    <Card
+      className={'step-card card-bordered ' + (props.className || '')}
+      id={props.id}
+    >
+      <Card.Header className="gap-2">
         <div className="d-flex align-items-center me-2">
-          <FormCheck className="form-check form-check-custom form-check-sm me-6">
-            <FormCheck.Input
-              type="checkbox"
-              className="rounded-circle"
-              checked={props.completed}
-              readOnly
-            />
-          </FormCheck>
-          <h6 className={'mb-0' + (props.required ? ' required' : '')}>
-            {props.step ? `${props.step}. ${props.title}` : props.title}
-          </h6>
-          {props.helpText && (
-            <Tip
-              label={props.helpText}
-              id={uniqueId('stepCardTip')}
-              className="ms-2"
-            >
-              <Question size={17} />
-            </Tip>
-          )}
+          <h4 className="mb-0">{props.title}</h4>
           {props.refetch && (
             <div className="ms-2">
               <RefreshButton
@@ -84,7 +58,7 @@ export const VStepperFormStepCard: FC<PropsWithChildren<StepCardProps>> = (
           <div className="d-flex flex-grow-1">{props.actions}</div>
         )}
       </Card.Header>
-      <Card.Body className="pt-0 ps-16 position-relative">
+      <Card.Body className="position-relative">
         {props.disabled && (
           <div className="blocker position-absolute z-index-1 w-100 h-100 cursor-not-allowed" />
         )}

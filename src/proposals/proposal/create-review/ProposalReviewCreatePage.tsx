@@ -169,7 +169,6 @@ export const ProposalReviewCreatePage = (props) => {
                 <step.component
                   id={step.id}
                   title={step.label}
-                  observed={false}
                   change={props.change}
                   params={{
                     proposal: data.proposal,
@@ -181,7 +180,7 @@ export const ProposalReviewCreatePage = (props) => {
               </div>
             ))}
           </SidebarLayout.Body>
-          <SidebarLayout.Sidebar transparent>
+          <SidebarLayout.Sidebar transparent hideOnVertical>
             <CreatePageSidebar />
           </SidebarLayout.Sidebar>
         </SidebarLayout.Container>
