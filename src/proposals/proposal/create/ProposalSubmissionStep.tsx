@@ -152,10 +152,8 @@ export const ProposalSubmissionStep: FC<{ proposal; reviews?; refetch }> = ({
             {formSteps.map((step, i) => (
               <div ref={stepRefs.current[i]} key={step.id}>
                 <step.component
-                  step={i + 1}
                   id={step.id}
                   title={step.label}
-                  observed={completedSteps[i]}
                   params={{
                     proposal,
                     refetch,

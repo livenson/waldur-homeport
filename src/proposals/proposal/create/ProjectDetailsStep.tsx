@@ -28,9 +28,7 @@ export const ProjectDetailsStep = (props: VStepperFormStepProps) => {
   return (
     <VStepperFormStepCard
       title={props.title}
-      step={props.step}
       id={props.id}
-      completed={props.observed}
       actions={
         <div className="d-flex justify-content-end flex-grow-1">
           <ActionButton

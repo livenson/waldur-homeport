@@ -124,7 +124,9 @@ export const ProjectsList: FC<ProjectsListProps> = ({
       initialSorting={{ field: 'created', mode: 'desc' }}
       hasQuery={true}
       showPageSizeSelector={true}
-      tableActions={<ProjectCreateButton refetch={tableProps.fetch} />}
+      tableActions={
+        <ProjectCreateButton customer={customer} refetch={tableProps.fetch} />
+      }
       rowActions={({ row }) => (
         <ProjectsListActions project={row} refetch={tableProps.fetch} />
       )}

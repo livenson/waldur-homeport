@@ -322,7 +322,7 @@ export const TableBody: FunctionComponent<TableBodyProps> = ({
                   <FormCheck
                     name={fieldProps.input.name}
                     type={fieldType}
-                    className="form-check form-check-custom form-check-sm"
+                    className="form-check form-check-custom"
                     checked={isChecked}
                     onChange={() => onChangeField(row, fieldProps.input)}
                     onClick={(e) => e.stopPropagation()}
@@ -355,7 +355,9 @@ export const TableBody: FunctionComponent<TableBodyProps> = ({
         />
         {rowActions && (
           <td className="row-actions">
-            <div>{React.createElement(rowActions, { row, fetch })}</div>
+            <div onClick={(e) => e.stopPropagation()} aria-hidden="true">
+              {React.createElement(rowActions, { row, fetch })}
+            </div>
           </td>
         )}
       </tr>

@@ -11,6 +11,7 @@ import BaseSelect, {
   Props as SelectProps,
   ThemeConfig,
 } from 'react-select';
+import CreatableSelect from 'react-select/creatable';
 import { AsyncPaginate as BaseAsyncPaginate } from 'react-select-async-paginate';
 import BaseWindowedSelect from 'react-windowed-select';
 import { BaseFieldProps } from 'redux-form';
@@ -186,12 +187,14 @@ const useSelectTheme = (): ThemeConfig => {
 
 type CustomSelectProps = {
   size?: 'sm';
+  creatable?: boolean;
 } & SelectProps<any> &
   Partial<Omit<BaseFieldProps, 'onChange'>>;
 
 export const Select: FC<CustomSelectProps> = ({
   components = undefined,
   size = undefined,
+  creatable = false,
   ...props
 }) => {
   const theme = useSelectTheme();
@@ -199,11 +202,11 @@ export const Select: FC<CustomSelectProps> = ({
     ? { ...REACT_MULTI_SELECT.components, ...components }
     : components;
   const className = classNames(
-    props.isMulti && REACT_MULTI_SELECT.className,
+    'metronic-select-container',
     size === 'sm' && 'select-sm',
     props.className,
   );
-  return (
+  return !creatable ? (
     <BaseSelect
       theme={theme}
       placeholder={translate('Select') + '...'}
@@ -211,6 +214,17 @@ export const Select: FC<CustomSelectProps> = ({
       components={composedComponents}
       {...props}
       className={className}
+      classNamePrefix="metronic-select"
+    />
+  ) : (
+    <CreatableSelect
+      theme={theme}
+      placeholder={translate('Select or type to add a new option') + '...'}
+      {...(props.isMulti ? REACT_MULTI_SELECT : REACT_SELECT_MENU_PORTALING)}
+      components={composedComponents}
+      {...props}
+      className={className}
+      classNamePrefix="metronic-select"
     />
   );
 };

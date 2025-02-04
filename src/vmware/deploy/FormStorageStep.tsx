@@ -62,12 +62,9 @@ export const FormStorageStep = (props: FormStepProps) => {
   return (
     <VStepperFormStepCard
       title={translate('Storage')}
-      step={props.step}
       id={props.id}
-      completed={props.observed}
       loading={isLoading}
       disabled={props.disabled}
-      required={props.required}
     >
       <StaticDiskField limits={limits} />
       <GuestOSField />

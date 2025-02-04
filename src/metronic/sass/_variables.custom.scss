@@ -124,6 +124,19 @@ $btn-padding-x-sm: 0.62rem !default;
 
 $btn-disabled-opacity: 1 !default;
 
+// Check & Radio
+$form-check-input-width: 1.539rem !default;
+$form-check-input-width-sm: 1.231rem !default;
+$form-check-input-bg-size: 70% 70% !default;
+$form-check-input-border-radius: 0.287em !default;
+$form-check-input-focus-box-shadow: 0 0 0 4px rgba($primary-300, 0.25) !default;
+
+// Switch
+$form-switch-width: 3.386rem !default;
+$form-switch-height: 1.85rem !default; // Custom variable
+$form-switch-width-sm: 2.77rem !default; // Custom variable
+$form-switch-height-sm: 1.54rem !default; // Custom variable
+
 // Modals
 
 // Padding applied to the modal body

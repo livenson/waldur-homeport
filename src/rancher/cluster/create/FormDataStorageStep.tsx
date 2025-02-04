@@ -111,12 +111,9 @@ export const FormDataStorageStep = (props: FormStepProps) => {
   return (
     <VStepperFormStepCard
       title={translate('Data storage')}
-      step={props.step}
       id={props.id}
-      completed={props.observed}
       loading={isLoading}
       disabled={props.disabled}
-      required={props.required}
       className="step-data-storage"
     >
       {nodes?.length ? (

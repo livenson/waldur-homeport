@@ -8,5 +8,5 @@ const tabs = createReviewSteps.map((step) => ({
 }));
 
 export const CreatePageSidebar = () => (
-  <PageBarTabs tabs={tabs} mode="tabs-left" />
+  <PageBarTabs tabs={tabs} mode="tabs-left" className="ps-7" />
 );

@@ -21,9 +21,11 @@ export interface OrderSummaryProps {
   formData: OfferingFormData;
   formValid?: boolean;
   errors?: any;
+  isSubmitting?: boolean;
   updateMode?: boolean;
   extraComponent?: React.ComponentType<any>;
   shouldConcealPrices?: boolean;
+  onlyDetails?: boolean;
 }
 export interface PureOfferingConfiguratorProps {
   offering: Offering;

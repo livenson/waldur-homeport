@@ -1,4 +1,5 @@
 import { useCurrentStateAndParams, useRouter } from '@uirouter/react';
+import classNames from 'classnames';
 import { FC, ReactNode, useContext, useEffect } from 'react';
 import { Button, Nav, TabContainer } from 'react-bootstrap';
 
@@ -81,6 +82,7 @@ interface PageBarTabsProps {
   right?: ReactNode;
   showFirstTab?: boolean;
   mode?: 'bar' | 'tabs-left';
+  className?: string;
 }
 
 export const PageBarTabs: FC<PageBarTabsProps> = (props) => {
@@ -101,7 +103,12 @@ export const PageBarTabs: FC<PageBarTabsProps> = (props) => {
   if (!tabs.length) return;
 
   return (props.mode ?? 'bar') === 'bar' ? (
-    <div className="page-bar-container bg-body shadow-sm">
+    <div
+      className={classNames(
+        'page-bar-container bg-body shadow-sm',
+        props.className,
+      )}
+    >
       <div className="container-fluid">
         <div className="d-flex scroll-x pt-2">
           <div className="d-flex align-items-center w-100">
@@ -138,7 +145,13 @@ export const PageBarTabs: FC<PageBarTabsProps> = (props) => {
       activeKey={visibleSectionId}
       onSelect={(key) => scrollToSectionById(key)}
     >
-      <Nav variant="tabs" className="page-tabs-container nav-line-tabs">
+      <Nav
+        variant="tabs"
+        className={classNames(
+          'page-tabs-container nav-line-tabs',
+          props.className,
+        )}
+      >
         {tabs.map((tab) => (
           <Nav.Item key={tab.key}>
             <Nav.Link
@@ -146,8 +159,9 @@ export const PageBarTabs: FC<PageBarTabsProps> = (props) => {
               as={Link}
               state={tab.state ?? state.name}
               params={tab.params ?? { '#': tab.key }}
+              className="flex-grow-1"
             >
-              {tab.title}
+              {props.tabs.find((t) => t.key === tab.key).title}
             </Nav.Link>
           </Nav.Item>
         ))}

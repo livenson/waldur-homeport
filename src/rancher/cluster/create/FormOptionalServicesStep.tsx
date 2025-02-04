@@ -11,11 +11,8 @@ export const FormOptionalServicesStep = (props: FormStepProps) => {
   return (
     <VStepperFormStepCard
       title={translate('Optional')}
-      step={props.step}
       id={props.id}
-      completed={props.observed}
       disabled={props.disabled}
-      required={props.required}
     >
       <Field
         name="attributes.install_longhorn"

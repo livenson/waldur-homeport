@@ -13,11 +13,8 @@ export const FormFinalConfigurationStep = (props: FormStepProps) => {
   return (
     <VStepperFormStepCard
       title={translate('Final configuration')}
-      step={props.step}
       id={props.id}
-      completed={props.observed}
       disabled={props.disabled}
-      required={props.required}
     >
       <ResourceNameGroup
         nameValidate={props.params?.nameValidate}
@@ -32,6 +29,7 @@ export const FormFinalConfigurationStep = (props: FormStepProps) => {
       >
         <TextField />
       </Field>
+      <div className="mb-7 border-bottom" />
       <TerminationDateField offering={props.offering} />
     </VStepperFormStepCard>
   );

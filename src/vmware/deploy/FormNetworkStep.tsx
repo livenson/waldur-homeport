@@ -33,11 +33,8 @@ export const FormNetworkStep = (props: FormStepProps) => {
   return (
     <VStepperFormStepCard
       title={translate('Network interfaces')}
-      step={props.step}
       id={props.id}
-      completed={props.observed}
       disabled={props.disabled}
-      required={props.required}
       actions={
         showExperimentalUiComponents ? (
           <div className="d-flex justify-content-end flex-grow-1">

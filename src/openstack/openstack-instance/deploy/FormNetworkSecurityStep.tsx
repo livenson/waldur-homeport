@@ -1,7 +1,7 @@
-import { Plus, X } from '@phosphor-icons/react';
+import { PlusCircle, Trash } from '@phosphor-icons/react';
 import { useQuery } from '@tanstack/react-query';
 import { useCallback, useEffect, useMemo } from 'react';
-import { Button, Col, Row } from 'react-bootstrap';
+import { Button, Col, Form, Row } from 'react-bootstrap';
 import { Field, FieldArray } from 'redux-form';
 
 import { required } from '@waldur/core/validators';
@@ -9,10 +9,12 @@ import { SelectField } from '@waldur/form';
 import { VStepperFormStepCard } from '@waldur/form/VStepperFormStep';
 import { translate } from '@waldur/i18n';
 import { FormStepProps } from '@waldur/marketplace/deploy/types';
-import { isExperimentalUiComponentsVisible } from '@waldur/marketplace/utils';
 import { loadFloatingIps, loadSubnets } from '@waldur/openstack/api';
 
 import { getDefaultFloatingIps, formatSubnet } from '../utils';
+
+import { FormSecurityGroupsField } from './FormSecurityGroupsField';
+import { FormSSHPublicKeysField } from './FormSSHPublicKeysField';
 
 const renderNetworkRows = ({ fields, subnets, floatingIps }: any) => {
   const availableNetworkItemsFilter = useCallback(
@@ -71,9 +73,17 @@ const renderNetworkRows = ({ fields, subnets, floatingIps }: any) => {
   }, []);
 
   return (
-    <>
+    <div className="mb-5">
+      <Row>
+        <Col sm={6}>
+          <Form.Label>{translate('Subnet')}</Form.Label>
+        </Col>
+        <Col sm={6}>
+          <Form.Label>{translate('Floating IP')}</Form.Label>
+        </Col>
+      </Row>
       {fields.map((network, index) => (
-        <Row key={index} className="mb-7">
+        <Row key={index} className="g-4 mb-4">
           <Col sm={6}>
             <Field
               name={`${network}.subnet`}
@@ -102,35 +112,33 @@ const renderNetworkRows = ({ fields, subnets, floatingIps }: any) => {
           </Col>
           <Col xs="auto">
             <Button
-              variant="light"
-              className="btn-icon btn-active-light-danger"
+              variant="active-light-danger"
+              className="btn-icon btn-icon-danger"
               onClick={() => fields.remove(index)}
             >
-              <span className="svg-icon svg-icon-2">
-                <X weight="bold" />
+              <span className="svg-icon svg-icon-1x">
+                <Trash weight="bold" />
               </span>
             </Button>
           </Col>
         </Row>
       ))}
       <Button
-        variant="light"
-        className="text-nowrap"
+        variant="active-secondary"
+        className="btn-text-primary btn-icon-primary"
         disabled={freeSubnets.length === 0}
         onClick={addRow}
       >
         <span className="svg-icon svg-icon-2">
-          <Plus />
-        </span>
-        {translate('Add')}
+          <PlusCircle weight="bold" />
+        </span>{' '}
+        {translate('Add subnet')}
       </Button>
-    </>
+    </div>
   );
 };
 
-export const FormNetworkStep = (props: FormStepProps) => {
-  const showExperimentalUiComponents = isExperimentalUiComponentsVisible();
-
+export const FormNetworkSecurityStep = (props: FormStepProps) => {
   const { data, isLoading } = useQuery(
     ['network-step', props.offering.scope_uuid],
     () => {
@@ -153,30 +161,38 @@ export const FormNetworkStep = (props: FormStepProps) => {
 
   return (
     <VStepperFormStepCard
-      title={translate('Network')}
-      step={props.step}
+      title={translate('Network and security')}
       id={props.id}
-      completed={props.observed}
       loading={isLoading}
       disabled={props.disabled}
-      required={props.required}
-      actions={
-        showExperimentalUiComponents ? (
-          <div className="d-flex justify-content-end flex-grow-1">
-            <Button variant="light" className="text-nowrap" size="sm">
-              <span className="svg-icon svg-icon-2">
-                <Plus />
-              </span>
-              {translate('New network')}
-            </Button>
-          </div>
-        ) : null
-      }
     >
-      <FieldArray
-        name="attributes.networks"
-        component={renderNetworkRows}
-        {...data}
+      <div className="mb-5 mt-n4 border-bottom">
+        <FormSSHPublicKeysField
+          change={props.change}
+          cardBordered={false}
+          minHeight="auto"
+          headerClassName="mx-0"
+          titleClassName="fs-6 text-gray-700"
+        />
+      </div>
+
+      <Form.Group className="mb-2 border-bottom">
+        <Form.Label className="fs-6 fw-bolder mb-5">
+          {translate('Network')}
+        </Form.Label>
+        <FieldArray
+          name="attributes.networks"
+          component={renderNetworkRows}
+          {...data}
+        />
+      </Form.Group>
+      <FormSecurityGroupsField
+        offering={props.offering}
+        change={props.change}
+        cardBordered={false}
+        minHeight="auto"
+        headerClassName="mx-0"
+        titleClassName="fs-6 text-gray-700"
       />
     </VStepperFormStepCard>
   );

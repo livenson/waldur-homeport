@@ -80,6 +80,16 @@ function renderSortingIcon(
   );
 }
 
+const WithThMeta = (children, meta) =>
+  meta ? (
+    <div className="th-wrapper">
+      {children}
+      {meta}
+    </div>
+  ) : (
+    children
+  );
+
 const TableTh = ({
   column,
   onSortClick,
@@ -99,20 +109,25 @@ const TableTh = ({
       ) || undefined
     }
   >
-    <span>
-      {column.title}
-      {renderSortingIcon(column, currentSorting, onSortClick)}
-    </span>
-    {column.filter && filters && (
-      <TableFiltersMenu
-        filters={filters}
-        filterPosition="menu"
-        filtersStorage={filtersStorage}
-        setFilter={setFilter}
-        applyFiltersFn={applyFiltersFn}
-        openName={column.filter}
-        toggleFilterMenu={toggleFilterMenu}
-      />
+    {WithThMeta(
+      <>
+        <span>
+          {column.title}
+          {renderSortingIcon(column, currentSorting, onSortClick)}
+        </span>
+        {column.filter && filters && (
+          <TableFiltersMenu
+            filters={filters}
+            filterPosition="menu"
+            filtersStorage={filtersStorage}
+            setFilter={setFilter}
+            applyFiltersFn={applyFiltersFn}
+            openName={column.filter}
+            toggleFilterMenu={toggleFilterMenu}
+          />
+        )}
+      </>,
+      column.meta,
     )}
   </th>
 );

@@ -1,15 +1,12 @@
-import { useCallback, useMemo, useState } from 'react';
+import { debounce } from 'lodash-es';
+import { useCallback, useMemo } from 'react';
 
 import { formatFilesize } from '@waldur/core/utils';
 import { required } from '@waldur/core/validators';
+import { FilterBox } from '@waldur/form/FilterBox';
 import { VStepperFormStepCard } from '@waldur/form/VStepperFormStep';
 import { translate } from '@waldur/i18n';
-import {
-  StepCardTabs,
-  TabSpec,
-} from '@waldur/marketplace/deploy/steps/StepCardTabs';
 import { FormStepProps } from '@waldur/marketplace/deploy/types';
-import { isExperimentalUiComponentsVisible } from '@waldur/marketplace/utils';
 import { QuotaUsageBarChart } from '@waldur/quotas/QuotaUsageBarChart';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
@@ -17,17 +14,10 @@ import { useTable } from '@waldur/table/useTable';
 
 import { Flavor } from '../types';
 
+import { FormAbstractVolumeFields } from './FormAbstractVolumeFields';
 import { getOfferingLimit, useQuotasData } from './utils';
 
-const tabs: TabSpec[] = [
-  { title: translate('Shared'), key: 'shared' },
-  { title: translate('Dedicated'), key: 'dedicated' },
-];
-
-export const FormFlavorStep = (props: FormStepProps) => {
-  const [tab, setTab] = useState<TabSpec>(tabs[0]);
-  const showExperimentalUiComponents = isExperimentalUiComponentsVisible();
-
+export const FormHardwareConfigurationStep = (props: FormStepProps) => {
   const filter = useMemo(
     () => ({ tenant_uuid: props.offering.scope_uuid }),
     [props.offering.scope_uuid],
@@ -40,6 +30,14 @@ export const FormFlavorStep = (props: FormStepProps) => {
     queryField: 'name',
     staleTime: 3 * 60 * 1000,
   });
+
+  const applyQuery = useCallback(
+    debounce((value) => {
+      tableProps.setQuery(value);
+      props.change('attributes.flavor', null);
+    }, 1000),
+    [tableProps],
+  );
 
   const { vcpuQuota, ramQuota } = useQuotasData(props.offering);
 
@@ -69,25 +67,16 @@ export const FormFlavorStep = (props: FormStepProps) => {
 
   return (
     <VStepperFormStepCard
-      title={translate('Flavor')}
-      step={props.step}
+      title={translate('Hardware configuration')}
       id={props.id}
-      completed={props.observed}
       disabled={props.disabled}
-      required={props.required}
       actions={
-        <div className="d-flex justify-content-between flex-grow-1 align-items-center">
-          <div>
-            {showExperimentalUiComponents && (
-              <StepCardTabs tabs={tabs} tab={tab} setTab={setTab} />
-            )}
-          </div>
-          <div className="d-flex gap-10 justify-content-end">
-            <QuotaUsageBarChart
-              className="capacity-bar"
-              quotas={[vcpuQuota, ramQuota]}
-            />
-          </div>
+        <div className="ms-auto">
+          <FilterBox
+            type="search"
+            placeholder={translate('Search')}
+            onChange={(e) => applyQuery(e.target.value)}
+          />
         </div>
       }
     >
@@ -102,19 +91,56 @@ export const FormFlavorStep = (props: FormStepProps) => {
             title: translate('vCPU'),
             render: ({ row }) => row.cores,
             orderField: 'cores',
+            meta: (
+              <QuotaUsageBarChart
+                className="capacity-bar ms-auto"
+                quotas={[vcpuQuota]}
+                hideLabel
+              />
+            ),
           },
           {
             title: translate('RAM'),
             render: ({ row }) => formatFilesize(row.ram),
             orderField: 'ram',
+            meta: (
+              <QuotaUsageBarChart
+                className="capacity-bar ms-auto"
+                quotas={[ramQuota]}
+                hideLabel
+              />
+            ),
           },
         ]}
         verboseName={translate('flavors')}
         hasActionBar={false}
+        cardBordered={false}
+        className="mt-n5 border-bottom"
+        minHeight="auto"
         hoverable
         fieldType="radio"
         fieldName="attributes.flavor"
         validate={[required, exceeds]}
+      />
+
+      <div className="border-bottom my-5">
+        <FormAbstractVolumeFields
+          {...props}
+          title={translate('System volume')}
+          helpText={translate('Non-detachable and non-resizable boot disk')}
+          typeField="attributes.system_volume_type"
+          sizeField="attributes.system_volume_size"
+          optional={false}
+        />
+      </div>
+
+      <FormAbstractVolumeFields
+        {...props}
+        title={translate('Data volume')}
+        helpText={translate('Detachable and resizable data disk')}
+        typeField="attributes.data_volume_type"
+        sizeField="attributes.data_volume_size"
+        optional={true}
       />
     </VStepperFormStepCard>
   );

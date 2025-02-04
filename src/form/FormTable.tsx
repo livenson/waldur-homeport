@@ -1,4 +1,4 @@
-import { WarningCircle } from '@phosphor-icons/react';
+import { Question, WarningCircle } from '@phosphor-icons/react';
 import classNames from 'classnames';
 import {
   cloneElement,
@@ -18,47 +18,82 @@ export interface FormTableItemProps {
   label?: ReactNode;
   description?: ReactNode;
   value: ReactNode;
+  group?: boolean;
+  tooltip?: ReactNode;
   warnTooltip?: string;
   actions?: ReactNode;
   disabled?: boolean;
+  className?: string;
 }
 
 const FormTableItem: FC<FormTableItemProps> = ({ actions, ...props }) => {
-  return (
-    <tr className={classNames(props.disabled && 'opacity-50')}>
-      {props.description ? (
-        <th className="col-md-4">
-          <div className="title fw-bolder">
-            {props.label}
+  const groupValues = props.group && Array.isArray(props.value);
+  const titleRowSpan = groupValues ? (props.value as any[]).length : 1;
+  return (groupValues ? (props.value as any[]) : [props.value]).map(
+    (row, i) => (
+      <tr
+        key={i}
+        className={classNames(props.disabled && 'opacity-50', props.className)}
+      >
+        {i === 0 && props.description ? (
+          <th className="col-md-4" rowSpan={titleRowSpan}>
+            <div className="title fw-bolder">
+              {props.label}
+              {Boolean(props.tooltip) &&
+                wrapTooltip(
+                  props.tooltip,
+                  <Question
+                    size={20}
+                    weight="bold"
+                    className="ms-2 text-muted mb-1"
+                    data-testid="tooltip"
+                  />,
+                )}
+              {Boolean(props.warnTooltip) &&
+                wrapTooltip(
+                  props.warnTooltip,
+                  <WarningCircle
+                    size={20}
+                    weight="bold"
+                    className="ms-2 text-warning mb-1"
+                    data-testid="warning"
+                  />,
+                )}
+            </div>
+            <div className="description fw-normal">{props.description}</div>
+          </th>
+        ) : i === 0 && props.label ? (
+          <th className="title col-md-3" rowSpan={titleRowSpan}>
+            {props.label}:{' '}
+            {Boolean(props.tooltip) &&
+              wrapTooltip(
+                props.tooltip,
+                <Question
+                  size={20}
+                  weight="bold"
+                  className="ms-2 text-muted mb-1"
+                  data-testid="tooltip"
+                />,
+              )}
             {Boolean(props.warnTooltip) &&
               wrapTooltip(
                 props.warnTooltip,
                 <WarningCircle
                   size={20}
+                  weight="bold"
                   className="ms-2 text-warning mb-1"
-                  data-testid="warning"
                 />,
               )}
-          </div>
-          <div className="description fw-normal">{props.description}</div>
-        </th>
-      ) : props.label ? (
-        <th className="title col-md-3">
-          {props.label}:{' '}
-          {Boolean(props.warnTooltip) &&
-            wrapTooltip(
-              props.warnTooltip,
-              <WarningCircle size={20} className="ms-2 text-warning mb-1" />,
-            )}
-        </th>
-      ) : null}
-      <td className="value col-md" colSpan={props.label ? undefined : 2}>
-        {props.value}
-      </td>
-      <td className="col-md-auto col-actions">
-        {actions ? cloneElement(actions as ReactElement, props) : actions}
-      </td>
-    </tr>
+          </th>
+        ) : null}
+        <td className="value col-md" colSpan={props.label ? undefined : 2}>
+          {row}
+        </td>
+        <td className="col-md-auto col-actions">
+          {actions ? cloneElement(actions as ReactElement, props) : actions}
+        </td>
+      </tr>
+    ),
   );
 };
 

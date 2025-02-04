@@ -170,13 +170,23 @@ class TableClass<RowType = any> extends React.Component<TableProps<RowType>> {
           id={this.props.id}
         >
           {this.props.hasActionBar && (
-            <Card.Header className="border-bottom">
+            <Card.Header
+              className={classNames(
+                'border-bottom',
+                this.props.headerClassName,
+              )}
+            >
               <Row className="card-toolbar g-0 gap-4 w-100">
                 {!this.props.standalone && (
                   <Col xs className="order-0">
                     <Card.Title>
                       <div className="me-2">
-                        <span className="h3">
+                        <span
+                          className={classNames(
+                            'h3',
+                            this.props.titleClassName,
+                          )}
+                        >
                           {this.props.title ||
                             (this.props.verboseName &&
                               titleCase(this.props.verboseName)) ||
