@@ -22,6 +22,7 @@ import {
   ExportEstimatedCostField,
 } from './EstimatedCostField';
 import { OrganizationLink } from './OrganizationLink';
+import { TotalCostContainer } from './TotalCostComponent';
 
 const AbbreviationField = ({ row }) => (
   <>{renderFieldOrDash(row.abbreviation)}</>
@@ -145,6 +146,7 @@ export const CustomerList: FunctionComponent<{
     <Table
       {...props}
       columns={columns}
+      subtitle={<TotalCostContainer />}
       verboseName={translate('Organizations')}
       hasQuery={true}
       showPageSizeSelector={true}
@@ -172,7 +174,7 @@ const formatFilter = (filter) => {
         month: filter.accounting_period.value.month,
       }),
       ...(filter.provider && {
-        provider_uuid: filter.provider.customer_uuid,
+        customer_uuid: filter.provider.customer_uuid,
       }),
     };
     return formattedFilter;

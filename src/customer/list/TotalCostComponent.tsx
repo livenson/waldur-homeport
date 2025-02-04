@@ -1,11 +1,14 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { useAsync } from 'react-use';
-import { getFormValues } from 'redux-form';
 
 import { ENV } from '@waldur/configs/default';
+import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
+import { ServiceProvider } from '@waldur/marketplace/types';
 import { type RootState } from '@waldur/store/reducers';
+import { selectFiltersStorage } from '@waldur/table/selectors';
+import { FilterItem } from '@waldur/table/types';
 
 import * as api from './api';
 import { TotalCostField } from './TotalCostField';
@@ -23,10 +26,11 @@ interface CustomerFilterData {
       month: number;
     };
   };
+  provider?: ServiceProvider;
 }
 
 interface CustomerListComponentProps {
-  customerListFilter: CustomerFilterData;
+  customerListFilter: FilterItem[];
 }
 
 const loadData = async (filter: CustomerFilterData) => {
@@ -34,6 +38,7 @@ const loadData = async (filter: CustomerFilterData) => {
     return { total: 0 };
   }
   const params = {
+    customer_uuid: filter.provider?.customer_uuid,
     accounting_is_running: filter.accounting_is_running
       ? filter.accounting_is_running.value
       : undefined,
@@ -50,11 +55,21 @@ const loadData = async (filter: CustomerFilterData) => {
 
 const TotalCostComponent: React.FC<CustomerListComponentProps> = (props) => {
   const { loading, error, value } = useAsync(
-    () => loadData(props.customerListFilter),
+    () =>
+      loadData(
+        (props.customerListFilter || []).reduce(
+          (acc, filter) => Object.assign(acc, { [filter.name]: filter.value }),
+          {},
+        ) as CustomerFilterData,
+      ),
     [props.customerListFilter],
   );
   if (loading) {
-    return <>{translate('Loading')}</>;
+    return (
+      <>
+        {translate('Loading total cost')} <LoadingSpinnerIcon />
+      </>
+    );
   }
   if (error) {
     return <>{translate('Unable to load data.')}</>;
@@ -63,7 +78,7 @@ const TotalCostComponent: React.FC<CustomerListComponentProps> = (props) => {
 };
 
 const mapStateToProps = (state: RootState) => ({
-  customerListFilter: getFormValues('customerListFilter')(state),
+  customerListFilter: selectFiltersStorage(state, 'customerList'),
 });
 
 export const TotalCostContainer = connect(mapStateToProps)(TotalCostComponent);

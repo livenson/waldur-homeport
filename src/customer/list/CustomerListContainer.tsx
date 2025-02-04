@@ -8,7 +8,6 @@ import { translate } from '@waldur/i18n';
 
 import { getOptions } from './AccountingRunningField';
 import { CustomerList } from './CustomerList';
-import { TotalCostContainer } from './TotalCostComponent';
 import { makeAccountingPeriods } from './utils';
 
 interface Invoice {
@@ -54,10 +53,5 @@ export const CustomerListContainer: FunctionComponent = () => {
   if (error) {
     return <>{translate('Unable to load financial overview.')}</>;
   }
-  return (
-    <>
-      <CustomerList {...data} />
-      <TotalCostContainer />
-    </>
-  );
+  return <CustomerList {...data} />;
 };
