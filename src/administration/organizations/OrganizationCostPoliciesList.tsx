@@ -5,9 +5,8 @@ import { createSelector } from 'reselect';
 
 import { BooleanBadge } from '@waldur/core/BooleanBadge';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
+import { CostPolicyActions } from '@waldur/customer/cost-policies/CostPolicyActions';
 import { CostPolicyCreateButton } from '@waldur/customer/cost-policies/CostPolicyCreateButton';
-import { CostPolicyDeleteButton } from '@waldur/customer/cost-policies/CostPolicyDeleteButton';
-import { CostPolicyEditButton } from '@waldur/customer/cost-policies/CostPolicyEditButton';
 import { getCostPolicyActionOptions } from '@waldur/customer/cost-policies/utils';
 import { OrganizationLink } from '@waldur/customer/list/OrganizationLink';
 import { translate } from '@waldur/i18n';
@@ -97,18 +96,11 @@ export const OrganizationCostPoliciesList: FC = () => {
       initialSorting={{ field: 'created', mode: 'desc' }}
       filters={<OrganizationCostPoliciesFilter />}
       rowActions={({ row }) => (
-        <>
-          <CostPolicyEditButton
-            row={row}
-            type="organization"
-            refetch={tableProps.fetch}
-          />
-          <CostPolicyDeleteButton
-            row={row}
-            type="organization"
-            refetch={tableProps.fetch}
-          />
-        </>
+        <CostPolicyActions
+          row={row}
+          type="organization"
+          refetch={tableProps.fetch}
+        />
       )}
       hasQuery={true}
       showPageSizeSelector={true}

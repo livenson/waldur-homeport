@@ -3216,7 +3216,7 @@
     "message": "Details overview"
   },
   "Details": {
-    "description": "administration/organizations/OrganizationGroupDetailsButton.tsx, administration/providers/ProviderCard.tsx, customer/details/CustomerBillingPanel.tsx, customer/details/CustomerDetailsPanel.tsx, customer/details/CustomerMarketplacePanel.tsx, invoices/list/MonthOverview.tsx, marketplace/aggregate-limits/AggregateLimitWidget.tsx, marketplace/referral/ReferralDetailsButton.tsx, marketplace/resources/details/fetchData.tsx, marketplace/resources/details/openstack-instance/InstanceMainComponent.tsx, marketplace/resources/details/popup/ResourceDetailsDialog.tsx, marketplace/resources/usage/utils.ts, project/manage/ProjectGeneral.tsx, proposals/round/proposals/ProposalReviewsDetailButton.tsx, rancher/cluster/apps/ApplicationDetailsButton.tsx, resource/summary/ResourceSummaryButton.tsx, resource/summary/ResourceSummaryModal.tsx, user/UserDetailsButton.tsx, user/support/UserDetailsButton.tsx, user/support/UserDetailsDialog.tsx, vmware/tabs.ts",
+    "description": "administration/organizations/OrganizationGroupDetailsButton.tsx, administration/providers/ProviderCard.tsx, customer/details/CustomerBillingPanel.tsx, customer/details/CustomerDetailsPanel.tsx, customer/details/CustomerMarketplacePanel.tsx, invoices/list/MonthOverview.tsx, marketplace/aggregate-limits/AggregateLimitWidget.tsx, marketplace/common/ViewOfferingButton.tsx, marketplace/referral/ReferralDetailsButton.tsx, marketplace/resources/details/fetchData.tsx, marketplace/resources/details/openstack-instance/InstanceMainComponent.tsx, marketplace/resources/details/popup/ResourceDetailsDialog.tsx, marketplace/resources/usage/utils.ts, project/manage/ProjectGeneral.tsx, proposals/CallCard.tsx, proposals/round/proposals/ProposalReviewsDetailButton.tsx, rancher/cluster/apps/ApplicationDetailsButton.tsx, resource/summary/ResourceSummaryButton.tsx, resource/summary/ResourceSummaryModal.tsx, user/UserDetailsButton.tsx, user/support/UserDetailsButton.tsx, user/support/UserDetailsDialog.tsx, vmware/tabs.ts",
     "message": "Details"
   },
   "Device ID": {
@@ -14087,10 +14087,6 @@
     "description": "core/StatisticsCard.tsx, proposals/CallsAvailableOfferingsList.tsx, proposals/CallsForProposalsList.tsx",
     "message": "View all"
   },
-  "View call": {
-    "description": "proposals/CallCard.tsx",
-    "message": "View call"
-  },
   "View data": {
     "description": "marketplace/resources/usage/utils.ts",
     "message": "View data"
@@ -14108,7 +14104,7 @@
     "message": "View key details about the organization, project, offering, and provider for your resource."
   },
   "View offering": {
-    "description": "marketplace/common/ViewOfferingButton.tsx, proposals/AvailableOfferingCard.tsx",
+    "description": "proposals/AvailableOfferingCard.tsx",
     "message": "View offering"
   },
   "View order": {

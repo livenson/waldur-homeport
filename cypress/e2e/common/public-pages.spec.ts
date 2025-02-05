@@ -46,7 +46,7 @@ describe('Public marketplace pages', () => {
   it('Assure that public offering page is visible without auth token', () => {
     // Ensure that the offering we want to click is 'Test request-based item'
     cy.get('.offering-card:contains("Test request-based item")')
-      .contains('a', 'View offering')
+      .contains('a', 'Details')
       .click();
   });
 
@@ -104,7 +104,7 @@ describe('Public calls for proposals pages', () => {
       .within(() => {
         cy.get('.model-card-1 .card-title:contains("Long time call")')
           .parents('.model-card-1')
-          .contains('a', 'View call')
+          .contains('a', 'Details')
           .click();
       });
 

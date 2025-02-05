@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog, openModalDialog } from '@waldur/modal/actions';
-import { RowActionButton } from '@waldur/table/ActionButton';
+import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { Customer, Project } from '@waldur/workspace/types';
 
 import { updateOrganizationCostPolicy, updateProjectCostPolicy } from './api';
@@ -110,11 +110,10 @@ export const CostPolicyEditButton = ({
   );
 
   return (
-    <RowActionButton
+    <ActionItem
       title={translate('Edit')}
       action={openCostPolicyEditDialog}
-      iconNode={<PencilSimple />}
-      size="sm"
+      iconNode={<PencilSimple weight="bold" />}
     />
   );
 };
