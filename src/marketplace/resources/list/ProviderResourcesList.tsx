@@ -38,6 +38,7 @@ interface ResourceFilter {
   project?: Project;
   category?: Category;
   offering?: Offering;
+  parent_offering?: Offering;
   include_terminated?: boolean;
 }
 
@@ -289,6 +290,9 @@ const mapStateToFilter = createSelector(
     }
     if (filters?.offering) {
       filter.offering_uuid = filters.offering.uuid;
+    }
+    if (filters?.parent_offering) {
+      filter.parent_offering_uuid = filters.parent_offering.uuid;
     }
     if (filters?.state) {
       filter.state = filters.state.map((option) => option.value) as string[];
