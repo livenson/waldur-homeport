@@ -94,6 +94,14 @@ export const getResourceAllListColumns = (
         export: (row) => row.offering_name,
       },
       {
+        title: translate('Parent offering'),
+        render: ({ row }) => <>{row.parent_offering_name || 'N/A'}</>,
+        id: 'parent_offering',
+        keys: ['parent_offering_name'],
+        optional: true,
+        filter: 'parent_offering',
+      },
+      {
         title: translate('Plan'),
         render: ({ row }) => <>{row.plan_name || 'N/A'}</>,
         id: 'plan',

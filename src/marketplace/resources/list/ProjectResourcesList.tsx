@@ -20,6 +20,9 @@ const mapStateToFilter = createSelector(
     if (filters?.offering) {
       result.offering_uuid = filters.offering.uuid;
     }
+    if (filters?.parent_offering) {
+      result.parent_offering_uuid = filters.parent_offering.uuid;
+    }
     if (filters?.state) {
       result.state = filters.state.value;
     }

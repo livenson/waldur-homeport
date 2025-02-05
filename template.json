@@ -7471,6 +7471,10 @@
     "description": "marketplace/offerings/details/OfferingDetailsDialog.tsx",
     "message": "Parent offering description:"
   },
+  "Parent offering": {
+    "description": "marketplace/resources/list/AllResourcesFilter.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/ProjectResourcesAllFilter.tsx, marketplace/resources/list/ProviderResourcesFilter.tsx, marketplace/resources/list/utils.tsx, marketplace/service-providers/ProviderProjectResourcesList.tsx",
+    "message": "Parent offering"
+  },
   "Parent offering:": {
     "description": "marketplace/offerings/details/OfferingDetailsDialog.tsx",
     "message": "Parent offering:"

@@ -116,3 +116,7 @@ export const isOfferingRestrictedToProject = (
     isAllowed,
   };
 };
+
+export const parentOfferingFilter = {
+  type: 'OpenStack.Tenant',
+};

@@ -9,6 +9,7 @@ import { AutocompleteField } from '@waldur/marketplace/landing/AutocompleteField
 
 interface OfferingAutocompleteProps {
   offeringFilter?: object;
+  name?: string;
   providerOfferings?: boolean;
   className?: string;
   reactSelectProps?: Partial<SelectProps>;
@@ -19,10 +20,11 @@ interface OfferingAutocompleteProps {
 
 export const OfferingAutocomplete: FC<OfferingAutocompleteProps> = ({
   providerOfferings = true,
+  name = 'offering',
   ...props
 }) => (
   <Field
-    name="offering"
+    name={name}
     validate={props.validate}
     onChange={props.onChange}
     component={(fieldProps) => (
