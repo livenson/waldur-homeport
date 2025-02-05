@@ -46,7 +46,7 @@ export const CallCard: FC<{ call }> = ({ call }) => {
               state="public-call.details"
               params={{ call_uuid: call.uuid }}
               className="btn btn-flush text-anchor"
-              label={translate('View call')}
+              label={translate('Details')}
             />
           </Stack>
         </div>

@@ -12,7 +12,7 @@ export const ViewOfferingButton = ({
 }) =>
   disabled ? (
     <button className="btn text-gray-700 btn-active-light" disabled>
-      {translate('View offering')}
+      {translate('Details')}
     </button>
   ) : (
     <Link
@@ -22,6 +22,6 @@ export const ViewOfferingButton = ({
       }}
       className="btn text-gray-700 btn-active-light"
     >
-      {translate('View offering')}
+      {translate('Details')}
     </Link>
   );
