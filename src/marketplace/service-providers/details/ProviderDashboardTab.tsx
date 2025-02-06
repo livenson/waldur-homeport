@@ -10,6 +10,7 @@ import { PublicCallsList } from '@waldur/proposals/PublicCallsList';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
 import { renderFieldOrDash } from '@waldur/table/utils';
+
 export const ProviderOfferingsList = (props) => {
   const columns = [
     {
@@ -57,6 +58,7 @@ export const ProviderOfferingsList = (props) => {
       title={translate('Offerings')}
       gridSize={{ lg: 6, xl: 4 }}
       gridItem={({ row }) => <OfferingCard offering={row} />}
+      hoverShadow={{ grid: false }}
     />
   );
 };

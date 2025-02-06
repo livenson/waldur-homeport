@@ -21,7 +21,7 @@ import {
   EstimatedCostField,
   ExportEstimatedCostField,
 } from './EstimatedCostField';
-import { OrganizationLink } from './OrganizationLink';
+import { OrganizationNameLink } from './OrganizationNameLink';
 import { TotalCostContainer } from './TotalCostComponent';
 
 const AbbreviationField = ({ row }) => (
@@ -67,7 +67,7 @@ export const CustomerList: FunctionComponent<{
   const columns: Column<Customer>[] = [
     {
       title: translate('Organization'),
-      render: OrganizationLink,
+      render: OrganizationNameLink,
       orderField: 'name',
       export: 'name',
     },

@@ -90,6 +90,7 @@ export const CallsAvailableOfferingsPage: FunctionComponent = () => {
             <AvailableOfferingCard availableOffering={row} />
           )}
           gridSize={{ lg: 6, xl: 4 }}
+          hoverShadow={{ grid: false }}
           verboseName={translate('Available offerings')}
           initialSorting={{ field: 'name', mode: 'desc' }}
           hasQuery={true}

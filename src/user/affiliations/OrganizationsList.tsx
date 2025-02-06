@@ -7,6 +7,7 @@ import { OrganizationsFilter } from '@waldur/administration/organizations/Organi
 import { formatDate, formatDateTime } from '@waldur/core/dateUtils';
 import { OrganizationCard } from '@waldur/customer/list/OrganizationCard';
 import { OrganizationCreateButton } from '@waldur/customer/list/OrganizationCreateButton';
+import { OrganizationLink } from '@waldur/customer/list/OrganizationLink';
 import { isFeatureVisible } from '@waldur/features/connect';
 import { MarketplaceFeatures } from '@waldur/FeaturesEnums';
 import { translate } from '@waldur/i18n';
@@ -24,7 +25,6 @@ import { getUser } from '@waldur/workspace/selectors';
 import { CUSTOMERS_FILTER_FORM_ID } from '../constants';
 
 import { OrganizationExpandableRow } from './OrganizationExpandableRow';
-import { OrganizationNameField } from './OrganizationNameField';
 
 const mapStateToFilter = createSelector(
   getFormValues(CUSTOMERS_FILTER_FORM_ID),
@@ -87,7 +87,9 @@ export const OrganizationsList: FunctionComponent = () => {
       title: translate('Organization'),
       orderField: 'name',
       render: ({ row }) => (
-        <OrganizationNameField row={row} onClick={() => onClickDetails(row)} />
+        <OrganizationLink uuid={row.uuid} onClick={() => onClickDetails(row)}>
+          {row.name}
+        </OrganizationLink>
       ),
       keys: ['name'],
       id: 'organization',

@@ -65,6 +65,7 @@ export const OfferingsGroup = () => {
       {...tableProps}
       gridItem={({ row }) => <OfferingCard offering={row} />}
       gridSize={{ lg: 6, xl: 4 }}
+      hoverShadow={{ grid: false }}
       mode="grid"
       title={translate('Latest offerings')}
       verboseName={translate('Offerings')}

@@ -24,6 +24,7 @@ export const CallsAvailableOfferingsList: FC = () => {
       {...tableProps}
       gridItem={({ row }) => <AvailableOfferingCard availableOffering={row} />}
       gridSize={{ lg: 6, xl: 4 }}
+      hoverShadow={{ grid: false }}
       mode="grid"
       title={translate('Available offerings')}
       verboseName={translate('Available offerings')}

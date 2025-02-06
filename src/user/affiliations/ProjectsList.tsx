@@ -4,6 +4,7 @@ import { createSelector } from 'reselect';
 
 import { formatDate, formatDateTime } from '@waldur/core/dateUtils';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
+import { OrganizationLink } from '@waldur/customer/list/OrganizationLink';
 import { isFeatureVisible } from '@waldur/features/connect';
 import { ProjectFeatures } from '@waldur/FeaturesEnums';
 import { translate } from '@waldur/i18n';
@@ -21,7 +22,6 @@ import { Column } from '@waldur/table/types';
 import { useTable } from '@waldur/table/useTable';
 import { getUser } from '@waldur/workspace/selectors';
 
-import { OrganizationNameField } from './OrganizationNameField';
 import { ProjectExpandableRow } from './ProjectExpandableRow';
 import { ProjectsListFilter } from './ProjectsListFilter';
 
@@ -89,8 +89,8 @@ export const ProjectsList = () => {
       title: translate('Organization'),
       orderField: 'customer_name',
       render: ({ row }) => (
-        <OrganizationNameField
-          row={{ uuid: row.customer_uuid, name: row.customer_name }}
+        <OrganizationLink
+          uuid={row.customer_uuid}
           onClick={() =>
             syncResourceFilters({
               organization: {
@@ -100,7 +100,9 @@ export const ProjectsList = () => {
               project: null,
             })
           }
-        />
+        >
+          {row.customer_name}
+        </OrganizationLink>
       ),
       keys: ['customer_uuid', 'customer_name'],
       filter: 'organization',

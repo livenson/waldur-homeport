@@ -1,7 +1,7 @@
 import { FC, useMemo } from 'react';
 
 import { formatDate } from '@waldur/core/dateUtils';
-import { OrganizationLink } from '@waldur/customer/list/OrganizationLink';
+import { OrganizationNameLink } from '@waldur/customer/list/OrganizationNameLink';
 import { translate } from '@waldur/i18n';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
@@ -35,7 +35,7 @@ export const SharedProviderCustomers: FC<{ provider_uuid: string }> = ({
   const columns: Array<Column<Customer & { vm_count: string }>> = [
     {
       title: translate('Organization'),
-      render: OrganizationLink,
+      render: OrganizationNameLink,
       export: 'name',
     },
     {
