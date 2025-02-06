@@ -10,7 +10,6 @@ import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { required } from '@waldur/core/validators';
 import { SelectField, SubmitButton } from '@waldur/form';
 import { FormContainer } from '@waldur/form/FormContainer';
-import { StringField } from '@waldur/form/StringField';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
@@ -21,7 +20,6 @@ import { Proposal } from '@waldur/proposals/types';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
 interface FormData {
-  name: string;
   reviewer: string;
 }
 
@@ -86,12 +84,6 @@ export const CreateReviewDialog = reduxForm<
         }
       >
         <FormContainer submitting={props.submitting}>
-          <StringField
-            label={translate('Name')}
-            name="name"
-            required
-            validate={required}
-          />
           {isLoading ? (
             <LoadingSpinner />
           ) : error ? (
