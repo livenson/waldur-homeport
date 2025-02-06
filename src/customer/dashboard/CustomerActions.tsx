@@ -18,7 +18,7 @@ export const CustomerActions = ({ customer }) => {
           <span className="svg-icon svg-icon-2">
             <Warning />
           </span>
-          {translate('Issues')}
+          {translate('Requests')}
         </Link>
       )}
     </div>

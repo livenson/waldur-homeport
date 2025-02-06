@@ -59,7 +59,7 @@ export const states: StateDeclaration[] = [
       })),
     ),
     data: {
-      breadcrumb: () => translate('Issues'),
+      breadcrumb: () => translate('Requests'),
       permissions: [isStaffOrSupport, hasSupport],
       priority: 103,
     },
