@@ -734,6 +734,12 @@ export const SettingsDescription = [
         default: false,
         type: 'boolean',
       },
+      {
+        key: 'DEFAULT_IDP',
+        description: translate('Triggers authentication flow at once.'),
+        default: '',
+        type: 'string',
+      },
     ],
   },
 ];
