@@ -100,6 +100,7 @@ export const ProposalReviewCreatePage = (props) => {
           dispatch(
             showSuccess(translate('Proposal review submitted successfully')),
           );
+          refetch();
         })
         .catch((error) => {
           dispatch(showErrorResponse(error, translate('Something went wrong')));
