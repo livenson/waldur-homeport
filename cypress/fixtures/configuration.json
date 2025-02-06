@@ -14,7 +14,8 @@
     ],
     "ONLY_STAFF_MANAGES_SERVICES": false,
     "USER_MANDATORY_FIELDS": ["full_name", "email"],
-    "LANGUAGE_CHOICES": "en,it,de,es,et,fr,ar"
+    "LANGUAGE_CHOICES": "en,it,de,es,et,fr,ar",
+    "DEFAULT_IDP": ""
   },
   "WALDUR_AUTH_SOCIAL": {},
   "WALDUR_OPENSTACK": {
