@@ -29,6 +29,13 @@ export const Announcements = () => {
   const { isLoading, error, data, refetch } = useQuery(
     ['adminAnnouncements'],
     () => getAdminAnnouncements({ params: { is_active: true } }),
+    {
+      staleTime: 1000 * 60 * 5,
+      cacheTime: 1000 * 60 * 60, // Keep cached data for 60 minutes
+      retry: 2, // Retry failed requests twice before showing error
+      refetchOnWindowFocus: false,
+      refetchOnReconnect: false,
+    },
   );
 
   if (error) {
