@@ -436,7 +436,7 @@
     "message": "Add remote synchronization"
   },
   "Add resource": {
-    "description": "marketplace/details/DetailsPage.tsx, marketplace/landing/OfferingsSearchBox.tsx, marketplace/resources/actions/AddResourceButton.tsx, navigation/sidebar/marketplace-popup/MarketplacePopup.tsx, navigation/sidebar/marketplace-popup/MarketplaceTrigger.tsx, proposals/proposal/create/resource-requests-step/AddResourceButton.tsx",
+    "description": "marketplace/common/DeployButton.tsx, marketplace/details/DetailsPage.tsx, marketplace/landing/OfferingsSearchBox.tsx, marketplace/resources/actions/AddResourceButton.tsx, navigation/sidebar/marketplace-popup/MarketplacePopup.tsx, navigation/sidebar/marketplace-popup/MarketplaceTrigger.tsx, proposals/proposal/create/resource-requests-step/AddResourceButton.tsx",
     "message": "Add resource"
   },
   "Add role": {
@@ -3100,7 +3100,7 @@
     "message": "Deploy Longhorn block storage after cluster is deployed"
   },
   "Deploy": {
-    "description": "marketplace/category/PublicOfferingsList.tsx, marketplace/common/DeployButton.tsx, marketplace/offerings/DeployButton.tsx, marketplace/offerings/details/PublicOfferingPricingPlanItem.tsx",
+    "description": "marketplace/category/PublicOfferingsList.tsx, marketplace/offerings/DeployButton.tsx, marketplace/offerings/details/PublicOfferingPricingPlanItem.tsx",
     "message": "Deploy"
   },
   "Deployment ID": {
@@ -3216,7 +3216,7 @@
     "message": "Details overview"
   },
   "Details": {
-    "description": "administration/organizations/OrganizationGroupDetailsButton.tsx, administration/providers/ProviderCard.tsx, customer/details/CustomerBillingPanel.tsx, customer/details/CustomerDetailsPanel.tsx, customer/details/CustomerMarketplacePanel.tsx, invoices/list/MonthOverview.tsx, marketplace/aggregate-limits/AggregateLimitWidget.tsx, marketplace/common/ViewOfferingButton.tsx, marketplace/referral/ReferralDetailsButton.tsx, marketplace/resources/details/fetchData.tsx, marketplace/resources/details/openstack-instance/InstanceMainComponent.tsx, marketplace/resources/details/popup/ResourceDetailsDialog.tsx, marketplace/resources/usage/utils.ts, project/manage/ProjectGeneral.tsx, proposals/CallCard.tsx, proposals/round/proposals/ProposalReviewsDetailButton.tsx, rancher/cluster/apps/ApplicationDetailsButton.tsx, resource/summary/ResourceSummaryButton.tsx, resource/summary/ResourceSummaryModal.tsx, user/UserDetailsButton.tsx, user/support/UserDetailsButton.tsx, user/support/UserDetailsDialog.tsx, vmware/tabs.ts",
+    "description": "administration/organizations/OrganizationGroupDetailsButton.tsx, administration/providers/ProviderCard.tsx, customer/details/CustomerBillingPanel.tsx, customer/details/CustomerDetailsPanel.tsx, customer/details/CustomerMarketplacePanel.tsx, customer/list/OrganizationCard.tsx, invoices/list/MonthOverview.tsx, marketplace/aggregate-limits/AggregateLimitWidget.tsx, marketplace/common/ViewOfferingButton.tsx, marketplace/referral/ReferralDetailsButton.tsx, marketplace/resources/details/fetchData.tsx, marketplace/resources/details/openstack-instance/InstanceMainComponent.tsx, marketplace/resources/details/popup/ResourceDetailsDialog.tsx, marketplace/resources/usage/utils.ts, project/ProjectCard.tsx, project/manage/ProjectGeneral.tsx, proposals/CallCard.tsx, proposals/round/proposals/ProposalReviewsDetailButton.tsx, rancher/cluster/apps/ApplicationDetailsButton.tsx, resource/summary/ResourceSummaryButton.tsx, resource/summary/ResourceSummaryModal.tsx, user/UserDetailsButton.tsx, user/support/UserDetailsButton.tsx, user/support/UserDetailsDialog.tsx, vmware/tabs.ts",
     "message": "Details"
   },
   "Device ID": {
@@ -14096,7 +14096,7 @@
     "message": "View detailed information about a user, including its permissions and contact details"
   },
   "View details": {
-    "description": "customer/list/OrganizationCard.tsx, marketplace/details/plan/PlanDescriptionButton.tsx, marketplace/resources/details/popup/ResourceDetailsAction.tsx, project/ProjectCard.tsx, project/ProjectDashboardCostLimits.tsx, user/affiliations/SummaryOrganizationProjects.tsx, user/affiliations/SummaryResourcesTable.tsx",
+    "description": "marketplace/details/plan/PlanDescriptionButton.tsx, marketplace/resources/details/popup/ResourceDetailsAction.tsx, project/ProjectDashboardCostLimits.tsx, user/affiliations/SummaryOrganizationProjects.tsx, user/affiliations/SummaryResourcesTable.tsx",
     "message": "View details"
   },
   "View key details about the organization, project, offering, and provider for your resource.": {

@@ -8,7 +8,7 @@ import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { CostPolicyActions } from '@waldur/customer/cost-policies/CostPolicyActions';
 import { CostPolicyCreateButton } from '@waldur/customer/cost-policies/CostPolicyCreateButton';
 import { getCostPolicyActionOptions } from '@waldur/customer/cost-policies/utils';
-import { OrganizationLink } from '@waldur/customer/list/OrganizationLink';
+import { OrganizationNameLink } from '@waldur/customer/list/OrganizationNameLink';
 import { translate } from '@waldur/i18n';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
@@ -44,7 +44,7 @@ export const OrganizationCostPoliciesList: FC = () => {
         {
           title: translate('Organization'),
           render: ({ row }) => (
-            <OrganizationLink
+            <OrganizationNameLink
               row={{ name: row.scope_name, uuid: row.scope_uuid }}
             />
           ),

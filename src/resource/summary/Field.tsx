@@ -21,11 +21,18 @@ interface FieldProps {
   isStuck?: boolean;
   labelCol?: number;
   valueCol?: number;
+  space?: number;
 }
 
 export const Field: FunctionComponent<FieldProps> = (props) =>
   props.value || props.children ? (
-    <Row className={classNames('field-row g-0 mb-1', props.className)}>
+    <Row
+      className={classNames(
+        'field-row g-0',
+        `mb-${props.space ?? 1}`,
+        props.className,
+      )}
+    >
       <Col
         sm={props.isStuck ? 'auto' : props.labelCol || 3}
         className={classNames(
