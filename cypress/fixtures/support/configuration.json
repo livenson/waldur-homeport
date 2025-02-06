@@ -101,7 +101,8 @@
     "BRAND_COLOR": "#3a8500",
     "HERO_IMAGE": null,
     "HERO_LINK_LABEL": null,
-    "HERO_LINK_URL": null
+    "HERO_LINK_URL": null,
+    "DEFAULT_IDP": ""
   },
   "WALDUR_AUTH_SOCIAL": {
     "REMOTE_EDUTEAMS_ENABLED": false,
