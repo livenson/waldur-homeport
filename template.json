@@ -5392,7 +5392,7 @@
     "message": "Issue"
   },
   "Issues": {
-    "description": "customer/dashboard/CustomerActions.tsx, customer/routes.ts, issues/list/IssuesList.tsx, issues/routes.ts, navigation/IssuesLink.tsx, navigation/header/QuickIssueDrawerToggle.tsx, navigation/header/quick-issue-drawer/UserIssuesTable.tsx, project/routes.ts, user/routes.ts",
+    "description": "navigation/IssuesLink.tsx, user/routes.ts",
     "message": "Issues"
   },
   "It is not allowed to create users for current offering.": {
@@ -9218,6 +9218,10 @@
   "Requests offering code for all issues.": {
     "description": "SettingsDescription.ts",
     "message": "Requests offering code for all issues."
+  },
+  "Requests": {
+    "description": "customer/dashboard/CustomerActions.tsx, customer/routes.ts, issues/list/IssuesList.tsx, issues/routes.ts, navigation/header/QuickIssueDrawerToggle.tsx, navigation/header/quick-issue-drawer/UserIssuesTable.tsx, project/routes.ts",
+    "message": "Requests"
   },
   "Required nodes": {
     "description": "rancher/cluster/create/FormNodesStep.tsx",

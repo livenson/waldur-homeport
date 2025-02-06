@@ -1208,7 +1208,7 @@
   "Issue is general and not tied to any specific organization, project, or resource": "Probleem on üldine ega ole seotud ühegi konkreetse organisatsiooni, projekti ega ressursiga",
   "Issue link": "Juhtumi link",
   "Issue type used for request-based item processing.": "Probleemi tüüp, mida kasutatakse päringupõhise üksuse töötlemiseks.",
-  "Issues": "Kasutajatoe päringud",
+  "Requests": "Kasutajatoe päringud",
   "It is used as default page title if it's not specified explicitly.": "Seda kasutatakse lehe vaikepealkirjana, kui seda pole teisiti määratud.",
   "It is used as prefix for page title.": "Seda kasutatakse lehe pealkirja eesliitena.",
   "It is used in marketplace order details and invoices for currency formatting.": "Seda kasutatakse pakkumiste kataloogi tellimuste üksikasjades ja arvetes valuuta vormindamiseks.",
