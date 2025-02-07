@@ -13,6 +13,7 @@ import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
 import { getCustomer, getProject } from '@waldur/project/api';
 import { DASH_ESCAPE_CODE } from '@waldur/table/constants';
 import { renderFieldOrDash } from '@waldur/table/utils';
+import { Customer, Project } from '@waldur/workspace/types';
 
 import { getServiceProviderByCustomer } from '../common/api';
 import { getLabel } from '../common/registry';
@@ -40,25 +41,47 @@ const withCopy = (value) => {
 
 export const DetailsOverviewDialog: FC<{
   offering: Offering;
+  customer?: Customer;
+  project?: Project;
 }> = (props) => {
   const [customer, project, provider] = useQueries({
     queries: [
+      props.customer
+        ? {
+            queryKey: ['customer', props.customer?.uuid],
+            queryFn: () => getCustomer(props.customer.uuid),
+            staleTime: STALE_TIME,
+          }
+        : {
+            queryKey: ['offering', 'customer', props.offering?.uuid],
+            queryFn: () =>
+              props.offering.customer_uuid
+                ? getCustomer(props.offering.customer_uuid)
+                : null,
+            staleTime: STALE_TIME,
+          },
+      props.project
+        ? {
+            queryKey: ['project', props.project?.uuid],
+            queryFn: () => getProject(props.project.uuid),
+            staleTime: STALE_TIME,
+          }
+        : {
+            queryKey: ['offering', 'project', props.offering?.uuid],
+            queryFn: () =>
+              props.offering.project_uuid
+                ? getProject(props.offering.project_uuid)
+                : null,
+            staleTime: STALE_TIME,
+          },
       {
-        queryKey: ['DeployDetailsOverview', 'customer', props.offering?.uuid],
-        queryFn: () => getCustomer(props.offering.customer_uuid),
-        staleTime: STALE_TIME,
-      },
-      {
-        queryKey: ['DeployDetailsOverview', 'project', props.offering?.uuid],
-        queryFn: () => getProject(props.offering.project_uuid),
-        staleTime: STALE_TIME,
-      },
-      {
-        queryKey: ['DeployDetailsOverview', 'provider', props.offering?.uuid],
+        queryKey: ['offering', 'provider', props.offering?.uuid],
         queryFn: () =>
-          getServiceProviderByCustomer({
-            customer_uuid: props.offering.customer_uuid,
-          }),
+          props.offering?.uuid
+            ? getServiceProviderByCustomer({
+                customer_uuid: props.offering.customer_uuid,
+              })
+            : null,
         staleTime: STALE_TIME,
       },
     ],
@@ -87,7 +110,7 @@ export const DetailsOverviewDialog: FC<{
         >
           {customer.error ? (
             <LoadingErred loadData={customer.refetch} />
-          ) : (
+          ) : customer.data ? (
             <Tab eventKey={1} title={translate('Organization')}>
               <FormTable hideActions alignTop className="gy-5">
                 <FormTable.Item
@@ -110,10 +133,10 @@ export const DetailsOverviewDialog: FC<{
                 />
               </FormTable>
             </Tab>
-          )}
+          ) : null}
           {project.error ? (
             <LoadingErred loadData={project.refetch} />
-          ) : (
+          ) : project.data ? (
             <Tab eventKey={2} title={translate('Project')}>
               <FormTable hideActions alignTop className="gy-5">
                 <FormTable.Item
@@ -134,7 +157,7 @@ export const DetailsOverviewDialog: FC<{
                 />
               </FormTable>
             </Tab>
-          )}
+          ) : null}
           {props.offering && (
             <Tab eventKey={3} title={translate('Offering')}>
               <FormTable hideActions alignTop className="gy-5">
@@ -159,7 +182,7 @@ export const DetailsOverviewDialog: FC<{
           )}
           {provider.error ? (
             <LoadingErred loadData={provider.refetch} />
-          ) : (
+          ) : provider.data ? (
             <Tab eventKey={4} title={translate('Service provider')}>
               <FormTable hideActions alignTop className="gy-5">
                 <FormTable.Item
@@ -180,7 +203,7 @@ export const DetailsOverviewDialog: FC<{
                 />
               </FormTable>
             </Tab>
-          )}
+          ) : null}
         </Tabs>
       )}
     </MetronicModalDialog>
