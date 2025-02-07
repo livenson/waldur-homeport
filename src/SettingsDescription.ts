@@ -742,5 +742,64 @@ export const SettingsDescription = [
       },
     ],
   },
+  {
+    description: translate('FreeIPA settings'),
+    items: [
+      {
+        key: 'FREEIPA_ENABLED',
+        description: translate('Enable integration of identity provisioning in configured FreeIPA.'),
+        default: false,
+        type: 'boolean',
+      },
+      {
+        key: 'FREEIPA_HOSTNAME',
+        description: translate('Hostname of FreeIPA server.'),
+        default: 'ipa.example.com',
+        type: 'string',
+      },
+      {
+        key: 'FREEIPA_USERNAME',
+        description: translate('Username of FreeIPA user with administrative privileges.'),
+        default: 'admin',
+        type: 'string',
+      },
+      {
+        key: 'FREEIPA_PASSWORD',
+        description: translate('Password of FreeIPA user with administrative privileges'),
+        default: 'secret',
+        type: 'secret_field',
+      },
+      {
+        key: 'FREEIPA_VERIFY_SSL',
+        description: translate('Validate TLS certificate of FreeIPA web interface / REST API'),
+        default: true,
+        type: 'boolean',
+      },
+      {
+        key: 'FREEIPA_USERNAME_PREFIX',
+        description: translate('Prefix to be appended to all usernames created in FreeIPA by Waldur'),
+        default: 'waldur_',
+        type: 'string',
+      },
+      {
+        key: 'FREEIPA_GROUPNAME_PREFIX',
+        description: translate('Prefix to be appended to all group names created in FreeIPA by Waldur'),
+        default: 'waldur_',
+        type: 'string',
+      },
+      {
+        key: 'FREEIPA_BLACKLISTED_USERNAMES',
+        description: translate('List of username that users are not allowed to select'),
+        default: ['root'],
+        type: 'list_field',
+      },
+      {
+        key: 'FREEIPA_GROUP_SYNCHRONIZATION_ENABLED',
+        description: translate('Optionally disable creation of user groups in FreeIPA matching Waldur structure'),
+        default: true,
+        type: 'boolean',
+      },
+    ],
+  },
 ];
 
