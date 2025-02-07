@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { Col, Row, Stack } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 
 import { Image } from '@waldur/core/Image';
 import { VStepperFormStepCard } from '@waldur/form/VStepperFormStep';
@@ -12,8 +13,12 @@ import { renderFieldOrDash } from '@waldur/table/utils';
 
 import { DetailsOverviewButton } from '../DetailsOverviewButton';
 import { FormStepProps } from '../types';
+import { formCustomerSelector, formProjectSelector } from '../utils';
 
 export const FormDetailsOverviewStep = (props: FormStepProps) => {
+  const project = useSelector(formProjectSelector);
+  const customer = useSelector(formCustomerSelector);
+
   const { data: provider } = useQuery(
     ['DeployDetailsOverview', 'provider', props.offering?.uuid],
     () =>
@@ -24,6 +29,7 @@ export const FormDetailsOverviewStep = (props: FormStepProps) => {
         : null,
     { staleTime: 5 * 60 * 1000 },
   );
+
   if (props.offering.shared) {
     // Render with organization and project fields
     return (
@@ -31,6 +37,14 @@ export const FormDetailsOverviewStep = (props: FormStepProps) => {
         title={translate('General information')}
         id={props.id}
         disabled={props.disabled}
+        actions={
+          <DetailsOverviewButton
+            offering={props.offering}
+            customer={customer}
+            project={project}
+            className="ms-auto"
+          />
+        }
       >
         <Row className="fs-6">
           <Col sm={6}>

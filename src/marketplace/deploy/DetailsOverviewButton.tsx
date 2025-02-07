@@ -12,7 +12,19 @@ const DetailsOverviewDialog = lazyComponent(() =>
   })),
 );
 
-export const DetailsOverviewButton = ({ offering, className = undefined }) => {
+interface OwnProps {
+  offering;
+  customer?;
+  project?;
+  className?;
+}
+
+export const DetailsOverviewButton = ({
+  offering,
+  customer,
+  project,
+  className = undefined,
+}: OwnProps) => {
   const dispatch = useDispatch();
   return (
     <Button
@@ -23,6 +35,8 @@ export const DetailsOverviewButton = ({ offering, className = undefined }) => {
         dispatch(
           openModalDialog(DetailsOverviewDialog, {
             offering,
+            customer,
+            project,
             size: 'lg',
           }),
         )
