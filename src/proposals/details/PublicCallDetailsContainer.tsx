@@ -1,6 +1,6 @@
+import { useQuery } from '@tanstack/react-query';
 import { UIView, useCurrentStateAndParams } from '@uirouter/react';
-import { FunctionComponent } from 'react';
-import { useAsyncFn, useEffectOnce } from 'react-use';
+import { FC, useMemo } from 'react';
 
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
@@ -70,47 +70,52 @@ const PageHero = ({ call }) =>
     </div>
   ) : null;
 
-export const PublicCallDetailsContainer: FunctionComponent = () => {
+export const PublicCallDetailsContainer: FC = () => {
   const {
     params: { call_uuid },
   } = useCurrentStateAndParams();
 
-  const [{ loading, error, value }, refreshCall] = useAsyncFn(
-    () => getPublicCall(call_uuid),
-    [call_uuid],
-  );
-
-  useEffectOnce(() => {
-    refreshCall();
+  const {
+    data: call,
+    isLoading,
+    error,
+    refetch,
+  } = useQuery(['publicCall', call_uuid], () => getPublicCall(call_uuid), {
+    refetchOnWindowFocus: false,
+    staleTime: 60 * 1000,
   });
 
-  useTitle(value ? value.name : translate('Call details'));
+  useTitle(call ? call.name : translate('Call details'));
 
-  usePageHero(<PageHero call={value} />);
+  usePageHero(<PageHero call={call} />, [call]);
 
-  const breadcrumbItems = useCallBreadcrumbItems(value);
+  const breadcrumbItems = useCallBreadcrumbItems(call);
   useBreadcrumbs(breadcrumbItems);
 
-  const { tabSpec } = usePageTabsTransmitter(
-    tabs.filter(
-      (tab) =>
-        !isFeatureVisible(MarketplaceFeatures.call_only) ||
-        tab.key !== 'rounds',
-    ),
+  const filteredTabs = useMemo(
+    () =>
+      tabs.filter(
+        (tab) =>
+          !isFeatureVisible(MarketplaceFeatures.call_only) ||
+          tab.key !== 'rounds',
+      ),
+    [tabs],
   );
 
-  return loading ? (
+  const { tabSpec } = usePageTabsTransmitter(filteredTabs);
+
+  return isLoading ? (
     <LoadingSpinner />
   ) : error ? (
     <h3>{translate('Unable to load call details.')}</h3>
-  ) : value ? (
+  ) : call ? (
     <UIView
       render={(Component, { key, ...props }) => (
         <Component
           key={key}
           {...props}
-          refresh={refreshCall}
-          call={value}
+          refresh={refetch}
+          call={call}
           tabSpec={tabSpec}
         />
       )}
