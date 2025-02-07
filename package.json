@@ -8,6 +8,7 @@
   "scripts": {
     "postinstall": "husky",
     "start": "VITE_API_URL=http://localhost:8000/ vite --port 8001",
+    "devcontainer": "VITE_API_URL=http://localhost:8000/ vite --host 0.0.0.0 --port 8001",
     "build": "NODE_OPTIONS=--max-old-space-size=32768 vite build",
     "preview": "vite preview",
     "format:check": "prettier --check \"src/**/*.ts\" \"src/**/*.tsx\" \"src/**/*.css\" \"src/**/*.scss\"",

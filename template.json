@@ -12011,6 +12011,10 @@
     "description": "invoices/details/ResourceLimitPeriodsTable.tsx",
     "message": "Tracked using UTC timezone, displayed with your browser’s timezone."
   },
+  "Triggers authentication flow at once.": {
+    "description": "SettingsDescription.ts",
+    "message": "Triggers authentication flow at once."
+  },
   "Try again": {
     "description": "form/upload/AttachmentItemPending.tsx",
     "message": "Try again"
