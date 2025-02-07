@@ -11,7 +11,7 @@ const FILESIZE_UNITS = ['B', 'KB', 'MB', 'GB', 'TB', 'PB'];
 export const formatFilesize = (
   input,
   fromUnit = 'MB',
-  toUnit = 'B',
+  toUnit = 'GB',
   customSuffix = '',
 ) => {
   if (isNaN(parseFloat(input)) || !isFinite(input)) {
