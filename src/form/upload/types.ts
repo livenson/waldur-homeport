@@ -1,4 +1,5 @@
 export interface Attachment {
+  uuid?: string;
   created: string;
   file: string | File;
   file_name: string;
