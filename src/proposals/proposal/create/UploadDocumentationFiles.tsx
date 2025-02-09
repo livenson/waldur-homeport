@@ -1,3 +1,4 @@
+import { ACCEPTED_FILE_TYPES } from '@waldur/core/constants';
 import { DropzoneFiles } from '@waldur/core/DropzoneFiles';
 import { formatJsx, translate } from '@waldur/i18n';
 
@@ -9,15 +10,7 @@ export const UploadDocumentationFiles = (props) => (
     <DropzoneFiles
       multiple={true}
       maxSize={25 * 1024 * 1024} // 25MB
-      accept={{
-        'application/pdf': ['.pdf'],
-        'image/jpeg': ['.jpg', '.jpeg'],
-        'image/png': ['.png'],
-        'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
-          ['.docx'],
-        'application/msword': ['.doc'],
-        'application/vnd.oasis.opendocument.text': ['.odt'],
-      }}
+      accept={ACCEPTED_FILE_TYPES}
       onDrop={(files) => props.input.onChange(files)}
       message={translate(
         'Drag and drop file here or <u>Choose file</u>',

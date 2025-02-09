@@ -1,6 +1,7 @@
 import { useCallback, useState } from 'react';
 import { Field, reduxForm } from 'redux-form';
 
+import { ACCEPTED_FILE_TYPES } from '@waldur/core/constants';
 import { format } from '@waldur/core/ErrorMessageFormatter';
 import { FormContainer, StringField, SubmitButton } from '@waldur/form';
 import { AttachmentItem } from '@waldur/form/upload/AttachmentItem';
@@ -162,15 +163,7 @@ export const AttachDocumentsDialog = reduxForm<
               'PDF, PNG, JPG, JPEG, DOCX, DOC or ODT (max. 2 MB)',
             )}
             maxSize={2 * 1024 * 1024} // 2MB
-            accept={{
-              'application/pdf': ['.pdf'],
-              'image/jpeg': ['.jpg', '.jpeg'],
-              'image/png': ['.png'],
-              'application/vnd.openxmlformats-officedocument.wordprocessingml.document':
-                ['.docx'],
-              'application/msword': ['.doc'],
-              'application/vnd.oasis.opendocument.text': ['.odt'],
-            }}
+            accept={ACCEPTED_FILE_TYPES}
           />
           <AttachmentsList
             attachments={attachments}

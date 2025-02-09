@@ -8,6 +8,7 @@ interface IssueTemplateAttachment {
 }
 
 export interface IssueTemplate {
+  uuid: string;
   name: string;
   description: string;
   issue_type: string;

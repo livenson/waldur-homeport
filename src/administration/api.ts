@@ -8,7 +8,9 @@ import {
   parseResultCount,
   post,
   put,
+  sendForm,
 } from '@waldur/core/api';
+import { IssueTemplate } from '@waldur/issues/api';
 
 import { OIDCConfig } from './types';
 
@@ -70,3 +72,36 @@ export const updateAdminAnnouncement = (formData, uuid) =>
 
 export const deleteAdminAnnouncement = (uuid) =>
   deleteById('/admin-announcements/', uuid);
+
+export const getIssueTemplate = (uuid: string) =>
+  get<IssueTemplate>(`/support-templates/${uuid}/`);
+
+export const createIssueTemplate = (formData) =>
+  post<IssueTemplate>('/support-templates/', formData);
+
+export const updateIssueTemplate = (formData, uuid) =>
+  put<IssueTemplate>(`/support-templates/${uuid}/`, formData);
+
+export const deleteIssueTemplate = (uuid) =>
+  deleteById('/support-templates/', uuid);
+
+export const attachDocumentsToIssueTemplate = (
+  issue_template_uuid: string,
+  file,
+  name,
+  onUploadProgress: (progress: number) => void,
+) =>
+  sendForm(
+    'POST',
+    `${ENV.apiEndpoint}api/support-templates/${issue_template_uuid}/create_attachments/`,
+    { attachments: file, name },
+    onUploadProgress,
+  );
+
+export const removeAttachmentFromIssueTemplate = (
+  issue_template_uuid: string,
+  attachment_ids: string[],
+) =>
+  post(`/support-templates/${issue_template_uuid}/delete_attachments/`, {
+    attachment_ids,
+  });
