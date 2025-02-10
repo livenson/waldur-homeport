@@ -62,10 +62,6 @@ export const PaymentsList: FunctionComponent = () => {
       title: translate('Invoice'),
       render: PaymentInvoiceRenderer,
     },
-    {
-      title: translate('Actions'),
-      render: ({ row }) => <PaymentActions payment={row} />,
-    },
   ];
 
   return (
@@ -75,6 +71,9 @@ export const PaymentsList: FunctionComponent = () => {
       verboseName={translate('payments')}
       showPageSizeSelector={true}
       tableActions={<CreatePaymentButton activePaymentProfile={profile} />}
+      rowActions={({ row }) => (
+        <PaymentActions refetch={props.fetch} row={row} />
+      )}
     />
   );
 };

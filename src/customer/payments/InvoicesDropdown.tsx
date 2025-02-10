@@ -12,6 +12,7 @@ interface ResourceActionComponentProps {
   open?: boolean;
   loading?: boolean;
   error?: object;
+  variant?: string;
   invoices: object;
 }
 
@@ -37,6 +38,7 @@ export const InvoicesDropdown: FunctionComponent<
     className="dropdown-btn"
     onToggle={props.onToggle}
     disabled={props.disabled}
+    variant={props.variant}
   >
     {props.open ? (
       props.loading ? (

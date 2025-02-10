@@ -16,9 +16,9 @@ import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
 import { USER_REVIEWS_FILTER_FORM_ID } from '@waldur/user/constants';
-import { getCustomer, getUser } from '@waldur/workspace/selectors';
+import { getCustomer } from '@waldur/workspace/selectors';
 
-import { ReviewItemAction } from './ReviewItemActions';
+import { ReviewsRowActions } from './ReviewsRowActons';
 
 const filtersSelector = createSelector(
   getCustomer,
@@ -39,22 +39,6 @@ const filtersSelector = createSelector(
 );
 
 export const CustomerReviewsList: FC<{}> = () => {
-  const user = useSelector(getUser);
-  const ReviewItemActions = ({ row, fetch }) => (
-    <>
-      <Link
-        state="proposal-review"
-        params={{
-          review_uuid: row.uuid,
-        }}
-        className="btn btn-outline btn-outline-primary btn-sm border-gray-400 btn-active-secondary px-2"
-      >
-        {translate('View')}
-      </Link>
-      {user.is_staff ? <ReviewItemAction row={row} fetch={fetch} /> : null}
-    </>
-  );
-
   const filter = useSelector(filtersSelector);
 
   const tableProps = useTable({
@@ -128,7 +112,7 @@ export const CustomerReviewsList: FC<{}> = () => {
       verboseName={translate('Reviews')}
       hasQuery={true}
       filters={<ReviewsTableFilter />}
-      rowActions={ReviewItemActions}
+      rowActions={ReviewsRowActions}
       hasOptionalColumns
     />
   );

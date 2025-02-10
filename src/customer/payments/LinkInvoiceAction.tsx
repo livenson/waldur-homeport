@@ -18,8 +18,8 @@ const loadInvoices = (customer: Customer) =>
     params: { customer: customer.url, state: 'paid' },
   });
 
-export const LinkInvoiceAction: FunctionComponent<{ payment }> = ({
-  payment,
+export const LinkInvoiceAction: FunctionComponent<{ row }> = ({
+  row: payment,
 }) => {
   const customer = useSelector(getCustomer);
   const dispatch = useDispatch();
@@ -69,6 +69,7 @@ export const LinkInvoiceAction: FunctionComponent<{ payment }> = ({
       invoices={value}
       onToggle={onToggle}
       onSelect={triggerAction}
+      variant="outline"
     />
   );
 };

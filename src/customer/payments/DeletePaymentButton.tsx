@@ -4,19 +4,19 @@ import { useDispatch, useSelector } from 'react-redux';
 import * as api from '@waldur/customer/payments/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog, waitForConfirmation } from '@waldur/modal/actions';
+import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
-import { ActionButton } from '@waldur/table/ActionButton';
 import { getCustomer, getUser } from '@waldur/workspace/selectors';
 
 import { updatePaymentsList } from './utils';
 
-export const DeletePaymentButton = ({ payment }) => {
+export const DeletePaymentButton = ({ row: payment }) => {
   const dispatch = useDispatch();
   const user = useSelector(getUser);
   const customer = useSelector(getCustomer);
 
   return (
-    <ActionButton
+    <ActionItem
       title={translate('Delete')}
       action={async () => {
         try {
@@ -47,6 +47,8 @@ export const DeletePaymentButton = ({ payment }) => {
           ? translate('You must be staff to modify payments')
           : null
       }
+      className="text-danger"
+      iconColor="danger"
     />
   );
 };
