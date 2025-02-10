@@ -1136,7 +1136,7 @@
     "message": "Are you sure you want to remove this column: {title}?"
   },
   "Are you sure you want to remove {doc_name}?": {
-    "description": "administration/service-desk/issue-templates/IssueTemplateForm.tsx, administration/service-desk/issue-templates/RemoveTemplateDocumentButton.tsx",
+    "description": "administration/service-desk/issue-templates/IssueTemplateForm.tsx",
     "message": "Are you sure you want to remove {doc_name}?"
   },
   "Are you sure you want to remove {document} document from {call}?": {
@@ -2276,7 +2276,7 @@
     "message": "Confirmation notification template"
   },
   "Confirmation": {
-    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, administration/service-desk/issue-templates/RemoveTemplateDocumentButton.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerCallManagerPanel.tsx, customer/details/CustomerLocationRow.tsx, customer/payment-profiles/PaymentProfileDeleteButton.tsx, customer/payments/DeletePaymentButton.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, invitations/GroupInvitationCancelButton.tsx, invoices/details/InvoiceItemDelete.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/ColumnRow.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/deploy/DeployForm.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/images/DeleteImageButton.tsx, marketplace/offerings/update/components/DeleteComponentButton.tsx, marketplace/offerings/update/endpoints/DeleteEndpointButton.tsx, marketplace/offerings/update/options/DeleteOptionButton.tsx, marketplace/offerings/update/plans/ArchivePlanButton.tsx, marketplace/offerings/update/roles/DeleteRoleButton.tsx, marketplace/orders/actions/OrderUnlinkButton.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, marketplace/resources/resource-pending/OrderErredView.tsx, marketplace/resources/users/DeleteUserButton.tsx, marketplace/service-providers/OfferingPermissionRemoveButton.tsx, marketplace/service-providers/RestrictOfferingUser.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/ProposalRowActions.tsx, proposals/proposal/create/ProposalSubmissionStep.tsx, proposals/proposal/create/ProposalTeamVerificationStep.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/CallActions.tsx, proposals/update/documents/RemoveDocumentButton.tsx, rancher/cluster/create/FormNodesStep.tsx, resource/actions/AsyncActionItem.tsx, resource/actions/ResourceDeleteButton.tsx, user/support/UserDelete.tsx, user/support/UserStatus.tsx",
+    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerCallManagerPanel.tsx, customer/details/CustomerLocationRow.tsx, customer/payment-profiles/PaymentProfileDeleteButton.tsx, customer/payments/DeletePaymentButton.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, invitations/GroupInvitationCancelButton.tsx, invoices/details/InvoiceItemDelete.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/ColumnRow.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/deploy/DeployForm.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/images/DeleteImageButton.tsx, marketplace/offerings/update/components/DeleteComponentButton.tsx, marketplace/offerings/update/endpoints/DeleteEndpointButton.tsx, marketplace/offerings/update/options/DeleteOptionButton.tsx, marketplace/offerings/update/plans/ArchivePlanButton.tsx, marketplace/offerings/update/roles/DeleteRoleButton.tsx, marketplace/orders/actions/OrderUnlinkButton.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, marketplace/resources/resource-pending/OrderErredView.tsx, marketplace/resources/users/DeleteUserButton.tsx, marketplace/service-providers/OfferingPermissionRemoveButton.tsx, marketplace/service-providers/RestrictOfferingUser.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/ProposalRowActions.tsx, proposals/proposal/create/ProposalSubmissionStep.tsx, proposals/proposal/create/ProposalTeamVerificationStep.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/CallActions.tsx, proposals/update/documents/RemoveDocumentButton.tsx, rancher/cluster/create/FormNodesStep.tsx, resource/actions/AsyncActionItem.tsx, resource/actions/ResourceDeleteButton.tsx, user/support/UserDelete.tsx, user/support/UserStatus.tsx",
     "message": "Confirmation"
   },
   "Confirming that data is correct": {
@@ -3364,7 +3364,7 @@
     "message": "Docs & resources"
   },
   "Document has been removed.": {
-    "description": "administration/service-desk/issue-templates/IssueTemplateForm.tsx, administration/service-desk/issue-templates/RemoveTemplateDocumentButton.tsx",
+    "description": "administration/service-desk/issue-templates/IssueTemplateForm.tsx",
     "message": "Document has been removed."
   },
   "Documentation": {
@@ -3722,6 +3722,10 @@
   "Enable email and webhook notifications management in user workspace.": {
     "description": "features/FeaturesDescription.ts",
     "message": "Enable email and webhook notifications management in user workspace."
+  },
+  "Enable integration of identity provisioning in configured FreeIPA.": {
+    "description": "SettingsDescription.ts",
+    "message": "Enable integration of identity provisioning in configured FreeIPA."
   },
   "Enable issues for membership changes": {
     "description": "support/ServiceDeskProvisioningConfigForm.tsx",
@@ -4443,6 +4447,10 @@
     "description": "freeipa/FreeIPAAccount.tsx",
     "message": "FreeIPA extension is disabled."
   },
+  "FreeIPA settings": {
+    "description": "SettingsDescription.ts",
+    "message": "FreeIPA settings"
+  },
   "FreeIPA users": {
     "description": "administration/routes.ts",
     "message": "FreeIPA users"
@@ -4778,6 +4786,10 @@
   "Host routes": {
     "description": "openstack/openstack-subnet/fields.tsx",
     "message": "Host routes"
+  },
+  "Hostname of FreeIPA server.": {
+    "description": "SettingsDescription.ts",
+    "message": "Hostname of FreeIPA server."
   },
   "Hostname or IP address of gateway node": {
     "description": "slurm/SlurmForm.tsx",
@@ -5698,6 +5710,10 @@
   "List of resources": {
     "description": "navigation/header/favorite-pages/FavoritePageService.ts",
     "message": "List of resources"
+  },
+  "List of username that users are not allowed to select": {
+    "description": "SettingsDescription.ts",
+    "message": "List of username that users are not allowed to select"
   },
   "List orders": {
     "description": "administration/roles/PermissionOptions.tsx",
@@ -7235,6 +7251,10 @@
     "description": "rancher/cluster/create/FormOptionalServicesStep.tsx, rancher/cluster/create/steps.ts",
     "message": "Optional"
   },
+  "Optionally disable creation of user groups in FreeIPA matching Waldur structure": {
+    "description": "SettingsDescription.ts",
+    "message": "Optionally disable creation of user groups in FreeIPA matching Waldur structure"
+  },
   "Options for docker client. See also: <https://docker-py.readthedocs.io/en/stable/client.html#docker.client.DockerClient>": {
     "description": "SettingsDescription.ts",
     "message": "Options for docker client. See also: <https://docker-py.readthedocs.io/en/stable/client.html#docker.client.DockerClient>"
@@ -7546,6 +7566,10 @@
   "Password has been changed for user {affected_user_link}.": {
     "description": "user/events.ts",
     "message": "Password has been changed for user {affected_user_link}."
+  },
+  "Password of FreeIPA user with administrative privileges": {
+    "description": "SettingsDescription.ts",
+    "message": "Password of FreeIPA user with administrative privileges"
   },
   "Password": {
     "description": "auth/SigninForm.tsx, azure/sql/AzureSQLServerSummary.tsx, openstack/OpenStackForm.tsx, openstack/openstack-tenant/OpenStackTenantSummary.tsx, rancher/catalog/CatalogCreateDialog.tsx, vmware/VMwareForm.tsx",
@@ -8074,6 +8098,14 @@
   "Preferred language": {
     "description": "user/support/UserDetailsTable.tsx, user/support/UserList.tsx",
     "message": "Preferred language"
+  },
+  "Prefix to be appended to all group names created in FreeIPA by Waldur": {
+    "description": "SettingsDescription.ts",
+    "message": "Prefix to be appended to all group names created in FreeIPA by Waldur"
+  },
+  "Prefix to be appended to all usernames created in FreeIPA by Waldur": {
+    "description": "SettingsDescription.ts",
+    "message": "Prefix to be appended to all usernames created in FreeIPA by Waldur"
   },
   "Preview changes": {
     "description": "customer/details/CustomerErrorDialog.tsx",
@@ -9000,7 +9032,7 @@
     "message": "Remove organization"
   },
   "Remove": {
-    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, administration/service-desk/issue-templates/RemoveTemplateDocumentButton.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerManageContainer.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, form/DateField.tsx, form/WideImageField.tsx, invoices/details/InvoiceItemDelete.tsx, issues/comments/CommentActions.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/offerings/RemoveButton.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/update/ImageUploadField.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, openstack/openstack-tenant/IpAddressList.tsx, openstack/openstack-tenant/StaticRoutesTable.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, project/ProjectManageContainer.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestItemActions.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/documents/RemoveDocumentButton.tsx, user/hooks/HookRemoveButton.tsx, user/keys/KeyRemoveButton.tsx",
+    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerManageContainer.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, form/DateField.tsx, form/WideImageField.tsx, invoices/details/InvoiceItemDelete.tsx, issues/comments/CommentActions.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/offerings/RemoveButton.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/update/ImageUploadField.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, openstack/openstack-tenant/IpAddressList.tsx, openstack/openstack-tenant/StaticRoutesTable.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, project/ProjectManageContainer.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestItemActions.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/documents/RemoveDocumentButton.tsx, user/hooks/HookRemoveButton.tsx, user/keys/KeyRemoveButton.tsx",
     "message": "Remove"
   },
   "Removed organizations cannot be restored!": {
@@ -12884,7 +12916,7 @@
     "message": "Unable to remove component."
   },
   "Unable to remove document.": {
-    "description": "administration/service-desk/issue-templates/IssueTemplateForm.tsx, administration/service-desk/issue-templates/RemoveTemplateDocumentButton.tsx",
+    "description": "administration/service-desk/issue-templates/IssueTemplateForm.tsx",
     "message": "Unable to remove document."
   },
   "Unable to remove endpoint.": {
@@ -13971,6 +14003,10 @@
     "description": "freeipa/UsernameGroup.tsx",
     "message": "Username is required."
   },
+  "Username of FreeIPA user with administrative privileges.": {
+    "description": "SettingsDescription.ts",
+    "message": "Username of FreeIPA user with administrative privileges."
+  },
   "Username prefix": {
     "description": "freeipa/UsernameGroup.tsx",
     "message": "Username prefix"
@@ -14094,6 +14130,10 @@
   "Valid till": {
     "description": "user/affiliations/UserAffiliationsList.tsx",
     "message": "Valid till"
+  },
+  "Validate TLS certificate of FreeIPA web interface / REST API": {
+    "description": "SettingsDescription.ts",
+    "message": "Validate TLS certificate of FreeIPA web interface / REST API"
   },
   "Value has been copied": {
     "description": "core/CopyToClipboard.tsx",
