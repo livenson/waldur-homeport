@@ -4,6 +4,7 @@ import { Link } from '@waldur/core/Link';
 import { COMMON_CREDIT_COLUMNS } from '@waldur/customer/credits/constants';
 import { CreateCreditButton } from '@waldur/customer/credits/CreateCreditButton';
 import { CreditActions } from '@waldur/customer/credits/CreditActions';
+import { CreditExpandableRow } from '@waldur/customer/credits/CreditExpandableRow';
 import { CustomerCredit } from '@waldur/customer/credits/types';
 import { FilteredEventsButton } from '@waldur/events/FilteredEventsButton';
 import { translate } from '@waldur/i18n';
@@ -42,6 +43,7 @@ export const OrganizationCreditsList: FC<{}> = () => {
       hasQuery
       enableExport
       rowActions={CreditActions}
+      expandableRow={CreditExpandableRow}
       tableActions={
         <>
           <FilteredEventsButton filter={{ feature: 'credits' }} />
