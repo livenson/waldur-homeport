@@ -32,6 +32,7 @@ describe('Group invitations', () => {
         },
       )
       .intercept('POST', '/api/user-group-invitations/', {
+        statusCode: 201,
         fixture: 'group-invitations/user-group-invitations-post.json',
       })
       .intercept(
@@ -62,17 +63,17 @@ describe('Group invitations', () => {
   it('Should open modal when Create group invitation button is clicked', () => {
     cy.contains('button', 'Add')
       .click()
-      .get('.modal-title')
-      .should('be.visible');
+      .get('.modal .modal-header .modal-title')
+      .should('exist');
   });
 
   it('Should close modal when cancel button is clicked', () => {
     cy.contains('button', 'Add')
       .click()
-      .get('.modal-footer')
-      .contains('button', 'Cancel')
+      .get('.modal .modal-header .btn-close')
+      .should('be.visible')
       .click()
-      .get('.modal-title')
+      .get('.modal .modal-header .modal-title')
       .should('not.exist');
   });
 
@@ -81,7 +82,8 @@ describe('Group invitations', () => {
       .click()
       .get('label')
       .selectRole('Organization owner')
-      .get('.modal-footer > .btn-primary')
+      .get('.modal .modal-body')
+      .contains('button', 'Generate link')
       .click()
       .get('[role="alert"]')
       .should('be.visible');
@@ -91,9 +93,10 @@ describe('Group invitations', () => {
     cy.contains('button', 'Add')
       .click()
       .selectRole('Project manager')
-      .openDropdownByLabel('Project*')
+      .openDropdownByLabel('Project')
       .selectTheFirstOptionOfDropdown()
-      .get('.modal-footer > .btn-primary')
+      .get('.modal .modal-body')
+      .contains('button', 'Generate link')
       .click()
       .get('[role="alert"]')
       .should('be.visible');
@@ -103,9 +106,10 @@ describe('Group invitations', () => {
     cy.contains('button', 'Add')
       .click()
       .selectRole('System administrator')
-      .openDropdownByLabel('Project*')
+      .openDropdownByLabel('Project')
       .selectTheFirstOptionOfDropdown()
-      .get('.modal-footer > .btn-primary')
+      .get('.modal .modal-body')
+      .contains('button', 'Generate link')
       .click()
       .get('[role="alert"]')
       .should('be.visible');
@@ -115,18 +119,25 @@ describe('Group invitations', () => {
     cy.contains('button', 'Add')
       .click()
       .selectRole('Project member')
-      .openDropdownByLabel('Project*')
+      .openDropdownByLabel('Project')
       .selectTheFirstOptionOfDropdown()
-      .get('.modal-footer > .btn-primary')
+      .get('.modal .modal-body')
+      .contains('button', 'Generate link')
       .click()
       .get('[role="alert"]')
       .should('be.visible');
   });
 
   it('Should cancel invitation works properly', () => {
-    cy.contains('button', 'Cancel')
+    cy.get('td .dropdown')
+      .first()
+      .find('button.dropdown-toggle')
       .click()
-      .get('.modal-footer .btn-primary:contains("Yes")')
+      .get('body > .dropdown-menu .dropdown-item')
+      .contains('Cancel')
+      .click({ force: true });
+
+    cy.get('.modal-footer .btn:contains("Unsent")')
       .click()
       .get('[role="alert"]')
       .should('be.visible');

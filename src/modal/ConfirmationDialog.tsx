@@ -21,6 +21,8 @@ interface ConfirmationDialogProps {
     type?: ConfirmationDialogType;
     positiveButton?: string;
     negativeButton?: string;
+    positiveButtonVariant?: string;
+    iconNode?: ReactNode;
   };
 }
 
@@ -32,6 +34,8 @@ export const ConfirmationDialog: React.FC<ConfirmationDialogProps> = ({
     type = 'warning',
     positiveButton = translate('Yes'),
     negativeButton = translate('No'),
+    positiveButtonVariant,
+    iconNode,
   },
 }) => {
   const dispatch = useDispatch();
@@ -50,7 +54,7 @@ export const ConfirmationDialog: React.FC<ConfirmationDialogProps> = ({
   return (
     <MetronicModalDialog
       title={title}
-      iconNode={<WarningCircle weight="bold" />}
+      iconNode={iconNode || <WarningCircle weight="bold" />}
       iconColor={type}
       bodyClassName="text-grey-500 pt-2"
       footer={
@@ -62,7 +66,11 @@ export const ConfirmationDialog: React.FC<ConfirmationDialogProps> = ({
           >
             {negativeButton}
           </Button>
-          <Button className="flex-equal" onClick={handleSubmit}>
+          <Button
+            variant={positiveButtonVariant}
+            className="flex-equal"
+            onClick={handleSubmit}
+          >
             {positiveButton}
           </Button>
         </>

@@ -227,16 +227,8 @@ export const TableBody: FunctionComponent<TableBodyProps> = ({
   );
 
   const trClick = useCallback(
-    (row, index, e) => {
+    (row, index) => {
       if (!expandableRow) return;
-      // prevent expandable row to toggle when clicking on inner clickable elements
-      const el = e.target as HTMLElement;
-      if (
-        el.onclick ||
-        el instanceof HTMLInputElement ||
-        el.closest('button, a')
-      )
-        return;
       toggleRow(getId(row, index));
     },
     [toggleRow],
@@ -297,7 +289,16 @@ export const TableBody: FunctionComponent<TableBodyProps> = ({
           ) || undefined
         }
         onClick={(event) => {
-          trClick(row, rowIndex, event);
+          // prevent checkbox and expandable row to toggle when clicking on inner clickable elements
+          const el = event.target as HTMLElement;
+          if (
+            el.onclick ||
+            el instanceof HTMLInputElement ||
+            el.closest('button, a')
+          )
+            return;
+
+          trClick(row, rowIndex);
           if (fieldProps) {
             onChangeField(row, fieldProps.input);
           }
@@ -355,7 +356,7 @@ export const TableBody: FunctionComponent<TableBodyProps> = ({
         />
         {rowActions && (
           <td className="row-actions">
-            <div onClick={(e) => e.stopPropagation()} aria-hidden="true">
+            <div aria-hidden="true">
               {React.createElement(rowActions, { row, fetch })}
             </div>
           </td>

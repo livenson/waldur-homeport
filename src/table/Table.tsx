@@ -114,6 +114,7 @@ class TableClass<RowType = any> extends React.Component<TableProps<RowType>> {
     hasHeaders: true,
     cardBordered: true,
     hoverShadow: true,
+    placeholderRetry: true,
   };
 
   state = {
@@ -159,7 +160,7 @@ class TableClass<RowType = any> extends React.Component<TableProps<RowType>> {
         <Card
           className={classNames(
             'card-table',
-            'full-width',
+            this.props.fullWidth && 'full-width',
             this.props.cardBordered && 'card-bordered',
             this.props.fieldName ? 'field-table' : '',
             this.props.mode === 'grid' &&
@@ -335,6 +336,7 @@ class TableClass<RowType = any> extends React.Component<TableProps<RowType>> {
             verboseName={verboseName}
             clearSearch={() => setQuery('')}
             fetch={this.props.fetch}
+            hasRetry={this.props.placeholderHasRetry}
             actions={this.props.placeholderActions}
           />
         );

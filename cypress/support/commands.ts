@@ -95,11 +95,13 @@ Cypress.Commands.add('selectRole', (label) => {
   cy.get('label')
     .contains('Role')
     .next()
-    .get('[class*="-control"]')
-    .click(0, 0, { force: true, multiple: true })
-    .get('[class*="-option"]')
-    .contains(label)
-    .click(0, 0, { force: true });
+    .within(() => {
+      cy.get('[class*="-control"]').click(0, 0, {
+        force: true,
+        multiple: true,
+      });
+    });
+  cy.get('[class*="-option"]').contains(label).click(0, 0, { force: true });
 });
 
 Cypress.Commands.add('selectTheFirstOptionOfDropdown', () => {

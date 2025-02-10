@@ -1,8 +1,10 @@
+import { Check, X } from '@phosphor-icons/react';
 import { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
 
+import { Badge } from '@waldur/core/Badge';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 import { GroupInvitationCreateButton } from '@waldur/invitations/actions/GroupInvitationCreateButton';
@@ -10,11 +12,10 @@ import { GROUP_INVITATIONS_FILTER_FORM_ID } from '@waldur/invitations/constants'
 import { GroupInvitationRowActions } from '@waldur/invitations/GroupInvitationRowActions';
 import { GroupInvitationsFilter } from '@waldur/invitations/GroupInvitationsFilter';
 import { GroupInvitationsListExpandableRow } from '@waldur/invitations/GroupInvitationsListExpandableRow';
-import { RoleField } from '@waldur/invitations/RoleField';
 import { createFetcher } from '@waldur/table/api';
-import { BooleanField } from '@waldur/table/BooleanField';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
+import { RoleField } from '@waldur/user/affiliations/RoleField';
 import { exportRoleField } from '@waldur/user/affiliations/RolePopover';
 import { getCustomer } from '@waldur/workspace/selectors';
 
@@ -43,10 +44,11 @@ export const GroupInvitationsList: FunctionComponent<{}> = () => {
           title: translate('Created by'),
           render: ({ row }) => row.created_by_full_name,
           export: (row) => row.created_by_full_name,
+          className: 'text-dark',
         },
         {
           title: translate('Role'),
-          render: ({ row }) => <RoleField invitation={row} />,
+          render: RoleField,
           export: exportRoleField,
         },
         {
@@ -60,8 +62,17 @@ export const GroupInvitationsList: FunctionComponent<{}> = () => {
           export: (row) => formatDateTime(row.expires),
         },
         {
-          title: translate('Active'),
-          render: ({ row }) => <BooleanField value={row.is_active} />,
+          title: translate('Status'),
+          render: ({ row }) =>
+            row.is_active ? (
+              <Badge variant="success" leftIcon={<Check />} outline pill>
+                {translate('Active')}
+              </Badge>
+            ) : (
+              <Badge variant="default" leftIcon={<X />} outline pill>
+                {translate('Inactive')}
+              </Badge>
+            ),
           filter: 'is_active',
           export: (row) => (row.is_active ? translate('Yes') : translate('No')),
         },
@@ -72,6 +83,7 @@ export const GroupInvitationsList: FunctionComponent<{}> = () => {
         <GroupInvitationRowActions row={row} refetch={props.fetch} />
       )}
       expandableRow={GroupInvitationsListExpandableRow}
+      expandableRowClassName="pb-2 pe-2"
       enableExport
     />
   );

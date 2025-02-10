@@ -83,6 +83,19 @@ $warning-active: if(isDarkMode(), #ee9d01, $warning-700);
 $warning-light: if(isDarkMode(), #392f28, $warning-50);
 $warning-inverse: #ffffff;
 
+// Custom colors
+// Pink
+$pink-200: #fcceee !default;
+$pink-800: #9e165f !default;
+
+// Blue
+$blue-200: #b2ddff !default;
+$blue-800: #1849a9 !default;
+
+// Teal
+$teal-200: #99f6e0 !default;
+$teal-800: #125d56 !default;
+
 $dropdown-item-padding-x: 16px;
 $dropdown-item-padding-y: 10px;
 $dropdown-link-hover-color: $gray-700;
@@ -109,6 +122,10 @@ $theme-200-colors: (
   'info': $info-200,
   'warning': $warning-200,
   'danger': $danger-200,
+  // custom colors
+  'pink': if(isDarkMode(), $pink-800, $pink-200),
+  'blue': if(isDarkMode(), $blue-800, $blue-200),
+  'teal': if(isDarkMode(), $teal-800, $teal-200),
 ) !default; // Custom variable
 
 // Card
@@ -149,6 +166,7 @@ $modal-sm: 400px !default;
 $badge-font-size: 1.08rem !default;
 $badge-font-size-sm: 0.92rem !default;
 $badge-font-size-lg: 1.08rem !default;
+$badge-font-weight: 500 !default;
 $badge-padding-y: 0.285em !default;
 $badge-padding-y-sm: 0.34em !default; // Custom variable
 $badge-padding-y-lg: 0.43em !default; // Custom variable
