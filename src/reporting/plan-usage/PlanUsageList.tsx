@@ -9,8 +9,8 @@ import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
 
-import { PlanUsageButton } from './PlanUsageButton';
 import { PlanUsageFilter } from './PlanUsageFilter';
+import { PlanUsageRowActions } from './PlanUsageRowActions';
 import { PlanUsageRowProps } from './types';
 
 export const PlanUsageList: FunctionComponent = () => {
@@ -75,7 +75,7 @@ export const PlanUsageList: FunctionComponent = () => {
       showPageSizeSelector={true}
       enableExport={true}
       initialSorting={{ field: 'usage', mode: 'desc' }}
-      rowActions={PlanUsageButton}
+      rowActions={PlanUsageRowActions}
       filters={<PlanUsageFilter />}
     />
   );

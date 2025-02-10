@@ -8,18 +8,18 @@ import { deleteProjectUser } from '@waldur/permissions/api';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';
 import { GenericPermission } from '@waldur/permissions/types';
+import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
-import { RowActionButton } from '@waldur/table/ActionButton';
 import { useUser } from '@waldur/workspace/hooks';
 import { getCustomer, getProject } from '@waldur/workspace/selectors';
 
 interface UserRemoveButtonProps {
-  permission: GenericPermission;
+  row: GenericPermission;
   refetch(): void;
 }
 
 export const UserRemoveButton: React.FC<UserRemoveButtonProps> = ({
-  permission,
+  row: permission,
   refetch,
 }) => {
   const dispatch = useDispatch();
@@ -65,10 +65,12 @@ export const UserRemoveButton: React.FC<UserRemoveButtonProps> = ({
     }
   };
   return (
-    <RowActionButton
+    <ActionItem
       action={callback}
       title={translate('Remove')}
       iconNode={<Trash />}
+      className="text-danger"
+      iconColor="danger"
       size="sm"
     />
   );

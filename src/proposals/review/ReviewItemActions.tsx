@@ -1,3 +1,4 @@
+import { X, ListChecks } from '@phosphor-icons/react';
 import { useMutation } from '@tanstack/react-query';
 import { useDispatch } from 'react-redux';
 
@@ -8,15 +9,15 @@ import {
   rejectProposalReview,
 } from '@waldur/proposals/api';
 import { ProposalReview } from '@waldur/proposals/types';
+import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
-import { RowActionButton } from '@waldur/table/ActionButton';
 
 interface ReviewItemActionProps {
   row: ProposalReview;
-  fetch;
+  refetch;
 }
 
-export const ReviewItemAction = ({ row, fetch }: ReviewItemActionProps) => {
+export const ReviewItemAction = ({ row, refetch }: ReviewItemActionProps) => {
   const dispatch = useDispatch();
   const { mutate: accept, isLoading: isAcceptLoading } = useMutation(
     async () => {
@@ -37,7 +38,7 @@ export const ReviewItemAction = ({ row, fetch }: ReviewItemActionProps) => {
       }
       try {
         await acceptProposalReview(row.uuid);
-        fetch();
+        refetch();
         dispatch(showSuccess(translate('Review has been accepted.')));
       } catch (response) {
         dispatch(
@@ -65,7 +66,7 @@ export const ReviewItemAction = ({ row, fetch }: ReviewItemActionProps) => {
       }
       try {
         await rejectProposalReview(row.uuid);
-        fetch();
+        refetch();
         dispatch(showSuccess(translate('Review has been rejected.')));
       } catch (response) {
         dispatch(
@@ -76,18 +77,17 @@ export const ReviewItemAction = ({ row, fetch }: ReviewItemActionProps) => {
   );
   return row.state === 'created' ? (
     <>
-      <RowActionButton
+      <ActionItem
         action={accept}
         title={translate('Start review')}
-        size="sm"
-        variant="outline-primary"
-        pending={isAcceptLoading || isRejectLoading}
+        iconNode={<ListChecks />}
+        disabled={isAcceptLoading || isRejectLoading}
       />
-      <RowActionButton
+      <ActionItem
         action={reject}
         title={translate('Send back')}
-        size="sm"
-        pending={isAcceptLoading || isRejectLoading}
+        iconNode={<X />}
+        disabled={isAcceptLoading || isRejectLoading}
       />
     </>
   ) : null;
