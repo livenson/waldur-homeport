@@ -16,7 +16,7 @@ const stateColorMapping = {
 export const ProposalBadge = ({ state }) => {
   const variant = stateColorMapping[state] || 'default';
   return (
-    <Badge variant={variant} outline pill className="ms-4">
+    <Badge variant={variant} outline pill>
       {formatProposalState(state)}
     </Badge>
   );
