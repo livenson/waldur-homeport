@@ -856,7 +856,7 @@
     "message": "Applications"
   },
   "Apply as minimal consumption": {
-    "description": "customer/credits/constants.tsx",
+    "description": "customer/credits/CreditExpandableRow.tsx, customer/credits/constants.tsx",
     "message": "Apply as minimal consumption"
   },
   "Apply filters to table data": {
@@ -4096,7 +4096,7 @@
     "message": "Expected consumption (per month)"
   },
   "Expected consumption": {
-    "description": "customer/credits/constants.tsx",
+    "description": "customer/credits/CreditExpandableRow.tsx",
     "message": "Expected consumption"
   },
   "Expected project duration in days once resources have been granted.": {
@@ -4612,7 +4612,7 @@
     "message": "Google Calendar has been unpublished successfully."
   },
   "Grace coefficient": {
-    "description": "customer/credits/constants.tsx",
+    "description": "customer/credits/CreditExpandableRow.tsx, customer/credits/constants.tsx",
     "message": "Grace coefficient"
   },
   "Grant permission": {
@@ -6156,11 +6156,11 @@
     "message": "Minimal average scoring"
   },
   "Minimal consumption logic": {
-    "description": "customer/credits/constants.tsx",
+    "description": "customer/credits/CreditExpandableRow.tsx, customer/credits/constants.tsx",
     "message": "Minimal consumption logic"
   },
   "Minimal consumption": {
-    "description": "customer/credits/constants.tsx",
+    "description": "customer/credits/CreditExpandableRow.tsx",
     "message": "Minimal consumption"
   },
   "Minimal disk": {
