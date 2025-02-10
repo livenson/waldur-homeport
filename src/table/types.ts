@@ -168,6 +168,7 @@ export interface TableProps<RowType = any> extends TableState {
   rowClass?: (({ row }) => string) | string;
   hoverable?: boolean;
   hoverShadow?: { table?: boolean; grid?: boolean } | boolean;
+  fullWidth?: boolean;
   minHeight?: number | 'auto';
   cardBordered?: boolean;
   showPageSizeSelector?: boolean;
@@ -186,6 +187,7 @@ export interface TableProps<RowType = any> extends TableState {
   showExportInDropdown?: boolean;
   placeholderComponent?: React.ReactNode;
   placeholderActions?: React.ReactNode;
+  placeholderHasRetry?: boolean;
   filters?: JSX.Element;
   title?: React.ReactNode;
   alterTitle?: React.ReactNode;

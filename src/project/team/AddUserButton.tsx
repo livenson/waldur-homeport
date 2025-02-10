@@ -1,12 +1,10 @@
-import { PlusCircle } from '@phosphor-icons/react';
 import React from 'react';
 
+import { AddButton } from '@waldur/core/AddButton';
 import { lazyComponent } from '@waldur/core/lazyComponent';
-import { translate } from '@waldur/i18n';
 import { useModal } from '@waldur/modal/hooks';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';
-import { ActionButton } from '@waldur/table/ActionButton';
 import { useUser } from '@waldur/workspace/hooks';
 import { Project } from '@waldur/workspace/types';
 
@@ -34,11 +32,5 @@ export const AddUserButton: React.FC<{ project: Project; refetch }> = ({
   if (!canAddUser) {
     return null;
   }
-  return (
-    <ActionButton
-      action={() => openDialog(AddUserDialog, { refetch })}
-      title={translate('Add user')}
-      iconNode={<PlusCircle />}
-    />
-  );
+  return <AddButton action={() => openDialog(AddUserDialog, { refetch })} />;
 };

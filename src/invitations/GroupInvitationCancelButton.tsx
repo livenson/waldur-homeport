@@ -1,12 +1,12 @@
-import { Prohibit } from '@phosphor-icons/react';
+import { XCircle } from '@phosphor-icons/react';
 import { FunctionComponent } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { translate } from '@waldur/i18n';
 import { cancelGroupInvitation } from '@waldur/invitations/api';
 import { waitForConfirmation } from '@waldur/modal/actions';
+import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
-import { RowActionButton } from '@waldur/table/ActionButton';
 
 interface GroupInvitationCancelButtonProps {
   permissionRequest: any;
@@ -21,10 +21,19 @@ export const GroupInvitationCancelButton: FunctionComponent<
     try {
       await waitForConfirmation(
         dispatch,
-        translate('Confirmation'),
-        translate('Are you sure you want to cancel invitation by {name}?', {
-          name: permissionRequest.created_by_full_name,
-        }),
+        translate('Cancel invitation'),
+        translate(
+          'You are going to cancel invitation by {name}. This action cannot be undone.',
+          { name: permissionRequest.created_by_full_name },
+        ),
+        {
+          type: 'danger',
+          size: 'sm',
+          positiveButton: translate('Unsent'),
+          negativeButton: translate('Cancel'),
+          positiveButtonVariant: 'light-danger',
+          iconNode: <XCircle weight="bold" />,
+        },
       );
     } catch {
       return;
@@ -40,11 +49,13 @@ export const GroupInvitationCancelButton: FunctionComponent<
     }
   };
   return (
-    <RowActionButton
+    <ActionItem
       action={callback}
       title={translate('Cancel')}
-      iconNode={<Prohibit />}
-      size="sm"
+      iconNode={<XCircle weight="bold" />}
+      iconColor="danger"
+      className="text-danger"
+      disabled={!permissionRequest.is_active}
     />
   );
 };

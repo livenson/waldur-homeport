@@ -73,15 +73,15 @@ export const SummaryTeamTable: FC<OwnProps> = ({ scope, context }) => {
                 <img
                   src={getValue(row, 'image')}
                   alt={getValue(row, 'username')}
-                  width={25}
-                  height={25}
+                  width={32}
+                  height={32}
                   className="rounded-circle"
                 />
               ) : (
                 <Avatar
-                  className="symbol symbol-25px symbol-circle"
+                  className="symbol symbol-32px symbol-circle"
                   name={getValue(row, 'full_name')}
-                  size={25}
+                  size={32}
                 />
               )}
               <p className="mb-0">

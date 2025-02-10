@@ -22,7 +22,9 @@ export const InvitationDeleteButton = ({ row, refetch }) => {
     <ActionItem
       action={callback}
       title={translate('Delete')}
-      iconNode={<Trash />}
+      iconNode={<Trash weight="bold" />}
+      className="text-danger"
+      iconColor="danger"
     />
   );
 };

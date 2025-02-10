@@ -154,6 +154,43 @@ $white-inverse: if(
   $gray-600
 ) !default; // Custom variable
 
+// Custom colors
+// Pink
+$pink-50: #fdf2fa !default;
+$pink-200: #fcceee !default;
+$pink-500: #ee46bc !default;
+$pink-600: #dd2590 !default;
+$pink-700: #c11574 !default;
+$pink-950: #4e0d30 !default;
+$pink: if(isDarkMode(), $pink-500, $pink-500);
+$pink-active: if(isDarkMode(), $pink-600, $pink-700);
+$pink-light: if(isDarkMode(), $pink-950, $pink-50);
+$pink-inverse: #ffffff;
+
+// Blue
+$blue-50: #eff8ff !default;
+$blue-200: #b2ddff !default;
+$blue-500: #2e90fa !default;
+$blue-600: #1570ef !default;
+$blue-700: #175cd3 !default;
+$blue-950: #102a56 !default;
+$blue: if(isDarkMode(), $blue-500, $blue-500);
+$blue-active: if(isDarkMode(), $blue-600, $blue-700);
+$blue-light: if(isDarkMode(), $blue-950, $blue-50);
+$blue-inverse: #ffffff;
+
+// Teal
+$teal-50: #f0fdf9 !default;
+$teal-200: #99f6e0 !default;
+$teal-500: #15b79e !default;
+$teal-600: #0e9384 !default;
+$teal-700: #107569 !default;
+$teal-950: #0a2926 !default;
+$teal: if(isDarkMode(), $teal-500, $teal-500);
+$teal-active: if(isDarkMode(), $teal-600, $teal-700);
+$teal-light: if(isDarkMode(), $teal-950, $teal-50);
+$teal-inverse: #ffffff;
+
 // Theme colors
 $theme-colors: (
   'white': $white,
@@ -181,6 +218,10 @@ $theme-colors: (
   'gray-700': $gray-700,
   'gray-800': $gray-800,
   'gray-900': $gray-900,
+  // custom colors
+  'pink': $pink,
+  'blue': $blue,
+  'teal': $teal,
 ) !default;
 
 // Hover colors
@@ -195,6 +236,10 @@ $theme-active-colors: (
   'warning': $warning-active,
   'danger': $danger-active,
   'dark': $dark-active,
+  // custom colors
+  'pink': $pink-active,
+  'blue': $blue-active,
+  'teal': $teal-active,
 ) !default; // Custom variable
 
 // Inverse colors
@@ -208,6 +253,10 @@ $theme-inverse-colors: (
   'warning': $warning-inverse,
   'danger': $danger-inverse,
   'dark': $dark-inverse,
+  // custom colors
+  'pink': $pink-inverse,
+  'blue': $blue-inverse,
+  'teal': $teal-inverse,
 ) !default; // Custom variable
 
 // Light colors
@@ -218,6 +267,10 @@ $theme-light-colors: (
   'warning': $warning-light,
   'danger': $danger-light,
   'dark': $dark-light,
+  // custom colors
+  'pink': $pink-light,
+  'blue': $blue-light,
+  'teal': $teal-light,
 ) !default; // Custom variable
 
 // Text colors

@@ -94,10 +94,7 @@
     &.has-bullet::before {
       background-color: theme-inverse-color($name);
     }
-    .left-icon,
-    .right-icon {
-      @include svg-icon-color(theme-inverse-color($name));
-    }
+    @include svg-icon-color(theme-inverse-color($name));
   }
 
   .badge-light-#{$name} {
@@ -108,10 +105,7 @@
     &.has-bullet::before {
       background-color: $value;
     }
-    .left-icon,
-    .right-icon {
-      @include svg-icon-color($value);
-    }
+    @include svg-icon-color($value);
   }
 
   .badge-outline-#{$name} {
@@ -120,25 +114,19 @@
     border: 1px solid theme-200-color($name);
 
     &.has-bullet::before {
-      background-color: theme-active-color($name);
+      background-color: $value;
     }
-    .left-icon,
-    .right-icon {
-      @include svg-icon-color(theme-active-color($name));
-    }
+    @include svg-icon-color($value);
   }
 }
 
 .badge-outline-default {
   color: $gray-700;
-  border: 1px solid $grey-200;
+  border: 1px solid $grey-300;
   background-color: $gray-100;
 
   &.has-bullet::before {
-    background-color: $gray-700;
+    background-color: $grey-500;
   }
-  .left-icon,
-  .right-icon {
-    @include svg-icon-color($gray-700);
-  }
+  @include svg-icon-color($grey-500);
 }

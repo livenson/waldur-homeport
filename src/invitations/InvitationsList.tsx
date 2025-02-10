@@ -10,6 +10,7 @@ import { useTitle } from '@waldur/navigation/title';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
+import { RoleField } from '@waldur/user/affiliations/RoleField';
 import { exportRoleField } from '@waldur/user/affiliations/RolePopover';
 import { getCustomer } from '@waldur/workspace/selectors';
 
@@ -18,7 +19,6 @@ import { InvitationActions } from './InvitationActions';
 import { InvitationsFilter } from './InvitationsFilter';
 import { InvitationsMultiSelectActions } from './InvitationsMultiSelectActions';
 import { formatInvitationState } from './InvitationStateFilter';
-import { RoleField } from './RoleField';
 
 export const InvitationsList: FunctionComponent = () => {
   useTitle(translate('Invitations'));
@@ -57,7 +57,7 @@ export const InvitationsList: FunctionComponent = () => {
         },
         {
           title: translate('Role'),
-          render: ({ row }) => <RoleField invitation={row} />,
+          render: RoleField,
           export: exportRoleField,
         },
         {

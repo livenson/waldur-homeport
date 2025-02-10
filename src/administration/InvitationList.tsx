@@ -7,12 +7,12 @@ import { CopyToClipboardButton } from '@waldur/core/CopyToClipboardButton';
 import { formatDate } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 import { formatInvitationState } from '@waldur/invitations/InvitationStateFilter';
-import { RoleField } from '@waldur/invitations/RoleField';
 import { useTitle } from '@waldur/navigation/title';
 import { formatRoleType } from '@waldur/permissions/utils';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
+import { RoleField } from '@waldur/user/affiliations/RoleField';
 
 import { InvitationScopeLink } from './InvitationScopeLink';
 import { InvitationsFilter } from './InvitationsFilter';
@@ -66,7 +66,7 @@ export const InvitationList: FunctionComponent = () => {
         },
         {
           title: translate('Role'),
-          render: ({ row }) => <RoleField invitation={row} />,
+          render: RoleField,
           filter: 'role',
           inlineFilter: (row) =>
             ENV.roles.find((role) => role.name === row.role_name),

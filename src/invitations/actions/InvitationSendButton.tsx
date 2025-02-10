@@ -65,7 +65,7 @@ export const InvitationSendButton = ({ row, refetch }) => {
     <ActionItem
       action={callback}
       title={translate('Resend')}
-      iconNode={<Share />}
+      iconNode={<Share weight="bold" />}
       disabled={isDisabled}
       tooltip={tooltip}
     />

@@ -28,6 +28,10 @@ const GroupInvitationConfirmDialog = lazyComponent(() =>
   })),
 );
 
+export function getGroupInvitationLink(invitation) {
+  return `${location.origin}/user-group-invitation/${invitation.uuid}/`;
+}
+
 export function checkAndAccept(token) {
   /*
      Call confirm token dialog, accept it and redirect user to profile.

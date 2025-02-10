@@ -64,14 +64,15 @@ export const ProjectUsersList = () => {
                 <img
                   src={row.user_image}
                   alt={row.user_username}
-                  width={25}
-                  height={25}
+                  width={32}
+                  height={32}
+                  className="rounded-circle"
                 />
               ) : (
                 <Avatar
-                  className="symbol symbol-25px"
+                  className="symbol symbol-32px symbol-circle"
                   name={row.user_full_name}
-                  size={25}
+                  size={32}
                 />
               )}
               {row.user_full_name || DASH_ESCAPE_CODE}

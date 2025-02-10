@@ -13,12 +13,14 @@ interface TablePlaceholderProps
   > {
   clearSearch(): void;
   actions?: ReactNode;
+  hasRetry?: boolean;
 }
 
 export const TablePlaceholder: FunctionComponent<TablePlaceholderProps> = ({
   query,
   verboseName,
   clearSearch,
+  hasRetry = true,
   actions,
   fetch,
   filtersStorage,
@@ -28,7 +30,7 @@ export const TablePlaceholder: FunctionComponent<TablePlaceholderProps> = ({
 
   return (
     <NoResult
-      callback={query ? clearSearch : () => fetch(true)}
+      callback={!hasRetry ? null : query ? clearSearch : () => fetch(true)}
       title={title}
       message={
         <>

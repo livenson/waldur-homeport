@@ -61,7 +61,7 @@ export const InvitationCancelButton = ({ row, refetch }) => {
     <ActionItem
       action={callback}
       title={translate('Cancel')}
-      iconNode={<Prohibit />}
+      iconNode={<Prohibit weight="bold" />}
       disabled={isDisabled}
       tooltip={tooltip}
     />
