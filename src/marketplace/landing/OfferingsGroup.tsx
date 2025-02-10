@@ -27,6 +27,7 @@ const field = [
   'customer_name',
   'customer_uuid',
   'state',
+  'shared',
   'paused_reason',
 ];
 
