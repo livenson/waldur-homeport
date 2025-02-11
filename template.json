@@ -14803,12 +14803,8 @@
     "description": "marketplace/offerings/details/OfferingUsersTable.tsx",
     "message": "offering users"
   },
-  "offering": {
-    "description": "marketplace/landing/CategoryCard.tsx",
-    "message": "offering"
-  },
   "offerings": {
-    "description": "marketplace/category/PublicOfferingsList.tsx, marketplace/landing/CategoryCard.tsx, proposals/details/CallOfferingsCard.tsx",
+    "description": "marketplace/category/PublicOfferingsList.tsx, proposals/details/CallOfferingsCard.tsx",
     "message": "offerings"
   },
   "on the": {
