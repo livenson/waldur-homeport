@@ -1,5 +1,6 @@
 import { FunctionComponent } from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { useSelector } from 'react-redux';
+import { Field, getFormValues, reduxForm } from 'redux-form';
 
 import {
   getInitialValues,
@@ -14,6 +15,7 @@ import { parentOfferingFilter } from '@waldur/marketplace/offerings/utils';
 import { OrganizationAutocomplete } from '@waldur/marketplace/orders/OrganizationAutocomplete';
 import { PROJECT_RESOURCES_ALL_FILTER_FORM_ID } from '@waldur/marketplace/resources/list/constants';
 import { TableFilterItem } from '@waldur/table/TableFilterItem';
+import { Customer, Project } from '@waldur/workspace/types';
 
 import { CategoryFilter } from './CategoryFilter';
 import { ProjectFilter } from './ProjectFilter';
@@ -31,6 +33,9 @@ const PureProjectResourcesAllFilter: FunctionComponent<
   ProjectResourcesAllFilterProps
 > = (props) => {
   useSyncInitialFiltersToURL(props.initialValues);
+  const formValues = useSelector(
+    getFormValues(PROJECT_RESOURCES_ALL_FILTER_FORM_ID),
+  ) as { project: Project; organization: Customer };
   return (
     <>
       <TableFilterItem
@@ -59,7 +64,10 @@ const PureProjectResourcesAllFilter: FunctionComponent<
         name="category"
         badgeValue={(value) => value?.title}
       >
-        <CategoryFilter />
+        <CategoryFilter
+          project={formValues?.project}
+          customer={formValues?.organization}
+        />
       </TableFilterItem>
       {props.hasCustomerFilter ? (
         <TableFilterItem

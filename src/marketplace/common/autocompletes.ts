@@ -91,6 +91,7 @@ export const categoryAutocomplete = async (
   query: string,
   prevOptions,
   { page },
+  extraParams?,
 ) => {
   const params = {
     title: query,
@@ -98,6 +99,7 @@ export const categoryAutocomplete = async (
     o: 'title',
     page: page,
     page_size: ENV.pageSize,
+    ...extraParams,
   };
   const response = await getCategoryOptions(params);
   return returnReactSelectAsyncPaginateObject(response, prevOptions, page);
