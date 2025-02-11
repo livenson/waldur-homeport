@@ -62,7 +62,7 @@ export const OfferingRequestsList: FC<OfferingRequestsListProps> = () => {
       columns={[
         {
           title: translate('Call'),
-          render: ({ row }) => <b>{row.call_name}</b>,
+          render: ({ row }) => <>{row.call_name}</>,
           filter: 'call',
           inlineFilter: (row) => ({ name: row.call_name, url: row.call }),
         },

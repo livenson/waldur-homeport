@@ -59,7 +59,11 @@ const ResourceField = ({ row }) => {
   };
   return (
     <>
-      <Button variant="flush" className="text-anchor" onClick={callback}>
+      <Button
+        variant="flush"
+        className="text-anchor fw-normal"
+        onClick={callback}
+      >
         {row.name || row.offering_name}
       </Button>
       <BackendIdTip backendId={row.backend_id} />
