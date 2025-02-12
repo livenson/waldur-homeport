@@ -36,6 +36,7 @@ const stateToTab = (state: StateDeclaration) => ({
   title: state.data.breadcrumb(),
   to: state.name,
   params: {},
+  redirectTo: state.redirectTo,
 });
 
 const sortStates = (states: StateDeclaration[]) => {

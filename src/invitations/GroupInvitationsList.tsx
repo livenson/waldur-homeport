@@ -6,6 +6,8 @@ import { createSelector } from 'reselect';
 
 import { Badge } from '@waldur/core/Badge';
 import { formatDateTime } from '@waldur/core/dateUtils';
+import { CustomerPermissionsLogButton } from '@waldur/customer/team/CustomerPermissionsLogButton';
+import { useTeamTableTabs } from '@waldur/customer/utils';
 import { translate } from '@waldur/i18n';
 import { GroupInvitationCreateButton } from '@waldur/invitations/actions/GroupInvitationCreateButton';
 import { GROUP_INVITATIONS_FILTER_FORM_ID } from '@waldur/invitations/constants';
@@ -35,6 +37,9 @@ export const GroupInvitationsList: FunctionComponent<{}> = () => {
     fetchData: createFetcher('user-group-invitations'),
     filter,
   });
+
+  const tableTabs = useTeamTableTabs();
+
   return (
     <Table
       {...props}
@@ -77,8 +82,15 @@ export const GroupInvitationsList: FunctionComponent<{}> = () => {
           export: (row) => (row.is_active ? translate('Yes') : translate('No')),
         },
       ]}
+      tabs={tableTabs}
+      title={translate('Team')}
       verboseName={translate('group invitations')}
-      tableActions={<GroupInvitationCreateButton refetch={props.fetch} />}
+      tableActions={
+        <>
+          <CustomerPermissionsLogButton />
+          <GroupInvitationCreateButton refetch={props.fetch} />
+        </>
+      }
       rowActions={({ row }) => (
         <GroupInvitationRowActions row={row} refetch={props.fetch} />
       )}

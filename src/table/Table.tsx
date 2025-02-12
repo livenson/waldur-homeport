@@ -25,6 +25,7 @@ import { TablePagination } from './TablePagination';
 import { TablePlaceholder } from './TablePlaceholder';
 import { TableQuery } from './TableQuery';
 import { TableRefreshButton } from './TableRefreshButton';
+import { TableTabs } from './TableTabs';
 import { TableProps } from './types';
 import { useTableLoader } from './useTableLoader';
 
@@ -235,6 +236,13 @@ class TableClass<RowType = any> extends React.Component<TableProps<RowType>> {
               </Row>
             </Card.Header>
           )}
+
+          {/* Tabs */}
+          {this.props.tabs?.length ? (
+            <Card.Header className="table-tabs border-bottom align-items-stretch py-0 min-h-auto">
+              <TableTabs tabs={this.props.tabs} />
+            </Card.Header>
+          ) : null}
 
           {this.props.filterPosition === 'header' && this.props.filters ? (
             <Card.Header className="table-filter border-bottom align-items-stretch">

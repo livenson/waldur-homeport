@@ -133,7 +133,7 @@ export const ResourceDetailsContainer: FunctionComponent<{}> = () => {
   );
 
   const openTeamModal = useCallback(() => {
-    dispatch(openModalDialog(ProjectUsersList, { size: 'xl' }));
+    dispatch(openModalDialog(ProjectUsersList, { size: 'xl', hideTabs: true }));
   }, []);
 
   useToolbarActions(

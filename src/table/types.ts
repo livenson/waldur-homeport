@@ -194,6 +194,7 @@ export interface TableProps<RowType = any> extends TableState {
   subtitle?: React.ReactNode;
   hasActionBar?: boolean;
   hasHeaders?: boolean;
+  tabs?: Array<{ key; title; state; params? }>;
   enableMultiSelect?: boolean;
   multiSelectActions?: React.ComponentType<{ rows: any[]; refetch }>;
   selectRow?(row: any): void;

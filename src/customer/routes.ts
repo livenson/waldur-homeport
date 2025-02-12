@@ -77,6 +77,7 @@ export const states: StateDeclaration[] = [
     parent: 'organization',
     component: UIView,
     url: '',
+    redirectTo: 'organization-users',
     data: {
       breadcrumb: () => translate('Team'),
       priority: 130,
@@ -150,8 +151,10 @@ export const states: StateDeclaration[] = [
     ),
     parent: 'organization-team',
     data: {
+      skipBreadcrumb: true,
       breadcrumb: () => translate('Users'),
-      permissions: [isOwnerOrStaff],
+      // NOTE: We check the permissions of this page on the page itself, because the "Team" route redirects to this page.
+      // permissions: [isOwnerOrStaff],
     },
   },
 
@@ -165,6 +168,7 @@ export const states: StateDeclaration[] = [
     ),
     parent: 'organization-team',
     data: {
+      skipBreadcrumb: true,
       breadcrumb: () => translate('Invitations'),
     },
   },
@@ -179,22 +183,9 @@ export const states: StateDeclaration[] = [
     ),
     parent: 'organization-team',
     data: {
+      skipBreadcrumb: true,
       breadcrumb: () => translate('Group invitations'),
       permissions: [() => !ENV.plugins.WALDUR_CORE.INVITATION_USE_WEBHOOKS],
-    },
-  },
-
-  {
-    name: 'organization-permissions-log',
-    url: 'permissions-log/',
-    component: lazyComponent(() =>
-      import('./team/CustomerPermissionsLogList').then((module) => ({
-        default: module.CustomerPermissionsLogList,
-      })),
-    ),
-    parent: 'organization-team',
-    data: {
-      breadcrumb: () => translate('Permission log'),
     },
   },
 
@@ -208,6 +199,7 @@ export const states: StateDeclaration[] = [
     ),
     parent: 'organization-team',
     data: {
+      skipBreadcrumb: true,
       breadcrumb: () => translate('Reviews'),
       feature: CustomerFeatures.show_permission_reviews,
     },
