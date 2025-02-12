@@ -304,7 +304,7 @@
     "message": "Active to"
   },
   "Active": {
-    "description": "administration/announcements/AnnouncementFilter.tsx, administration/roles/RolesList.tsx, administration/users/FreeIPAUsersList.tsx, invitations/GroupInvitationsList.tsx, marketplace/offerings/list/OfferingStateCell.tsx, marketplace/offerings/list/OfferingStateFilter.tsx, marketplace/offerings/update/plans/PlansSection.tsx, marketplace/service-providers/ProviderCampaignStateFilter.tsx, proposals/utils.ts, user/support/UserList.tsx, user/support/utils.ts",
+    "description": "administration/announcements/AnnouncementFilter.tsx, administration/roles/RolesList.tsx, administration/users/FreeIPAUsersList.tsx, customer/utils.ts, invitations/GroupInvitationsList.tsx, marketplace/offerings/list/OfferingStateCell.tsx, marketplace/offerings/list/OfferingStateFilter.tsx, marketplace/offerings/update/plans/PlansSection.tsx, marketplace/service-providers/ProviderCampaignStateFilter.tsx, project/utils.ts, proposals/utils.ts, user/support/UserList.tsx, user/support/utils.ts",
     "message": "Active"
   },
   "Add Waldur user SSH keys to the FreeIPA profile": {
@@ -4628,7 +4628,7 @@
     "message": "Group invitation has been cancelled."
   },
   "Group invitations": {
-    "description": "customer/routes.ts, invitations/GroupInvitationsFilter.tsx",
+    "description": "customer/routes.ts, customer/utils.ts, invitations/GroupInvitationsFilter.tsx",
     "message": "Group invitations"
   },
   "Group": {
@@ -5308,7 +5308,7 @@
     "message": "Invitations management"
   },
   "Invitations": {
-    "description": "administration/InvitationList.tsx, administration/routes.ts, customer/routes.ts, invitations/InvitationsList.tsx, project/routes.ts, proposals/team/InvitationsList.tsx, proposals/team/TeamSection.tsx",
+    "description": "administration/InvitationList.tsx, administration/routes.ts, customer/routes.ts, customer/utils.ts, invitations/InvitationsList.tsx, project/routes.ts, project/utils.ts, proposals/team/InvitationsList.tsx, proposals/team/TeamSection.tsx",
     "message": "Invitations"
   },
   "Invite by email": {
@@ -7788,7 +7788,7 @@
     "message": "Permission has been updated successfully."
   },
   "Permission log": {
-    "description": "customer/routes.ts, proposals/team/TeamSection.tsx",
+    "description": "proposals/team/TeamSection.tsx",
     "message": "Permission log"
   },
   "Permission request has been approved.": {
@@ -7802,10 +7802,6 @@
   "Permission requests": {
     "description": "user/UserPermissionRequestsList.tsx, user/routes.ts",
     "message": "Permission requests"
-  },
-  "Permissions log": {
-    "description": "project/routes.ts",
-    "message": "Permissions log"
   },
   "Permissions": {
     "description": "administration/roles/RoleForm.tsx, marketplace/offerings/OfferingDetailsUIView.tsx",
@@ -9744,7 +9740,7 @@
     "message": "Reviews in final states are not editable"
   },
   "Reviews": {
-    "description": "customer/routes.ts, navigation/sidebar/CallPublicMenu.tsx, proposals/review/CustomerReviewsList.tsx, proposals/routes.ts, proposals/update/rounds/CallRoundsList.tsx",
+    "description": "customer/routes.ts, customer/utils.ts, navigation/sidebar/CallPublicMenu.tsx, proposals/review/CustomerReviewsList.tsx, proposals/routes.ts, proposals/update/rounds/CallRoundsList.tsx",
     "message": "Reviews"
   },
   "Revoke": {
@@ -11392,7 +11388,7 @@
     "message": "Team member has been removed."
   },
   "Team members": {
-    "description": "administration/roles/PermissionOptions.tsx, customer/team/CustomerUsersList.tsx, marketplace/service-providers/ProviderTeamPage.tsx, project/team/ProjectUsersList.tsx, proposals/call-management/CallManagementTeamPage.tsx, user/affiliations/SummaryTeamTable.tsx",
+    "description": "administration/roles/PermissionOptions.tsx, marketplace/service-providers/ProviderTeamPage.tsx, project/team/ProjectUsersList.tsx, proposals/call-management/CallManagementTeamPage.tsx, user/affiliations/SummaryTeamTable.tsx",
     "message": "Team members"
   },
   "Team size": {
@@ -11404,7 +11400,7 @@
     "message": "Team verification"
   },
   "Team": {
-    "description": "customer/routes.ts, marketplace/routes.ts, project/ProjectUsersBadge.tsx, project/routes.ts, proposals/routes.ts, user/affiliations/OrganizationExpandableRow.tsx, user/affiliations/ProjectExpandableRow.tsx",
+    "description": "customer/routes.ts, customer/team/CustomerUsersList.tsx, invitations/GroupInvitationsList.tsx, invitations/InvitationsList.tsx, marketplace/routes.ts, project/ProjectUsersBadge.tsx, project/routes.ts, project/team/InvitationsList.tsx, project/team/ProjectUsersList.tsx, proposals/routes.ts, user/affiliations/OrganizationExpandableRow.tsx, user/affiliations/ProjectExpandableRow.tsx",
     "message": "Team"
   },
   "Technical code used by accounting software.": {

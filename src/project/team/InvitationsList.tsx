@@ -22,6 +22,10 @@ import { RoleField } from '@waldur/user/affiliations/RoleField';
 import { useUser } from '@waldur/workspace/hooks';
 import { getCustomer, getProject } from '@waldur/workspace/selectors';
 
+import { PROJECT_TEAM_TABLE_TABS } from '../utils';
+
+import { ProjectPermissionsLogButton } from './ProjectPermissionsLogButton';
+
 const InvitationsListComponent: FunctionComponent = () => {
   const filter = useSelector(mapStateToFilter);
   const props = useTable({
@@ -72,17 +76,22 @@ const InvitationsListComponent: FunctionComponent = () => {
           render: ({ row }) => formatDate(row.expires),
         },
       ]}
+      tabs={PROJECT_TEAM_TABLE_TABS}
       rowActions={({ row }) => (
         <InvitationActions invitation={row} refetch={props.fetch} />
       )}
+      title={translate('Team')}
       verboseName={translate('Team invitations')}
       tableActions={
-        <InvitationCreateButton
-          project={project}
-          roleTypes={['project']}
-          refetch={props.fetch}
-          enableBulkUpload={true}
-        />
+        <>
+          <ProjectPermissionsLogButton />
+          <InvitationCreateButton
+            project={project}
+            roleTypes={['project']}
+            refetch={props.fetch}
+            enableBulkUpload={true}
+          />
+        </>
       }
       hasQuery={true}
       expandableRow={InvitationExpandableRow}

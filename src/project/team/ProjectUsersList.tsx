@@ -13,9 +13,11 @@ import { RoleField } from '@waldur/user/affiliations/RoleField';
 import { getProject } from '@waldur/workspace/selectors';
 
 import { PROJECT_USERS_LIST_FILTER_FORM_ID } from '../constants';
+import { PROJECT_TEAM_TABLE_TABS } from '../utils';
 
 import { AddUserButton } from './AddUserButton';
 import { ProjectPermisionActions } from './ProjectPermisionActions';
+import { ProjectPermissionsLogButton } from './ProjectPermissionsLogButton';
 import { ProjectUsersListFilter } from './ProjectUsersListFilter';
 
 const mandatoryFields = [
@@ -41,7 +43,7 @@ const mapStateToFilter = createSelector(
   },
 );
 
-export const ProjectUsersList = () => {
+export const ProjectUsersList = ({ hideTabs = false }) => {
   const filter = useSelector(mapStateToFilter);
   const project = useSelector(getProject);
   const tableProps = useTable({
@@ -108,11 +110,15 @@ export const ProjectUsersList = () => {
           keys: ['expiration_time'],
         },
       ]}
+      tabs={!hideTabs && PROJECT_TEAM_TABLE_TABS}
       hasQuery={true}
       tableActions={
-        <AddUserButton project={project} refetch={tableProps.fetch} />
+        <>
+          <ProjectPermissionsLogButton />
+          <AddUserButton project={project} refetch={tableProps.fetch} />
+        </>
       }
-      title={translate('Team members')}
+      title={translate('Team')}
       verboseName={translate('Team members')}
       rowActions={ProjectPermisionActions}
       filters={<ProjectUsersListFilter />}

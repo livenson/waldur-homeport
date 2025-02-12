@@ -95,3 +95,16 @@ export const canEditProject = (user: User, context: { customer?; project? }) =>
     permission: PermissionEnum.UPDATE_PROJECT,
     projectId: context?.project?.uuid,
   });
+
+export const PROJECT_TEAM_TABLE_TABS = [
+  {
+    key: 'users',
+    title: translate('Active'),
+    state: 'project-users',
+  },
+  {
+    key: 'project-invitations',
+    title: translate('Invitations'),
+    state: 'project-invitations',
+  },
+];

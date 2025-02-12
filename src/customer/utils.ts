@@ -1,8 +1,45 @@
+import { useSelector } from 'react-redux';
+
+import { ENV } from '@waldur/configs/default';
+import { isFeatureVisible } from '@waldur/features/connect';
+import { CustomerFeatures } from '@waldur/FeaturesEnums';
+import { translate } from '@waldur/i18n';
 import { hasPermission } from '@waldur/permissions/hasPermission';
-import { getCustomer, getUser } from '@waldur/workspace/selectors';
+import {
+  getCustomer,
+  getUser,
+  isOwnerOrStaff as isOwnerOrStaffSelector,
+} from '@waldur/workspace/selectors';
 
 export const userHasCustomerPermission = (permission) => (state) =>
   hasPermission(getUser(state), {
     customerId: getCustomer(state).uuid,
     permission,
   });
+
+export const useTeamTableTabs = () => {
+  const isOwnerOrStaff = useSelector(isOwnerOrStaffSelector);
+
+  return [
+    isOwnerOrStaff && {
+      key: 'users',
+      title: translate('Active'),
+      state: 'organization-users',
+    },
+    {
+      key: 'organization-invitations',
+      title: translate('Invitations'),
+      state: 'organization-invitations',
+    },
+    !ENV.plugins.WALDUR_CORE.INVITATION_USE_WEBHOOKS && {
+      key: 'organization-group-invitations',
+      title: translate('Group invitations'),
+      state: 'organization-group-invitations',
+    },
+    isFeatureVisible(CustomerFeatures.show_permission_reviews) && {
+      key: 'organization-permissions-reviews',
+      title: translate('Reviews'),
+      state: 'organization-permissions-reviews',
+    },
+  ].filter(Boolean);
+};

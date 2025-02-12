@@ -46,7 +46,7 @@ describe('Group invitations', () => {
         '/organizations/895e38d197e748459189f19285119edf/group-invitations/',
       )
       .waitForPage()
-      .get('.card-title')
+      .get('.table-tabs .nav-link')
       .contains('Group invitations');
   });
 

@@ -4,6 +4,8 @@ import { getFormValues } from 'redux-form';
 
 import { CopyToClipboardButton } from '@waldur/core/CopyToClipboardButton';
 import { formatDate } from '@waldur/core/dateUtils';
+import { CustomerPermissionsLogButton } from '@waldur/customer/team/CustomerPermissionsLogButton';
+import { useTeamTableTabs } from '@waldur/customer/utils';
 import { translate } from '@waldur/i18n';
 import { InvitationExpandableRow } from '@waldur/invitations/InvitationExpandableRow';
 import { useTitle } from '@waldur/navigation/title';
@@ -38,6 +40,8 @@ export const InvitationsList: FunctionComponent = () => {
     filter,
     queryField: 'email',
   });
+
+  const tableTabs = useTeamTableTabs();
 
   return (
     <Table
@@ -83,13 +87,18 @@ export const InvitationsList: FunctionComponent = () => {
           export: (row) => formatDate(row.expires),
         },
       ]}
+      tabs={tableTabs}
+      title={translate('Team')}
       verboseName={translate('team invitations')}
       tableActions={
-        <InvitationCreateButton
-          roleTypes={['customer', 'project']}
-          refetch={props.fetch}
-          enableBulkUpload={true}
-        />
+        <>
+          <CustomerPermissionsLogButton />
+          <InvitationCreateButton
+            roleTypes={['customer', 'project']}
+            refetch={props.fetch}
+            enableBulkUpload={true}
+          />
+        </>
       }
       hasQuery={true}
       enableExport

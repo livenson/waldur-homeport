@@ -1,4 +1,5 @@
-import { FunctionComponent } from 'react';
+import { useRouter } from '@uirouter/react';
+import { FunctionComponent, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
@@ -15,8 +16,14 @@ import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
 import { RoleField } from '@waldur/user/affiliations/RoleField';
 import { exportRoleField } from '@waldur/user/affiliations/RolePopover';
-import { getCustomer } from '@waldur/workspace/selectors';
+import {
+  getCustomer,
+  isOwnerOrStaff as isOwnerOrStaffSelector,
+} from '@waldur/workspace/selectors';
 
+import { useTeamTableTabs } from '../utils';
+
+import { CustomerPermissionsLogButton } from './CustomerPermissionsLogButton';
 import { CustomerUserRowActions } from './CustomerUserRowActions';
 import { UserAddButton } from './UserAddButton';
 
@@ -69,9 +76,21 @@ export const CustomerUsersList: FunctionComponent<{ filters? }> = ({
     filter,
     mandatoryFields,
   });
+
+  // The "Team" page contains several other pages. We have to check the access permissions to this page here.
+  const router = useRouter();
+  const isOwnerOrStaff = useSelector(isOwnerOrStaffSelector);
+  useEffect(() => {
+    if (!isOwnerOrStaff) {
+      router.stateService.go('organization-invitations');
+    }
+  }, []);
+
+  const tableTabs = useTeamTableTabs();
+
   return (
     <Table
-      title={translate('Team members')}
+      title={translate('Team')}
       {...props}
       filters={filters}
       columns={[
@@ -136,6 +155,7 @@ export const CustomerUsersList: FunctionComponent<{ filters? }> = ({
           keys: ['expiration_time'],
         },
       ]}
+      tabs={tableTabs}
       verboseName={translate('team members')}
       hasQuery={true}
       enableExport
@@ -146,7 +166,12 @@ export const CustomerUsersList: FunctionComponent<{ filters? }> = ({
         <CustomerUsersListExpandableRow row={row} refetch={props.fetch} />
       )}
       expandableRowClassName="p-0 ps-12"
-      tableActions={<UserAddButton refetch={props.fetch} />}
+      tableActions={
+        <>
+          <CustomerPermissionsLogButton />
+          <UserAddButton refetch={props.fetch} />
+        </>
+      }
       hasOptionalColumns
     />
   );

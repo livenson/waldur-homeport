@@ -10,7 +10,7 @@ import { FunctionComponent, useCallback, useEffect, useState } from 'react';
 
 import { Link } from '@waldur/core/Link';
 
-import { useTabs } from './useTabs';
+import { isDescendantOf, useTabs } from './useTabs';
 
 const MenuLink: FunctionComponent<
   UISrefProps & { className?: string; disabled?: boolean }
@@ -32,10 +32,11 @@ const MenuLink: FunctionComponent<
 const findActiveTab = (tabs, router) =>
   tabs.find(
     (parent) =>
-      router.stateService.is(parent.to, parent.params) ||
+      router.stateService.is(parent.redirectTo || parent.to, parent.params) ||
       parent.children?.find((child) =>
         router.stateService.is(child.to, child.params),
-      ),
+      ) ||
+      isDescendantOf(parent.to, router.globals.current),
   );
 
 export const TabsList: FunctionComponent = () => {
@@ -62,7 +63,7 @@ export const TabsList: FunctionComponent = () => {
             )}
             key={parentIndex}
           >
-            <MenuLink to={parentTab.to}>
+            <MenuLink to={parentTab.redirectTo || parentTab.to}>
               <span className="menu-title">{parentTab.title}</span>
               <span className="menu-arrow" />
             </MenuLink>
@@ -92,7 +93,7 @@ export const TabsList: FunctionComponent = () => {
             data-kt-menu-trigger="click"
           >
             <MenuLink
-              to={parentTab.to}
+              to={parentTab.redirectTo || parentTab.to}
               params={parentTab.params}
               disabled={parentTab.disabled}
             >
