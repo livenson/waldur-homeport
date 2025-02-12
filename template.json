@@ -1547,10 +1547,6 @@
     "description": "openstack/openstack-instance/OpenStackInstanceActions.tsx, openstack/openstack-tenant/OpenstackTenantActions.tsx, openstack/openstack-volume/OpenStackVolumeActions.tsx, slurm/SlurmAllocationActions.tsx",
     "message": "Billing actions"
   },
-  "Billing address": {
-    "description": "marketplace/deploy/DetailsOverviewDialog.tsx",
-    "message": "Billing address"
-  },
   "Billing component has been created successfully.": {
     "description": "marketplace/offerings/update/components/AddComponentDialog.tsx",
     "message": "Billing component has been created successfully."
@@ -2330,10 +2326,6 @@
   "Contact": {
     "description": "customer/details/CustomerManageContainer.tsx, customer/details/CustomerManagePageBar.tsx, marketplace/service-providers/ProviderOrganizationsList.tsx, marketplace/service-providers/ProviderUserCustomersList.tsx, marketplace/service-providers/ProviderUsersList.tsx, proposals/offering-requests/OfferingRequestsListExpandableRow.tsx",
     "message": "Contact"
-  },
-  "Contact/Support": {
-    "description": "marketplace/deploy/DetailsOverviewDialog.tsx",
-    "message": "Contact/Support"
   },
   "Content": {
     "description": "administration/agreements/UserAgreementCreateDialog.tsx",
@@ -5455,6 +5447,10 @@
     "description": "SettingsDescription.ts",
     "message": "It is used as prefix for page title."
   },
+  "It is used for rendering callback URL in HomePort": {
+    "description": "SettingsDescription.ts",
+    "message": "It is used for rendering callback URL in HomePort"
+  },
   "It is used in marketplace order details and invoices for currency formatting.": {
     "description": "SettingsDescription.ts",
     "message": "It is used in marketplace order details and invoices for currency formatting."
@@ -8176,7 +8172,7 @@
     "message": "Price per year"
   },
   "Price": {
-    "description": "invoices/details/InvoiceItemsTable.tsx, invoices/list/InvoicesList.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/offerings/PriceList.tsx, marketplace/resources/change-plan/utils.tsx",
+    "description": "invoices/details/InvoiceItemsTable.tsx, invoices/list/InvoicesList.tsx, marketplace/offerings/PriceList.tsx, marketplace/resources/change-plan/utils.tsx",
     "message": "Price"
   },
   "Pricelist": {
@@ -9354,10 +9350,6 @@
   "Resource actions": {
     "description": "openstack/openstack-instance/OpenStackInstanceActions.tsx, openstack/openstack-tenant/OpenstackTenantActions.tsx, openstack/openstack-volume/OpenStackVolumeActions.tsx, resource/actions/ResourceActionComponent.tsx, slurm/SlurmAllocationActions.tsx",
     "message": "Resource actions"
-  },
-  "Resource allocation": {
-    "description": "marketplace/deploy/DetailsOverviewDialog.tsx",
-    "message": "Resource allocation"
   },
   "Resource already has this plan.": {
     "description": "marketplace/resources/change-plan/utils.tsx",
@@ -10974,10 +10966,6 @@
   "Special price": {
     "description": "marketplace/service-providers/CampaignForm.tsx, marketplace/service-providers/CampaignUpdateForm.tsx, marketplace/service-providers/ProviderCampaignTypeFilter.tsx",
     "message": "Special price"
-  },
-  "Specifications": {
-    "description": "marketplace/deploy/DetailsOverviewDialog.tsx",
-    "message": "Specifications"
   },
   "Specify the name of the organization the user is affiliated with": {
     "description": "user/support/UserEditRows.tsx",

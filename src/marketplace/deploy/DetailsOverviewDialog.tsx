@@ -11,7 +11,6 @@ import FormTable from '@waldur/form/FormTable';
 import { translate } from '@waldur/i18n';
 import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
 import { getCustomer, getProject } from '@waldur/project/api';
-import { DASH_ESCAPE_CODE } from '@waldur/table/constants';
 import { renderFieldOrDash } from '@waldur/table/utils';
 import { Customer, Project } from '@waldur/workspace/types';
 
@@ -121,15 +120,12 @@ export const DetailsOverviewDialog: FC<{
                   label={translate('Contact info')}
                   group
                   value={[
+                    customer.data.contact_details,
                     customer.data.email,
                     formatPhoneNumber(customer.data.phone_number),
                   ]
                     .filter(Boolean)
                     .map((v) => withCopy(v))}
-                />
-                <FormTable.Item
-                  label={translate('Billing address')}
-                  value={withCopy(customer.data.address)}
                 />
               </FormTable>
             </Tab>
@@ -151,10 +147,6 @@ export const DetailsOverviewDialog: FC<{
                       : null,
                   )}
                 />
-                <FormTable.Item
-                  label={translate('Resource allocation')}
-                  value={DASH_ESCAPE_CODE}
-                />
               </FormTable>
             </Tab>
           ) : null}
@@ -168,14 +160,6 @@ export const DetailsOverviewDialog: FC<{
                 <FormTable.Item
                   label={translate('Type')}
                   value={withCopy(getLabel(props.offering.type))}
-                />
-                <FormTable.Item
-                  label={translate('Price')}
-                  value={DASH_ESCAPE_CODE}
-                />
-                <FormTable.Item
-                  label={translate('Specifications')}
-                  value={DASH_ESCAPE_CODE}
                 />
               </FormTable>
             </Tab>
@@ -192,14 +176,6 @@ export const DetailsOverviewDialog: FC<{
                 <FormTable.Item
                   label={translate('Description')}
                   value={withCopy(provider.data.description)}
-                />
-                <FormTable.Item
-                  label={translate('Contact/Support')}
-                  group
-                  value={['Email', 'Phone']
-                    .filter(Boolean)
-                    .map((v) => withCopy(v))}
-                  className="border-0"
                 />
               </FormTable>
             </Tab>
