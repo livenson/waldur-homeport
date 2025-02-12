@@ -161,6 +161,12 @@ export const DetailsOverviewDialog: FC<{
                   label={translate('Type')}
                   value={withCopy(getLabel(props.offering.type))}
                 />
+                {props.offering.parent_name && (
+                  <FormTable.Item
+                    label={translate('Parent offering')}
+                    value={withCopy(getLabel(props.offering.parent_name))}
+                  />
+                )}
               </FormTable>
             </Tab>
           )}
