@@ -1,3 +1,4 @@
+import { CaretCircleDown, CaretCircleUp } from '@phosphor-icons/react';
 import { FC, useState } from 'react';
 import { Button, Col, Row } from 'react-bootstrap';
 
@@ -38,8 +39,10 @@ export const CategoriesList: FC = () => {
     ? categories.data
     : categories.data.slice(0, ITEMS_IN_ROW);
 
+  const showMoreButton = categories.data.length > ITEMS_IN_ROW;
+
   return (
-    <>
+    <div className={!showMoreButton ? 'my-10' : 'mt-10'}>
       <Row className="justify-content-center g-5">
         {items.map((item, index) => (
           <Col key={index} xl={showAll ? 2 : true} lg={4} md={4} sm={6}>
@@ -50,19 +53,24 @@ export const CategoriesList: FC = () => {
           </Col>
         ))}
       </Row>
-      {categories.data.length > ITEMS_IN_ROW ? (
-        <div className="d-flex flex-column justify-content-center flex-grow-1">
+      {showMoreButton ? (
+        <div className="text-center my-3">
           <Button
-            variant="link"
-            size="sm"
-            className="text-decoration-underline my-1"
-            role="button"
+            variant="active-secondary"
+            className="btn-color-primary btn-icon-right"
             onClick={() => setShowAll((value) => !value)}
           >
             {showAll ? translate('See less') : translate('See more')}
+            <span className="svg-icon svg-icon-2">
+              {showAll ? (
+                <CaretCircleUp weight="bold" />
+              ) : (
+                <CaretCircleDown weight="bold" />
+              )}
+            </span>
           </Button>
         </div>
       ) : null}
-    </>
+    </div>
   );
 };
