@@ -30,6 +30,12 @@ export const SettingsDescription = [
         default: 'Your single pane of control for managing projects, teams and resources in a self-service manner.',
         type: 'string',
       },
+      {
+        key: 'HOMEPORT_URL',
+        description: translate('It is used for rendering callback URL in HomePort'),
+        default: 'https://example.com/',
+        type: 'string',
+      },
     ],
   },
   {
