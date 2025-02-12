@@ -61,10 +61,10 @@ export const LandingPage: FC<{}> = () => {
           <OfferingsSearchBox />
         </div>
       </LandingHeroSection>
-      <div className="container-fluid mt-20 mb-10">
+      <div className="container-fluid">
         <CategoriesList />
       </div>
-      <div className="container-fluid mb-20">
+      <div className="container-fluid mb-10">
         <OfferingsGroup />
       </div>
     </div>
