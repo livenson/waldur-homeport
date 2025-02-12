@@ -10,7 +10,7 @@ import { CategoryLink } from '../links/CategoryLink';
 
 import { CategoryCard } from './CategoryCard';
 
-const ITEMS_IN_ROW = 5;
+const ITEMS_IN_ROW = 6;
 
 export const CategoriesList: FC = () => {
   const categories = useCategories();

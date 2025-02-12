@@ -30,10 +30,10 @@
     align-items: center;
     overflow: hidden;
     margin-bottom: 16px;
+    border-radius: 8px;
 
     &.no-image {
       border: 1px solid var(--bs-border-color);
-      border-radius: 8px;
     }
 
     svg {
