@@ -1755,10 +1755,6 @@
     "description": "proposals/update/CallActions.tsx",
     "message": "Call must have a round to be activated."
   },
-  "Call must have reviewers to be activated.": {
-    "description": "proposals/update/CallActions.tsx",
-    "message": "Call must have reviewers to be activated."
-  },
   "Call round": {
     "description": "proposals/round/RoundUIView.tsx",
     "message": "Call round"
