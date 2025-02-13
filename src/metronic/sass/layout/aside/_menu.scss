@@ -253,21 +253,21 @@ $asides: (
   &.here > .menu-link,
   :hover {
     transition: none;
-    color: var(--waldur-aside-bg-color) !important;
+    color: var(--waldur-brand-color) !important;
     background-color: white;
 
     .menu-title,
     .menu-icon {
       transition: none;
-      color: var(--waldur-aside-bg-color) !important;
+      color: var(--waldur-brand-color) !important;
       .svg-icon {
-        @include svg-icon-color(var(--waldur-aside-bg-color), true);
+        @include svg-icon-color(var(--waldur-brand-color), true);
       }
     }
 
     .menu-badge {
       .text-btn {
-        color: var(--waldur-aside-bg-color) !important;
+        color: var(--waldur-brand-color) !important;
       }
     }
   }
@@ -276,14 +276,14 @@ $asides: (
     background: white;
     .menu-title,
     .menu-icon {
-      color: var(--waldur-aside-bg-color) !important;
+      color: var(--waldur-brand-color) !important;
       .svg-icon {
-        @include svg-icon-color(var(--waldur-aside-bg-color), true);
+        @include svg-icon-color(var(--waldur-brand-color), true);
       }
     }
     .menu-badge {
       .badge {
-        color: var(--waldur-aside-bg-color) !important;
+        color: var(--waldur-brand-color) !important;
       }
     }
   }

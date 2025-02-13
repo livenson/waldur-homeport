@@ -91,6 +91,9 @@
     background: if(isDarkMode(), $grey-400, $primary-700);
     margin: 0 get($aside-config, margin-x);
   }
+  &.aside-accent .aside-footer.has-divider::before {
+    background: if(isDarkMode(), $grey-400, #fff6);
+  }
 }
 
 // On aside collapsed - not on mobile & not on hover
@@ -167,13 +170,16 @@ $custom-aside: (
     add-resource-color: if(isDarkMode(), $dark-add-resource-color, white),
     add-resource-state-color:
       if(isDarkMode(), $dark-add-resource-state-color, white),
-    show-more-color: if(isDarkMode(), $dark-show-more-color, $primary-400),
+    show-more-color:
+      if(isDarkMode(), $dark-show-more-color, var(--waldur-brand-color)),
     show-more-active-icon:
-      if(isDarkMode(), $dark-show-more-active-icon, $primary-600),
-    filter-label: if(isDarkMode(), $dark-show-more-color, $primary-300),
-    filter-badge-color: if(isDarkMode(), $dark-badge-color, $primary-800),
+      if(isDarkMode(), $dark-show-more-active-icon, var(--waldur-brand-color)),
+    filter-label:
+      if(isDarkMode(), $dark-show-more-color, var(--waldur-brand-color)),
+    filter-badge-color:
+      if(isDarkMode(), $dark-badge-color, var(--waldur-brand-color)),
     filter-badge-bg: if(isDarkMode(), $dark-badge-bg, transparent),
-    filter-badge-border: if(isDarkMode(), $dark-badge-border, $primary-200),
+    filter-badge-border: if(isDarkMode(), $dark-badge-border, $grey-300),
   ),
 );
 

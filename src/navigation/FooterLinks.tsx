@@ -51,7 +51,7 @@ export const FooterLinks = () => {
   }, []);
 
   return (
-    <ul className="menu menu-primary fw-bold order-1" data-kt-menu="true">
+    <ul className="menu menu-brand fw-bold order-1" data-kt-menu="true">
       {!AuthService.isAuthenticated() && (
         <>
           {isFeatureVisible(
