@@ -84,10 +84,24 @@ export const getUUID = (url) => url && url.split('/').splice(-2)[0];
 export const pick = (fields) => (source) =>
   fields.reduce((target, field) => ({ ...target, [field]: source[field] }), {});
 
-export const titleCase = (input) => {
-  if (input) {
-    return input.charAt(0).toUpperCase() + input.slice(1);
-  }
+// This is a list of words that should not be lowercased
+const EXCEPTIONS: Record<string, string> = {
+  url: 'URL',
+  id: 'ID',
+  api: 'API',
+};
+
+export const titleCase = (input: string) => {
+  if (!input) return input;
+
+  const words = input
+    .split(' ')
+    .map((word) => EXCEPTIONS[word.toLowerCase()] || word.toLowerCase());
+
+  // Capitalize only the first word
+  words[0] = words[0].charAt(0).toUpperCase() + words[0].slice(1);
+
+  return words.join(' ');
 };
 
 export const omit = (object, prop) => {
