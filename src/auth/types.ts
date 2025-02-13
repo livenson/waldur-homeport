@@ -71,6 +71,8 @@ interface CoreConfiguration {
   LANGUAGE_CHOICES: string[];
   DISABLE_DARK_THEME: boolean;
   USER_TABLE_COLUMNS: string;
+  FREEIPA_USERNAME_PREFIX?: string;
+  FREEIPA_ENABLED?: boolean;
 }
 
 interface OpenStackConfiguration {
@@ -100,11 +102,6 @@ interface VMWareConfiguration {
   BASIC_MODE: boolean;
 }
 
-interface FreeIPAConfiguration {
-  USERNAME_PREFIX: string;
-  ENABLED: boolean;
-}
-
 interface SupportConfiguration {
   ENABLED: boolean;
   DISPLAY_REQUEST_TYPE: boolean;
@@ -121,5 +118,4 @@ export interface PluginConfiguration {
   WALDUR_MARKETPLACE_OPENSTACK: Partial<MarketplaceOpenStackTenantConfiguration>;
   WALDUR_RANCHER: RancherConfiguration;
   WALDUR_VMWARE: Partial<VMWareConfiguration>;
-  WALDUR_FREEIPA: Partial<FreeIPAConfiguration>;
 }

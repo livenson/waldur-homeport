@@ -145,6 +145,10 @@ export const IdentityProvidersList = () => {
           </Row>
         </Card.Body>
       </Card>
+      <SettingsCard
+        groupNames={[translate('FreeIPA settings')]}
+        settingsSource={settingsData}
+      />
     </>
   ) : null;
 };

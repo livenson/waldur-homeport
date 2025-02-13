@@ -102,15 +102,13 @@
     "HERO_IMAGE": null,
     "HERO_LINK_LABEL": null,
     "HERO_LINK_URL": null,
-    "DEFAULT_IDP": ""
+    "DEFAULT_IDP": "",
+    "FREEIPA_ENABLED": true,
+    "FREEIPA_USERNAME_PREFIX": "hpcu_"
   },
   "WALDUR_AUTH_SOCIAL": {
     "REMOTE_EDUTEAMS_ENABLED": false,
     "ENABLE_EDUTEAMS_SYNC": false
-  },
-  "WALDUR_FREEIPA": {
-    "USERNAME_PREFIX": "hpcu_",
-    "ENABLED": true
   },
   "WALDUR_KEYCLOAK": {
     "ENABLED": false
