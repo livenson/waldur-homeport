@@ -24,7 +24,7 @@ function initSentry() {
 function initCssVariables() {
   if (ENV.plugins.WALDUR_CORE.BRAND_COLOR) {
     document.documentElement.style.setProperty(
-      '--waldur-aside-bg-color',
+      '--waldur-brand-color',
       ENV.plugins.WALDUR_CORE.BRAND_COLOR,
     );
   }

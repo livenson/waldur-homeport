@@ -27,7 +27,7 @@ export const ModelCard1: FC<ModelCard1Props> = ({
   <Card
     className={classNames(
       'model-card-1 card-bordered h-100 overflow-hidden',
-      props.clickable && 'cursor-pointer border-hover-primary',
+      props.clickable && 'cursor-pointer border-hover-brand',
     )}
   >
     {(props.image || props.placeholder) && (
