@@ -32,5 +32,9 @@ export const AddUserButton: React.FC<{ project: Project; refetch }> = ({
   if (!canAddUser) {
     return null;
   }
-  return <AddButton action={() => openDialog(AddUserDialog, { refetch })} />;
+  return (
+    <AddButton
+      action={() => openDialog(AddUserDialog, { refetch, level: 'project' })}
+    />
+  );
 };
