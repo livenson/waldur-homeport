@@ -226,6 +226,17 @@ export const getResourceTabs = ({
       ),
     });
   }
+  if (resource.report?.length > 0) {
+    tabs.push({
+      key: 'report',
+      title: translate('Report'),
+      component: lazyComponent(() =>
+        import('./ShowReportCard').then((module) => ({
+          default: module.ShowReportCard,
+        })),
+      ),
+    });
+  }
   return tabs;
 };
 

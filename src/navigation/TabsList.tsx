@@ -29,15 +29,28 @@ const MenuLink: FunctionComponent<
     </a>
   );
 
-const findActiveTab = (tabs, router) =>
-  tabs.find(
+const findActiveTab = (tabs, router) => {
+  const exactMatch = tabs.find(
     (parent) =>
       router.stateService.is(parent.redirectTo || parent.to, parent.params) ||
       parent.children?.find((child) =>
         router.stateService.is(child.to, child.params),
-      ) ||
-      isDescendantOf(parent.to, router.globals.current),
+      ),
   );
+  if (exactMatch) {
+    return exactMatch;
+  }
+  return tabs.find((parent) => {
+    if (!isDescendantOf(parent.to, router.globals.current)) {
+      return false;
+    }
+    return !tabs.some(
+      (otherParent) =>
+        otherParent !== parent &&
+        isDescendantOf(otherParent.to, router.globals.current),
+    );
+  });
+};
 
 export const TabsList: FunctionComponent = () => {
   const tabs = useTabs();

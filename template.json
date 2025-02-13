@@ -7072,7 +7072,7 @@
     "message": "Offerings"
   },
   "Ok": {
-    "description": "marketplace/details/plan/PlanDescription.tsx, marketplace/offerings/actions/RequestActionDialog.tsx, marketplace/orders/TermsOfServiceDialog.tsx, marketplace/resources/MarketplaceKeyValueDialog.tsx, marketplace/resources/report/ShowReportDialog.tsx, openstack/openstack-tenant/actions/RequestDirectAccessDialog.tsx, rancher/cluster/apps/ApplicationDetailsDialog.tsx, reporting/plan-usage/PlanUsageDialog.tsx, slurm/RequestLimitsChangeDialog.tsx",
+    "description": "marketplace/details/plan/PlanDescription.tsx, marketplace/offerings/actions/RequestActionDialog.tsx, marketplace/orders/TermsOfServiceDialog.tsx, marketplace/resources/MarketplaceKeyValueDialog.tsx, openstack/openstack-tenant/actions/RequestDirectAccessDialog.tsx, rancher/cluster/apps/ApplicationDetailsDialog.tsx, reporting/plan-usage/PlanUsageDialog.tsx, slurm/RequestLimitsChangeDialog.tsx",
     "message": "Ok"
   },
   "Old value": {
@@ -9095,10 +9095,6 @@
     "description": "marketplace/resources/details/fetchData.tsx",
     "message": "Replications"
   },
-  "Report details": {
-    "description": "marketplace/resources/report/ShowReportDialog.tsx",
-    "message": "Report details"
-  },
   "Report has been sent": {
     "description": "customer/list/ExportAsEmailDialog.tsx",
     "message": "Report has been sent"
@@ -9116,7 +9112,7 @@
     "message": "Report usage"
   },
   "Report": {
-    "description": "marketplace/resources/report/SubmitReportDialog.tsx",
+    "description": "marketplace/resources/details/ShowReportCard.tsx, marketplace/resources/details/fetchData.tsx, marketplace/resources/report/SubmitReportDialog.tsx",
     "message": "Report"
   },
   "Reported value is reused every month until changed.": {
@@ -10786,10 +10782,6 @@
   "Show recipients": {
     "description": "broadcasts/RecipientsField.tsx",
     "message": "Show recipients"
-  },
-  "Show report": {
-    "description": "marketplace/resources/report/ShowReportAction.tsx, marketplace/resources/report/ShowReportButton.tsx",
-    "message": "Show report"
   },
   "Show results of last run": {
     "description": "administration/remote-offering-sync/RemoteSyncLastRunResultsAction.tsx",
