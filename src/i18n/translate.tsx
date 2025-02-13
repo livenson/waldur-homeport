@@ -52,7 +52,7 @@ const translateTemplate = (template) =>
   LanguageUtilsService.dictionary[template] || template;
 
 const getDomainMessage = (message) => {
-  const domain = ENV.plugins?.WALDUR_CORE?.TRANSLATION_DOMAIN;
+  const domain = ENV.plugins?.WALDUR_CORE.TRANSLATION_DOMAIN;
   if (!domain) {
     return message;
   }

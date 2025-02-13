@@ -30,7 +30,7 @@ export const UserPopover: FunctionComponent<{ resolve }> = ({ resolve }) => {
     }
     const checklistCount = await countChecklists();
     let profile = null;
-    if (ENV.plugins.WALDUR_FREEIPA?.ENABLED) {
+    if (ENV.plugins.WALDUR_CORE.FREEIPA_ENABLED) {
       profile = await getProfile(user.uuid);
     }
     return { user, checklistCount, profile };

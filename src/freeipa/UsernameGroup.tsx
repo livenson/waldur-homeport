@@ -26,7 +26,8 @@ const validateUsername = (username: string) => {
   }
   if (
     username.length >
-    MAXIMUM_USERNAME_LENGTH - ENV.plugins.WALDUR_FREEIPA.USERNAME_PREFIX.length
+    MAXIMUM_USERNAME_LENGTH -
+      ENV.plugins.WALDUR_CORE.FREEIPA_USERNAME_PREFIX.length
   ) {
     return translate(
       'Maximum username length with mandatory username prefix is 32 characters.',
@@ -37,7 +38,7 @@ const validateUsername = (username: string) => {
 const UsernameField: FunctionComponent<WrappedFieldProps> = (props) => (
   <>
     <InputGroup className="mb-2">
-      {ENV.plugins.WALDUR_FREEIPA.USERNAME_PREFIX && (
+      {ENV.plugins.WALDUR_CORE.FREEIPA_USERNAME_PREFIX && (
         <OverlayTrigger
           placement="top"
           overlay={
@@ -47,7 +48,7 @@ const UsernameField: FunctionComponent<WrappedFieldProps> = (props) => (
           }
         >
           <InputGroup.Text>
-            {ENV.plugins.WALDUR_FREEIPA.USERNAME_PREFIX}
+            {ENV.plugins.WALDUR_CORE.FREEIPA_USERNAME_PREFIX}
           </InputGroup.Text>
         </OverlayTrigger>
       )}
