@@ -47,6 +47,10 @@
     "description": "user/support/TermsOfServiceCheckbox.tsx",
     "message": "<tos>Terms of Service</tos> and <pp>Privacy policy</pp> have been accepted on <date></date>"
   },
+  "A POSIX-friendly unique identifier for the offering.": {
+    "description": "marketplace/offerings/update/overview/OverviewSection.tsx",
+    "message": "A POSIX-friendly unique identifier for the offering."
+  },
   "A client-accessible domain name override in case Openstack is returning an internal domain": {
     "description": "openstack/OpenStackProvisioningConfigForm.tsx",
     "message": "A client-accessible domain name override in case Openstack is returning an internal domain"
@@ -310,6 +314,18 @@
   "Add Waldur user SSH keys to the FreeIPA profile": {
     "description": "freeipa/SyncProfile.tsx",
     "message": "Add Waldur user SSH keys to the FreeIPA profile"
+  },
+  "Add a detailed explanation of what the offering includes.": {
+    "description": "marketplace/offerings/update/overview/OverviewSection.tsx",
+    "message": "Add a detailed explanation of what the offering includes."
+  },
+  "Add a link to the full terms of service.": {
+    "description": "marketplace/offerings/update/overview/OverviewSection.tsx",
+    "message": "Add a link to the full terms of service."
+  },
+  "Add a link to your privacy policy for this offering.": {
+    "description": "marketplace/offerings/update/overview/OverviewSection.tsx",
+    "message": "Add a link to your privacy policy for this offering."
   },
   "Add a note to the provider": {
     "description": "proposals/update/offerings/WizardFormThirdPage.tsx",
@@ -3015,6 +3031,10 @@
     "description": "issues/create/IssueCreateForm.tsx",
     "message": "Define issue type and context"
   },
+  "Define the organization groups that are allowed to access the offering.": {
+    "description": "marketplace/offerings/update/overview/OverviewSection.tsx",
+    "message": "Define the organization groups that are allowed to access the offering."
+  },
   "Delete account": {
     "description": "user/support/UserDelete.tsx, user/support/UserDeleteAccount.tsx",
     "message": "Delete account"
@@ -3866,6 +3886,10 @@
   "Enter the expected credit reduction per month": {
     "description": "customer/credits/constants.tsx",
     "message": "Enter the expected credit reduction per month"
+  },
+  "Enter the offering's name as it will appear to users.": {
+    "description": "marketplace/offerings/update/overview/OverviewSection.tsx",
+    "message": "Enter the offering's name as it will appear to users."
   },
   "Enter your contact number": {
     "description": "user/support/UserEditRows.tsx",
@@ -6979,6 +7003,10 @@
     "description": "marketplace/service-providers/dashboard/ProviderOfferingPermissions.tsx",
     "message": "Offering managers:"
   },
+  "Offering name is required.": {
+    "description": "marketplace/offerings/update/overview/OverviewSection.tsx",
+    "message": "Offering name is required."
+  },
   "Offering name": {
     "description": "invoices/list/InvoicesStatsList.tsx, marketplace/resources/details/OfferingDetailsField.tsx, marketplace/resources/details/utils.tsx, proposals/details/CallOfferingsCard.tsx, proposals/update/offerings/CallOfferingsSection.tsx",
     "message": "Offering name"
@@ -8559,6 +8587,10 @@
     "description": "administration/providers/ProviderForm.tsx",
     "message": "Protected fields"
   },
+  "Provide a brief overview of the offering.": {
+    "description": "marketplace/offerings/update/overview/OverviewSection.tsx",
+    "message": "Provide a brief overview of the offering."
+  },
   "Provide an email address for communication and recovery": {
     "description": "user/support/UserEditRows.tsx, user/support/UserEmailChangeDialog.tsx",
     "message": "Provide an email address for communication and recovery"
@@ -8566,6 +8598,14 @@
   "Provide an email address for the user's communication and recovery": {
     "description": "user/support/UserEditRows.tsx",
     "message": "Provide an email address for the user's communication and recovery"
+  },
+  "Provide steps to help users begin using the offering.": {
+    "description": "marketplace/offerings/update/overview/OverviewSection.tsx",
+    "message": "Provide steps to help users begin using the offering."
+  },
+  "Provide the URL users will use to access the offering.": {
+    "description": "marketplace/offerings/update/overview/OverviewSection.tsx",
+    "message": "Provide the URL users will use to access the offering."
   },
   "Provide the required information to create a new organization.": {
     "description": "customer/create/CustomerCreateDialog.tsx",
@@ -10966,6 +11006,14 @@
   "Specify the name of the organization you are affiliated with": {
     "description": "user/support/UserEditRows.tsx",
     "message": "Specify the name of the organization you are affiliated with"
+  },
+  "Specify the terms users must agree to when accessing the offering.": {
+    "description": "marketplace/offerings/update/overview/OverviewSection.tsx",
+    "message": "Specify the terms users must agree to when accessing the offering."
+  },
+  "Specify where the offering is hosted.": {
+    "description": "marketplace/offerings/update/overview/OverviewSection.tsx",
+    "message": "Specify where the offering is hosted."
   },
   "Sponsor number": {
     "description": "customer/details/CustomerDetailsPanel.tsx, customer/details/EditFieldDialog.tsx",
@@ -13686,6 +13734,10 @@
   "Upload an image to personalize your account profile": {
     "description": "user/support/UserEditAvatarFormItem.tsx",
     "message": "Upload an image to personalize your account profile"
+  },
+  "Upload an image to represent the offering visually.": {
+    "description": "marketplace/offerings/update/overview/OverviewSection.tsx",
+    "message": "Upload an image to represent the offering visually."
   },
   "Upload failed, please try again": {
     "description": "form/upload/AttachmentItemPending.tsx",
