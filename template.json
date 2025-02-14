@@ -4460,7 +4460,7 @@
     "message": "FreeIPA is an integrated security information management solution."
   },
   "FreeIPA settings": {
-    "description": "SettingsDescription.ts, administration/providers/IdentityProvidersList.tsx",
+    "description": "SettingsDescription.ts",
     "message": "FreeIPA settings"
   },
   "FreeIPA users": {
