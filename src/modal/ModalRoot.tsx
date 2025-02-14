@@ -45,6 +45,7 @@ export const ModalRoot: FunctionComponent = () => {
       onHide={onHide}
       style={modalStyle}
       centered
+      enforceFocus={false}
       {...rest}
     >
       <ErrorBoundary fallback={ErrorMessage}>
