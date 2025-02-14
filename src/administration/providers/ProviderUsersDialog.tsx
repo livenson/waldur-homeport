@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { Modal } from 'react-bootstrap';
 
+import { FREEIPA_IDP } from '@waldur/auth/providers/constants';
 import { CancelButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { createFetcher } from '@waldur/table/api';
@@ -8,6 +9,9 @@ import { BooleanField } from '@waldur/table/BooleanField';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
 import { renderFieldOrDash } from '@waldur/table/utils';
+
+import { FreeIPAUsersList } from '../users/FreeIPAUsersList';
+
 const ProviderUsersList = (props) => {
   const filter = useMemo(
     () => ({
@@ -57,7 +61,11 @@ export const ProviderUsersDialog = (props) => (
       </Modal.Title>
     </Modal.Header>
     <Modal.Body>
-      <ProviderUsersList {...props} />
+      {props.resolve.type === FREEIPA_IDP ? (
+        <FreeIPAUsersList />
+      ) : (
+        <ProviderUsersList {...props} />
+      )}
     </Modal.Body>
     <Modal.Footer>
       <CancelButton label={translate('OK')} />
