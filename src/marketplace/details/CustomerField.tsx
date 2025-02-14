@@ -41,7 +41,7 @@ export const CustomerField: FC<{ organizationGroups }> = ({
               try {
                 await waitForConfirmation(
                   dispatch,
-                  translate('Oragnization change'),
+                  translate('Organization change'),
                   translate(
                     "You're switching to the {name} organization. This will discard any entered data. Do you want to proceed?",
                     { name: <strong>{value.name}</strong> },

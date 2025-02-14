@@ -4456,7 +4456,7 @@
     "message": "FreeIPA extension is disabled."
   },
   "FreeIPA settings": {
-    "description": "SettingsDescription.ts",
+    "description": "SettingsDescription.ts, administration/providers/IdentityProvidersList.tsx",
     "message": "FreeIPA settings"
   },
   "FreeIPA users": {
@@ -7291,10 +7291,6 @@
     "description": "marketplace/resources/details/fetchData.tsx, marketplace/resources/options/ResourceOptionsCard.tsx",
     "message": "Options"
   },
-  "Oragnization change": {
-    "description": "marketplace/details/CustomerField.tsx",
-    "message": "Oragnization change"
-  },
   "Order created": {
     "description": "marketplace/resources/resource-pending/OrderInProgressView.tsx",
     "message": "Order created"
@@ -7378,6 +7374,10 @@
   "Organization and project need to be selected.": {
     "description": "marketplace/deploy/steps/ResourceNameGroup.tsx",
     "message": "Organization and project need to be selected."
+  },
+  "Organization change": {
+    "description": "marketplace/details/CustomerField.tsx",
+    "message": "Organization change"
   },
   "Organization credit": {
     "description": "customer/cost-policies/CostPoliciesList.tsx",
