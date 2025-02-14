@@ -6,7 +6,7 @@ import { router } from '@waldur/router';
 
 export const ReviewViewAction = ({ row }) => {
   const callback = () => {
-    router.stateService.go('proposal-review', { review_uuid: row.uuid });
+    router.stateService.go('proposal-review-view', { review_uuid: row.uuid });
   };
 
   return (
