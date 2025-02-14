@@ -4455,6 +4455,10 @@
     "description": "freeipa/FreeIPAAccount.tsx",
     "message": "FreeIPA extension is disabled."
   },
+  "FreeIPA is an integrated security information management solution.": {
+    "description": "administration/providers/IdentityProvidersList.tsx",
+    "message": "FreeIPA is an integrated security information management solution."
+  },
   "FreeIPA settings": {
     "description": "SettingsDescription.ts, administration/providers/IdentityProvidersList.tsx",
     "message": "FreeIPA settings"
