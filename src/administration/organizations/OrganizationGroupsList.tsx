@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 
+import { OrganizationGroup } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import { OrganizationGroup } from '@waldur/marketplace/types';
 import { createFetcher } from '@waldur/table/api';
 import { DASH_ESCAPE_CODE } from '@waldur/table/constants';
 import Table from '@waldur/table/Table';

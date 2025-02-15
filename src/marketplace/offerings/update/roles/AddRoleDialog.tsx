@@ -3,10 +3,10 @@ import { Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 
+import { marketplaceOfferingUserRolesCreate } from '@waldur/api';
 import { required } from '@waldur/core/validators';
 import { StringField, SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
-import { createOfferingRole } from '@waldur/marketplace/common/api';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
@@ -21,7 +21,12 @@ export const AddRoleDialog = reduxForm<{}, { resolve: { offering; refetch } }>({
   const update = useCallback(
     async (formData) => {
       try {
-        await createOfferingRole(props.resolve.offering.url, formData.name);
+        await marketplaceOfferingUserRolesCreate({
+          body: {
+            offering: props.resolve.offering.url,
+            name: formData.name,
+          },
+        });
         dispatch(showSuccess(translate('Role has been added successfully.')));
         if (props.resolve.refetch) await props.resolve.refetch();
         dispatch(closeModalDialog());

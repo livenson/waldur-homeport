@@ -1,10 +1,11 @@
 import { FunctionComponent } from 'react';
 
 import { OrganizationGroupCreateButton } from '@waldur/administration/organizations/OrganizationGroupCreateButton';
+import { OrganizationGroup } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { SetAccessPolicyDialogForm } from '@waldur/marketplace/offerings/actions/SetAccessPolicyDialogForm';
-import { Offering, OrganizationGroup, Plan } from '@waldur/marketplace/types';
+import { Offering, Plan } from '@waldur/marketplace/types';
 import { NoResult } from '@waldur/navigation/header/search/NoResult';
 
 interface SetAccessPolicyDialogProps {

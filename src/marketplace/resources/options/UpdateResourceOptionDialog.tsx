@@ -2,10 +2,11 @@ import { useMemo } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
 
+import { OptionField } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { submitResourceOptions } from '@waldur/marketplace/common/api';
 import { OptionsForm } from '@waldur/marketplace/common/OptionsForm';
-import { Offering, OptionField } from '@waldur/marketplace/types';
+import { Offering } from '@waldur/marketplace/types';
 import { ActionDialog } from '@waldur/modal/ActionDialog';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';

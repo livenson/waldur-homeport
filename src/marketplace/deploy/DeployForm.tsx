@@ -2,12 +2,12 @@ import { useRouter } from '@uirouter/react';
 import { FC, PropsWithChildren } from 'react';
 import { SubmissionError } from 'redux-form';
 
+import { marketplaceOrdersCreate } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { Offering } from '@waldur/marketplace/types';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
-import { createOrder } from '../common/api';
 import { formatOrderForCreate } from '../details/utils';
 import { scrollToSectionById } from '../offerings/utils';
 
@@ -22,12 +22,12 @@ export const DeployForm: FC<
       translate('Are you sure you want to submit the order?'),
     );
     try {
-      const order: any = await createOrder(
-        formatOrderForCreate({
+      const order = await marketplaceOrdersCreate({
+        body: formatOrderForCreate({
           offering,
           formData: values,
         }),
-      );
+      });
       dispatch(showSuccess(translate('Order has been submitted.')));
       router.stateService.go('marketplace-resource-details', {
         resource_uuid: order.data.marketplace_resource_uuid,

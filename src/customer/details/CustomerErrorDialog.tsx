@@ -2,6 +2,7 @@ import { FunctionComponent, useMemo } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { IssueTypeEnum } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { translate, formatJsxTemplate } from '@waldur/i18n';
 import { sendIssueCreateRequest } from '@waldur/issues/create/utils';
@@ -223,7 +224,7 @@ export const CustomerErrorDialog: FunctionComponent<{ resolve }> = ({
   }, [resolve]);
   const onCreateIssue = () => {
     const payload = {
-      type: ISSUE_IDS.SERVICE_REQUEST,
+      type: ISSUE_IDS.SERVICE_REQUEST as IssueTypeEnum,
       summary: translate('Incorrect organization details'),
       customer: resolve.customer.url,
       description: description.join('\n'),

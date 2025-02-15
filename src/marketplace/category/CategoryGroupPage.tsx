@@ -2,12 +2,10 @@ import { useQuery } from '@tanstack/react-query';
 import { useCurrentStateAndParams } from '@uirouter/react';
 import { FunctionComponent } from 'react';
 
+import { marketplaceCategoryGroupsRetrieve } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
-import {
-  getCategories,
-  getCategoryGroup,
-} from '@waldur/marketplace/common/api';
+import { getCategories } from '@waldur/marketplace/common/api';
 import { useFullPage } from '@waldur/navigation/context';
 import { useTitle } from '@waldur/navigation/title';
 
@@ -20,35 +18,35 @@ export const CategoryGroupPage: FunctionComponent = () => {
   const {
     params: { group_uuid },
   } = useCurrentStateAndParams();
-  const categoryGroup = useQuery({
+  const queryResult = useQuery({
     queryKey: ['CategoryGroupPage', group_uuid],
     queryFn: () =>
       Promise.all([
-        getCategoryGroup(group_uuid),
+        marketplaceCategoryGroupsRetrieve({ path: { uuid: group_uuid } }),
         getCategories({ params: { group_uuid } }),
-      ]).then(([group, categories]) => ({
-        ...group,
+      ]).then(([groupResponse, categories]) => ({
+        ...groupResponse.data,
         categories,
       })),
   });
   useFullPage();
 
   useMarketplacePublicTabs();
-  useTitle(categoryGroup?.data?.title);
+  useTitle(queryResult?.data?.title);
 
-  if (categoryGroup.isLoading) {
+  if (queryResult.isLoading) {
     return <LoadingSpinner />;
   }
 
-  if (categoryGroup.isError || !categoryGroup.data) {
+  if (queryResult.isError || !queryResult.data) {
     return <h3>{translate('Unable to load category')}</h3>;
   }
 
   return (
     <>
-      <HeroSection item={categoryGroup.data} />
+      <HeroSection item={queryResult.data} />
       <div className="container-fluid py-20">
-        <CategoryGroupOfferingsList categoryGroup={categoryGroup.data} />
+        <CategoryGroupOfferingsList categoryGroup={queryResult.data} />
       </div>
     </>
   );

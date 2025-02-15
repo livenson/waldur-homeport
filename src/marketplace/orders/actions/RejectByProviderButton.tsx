@@ -4,11 +4,9 @@ import { FunctionComponent } from 'react';
 import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
+import { marketplaceOrdersRetrieve } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import {
-  getOrder,
-  rejectOrderByProvider,
-} from '@waldur/marketplace/common/api';
+import { rejectOrderByProvider } from '@waldur/marketplace/common/api';
 import {
   TABLE_MARKETPLACE_ORDERS,
   TABLE_PENDING_PROVIDER_PUBLIC_ORDERS,
@@ -34,7 +32,9 @@ export const RejectByProviderButton: FunctionComponent<
   const { mutate, isLoading } = useMutation(async () => {
     try {
       await rejectOrderByProvider(props.row.uuid);
-      const newOrder = await getOrder(props.row.uuid);
+      const newOrder = await marketplaceOrdersRetrieve({
+        path: { uuid: props.row.uuid },
+      }).then((response) => response.data);
       dispatch(
         updateEntity(TABLE_MARKETPLACE_ORDERS, props.row.uuid, newOrder),
       );

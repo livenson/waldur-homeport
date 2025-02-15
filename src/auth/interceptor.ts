@@ -1,6 +1,7 @@
 import Axios from 'axios';
 import Qs from 'qs';
 
+import { client } from '@waldur/api/client.gen';
 import { ENV } from '@waldur/configs/default';
 import { cleanObject, wait } from '@waldur/core/utils';
 import { router } from '@waldur/router';
@@ -15,6 +16,10 @@ export function initAuthToken() {
   if (token) {
     Axios.defaults.headers.Authorization = 'Token ' + token;
   }
+  client.setConfig({
+    auth: () => 'Token ' + token,
+    baseUrl: ENV.apiEndpoint,
+  });
 }
 
 Axios.defaults.paramsSerializer = (params) =>

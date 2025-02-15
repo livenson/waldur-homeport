@@ -1,5 +1,5 @@
+import { OrganizationGroup } from '@waldur/api';
 import { CustomerCredit } from '@waldur/customer/credits/types';
-import { OrganizationGroup } from '@waldur/marketplace/types';
 import { BasePermission } from '@waldur/permissions/types';
 import { Quota } from '@waldur/quotas/types';
 

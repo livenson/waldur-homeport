@@ -1,27 +1,31 @@
 import { InjectedFormProps } from 'redux-form';
 
-import { GeolocationPoint } from '@waldur/map/types';
+import {
+  CategoryGroup as WaldurCategoryGroup,
+  MarketplaceCategory as WaldurCategory,
+  UnitEnum,
+  BillingTypeEnum,
+  OrganizationGroup,
+  OfferingOptions,
+  GoogleCalendar,
+  NestedScreenshot,
+  NestedAttribute,
+} from '@waldur/api';
 import { OrderDetailsType } from '@waldur/marketplace/orders/types';
 import { Quota } from '@waldur/quotas/types';
 import { ResourceState } from '@waldur/resource/types';
 import { Customer, Project } from '@waldur/workspace/types';
 
-import { FieldType } from './offerings/update/options/types';
-
-export type BillingPeriod = 'hour' | 'day' | 'half_month' | 'month';
-
 interface BaseComponent {
   type: string;
   name: string;
-  measured_unit: string;
-  description: string;
+  measured_unit?: string;
+  description?: string;
 }
 
-export type BillingType = 'usage' | 'limit' | 'fixed' | 'one' | 'few';
-
 export interface OfferingComponent extends BaseComponent {
-  billing_type: BillingType;
-  limit_period?: 'month' | 'annual' | 'total';
+  billing_type: BillingTypeEnum;
+  limit_period?: 'month' | 'annual' | 'total' | unknown;
   limit_amount?: number;
   max_value?: number;
   min_value?: number;
@@ -36,71 +40,32 @@ export interface Plan {
   url: string;
   uuid?: string;
   name: string;
-  description: string;
-  unit_price: number | string;
+  description?: string;
+  unit_price?: number | string;
   init_price?: number | string;
   switch_price?: number | string;
-  unit: BillingPeriod;
+  unit?: UnitEnum;
   quotas: { [key: string]: number };
   prices: { [key: string]: number };
   future_prices?: { [key: string]: number };
   resources_count?: number;
   is_active: boolean;
-  archived: boolean;
-  price: number;
+  archived?: boolean;
+  price?: number;
   plan_type: string;
   organization_groups: OrganizationGroup[];
 }
 
-export interface OptionField {
-  type?: FieldType;
-  label: string;
-  help_text?: string;
-  required?: boolean;
-  choices?: string[];
-  default?: boolean | string | number;
-  min?: number;
-  max?: number;
-}
-
-interface OfferingOptions {
-  order: string[];
-  options: { [key: string]: OptionField };
-}
-
-interface ReferredPids {
-  resource_type: string;
-  title: string;
-  published: string;
-  publisher: string;
-  pid: string;
-  relation_type: string;
-}
-
 type OfferingState = 'Draft' | 'Active' | 'Paused' | 'Archived';
 
-interface OfferingGoogleCalendar {
-  backend_id: string;
-  http_link: string;
-  public: boolean;
-}
-
-export interface OrganizationGroup {
-  uuid: string;
-  name: string;
-  url: string;
-  parent?: string;
-  parent_uuid?: string;
-  parent_name?: string;
-  customers_count: number;
-}
-
-export interface Offering extends GeolocationPoint {
+export interface Offering {
+  latitude: number;
+  longitude: number;
   scope_state?: ResourceState;
   quotas?: Quota[];
   uuid?: string;
   url?: string;
-  thumbnail: string;
+  thumbnail?: string;
   name: string;
   backend_id?: string;
   terms_of_service?: string;
@@ -109,14 +74,13 @@ export interface Offering extends GeolocationPoint {
   access_url?: string;
   roles?: any[];
   order_count: number;
-  reviews: number;
   category?: string;
   category_title?: string;
   category_uuid?: string;
   vendor_details?: string;
-  screenshots?: Image[];
+  screenshots?: NestedScreenshot[];
   description?: string;
-  full_description: string;
+  full_description?: string;
   customer_uuid?: string;
   customer_name?: string;
   customer_image?: string;
@@ -141,11 +105,10 @@ export interface Offering extends GeolocationPoint {
   paused_reason?: string;
   datacite_doi?: string;
   citation_count?: number;
-  referred_pids: ReferredPids[];
   google_calendar_is_public: boolean;
   google_calendar_link?: string;
   image?: string;
-  googlecalendar?: OfferingGoogleCalendar;
+  googlecalendar?: GoogleCalendar;
   organization_groups: OrganizationGroup[];
   parent_description?: string;
   parent_name?: string;
@@ -153,40 +116,10 @@ export interface Offering extends GeolocationPoint {
   integration_status: any;
 }
 
-export interface Image {
-  image: string;
-  thumbnail: string;
-  name: string;
-  description: string;
-}
-
-type AttributeType =
-  | 'boolean'
-  | 'string'
-  | 'integer'
-  | 'choice'
-  | 'list'
-  | 'password'
-  | 'html';
-
-export interface Attribute {
-  default?: any;
-  title: string;
-  key: string;
-  type: AttributeType;
-  options?: AttributeOption[];
-  required?: boolean;
-}
-
-interface AttributeOption {
-  key: string;
-  title: string;
-}
-
 export interface Section {
   key: string;
   title: string;
-  attributes: Attribute[];
+  attributes: NestedAttribute[];
   is_standalone?: boolean;
 }
 
@@ -198,29 +131,14 @@ export interface CategoryColumn {
   widget?: 'csv' | 'filesize' | 'attached_instance';
 }
 
-export interface CategoryGroup {
-  url: string;
-  uuid: string;
-  title: string;
-  description: string;
-  icon: string;
+export interface CategoryGroup extends WaldurCategoryGroup {
   /** generated on frontend side */
   categories?: Category[];
-  offering_count: number;
+  offering_count?: number;
   resource_count?: number;
 }
 
-export interface Category {
-  url: string;
-  uuid?: string;
-  title: string;
-  icon: string;
-  offering_count: number;
-  sections?: Section[];
-  columns?: CategoryColumn[];
-  components?: BaseComponent[];
-  description?: string;
-  group?: string;
+export interface Category extends WaldurCategory {
   /** generated on frontend side */
   resource_count?: number;
 }
@@ -269,19 +187,6 @@ export interface AttributesType {
   [key: string]: any;
 }
 
-interface PluginComponent {
-  billing_type: BillingType;
-  measured_unit: string;
-  type: string;
-  name: string;
-}
-
-export interface PluginMetadata {
-  offering_type: string;
-  available_limits: string[];
-  components: PluginComponent[];
-}
-
 export interface ImportableResource {
   backend_id: string;
   name: string;
@@ -308,11 +213,11 @@ export interface OfferingPermission {
 
 export interface PlanComponent {
   amount: number;
-  billing_type: BillingType;
+  billing_type: BillingTypeEnum;
   component_name: string;
-  measured_unit: string;
+  measured_unit?: string;
   offering_name: string;
   plan_name: string;
   plan_unit: string;
-  price: string;
+  price?: string;
 }

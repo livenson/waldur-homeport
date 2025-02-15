@@ -1,5 +1,5 @@
+import { OrganizationGroup } from '@waldur/api';
 import { ARCHIVED, DRAFT } from '@waldur/marketplace/offerings/store/constants';
-import { OrganizationGroup } from '@waldur/marketplace/types';
 
 export const formatRequestBodyForSetAccessPolicyForm = (
   formData,

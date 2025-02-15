@@ -1,3 +1,4 @@
+import { marketplaceResourcesOfferingRetrieve } from '@waldur/api';
 import { OFFERING_TYPE_BOOKING } from '@waldur/booking/constants';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { isFeatureVisible } from '@waldur/features/connect';
@@ -13,7 +14,6 @@ import {
   countRobotAccounts,
   getResource,
   getResourceDetails,
-  getResourceOffering,
 } from '@waldur/marketplace/common/api';
 import { PageBarTab } from '@waldur/navigation/types';
 import { INSTANCE_TYPE, TENANT_TYPE } from '@waldur/openstack/constants';
@@ -246,7 +246,9 @@ export const fetchData = async (resourceId) => {
   if (resource.scope) {
     scope = await getResourceDetails(resourceId);
   }
-  const offering = await getResourceOffering(resource.uuid);
+  const offering = await marketplaceResourcesOfferingRetrieve({
+    path: { uuid: resource.uuid },
+  }).then((response) => response.data);
   const components = offering.components;
 
   let lexisLinksCount = 0;

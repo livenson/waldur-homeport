@@ -1,14 +1,14 @@
 import { useMemo } from 'react';
 
 import {
-  getFormLimitParser,
   filterOfferingComponents,
+  getFormLimitParser,
 } from '@waldur/marketplace/common/registry';
 import { getBillingPeriods } from '@waldur/marketplace/common/utils';
 import { offeringSelector } from '@waldur/marketplace/details/selectors';
 import { Limits } from '@waldur/marketplace/details/types';
 import { parseOfferingLimits } from '@waldur/marketplace/offerings/store/limits';
-import { Plan, Offering } from '@waldur/marketplace/types';
+import { Offering, Plan } from '@waldur/marketplace/types';
 
 import { Component, PricesData } from './types';
 

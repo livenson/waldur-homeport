@@ -2,7 +2,8 @@ import {
   VStepperFormStep,
   VStepperFormStepProps,
 } from '@waldur/form/VStepperFormStep';
-import { Offering } from '@waldur/marketplace/types';
+
+import { Offering } from '../types';
 
 export interface FormStepProps extends VStepperFormStepProps {
   offering: Offering;

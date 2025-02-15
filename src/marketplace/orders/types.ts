@@ -1,4 +1,5 @@
-import { AttributesType, BillingPeriod } from '@waldur/marketplace/types';
+import { UnitEnum } from '@waldur/api';
+import { AttributesType } from '@waldur/marketplace/types';
 
 export type OrderState =
   | 'pending-consumer'
@@ -50,7 +51,7 @@ export interface OrderResponse {
   old_plan_uuid?: string;
   new_plan_uuid?: string;
   plan_description?: string;
-  plan_unit?: BillingPeriod;
+  plan_unit?: UnitEnum;
   project: string;
   project_uuid?: string;
   project_name: string;

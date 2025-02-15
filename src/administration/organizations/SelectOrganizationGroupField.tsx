@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { Field } from 'react-final-form';
 
+import { OrganizationGroup } from '@waldur/api';
 import { organizationGroupAutocomplete } from '@waldur/customer/list/api';
 import { AsyncPaginate } from '@waldur/form/themed-select';
-import { OrganizationGroup } from '@waldur/marketplace/types';
 
 import {
   commonAsyncPaginateProps,

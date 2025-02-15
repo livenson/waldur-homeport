@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { useEffect, useMemo, useState } from 'react';
 
+import { CategoryGroup } from '@waldur/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
@@ -22,7 +23,9 @@ export const DataLoader = ({
   onSelectOffering = undefined,
   importableOfferings = false,
 }) => {
-  const [selectedCategory, selectCategory] = useState<Category>();
+  const [selectedCategory, selectCategory] = useState<
+    Category | CategoryGroup
+  >();
 
   const { data: lastOfferings } = useQuery(
     ['MarketplacePopupNOfferings', customer?.uuid, project?.uuid, categoryUuid],
@@ -61,14 +64,14 @@ export const DataLoader = ({
     );
 
     if (lastOfferings && lastOfferings.length > 0) {
-      const recentlyAddedOfferingsCategory: Category = {
+      const recentlyAddedOfferingsCategory: Category | CategoryGroup = {
         icon: undefined,
         offering_count: lastOfferings.length,
         title: translate('Recently added offerings'),
         uuid: RECENTLY_ADDED_OFFERINGS_UUID,
         url: undefined,
       };
-      nonZeroCategories.unshift(recentlyAddedOfferingsCategory);
+      nonZeroCategories.unshift(recentlyAddedOfferingsCategory as Category);
     }
     // Group categories
     const groupedCategories = getGroupedCategories(

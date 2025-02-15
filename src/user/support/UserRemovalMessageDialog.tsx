@@ -3,10 +3,10 @@ import { useRouter } from '@uirouter/react';
 import { FunctionComponent, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 
+import { IssueTypeEnum, supportIssuesCreate } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { CancelButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
-import { createIssue } from '@waldur/issues/api';
 import { ISSUE_IDS } from '@waldur/issues/types/constants';
 import { useModal } from '@waldur/modal/hooks';
 import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
@@ -30,12 +30,14 @@ export const UserRemovalMessageDialog: FunctionComponent<
   const [reason, setReason] = useState('');
   const handleSubmit = async () => {
     try {
-      const issue = await createIssue({
-        type: ISSUE_IDS.CHANGE_REQUEST,
-        description: reason,
-        summary: translate('Account deletion'),
-        is_reported_manually: true,
-      });
+      const issue = await supportIssuesCreate({
+        body: {
+          type: ISSUE_IDS.CHANGE_REQUEST as IssueTypeEnum,
+          description: reason,
+          summary: translate('Account deletion'),
+          is_reported_manually: true,
+        },
+      }).then((response) => response.data);
       showSuccess(translate('Request for account deletion has been created.'));
       router.stateService.go('support.detail', { uuid: issue.uuid });
       closeDialog();

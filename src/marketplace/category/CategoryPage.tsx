@@ -3,9 +3,9 @@ import { useCurrentStateAndParams } from '@uirouter/react';
 import { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
 
+import { marketplaceCategoriesRetrieve } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
-import { getCategory } from '@waldur/marketplace/common/api';
 import {
   useExtraToolbar,
   useFullPage,
@@ -27,7 +27,10 @@ export const CategoryPage: FunctionComponent = () => {
   } = useCurrentStateAndParams();
   const category = useQuery({
     queryKey: ['CategoryPage', category_uuid],
-    queryFn: () => getCategory(category_uuid),
+    queryFn: () =>
+      marketplaceCategoriesRetrieve({ path: { uuid: category_uuid } }).then(
+        (response) => response.data,
+      ),
   });
 
   useFullPage();

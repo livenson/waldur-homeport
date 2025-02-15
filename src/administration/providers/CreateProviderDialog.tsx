@@ -3,14 +3,13 @@ import { useCallback } from 'react';
 import { Form } from 'react-final-form';
 import { useDispatch } from 'react-redux';
 
+import { IdentityProviderRequest, identityProvidersCreate } from '@waldur/api';
 import { EDUTEAMS_IDP, TARA_IDP } from '@waldur/auth/providers/constants';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
-
-import { createIdentityProvider } from '../api';
 
 import { ProviderForm } from './ProviderForm';
 
@@ -29,11 +28,13 @@ export const CreateProviderDialog = (props) => {
   const dispatch = useDispatch();
 
   const onSubmit = useCallback(
-    async (formData) => {
+    async (formData: IdentityProviderRequest) => {
       try {
-        await createIdentityProvider({
-          provider: props.resolve.type,
-          ...formData,
+        await identityProvidersCreate({
+          body: {
+            provider: props.resolve.type,
+            ...formData,
+          },
         });
         dispatch(
           showSuccess(
