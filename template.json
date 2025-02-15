@@ -7327,6 +7327,10 @@
     "description": "marketplace/deploy/DeployForm.tsx, marketplace/resources/resource-pending/OrderErredView.tsx",
     "message": "Order has been submitted."
   },
+  "Order has been unlinked.": {
+    "description": "marketplace/orders/actions/OrderUnlinkButton.tsx",
+    "message": "Order has been unlinked."
+  },
   "Order history": {
     "description": "marketplace/resources/details/fetchData.tsx",
     "message": "Order history"
@@ -13166,6 +13170,10 @@
   "Unable to unlink invoice from the payment.": {
     "description": "customer/payments/UnlinkInvoiceButton.tsx",
     "message": "Unable to unlink invoice from the payment."
+  },
+  "Unable to unlink order.": {
+    "description": "marketplace/orders/actions/OrderUnlinkButton.tsx",
+    "message": "Unable to unlink order."
   },
   "Unable to unlink resource.": {
     "description": "resource/actions/UnlinkActionItem.tsx",

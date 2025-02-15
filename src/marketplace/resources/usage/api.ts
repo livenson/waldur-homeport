@@ -1,12 +1,12 @@
 import { DateTime } from 'luxon';
 
+import { marketplaceResourcesOfferingRetrieve } from '@waldur/api';
 import { formatDateTime, parseDate } from '@waldur/core/dateUtils';
 import {
   getComponentUsages,
   getComponentUserUsages,
   getProviderOffering,
   getProviderResourcePlanPeriods,
-  getResourceOffering,
 } from '@waldur/marketplace/common/api';
 
 import { UsageReportContext, ResourcePlanPeriod } from './types';
@@ -71,7 +71,9 @@ export const getComponentsAndUsages = async (
 
   let offering;
   try {
-    offering = await getResourceOffering(resource_uuid);
+    offering = await marketplaceResourcesOfferingRetrieve({
+      path: { uuid: resource_uuid },
+    }).then((response) => response.data);
   } catch (error) {
     throw new Error(`Error while getting offering, ${error.message}`);
   }

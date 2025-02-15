@@ -1,7 +1,7 @@
 import { Trash } from '@phosphor-icons/react';
 import { useDispatch } from 'react-redux';
 
-import { deleteIssueTemplate } from '@waldur/administration/api';
+import { supportTemplatesDestroy } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
@@ -19,7 +19,7 @@ export const IssueTemplateDeleteAction = ({ row, refetch }) => {
     } catch {
       return;
     }
-    await deleteIssueTemplate(row.uuid);
+    await supportTemplatesDestroy({ path: { uuid: row.uuid } });
     await refetch();
   };
   return (

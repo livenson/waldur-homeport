@@ -1200,6 +1200,11 @@
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
+"@hey-api/client-fetch@^0.8.1":
+  version "0.8.1"
+  resolved "https://registry.yarnpkg.com/@hey-api/client-fetch/-/client-fetch-0.8.1.tgz#4c52b96e44f96e31c620e2a05b772cea84e775a0"
+  integrity sha512-AaVNVLBl7N9Fun7QDnb00YDubAFjB9ICi5U6kmzcJSnnQTQGRMsuBBRupQV5ERdMMFt71zjSDym7Z+gLVe8m3A==
+
 "@humanfs/core@^0.19.1":
   version "0.19.1"
   resolved "https://registry.yarnpkg.com/@humanfs/core/-/core-0.19.1.tgz#17c55ca7d426733fe3c561906b8173c336b40a77"

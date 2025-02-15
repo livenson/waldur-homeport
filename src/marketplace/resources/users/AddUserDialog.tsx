@@ -3,6 +3,7 @@ import { Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 
+import { marketplaceResourceUsersCreate } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
 import { required } from '@waldur/core/validators';
@@ -10,7 +11,7 @@ import { SubmitButton } from '@waldur/form';
 import { AsyncSelectField } from '@waldur/form/AsyncSelectField';
 import { Select } from '@waldur/form/themed-select';
 import { translate } from '@waldur/i18n';
-import { createResourceUser, getUsers } from '@waldur/marketplace/common/api';
+import { getUsers } from '@waldur/marketplace/common/api';
 import { FormGroup } from '@waldur/marketplace/offerings/FormGroup';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
@@ -27,10 +28,12 @@ export const AddUserDialog = reduxForm<
   const update = useCallback(
     async (formData) => {
       try {
-        await createResourceUser({
-          resource: props.resolve.resource.url,
-          user: formData.user.url,
-          role: formData.role.url,
+        await marketplaceResourceUsersCreate({
+          body: {
+            resource: props.resolve.resource.url,
+            user: formData.user.url,
+            role: formData.role.url,
+          },
         });
         dispatch(
           showSuccess(translate('User has been assigned successfully.')),

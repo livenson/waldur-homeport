@@ -28,7 +28,11 @@ export const PublicOfferingComponentsTable: FunctionComponent<
             <td>{component.name}</td>
             <td>{component.measured_unit}</td>
             <td>{component.billing_type}</td>
-            <td>{component.limit_period ? component.limit_period : '—'}</td>
+            <td>
+              {typeof component.limit_period === 'string'
+                ? component.limit_period
+                : '—'}
+            </td>
             <td>{component.description ? component.description : '—'}</td>
           </tr>
         ))}

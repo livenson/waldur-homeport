@@ -8,9 +8,9 @@ import { isMatch, pickBy, uniqueId } from 'lodash-es';
 import { useCallback, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 
+import { marketplaceCategoriesRetrieve } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import {
-  getCategory,
   getProviderOffering,
   getPublicOffering,
 } from '@waldur/marketplace/common/api';
@@ -115,9 +115,11 @@ const getDataForFavoritePage = async (
       )) &&
     params.category_uuid
   ) {
-    const category = await getCategory(params.category_uuid, {
-      params: { field: ['title', 'icon'] },
-    });
+    const category = await marketplaceCategoriesRetrieve({
+      path: { uuid: params.category_uuid },
+      // @ts-ignore
+      query: { field: ['title', 'icon'] },
+    }).then((response) => response.data);
     subtitle = category.title;
     image = category.icon;
     if (state.name === 'category-resources') {

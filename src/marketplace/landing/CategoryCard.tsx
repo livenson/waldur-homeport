@@ -2,6 +2,7 @@ import { Cube, Question } from '@phosphor-icons/react';
 import { FunctionComponent } from 'react';
 import { Card } from 'react-bootstrap';
 
+import { CategoryGroup } from '@waldur/api';
 import { wrapTooltip } from '@waldur/table/ActionButton';
 
 import { Category } from '../types';
@@ -9,7 +10,7 @@ import { Category } from '../types';
 import './CategoryCard.scss';
 
 interface CategoryCardProps {
-  item: Category;
+  item: Category | CategoryGroup;
   as;
 }
 

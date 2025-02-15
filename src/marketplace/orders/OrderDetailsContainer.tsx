@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { useCurrentStateAndParams } from '@uirouter/react';
 
+import { marketplaceOrdersRetrieve, marketplacePluginsList } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import * as api from '@waldur/marketplace/common/api';
@@ -8,10 +9,12 @@ import * as api from '@waldur/marketplace/common/api';
 import { OrderDetails } from './details/OrderDetails';
 
 async function loadOrder(order_uuid) {
-  const order = await api.getOrder(order_uuid);
+  const order = await marketplaceOrdersRetrieve({
+    path: { uuid: order_uuid },
+  }).then((response) => response.data);
   const offering = await api.getPublicOffering(order.offering_uuid);
-  const plugins = await api.getPlugins();
-  const limits = plugins.find(
+  const plugins = await marketplacePluginsList();
+  const limits = plugins.data.find(
     (plugin) => plugin.offering_type === offering.type,
   ).available_limits;
   return {

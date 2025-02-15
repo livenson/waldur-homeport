@@ -3,6 +3,7 @@ import { useRouter } from '@uirouter/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { reduxForm } from 'redux-form';
 
+import { marketplaceProviderOfferingsCreate, UnitEnum } from '@waldur/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { required } from '@waldur/core/validators';
@@ -13,10 +14,7 @@ import {
   SubmitButton,
 } from '@waldur/form';
 import { translate } from '@waldur/i18n';
-import {
-  createProviderOffering,
-  getCategories,
-} from '@waldur/marketplace/common/api';
+import { getCategories } from '@waldur/marketplace/common/api';
 import { getCreatableOfferings } from '@waldur/marketplace/common/registry';
 import { Category } from '@waldur/marketplace/types';
 import { closeModalDialog } from '@waldur/modal/actions';
@@ -49,16 +47,18 @@ export const OfferingCreateDialog = reduxForm<
     // create a default plan while creating offering [WAL-7969]
     const plan_payload = {
       name: 'Default',
-      unit: 'month',
+      unit: 'month' as UnitEnum,
     };
 
     try {
-      const response = await createProviderOffering({
-        name: formData.name,
-        customer: customer.url,
-        category: formData.category.url,
-        type: formData.type.value,
-        plans: [plan_payload],
+      const response = await marketplaceProviderOfferingsCreate({
+        body: {
+          name: formData.name,
+          customer: customer.url,
+          category: formData.category.url,
+          type: formData.type.value,
+          plans: [plan_payload],
+        },
       });
       dispatch(showSuccess(translate('Offering has been created.')));
       if (fetch) {

@@ -1,11 +1,11 @@
 import { FunctionComponent } from 'react';
 
-import { Section } from '@waldur/marketplace/types';
+import { NestedSection } from '@waldur/api';
 
 import { AttributeRow } from './AttributeRow';
 
 interface AttributeSectionProps {
-  section: Section;
+  section: NestedSection;
   attributes: any;
   hideHeader: boolean;
 }

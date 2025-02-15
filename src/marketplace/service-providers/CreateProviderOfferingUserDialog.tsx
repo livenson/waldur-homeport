@@ -1,5 +1,6 @@
 import { useDispatch } from 'react-redux';
 
+import { marketplaceOfferingUsersCreate } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { PermissionEnum } from '@waldur/permissions/enums';
@@ -12,7 +13,6 @@ import {
 } from '@waldur/store/notify';
 import { useUser } from '@waldur/workspace/hooks';
 
-import { createOfferingUser } from '../common/api';
 import {
   offeringsAutocomplete,
   userAutocomplete,
@@ -47,10 +47,12 @@ const handleSubmit =
     }
 
     try {
-      await createOfferingUser({
-        offering: formData.offering.url,
-        user: formData.user.url,
-        username: formData.username,
+      await marketplaceOfferingUsersCreate({
+        body: {
+          offering: formData.offering.url,
+          user: formData.user.url,
+          username: formData.username,
+        },
       });
       dispatch(showSuccess(translate('Offering user has been created.')));
       dispatch(closeModalDialog());

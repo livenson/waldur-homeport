@@ -1,10 +1,10 @@
 import React from 'react';
 import { useAsync } from 'react-use';
 
+import { marketplaceCategoriesRetrieve } from '@waldur/api';
 import { FormattedHtml } from '@waldur/core/FormattedHtml';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
-import { getCategory } from '@waldur/marketplace/common/api';
 import { getTabs } from '@waldur/marketplace/details/OfferingTabs';
 import { OfferingTabsComponent } from '@waldur/marketplace/details/OfferingTabsComponent';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
@@ -15,7 +15,9 @@ interface OfferingDetailsDialogProps {
 }
 
 async function loadData(offering: any) {
-  const category = await getCategory(offering.category_uuid);
+  const category = await marketplaceCategoriesRetrieve({
+    path: { uuid: offering.category_uuid },
+  }).then((response) => response.data);
   const sections = category.sections;
   const tabs = getTabs({ offering, sections });
   return {

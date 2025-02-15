@@ -2,7 +2,6 @@ import Axios, { AxiosRequestConfig } from 'axios';
 
 import { ENV } from '@waldur/configs/default';
 import {
-  deleteById,
   get,
   getAll,
   parseResultCount,
@@ -10,7 +9,6 @@ import {
   put,
   sendForm,
 } from '@waldur/core/api';
-import { IssueTemplate } from '@waldur/issues/api';
 
 import { OIDCConfig } from './types';
 
@@ -53,9 +51,6 @@ export const getVersion = () =>
 export const getIdentityProviders = () =>
   getAll<OIDCConfig>('/identity-providers/');
 
-export const createIdentityProvider = (formData) =>
-  post('/identity-providers/', formData);
-
 export const updateIdentityProvider = (provider, formData) =>
   put(`/identity-providers/${provider}/`, formData);
 
@@ -63,27 +58,6 @@ export const deleteToken = (tokenURL: string) => Axios.delete(tokenURL);
 
 export const getAdminAnnouncements = (configs?: AxiosRequestConfig<any>) =>
   getAll<any>('/admin-announcements/', configs);
-
-export const createAdminAnnouncement = (formData) =>
-  post('/admin-announcements/', formData);
-
-export const updateAdminAnnouncement = (formData, uuid) =>
-  put(`/admin-announcements/${uuid}/`, formData);
-
-export const deleteAdminAnnouncement = (uuid) =>
-  deleteById('/admin-announcements/', uuid);
-
-export const getIssueTemplate = (uuid: string) =>
-  get<IssueTemplate>(`/support-templates/${uuid}/`);
-
-export const createIssueTemplate = (formData) =>
-  post<IssueTemplate>('/support-templates/', formData);
-
-export const updateIssueTemplate = (formData, uuid) =>
-  put<IssueTemplate>(`/support-templates/${uuid}/`, formData);
-
-export const deleteIssueTemplate = (uuid) =>
-  deleteById('/support-templates/', uuid);
 
 export const attachDocumentsToIssueTemplate = (
   issue_template_uuid: string,

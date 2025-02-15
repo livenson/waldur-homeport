@@ -1,8 +1,8 @@
 import { FunctionComponent } from 'react';
 import { Field } from 'redux-form';
 
+import { OrganizationGroup } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import { OrganizationGroup } from '@waldur/marketplace/types';
 import { DASH_ESCAPE_CODE } from '@waldur/table/constants';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';

@@ -2,14 +2,13 @@ import { Trash } from '@phosphor-icons/react';
 import { Dropdown } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
+import { marketplaceProviderOfferingsDestroy } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { useUser } from '@waldur/workspace/hooks';
-
-import { deleteProviderOffering } from '../../common/api';
 
 export const DeleteOfferingButton = ({ row, refetch }) => {
   const user = useUser();
@@ -36,7 +35,7 @@ export const DeleteOfferingButton = ({ row, refetch }) => {
       return;
     }
     try {
-      await deleteProviderOffering(row.uuid);
+      await marketplaceProviderOfferingsDestroy({ path: { uuid: row.uuid } });
       dispatch(showSuccess(translate('Offering deleted successfully.')));
       refetch();
     } catch (error) {

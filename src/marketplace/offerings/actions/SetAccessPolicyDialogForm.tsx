@@ -3,6 +3,7 @@ import { connect, useDispatch } from 'react-redux';
 import { compose } from 'redux';
 import { reduxForm } from 'redux-form';
 
+import { OrganizationGroup } from '@waldur/api';
 import { updateCustomerOrganizationGroups } from '@waldur/customer/details/api';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
@@ -12,7 +13,7 @@ import {
 } from '@waldur/marketplace/common/api';
 import { SET_ACCESS_POLICY_FORM_ID } from '@waldur/marketplace/offerings/actions/constants';
 import { formatRequestBodyForSetAccessPolicyForm } from '@waldur/marketplace/offerings/actions/utils';
-import { Offering, OrganizationGroup, Plan } from '@waldur/marketplace/types';
+import { Offering, Plan } from '@waldur/marketplace/types';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { ModalDialog } from '@waldur/modal/ModalDialog';

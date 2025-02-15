@@ -1,21 +1,22 @@
+import { NestedSection } from '@waldur/api';
 import { FormattedHtml } from '@waldur/core/FormattedHtml';
 import { translate } from '@waldur/i18n';
 import { ImagesTab } from '@waldur/marketplace/offerings/images/ImagesTab';
-import { Offering, Section } from '@waldur/marketplace/types';
+import { Offering } from '@waldur/marketplace/types';
 
 import { AttributesTable } from './attributes/AttributesTable';
 import { OfferingTab } from './OfferingTabsComponent';
 import { OverviewTab } from './OverviewTab';
 
 interface OfferingTabsProps {
-  sections: Section[];
+  sections: NestedSection[];
   offering: Offering;
   order?: any;
 }
 
 export const getTabs = (props: OfferingTabsProps): OfferingTab[] => {
   const attributes = props.offering.attributes;
-  const filterSection = (section: Section) =>
+  const filterSection = (section: NestedSection) =>
     section.attributes.some((attr) =>
       Object.prototype.hasOwnProperty.call(props.offering.attributes, attr.key),
     );

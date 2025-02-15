@@ -5,12 +5,14 @@ import { reduxForm, SubmissionError } from 'redux-form';
 
 import {
   attachDocumentsToIssueTemplate,
-  createIssueTemplate,
-  getIssueTemplate,
   removeAttachmentFromIssueTemplate,
-  updateIssueTemplate,
 } from '@waldur/administration/api';
 import { IssueTemplateTypeOptions } from '@waldur/administration/utils';
+import {
+  supportTemplatesCreate,
+  supportTemplatesRetrieve,
+  supportTemplatesUpdate,
+} from '@waldur/api';
 import { ACCEPTED_FILE_TYPES } from '@waldur/core/constants';
 import {
   FormContainer,
@@ -122,15 +124,10 @@ export const IssueTemplateForm = connect<
           setAttachments((prev) =>
             prev.filter((a) => a.uuid !== attachment.uuid),
           );
-          const response = await getIssueTemplate(
-            props.resolve.issueTemplate.uuid,
-          );
-          const updatedIssueTemplate = response.data;
-          reopenEditDialog(
-            updatedIssueTemplate,
-            props.resolve.refetch,
-            dispatch,
-          );
+          const response = await supportTemplatesRetrieve({
+            path: { uuid: props.resolve.issueTemplate.uuid },
+          });
+          reopenEditDialog(response.data, props.resolve.refetch, dispatch);
         } catch (e) {
           dispatch(
             showErrorResponse(e, translate('Unable to remove document.')),
@@ -188,8 +185,11 @@ export const IssueTemplateForm = connect<
       async (values, dispatch) => {
         try {
           const action = isEdit
-            ? updateIssueTemplate(values, props.resolve.issueTemplate.uuid)
-            : createIssueTemplate(values);
+            ? supportTemplatesUpdate({
+                body: values,
+                path: { uuid: props.resolve.issueTemplate.uuid },
+              })
+            : supportTemplatesCreate({ body: values });
 
           const response = await action;
           const templateUuid = response.data.uuid;

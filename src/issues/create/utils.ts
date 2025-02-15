@@ -1,21 +1,20 @@
+import { IssueRequest, supportIssuesCreate } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { putAttachment } from '@waldur/issues/attachments/api';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { router } from '@waldur/router';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
 
-import { createIssue } from '../api';
-
-import { IssueRequestPayload } from './types';
-
 export const sendIssueCreateRequest = async (
-  payload: IssueRequestPayload,
+  payload: IssueRequest,
   dispatch,
   refetch?,
   files?: FileList,
 ) => {
   try {
-    const issue = await createIssue(payload);
+    const issue = await supportIssuesCreate({ body: payload }).then(
+      (response) => response.data,
+    );
     if (files) {
       await Promise.all(
         Array.from(files).map((file) => putAttachment(issue.url, file)),

@@ -1,15 +1,14 @@
 import React from 'react';
 import { useAsync } from 'react-use';
 
+import { marketplaceProviderOfferingsRetrieve } from '@waldur/api';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
-import {
-  getResource,
-  getProviderOffering,
-} from '@waldur/marketplace/common/api';
+import { getResource } from '@waldur/marketplace/common/api';
 import { BillingPeriod } from '@waldur/marketplace/common/BillingPeriod';
 import { getFormLimitParser } from '@waldur/marketplace/common/registry';
+import { Offering } from '@waldur/marketplace/types';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
 
@@ -22,7 +21,9 @@ interface PlanDetailsDialogProps {
 
 async function loadData(resourceId: string) {
   const resource = await getResource(resourceId);
-  const offering = await getProviderOffering(resource.offering_uuid);
+  const offering = (await marketplaceProviderOfferingsRetrieve({
+    path: { uuid: resource.offering_uuid },
+  }).then((response) => response.data)) as Offering;
   const plan =
     resource.plan &&
     offering.plans.find((item) => item.uuid === resource.plan_uuid);

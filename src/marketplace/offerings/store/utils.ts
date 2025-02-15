@@ -1,6 +1,4 @@
-import { OptionField } from '@waldur/marketplace/types';
-
-import { FieldType } from '../update/options/types';
+import { OptionField, OptionFieldTypeEnum } from '@waldur/api';
 
 import { PlanRequest, PlanFormData, OptionFormData } from './types';
 
@@ -16,7 +14,7 @@ export const formatPlan = (plan: PlanFormData): PlanRequest => ({
 export const formatOption = (option: OptionFormData) => {
   const { type, choices, ...rest } = option;
   const item: OptionField = {
-    type: type.value as FieldType,
+    type: type.value as OptionFieldTypeEnum,
     ...rest,
   };
   // Split comma-separated list, strip spaces, omit empty items

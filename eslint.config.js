@@ -29,6 +29,7 @@ export default tseslint
         'src/FeaturesEnums.ts',
         'src/SettingsDescription.ts',
         'src/features/FeaturesDescription.ts',
+        'src/api/',
         '*.spec.tsx',
         '*.spec.ts',
         '*.fixture.tsx',

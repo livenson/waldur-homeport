@@ -1,8 +1,8 @@
 import { FunctionComponent } from 'react';
 
 import { OrganizationGroupOrganizationsList } from '@waldur/administration/organizations/OrganizationGroupOrganizationsList';
+import { OrganizationGroup } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import { OrganizationGroup } from '@waldur/marketplace/types';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
 

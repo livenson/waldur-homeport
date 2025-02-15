@@ -2,9 +2,9 @@ import { useQuery } from '@tanstack/react-query';
 import { FC } from 'react';
 import { Col, Row } from 'react-bootstrap';
 
+import { marketplaceResourcesOfferingRetrieve } from '@waldur/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
-import { getResourceOffering } from '@waldur/marketplace/common/api';
 import { ResourceComponentItem } from '@waldur/marketplace/resources/details/ResourceComponentItem';
 import { Resource } from '@waldur/marketplace/resources/types';
 
@@ -23,7 +23,11 @@ export const ResourceComponentsSummary: FC<ResourceComponentsSummaryProps> = ({
   } = useQuery(
     ['resource-offering-components', resource.uuid],
     () =>
-      getResourceOffering(resource.uuid, { params: { field: ['components'] } }),
+      marketplaceResourcesOfferingRetrieve({
+        path: { uuid: resource.uuid },
+        // @ts-ignore
+        query: { field: ['components'] },
+      }).then((response) => response.data),
     { refetchOnWindowFocus: false, staleTime: 60 * 1000 },
   );
 

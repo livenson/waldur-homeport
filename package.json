@@ -30,6 +30,7 @@
     "@dnd-kit/sortable": "^8.0.0",
     "@fontsource/inter": "^4.5.14",
     "@fontsource/open-sans": "^4.5.14",
+    "@hey-api/client-fetch": "^0.8.1",
     "@jonkoops/matomo-tracker": "^0.7.0",
     "@mdxeditor/editor": "^3.21.4",
     "@phosphor-icons/react": "^2.1.5",
@@ -200,7 +201,8 @@
       "*.fixture.ts",
       "*.fixture.tsx",
       "src/EventsEnums.ts",
-      "src/FeaturesEnums.ts"
+      "src/FeaturesEnums.ts",
+      "src/api/*.ts"
     ]
   },
   "stylelint": {

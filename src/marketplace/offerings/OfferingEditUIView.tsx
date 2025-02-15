@@ -2,14 +2,14 @@ import { useQuery } from '@tanstack/react-query';
 import { UIView, useCurrentStateAndParams } from '@uirouter/react';
 import { useMemo } from 'react';
 
+import {
+  marketplaceCategoriesRetrieve,
+  marketplacePluginsList,
+} from '@waldur/api';
 import { OFFERING_TYPE_BOOKING } from '@waldur/booking/constants';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
-import {
-  getCategory,
-  getPlugins,
-  getProviderOffering,
-} from '@waldur/marketplace/common/api';
+import { getProviderOffering } from '@waldur/marketplace/common/api';
 import { Offering, ServiceProvider } from '@waldur/marketplace/types';
 import { OFFERING_TYPE_CUSTOM_SCRIPTS } from '@waldur/marketplace-script/constants';
 import { useBreadcrumbs, usePageHero } from '@waldur/navigation/context';
@@ -99,7 +99,9 @@ const RolesSection = lazyComponent(() =>
 
 const getOfferingData = async (offering_uuid) => {
   const offering = await getProviderOffering(offering_uuid);
-  const category = await getCategory(offering.category_uuid);
+  const category = await marketplaceCategoriesRetrieve({
+    path: { uuid: offering.category_uuid },
+  }).then((response) => response.data);
   return { offering, category };
 };
 
@@ -257,16 +259,21 @@ export const OfferingEditUIView = ({
     { refetchOnWindowFocus: false, staleTime: 3 * 60 * 1000 },
   );
 
-  const { data: plugins } = useQuery(['marketplacePlugins'], getPlugins, {
-    refetchOnWindowFocus: false,
-    staleTime: 3 * 60 * 1000,
-  });
+  const { data: plugins } = useQuery(
+    ['marketplacePlugins'],
+    marketplacePluginsList,
+    {
+      refetchOnWindowFocus: false,
+      staleTime: 3 * 60 * 1000,
+    },
+  );
 
   const components = useMemo(
     () =>
       data?.offering && plugins
-        ? plugins.find((plugin) => plugin.offering_type === data.offering.type)
-            .components
+        ? plugins.data.find(
+            (plugin) => plugin.offering_type === data.offering.type,
+          ).components
         : [],
     [plugins, data?.offering],
   );
