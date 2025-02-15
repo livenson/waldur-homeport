@@ -24,15 +24,13 @@ $content-spacing: (
 // Header
 $header-config: (
   // Default Mode
-  default:
-    (
+  default: (
       outer-height: (
         desktop: 65px,
         tablet-and-mobile: 55px,
       ),
       // Height - border width
-      height:
-        (
+      height: (
           desktop: 64px,
           tablet-and-mobile: 54px,
         ),
@@ -40,15 +38,13 @@ $header-config: (
       border-bottom: 1px solid $border-color,
     ),
   // Fixed Mode
-  fixed:
-    (
+  fixed: (
       outer-height: (
         desktop: 65px,
         tablet-and-mobile: 55px,
       ),
       // Height - border width
-      height:
-        (
+      height: (
           desktop: 64px,
           tablet-and-mobile: 54px,
         ),
@@ -96,8 +92,11 @@ $aside-config: (
   // Aside box shadow
   box-shadow: none,
   // Minimized hover box shadow
-  minimized-hover-box-shadow:
-    if(isDarkMode(), none, 5px 0px 10px rgba(70, 78, 95, 0.075)),
+  minimized-hover-box-shadow: if(
+      isDarkMode(),
+      none,
+      5px 0px 10px rgba(70, 78, 95, 0.075)
+    ),
 ) !default;
 
 // Footer

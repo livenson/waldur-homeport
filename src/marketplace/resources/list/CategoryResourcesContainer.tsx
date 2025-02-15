@@ -19,7 +19,8 @@ export const CategoryResourcesContainer: React.FC = () => {
         path: { uuid: category_uuid },
         // @ts-ignore
         query: { field: ['columns', 'title'] },
-      }).then((response) => response.data)[category_uuid],
+      }).then((response) => response.data),
+    [category_uuid],
   );
 
   if (loading) {

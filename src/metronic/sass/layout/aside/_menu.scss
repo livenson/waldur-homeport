@@ -86,8 +86,11 @@ $asides: (
     badge-bg: if(isDarkMode(), $dark-badge-bg, $primary-50),
     badge-border: if(isDarkMode(), $dark-badge-border, $primary-300),
     accordion-active: if(isDarkMode(), $dark-accordion-active, $primary-800),
-    sub-accordion-active:
-      if(isDarkMode(), $dark-sub-accordion-active, $primary-700),
+    sub-accordion-active: if(
+        isDarkMode(),
+        $dark-sub-accordion-active,
+        $primary-700
+      ),
     footer-separator: if(isDarkMode(), $dark-footer-separator, $primary-700),
   ),
   light: (
@@ -103,8 +106,11 @@ $asides: (
     badge-bg: if(isDarkMode(), $dark-badge-bg, $gray-700),
     badge-border: if(isDarkMode(), $dark-badge-border, $grey-300),
     accordion-active: if(isDarkMode(), $dark-accordion-active, $gray-100),
-    sub-accordion-active:
-      if(isDarkMode(), $dark-sub-accordion-active, $grey-200),
+    sub-accordion-active: if(
+        isDarkMode(),
+        $dark-sub-accordion-active,
+        $grey-200
+      ),
     footer-separator: if(isDarkMode(), $dark-footer-separator, $grey-200),
   ),
 );
