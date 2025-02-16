@@ -3,7 +3,7 @@ import { useRouter } from '@uirouter/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { reduxForm } from 'redux-form';
 
-import { marketplaceProviderOfferingsCreate, UnitEnum } from '@waldur/api';
+import { BillingUnit, marketplaceProviderOfferingsCreate } from '@waldur/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { required } from '@waldur/core/validators';
@@ -47,7 +47,7 @@ export const OfferingCreateDialog = reduxForm<
     // create a default plan while creating offering [WAL-7969]
     const plan_payload = {
       name: 'Default',
-      unit: 'month' as UnitEnum,
+      unit: 'month' as BillingUnit,
     };
 
     try {
