@@ -1671,11 +1671,6 @@ export type CreateFeedbackRequest = {
     token: string;
 };
 
-export type CredentialsRequest = {
-    api_url: string;
-    token: string;
-};
-
 export type Customer = {
     readonly url: string;
     readonly uuid: string;
@@ -2139,6 +2134,15 @@ export type EmailHookRequest = {
     event_types?: Array<EventTypesEnum>;
     event_groups?: Array<EventGroupsEnum>;
     email: string;
+};
+
+export type EmailLog = {
+    readonly uuid: string;
+    readonly url: string;
+    readonly sent_at: string;
+    subject: string;
+    body: string;
+    emails: Array<string>;
 };
 
 export type EndpointDelete = {
@@ -4018,8 +4022,6 @@ export type OfferingCreate = {
      * Purchase and usage is invoiced.
      */
     billable?: boolean;
-    readonly scope: string;
-    readonly scope_uuid: string;
     scope_state: ScopeStateEnum;
     readonly files: Array<NestedOfferingFile>;
     readonly quotas: Array<Quota>;
@@ -5911,1202 +5913,353 @@ export type OrganizationGroupsRequest = {
     organization_groups?: Array<string>;
 };
 
-export type PaginatedAccessSubnetList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<AccessSubnet>;
-};
-
-export type PaginatedAdminAnnouncementList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<AdminAnnouncement>;
-};
-
-export type PaginatedAnswerListList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<AnswerList>;
-};
-
-export type PaginatedAttachmentList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Attachment>;
-};
-
-export type PaginatedAuthTokenList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<AuthToken>;
-};
-
-export type PaginatedAwsImageList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<AwsImage>;
-};
-
-export type PaginatedAwsInstanceList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<AwsInstance>;
-};
-
-export type PaginatedAwsRegionList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<AwsRegion>;
-};
-
-export type PaginatedAwsSizeList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<AwsSize>;
-};
-
-export type PaginatedAwsVolumeList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<AwsVolume>;
-};
-
-export type PaginatedAzureImageList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<AzureImage>;
-};
-
-export type PaginatedAzureLocationList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<AzureLocation>;
-};
-
-export type PaginatedAzurePublicIpList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<AzurePublicIp>;
-};
-
-export type PaginatedAzureResourceGroupList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<AzureResourceGroup>;
-};
-
-export type PaginatedAzureSizeList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<AzureSize>;
-};
-
-export type PaginatedAzureSqlDatabaseList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<AzureSqlDatabase>;
-};
-
-export type PaginatedAzureSqlServerList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<AzureSqlServer>;
-};
-
-export type PaginatedAzureVirtualMachineList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<AzureVirtualMachine>;
-};
-
-export type PaginatedBackupList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Backup>;
-};
-
-export type PaginatedBasePublicPlanList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<BasePublicPlan>;
-};
-
-export type PaginatedBasicCustomerList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<BasicCustomer>;
-};
-
-export type PaginatedBookingResourceList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<BookingResource>;
-};
-
-export type PaginatedBroadcastMessageList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<BroadcastMessage>;
-};
-
-export type PaginatedCallManagingOrganisationList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<CallManagingOrganisation>;
-};
-
-export type PaginatedCampaignList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Campaign>;
-};
-
-export type PaginatedCategoryColumnList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<CategoryColumn>;
-};
-
-export type PaginatedCategoryComponentUsageList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<CategoryComponentUsage>;
-};
-
-export type PaginatedCategoryComponentsList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<CategoryComponents>;
-};
-
-export type PaginatedCategoryGroupList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<CategoryGroup>;
-};
-
-export type PaginatedCategoryHelpArticlesList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<CategoryHelpArticles>;
-};
-
-export type PaginatedChecklistCategoryList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<ChecklistCategory>;
-};
-
-export type PaginatedChecklistList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Checklist>;
-};
-
-export type PaginatedChecklistQuestionList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<ChecklistQuestion>;
-};
-
-export type PaginatedCommentList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Comment>;
-};
-
-export type PaginatedComponentUsageList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<ComponentUsage>;
-};
-
-export type PaginatedComponentUserUsageLimitList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<ComponentUserUsageLimit>;
-};
-
-export type PaginatedComponentUserUsageList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<ComponentUserUsage>;
-};
-
-export type PaginatedCustomerCreditList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<CustomerCredit>;
-};
-
-export type PaginatedCustomerEstimatedCostPolicyList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<CustomerEstimatedCostPolicy>;
-};
-
-export type PaginatedCustomerList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Customer>;
-};
-
-export type PaginatedCustomerPermissionReviewList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<CustomerPermissionReview>;
-};
-
-export type PaginatedCustomerQuotasList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<CustomerQuotas>;
-};
-
-export type PaginatedCustomerUserList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<CustomerUser>;
-};
-
-export type PaginatedDetailedProviderUserList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<DetailedProviderUser>;
-};
-
-export type PaginatedDigitalOceanDropletList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<DigitalOceanDroplet>;
-};
-
-export type PaginatedDigitalOceanImageList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<DigitalOceanImage>;
-};
-
-export type PaginatedDigitalOceanRegionList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<DigitalOceanRegion>;
-};
-
-export type PaginatedDigitalOceanSizeList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<DigitalOceanSize>;
-};
-
-export type PaginatedDryRunList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<DryRun>;
-};
-
-export type PaginatedEmailHookList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<EmailHook>;
-};
-
-export type PaginatedEventList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Event>;
-};
-
-export type PaginatedEventStatsList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<EventStats>;
-};
-
-export type PaginatedEventSubscriptionList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<EventSubscription>;
-};
-
-export type PaginatedFeedbackList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Feedback>;
-};
-
-export type PaginatedFinancialReportList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<FinancialReport>;
-};
-
-export type PaginatedGoogleCredentialsList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<GoogleCredentials>;
-};
-
-export type PaginatedGroupInvitationList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<GroupInvitation>;
-};
-
-export type PaginatedIdentityProviderList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<IdentityProvider>;
-};
-
-export type PaginatedIntegrationStatusDetailsList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<IntegrationStatusDetails>;
-};
-
-export type PaginatedInvitationList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Invitation>;
-};
-
-export type PaginatedInvoiceItemDetailList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<InvoiceItemDetail>;
-};
-
-export type PaginatedInvoiceItemList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<InvoiceItem>;
-};
-
-export type PaginatedInvoiceList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Invoice>;
-};
-
-export type PaginatedIssueList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Issue>;
-};
-
-export type PaginatedJobList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Job>;
-};
-
-export type PaginatedLexisLinkList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<LexisLink>;
-};
-
-export type PaginatedMarketplaceCategoryList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<MarketplaceCategory>;
-};
-
-export type PaginatedMessageTemplateList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<MessageTemplate>;
-};
-
-export type PaginatedMigrationDetailsList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<MigrationDetails>;
-};
-
-export type PaginatedNameUuidList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<NameUuid>;
-};
-
-export type PaginatedNotificationList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Notification>;
-};
-
-export type PaginatedNotificationTemplateDetailSerializersList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<NotificationTemplateDetailSerializers>;
-};
-
-export type PaginatedOfferingEstimatedCostPolicyList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OfferingEstimatedCostPolicy>;
-};
-
-export type PaginatedOfferingFileList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OfferingFile>;
-};
-
-export type PaginatedOfferingList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Offering>;
-};
-
-export type PaginatedOfferingPermissionList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OfferingPermission>;
-};
-
-export type PaginatedOfferingReferralList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OfferingReferral>;
-};
-
-export type PaginatedOfferingUsagePolicyList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OfferingUsagePolicy>;
-};
-
-export type PaginatedOfferingUserList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OfferingUser>;
-};
-
-export type PaginatedOfferingUserRoleList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OfferingUserRole>;
-};
-
-export type PaginatedOpenStackBackupScheduleList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OpenStackBackupSchedule>;
-};
-
-export type PaginatedOpenStackCreateServerGroupList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OpenStackCreateServerGroup>;
-};
-
-export type PaginatedOpenStackFlavorList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OpenStackFlavor>;
-};
-
-export type PaginatedOpenStackFloatingIpList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OpenStackFloatingIp>;
-};
-
-export type PaginatedOpenStackImageList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OpenStackImage>;
-};
-
-export type PaginatedOpenStackInstanceAvailabilityZoneList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OpenStackInstanceAvailabilityZone>;
-};
-
-export type PaginatedOpenStackInstanceList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OpenStackInstance>;
-};
-
-export type PaginatedOpenStackNetworkList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OpenStackNetwork>;
-};
-
-export type PaginatedOpenStackPortList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OpenStackPort>;
-};
-
-export type PaginatedOpenStackRouterList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OpenStackRouter>;
-};
-
-export type PaginatedOpenStackSecurityGroupList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OpenStackSecurityGroup>;
-};
-
-export type PaginatedOpenStackSecurityGroupRuleUpdateList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OpenStackSecurityGroupRuleUpdate>;
-};
-
-export type PaginatedOpenStackSnapshotList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OpenStackSnapshot>;
-};
-
-export type PaginatedOpenStackSnapshotScheduleList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OpenStackSnapshotSchedule>;
-};
-
-export type PaginatedOpenStackSubNetList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OpenStackSubNet>;
-};
-
-export type PaginatedOpenStackTenantList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OpenStackTenant>;
-};
-
-export type PaginatedOpenStackVolumeAvailabilityZoneList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OpenStackVolumeAvailabilityZone>;
-};
-
-export type PaginatedOpenStackVolumeList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OpenStackVolume>;
-};
-
-export type PaginatedOpenStackVolumeTypeList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OpenStackVolumeType>;
-};
-
-export type PaginatedOrderDetailsList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OrderDetails>;
-};
-
-export type PaginatedOrganizationGroupList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<OrganizationGroup>;
-};
-
-export type PaginatedPaymentList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Payment>;
-};
-
-export type PaginatedPaymentProfileList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<PaymentProfile>;
-};
-
-export type PaginatedPermissionList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Permission>;
-};
-
-export type PaginatedPermissionRequestList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<PermissionRequest>;
-};
-
-export type PaginatedPlanComponentList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<PlanComponent>;
-};
-
-export type PaginatedPriorityList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Priority>;
-};
-
-export type PaginatedProfileList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Profile>;
-};
-
-export type PaginatedProjectCreditList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<ProjectCredit>;
-};
-
-export type PaginatedProjectEstimatedCostPolicyList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<ProjectEstimatedCostPolicy>;
-};
-
-export type PaginatedProjectList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Project>;
-};
-
-export type PaginatedProjectPermissionLogList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<ProjectPermissionLog>;
-};
-
-export type PaginatedProjectQuotasList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<ProjectQuotas>;
-};
-
-export type PaginatedProjectTypeList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<ProjectType>;
-};
-
-export type PaginatedProjectUpdateRequestList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<ProjectUpdateRequest>;
-};
-
-export type PaginatedProposalList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Proposal>;
-};
-
-export type PaginatedProtectedCallList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<ProtectedCall>;
-};
-
-export type PaginatedProviderCustomerList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<ProviderCustomer>;
-};
-
-export type PaginatedProviderCustomerProjectList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<ProviderCustomerProject>;
-};
-
-export type PaginatedProviderOfferingDetailsList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<ProviderOfferingDetails>;
-};
-
-export type PaginatedProviderOfferingList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<ProviderOffering>;
-};
-
-export type PaginatedProviderPlanDetailsList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<ProviderPlanDetails>;
-};
-
-export type PaginatedProviderRequestedOfferingList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<ProviderRequestedOffering>;
-};
-
-export type PaginatedProviderRequestedResourceList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<ProviderRequestedResource>;
-};
-
-export type PaginatedPublicCallList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<PublicCall>;
-};
-
-export type PaginatedPublicOfferingDetailsList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<PublicOfferingDetails>;
-};
-
-export type PaginatedRancherApplicationList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<RancherApplication>;
-};
-
-export type PaginatedRancherCatalogList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<RancherCatalog>;
-};
-
-export type PaginatedRancherClusterList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<RancherCluster>;
-};
-
-export type PaginatedRancherClusterTemplateList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<RancherClusterTemplate>;
-};
-
-export type PaginatedRancherHpaList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<RancherHpa>;
-};
-
-export type PaginatedRancherIngressList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<RancherIngress>;
-};
-
-export type PaginatedRancherNamespaceList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<RancherNamespace>;
-};
-
-export type PaginatedRancherNodeList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<RancherNode>;
-};
-
-export type PaginatedRancherProjectList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<RancherProject>;
-};
-
-export type PaginatedRancherTemplateList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<RancherTemplate>;
-};
-
-export type PaginatedRancherUserList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<RancherUser>;
-};
-
-export type PaginatedRancherWorkloadList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<RancherWorkload>;
-};
-
-export type PaginatedRemoteSynchronisationList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<RemoteSynchronisation>;
-};
-
-export type PaginatedResourceList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Resource>;
-};
-
-export type PaginatedResourceOfferingList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<ResourceOffering>;
-};
-
-export type PaginatedResourceUserList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<ResourceUser>;
-};
-
-export type PaginatedReviewList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Review>;
-};
-
-export type PaginatedRobotAccountDetailsList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<RobotAccountDetails>;
-};
-
-export type PaginatedRoleDetailsList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<RoleDetails>;
-};
-
-export type PaginatedRoundList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Round>;
-};
-
-export type PaginatedSaml2ProviderList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Saml2Provider>;
-};
-
-export type PaginatedScreenshotList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Screenshot>;
-};
-
-export type PaginatedSectionList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Section>;
-};
-
-export type PaginatedServiceList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Service>;
-};
-
-export type PaginatedServiceProviderList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<ServiceProvider>;
-};
-
-export type PaginatedServiceProviderRevenuesList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<ServiceProviderRevenues>;
-};
-
-export type PaginatedServiceSettingsList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<ServiceSettings>;
-};
-
-export type PaginatedSlurmAllocationList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<SlurmAllocation>;
-};
-
-export type PaginatedSlurmAllocationUserUsageList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<SlurmAllocationUserUsage>;
-};
-
-export type PaginatedSlurmAssociationList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<SlurmAssociation>;
-};
-
-export type PaginatedSshKeyList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<SshKey>;
-};
-
-export type PaginatedSupportUserList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<SupportUser>;
-};
-
-export type PaginatedTemplateList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<Template>;
-};
-
-export type PaginatedUserAgreementList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<UserAgreement>;
-};
-
-export type PaginatedUserList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<User>;
-};
-
-export type PaginatedUserRoleDetailsList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<UserRoleDetails>;
-};
-
-export type PaginatedVmwareClusterList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<VmwareCluster>;
-};
-
-export type PaginatedVmwareDatastoreList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<VmwareDatastore>;
-};
-
-export type PaginatedVmwareDiskList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<VmwareDisk>;
-};
-
-export type PaginatedVmwareFolderList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<VmwareFolder>;
-};
-
-export type PaginatedVmwareNetworkList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<VmwareNetwork>;
-};
-
-export type PaginatedVmwarePortList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<VmwarePort>;
-};
-
-export type PaginatedVmwareTemplateList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<VmwareTemplate>;
-};
-
-export type PaginatedVmwareVirtualMachineList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<VmwareVirtualMachine>;
-};
-
-export type PaginatedWebHookList = {
-    count: number;
-    next?: string | null;
-    previous?: string | null;
-    results: Array<WebHook>;
-};
+export type PaginatedAccessSubnetList = Array<AccessSubnet>;
+
+export type PaginatedAdminAnnouncementList = Array<AdminAnnouncement>;
+
+export type PaginatedAnswerListList = Array<AnswerList>;
+
+export type PaginatedAttachmentList = Array<Attachment>;
+
+export type PaginatedAuthTokenList = Array<AuthToken>;
+
+export type PaginatedAwsImageList = Array<AwsImage>;
+
+export type PaginatedAwsInstanceList = Array<AwsInstance>;
+
+export type PaginatedAwsRegionList = Array<AwsRegion>;
+
+export type PaginatedAwsSizeList = Array<AwsSize>;
+
+export type PaginatedAwsVolumeList = Array<AwsVolume>;
+
+export type PaginatedAzureImageList = Array<AzureImage>;
+
+export type PaginatedAzureLocationList = Array<AzureLocation>;
+
+export type PaginatedAzurePublicIpList = Array<AzurePublicIp>;
+
+export type PaginatedAzureResourceGroupList = Array<AzureResourceGroup>;
+
+export type PaginatedAzureSizeList = Array<AzureSize>;
+
+export type PaginatedAzureSqlDatabaseList = Array<AzureSqlDatabase>;
+
+export type PaginatedAzureSqlServerList = Array<AzureSqlServer>;
+
+export type PaginatedAzureVirtualMachineList = Array<AzureVirtualMachine>;
+
+export type PaginatedBackupList = Array<Backup>;
+
+export type PaginatedBasePublicPlanList = Array<BasePublicPlan>;
+
+export type PaginatedBasicCustomerList = Array<BasicCustomer>;
+
+export type PaginatedBookingResourceList = Array<BookingResource>;
+
+export type PaginatedBroadcastMessageList = Array<BroadcastMessage>;
+
+export type PaginatedCallManagingOrganisationList = Array<CallManagingOrganisation>;
+
+export type PaginatedCampaignList = Array<Campaign>;
+
+export type PaginatedCategoryColumnList = Array<CategoryColumn>;
+
+export type PaginatedCategoryComponentUsageList = Array<CategoryComponentUsage>;
+
+export type PaginatedCategoryComponentsList = Array<CategoryComponents>;
+
+export type PaginatedCategoryGroupList = Array<CategoryGroup>;
+
+export type PaginatedCategoryHelpArticlesList = Array<CategoryHelpArticles>;
+
+export type PaginatedChecklistCategoryList = Array<ChecklistCategory>;
+
+export type PaginatedChecklistList = Array<Checklist>;
+
+export type PaginatedChecklistQuestionList = Array<ChecklistQuestion>;
+
+export type PaginatedCommentList = Array<Comment>;
+
+export type PaginatedComponentUsageList = Array<ComponentUsage>;
+
+export type PaginatedComponentUserUsageLimitList = Array<ComponentUserUsageLimit>;
+
+export type PaginatedComponentUserUsageList = Array<ComponentUserUsage>;
+
+export type PaginatedCustomerCreditList = Array<CustomerCredit>;
+
+export type PaginatedCustomerEstimatedCostPolicyList = Array<CustomerEstimatedCostPolicy>;
+
+export type PaginatedCustomerList = Array<Customer>;
+
+export type PaginatedCustomerPermissionReviewList = Array<CustomerPermissionReview>;
+
+export type PaginatedCustomerQuotasList = Array<CustomerQuotas>;
+
+export type PaginatedCustomerUserList = Array<CustomerUser>;
+
+export type PaginatedDetailedProviderUserList = Array<DetailedProviderUser>;
+
+export type PaginatedDigitalOceanDropletList = Array<DigitalOceanDroplet>;
+
+export type PaginatedDigitalOceanImageList = Array<DigitalOceanImage>;
+
+export type PaginatedDigitalOceanRegionList = Array<DigitalOceanRegion>;
+
+export type PaginatedDigitalOceanSizeList = Array<DigitalOceanSize>;
+
+export type PaginatedDryRunList = Array<DryRun>;
+
+export type PaginatedEmailHookList = Array<EmailHook>;
+
+export type PaginatedEmailLogList = Array<EmailLog>;
+
+export type PaginatedEventList = Array<Event>;
+
+export type PaginatedEventStatsList = Array<EventStats>;
+
+export type PaginatedEventSubscriptionList = Array<EventSubscription>;
+
+export type PaginatedFeedbackList = Array<Feedback>;
+
+export type PaginatedFinancialReportList = Array<FinancialReport>;
+
+export type PaginatedGoogleCredentialsList = Array<GoogleCredentials>;
+
+export type PaginatedGroupInvitationList = Array<GroupInvitation>;
+
+export type PaginatedIdentityProviderList = Array<IdentityProvider>;
+
+export type PaginatedIntegrationStatusDetailsList = Array<IntegrationStatusDetails>;
+
+export type PaginatedInvitationList = Array<Invitation>;
+
+export type PaginatedInvoiceItemDetailList = Array<InvoiceItemDetail>;
+
+export type PaginatedInvoiceItemList = Array<InvoiceItem>;
+
+export type PaginatedInvoiceList = Array<Invoice>;
+
+export type PaginatedIssueList = Array<Issue>;
+
+export type PaginatedJobList = Array<Job>;
+
+export type PaginatedLexisLinkList = Array<LexisLink>;
+
+export type PaginatedMarketplaceCategoryList = Array<MarketplaceCategory>;
+
+export type PaginatedMessageTemplateList = Array<MessageTemplate>;
+
+export type PaginatedMigrationDetailsList = Array<MigrationDetails>;
+
+export type PaginatedNameUuidList = Array<NameUuid>;
+
+export type PaginatedNotificationList = Array<Notification>;
+
+export type PaginatedNotificationTemplateDetailSerializersList = Array<NotificationTemplateDetailSerializers>;
+
+export type PaginatedOfferingEstimatedCostPolicyList = Array<OfferingEstimatedCostPolicy>;
+
+export type PaginatedOfferingFileList = Array<OfferingFile>;
+
+export type PaginatedOfferingList = Array<Offering>;
+
+export type PaginatedOfferingPermissionList = Array<OfferingPermission>;
+
+export type PaginatedOfferingReferralList = Array<OfferingReferral>;
+
+export type PaginatedOfferingUsagePolicyList = Array<OfferingUsagePolicy>;
+
+export type PaginatedOfferingUserList = Array<OfferingUser>;
+
+export type PaginatedOfferingUserRoleList = Array<OfferingUserRole>;
+
+export type PaginatedOpenStackBackupScheduleList = Array<OpenStackBackupSchedule>;
+
+export type PaginatedOpenStackCreateServerGroupList = Array<OpenStackCreateServerGroup>;
+
+export type PaginatedOpenStackFlavorList = Array<OpenStackFlavor>;
+
+export type PaginatedOpenStackFloatingIpList = Array<OpenStackFloatingIp>;
+
+export type PaginatedOpenStackImageList = Array<OpenStackImage>;
+
+export type PaginatedOpenStackInstanceAvailabilityZoneList = Array<OpenStackInstanceAvailabilityZone>;
+
+export type PaginatedOpenStackInstanceList = Array<OpenStackInstance>;
+
+export type PaginatedOpenStackNetworkList = Array<OpenStackNetwork>;
+
+export type PaginatedOpenStackPortList = Array<OpenStackPort>;
+
+export type PaginatedOpenStackRouterList = Array<OpenStackRouter>;
+
+export type PaginatedOpenStackSecurityGroupList = Array<OpenStackSecurityGroup>;
+
+export type PaginatedOpenStackSecurityGroupRuleUpdateList = Array<OpenStackSecurityGroupRuleUpdate>;
+
+export type PaginatedOpenStackSnapshotList = Array<OpenStackSnapshot>;
+
+export type PaginatedOpenStackSnapshotScheduleList = Array<OpenStackSnapshotSchedule>;
+
+export type PaginatedOpenStackSubNetList = Array<OpenStackSubNet>;
+
+export type PaginatedOpenStackTenantList = Array<OpenStackTenant>;
+
+export type PaginatedOpenStackVolumeAvailabilityZoneList = Array<OpenStackVolumeAvailabilityZone>;
+
+export type PaginatedOpenStackVolumeList = Array<OpenStackVolume>;
+
+export type PaginatedOpenStackVolumeTypeList = Array<OpenStackVolumeType>;
+
+export type PaginatedOrderDetailsList = Array<OrderDetails>;
+
+export type PaginatedOrganizationGroupList = Array<OrganizationGroup>;
+
+export type PaginatedPaymentList = Array<Payment>;
+
+export type PaginatedPaymentProfileList = Array<PaymentProfile>;
+
+export type PaginatedPermissionList = Array<Permission>;
+
+export type PaginatedPermissionRequestList = Array<PermissionRequest>;
+
+export type PaginatedPlanComponentList = Array<PlanComponent>;
+
+export type PaginatedPriorityList = Array<Priority>;
+
+export type PaginatedProfileList = Array<Profile>;
+
+export type PaginatedProjectCreditList = Array<ProjectCredit>;
+
+export type PaginatedProjectEstimatedCostPolicyList = Array<ProjectEstimatedCostPolicy>;
+
+export type PaginatedProjectList = Array<Project>;
+
+export type PaginatedProjectPermissionLogList = Array<ProjectPermissionLog>;
+
+export type PaginatedProjectQuotasList = Array<ProjectQuotas>;
+
+export type PaginatedProjectTypeList = Array<ProjectType>;
+
+export type PaginatedProposalList = Array<Proposal>;
+
+export type PaginatedProtectedCallList = Array<ProtectedCall>;
+
+export type PaginatedProviderCustomerList = Array<ProviderCustomer>;
+
+export type PaginatedProviderCustomerProjectList = Array<ProviderCustomerProject>;
+
+export type PaginatedProviderOfferingDetailsList = Array<ProviderOfferingDetails>;
+
+export type PaginatedProviderOfferingList = Array<ProviderOffering>;
+
+export type PaginatedProviderPlanDetailsList = Array<ProviderPlanDetails>;
+
+export type PaginatedProviderRequestedOfferingList = Array<ProviderRequestedOffering>;
+
+export type PaginatedProviderRequestedResourceList = Array<ProviderRequestedResource>;
+
+export type PaginatedPublicCallList = Array<PublicCall>;
+
+export type PaginatedPublicOfferingDetailsList = Array<PublicOfferingDetails>;
+
+export type PaginatedRancherApplicationList = Array<RancherApplication>;
+
+export type PaginatedRancherCatalogList = Array<RancherCatalog>;
+
+export type PaginatedRancherClusterList = Array<RancherCluster>;
+
+export type PaginatedRancherClusterTemplateList = Array<RancherClusterTemplate>;
+
+export type PaginatedRancherHpaList = Array<RancherHpa>;
+
+export type PaginatedRancherIngressList = Array<RancherIngress>;
+
+export type PaginatedRancherNamespaceList = Array<RancherNamespace>;
+
+export type PaginatedRancherNodeList = Array<RancherNode>;
+
+export type PaginatedRancherProjectList = Array<RancherProject>;
+
+export type PaginatedRancherTemplateList = Array<RancherTemplate>;
+
+export type PaginatedRancherUserList = Array<RancherUser>;
+
+export type PaginatedRancherWorkloadList = Array<RancherWorkload>;
+
+export type PaginatedRemoteProjectUpdateRequestList = Array<RemoteProjectUpdateRequest>;
+
+export type PaginatedRemoteSynchronisationList = Array<RemoteSynchronisation>;
+
+export type PaginatedResourceList = Array<Resource>;
+
+export type PaginatedResourceOfferingList = Array<ResourceOffering>;
+
+export type PaginatedResourceUserList = Array<ResourceUser>;
+
+export type PaginatedReviewList = Array<Review>;
+
+export type PaginatedRmqUserStatsItemList = Array<RmqUserStatsItem>;
+
+export type PaginatedRmqVHostStatsItemList = Array<RmqVHostStatsItem>;
+
+export type PaginatedRobotAccountDetailsList = Array<RobotAccountDetails>;
+
+export type PaginatedRoleDetailsList = Array<RoleDetails>;
+
+export type PaginatedRoundList = Array<Round>;
+
+export type PaginatedSaml2ProviderList = Array<Saml2Provider>;
+
+export type PaginatedScreenshotList = Array<Screenshot>;
+
+export type PaginatedSectionList = Array<Section>;
+
+export type PaginatedServiceList = Array<Service>;
+
+export type PaginatedServiceProviderList = Array<ServiceProvider>;
+
+export type PaginatedServiceProviderRevenuesList = Array<ServiceProviderRevenues>;
+
+export type PaginatedServiceSettingsList = Array<ServiceSettings>;
+
+export type PaginatedSlurmAllocationList = Array<SlurmAllocation>;
+
+export type PaginatedSlurmAllocationUserUsageList = Array<SlurmAllocationUserUsage>;
+
+export type PaginatedSlurmAssociationList = Array<SlurmAssociation>;
+
+export type PaginatedSshKeyList = Array<SshKey>;
+
+export type PaginatedSupportUserList = Array<SupportUser>;
+
+export type PaginatedTemplateList = Array<Template>;
+
+export type PaginatedUserAgreementList = Array<UserAgreement>;
+
+export type PaginatedUserList = Array<User>;
+
+export type PaginatedUserRoleDetailsList = Array<UserRoleDetails>;
+
+export type PaginatedVmwareClusterList = Array<VmwareCluster>;
+
+export type PaginatedVmwareDatastoreList = Array<VmwareDatastore>;
+
+export type PaginatedVmwareDiskList = Array<VmwareDisk>;
+
+export type PaginatedVmwareFolderList = Array<VmwareFolder>;
+
+export type PaginatedVmwareNetworkList = Array<VmwareNetwork>;
+
+export type PaginatedVmwarePortList = Array<VmwarePort>;
+
+export type PaginatedVmwareTemplateList = Array<VmwareTemplate>;
+
+export type PaginatedVmwareVirtualMachineList = Array<VmwareVirtualMachine>;
+
+export type PaginatedWebHookList = Array<WebHook>;
 
 export type PasswordChangeRequest = {
     new_password: string;
@@ -7800,21 +6953,6 @@ export type PatchedProjectRequest = {
     image?: (Blob | File) | null;
 };
 
-export type PatchedProjectUpdateRequestRequest = {
-    review_comment?: string | null;
-    old_name?: string;
-    new_name?: string;
-    old_description?: string;
-    new_description?: string;
-    old_end_date?: string | null;
-    new_end_date?: string | null;
-    old_oecd_fos_2007_code?: string | null;
-    new_oecd_fos_2007_code?: string | null;
-    old_is_industry?: boolean | null;
-    new_is_industry?: boolean | null;
-    created_by?: number | null;
-};
-
 export type PatchedProposalRequest = {
     name?: string;
     description?: string;
@@ -8069,6 +7207,21 @@ export type PatchedRancherWorkloadRequest = {
     project?: string | null;
     namespace?: string | null;
     scale?: number;
+};
+
+export type PatchedRemoteProjectUpdateRequestRequest = {
+    review_comment?: string | null;
+    old_name?: string;
+    new_name?: string;
+    old_description?: string;
+    new_description?: string;
+    old_end_date?: string | null;
+    new_end_date?: string | null;
+    old_oecd_fos_2007_code?: string | null;
+    new_oecd_fos_2007_code?: string | null;
+    old_is_industry?: boolean | null;
+    new_is_industry?: boolean | null;
+    created_by?: number | null;
 };
 
 export type PatchedRemoteSynchronisationRequest = {
@@ -8656,47 +7809,6 @@ export type ProjectType = {
     description?: string;
 };
 
-export type ProjectUpdateRequest = {
-    readonly uuid: string;
-    readonly state: string;
-    readonly customer_name: string;
-    readonly offering_name: string;
-    readonly offering_uuid: string;
-    readonly created: string;
-    readonly reviewed_at: string | null;
-    readonly reviewed_by_full_name: string;
-    readonly reviewed_by_uuid: string;
-    review_comment?: string | null;
-    old_name?: string;
-    new_name?: string;
-    old_description?: string;
-    new_description?: string;
-    old_end_date?: string | null;
-    new_end_date?: string | null;
-    old_oecd_fos_2007_code?: string | null;
-    readonly old_oecd_fos_2007_label: string;
-    new_oecd_fos_2007_code?: string | null;
-    readonly new_oecd_fos_2007_label: string;
-    old_is_industry?: boolean | null;
-    new_is_industry?: boolean | null;
-    created_by?: number | null;
-};
-
-export type ProjectUpdateRequestRequest = {
-    review_comment?: string | null;
-    old_name?: string;
-    new_name?: string;
-    old_description?: string;
-    new_description?: string;
-    old_end_date?: string | null;
-    new_end_date?: string | null;
-    old_oecd_fos_2007_code?: string | null;
-    new_oecd_fos_2007_code?: string | null;
-    old_is_industry?: boolean | null;
-    new_is_industry?: boolean | null;
-    created_by?: number | null;
-};
-
 export type Proposal = {
     readonly uuid: string;
     readonly url: string;
@@ -8983,8 +8095,6 @@ export type ProviderOfferingDetails = {
      * Purchase and usage is invoiced.
      */
     billable?: boolean;
-    readonly scope: string;
-    readonly scope_uuid: string;
     scope_state: ScopeStateEnum;
     readonly files: Array<NestedOfferingFile>;
     readonly quotas: Array<Quota>;
@@ -9971,6 +9081,11 @@ export type ReferenceNumberRequest = {
     reference_number?: string;
 };
 
+export type RemoteCredentialsRequest = {
+    api_url: string;
+    token: string;
+};
+
 export type RemoteCustomer = {
     readonly uuid: string;
     readonly name: string;
@@ -9989,6 +9104,56 @@ export type RemoteOffering = {
     readonly type: string;
     readonly state: string;
     readonly category_title: string;
+};
+
+export type RemoteOfferingCreateRequest = {
+    api_url: string;
+    token: string;
+    remote_offering_uuid: string;
+    local_category_uuid: string;
+    local_customer_uuid: string;
+    remote_customer_uuid: string;
+};
+
+export type RemoteProjectUpdateRequest = {
+    readonly uuid: string;
+    readonly state: string;
+    readonly customer_name: string;
+    readonly offering_name: string;
+    readonly offering_uuid: string;
+    readonly created: string;
+    readonly reviewed_at: string | null;
+    readonly reviewed_by_full_name: string;
+    readonly reviewed_by_uuid: string;
+    review_comment?: string | null;
+    old_name?: string;
+    new_name?: string;
+    old_description?: string;
+    new_description?: string;
+    old_end_date?: string | null;
+    new_end_date?: string | null;
+    old_oecd_fos_2007_code?: string | null;
+    readonly old_oecd_fos_2007_label: string;
+    new_oecd_fos_2007_code?: string | null;
+    readonly new_oecd_fos_2007_label: string;
+    old_is_industry?: boolean | null;
+    new_is_industry?: boolean | null;
+    created_by?: number | null;
+};
+
+export type RemoteProjectUpdateRequestRequest = {
+    review_comment?: string | null;
+    old_name?: string;
+    new_name?: string;
+    old_description?: string;
+    new_description?: string;
+    old_end_date?: string | null;
+    new_end_date?: string | null;
+    old_oecd_fos_2007_code?: string | null;
+    new_oecd_fos_2007_code?: string | null;
+    old_is_industry?: boolean | null;
+    new_is_industry?: boolean | null;
+    created_by?: number | null;
 };
 
 export type RemoteSynchronisation = {
@@ -10380,6 +9545,34 @@ export type ReviewRequest = {
 export type ReviewStateEnum = 'created' | 'in_review' | 'submitted' | 'rejected';
 
 export type ReviewStrategyEnum = 'after_round' | 'after_proposal';
+
+export type RmqConnection = {
+    readonly source_ip: string;
+    readonly vhost: string;
+};
+
+export type RmqSubscription = {
+    readonly created: string;
+    readonly uuid: string;
+    readonly source_ip: string;
+};
+
+export type RmqUserStatsItem = {
+    readonly username: string;
+    readonly connections: Array<RmqConnection>;
+};
+
+export type RmqVHostStatsItem = {
+    readonly name: string;
+    waldur_user: RmqWaldurUser;
+    readonly subscriptions: Array<RmqSubscription>;
+};
+
+export type RmqWaldurUser = {
+    readonly full_name: string;
+    readonly username: string;
+    readonly email: string;
+};
 
 export type RobotAccount = {
     readonly url: string;
@@ -10899,6 +10092,12 @@ export type SubNetMappingRequest = {
     dst_cidr: string;
 };
 
+export type SupportStats = {
+    readonly open_issues_count: number;
+    readonly closed_this_month_count: number;
+    readonly recent_broadcasts_count: number;
+};
+
 export type SupportUser = {
     readonly url: string;
     readonly uuid: string;
@@ -10944,7 +10143,7 @@ export type TemplateRequest = {
     issue_type?: IssueTypeEnum;
 };
 
-export type TimezoneEnum = 'Africa/Lubumbashi' | 'Chile/EasterIsland' | 'Indian/Chagos' | 'America/North_Dakota/New_Salem' | 'Africa/Lagos' | 'NZ-CHAT' | 'America/Guyana' | 'Africa/Porto-Novo' | 'America/Toronto' | 'Indian/Mauritius' | 'Asia/Kuala_Lumpur' | 'America/Los_Angeles' | 'Africa/Asmara' | 'America/New_York' | 'Asia/Calcutta' | 'America/Resolute' | 'Asia/Anadyr' | 'Pacific/Easter' | 'America/Indiana/Petersburg' | 'Europe/Kaliningrad' | 'America/Punta_Arenas' | 'Europe/Isle_of_Man' | 'Asia/Baghdad' | 'Europe/San_Marino' | 'Asia/Istanbul' | 'Brazil/East' | 'Europe/Zurich' | 'Antarctica/South_Pole' | 'Antarctica/Macquarie' | 'America/Hermosillo' | 'Asia/Vientiane' | 'America/Port-au-Prince' | 'America/Costa_Rica' | 'America/St_Kitts' | 'Asia/Irkutsk' | 'US/Indiana-Starke' | 'Asia/Thimbu' | 'GB-Eire' | 'Antarctica/Vostok' | 'Asia/Aqtobe' | 'Pacific/Tarawa' | 'Europe/Uzhgorod' | 'America/Danmarkshavn' | 'Australia/Canberra' | 'America/La_Paz' | 'America/Fort_Wayne' | 'America/Fort_Nelson' | 'Etc/GMT-5' | 'Africa/Niamey' | 'America/Araguaina' | 'Etc/GMT-1' | 'Asia/Phnom_Penh' | 'Asia/Novokuznetsk' | 'Pacific/Galapagos' | 'Canada/Pacific' | 'Europe/Andorra' | 'America/Cordoba' | 'Pacific/Apia' | 'ROK' | 'Pacific/Ponape' | 'America/Argentina/San_Luis' | 'Europe/Skopje' | 'Africa/Djibouti' | 'America/Argentina/Cordoba' | 'Asia/Beirut' | 'Asia/Kashgar' | 'Asia/Yerevan' | 'Canada/Atlantic' | 'Africa/Kigali' | 'Etc/GMT0' | 'America/Jamaica' | 'America/Rankin_Inlet' | 'Brazil/West' | 'Australia/Darwin' | 'Africa/Bujumbura' | 'Asia/Samarkand' | 'Asia/Seoul' | 'Australia/Melbourne' | 'Europe/Sarajevo' | 'Africa/Malabo' | 'Europe/Belfast' | 'America/Ciudad_Juarez' | 'America/Barbados' | 'Europe/Samara' | 'Asia/Tehran' | 'Asia/Hebron' | 'America/Guadeloupe' | 'America/Swift_Current' | 'Antarctica/Palmer' | 'Libya' | 'Pacific/Chatham' | 'Europe/Chisinau' | 'Africa/Kinshasa' | 'Europe/Amsterdam' | 'Africa/Blantyre' | 'Asia/Hong_Kong' | 'America/Panama' | 'America/Santarem' | 'Europe/Belgrade' | 'America/Indiana/Vincennes' | 'Asia/Jayapura' | 'America/Pangnirtung' | 'Africa/Nouakchott' | 'Asia/Atyrau' | 'America/Cayenne' | 'America/Argentina/Tucuman' | 'America/Grenada' | 'Europe/Bratislava' | 'Asia/Baku' | 'Etc/GMT-14' | 'America/Cambridge_Bay' | 'Asia/Urumqi' | 'Etc/GMT+0' | 'Africa/Timbuktu' | 'Etc/GMT+9' | 'Indian/Antananarivo' | 'GMT0' | 'Asia/Thimphu' | 'America/Anchorage' | 'Zulu' | 'America/Caracas' | 'Factory' | 'Asia/Dushanbe' | 'Europe/Nicosia' | 'Asia/Kathmandu' | 'America/Moncton' | 'America/Yellowknife' | 'America/Antigua' | 'Europe/Budapest' | 'America/Atka' | 'US/Central' | 'Atlantic/Faeroe' | 'Canada/Mountain' | 'Asia/Novosibirsk' | 'Hongkong' | 'Brazil/Acre' | 'Pacific/Noumea' | 'Asia/Singapore' | 'Etc/GMT+7' | 'Africa/Kampala' | 'Australia/West' | 'Iceland' | 'Portugal' | 'Africa/Luanda' | 'Pacific/Gambier' | 'America/Iqaluit' | 'HST' | 'Africa/Nairobi' | 'Europe/Vaduz' | 'Asia/Yakutsk' | 'America/Montreal' | 'America/Knox_IN' | 'America/Montserrat' | 'Mexico/BajaSur' | 'Asia/Famagusta' | 'Europe/Tirane' | 'Atlantic/Faroe' | 'Pacific/Pago_Pago' | 'Eire' | 'America/Ojinaga' | 'Asia/Hovd' | 'Atlantic/St_Helena' | 'Etc/GMT-9' | 'Pacific/Auckland' | 'Australia/Queensland' | 'Etc/GMT-3' | 'Europe/Jersey' | 'Antarctica/Troll' | 'Poland' | 'America/Eirunepe' | 'America/Vancouver' | 'America/Boise' | 'Pacific/Norfolk' | 'America/Dawson' | 'Pacific/Tahiti' | 'US/Alaska' | 'America/Merida' | 'Pacific/Fakaofo' | 'Canada/Yukon' | 'America/St_Johns' | 'Australia/Lindeman' | 'Africa/Lusaka' | 'Asia/Tokyo' | 'America/Belize' | 'Africa/Dakar' | 'America/Santa_Isabel' | 'Asia/Qatar' | 'Asia/Dili' | 'America/Santo_Domingo' | 'America/Phoenix' | 'America/Paramaribo' | 'America/Lower_Princes' | 'America/Indiana/Indianapolis' | 'Indian/Mahe' | 'Asia/Ust-Nera' | 'PST8PDT' | 'Australia/Brisbane' | 'Cuba' | 'America/Maceio' | 'Asia/Gaza' | 'America/Edmonton' | 'Antarctica/McMurdo' | 'Etc/GMT' | 'Europe/Vienna' | 'Etc/UCT' | 'Etc/GMT-13' | 'Etc/GMT-8' | 'Asia/Ashkhabad' | 'Africa/Abidjan' | 'Europe/Oslo' | 'US/Hawaii' | 'GMT' | 'Asia/Qostanay' | 'Europe/Rome' | 'Africa/Conakry' | 'UTC' | 'Australia/Tasmania' | 'America/Puerto_Rico' | 'Europe/Copenhagen' | 'America/Argentina/Ushuaia' | 'Antarctica/Rothera' | 'Europe/Dublin' | 'Europe/Minsk' | 'America/Scoresbysund' | 'Greenwich' | 'Etc/GMT+12' | 'Etc/GMT-10' | 'Indian/Comoro' | 'Pacific/Truk' | 'America/Managua' | 'America/Mexico_City' | 'Etc/GMT+3' | 'Australia/NSW' | 'Pacific/Guam' | 'America/Kentucky/Louisville' | 'Pacific/Niue' | 'Asia/Yekaterinburg' | 'Indian/Maldives' | 'Europe/Monaco' | 'America/Rosario' | 'Etc/GMT-11' | 'Africa/Asmera' | 'America/Guatemala' | 'Etc/Greenwich' | 'America/Anguilla' | 'Etc/Zulu' | 'America/Boa_Vista' | 'Chile/Continental' | 'Africa/Mbabane' | 'America/St_Barthelemy' | 'US/Eastern' | 'US/Samoa' | 'Africa/Bangui' | 'Canada/Eastern' | 'Atlantic/Azores' | 'Africa/Sao_Tome' | 'Asia/Muscat' | 'America/Rainy_River' | 'W-SU' | 'Asia/Bahrain' | 'Asia/Ulaanbaatar' | 'Europe/Stockholm' | 'Africa/Bissau' | 'America/Dawson_Creek' | 'America/Ensenada' | 'America/Winnipeg' | 'Etc/GMT+11' | 'WET' | 'Europe/Zaporozhye' | 'Pacific/Kosrae' | 'Japan' | 'America/North_Dakota/Beulah' | 'Pacific/Midway' | 'Pacific/Kanton' | 'America/Menominee' | 'Africa/Monrovia' | 'Europe/Kirov' | 'Europe/Paris' | 'Singapore' | 'Etc/GMT-2' | 'Asia/Kolkata' | 'Africa/Bamako' | 'Africa/Libreville' | 'America/El_Salvador' | 'America/Tijuana' | 'Africa/Douala' | 'Asia/Karachi' | 'America/Aruba' | 'America/Sitka' | 'UCT' | 'Navajo' | 'America/Havana' | 'US/Arizona' | 'Indian/Christmas' | 'America/Adak' | 'Europe/Prague' | 'Antarctica/Syowa' | 'Pacific/Kiritimati' | 'Australia/North' | 'America/Denver' | 'Pacific/Nauru' | 'America/Catamarca' | 'Asia/Sakhalin' | 'Pacific/Port_Moresby' | 'US/Michigan' | 'America/Atikokan' | 'America/Blanc-Sablon' | 'Etc/GMT+5' | 'Asia/Makassar' | 'America/Chicago' | 'Africa/Juba' | 'Europe/Simferopol' | 'America/Juneau' | 'Africa/Tunis' | 'Asia/Pyongyang' | 'Europe/Brussels' | 'Africa/Ouagadougou' | 'Australia/Adelaide' | 'EST' | 'Asia/Damascus' | 'MET' | 'America/Montevideo' | 'Etc/GMT+8' | 'Asia/Aqtau' | 'America/Martinique' | 'Pacific/Pohnpei' | 'America/Lima' | 'America/Guayaquil' | 'America/North_Dakota/Center' | 'Europe/Busingen' | 'Asia/Dubai' | 'Asia/Kabul' | 'America/Tegucigalpa' | 'Europe/Berlin' | 'America/Cuiaba' | 'America/Whitehorse' | 'Europe/Volgograd' | 'CST6CDT' | 'Etc/GMT+6' | 'Australia/Lord_Howe' | 'Atlantic/Madeira' | 'America/Argentina/Rio_Gallegos' | 'Asia/Kuching' | 'US/Mountain' | 'Pacific/Marquesas' | 'Etc/GMT-6' | 'Etc/GMT-12' | 'Africa/Cairo' | 'America/Porto_Acre' | 'Europe/Madrid' | 'Asia/Chungking' | 'Africa/Windhoek' | 'Asia/Riyadh' | 'Canada/Central' | 'Africa/Mogadishu' | 'Africa/Maseru' | 'America/Coral_Harbour' | 'America/Kralendijk' | 'Australia/Yancowinna' | 'America/Rio_Branco' | 'Etc/GMT-4' | 'Pacific/Wallis' | 'Asia/Magadan' | 'America/Sao_Paulo' | 'Asia/Colombo' | 'Africa/Brazzaville' | 'Egypt' | 'America/Jujuy' | 'Asia/Almaty' | 'Africa/Ndjamena' | 'Canada/Saskatchewan' | 'Asia/Chongqing' | 'America/Yakutat' | 'Pacific/Enderbury' | 'Africa/Algiers' | 'America/St_Lucia' | 'America/Cancun' | 'Africa/Gaborone' | 'Europe/Athens' | 'America/Argentina/La_Rioja' | 'America/Asuncion' | 'Canada/Newfoundland' | 'Pacific/Chuuk' | 'Asia/Manila' | 'America/Campo_Grande' | 'Asia/Yangon' | 'America/Buenos_Aires' | 'Australia/LHI' | 'America/Grand_Turk' | 'Europe/London' | 'Africa/Accra' | 'America/Bogota' | 'Atlantic/Reykjavik' | 'America/Recife' | 'Asia/Macao' | 'Pacific/Fiji' | 'Europe/Sofia' | 'Pacific/Bougainville' | 'Europe/Ulyanovsk' | 'Europe/Warsaw' | 'Asia/Ujung_Pandang' | 'Atlantic/Bermuda' | 'Asia/Aden' | 'America/Nassau' | 'America/Regina' | 'America/Noronha' | 'Asia/Choibalsan' | 'Europe/Podgorica' | 'America/Godthab' | 'Asia/Macau' | 'America/Cayman' | 'Universal' | 'Australia/Perth' | 'America/Belem' | 'Asia/Shanghai' | 'Europe/Saratov' | 'America/Indiana/Vevay' | 'EST5EDT' | 'US/Aleutian' | 'Asia/Ulan_Bator' | 'Etc/GMT+1' | 'Etc/UTC' | 'Europe/Bucharest' | 'Asia/Bishkek' | 'Asia/Pontianak' | 'Europe/Gibraltar' | 'Etc/GMT+10' | 'CET' | 'Asia/Katmandu' | 'America/Dominica' | 'Asia/Kuwait' | 'Pacific/Honolulu' | 'America/Indiana/Marengo' | 'Europe/Riga' | 'America/Marigot' | 'America/Thule' | 'America/Bahia_Banderas' | 'Iran' | 'Europe/Luxembourg' | 'Europe/Guernsey' | 'Asia/Tomsk' | 'Antarctica/Mawson' | 'Asia/Brunei' | 'America/Bahia' | 'America/Louisville' | 'Asia/Khandyga' | 'Australia/Eucla' | 'Africa/Johannesburg' | 'America/Nome' | 'Australia/Currie' | 'GMT+0' | 'America/Indiana/Winamac' | 'Asia/Vladivostok' | 'Asia/Saigon' | 'Jamaica' | 'America/Virgin' | 'America/Tortola' | 'America/Argentina/Salta' | 'Asia/Tbilisi' | 'America/Inuvik' | 'America/Shiprock' | 'America/Kentucky/Monticello' | 'Indian/Cocos' | 'EET' | 'Asia/Harbin' | 'Turkey' | 'Asia/Taipei' | 'Etc/GMT+4' | 'Mexico/BajaNorte' | 'Europe/Malta' | 'America/Halifax' | 'Pacific/Funafuti' | 'Etc/GMT+2' | 'Indian/Kerguelen' | 'Indian/Reunion' | 'Asia/Ho_Chi_Minh' | 'Africa/Maputo' | 'Asia/Dhaka' | 'Atlantic/Cape_Verde' | 'America/Argentina/Jujuy' | 'Antarctica/Casey' | 'Asia/Dacca' | 'Europe/Mariehamn' | 'NZ' | 'America/Mendoza' | 'Australia/Broken_Hill' | 'Europe/Tiraspol' | 'Pacific/Pitcairn' | 'Africa/Tripoli' | 'Europe/Vatican' | 'Asia/Krasnoyarsk' | 'Asia/Amman' | 'Asia/Qyzylorda' | 'America/Detroit' | 'Europe/Istanbul' | 'America/Monterrey' | 'localtime' | 'Asia/Nicosia' | 'Europe/Kiev' | 'America/Mazatlan' | 'America/Indianapolis' | 'Atlantic/Stanley' | 'Australia/Hobart' | 'US/Pacific' | 'Indian/Mayotte' | 'America/Argentina/ComodRivadavia' | 'Pacific/Rarotonga' | 'America/Curacao' | 'America/Glace_Bay' | 'America/Creston' | 'MST7MDT' | 'Africa/Banjul' | 'America/Chihuahua' | 'Europe/Moscow' | 'Pacific/Yap' | 'Asia/Jakarta' | 'Pacific/Palau' | 'Africa/Casablanca' | 'Europe/Tallinn' | 'Asia/Bangkok' | 'Africa/Ceuta' | 'Asia/Tel_Aviv' | 'Etc/GMT-7' | 'Africa/Addis_Ababa' | 'Africa/Harare' | 'Pacific/Samoa' | 'America/Port_of_Spain' | 'America/Santiago' | 'Asia/Jerusalem' | 'Etc/GMT-0' | 'America/Nipigon' | 'Antarctica/Davis' | 'Asia/Rangoon' | 'GB' | 'Africa/Dar_es_Salaam' | 'Europe/Ljubljana' | 'Africa/El_Aaiun' | 'Asia/Srednekolymsk' | 'America/Metlakatla' | 'Atlantic/South_Georgia' | 'Atlantic/Canary' | 'Europe/Vilnius' | 'Europe/Helsinki' | 'Pacific/Kwajalein' | 'Asia/Kamchatka' | 'Asia/Ashgabat' | 'America/Miquelon' | 'Africa/Khartoum' | 'Mexico/General' | 'America/St_Thomas' | 'Pacific/Wake' | 'Europe/Astrakhan' | 'ROC' | 'America/St_Vincent' | 'Australia/Victoria' | 'US/East-Indiana' | 'Africa/Lome' | 'PRC' | 'America/Matamoros' | 'America/Indiana/Tell_City' | 'Europe/Kyiv' | 'Pacific/Tongatapu' | 'Kwajalein' | 'Pacific/Majuro' | 'America/Nuuk' | 'Asia/Omsk' | 'Asia/Chita' | 'Pacific/Guadalcanal' | 'Africa/Freetown' | 'Pacific/Efate' | 'Pacific/Johnston' | 'America/Thunder_Bay' | 'America/Porto_Velho' | 'Australia/Sydney' | 'Etc/Universal' | 'GMT-0' | 'America/Indiana/Knox' | 'America/Goose_Bay' | 'Brazil/DeNoronha' | 'Australia/South' | 'Asia/Tashkent' | 'America/Argentina/San_Juan' | 'Israel' | 'Europe/Lisbon' | 'MST' | 'Pacific/Saipan' | 'Australia/ACT' | 'America/Argentina/Buenos_Aires' | 'America/Manaus' | 'Antarctica/DumontDUrville' | 'Asia/Oral' | 'America/Argentina/Catamarca' | 'Asia/Barnaul' | 'America/Fortaleza' | 'Atlantic/Jan_Mayen' | 'America/Argentina/Mendoza' | 'Arctic/Longyearbyen' | 'Europe/Zagreb';
+export type TimezoneEnum = 'Atlantic/Stanley' | 'US/Alaska' | 'America/Dawson' | 'UCT' | 'Asia/Brunei' | 'Antarctica/DumontDUrville' | 'Europe/Istanbul' | 'Chile/EasterIsland' | 'America/Dawson_Creek' | 'Africa/Gaborone' | 'Africa/Niamey' | 'Europe/Riga' | 'Asia/Ust-Nera' | 'America/Rosario' | 'America/Ensenada' | 'Asia/Colombo' | 'America/Mazatlan' | 'Africa/Kampala' | 'Africa/Lusaka' | 'Atlantic/South_Georgia' | 'Cuba' | 'America/Coral_Harbour' | 'Africa/Nairobi' | 'America/Boise' | 'Asia/Baghdad' | 'America/Shiprock' | 'Jamaica' | 'America/Indianapolis' | 'Asia/Pyongyang' | 'Asia/Makassar' | 'Europe/Zurich' | 'Pacific/Kosrae' | 'America/Port-au-Prince' | 'America/Mexico_City' | 'America/Grand_Turk' | 'Australia/Queensland' | 'Navajo' | 'Asia/Thimbu' | 'US/Indiana-Starke' | 'Asia/Irkutsk' | 'Africa/Cairo' | 'Pacific/Norfolk' | 'Europe/Vilnius' | 'America/Manaus' | 'America/Noronha' | 'America/Indiana/Winamac' | 'Asia/Tel_Aviv' | 'Africa/Abidjan' | 'Pacific/Noumea' | 'Asia/Manila' | 'Europe/Vienna' | 'Hongkong' | 'America/Nipigon' | 'Pacific/Kanton' | 'Pacific/Pitcairn' | 'America/Santa_Isabel' | 'America/Argentina/Ushuaia' | 'Indian/Mahe' | 'Asia/Harbin' | 'Asia/Jakarta' | 'America/Punta_Arenas' | 'Europe/Guernsey' | 'Asia/Samarkand' | 'Europe/Saratov' | 'Asia/Khandyga' | 'Asia/Ujung_Pandang' | 'Indian/Maldives' | 'Pacific/Auckland' | 'America/Lower_Princes' | 'Asia/Ulaanbaatar' | 'ROK' | 'Etc/GMT-14' | 'Pacific/Marquesas' | 'Etc/GMT+4' | 'Europe/Chisinau' | 'America/Belize' | 'Asia/Chita' | 'Antarctica/Syowa' | 'Asia/Ashgabat' | 'Africa/Bangui' | 'Mexico/General' | 'Pacific/Efate' | 'Africa/Bissau' | 'Asia/Vladivostok' | 'America/Jamaica' | 'Pacific/Saipan' | 'America/Denver' | 'America/Indiana/Knox' | 'Africa/Banjul' | 'Pacific/Pohnpei' | 'HST' | 'America/Argentina/ComodRivadavia' | 'America/Miquelon' | 'Canada/Yukon' | 'Africa/Khartoum' | 'Atlantic/Canary' | 'Pacific/Tarawa' | 'America/Guyana' | 'Pacific/Yap' | 'America/Catamarca' | 'Asia/Krasnoyarsk' | 'Indian/Chagos' | 'Atlantic/Faeroe' | 'Europe/Bucharest' | 'America/Inuvik' | 'America/Costa_Rica' | 'Etc/UCT' | 'Europe/Kiev' | 'America/Detroit' | 'America/Virgin' | 'America/North_Dakota/Beulah' | 'Etc/GMT+1' | 'Iran' | 'America/New_York' | 'Europe/Copenhagen' | 'Pacific/Samoa' | 'Europe/Stockholm' | 'Australia/Darwin' | 'America/Thule' | 'America/Porto_Acre' | 'Asia/Anadyr' | 'America/Aruba' | 'Asia/Magadan' | 'America/Merida' | 'America/Metlakatla' | 'Antarctica/South_Pole' | 'Asia/Dhaka' | 'Europe/Belfast' | 'Asia/Dushanbe' | 'Africa/Dakar' | 'Africa/Asmara' | 'Africa/Tunis' | 'Etc/GMT+6' | 'America/Godthab' | 'Africa/Porto-Novo' | 'America/Buenos_Aires' | 'America/Swift_Current' | 'Europe/Brussels' | 'Pacific/Funafuti' | 'Indian/Cocos' | 'Europe/Helsinki' | 'US/Aleutian' | 'Africa/Mbabane' | 'Europe/Athens' | 'Pacific/Tahiti' | 'America/Yakutat' | 'Asia/Macau' | 'America/Winnipeg' | 'America/Guatemala' | 'America/St_Vincent' | 'Factory' | 'America/Barbados' | 'America/Indiana/Marengo' | 'Pacific/Niue' | 'Europe/London' | 'Africa/El_Aaiun' | 'Etc/GMT+11' | 'Asia/Kuwait' | 'Asia/Kolkata' | 'Europe/Gibraltar' | 'America/Cayenne' | 'Canada/Newfoundland' | 'America/Argentina/Salta' | 'America/Belem' | 'Asia/Dubai' | 'Etc/GMT+9' | 'US/Hawaii' | 'Etc/GMT-7' | 'Brazil/East' | 'Australia/Lindeman' | 'UTC' | 'US/Michigan' | 'America/Argentina/Jujuy' | 'Atlantic/Reykjavik' | 'Africa/Lubumbashi' | 'Etc/GMT-5' | 'America/Sao_Paulo' | 'America/Argentina/San_Juan' | 'America/Marigot' | 'America/Nassau' | 'America/El_Salvador' | 'America/Nuuk' | 'Europe/Mariehamn' | 'Asia/Calcutta' | 'America/Port_of_Spain' | 'Africa/Maputo' | 'America/Tortola' | 'Asia/Damascus' | 'Europe/Warsaw' | 'US/Arizona' | 'Asia/Kuching' | 'Pacific/Galapagos' | 'Pacific/Midway' | 'Africa/Accra' | 'America/Lima' | 'Africa/Asmera' | 'America/Ciudad_Juarez' | 'Etc/GMT-10' | 'Antarctica/Troll' | 'Asia/Tbilisi' | 'Etc/Universal' | 'Antarctica/Mawson' | 'America/Fort_Wayne' | 'America/Bahia' | 'Asia/Oral' | 'Asia/Bahrain' | 'Pacific/Wake' | 'Eire' | 'Asia/Kamchatka' | 'Australia/Melbourne' | 'Pacific/Guam' | 'America/Rankin_Inlet' | 'Etc/GMT+12' | 'Pacific/Apia' | 'Pacific/Wallis' | 'Europe/Tiraspol' | 'America/Montserrat' | 'Australia/Canberra' | 'Pacific/Kiritimati' | 'Atlantic/Jan_Mayen' | 'Australia/Perth' | 'Etc/GMT-2' | 'Asia/Choibalsan' | 'Antarctica/Rothera' | 'Asia/Amman' | 'Africa/Ceuta' | 'Asia/Novokuznetsk' | 'Etc/GMT+8' | 'US/Samoa' | 'America/Bogota' | 'Pacific/Tongatapu' | 'GB-Eire' | 'Africa/Freetown' | 'America/Tegucigalpa' | 'Australia/Yancowinna' | 'Europe/Zaporozhye' | 'America/North_Dakota/Center' | 'Asia/Hebron' | 'Antarctica/Macquarie' | 'Asia/Almaty' | 'America/Sitka' | 'America/Tijuana' | 'W-SU' | 'America/Panama' | 'Etc/GMT-6' | 'Australia/Brisbane' | 'America/Jujuy' | 'Asia/Yangon' | 'America/Scoresbysund' | 'America/Maceio' | 'Africa/Kinshasa' | 'America/Hermosillo' | 'Universal' | 'Brazil/Acre' | 'America/Bahia_Banderas' | 'America/Eirunepe' | 'America/Edmonton' | 'Pacific/Easter' | 'Indian/Christmas' | 'America/St_Lucia' | 'Asia/Riyadh' | 'Europe/Volgograd' | 'Pacific/Chuuk' | 'Pacific/Palau' | 'Africa/Johannesburg' | 'America/Fortaleza' | 'Brazil/West' | 'Pacific/Rarotonga' | 'America/Menominee' | 'Africa/Lagos' | 'Canada/Atlantic' | 'Japan' | 'America/St_Johns' | 'Etc/GMT-12' | 'Asia/Phnom_Penh' | 'Africa/Bujumbura' | 'NZ' | 'America/Antigua' | 'US/Central' | 'MST7MDT' | 'Canada/Pacific' | 'Europe/Jersey' | 'Asia/Macao' | 'EST5EDT' | 'America/Iqaluit' | 'America/Los_Angeles' | 'America/Indiana/Petersburg' | 'Asia/Hovd' | 'Antarctica/Casey' | 'Asia/Barnaul' | 'Asia/Urumqi' | 'Asia/Aden' | 'PRC' | 'America/Cayman' | 'Asia/Katmandu' | 'America/Regina' | 'Africa/Sao_Tome' | 'Mexico/BajaNorte' | 'Europe/Kaliningrad' | 'America/Knox_IN' | 'Asia/Qostanay' | 'Etc/GMT-0' | 'America/Santiago' | 'Europe/Vatican' | 'America/Cuiaba' | 'Pacific/Bougainville' | 'Europe/Zagreb' | 'Asia/Shanghai' | 'America/Santarem' | 'Asia/Atyrau' | 'America/Kentucky/Monticello' | 'Etc/GMT-1' | 'Africa/Brazzaville' | 'Europe/Kirov' | 'Europe/Tirane' | 'Asia/Kabul' | 'Pacific/Ponape' | 'Etc/GMT-8' | 'Antarctica/Vostok' | 'Europe/Luxembourg' | 'Indian/Comoro' | 'Pacific/Pago_Pago' | 'Iceland' | 'Africa/Casablanca' | 'America/Adak' | 'America/Managua' | 'Mexico/BajaSur' | 'Australia/Lord_Howe' | 'Canada/Mountain' | 'Pacific/Nauru' | 'Asia/Jayapura' | 'Asia/Omsk' | 'Pacific/Port_Moresby' | 'Etc/Greenwich' | 'Africa/Malabo' | 'Europe/Moscow' | 'America/Kentucky/Louisville' | 'Asia/Baku' | 'Africa/Mogadishu' | 'America/Halifax' | 'Africa/Harare' | 'America/La_Paz' | 'America/Moncton' | 'Africa/Douala' | 'America/Montreal' | 'Etc/UTC' | 'America/Argentina/Cordoba' | 'EET' | 'GMT' | 'Europe/Oslo' | 'Atlantic/Azores' | 'Etc/GMT+3' | 'PST8PDT' | 'Europe/Sarajevo' | 'Asia/Dili' | 'Europe/Berlin' | 'GMT-0' | 'Singapore' | 'Atlantic/Bermuda' | 'America/Goose_Bay' | 'Australia/Sydney' | 'America/Araguaina' | 'America/Argentina/Rio_Gallegos' | 'America/Monterrey' | 'America/Paramaribo' | 'Poland' | 'Asia/Ulan_Bator' | 'Etc/GMT+2' | 'Pacific/Fakaofo' | 'Zulu' | 'Australia/North' | 'Indian/Mauritius' | 'America/Atka' | 'Asia/Gaza' | 'Africa/Dar_es_Salaam' | 'Asia/Vientiane' | 'Etc/GMT+0' | 'America/Asuncion' | 'Asia/Singapore' | 'Asia/Chungking' | 'Asia/Seoul' | 'Brazil/DeNoronha' | 'Arctic/Longyearbyen' | 'EST' | 'America/Danmarkshavn' | 'Africa/Addis_Ababa' | 'America/Cordoba' | 'Australia/ACT' | 'Chile/Continental' | 'NZ-CHAT' | 'Etc/GMT+7' | 'Australia/South' | 'America/North_Dakota/New_Salem' | 'America/Rio_Branco' | 'Europe/Uzhgorod' | 'Europe/Ulyanovsk' | 'Asia/Istanbul' | 'GMT+0' | 'GMT0' | 'Australia/Victoria' | 'America/Argentina/Catamarca' | 'Indian/Reunion' | 'Asia/Qatar' | 'Turkey' | 'Africa/Monrovia' | 'Africa/Ouagadougou' | 'Atlantic/St_Helena' | 'Atlantic/Madeira' | 'America/Vancouver' | 'America/Whitehorse' | 'America/Pangnirtung' | 'Europe/Busingen' | 'Asia/Nicosia' | 'Europe/Isle_of_Man' | 'Asia/Taipei' | 'Asia/Tomsk' | 'Egypt' | 'Asia/Kashgar' | 'Europe/Vaduz' | 'Asia/Tehran' | 'Asia/Yekaterinburg' | 'Australia/Currie' | 'Africa/Luanda' | 'America/Resolute' | 'Pacific/Guadalcanal' | 'America/Argentina/La_Rioja' | 'Africa/Blantyre' | 'America/Toronto' | 'America/Dominica' | 'ROC' | 'Europe/Rome' | 'America/Juneau' | 'Europe/Paris' | 'US/Mountain' | 'Etc/GMT-9' | 'America/Thunder_Bay' | 'Asia/Saigon' | 'US/Pacific' | 'US/East-Indiana' | 'Europe/Astrakhan' | 'Pacific/Gambier' | 'America/Matamoros' | 'Asia/Pontianak' | 'America/Louisville' | 'Europe/Sofia' | 'Europe/Monaco' | 'Pacific/Truk' | 'WET' | 'America/Cambridge_Bay' | 'Asia/Thimphu' | 'Asia/Hong_Kong' | 'Australia/Adelaide' | 'America/Havana' | 'Greenwich' | 'America/Argentina/Mendoza' | 'Indian/Mayotte' | 'Europe/Madrid' | 'Europe/Malta' | 'Asia/Yerevan' | 'America/Cancun' | 'America/Curacao' | 'Europe/Dublin' | 'Europe/Podgorica' | 'Pacific/Johnston' | 'America/Guadeloupe' | 'Antarctica/Palmer' | 'Asia/Tokyo' | 'America/Atikokan' | 'America/Blanc-Sablon' | 'US/Eastern' | 'America/Indiana/Vevay' | 'Etc/GMT-3' | 'America/Argentina/Tucuman' | 'America/St_Kitts' | 'Asia/Rangoon' | 'Portugal' | 'Asia/Ashkhabad' | 'America/Fort_Nelson' | 'Asia/Tashkent' | 'Asia/Jerusalem' | 'Europe/Amsterdam' | 'Europe/Kyiv' | 'America/Rainy_River' | 'Europe/San_Marino' | 'localtime' | 'America/Argentina/San_Luis' | 'Asia/Sakhalin' | 'Pacific/Honolulu' | 'Pacific/Chatham' | 'Asia/Bishkek' | 'Europe/Andorra' | 'Etc/GMT' | 'Israel' | 'Canada/Eastern' | 'America/Argentina/Buenos_Aires' | 'Africa/Nouakchott' | 'MET' | 'America/Chihuahua' | 'Asia/Bangkok' | 'Asia/Yakutsk' | 'Antarctica/McMurdo' | 'Pacific/Majuro' | 'Asia/Beirut' | 'America/St_Thomas' | 'Antarctica/Davis' | 'America/Kralendijk' | 'Indian/Antananarivo' | 'GB' | 'Etc/GMT0' | 'America/Anguilla' | 'Africa/Ndjamena' | 'Europe/Ljubljana' | 'Libya' | 'Asia/Karachi' | 'Asia/Famagusta' | 'America/Glace_Bay' | 'America/Chicago' | 'Africa/Windhoek' | 'Pacific/Kwajalein' | 'Etc/GMT-11' | 'Asia/Aqtau' | 'Europe/Lisbon' | 'Europe/Skopje' | 'Asia/Muscat' | 'Asia/Kuala_Lumpur' | 'Europe/Bratislava' | 'Asia/Novosibirsk' | 'Europe/Belgrade' | 'America/Martinique' | 'America/Phoenix' | 'Australia/Tasmania' | 'Africa/Maseru' | 'Etc/Zulu' | 'Etc/GMT-13' | 'Europe/Nicosia' | 'Asia/Kathmandu' | 'America/Caracas' | 'America/Campo_Grande' | 'America/St_Barthelemy' | 'America/Indiana/Indianapolis' | 'Europe/Simferopol' | 'America/Puerto_Rico' | 'America/Santo_Domingo' | 'Europe/Tallinn' | 'Africa/Lome' | 'Asia/Ho_Chi_Minh' | 'Europe/Samara' | 'America/Anchorage' | 'Australia/West' | 'Europe/Prague' | 'Pacific/Fiji' | 'Australia/NSW' | 'America/Mendoza' | 'America/Yellowknife' | 'America/Porto_Velho' | 'Australia/LHI' | 'Asia/Aqtobe' | 'CST6CDT' | 'America/Grenada' | 'Africa/Algiers' | 'Africa/Djibouti' | 'America/Indiana/Tell_City' | 'Australia/Hobart' | 'Atlantic/Faroe' | 'Europe/Minsk' | 'Etc/GMT-4' | 'Indian/Kerguelen' | 'Etc/GMT+10' | 'Canada/Central' | 'MST' | 'Asia/Dacca' | 'Africa/Timbuktu' | 'Europe/Budapest' | 'Africa/Conakry' | 'Australia/Eucla' | 'Africa/Juba' | 'America/Boa_Vista' | 'Africa/Kigali' | 'America/Nome' | 'Asia/Qyzylorda' | 'Asia/Chongqing' | 'America/Montevideo' | 'Kwajalein' | 'America/Ojinaga' | 'America/Recife' | 'Australia/Broken_Hill' | 'Canada/Saskatchewan' | 'Africa/Bamako' | 'America/Guayaquil' | 'Africa/Tripoli' | 'Asia/Srednekolymsk' | 'Pacific/Enderbury' | 'Atlantic/Cape_Verde' | 'CET' | 'America/Creston' | 'America/Indiana/Vincennes' | 'Africa/Libreville' | 'Etc/GMT+5';
 
 export type Type005Enum = 'Create' | 'Update' | 'Terminate';
 
@@ -11503,7 +10702,7 @@ export type WebHookRequest = {
     content_type?: ContentTypeEnum;
 };
 
-export type WebhookEventEnum = 'jira:issue_deleted' | 'comment_updated' | 'jira:issue_updated' | 'comment_deleted' | 'comment_created';
+export type WebhookEventEnum = 'comment_deleted' | 'comment_updated' | 'jira:issue_deleted' | 'jira:issue_updated' | 'comment_created';
 
 export type ApiAuthBccUserDetailsRetrieveData = {
     body?: never;
@@ -15428,6 +14627,54 @@ export type DigitaloceanSizesRetrieveResponses = {
 };
 
 export type DigitaloceanSizesRetrieveResponse = DigitaloceanSizesRetrieveResponses[keyof DigitaloceanSizesRetrieveResponses];
+
+export type EmailLogsListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        body?: string;
+        emails?: string;
+        /**
+         * Ordering
+         *
+         * * `sent_at` - Sent at
+         * * `-sent_at` - Sent at (descending)
+         */
+        o?: Array<'-sent_at' | 'sent_at'>;
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+        sent_at?: string;
+        subject?: string;
+    };
+    url: '/api/email-logs/';
+};
+
+export type EmailLogsListResponses = {
+    200: PaginatedEmailLogList;
+};
+
+export type EmailLogsListResponse = EmailLogsListResponses[keyof EmailLogsListResponses];
+
+export type EmailLogsRetrieveData = {
+    body?: never;
+    path: {
+        uuid: string;
+    };
+    query?: never;
+    url: '/api/email-logs/{uuid}/';
+};
+
+export type EmailLogsRetrieveResponses = {
+    200: EmailLog;
+};
+
+export type EmailLogsRetrieveResponse = EmailLogsRetrieveResponses[keyof EmailLogsRetrieveResponses];
 
 export type EventSubscriptionsListData = {
     body?: never;
@@ -19966,20 +19213,20 @@ export type MarketplaceProjectUpdateRequestsListData = {
 };
 
 export type MarketplaceProjectUpdateRequestsListResponses = {
-    200: PaginatedProjectUpdateRequestList;
+    200: PaginatedRemoteProjectUpdateRequestList;
 };
 
 export type MarketplaceProjectUpdateRequestsListResponse = MarketplaceProjectUpdateRequestsListResponses[keyof MarketplaceProjectUpdateRequestsListResponses];
 
 export type MarketplaceProjectUpdateRequestsCreateData = {
-    body?: ProjectUpdateRequestRequest;
+    body?: RemoteProjectUpdateRequestRequest;
     path?: never;
     query?: never;
     url: '/api/marketplace-project-update-requests/';
 };
 
 export type MarketplaceProjectUpdateRequestsCreateResponses = {
-    201: ProjectUpdateRequest;
+    201: RemoteProjectUpdateRequest;
 };
 
 export type MarketplaceProjectUpdateRequestsCreateResponse = MarketplaceProjectUpdateRequestsCreateResponses[keyof MarketplaceProjectUpdateRequestsCreateResponses];
@@ -20012,13 +19259,13 @@ export type MarketplaceProjectUpdateRequestsRetrieveData = {
 };
 
 export type MarketplaceProjectUpdateRequestsRetrieveResponses = {
-    200: ProjectUpdateRequest;
+    200: RemoteProjectUpdateRequest;
 };
 
 export type MarketplaceProjectUpdateRequestsRetrieveResponse = MarketplaceProjectUpdateRequestsRetrieveResponses[keyof MarketplaceProjectUpdateRequestsRetrieveResponses];
 
 export type MarketplaceProjectUpdateRequestsPartialUpdateData = {
-    body?: PatchedProjectUpdateRequestRequest;
+    body?: PatchedRemoteProjectUpdateRequestRequest;
     path: {
         uuid: string;
     };
@@ -20027,13 +19274,13 @@ export type MarketplaceProjectUpdateRequestsPartialUpdateData = {
 };
 
 export type MarketplaceProjectUpdateRequestsPartialUpdateResponses = {
-    200: ProjectUpdateRequest;
+    200: RemoteProjectUpdateRequest;
 };
 
 export type MarketplaceProjectUpdateRequestsPartialUpdateResponse = MarketplaceProjectUpdateRequestsPartialUpdateResponses[keyof MarketplaceProjectUpdateRequestsPartialUpdateResponses];
 
 export type MarketplaceProjectUpdateRequestsUpdateData = {
-    body?: ProjectUpdateRequestRequest;
+    body?: RemoteProjectUpdateRequestRequest;
     path: {
         uuid: string;
     };
@@ -20042,7 +19289,7 @@ export type MarketplaceProjectUpdateRequestsUpdateData = {
 };
 
 export type MarketplaceProjectUpdateRequestsUpdateResponses = {
-    200: ProjectUpdateRequest;
+    200: RemoteProjectUpdateRequest;
 };
 
 export type MarketplaceProjectUpdateRequestsUpdateResponse = MarketplaceProjectUpdateRequestsUpdateResponses[keyof MarketplaceProjectUpdateRequestsUpdateResponses];
@@ -20763,6 +20010,21 @@ export type MarketplaceOfferingPauseResponses = {
 };
 
 export type MarketplaceOfferingPauseResponse = MarketplaceOfferingPauseResponses[keyof MarketplaceOfferingPauseResponses];
+
+export type MarketplaceProviderOfferingsRefreshOfferingUsernamesCreateData = {
+    body: ProviderOfferingDetailsRequest;
+    path: {
+        uuid: string;
+    };
+    query?: never;
+    url: '/api/marketplace-provider-offerings/{uuid}/refresh_offering_usernames/';
+};
+
+export type MarketplaceProviderOfferingsRefreshOfferingUsernamesCreateResponses = {
+    200: ProviderOfferingDetails;
+};
+
+export type MarketplaceProviderOfferingsRefreshOfferingUsernamesCreateResponse = MarketplaceProviderOfferingsRefreshOfferingUsernamesCreateResponses[keyof MarketplaceProviderOfferingsRefreshOfferingUsernamesCreateResponses];
 
 export type MarketplaceOfferingRemoveComponentData = {
     body: OfferingComponentRequest;
@@ -30095,33 +29357,49 @@ export type QueryCreateResponses = {
     200: unknown;
 };
 
-export type RabbitmqUserStatsRetrieveData = {
+export type RabbitmqUserStatsListData = {
     body?: never;
     path?: never;
-    query?: never;
+    query?: {
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+    };
     url: '/api/rabbitmq-user-stats/';
 };
 
-export type RabbitmqUserStatsRetrieveResponses = {
-    /**
-     * No response body
-     */
-    200: unknown;
+export type RabbitmqUserStatsListResponses = {
+    200: PaginatedRmqUserStatsItemList;
 };
 
-export type RabbitmqVhostStatsRetrieveData = {
+export type RabbitmqUserStatsListResponse = RabbitmqUserStatsListResponses[keyof RabbitmqUserStatsListResponses];
+
+export type RabbitmqVhostStatsListData = {
     body?: never;
     path?: never;
-    query?: never;
+    query?: {
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+    };
     url: '/api/rabbitmq-vhost-stats/';
 };
 
-export type RabbitmqVhostStatsRetrieveResponses = {
-    /**
-     * No response body
-     */
-    200: unknown;
+export type RabbitmqVhostStatsListResponses = {
+    200: PaginatedRmqVHostStatsItemList;
 };
+
+export type RabbitmqVhostStatsListResponse = RabbitmqVhostStatsListResponses[keyof RabbitmqVhostStatsListResponses];
 
 export type RancherAppsListData = {
     body?: never;
@@ -31909,7 +31187,7 @@ export type RemoteWaldurApiCancelTerminationCreateResponses = {
 };
 
 export type RemoteWaldurApiImportOfferingCreateData = {
-    body: OfferingCreateRequest;
+    body: RemoteOfferingCreateRequest;
     path?: never;
     query?: never;
     url: '/api/remote-waldur-api/import_offering/';
@@ -32067,7 +31345,7 @@ export type RemoteWaldurApiPushProjectDataCreateResponses = {
 };
 
 export type RemoteWaldurApiRemoteCategoriesCreateData = {
-    body: CredentialsRequest;
+    body: RemoteCredentialsRequest;
     path?: never;
     query?: never;
     url: '/api/remote-waldur-api/remote_categories/';
@@ -32080,7 +31358,7 @@ export type RemoteWaldurApiRemoteCategoriesCreateResponses = {
 export type RemoteWaldurApiRemoteCategoriesCreateResponse = RemoteWaldurApiRemoteCategoriesCreateResponses[keyof RemoteWaldurApiRemoteCategoriesCreateResponses];
 
 export type RemoteWaldurApiRemoteCustomersCreateData = {
-    body: CredentialsRequest;
+    body: RemoteCredentialsRequest;
     path?: never;
     query?: never;
     url: '/api/remote-waldur-api/remote_customers/';
@@ -32093,7 +31371,7 @@ export type RemoteWaldurApiRemoteCustomersCreateResponses = {
 export type RemoteWaldurApiRemoteCustomersCreateResponse = RemoteWaldurApiRemoteCustomersCreateResponses[keyof RemoteWaldurApiRemoteCustomersCreateResponses];
 
 export type RemoteWaldurApiSharedOfferingsCreateData = {
-    body: CredentialsRequest;
+    body: RemoteCredentialsRequest;
     path?: never;
     query?: {
         customer_uuid?: string;
@@ -33447,11 +32725,10 @@ export type SupportStatisticsRetrieveData = {
 };
 
 export type SupportStatisticsRetrieveResponses = {
-    /**
-     * No response body
-     */
-    200: unknown;
+    200: SupportStats;
 };
+
+export type SupportStatisticsRetrieveResponse = SupportStatisticsRetrieveResponses[keyof SupportStatisticsRetrieveResponses];
 
 export type SupportTemplatesListData = {
     body?: never;
