@@ -1,4 +1,4 @@
-import { UnitEnum } from '@waldur/api';
+import { BillingUnit } from '@waldur/api';
 import { AttributesType } from '@waldur/marketplace/types';
 
 export type OrderState =
@@ -51,7 +51,7 @@ export interface OrderResponse {
   old_plan_uuid?: string;
   new_plan_uuid?: string;
   plan_description?: string;
-  plan_unit?: UnitEnum;
+  plan_unit?: BillingUnit;
   project: string;
   project_uuid?: string;
   project_name: string;

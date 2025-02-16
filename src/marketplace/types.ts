@@ -3,7 +3,7 @@ import { InjectedFormProps } from 'redux-form';
 import {
   CategoryGroup as WaldurCategoryGroup,
   MarketplaceCategory as WaldurCategory,
-  UnitEnum,
+  BillingUnit,
   BillingTypeEnum,
   OrganizationGroup,
   OfferingOptions,
@@ -44,7 +44,7 @@ export interface Plan {
   unit_price?: number | string;
   init_price?: number | string;
   switch_price?: number | string;
-  unit?: UnitEnum;
+  unit?: BillingUnit;
   quotas: { [key: string]: number };
   prices: { [key: string]: number };
   future_prices?: { [key: string]: number };
