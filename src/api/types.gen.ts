@@ -2,13 +2,13 @@
 
 export type AccessSubnet = {
     readonly uuid: string;
-    inet: string | null;
+    inet: string;
     description?: string;
     customer: string;
 };
 
 export type AccessSubnetRequest = {
-    inet: string | null;
+    inet: string;
     description?: string;
     customer: string;
 };
@@ -145,7 +145,7 @@ export type AwsInstance = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string;
@@ -263,7 +263,7 @@ export type AwsVolume = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string;
@@ -354,7 +354,7 @@ export type AzurePublicIp = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string;
@@ -402,7 +402,7 @@ export type AzureResourceGroup = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string;
@@ -451,7 +451,7 @@ export type AzureSqlDatabase = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string;
@@ -516,7 +516,7 @@ export type AzureSqlServer = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string;
@@ -569,7 +569,7 @@ export type AzureVirtualMachine = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string;
@@ -670,7 +670,7 @@ export type Backup = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string;
@@ -1037,6 +1037,8 @@ export type CallManagingOrganisationStat = {
     readonly calls_closing_in_one_week: number;
     readonly offering_requests_pending: number;
 };
+
+export type CallStates = 'draft' | 'active' | 'archived';
 
 export type Campaign = {
     readonly uuid: string;
@@ -1620,6 +1622,8 @@ export type ConstanceSettingsRequest = {
 
 export type ContentTypeEnum = 'json' | 'form';
 
+export type CoreStates = 'Creation Scheduled' | 'Creating' | 'Update Scheduled' | 'Updating' | 'Deletion Scheduled' | 'Deleting' | 'OK' | 'Erred';
+
 export type CountStats = {
     readonly name: string;
     readonly uuid: string;
@@ -1662,12 +1666,12 @@ export type CreateFeedback = {
     readonly uuid: string;
     readonly issue: string;
     comment?: string;
-    evaluation: EvaluationEnum;
+    evaluation: number;
 };
 
 export type CreateFeedbackRequest = {
     comment?: string;
-    evaluation: EvaluationEnum;
+    evaluation: number;
     token: string;
 };
 
@@ -1964,7 +1968,7 @@ export type DigitalOceanDroplet = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string;
@@ -2155,10 +2159,6 @@ export type EndpointDeleteRequest = {
 
 export type EthertypeEnum = 'IPv4' | 'IPv6';
 
-export type EvaluationEnum = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
-
-export type EvaluationNumberEnum = 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 | 10;
-
 export type Event = {
     readonly uuid: string;
     readonly created: string;
@@ -2206,7 +2206,7 @@ export type Feedback = {
     readonly created: string;
     readonly modified: string;
     state?: State220Enum;
-    evaluation: EvaluationEnum;
+    evaluation: number;
     comment?: string;
     readonly issue_uuid: string;
     readonly user_full_name: string;
@@ -2216,7 +2216,7 @@ export type Feedback = {
 
 export type FeedbackRequest = {
     state?: State220Enum;
-    evaluation: EvaluationEnum;
+    evaluation: number;
     comment?: string;
 };
 
@@ -2868,7 +2868,7 @@ export type Job = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string;
@@ -3537,7 +3537,7 @@ export type NestedEndpointRequest = {
 
 export type NestedFeedback = {
     readonly evaluation: string;
-    evaluation_number: EvaluationNumberEnum;
+    readonly evaluation_number: number;
     comment?: string;
     readonly state: string;
 };
@@ -3627,7 +3627,7 @@ export type NestedRemoteLocalCategoryRequest = {
 
 export type NestedRequestedOffering = {
     readonly uuid: string;
-    state: StateF20Enum;
+    state: RequestedOfferingStates;
     offering: string;
     readonly offering_name: string;
     readonly offering_uuid: string;
@@ -3839,7 +3839,7 @@ export type Offering = {
      * Public data used by specific plugin, such as storage mode for OpenStack.
      */
     plugin_options?: unknown;
-    state: State8D3Enum;
+    state: OfferingStates;
     state_code: StateCodeEnum;
     native_name?: string;
     native_description?: string;
@@ -3859,7 +3859,7 @@ export type Offering = {
      * Purchase and usage is invoiced.
      */
     billable?: boolean;
-    scope_state: ScopeStateEnum;
+    scope_state: CoreStates;
     readonly files: Array<NestedOfferingFile>;
     readonly quotas: Array<Quota>;
     readonly paused_reason: string;
@@ -4002,7 +4002,7 @@ export type OfferingCreate = {
     plugin_options?: unknown;
     secret_options?: unknown;
     readonly service_attributes: {};
-    state: State8D3Enum;
+    state: OfferingStates;
     state_code: StateCodeEnum;
     native_name?: string;
     native_description?: string;
@@ -4022,7 +4022,7 @@ export type OfferingCreate = {
      * Purchase and usage is invoiced.
      */
     billable?: boolean;
-    scope_state: ScopeStateEnum;
+    scope_state: CoreStates;
     readonly files: Array<NestedOfferingFile>;
     readonly quotas: Array<Quota>;
     readonly paused_reason: string;
@@ -4333,6 +4333,8 @@ export type OfferingResourceOptionsUpdateRequest = {
     resource_options: OfferingOptionsRequest;
 };
 
+export type OfferingStates = 'Draft' | 'Active' | 'Paused' | 'Archived';
+
 export type OfferingStats = {
     count: number;
     name: string;
@@ -4476,7 +4478,7 @@ export type OpenStackBackupSchedule = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string;
@@ -4540,7 +4542,7 @@ export type OpenStackCreateServerGroup = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string;
@@ -4620,7 +4622,7 @@ export type OpenStackFloatingIp = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string;
@@ -4709,7 +4711,7 @@ export type OpenStackInstance = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string | null;
@@ -4968,7 +4970,7 @@ export type OpenStackNetwork = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string;
@@ -5020,7 +5022,7 @@ export type OpenStackPort = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string;
@@ -5088,7 +5090,7 @@ export type OpenStackRouter = {
     error_message?: string;
     error_traceback?: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     backend_id?: string;
@@ -5151,7 +5153,7 @@ export type OpenStackSecurityGroup = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string;
@@ -5266,7 +5268,7 @@ export type OpenStackSnapshot = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string | null;
@@ -5363,7 +5365,7 @@ export type OpenStackSnapshotSchedule = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string;
@@ -5433,7 +5435,7 @@ export type OpenStackSubNet = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string;
@@ -5496,7 +5498,7 @@ export type OpenStackTenant = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string | null;
@@ -5595,7 +5597,7 @@ export type OpenStackVolume = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string | null;
@@ -5747,7 +5749,7 @@ export type OrderCreate = {
     readonly uuid: string;
     readonly created: string;
     readonly modified: string;
-    type?: Type005Enum;
+    type?: RequestTypes;
     readonly resource_uuid: string | null;
     readonly resource_type: string | null;
     readonly resource_name: string;
@@ -5786,7 +5788,7 @@ export type OrderCreateRequest = {
     limits?: {
         [key: string]: number;
     };
-    type?: Type005Enum;
+    type?: RequestTypes;
     output?: string;
     accepting_terms_of_service?: boolean;
     callback_url?: string | null;
@@ -5834,7 +5836,7 @@ export type OrderDetails = {
     readonly uuid: string;
     readonly created: string;
     readonly modified: string;
-    type?: Type005Enum;
+    type?: RequestTypes;
     readonly resource_uuid: string | null;
     readonly resource_type: string | null;
     readonly resource_name: string;
@@ -5884,7 +5886,7 @@ export type OrderDetailsRequest = {
     limits?: {
         [key: string]: number;
     };
-    type?: Type005Enum;
+    type?: RequestTypes;
     accepting_terms_of_service?: boolean;
     backend_id?: string;
 };
@@ -6141,6 +6143,8 @@ export type PaginatedProjectPermissionLogList = Array<ProjectPermissionLog>;
 
 export type PaginatedProjectQuotasList = Array<ProjectQuotas>;
 
+export type PaginatedProjectStatsItemList = Array<ProjectStatsItem>;
+
 export type PaginatedProjectTypeList = Array<ProjectType>;
 
 export type PaginatedProposalList = Array<Proposal>;
@@ -6188,6 +6192,10 @@ export type PaginatedRancherTemplateList = Array<RancherTemplate>;
 export type PaginatedRancherUserList = Array<RancherUser>;
 
 export type PaginatedRancherWorkloadList = Array<RancherWorkload>;
+
+export type PaginatedRemoteCustomerList = Array<RemoteCustomer>;
+
+export type PaginatedRemoteOfferingList = Array<RemoteOffering>;
 
 export type PaginatedRemoteProjectUpdateRequestList = Array<RemoteProjectUpdateRequest>;
 
@@ -6266,7 +6274,7 @@ export type PasswordChangeRequest = {
 };
 
 export type PatchedAccessSubnetRequest = {
-    inet?: string | null;
+    inet?: string;
     description?: string;
     customer?: string;
 };
@@ -6516,7 +6524,7 @@ export type PatchedEmailHookRequest = {
 
 export type PatchedFeedbackRequest = {
     state?: State220Enum;
-    evaluation?: EvaluationEnum;
+    evaluation?: number;
     comment?: string;
 };
 
@@ -6886,7 +6894,7 @@ export type PatchedOrderDetailsRequest = {
     limits?: {
         [key: string]: number;
     };
-    type?: Type005Enum;
+    type?: RequestTypes;
     accepting_terms_of_service?: boolean;
     backend_id?: string;
 };
@@ -7802,6 +7810,15 @@ export type ProjectRequest = {
     image?: (Blob | File) | null;
 };
 
+export type ProjectStatsItem = {
+    readonly name: string;
+    readonly uuid: string;
+    readonly positive_count: number;
+    readonly negative_count: number;
+    readonly unknown_count: number;
+    readonly score: number;
+};
+
 export type ProjectType = {
     readonly uuid: string;
     readonly url: string;
@@ -7818,7 +7835,7 @@ export type Proposal = {
     project_is_confidential?: boolean;
     project_has_civilian_purpose?: boolean;
     readonly supporting_documentation: Array<ProposalDocumentation>;
-    state: StateD0dEnum;
+    state: ProposalStates;
     readonly approved_by: string | null;
     readonly created_by: string | null;
     /**
@@ -7873,6 +7890,8 @@ export type ProposalRequest = {
     oecd_fos_2007_code?: OecdFos2007CodeEnum | BlankEnum | NullEnum | null;
 };
 
+export type ProposalStates = 'draft' | 'team_verification' | 'submitted' | 'in_review' | 'in_revision' | 'accepted' | 'rejected' | 'canceled';
+
 export type ProposalUpdateProjectDetails = {
     name: string;
     description?: string;
@@ -7907,7 +7926,7 @@ export type ProtectedCall = {
     readonly end_date: string;
     name: string;
     description?: string;
-    state: StateA5eEnum;
+    state: CallStates;
     manager: string;
     readonly customer_name: string;
     readonly customer_uuid: string;
@@ -7937,7 +7956,7 @@ export type ProtectedCallRequest = {
 export type ProtectedProposalList = {
     readonly uuid: string;
     name: string;
-    state: StateD0dEnum;
+    state: ProposalStates;
     readonly reviews: Array<Review>;
     readonly approved_by_name: string;
     readonly created_by_name: string;
@@ -8014,7 +8033,7 @@ export type ProviderOffering = {
     readonly slug: string;
     readonly category_title: string;
     type: string;
-    state: State8D3Enum;
+    state: OfferingStates;
     readonly resources_count: number;
     billing_price_estimate: NestedPriceEstimate;
     components?: Array<OfferingComponent>;
@@ -8075,7 +8094,7 @@ export type ProviderOfferingDetails = {
     plugin_options?: unknown;
     secret_options?: unknown;
     readonly service_attributes: {};
-    state: State8D3Enum;
+    state: OfferingStates;
     state_code: StateCodeEnum;
     native_name?: string;
     native_description?: string;
@@ -8095,7 +8114,7 @@ export type ProviderOfferingDetails = {
      * Purchase and usage is invoiced.
      */
     billable?: boolean;
-    scope_state: ScopeStateEnum;
+    scope_state: CoreStates;
     readonly files: Array<NestedOfferingFile>;
     readonly quotas: Array<Quota>;
     readonly paused_reason: string;
@@ -8235,7 +8254,7 @@ export type ProviderProject = {
 
 export type ProviderRequestedOffering = {
     readonly uuid: string;
-    state: StateF20Enum;
+    state: RequestedOfferingStates;
     offering: string;
     readonly offering_name: string;
     readonly offering_uuid: string;
@@ -8301,7 +8320,7 @@ export type PublicCall = {
     readonly end_date: string;
     name: string;
     description?: string;
-    state: StateA5eEnum;
+    state: CallStates;
     manager: string;
     readonly customer_name: string;
     readonly customer_uuid: string;
@@ -8352,7 +8371,7 @@ export type PublicOfferingDetails = {
      * Public data used by specific plugin, such as storage mode for OpenStack.
      */
     plugin_options?: unknown;
-    state: State8D3Enum;
+    state: OfferingStates;
     state_code: StateCodeEnum;
     native_name?: string;
     native_description?: string;
@@ -8372,7 +8391,7 @@ export type PublicOfferingDetails = {
      * Purchase and usage is invoiced.
      */
     billable?: boolean;
-    scope_state: ScopeStateEnum;
+    scope_state: CoreStates;
     readonly files: Array<NestedOfferingFile>;
     readonly quotas: Array<Quota>;
     readonly paused_reason: string;
@@ -8489,7 +8508,7 @@ export type RancherApplication = {
     error_message?: string;
     error_traceback?: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     backend_id?: string;
@@ -8626,7 +8645,7 @@ export type RancherCluster = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string;
@@ -8795,7 +8814,7 @@ export type RancherIngress = {
     error_message?: string;
     error_traceback?: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     backend_id?: string;
@@ -9115,6 +9134,10 @@ export type RemoteOfferingCreateRequest = {
     remote_customer_uuid: string;
 };
 
+export type RemoteOfferingCreateResponse = {
+    readonly uuid: string;
+};
+
 export type RemoteProjectUpdateRequest = {
     readonly uuid: string;
     readonly state: string;
@@ -9195,9 +9218,11 @@ export type ReportSectionRequest = {
     body: string;
 };
 
+export type RequestTypes = 'Create' | 'Update' | 'Terminate';
+
 export type RequestedOffering = {
     readonly uuid: string;
-    state: StateF20Enum;
+    state: RequestedOfferingStates;
     offering: string;
     readonly offering_name: string;
     readonly offering_uuid: string;
@@ -9224,6 +9249,8 @@ export type RequestedOfferingRequest = {
     plan?: string | null;
     description?: string;
 };
+
+export type RequestedOfferingStates = 'requested' | 'accepted' | 'canceled';
 
 export type RequestedResource = {
     readonly uuid: string;
@@ -9754,8 +9781,6 @@ export type Saml2Provider = {
     url: string;
 };
 
-export type ScopeStateEnum = 'Creation Scheduled' | 'Creating' | 'Update Scheduled' | 'Updating' | 'Deletion Scheduled' | 'Deleting' | 'OK' | 'Erred';
-
 export type ScopeTypeEnum = 'global' | 'cluster' | 'project';
 
 export type Screenshot = {
@@ -9820,7 +9845,7 @@ export type Service = {
     error_message?: string;
     error_traceback?: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     backend_id?: string;
@@ -9985,7 +10010,7 @@ export type SlurmAllocation = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string;
@@ -10068,15 +10093,7 @@ export type SshKeyRequest = {
 
 export type State220Enum = 5 | 6 | 1 | 2 | 7 | 8 | 3 | 4;
 
-export type State8D3Enum = 'Draft' | 'Active' | 'Paused' | 'Archived';
-
-export type StateA5eEnum = 'draft' | 'active' | 'archived';
-
 export type StateCodeEnum = 1 | 2 | 3 | 4;
-
-export type StateD0dEnum = 'draft' | 'team_verification' | 'submitted' | 'in_review' | 'in_revision' | 'accepted' | 'rejected' | 'canceled';
-
-export type StateF20Enum = 'requested' | 'accepted' | 'canceled';
 
 export type StatusEnum = 'scheduled' | 'open' | 'ended';
 
@@ -10143,9 +10160,7 @@ export type TemplateRequest = {
     issue_type?: IssueTypeEnum;
 };
 
-export type TimezoneEnum = 'Atlantic/Stanley' | 'US/Alaska' | 'America/Dawson' | 'UCT' | 'Asia/Brunei' | 'Antarctica/DumontDUrville' | 'Europe/Istanbul' | 'Chile/EasterIsland' | 'America/Dawson_Creek' | 'Africa/Gaborone' | 'Africa/Niamey' | 'Europe/Riga' | 'Asia/Ust-Nera' | 'America/Rosario' | 'America/Ensenada' | 'Asia/Colombo' | 'America/Mazatlan' | 'Africa/Kampala' | 'Africa/Lusaka' | 'Atlantic/South_Georgia' | 'Cuba' | 'America/Coral_Harbour' | 'Africa/Nairobi' | 'America/Boise' | 'Asia/Baghdad' | 'America/Shiprock' | 'Jamaica' | 'America/Indianapolis' | 'Asia/Pyongyang' | 'Asia/Makassar' | 'Europe/Zurich' | 'Pacific/Kosrae' | 'America/Port-au-Prince' | 'America/Mexico_City' | 'America/Grand_Turk' | 'Australia/Queensland' | 'Navajo' | 'Asia/Thimbu' | 'US/Indiana-Starke' | 'Asia/Irkutsk' | 'Africa/Cairo' | 'Pacific/Norfolk' | 'Europe/Vilnius' | 'America/Manaus' | 'America/Noronha' | 'America/Indiana/Winamac' | 'Asia/Tel_Aviv' | 'Africa/Abidjan' | 'Pacific/Noumea' | 'Asia/Manila' | 'Europe/Vienna' | 'Hongkong' | 'America/Nipigon' | 'Pacific/Kanton' | 'Pacific/Pitcairn' | 'America/Santa_Isabel' | 'America/Argentina/Ushuaia' | 'Indian/Mahe' | 'Asia/Harbin' | 'Asia/Jakarta' | 'America/Punta_Arenas' | 'Europe/Guernsey' | 'Asia/Samarkand' | 'Europe/Saratov' | 'Asia/Khandyga' | 'Asia/Ujung_Pandang' | 'Indian/Maldives' | 'Pacific/Auckland' | 'America/Lower_Princes' | 'Asia/Ulaanbaatar' | 'ROK' | 'Etc/GMT-14' | 'Pacific/Marquesas' | 'Etc/GMT+4' | 'Europe/Chisinau' | 'America/Belize' | 'Asia/Chita' | 'Antarctica/Syowa' | 'Asia/Ashgabat' | 'Africa/Bangui' | 'Mexico/General' | 'Pacific/Efate' | 'Africa/Bissau' | 'Asia/Vladivostok' | 'America/Jamaica' | 'Pacific/Saipan' | 'America/Denver' | 'America/Indiana/Knox' | 'Africa/Banjul' | 'Pacific/Pohnpei' | 'HST' | 'America/Argentina/ComodRivadavia' | 'America/Miquelon' | 'Canada/Yukon' | 'Africa/Khartoum' | 'Atlantic/Canary' | 'Pacific/Tarawa' | 'America/Guyana' | 'Pacific/Yap' | 'America/Catamarca' | 'Asia/Krasnoyarsk' | 'Indian/Chagos' | 'Atlantic/Faeroe' | 'Europe/Bucharest' | 'America/Inuvik' | 'America/Costa_Rica' | 'Etc/UCT' | 'Europe/Kiev' | 'America/Detroit' | 'America/Virgin' | 'America/North_Dakota/Beulah' | 'Etc/GMT+1' | 'Iran' | 'America/New_York' | 'Europe/Copenhagen' | 'Pacific/Samoa' | 'Europe/Stockholm' | 'Australia/Darwin' | 'America/Thule' | 'America/Porto_Acre' | 'Asia/Anadyr' | 'America/Aruba' | 'Asia/Magadan' | 'America/Merida' | 'America/Metlakatla' | 'Antarctica/South_Pole' | 'Asia/Dhaka' | 'Europe/Belfast' | 'Asia/Dushanbe' | 'Africa/Dakar' | 'Africa/Asmara' | 'Africa/Tunis' | 'Etc/GMT+6' | 'America/Godthab' | 'Africa/Porto-Novo' | 'America/Buenos_Aires' | 'America/Swift_Current' | 'Europe/Brussels' | 'Pacific/Funafuti' | 'Indian/Cocos' | 'Europe/Helsinki' | 'US/Aleutian' | 'Africa/Mbabane' | 'Europe/Athens' | 'Pacific/Tahiti' | 'America/Yakutat' | 'Asia/Macau' | 'America/Winnipeg' | 'America/Guatemala' | 'America/St_Vincent' | 'Factory' | 'America/Barbados' | 'America/Indiana/Marengo' | 'Pacific/Niue' | 'Europe/London' | 'Africa/El_Aaiun' | 'Etc/GMT+11' | 'Asia/Kuwait' | 'Asia/Kolkata' | 'Europe/Gibraltar' | 'America/Cayenne' | 'Canada/Newfoundland' | 'America/Argentina/Salta' | 'America/Belem' | 'Asia/Dubai' | 'Etc/GMT+9' | 'US/Hawaii' | 'Etc/GMT-7' | 'Brazil/East' | 'Australia/Lindeman' | 'UTC' | 'US/Michigan' | 'America/Argentina/Jujuy' | 'Atlantic/Reykjavik' | 'Africa/Lubumbashi' | 'Etc/GMT-5' | 'America/Sao_Paulo' | 'America/Argentina/San_Juan' | 'America/Marigot' | 'America/Nassau' | 'America/El_Salvador' | 'America/Nuuk' | 'Europe/Mariehamn' | 'Asia/Calcutta' | 'America/Port_of_Spain' | 'Africa/Maputo' | 'America/Tortola' | 'Asia/Damascus' | 'Europe/Warsaw' | 'US/Arizona' | 'Asia/Kuching' | 'Pacific/Galapagos' | 'Pacific/Midway' | 'Africa/Accra' | 'America/Lima' | 'Africa/Asmera' | 'America/Ciudad_Juarez' | 'Etc/GMT-10' | 'Antarctica/Troll' | 'Asia/Tbilisi' | 'Etc/Universal' | 'Antarctica/Mawson' | 'America/Fort_Wayne' | 'America/Bahia' | 'Asia/Oral' | 'Asia/Bahrain' | 'Pacific/Wake' | 'Eire' | 'Asia/Kamchatka' | 'Australia/Melbourne' | 'Pacific/Guam' | 'America/Rankin_Inlet' | 'Etc/GMT+12' | 'Pacific/Apia' | 'Pacific/Wallis' | 'Europe/Tiraspol' | 'America/Montserrat' | 'Australia/Canberra' | 'Pacific/Kiritimati' | 'Atlantic/Jan_Mayen' | 'Australia/Perth' | 'Etc/GMT-2' | 'Asia/Choibalsan' | 'Antarctica/Rothera' | 'Asia/Amman' | 'Africa/Ceuta' | 'Asia/Novokuznetsk' | 'Etc/GMT+8' | 'US/Samoa' | 'America/Bogota' | 'Pacific/Tongatapu' | 'GB-Eire' | 'Africa/Freetown' | 'America/Tegucigalpa' | 'Australia/Yancowinna' | 'Europe/Zaporozhye' | 'America/North_Dakota/Center' | 'Asia/Hebron' | 'Antarctica/Macquarie' | 'Asia/Almaty' | 'America/Sitka' | 'America/Tijuana' | 'W-SU' | 'America/Panama' | 'Etc/GMT-6' | 'Australia/Brisbane' | 'America/Jujuy' | 'Asia/Yangon' | 'America/Scoresbysund' | 'America/Maceio' | 'Africa/Kinshasa' | 'America/Hermosillo' | 'Universal' | 'Brazil/Acre' | 'America/Bahia_Banderas' | 'America/Eirunepe' | 'America/Edmonton' | 'Pacific/Easter' | 'Indian/Christmas' | 'America/St_Lucia' | 'Asia/Riyadh' | 'Europe/Volgograd' | 'Pacific/Chuuk' | 'Pacific/Palau' | 'Africa/Johannesburg' | 'America/Fortaleza' | 'Brazil/West' | 'Pacific/Rarotonga' | 'America/Menominee' | 'Africa/Lagos' | 'Canada/Atlantic' | 'Japan' | 'America/St_Johns' | 'Etc/GMT-12' | 'Asia/Phnom_Penh' | 'Africa/Bujumbura' | 'NZ' | 'America/Antigua' | 'US/Central' | 'MST7MDT' | 'Canada/Pacific' | 'Europe/Jersey' | 'Asia/Macao' | 'EST5EDT' | 'America/Iqaluit' | 'America/Los_Angeles' | 'America/Indiana/Petersburg' | 'Asia/Hovd' | 'Antarctica/Casey' | 'Asia/Barnaul' | 'Asia/Urumqi' | 'Asia/Aden' | 'PRC' | 'America/Cayman' | 'Asia/Katmandu' | 'America/Regina' | 'Africa/Sao_Tome' | 'Mexico/BajaNorte' | 'Europe/Kaliningrad' | 'America/Knox_IN' | 'Asia/Qostanay' | 'Etc/GMT-0' | 'America/Santiago' | 'Europe/Vatican' | 'America/Cuiaba' | 'Pacific/Bougainville' | 'Europe/Zagreb' | 'Asia/Shanghai' | 'America/Santarem' | 'Asia/Atyrau' | 'America/Kentucky/Monticello' | 'Etc/GMT-1' | 'Africa/Brazzaville' | 'Europe/Kirov' | 'Europe/Tirane' | 'Asia/Kabul' | 'Pacific/Ponape' | 'Etc/GMT-8' | 'Antarctica/Vostok' | 'Europe/Luxembourg' | 'Indian/Comoro' | 'Pacific/Pago_Pago' | 'Iceland' | 'Africa/Casablanca' | 'America/Adak' | 'America/Managua' | 'Mexico/BajaSur' | 'Australia/Lord_Howe' | 'Canada/Mountain' | 'Pacific/Nauru' | 'Asia/Jayapura' | 'Asia/Omsk' | 'Pacific/Port_Moresby' | 'Etc/Greenwich' | 'Africa/Malabo' | 'Europe/Moscow' | 'America/Kentucky/Louisville' | 'Asia/Baku' | 'Africa/Mogadishu' | 'America/Halifax' | 'Africa/Harare' | 'America/La_Paz' | 'America/Moncton' | 'Africa/Douala' | 'America/Montreal' | 'Etc/UTC' | 'America/Argentina/Cordoba' | 'EET' | 'GMT' | 'Europe/Oslo' | 'Atlantic/Azores' | 'Etc/GMT+3' | 'PST8PDT' | 'Europe/Sarajevo' | 'Asia/Dili' | 'Europe/Berlin' | 'GMT-0' | 'Singapore' | 'Atlantic/Bermuda' | 'America/Goose_Bay' | 'Australia/Sydney' | 'America/Araguaina' | 'America/Argentina/Rio_Gallegos' | 'America/Monterrey' | 'America/Paramaribo' | 'Poland' | 'Asia/Ulan_Bator' | 'Etc/GMT+2' | 'Pacific/Fakaofo' | 'Zulu' | 'Australia/North' | 'Indian/Mauritius' | 'America/Atka' | 'Asia/Gaza' | 'Africa/Dar_es_Salaam' | 'Asia/Vientiane' | 'Etc/GMT+0' | 'America/Asuncion' | 'Asia/Singapore' | 'Asia/Chungking' | 'Asia/Seoul' | 'Brazil/DeNoronha' | 'Arctic/Longyearbyen' | 'EST' | 'America/Danmarkshavn' | 'Africa/Addis_Ababa' | 'America/Cordoba' | 'Australia/ACT' | 'Chile/Continental' | 'NZ-CHAT' | 'Etc/GMT+7' | 'Australia/South' | 'America/North_Dakota/New_Salem' | 'America/Rio_Branco' | 'Europe/Uzhgorod' | 'Europe/Ulyanovsk' | 'Asia/Istanbul' | 'GMT+0' | 'GMT0' | 'Australia/Victoria' | 'America/Argentina/Catamarca' | 'Indian/Reunion' | 'Asia/Qatar' | 'Turkey' | 'Africa/Monrovia' | 'Africa/Ouagadougou' | 'Atlantic/St_Helena' | 'Atlantic/Madeira' | 'America/Vancouver' | 'America/Whitehorse' | 'America/Pangnirtung' | 'Europe/Busingen' | 'Asia/Nicosia' | 'Europe/Isle_of_Man' | 'Asia/Taipei' | 'Asia/Tomsk' | 'Egypt' | 'Asia/Kashgar' | 'Europe/Vaduz' | 'Asia/Tehran' | 'Asia/Yekaterinburg' | 'Australia/Currie' | 'Africa/Luanda' | 'America/Resolute' | 'Pacific/Guadalcanal' | 'America/Argentina/La_Rioja' | 'Africa/Blantyre' | 'America/Toronto' | 'America/Dominica' | 'ROC' | 'Europe/Rome' | 'America/Juneau' | 'Europe/Paris' | 'US/Mountain' | 'Etc/GMT-9' | 'America/Thunder_Bay' | 'Asia/Saigon' | 'US/Pacific' | 'US/East-Indiana' | 'Europe/Astrakhan' | 'Pacific/Gambier' | 'America/Matamoros' | 'Asia/Pontianak' | 'America/Louisville' | 'Europe/Sofia' | 'Europe/Monaco' | 'Pacific/Truk' | 'WET' | 'America/Cambridge_Bay' | 'Asia/Thimphu' | 'Asia/Hong_Kong' | 'Australia/Adelaide' | 'America/Havana' | 'Greenwich' | 'America/Argentina/Mendoza' | 'Indian/Mayotte' | 'Europe/Madrid' | 'Europe/Malta' | 'Asia/Yerevan' | 'America/Cancun' | 'America/Curacao' | 'Europe/Dublin' | 'Europe/Podgorica' | 'Pacific/Johnston' | 'America/Guadeloupe' | 'Antarctica/Palmer' | 'Asia/Tokyo' | 'America/Atikokan' | 'America/Blanc-Sablon' | 'US/Eastern' | 'America/Indiana/Vevay' | 'Etc/GMT-3' | 'America/Argentina/Tucuman' | 'America/St_Kitts' | 'Asia/Rangoon' | 'Portugal' | 'Asia/Ashkhabad' | 'America/Fort_Nelson' | 'Asia/Tashkent' | 'Asia/Jerusalem' | 'Europe/Amsterdam' | 'Europe/Kyiv' | 'America/Rainy_River' | 'Europe/San_Marino' | 'localtime' | 'America/Argentina/San_Luis' | 'Asia/Sakhalin' | 'Pacific/Honolulu' | 'Pacific/Chatham' | 'Asia/Bishkek' | 'Europe/Andorra' | 'Etc/GMT' | 'Israel' | 'Canada/Eastern' | 'America/Argentina/Buenos_Aires' | 'Africa/Nouakchott' | 'MET' | 'America/Chihuahua' | 'Asia/Bangkok' | 'Asia/Yakutsk' | 'Antarctica/McMurdo' | 'Pacific/Majuro' | 'Asia/Beirut' | 'America/St_Thomas' | 'Antarctica/Davis' | 'America/Kralendijk' | 'Indian/Antananarivo' | 'GB' | 'Etc/GMT0' | 'America/Anguilla' | 'Africa/Ndjamena' | 'Europe/Ljubljana' | 'Libya' | 'Asia/Karachi' | 'Asia/Famagusta' | 'America/Glace_Bay' | 'America/Chicago' | 'Africa/Windhoek' | 'Pacific/Kwajalein' | 'Etc/GMT-11' | 'Asia/Aqtau' | 'Europe/Lisbon' | 'Europe/Skopje' | 'Asia/Muscat' | 'Asia/Kuala_Lumpur' | 'Europe/Bratislava' | 'Asia/Novosibirsk' | 'Europe/Belgrade' | 'America/Martinique' | 'America/Phoenix' | 'Australia/Tasmania' | 'Africa/Maseru' | 'Etc/Zulu' | 'Etc/GMT-13' | 'Europe/Nicosia' | 'Asia/Kathmandu' | 'America/Caracas' | 'America/Campo_Grande' | 'America/St_Barthelemy' | 'America/Indiana/Indianapolis' | 'Europe/Simferopol' | 'America/Puerto_Rico' | 'America/Santo_Domingo' | 'Europe/Tallinn' | 'Africa/Lome' | 'Asia/Ho_Chi_Minh' | 'Europe/Samara' | 'America/Anchorage' | 'Australia/West' | 'Europe/Prague' | 'Pacific/Fiji' | 'Australia/NSW' | 'America/Mendoza' | 'America/Yellowknife' | 'America/Porto_Velho' | 'Australia/LHI' | 'Asia/Aqtobe' | 'CST6CDT' | 'America/Grenada' | 'Africa/Algiers' | 'Africa/Djibouti' | 'America/Indiana/Tell_City' | 'Australia/Hobart' | 'Atlantic/Faroe' | 'Europe/Minsk' | 'Etc/GMT-4' | 'Indian/Kerguelen' | 'Etc/GMT+10' | 'Canada/Central' | 'MST' | 'Asia/Dacca' | 'Africa/Timbuktu' | 'Europe/Budapest' | 'Africa/Conakry' | 'Australia/Eucla' | 'Africa/Juba' | 'America/Boa_Vista' | 'Africa/Kigali' | 'America/Nome' | 'Asia/Qyzylorda' | 'Asia/Chongqing' | 'America/Montevideo' | 'Kwajalein' | 'America/Ojinaga' | 'America/Recife' | 'Australia/Broken_Hill' | 'Canada/Saskatchewan' | 'Africa/Bamako' | 'America/Guayaquil' | 'Africa/Tripoli' | 'Asia/Srednekolymsk' | 'Pacific/Enderbury' | 'Atlantic/Cape_Verde' | 'CET' | 'America/Creston' | 'America/Indiana/Vincennes' | 'Africa/Libreville' | 'Etc/GMT+5';
-
-export type Type005Enum = 'Create' | 'Update' | 'Terminate';
+export type TimezoneEnum = 'America/Nassau' | 'Asia/Ulan_Bator' | 'Europe/Athens' | 'Europe/Helsinki' | 'America/Port_of_Spain' | 'Pacific/Marquesas' | 'Asia/Kuala_Lumpur' | 'America/Thule' | 'Asia/Jakarta' | 'America/Yakutat' | 'Kwajalein' | 'Africa/Ndjamena' | 'Mexico/General' | 'America/Mendoza' | 'Asia/Beirut' | 'Asia/Tokyo' | 'America/Catamarca' | 'Europe/Jersey' | 'America/Fort_Nelson' | 'Australia/NSW' | 'EET' | 'Asia/Manila' | 'Asia/Chungking' | 'America/Juneau' | 'Africa/Djibouti' | 'America/Maceio' | 'America/Argentina/Tucuman' | 'Atlantic/South_Georgia' | 'Africa/Bamako' | 'America/Tortola' | 'America/Argentina/Jujuy' | 'America/Monterrey' | 'America/Edmonton' | 'Europe/Sofia' | 'America/St_Barthelemy' | 'America/Argentina/San_Juan' | 'America/Winnipeg' | 'Asia/Krasnoyarsk' | 'America/Ensenada' | 'America/Bogota' | 'Africa/Monrovia' | 'Pacific/Pohnpei' | 'Africa/Niamey' | 'Canada/Eastern' | 'Brazil/East' | 'America/Detroit' | 'America/Argentina/Catamarca' | 'Asia/Novokuznetsk' | 'Africa/Khartoum' | 'Asia/Riyadh' | 'Etc/GMT+1' | 'Europe/Moscow' | 'America/North_Dakota/New_Salem' | 'Factory' | 'Africa/Brazzaville' | 'Antarctica/McMurdo' | 'America/Rosario' | 'America/Rainy_River' | 'Australia/Currie' | 'America/Adak' | 'America/Puerto_Rico' | 'Mexico/BajaNorte' | 'Europe/Tallinn' | 'America/Glace_Bay' | 'Asia/Ho_Chi_Minh' | 'America/Fort_Wayne' | 'Australia/ACT' | 'America/Belize' | 'Asia/Dhaka' | 'America/Tijuana' | 'Pacific/Kiritimati' | 'Asia/Vladivostok' | 'America/Argentina/Mendoza' | 'W-SU' | 'America/Dawson_Creek' | 'America/Mexico_City' | 'Asia/Tehran' | 'Pacific/Bougainville' | 'Pacific/Galapagos' | 'Pacific/Kanton' | 'Africa/Bangui' | 'Atlantic/Canary' | 'Europe/Ulyanovsk' | 'America/Noronha' | 'Atlantic/Reykjavik' | 'America/Knox_IN' | 'America/Cayenne' | 'UCT' | 'Africa/Asmara' | 'Asia/Kuching' | 'America/Indiana/Tell_City' | 'Etc/GMT+10' | 'Europe/Volgograd' | 'Asia/Pontianak' | 'Africa/Libreville' | 'Asia/Novosibirsk' | 'Asia/Kashgar' | 'Indian/Reunion' | 'America/Miquelon' | 'America/Grenada' | 'Asia/Bishkek' | 'Asia/Jayapura' | 'America/Virgin' | 'Europe/Bratislava' | 'America/Araguaina' | 'GB-Eire' | 'Pacific/Nauru' | 'Asia/Macao' | 'Pacific/Guam' | 'America/La_Paz' | 'Asia/Dili' | 'Europe/Berlin' | 'Pacific/Auckland' | 'Pacific/Samoa' | 'America/Dominica' | 'Etc/GMT+5' | 'America/Recife' | 'America/New_York' | 'Atlantic/Madeira' | 'Asia/Shanghai' | 'Pacific/Fakaofo' | 'Europe/Busingen' | 'Asia/Gaza' | 'America/Havana' | 'Europe/Stockholm' | 'America/Argentina/Salta' | 'America/St_Lucia' | 'Etc/GMT-3' | 'America/Regina' | 'Europe/Mariehamn' | 'Brazil/DeNoronha' | 'Atlantic/Azores' | 'MET' | 'Africa/Windhoek' | 'America/Cancun' | 'Etc/GMT-14' | 'America/Cordoba' | 'Asia/Istanbul' | 'US/Samoa' | 'America/Menominee' | 'Asia/Srednekolymsk' | 'Etc/GMT-11' | 'America/Tegucigalpa' | 'America/Santo_Domingo' | 'Asia/Karachi' | 'America/Guyana' | 'Africa/Algiers' | 'Pacific/Port_Moresby' | 'Europe/Vaduz' | 'Africa/Sao_Tome' | 'America/Antigua' | 'Australia/North' | 'Antarctica/DumontDUrville' | 'Africa/Dakar' | 'Asia/Calcutta' | 'Asia/Rangoon' | 'America/El_Salvador' | 'Australia/Broken_Hill' | 'Pacific/Tarawa' | 'Asia/Singapore' | 'Chile/EasterIsland' | 'Antarctica/Rothera' | 'Africa/Gaborone' | 'Pacific/Pitcairn' | 'CET' | 'Europe/Guernsey' | 'America/Paramaribo' | 'America/Anguilla' | 'America/Argentina/La_Rioja' | 'Africa/Nouakchott' | 'Europe/Monaco' | 'America/Sao_Paulo' | 'America/Vancouver' | 'Portugal' | 'Asia/Muscat' | 'Australia/South' | 'Indian/Kerguelen' | 'US/Michigan' | 'Asia/Anadyr' | 'Pacific/Saipan' | 'Africa/Lubumbashi' | 'Europe/Simferopol' | 'Pacific/Norfolk' | 'Africa/Lome' | 'America/Curacao' | 'Asia/Choibalsan' | 'America/Indiana/Vevay' | 'Africa/Douala' | 'US/Indiana-Starke' | 'Asia/Qatar' | 'Cuba' | 'Indian/Mayotte' | 'PRC' | 'Turkey' | 'America/Thunder_Bay' | 'America/Boise' | 'Asia/Amman' | 'Europe/Gibraltar' | 'America/Atikokan' | 'Africa/Nairobi' | 'Australia/Canberra' | 'Asia/Thimphu' | 'Pacific/Gambier' | 'Pacific/Funafuti' | 'Europe/Andorra' | 'Africa/Addis_Ababa' | 'Eire' | 'HST' | 'Brazil/Acre' | 'Australia/Lord_Howe' | 'UTC' | 'Asia/Makassar' | 'Asia/Yekaterinburg' | 'Pacific/Chatham' | 'America/Ojinaga' | 'Antarctica/Syowa' | 'Canada/Saskatchewan' | 'Asia/Saigon' | 'Etc/GMT-1' | 'America/Phoenix' | 'Africa/Timbuktu' | 'GB' | 'NZ' | 'America/Fortaleza' | 'Atlantic/Faeroe' | 'Atlantic/Faroe' | 'Etc/Zulu' | 'Europe/Zaporozhye' | 'Indian/Cocos' | 'Africa/Tunis' | 'Africa/Ceuta' | 'CST6CDT' | 'Africa/Johannesburg' | 'America/Coral_Harbour' | 'Europe/Nicosia' | 'Asia/Dushanbe' | 'America/Shiprock' | 'Europe/Ljubljana' | 'Africa/Harare' | 'Atlantic/Jan_Mayen' | 'Etc/GMT+12' | 'Europe/Sarajevo' | 'Asia/Kabul' | 'Asia/Barnaul' | 'Asia/Irkutsk' | 'Australia/Brisbane' | 'America/Barbados' | 'Etc/UTC' | 'America/Panama' | 'Asia/Yakutsk' | 'GMT' | 'Africa/Kigali' | 'America/Lima' | 'Asia/Aqtau' | 'America/Indiana/Marengo' | 'Africa/Maseru' | 'America/Resolute' | 'America/Indiana/Winamac' | 'Libya' | 'Pacific/Wallis' | 'America/Campo_Grande' | 'Africa/Mbabane' | 'Europe/Kiev' | 'Europe/Tirane' | 'Asia/Khandyga' | 'US/Mountain' | 'Africa/Asmera' | 'Europe/Madrid' | 'America/Scoresbysund' | 'Antarctica/Troll' | 'GMT0' | 'Asia/Phnom_Penh' | 'America/Montreal' | 'Pacific/Noumea' | 'America/Argentina/San_Luis' | 'Antarctica/Palmer' | 'Africa/Ouagadougou' | 'America/Argentina/Rio_Gallegos' | 'Europe/Saratov' | 'America/Anchorage' | 'Pacific/Easter' | 'Africa/Malabo' | 'Indian/Mauritius' | 'localtime' | 'Asia/Aqtobe' | 'Asia/Seoul' | 'Chile/Continental' | 'Indian/Comoro' | 'Pacific/Enderbury' | 'America/Santarem' | 'America/Indiana/Petersburg' | 'America/Montserrat' | 'Africa/Kinshasa' | 'Europe/Vatican' | 'America/Porto_Acre' | 'America/Merida' | 'Etc/GMT-0' | 'America/Belem' | 'America/Santiago' | 'Australia/Sydney' | 'Asia/Qyzylorda' | 'Asia/Hebron' | 'Canada/Yukon' | 'Europe/Riga' | 'America/Halifax' | 'Asia/Yangon' | 'Africa/Conakry' | 'Europe/Oslo' | 'Europe/Chisinau' | 'America/Aruba' | 'America/Montevideo' | 'Africa/Accra' | 'Africa/Bissau' | 'Etc/GMT-9' | 'Australia/Melbourne' | 'EST5EDT' | 'Japan' | 'Europe/Zagreb' | 'Europe/Samara' | 'Africa/Lusaka' | 'Africa/Maputo' | 'Europe/Isle_of_Man' | 'Africa/Dar_es_Salaam' | 'Etc/GMT-10' | 'America/Indiana/Knox' | 'Australia/Perth' | 'Etc/GMT+9' | 'America/Costa_Rica' | 'Africa/Casablanca' | 'Europe/Astrakhan' | 'Asia/Damascus' | 'Asia/Dubai' | 'PST8PDT' | 'America/North_Dakota/Beulah' | 'America/Punta_Arenas' | 'Asia/Baghdad' | 'America/Ciudad_Juarez' | 'MST' | 'America/Bahia' | 'America/St_Vincent' | 'Asia/Hovd' | 'Indian/Chagos' | 'Europe/Lisbon' | 'Asia/Magadan' | 'Etc/GMT-6' | 'Asia/Hong_Kong' | 'Antarctica/South_Pole' | 'Etc/GMT+11' | 'Etc/UCT' | 'Asia/Chita' | 'America/Inuvik' | 'Pacific/Chuuk' | 'Israel' | 'Asia/Pyongyang' | 'Asia/Thimbu' | 'Etc/GMT+6' | 'Asia/Omsk' | 'Europe/London' | 'America/Caracas' | 'Antarctica/Macquarie' | 'Europe/Kirov' | 'ROK' | 'Asia/Kolkata' | 'Asia/Macau' | 'Etc/GMT+8' | 'US/Alaska' | 'America/Asuncion' | 'Pacific/Apia' | 'America/Indiana/Indianapolis' | 'Europe/Paris' | 'Poland' | 'Canada/Pacific' | 'Navajo' | 'America/Port-au-Prince' | 'Etc/GMT0' | 'WET' | 'America/Argentina/Cordoba' | 'Zulu' | 'Pacific/Niue' | 'Europe/Malta' | 'Etc/GMT-7' | 'Europe/Podgorica' | 'Pacific/Midway' | 'Europe/Skopje' | 'Europe/Luxembourg' | 'Atlantic/Cape_Verde' | 'Asia/Aden' | 'Asia/Ust-Nera' | 'Asia/Urumqi' | 'US/Aleutian' | 'America/Los_Angeles' | 'Indian/Christmas' | 'Asia/Kamchatka' | 'Europe/Kaliningrad' | 'America/Atka' | 'Asia/Kuwait' | 'Australia/Adelaide' | 'America/St_Johns' | 'Antarctica/Mawson' | 'Asia/Kathmandu' | 'Indian/Mahe' | 'US/Eastern' | 'Pacific/Pago_Pago' | 'Asia/Oral' | 'America/Grand_Turk' | 'Greenwich' | 'America/Argentina/Ushuaia' | 'America/Moncton' | 'Mexico/BajaSur' | 'Australia/Eucla' | 'Etc/GMT+7' | 'Asia/Yerevan' | 'America/Whitehorse' | 'Pacific/Tahiti' | 'Africa/Luanda' | 'Indian/Maldives' | 'US/Arizona' | 'America/Guatemala' | 'America/Kralendijk' | 'Singapore' | 'Atlantic/St_Helena' | 'Pacific/Truk' | 'Africa/Cairo' | 'Atlantic/Stanley' | 'Asia/Ujung_Pandang' | 'Europe/Belfast' | 'Australia/Yancowinna' | 'Africa/Porto-Novo' | 'Atlantic/Bermuda' | 'America/Danmarkshavn' | 'Etc/Greenwich' | 'Africa/El_Aaiun' | 'Asia/Colombo' | 'Asia/Almaty' | 'Europe/Vilnius' | 'Pacific/Ponape' | 'Etc/GMT' | 'America/Lower_Princes' | 'Africa/Lagos' | 'America/Sitka' | 'Australia/Hobart' | 'America/Goose_Bay' | 'Antarctica/Davis' | 'Egypt' | 'America/Jujuy' | 'Indian/Antananarivo' | 'America/Pangnirtung' | 'Europe/Warsaw' | 'Asia/Bahrain' | 'Etc/GMT+2' | 'Africa/Freetown' | 'America/Indiana/Vincennes' | 'Asia/Tbilisi' | 'Etc/GMT+4' | 'Europe/Uzhgorod' | 'Pacific/Honolulu' | 'America/Buenos_Aires' | 'America/Nuuk' | 'Europe/Minsk' | 'America/Kentucky/Louisville' | 'Europe/Copenhagen' | 'Etc/GMT-12' | 'Asia/Dacca' | 'Etc/GMT+3' | 'US/East-Indiana' | 'Iran' | 'Africa/Juba' | 'Asia/Tomsk' | 'America/Swift_Current' | 'Etc/GMT+0' | 'Africa/Abidjan' | 'Asia/Famagusta' | 'Asia/Baku' | 'Asia/Nicosia' | 'Asia/Tashkent' | 'America/Bahia_Banderas' | 'Iceland' | 'Australia/West' | 'Europe/Tiraspol' | 'America/Nome' | 'America/Indianapolis' | 'Europe/Belgrade' | 'Asia/Katmandu' | 'EST' | 'America/Creston' | 'Pacific/Kosrae' | 'Asia/Jerusalem' | 'America/Eirunepe' | 'America/Denver' | 'Pacific/Yap' | 'Pacific/Tongatapu' | 'NZ-CHAT' | 'Antarctica/Vostok' | 'America/Argentina/Buenos_Aires' | 'Asia/Taipei' | 'America/Blanc-Sablon' | 'Pacific/Johnston' | 'America/St_Kitts' | 'Universal' | 'America/Nipigon' | 'Europe/Dublin' | 'Hongkong' | 'Pacific/Efate' | 'GMT-0' | 'Europe/San_Marino' | 'Europe/Istanbul' | 'Asia/Tel_Aviv' | 'Etc/GMT-13' | 'America/Louisville' | 'MST7MDT' | 'Africa/Mogadishu' | 'America/Guayaquil' | 'Pacific/Wake' | 'America/Chicago' | 'Australia/Tasmania' | 'America/Marigot' | 'Pacific/Fiji' | 'Pacific/Guadalcanal' | 'Europe/Zurich' | 'Canada/Central' | 'Canada/Newfoundland' | 'Europe/Brussels' | 'Europe/Kyiv' | 'America/Cayman' | 'America/Cambridge_Bay' | 'America/Iqaluit' | 'America/Kentucky/Monticello' | 'GMT+0' | 'Asia/Atyrau' | 'America/Matamoros' | 'America/Yellowknife' | 'Europe/Budapest' | 'Canada/Atlantic' | 'Asia/Bangkok' | 'Pacific/Majuro' | 'US/Central' | 'Asia/Qostanay' | 'America/Porto_Velho' | 'Asia/Ulaanbaatar' | 'Asia/Brunei' | 'America/Managua' | 'America/St_Thomas' | 'Europe/Bucharest' | 'America/North_Dakota/Center' | 'America/Hermosillo' | 'Etc/GMT-4' | 'Jamaica' | 'America/Manaus' | 'America/Metlakatla' | 'America/Toronto' | 'America/Chihuahua' | 'Australia/LHI' | 'Australia/Lindeman' | 'ROC' | 'America/Argentina/ComodRivadavia' | 'America/Dawson' | 'Europe/Vienna' | 'America/Rio_Branco' | 'Pacific/Kwajalein' | 'Arctic/Longyearbyen' | 'Asia/Chongqing' | 'Etc/Universal' | 'Asia/Ashkhabad' | 'Pacific/Palau' | 'Australia/Darwin' | 'Europe/Prague' | 'America/Guadeloupe' | 'Australia/Queensland' | 'Asia/Vientiane' | 'America/Jamaica' | 'Africa/Blantyre' | 'Asia/Harbin' | 'Asia/Samarkand' | 'Brazil/West' | 'Africa/Kampala' | 'America/Rankin_Inlet' | 'Asia/Ashgabat' | 'Etc/GMT-8' | 'Europe/Rome' | 'Africa/Tripoli' | 'America/Martinique' | 'US/Hawaii' | 'Africa/Bujumbura' | 'Europe/Amsterdam' | 'Antarctica/Casey' | 'US/Pacific' | 'America/Boa_Vista' | 'America/Mazatlan' | 'Africa/Banjul' | 'America/Santa_Isabel' | 'Asia/Sakhalin' | 'America/Cuiaba' | 'Etc/GMT-2' | 'Australia/Victoria' | 'Etc/GMT-5' | 'America/Godthab' | 'Pacific/Rarotonga' | 'Canada/Mountain';
 
 export type UnitEnum = 'month' | 'half_month' | 'day' | 'hour' | 'quantity';
 
@@ -10327,6 +10342,10 @@ export type UserRoleUpdateRequest = {
     expiration_time?: string | null;
 };
 
+export type UserStats = {
+    readonly score: number;
+};
+
 export type UsernameGenerationPolicyEnum = 'service_provider' | 'anonymized' | 'full_name' | 'waldur_username' | 'freeipa' | 'identity_claim';
 
 export type VmwareCluster = {
@@ -10370,7 +10389,7 @@ export type VmwareDisk = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string;
@@ -10490,7 +10509,7 @@ export type VmwarePort = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string;
@@ -10568,7 +10587,7 @@ export type VmwareVirtualMachine = {
     readonly error_message: string;
     readonly error_traceback: string;
     readonly resource_type: string;
-    readonly state: string;
+    state: CoreStates;
     readonly created: string;
     readonly modified: string;
     readonly backend_id: string;
@@ -10702,7 +10721,7 @@ export type WebHookRequest = {
     content_type?: ContentTypeEnum;
 };
 
-export type WebhookEventEnum = 'comment_deleted' | 'comment_updated' | 'jira:issue_deleted' | 'jira:issue_updated' | 'comment_created';
+export type WebhookEventEnum = 'comment_deleted' | 'jira:issue_updated' | 'comment_updated' | 'comment_created' | 'jira:issue_deleted';
 
 export type ApiAuthBccUserDetailsRetrieveData = {
     body?: never;
@@ -27395,21 +27414,29 @@ export type ProjectsCreateResponses = {
 
 export type ProjectsCreateResponse = ProjectsCreateResponses[keyof ProjectsCreateResponses];
 
-export type ProjectsMarketplaceChecklistsRetrieveData = {
+export type ProjectsMarketplaceChecklistsListData = {
     body?: never;
     path: {
         project_uuid: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+    };
     url: '/api/projects/{project_uuid}/marketplace-checklists/';
 };
 
-export type ProjectsMarketplaceChecklistsRetrieveResponses = {
-    /**
-     * No response body
-     */
-    200: unknown;
+export type ProjectsMarketplaceChecklistsListResponses = {
+    200: PaginatedProjectStatsItemList;
 };
+
+export type ProjectsMarketplaceChecklistsListResponse = ProjectsMarketplaceChecklistsListResponses[keyof ProjectsMarketplaceChecklistsListResponses];
 
 export type ProjectsDestroyData = {
     body?: never;
@@ -31194,11 +31221,10 @@ export type RemoteWaldurApiImportOfferingCreateData = {
 };
 
 export type RemoteWaldurApiImportOfferingCreateResponses = {
-    /**
-     * No response body
-     */
-    200: unknown;
+    200: RemoteOfferingCreateResponse;
 };
+
+export type RemoteWaldurApiImportOfferingCreateResponse = RemoteWaldurApiImportOfferingCreateResponses[keyof RemoteWaldurApiImportOfferingCreateResponses];
 
 export type RemoteWaldurApiPullOfferingDetailsCreateData = {
     body?: never;
@@ -31347,12 +31373,21 @@ export type RemoteWaldurApiPushProjectDataCreateResponses = {
 export type RemoteWaldurApiRemoteCategoriesCreateData = {
     body: RemoteCredentialsRequest;
     path?: never;
-    query?: never;
+    query?: {
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+    };
     url: '/api/remote-waldur-api/remote_categories/';
 };
 
 export type RemoteWaldurApiRemoteCategoriesCreateResponses = {
-    200: Array<MarketplaceCategory>;
+    200: PaginatedMarketplaceCategoryList;
 };
 
 export type RemoteWaldurApiRemoteCategoriesCreateResponse = RemoteWaldurApiRemoteCategoriesCreateResponses[keyof RemoteWaldurApiRemoteCategoriesCreateResponses];
@@ -31360,12 +31395,21 @@ export type RemoteWaldurApiRemoteCategoriesCreateResponse = RemoteWaldurApiRemot
 export type RemoteWaldurApiRemoteCustomersCreateData = {
     body: RemoteCredentialsRequest;
     path?: never;
-    query?: never;
+    query?: {
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+    };
     url: '/api/remote-waldur-api/remote_customers/';
 };
 
 export type RemoteWaldurApiRemoteCustomersCreateResponses = {
-    200: Array<RemoteCustomer>;
+    200: PaginatedRemoteCustomerList;
 };
 
 export type RemoteWaldurApiRemoteCustomersCreateResponse = RemoteWaldurApiRemoteCustomersCreateResponses[keyof RemoteWaldurApiRemoteCustomersCreateResponses];
@@ -31375,12 +31419,20 @@ export type RemoteWaldurApiSharedOfferingsCreateData = {
     path?: never;
     query?: {
         customer_uuid?: string;
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
     };
     url: '/api/remote-waldur-api/shared_offerings/';
 };
 
 export type RemoteWaldurApiSharedOfferingsCreateResponses = {
-    200: Array<RemoteOffering>;
+    200: PaginatedRemoteOfferingList;
 };
 
 export type RemoteWaldurApiSharedOfferingsCreateResponse = RemoteWaldurApiSharedOfferingsCreateResponses[keyof RemoteWaldurApiSharedOfferingsCreateResponses];
@@ -32339,19 +32391,7 @@ export type SupportFeedbacksListData = {
     query?: {
         created_after?: string;
         created_before?: string;
-        /**
-         * * `1` - 1
-         * * `2` - 2
-         * * `3` - 3
-         * * `4` - 4
-         * * `5` - 5
-         * * `6` - 6
-         * * `7` - 7
-         * * `8` - 8
-         * * `9` - 9
-         * * `10` - 10
-         */
-        evaluation?: Array<'1' | '10' | '2' | '3' | '4' | '5' | '6' | '7' | '8' | '9'>;
+        evaluation?: number;
         issue?: string;
         issue_key?: string;
         issue_uuid?: string;
@@ -33657,11 +33697,10 @@ export type UsersMarketplaceChecklistStatsRetrieveData = {
 };
 
 export type UsersMarketplaceChecklistStatsRetrieveResponses = {
-    /**
-     * No response body
-     */
-    200: unknown;
+    200: UserStats;
 };
+
+export type UsersMarketplaceChecklistStatsRetrieveResponse = UsersMarketplaceChecklistStatsRetrieveResponses[keyof UsersMarketplaceChecklistStatsRetrieveResponses];
 
 export type UsersDestroyData = {
     body?: never;
