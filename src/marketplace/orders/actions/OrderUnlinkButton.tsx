@@ -2,7 +2,7 @@ import { Trash } from '@phosphor-icons/react';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { marketplaceOrderUnlink } from '@waldur/api';
+import { marketplaceOrdersUnlink } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
@@ -21,7 +21,7 @@ export const OrderUnlinkButton = ({ row, refetch }) => {
       return;
     }
     try {
-      await marketplaceOrderUnlink({ path: { uuid: row.uuid } });
+      await marketplaceOrdersUnlink({ path: { uuid: row.uuid } });
       dispatch(showSuccess(translate('Order has been unlinked.')));
       await refetch();
       refetch();

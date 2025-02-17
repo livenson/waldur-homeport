@@ -684,8 +684,6 @@ export type Backup = {
     readonly instance_name: string;
     readonly instance_marketplace_uuid: string;
     readonly restorations: Array<OpenStackBackupRestoration>;
-    readonly backup_schedule: string | null;
-    readonly backup_schedule_uuid: string;
     readonly instance_security_groups: Array<OpenStackNestedSecurityGroup>;
     readonly instance_ports: Array<OpenStackNestedPort>;
     readonly instance_floating_ips: Array<OpenStackNestedFloatingIp>;
@@ -2206,7 +2204,7 @@ export type EventSubscriptionRequest = {
     observable_objects?: unknown;
 };
 
-export type EventTypesEnum = 'access_subnet_creation_succeeded' | 'access_subnet_deletion_succeeded' | 'access_subnet_update_succeeded' | 'allowed_offerings_have_been_updated' | 'attachment_created' | 'attachment_deleted' | 'attachment_updated' | 'auth_logged_in_with_oauth' | 'auth_logged_in_with_saml2' | 'auth_logged_in_with_username' | 'auth_logged_out' | 'auth_logged_out_with_saml2' | 'auth_login_failed_with_username' | 'block_creation_of_new_resources' | 'block_modification_of_existing_resources' | 'call_document_added' | 'call_document_removed' | 'create_of_credit_by_staff' | 'custom_notification' | 'customer_creation_succeeded' | 'customer_deletion_succeeded' | 'customer_update_succeeded' | 'droplet_resize_scheduled' | 'droplet_resize_succeeded' | 'freeipa_profile_created' | 'freeipa_profile_deleted' | 'freeipa_profile_disabled' | 'freeipa_profile_enabled' | 'invoice_canceled' | 'invoice_created' | 'invoice_item_created' | 'invoice_item_deleted' | 'invoice_item_updated' | 'invoice_paid' | 'issue_creation_succeeded' | 'issue_deletion_succeeded' | 'issue_update_succeeded' | 'marketplace_offering_component_created' | 'marketplace_offering_component_deleted' | 'marketplace_offering_component_updated' | 'marketplace_offering_created' | 'marketplace_offering_role_created' | 'marketplace_offering_role_deleted' | 'marketplace_offering_role_updated' | 'marketplace_offering_updated' | 'marketplace_offering_user_created' | 'marketplace_offering_user_deleted' | 'marketplace_offering_user_restriction_updated' | 'marketplace_order_approved' | 'marketplace_order_completed' | 'marketplace_order_created' | 'marketplace_order_failed' | 'marketplace_order_rejected' | 'marketplace_order_terminated' | 'marketplace_order_unlinked' | 'marketplace_plan_archived' | 'marketplace_plan_component_current_price_updated' | 'marketplace_plan_component_future_price_updated' | 'marketplace_plan_component_quota_updated' | 'marketplace_plan_created' | 'marketplace_plan_updated' | 'marketplace_resource_create_canceled' | 'marketplace_resource_create_failed' | 'marketplace_resource_create_requested' | 'marketplace_resource_create_succeeded' | 'marketplace_resource_downscaled' | 'marketplace_resource_erred_on_backend' | 'marketplace_resource_paused' | 'marketplace_resource_terminate_canceled' | 'marketplace_resource_terminate_failed' | 'marketplace_resource_terminate_requested' | 'marketplace_resource_terminate_succeeded' | 'marketplace_resource_unlinked' | 'marketplace_resource_update_canceled' | 'marketplace_resource_update_end_date_succeeded' | 'marketplace_resource_update_failed' | 'marketplace_resource_update_limits_failed' | 'marketplace_resource_update_limits_succeeded' | 'marketplace_resource_update_requested' | 'marketplace_resource_update_succeeded' | 'marketplace_resource_user_created' | 'marketplace_resource_user_deleted' | 'notify_external_user' | 'notify_organization_owners' | 'notify_project_team' | 'openstack_floating_ip_attached' | 'openstack_floating_ip_connected' | 'openstack_floating_ip_description_updated' | 'openstack_floating_ip_detached' | 'openstack_floating_ip_disconnected' | 'openstack_network_cleaned' | 'openstack_network_created' | 'openstack_network_deleted' | 'openstack_network_imported' | 'openstack_network_pulled' | 'openstack_network_updated' | 'openstack_port_cleaned' | 'openstack_port_created' | 'openstack_port_deleted' | 'openstack_port_imported' | 'openstack_port_pulled' | 'openstack_router_updated' | 'openstack_security_group_cleaned' | 'openstack_security_group_created' | 'openstack_security_group_deleted' | 'openstack_security_group_imported' | 'openstack_security_group_pulled' | 'openstack_security_group_rule_cleaned' | 'openstack_security_group_rule_created' | 'openstack_security_group_rule_deleted' | 'openstack_security_group_rule_imported' | 'openstack_security_group_rule_updated' | 'openstack_security_group_updated' | 'openstack_server_group_cleaned' | 'openstack_server_group_created' | 'openstack_server_group_deleted' | 'openstack_server_group_imported' | 'openstack_server_group_pulled' | 'openstack_subnet_cleaned' | 'openstack_subnet_created' | 'openstack_subnet_deleted' | 'openstack_subnet_imported' | 'openstack_subnet_pulled' | 'openstack_subnet_updated' | 'openstack_tenant_quota_limit_updated' | 'payment_added' | 'payment_created' | 'payment_removed' | 'policy_notification' | 'project_creation_succeeded' | 'project_deletion_succeeded' | 'project_deletion_triggered' | 'project_update_request_approved' | 'project_update_request_created' | 'project_update_request_rejected' | 'project_update_succeeded' | 'proposal_canceled' | 'proposal_document_added' | 'proposal_document_removed' | 'query_executed' | 'reduction_of_customer_credit' | 'reduction_of_customer_credit_due_to_minimal_consumption' | 'reduction_of_customer_expected_consumption' | 'reduction_of_project_credit' | 'reduction_of_project_credit_due_to_minimal_consumption' | 'reduction_of_project_expected_consumption' | 'request_downscaling' | 'request_pausing' | 'resource_assign_floating_ip_failed' | 'resource_assign_floating_ip_scheduled' | 'resource_assign_floating_ip_succeeded' | 'resource_attach_failed' | 'resource_attach_scheduled' | 'resource_attach_succeeded' | 'resource_backup_creation_failed' | 'resource_backup_creation_scheduled' | 'resource_backup_creation_succeeded' | 'resource_backup_deletion_failed' | 'resource_backup_deletion_scheduled' | 'resource_backup_deletion_succeeded' | 'resource_backup_restoration_failed' | 'resource_backup_restoration_scheduled' | 'resource_backup_restoration_succeeded' | 'resource_backup_schedule_activated' | 'resource_backup_schedule_cleaned_up' | 'resource_backup_schedule_created' | 'resource_backup_schedule_creation_succeeded' | 'resource_backup_schedule_deactivated' | 'resource_backup_schedule_deleted' | 'resource_backup_schedule_deletion_succeeded' | 'resource_backup_schedule_update_succeeded' | 'resource_change_flavor_failed' | 'resource_change_flavor_scheduled' | 'resource_change_flavor_succeeded' | 'resource_creation_failed' | 'resource_creation_scheduled' | 'resource_creation_succeeded' | 'resource_deletion_failed' | 'resource_deletion_scheduled' | 'resource_deletion_succeeded' | 'resource_detach_failed' | 'resource_detach_scheduled' | 'resource_detach_succeeded' | 'resource_extend_failed' | 'resource_extend_scheduled' | 'resource_extend_succeeded' | 'resource_extend_volume_failed' | 'resource_extend_volume_scheduled' | 'resource_extend_volume_succeeded' | 'resource_import_succeeded' | 'resource_pull_failed' | 'resource_pull_scheduled' | 'resource_pull_succeeded' | 'resource_restart_failed' | 'resource_restart_scheduled' | 'resource_restart_succeeded' | 'resource_retype_failed' | 'resource_retype_scheduled' | 'resource_retype_succeeded' | 'resource_robot_account_created' | 'resource_robot_account_deleted' | 'resource_robot_account_updated' | 'resource_snapshot_schedule_activated' | 'resource_snapshot_schedule_cleaned_up' | 'resource_snapshot_schedule_created' | 'resource_snapshot_schedule_deactivated' | 'resource_snapshot_schedule_deleted' | 'resource_start_failed' | 'resource_start_scheduled' | 'resource_start_succeeded' | 'resource_stop_failed' | 'resource_stop_scheduled' | 'resource_stop_succeeded' | 'resource_unassign_floating_ip_failed' | 'resource_unassign_floating_ip_scheduled' | 'resource_unassign_floating_ip_succeeded' | 'resource_update_allowed_address_pairs_failed' | 'resource_update_allowed_address_pairs_scheduled' | 'resource_update_allowed_address_pairs_succeeded' | 'resource_update_floating_ips_failed' | 'resource_update_floating_ips_scheduled' | 'resource_update_floating_ips_succeeded' | 'resource_update_ports_failed' | 'resource_update_ports_scheduled' | 'resource_update_ports_succeeded' | 'resource_update_security_groups_failed' | 'resource_update_security_groups_scheduled' | 'resource_update_security_groups_succeeded' | 'resource_update_succeeded' | 'restrict_members' | 'review_canceled' | 'role_granted' | 'role_revoked' | 'role_updated' | 'roll_back_customer_credit' | 'roll_back_project_credit' | 'set_to_zero_overdue_credit' | 'ssh_key_creation_succeeded' | 'ssh_key_deletion_succeeded' | 'terminate_resources' | 'token_created' | 'token_lifetime_updated' | 'update_of_credit_by_staff' | 'user_activated' | 'user_creation_succeeded' | 'user_deactivated' | 'user_deletion_succeeded' | 'user_details_update_succeeded' | 'user_has_been_created_by_staff' | 'user_password_updated' | 'user_password_updated_by_staff' | 'user_update_succeeded';
+export type EventTypesEnum = 'access_subnet_creation_succeeded' | 'access_subnet_deletion_succeeded' | 'access_subnet_update_succeeded' | 'allowed_offerings_have_been_updated' | 'attachment_created' | 'attachment_deleted' | 'attachment_updated' | 'auth_logged_in_with_oauth' | 'auth_logged_in_with_saml2' | 'auth_logged_in_with_username' | 'auth_logged_out' | 'auth_logged_out_with_saml2' | 'auth_login_failed_with_username' | 'block_creation_of_new_resources' | 'block_modification_of_existing_resources' | 'call_document_added' | 'call_document_removed' | 'create_of_credit_by_staff' | 'custom_notification' | 'customer_creation_succeeded' | 'customer_deletion_succeeded' | 'customer_update_succeeded' | 'droplet_resize_scheduled' | 'droplet_resize_succeeded' | 'freeipa_profile_created' | 'freeipa_profile_deleted' | 'freeipa_profile_disabled' | 'freeipa_profile_enabled' | 'invoice_canceled' | 'invoice_created' | 'invoice_item_created' | 'invoice_item_deleted' | 'invoice_item_updated' | 'invoice_paid' | 'issue_creation_succeeded' | 'issue_deletion_succeeded' | 'issue_update_succeeded' | 'marketplace_offering_component_created' | 'marketplace_offering_component_deleted' | 'marketplace_offering_component_updated' | 'marketplace_offering_created' | 'marketplace_offering_role_created' | 'marketplace_offering_role_deleted' | 'marketplace_offering_role_updated' | 'marketplace_offering_updated' | 'marketplace_offering_user_created' | 'marketplace_offering_user_deleted' | 'marketplace_offering_user_restriction_updated' | 'marketplace_order_approved' | 'marketplace_order_completed' | 'marketplace_order_created' | 'marketplace_order_failed' | 'marketplace_order_rejected' | 'marketplace_order_terminated' | 'marketplace_order_unlinked' | 'marketplace_plan_archived' | 'marketplace_plan_component_current_price_updated' | 'marketplace_plan_component_future_price_updated' | 'marketplace_plan_component_quota_updated' | 'marketplace_plan_created' | 'marketplace_plan_updated' | 'marketplace_resource_create_canceled' | 'marketplace_resource_create_failed' | 'marketplace_resource_create_requested' | 'marketplace_resource_create_succeeded' | 'marketplace_resource_downscaled' | 'marketplace_resource_erred_on_backend' | 'marketplace_resource_paused' | 'marketplace_resource_terminate_canceled' | 'marketplace_resource_terminate_failed' | 'marketplace_resource_terminate_requested' | 'marketplace_resource_terminate_succeeded' | 'marketplace_resource_unlinked' | 'marketplace_resource_update_canceled' | 'marketplace_resource_update_end_date_succeeded' | 'marketplace_resource_update_failed' | 'marketplace_resource_update_limits_failed' | 'marketplace_resource_update_limits_succeeded' | 'marketplace_resource_update_requested' | 'marketplace_resource_update_succeeded' | 'marketplace_resource_user_created' | 'marketplace_resource_user_deleted' | 'notify_external_user' | 'notify_organization_owners' | 'notify_project_team' | 'openstack_floating_ip_attached' | 'openstack_floating_ip_connected' | 'openstack_floating_ip_description_updated' | 'openstack_floating_ip_detached' | 'openstack_floating_ip_disconnected' | 'openstack_network_cleaned' | 'openstack_network_created' | 'openstack_network_deleted' | 'openstack_network_imported' | 'openstack_network_pulled' | 'openstack_network_updated' | 'openstack_port_cleaned' | 'openstack_port_created' | 'openstack_port_deleted' | 'openstack_port_imported' | 'openstack_port_pulled' | 'openstack_router_updated' | 'openstack_security_group_cleaned' | 'openstack_security_group_created' | 'openstack_security_group_deleted' | 'openstack_security_group_imported' | 'openstack_security_group_pulled' | 'openstack_security_group_rule_cleaned' | 'openstack_security_group_rule_created' | 'openstack_security_group_rule_deleted' | 'openstack_security_group_rule_imported' | 'openstack_security_group_rule_updated' | 'openstack_security_group_updated' | 'openstack_server_group_cleaned' | 'openstack_server_group_created' | 'openstack_server_group_deleted' | 'openstack_server_group_imported' | 'openstack_server_group_pulled' | 'openstack_subnet_cleaned' | 'openstack_subnet_created' | 'openstack_subnet_deleted' | 'openstack_subnet_imported' | 'openstack_subnet_pulled' | 'openstack_subnet_updated' | 'openstack_tenant_quota_limit_updated' | 'payment_added' | 'payment_created' | 'payment_removed' | 'policy_notification' | 'project_creation_succeeded' | 'project_deletion_succeeded' | 'project_deletion_triggered' | 'project_update_request_approved' | 'project_update_request_created' | 'project_update_request_rejected' | 'project_update_succeeded' | 'proposal_canceled' | 'proposal_document_added' | 'proposal_document_removed' | 'query_executed' | 'reduction_of_customer_credit' | 'reduction_of_customer_credit_due_to_minimal_consumption' | 'reduction_of_customer_expected_consumption' | 'reduction_of_project_credit' | 'reduction_of_project_credit_due_to_minimal_consumption' | 'reduction_of_project_expected_consumption' | 'request_downscaling' | 'request_pausing' | 'resource_assign_floating_ip_failed' | 'resource_assign_floating_ip_scheduled' | 'resource_assign_floating_ip_succeeded' | 'resource_attach_failed' | 'resource_attach_scheduled' | 'resource_attach_succeeded' | 'resource_backup_creation_failed' | 'resource_backup_creation_scheduled' | 'resource_backup_creation_succeeded' | 'resource_backup_deletion_failed' | 'resource_backup_deletion_scheduled' | 'resource_backup_deletion_succeeded' | 'resource_backup_restoration_failed' | 'resource_backup_restoration_scheduled' | 'resource_backup_restoration_succeeded' | 'resource_change_flavor_failed' | 'resource_change_flavor_scheduled' | 'resource_change_flavor_succeeded' | 'resource_creation_failed' | 'resource_creation_scheduled' | 'resource_creation_succeeded' | 'resource_deletion_failed' | 'resource_deletion_scheduled' | 'resource_deletion_succeeded' | 'resource_detach_failed' | 'resource_detach_scheduled' | 'resource_detach_succeeded' | 'resource_extend_failed' | 'resource_extend_scheduled' | 'resource_extend_succeeded' | 'resource_extend_volume_failed' | 'resource_extend_volume_scheduled' | 'resource_extend_volume_succeeded' | 'resource_import_succeeded' | 'resource_pull_failed' | 'resource_pull_scheduled' | 'resource_pull_succeeded' | 'resource_restart_failed' | 'resource_restart_scheduled' | 'resource_restart_succeeded' | 'resource_retype_failed' | 'resource_retype_scheduled' | 'resource_retype_succeeded' | 'resource_robot_account_created' | 'resource_robot_account_deleted' | 'resource_robot_account_updated' | 'resource_start_failed' | 'resource_start_scheduled' | 'resource_start_succeeded' | 'resource_stop_failed' | 'resource_stop_scheduled' | 'resource_stop_succeeded' | 'resource_unassign_floating_ip_failed' | 'resource_unassign_floating_ip_scheduled' | 'resource_unassign_floating_ip_succeeded' | 'resource_update_allowed_address_pairs_failed' | 'resource_update_allowed_address_pairs_scheduled' | 'resource_update_allowed_address_pairs_succeeded' | 'resource_update_floating_ips_failed' | 'resource_update_floating_ips_scheduled' | 'resource_update_floating_ips_succeeded' | 'resource_update_ports_failed' | 'resource_update_ports_scheduled' | 'resource_update_ports_succeeded' | 'resource_update_security_groups_failed' | 'resource_update_security_groups_scheduled' | 'resource_update_security_groups_succeeded' | 'resource_update_succeeded' | 'restrict_members' | 'review_canceled' | 'role_granted' | 'role_revoked' | 'role_updated' | 'roll_back_customer_credit' | 'roll_back_project_credit' | 'set_to_zero_overdue_credit' | 'ssh_key_creation_succeeded' | 'ssh_key_deletion_succeeded' | 'terminate_resources' | 'token_created' | 'token_lifetime_updated' | 'update_of_credit_by_staff' | 'user_activated' | 'user_creation_succeeded' | 'user_deactivated' | 'user_deletion_succeeded' | 'user_details_update_succeeded' | 'user_has_been_created_by_staff' | 'user_password_updated' | 'user_password_updated_by_staff' | 'user_update_succeeded';
 
 export type ExecutionStateEnum = 'Scheduled' | 'Processing' | 'OK' | 'Erred';
 
@@ -4466,66 +4464,6 @@ export type OpenStackBackupRestorationRequest = {
     ports?: Array<OpenStackNestedPortRequest>;
 };
 
-export type OpenStackBackupSchedule = {
-    readonly url: string;
-    readonly uuid: string;
-    name: string;
-    description?: string;
-    readonly service_name: string;
-    readonly service_settings: string;
-    readonly service_settings_uuid: string;
-    readonly service_settings_state: string;
-    readonly service_settings_error_message: string;
-    readonly project: string;
-    readonly project_name: string;
-    readonly project_uuid: string;
-    readonly customer: string;
-    readonly customer_name: string;
-    readonly customer_native_name: string;
-    readonly customer_abbreviation: string;
-    readonly error_message: string;
-    readonly error_traceback: string;
-    readonly resource_type: string;
-    state: CoreStates;
-    readonly created: string;
-    readonly modified: string;
-    readonly backend_id: string;
-    readonly access_url: string | null;
-    /**
-     * Retention time in days, if 0 - resource will be kept forever
-     */
-    retention_time: number;
-    timezone?: TimezoneEnum;
-    maximal_number_of_resources: number;
-    schedule: string;
-    readonly is_active: boolean;
-    readonly next_trigger_at: string | null;
-    readonly instance: string;
-    readonly instance_name: string;
-    readonly marketplace_offering_uuid: string;
-    readonly marketplace_offering_name: string;
-    readonly marketplace_offering_plugin_options: {};
-    readonly marketplace_category_uuid: string;
-    readonly marketplace_category_name: string;
-    readonly marketplace_resource_uuid: string;
-    readonly marketplace_plan_uuid: string;
-    readonly marketplace_resource_state: string;
-    readonly is_usage_based: boolean;
-    readonly is_limit_based: boolean;
-};
-
-export type OpenStackBackupScheduleRequest = {
-    name: string;
-    description?: string;
-    /**
-     * Retention time in days, if 0 - resource will be kept forever
-     */
-    retention_time: number;
-    timezone?: TimezoneEnum;
-    maximal_number_of_resources: number;
-    schedule: string;
-};
-
 export type OpenStackConsoleLog = {
     length?: number;
 };
@@ -5297,8 +5235,6 @@ export type OpenStackSnapshot = {
      * Guaranteed time of snapshot retention. If null - keep forever.
      */
     kept_until?: string | null;
-    readonly snapshot_schedule: string | null;
-    readonly snapshot_schedule_uuid: string;
     readonly marketplace_offering_uuid: string;
     readonly marketplace_offering_name: string;
     readonly marketplace_offering_plugin_options: {};
@@ -5351,66 +5287,6 @@ export type OpenStackSnapshotRestorationRequest = {
      * New volume description.
      */
     description?: string;
-};
-
-export type OpenStackSnapshotSchedule = {
-    readonly url: string;
-    readonly uuid: string;
-    name: string;
-    description?: string;
-    readonly service_name: string;
-    readonly service_settings: string;
-    readonly service_settings_uuid: string;
-    readonly service_settings_state: string;
-    readonly service_settings_error_message: string;
-    readonly project: string;
-    readonly project_name: string;
-    readonly project_uuid: string;
-    readonly customer: string;
-    readonly customer_name: string;
-    readonly customer_native_name: string;
-    readonly customer_abbreviation: string;
-    readonly error_message: string;
-    readonly error_traceback: string;
-    readonly resource_type: string;
-    state: CoreStates;
-    readonly created: string;
-    readonly modified: string;
-    readonly backend_id: string;
-    readonly access_url: string | null;
-    /**
-     * Retention time in days, if 0 - resource will be kept forever
-     */
-    retention_time: number;
-    timezone?: TimezoneEnum;
-    maximal_number_of_resources: number;
-    schedule: string;
-    readonly is_active: boolean;
-    readonly next_trigger_at: string | null;
-    readonly source_volume: string;
-    readonly source_volume_name: string;
-    readonly marketplace_offering_uuid: string;
-    readonly marketplace_offering_name: string;
-    readonly marketplace_offering_plugin_options: {};
-    readonly marketplace_category_uuid: string;
-    readonly marketplace_category_name: string;
-    readonly marketplace_resource_uuid: string;
-    readonly marketplace_plan_uuid: string;
-    readonly marketplace_resource_state: string;
-    readonly is_usage_based: boolean;
-    readonly is_limit_based: boolean;
-};
-
-export type OpenStackSnapshotScheduleRequest = {
-    name: string;
-    description?: string;
-    /**
-     * Retention time in days, if 0 - resource will be kept forever
-     */
-    retention_time: number;
-    timezone?: TimezoneEnum;
-    maximal_number_of_resources: number;
-    schedule: string;
 };
 
 export type OpenStackStaticRoute = {
@@ -6087,8 +5963,6 @@ export type PaginatedOfferingUserList = Array<OfferingUser>;
 
 export type PaginatedOfferingUserRoleList = Array<OfferingUserRole>;
 
-export type PaginatedOpenStackBackupScheduleList = Array<OpenStackBackupSchedule>;
-
 export type PaginatedOpenStackCreateServerGroupList = Array<OpenStackCreateServerGroup>;
 
 export type PaginatedOpenStackFlavorList = Array<OpenStackFlavor>;
@@ -6112,8 +5986,6 @@ export type PaginatedOpenStackSecurityGroupList = Array<OpenStackSecurityGroup>;
 export type PaginatedOpenStackSecurityGroupRuleUpdateList = Array<OpenStackSecurityGroupRuleUpdate>;
 
 export type PaginatedOpenStackSnapshotList = Array<OpenStackSnapshot>;
-
-export type PaginatedOpenStackSnapshotScheduleList = Array<OpenStackSnapshotSchedule>;
 
 export type PaginatedOpenStackSubNetList = Array<OpenStackSubNet>;
 
@@ -6792,18 +6664,6 @@ export type PatchedOfferingUserRoleRequest = {
     offering?: string;
 };
 
-export type PatchedOpenStackBackupScheduleRequest = {
-    name?: string;
-    description?: string;
-    /**
-     * Retention time in days, if 0 - resource will be kept forever
-     */
-    retention_time?: number;
-    timezone?: TimezoneEnum;
-    maximal_number_of_resources?: number;
-    schedule?: string;
-};
-
 export type PatchedOpenStackCreateServerGroupRequest = {
     name?: string;
     description?: string;
@@ -6856,18 +6716,6 @@ export type PatchedOpenStackSnapshotRequest = {
      * Guaranteed time of snapshot retention. If null - keep forever.
      */
     kept_until?: string | null;
-};
-
-export type PatchedOpenStackSnapshotScheduleRequest = {
-    name?: string;
-    description?: string;
-    /**
-     * Retention time in days, if 0 - resource will be kept forever
-     */
-    retention_time?: number;
-    timezone?: TimezoneEnum;
-    maximal_number_of_resources?: number;
-    schedule?: string;
 };
 
 export type PatchedOpenStackSubNetRequest = {
@@ -10167,8 +10015,6 @@ export type TemplateRequest = {
     issue_type?: IssueTypeEnum;
 };
 
-export type TimezoneEnum = 'PRC' | 'Etc/GMT' | 'Africa/Bamako' | 'Asia/Kuwait' | 'Asia/Colombo' | 'America/Kentucky/Monticello' | 'Canada/Atlantic' | 'Asia/Thimphu' | 'Pacific/Kanton' | 'America/Cambridge_Bay' | 'Etc/GMT-1' | 'Indian/Comoro' | 'America/Puerto_Rico' | 'America/Porto_Velho' | 'America/Montreal' | 'America/Detroit' | 'Europe/Zurich' | 'Etc/GMT+5' | 'Europe/Rome' | 'Pacific/Chatham' | 'Europe/Mariehamn' | 'Japan' | 'Europe/London' | 'Europe/Luxembourg' | 'Asia/Ulan_Bator' | 'America/Scoresbysund' | 'Europe/Vilnius' | 'Europe/Jersey' | 'Asia/Urumqi' | 'America/Rankin_Inlet' | 'Pacific/Palau' | 'Europe/Prague' | 'Canada/Eastern' | 'Atlantic/Azores' | 'America/Paramaribo' | 'Etc/GMT+12' | 'America/Bahia' | 'America/St_Barthelemy' | 'Africa/Juba' | 'Europe/Andorra' | 'Asia/Baku' | 'US/East-Indiana' | 'America/Toronto' | 'America/Anguilla' | 'Antarctica/South_Pole' | 'America/Halifax' | 'America/Boise' | 'America/Resolute' | 'America/Nassau' | 'America/Nome' | 'Asia/Ust-Nera' | 'America/Menominee' | 'Zulu' | 'America/Godthab' | 'Asia/Dubai' | 'Asia/Ho_Chi_Minh' | 'America/Guadeloupe' | 'Etc/GMT+4' | 'Asia/Aden' | 'Asia/Brunei' | 'Asia/Jayapura' | 'Australia/Tasmania' | 'Indian/Antananarivo' | 'Asia/Anadyr' | 'Etc/GMT+8' | 'Iceland' | 'Brazil/East' | 'Australia/Broken_Hill' | 'America/Rio_Branco' | 'Asia/Kolkata' | 'America/Argentina/San_Juan' | 'Australia/Hobart' | 'Africa/Accra' | 'America/Indiana/Indianapolis' | 'America/Tortola' | 'Asia/Kashgar' | 'Africa/Bujumbura' | 'Europe/Vaduz' | 'Pacific/Tahiti' | 'America/Aruba' | 'America/Virgin' | 'Singapore' | 'Atlantic/Madeira' | 'Australia/Victoria' | 'Africa/Mbabane' | 'America/Curacao' | 'US/Aleutian' | 'Europe/Kyiv' | 'America/Nipigon' | 'America/Swift_Current' | 'America/Antigua' | 'Europe/Oslo' | 'America/Argentina/La_Rioja' | 'Africa/Ndjamena' | 'America/Indiana/Vincennes' | 'Asia/Nicosia' | 'Australia/Lindeman' | 'Pacific/Guam' | 'Europe/Belgrade' | 'Pacific/Pago_Pago' | 'Africa/Brazzaville' | 'Africa/Luanda' | 'America/Inuvik' | 'Etc/GMT-7' | 'Pacific/Kosrae' | 'GB' | 'America/Regina' | 'Atlantic/Faroe' | 'America/Caracas' | 'Mexico/BajaNorte' | 'America/Chicago' | 'Europe/Istanbul' | 'America/Thunder_Bay' | 'Etc/GMT+1' | 'Egypt' | 'America/Porto_Acre' | 'localtime' | 'America/Nuuk' | 'America/Juneau' | 'Pacific/Pohnpei' | 'Asia/Pontianak' | 'US/Mountain' | 'America/Indiana/Vevay' | 'Asia/Tashkent' | 'America/Fortaleza' | 'Atlantic/Cape_Verde' | 'GMT0' | 'Asia/Ashkhabad' | 'Europe/Saratov' | 'Etc/GMT-10' | 'Europe/Chisinau' | 'Etc/GMT-9' | 'Asia/Jerusalem' | 'America/Jamaica' | 'America/Martinique' | 'Etc/GMT-4' | 'Asia/Istanbul' | 'Antarctica/Vostok' | 'Atlantic/Canary' | 'Africa/Mogadishu' | 'America/St_Kitts' | 'Libya' | 'Asia/Shanghai' | 'America/Montserrat' | 'Pacific/Johnston' | 'America/Ciudad_Juarez' | 'Africa/Maseru' | 'America/Noronha' | 'Pacific/Noumea' | 'US/Central' | 'Antarctica/Casey' | 'America/North_Dakota/New_Salem' | 'Asia/Magadan' | 'America/Coral_Harbour' | 'Europe/Brussels' | 'Africa/Asmara' | 'Asia/Yakutsk' | 'America/Knox_IN' | 'America/Tegucigalpa' | 'America/Danmarkshavn' | 'Arctic/Longyearbyen' | 'America/Barbados' | 'Pacific/Bougainville' | 'Asia/Saigon' | 'America/Bogota' | 'America/Lower_Princes' | 'America/Creston' | 'Pacific/Nauru' | 'America/St_Johns' | 'WET' | 'Africa/Harare' | 'Africa/Malabo' | 'Africa/Casablanca' | 'Europe/Amsterdam' | 'America/Jujuy' | 'Atlantic/Stanley' | 'Pacific/Rarotonga' | 'Asia/Riyadh' | 'America/Indiana/Tell_City' | 'Asia/Qostanay' | 'Indian/Kerguelen' | 'America/Hermosillo' | 'America/Buenos_Aires' | 'Africa/Libreville' | 'Asia/Rangoon' | 'Antarctica/Troll' | 'Europe/Astrakhan' | 'America/Guatemala' | 'Africa/Addis_Ababa' | 'Antarctica/DumontDUrville' | 'Etc/GMT-12' | 'GMT+0' | 'PST8PDT' | 'Asia/Dili' | 'Pacific/Port_Moresby' | 'Pacific/Fiji' | 'America/Iqaluit' | 'Asia/Beirut' | 'Pacific/Samoa' | 'Africa/Niamey' | 'Australia/Darwin' | 'Europe/Samara' | 'US/Michigan' | 'Europe/Ulyanovsk' | 'Mexico/BajaSur' | 'Asia/Baghdad' | 'America/Sitka' | 'Etc/GMT-2' | 'Africa/Douala' | 'Pacific/Norfolk' | 'Canada/Mountain' | 'America/Goose_Bay' | 'America/Sao_Paulo' | 'Europe/Bucharest' | 'Antarctica/Davis' | 'Pacific/Kwajalein' | 'Australia/LHI' | 'Africa/Lome' | 'Atlantic/Reykjavik' | 'Etc/UCT' | 'Africa/Bangui' | 'Europe/Guernsey' | 'America/Argentina/Ushuaia' | 'America/Grand_Turk' | 'MST' | 'Australia/ACT' | 'HST' | 'Europe/Minsk' | 'Canada/Yukon' | 'Europe/Belfast' | 'America/Guyana' | 'America/Cayman' | 'Europe/Vatican' | 'America/Cordoba' | 'Europe/Kiev' | 'Europe/Zaporozhye' | 'Indian/Mayotte' | 'Europe/Nicosia' | 'Africa/Kigali' | 'Africa/Nouakchott' | 'Asia/Kuching' | 'America/Havana' | 'Europe/Warsaw' | 'Asia/Yekaterinburg' | 'Pacific/Guadalcanal' | 'America/Eirunepe' | 'Asia/Makassar' | 'America/New_York' | 'Australia/Sydney' | 'Etc/GMT+11' | 'Cuba' | 'Asia/Chita' | 'Australia/West' | 'Europe/Volgograd' | 'Indian/Maldives' | 'Europe/Zagreb' | 'Etc/Zulu' | 'Africa/Dakar' | 'Atlantic/St_Helena' | 'Asia/Phnom_Penh' | 'Africa/Tunis' | 'Etc/UTC' | 'America/Recife' | 'Asia/Pyongyang' | 'America/Argentina/Jujuy' | 'Canada/Pacific' | 'America/Matamoros' | 'Africa/Tripoli' | 'Asia/Kathmandu' | 'Asia/Yerevan' | 'Europe/Dublin' | 'Europe/Kaliningrad' | 'Australia/Canberra' | 'America/Argentina/Rio_Gallegos' | 'Europe/Gibraltar' | 'Asia/Sakhalin' | 'Asia/Macao' | 'America/Miquelon' | 'Portugal' | 'UTC' | 'Antarctica/Palmer' | 'America/Whitehorse' | 'Africa/Cairo' | 'GMT' | 'Pacific/Kiritimati' | 'Atlantic/Faeroe' | 'America/Dominica' | 'Australia/NSW' | 'Pacific/Saipan' | 'America/Mexico_City' | 'America/Merida' | 'Asia/Manila' | 'Europe/Berlin' | 'Asia/Aqtobe' | 'Pacific/Honolulu' | 'US/Hawaii' | 'Africa/El_Aaiun' | 'Asia/Tokyo' | 'America/Kentucky/Louisville' | 'America/Bahia_Banderas' | 'Pacific/Tongatapu' | 'America/Santo_Domingo' | 'Europe/Kirov' | 'Brazil/DeNoronha' | 'Etc/Greenwich' | 'Pacific/Midway' | 'Etc/GMT-14' | 'Asia/Tomsk' | 'US/Alaska' | 'America/Belem' | 'America/Louisville' | 'Africa/Kampala' | 'Asia/Muscat' | 'US/Arizona' | 'America/Indiana/Marengo' | 'Africa/Dar_es_Salaam' | 'America/Rosario' | 'America/Port_of_Spain' | 'America/Santa_Isabel' | 'America/Mazatlan' | 'Asia/Jakarta' | 'Pacific/Auckland' | 'America/Adak' | 'Africa/Lagos' | 'Asia/Dhaka' | 'Asia/Bangkok' | 'Antarctica/Macquarie' | 'Australia/Yancowinna' | 'America/Argentina/Tucuman' | 'America/Indiana/Winamac' | 'America/Vancouver' | 'US/Indiana-Starke' | 'Europe/Lisbon' | 'Asia/Singapore' | 'MET' | 'Asia/Calcutta' | 'Europe/Helsinki' | 'CST6CDT' | 'Asia/Tel_Aviv' | 'Asia/Qyzylorda' | 'Asia/Qatar' | 'Africa/Lusaka' | 'W-SU' | 'Indian/Christmas' | 'Europe/Budapest' | 'EST' | 'Asia/Krasnoyarsk' | 'Asia/Chungking' | 'Asia/Irkutsk' | 'Brazil/West' | 'Africa/Ouagadougou' | 'Mexico/General' | 'Atlantic/Bermuda' | 'Asia/Chongqing' | 'Asia/Yangon' | 'America/Lima' | 'Africa/Djibouti' | 'Asia/Ashgabat' | 'GMT-0' | 'Africa/Bissau' | 'Indian/Cocos' | 'America/Los_Angeles' | 'America/St_Vincent' | 'America/Tijuana' | 'Africa/Freetown' | 'Asia/Tbilisi' | 'Navajo' | 'Asia/Srednekolymsk' | 'America/Managua' | 'Etc/GMT+9' | 'Africa/Maputo' | 'America/Argentina/Buenos_Aires' | 'Africa/Kinshasa' | 'Asia/Kabul' | 'America/St_Lucia' | 'Antarctica/McMurdo' | 'Europe/San_Marino' | 'Etc/GMT+7' | 'America/Port-au-Prince' | 'Europe/Riga' | 'Europe/Athens' | 'Europe/Isle_of_Man' | 'Pacific/Galapagos' | 'America/Argentina/ComodRivadavia' | 'Asia/Macau' | 'Atlantic/Jan_Mayen' | 'America/Kralendijk' | 'Asia/Almaty' | 'America/Indiana/Knox' | 'Asia/Hovd' | 'ROC' | 'America/Asuncion' | 'America/Shiprock' | 'America/Yellowknife' | 'Pacific/Funafuti' | 'Atlantic/South_Georgia' | 'Africa/Algiers' | 'America/Ensenada' | 'Asia/Omsk' | 'Australia/Currie' | 'America/Rainy_River' | 'America/Indiana/Petersburg' | 'Australia/Melbourne' | 'Etc/GMT-0' | 'America/Pangnirtung' | 'America/Thule' | 'America/Argentina/San_Luis' | 'America/North_Dakota/Center' | 'America/Montevideo' | 'America/Grenada' | 'Israel' | 'Australia/Brisbane' | 'Australia/Queensland' | 'America/Chihuahua' | 'America/Denver' | 'Pacific/Efate' | 'America/Atka' | 'Asia/Hebron' | 'America/Blanc-Sablon' | 'Europe/Podgorica' | 'Brazil/Acre' | 'Antarctica/Rothera' | 'MST7MDT' | 'Asia/Bahrain' | 'Africa/Sao_Tome' | 'Etc/GMT+10' | 'Chile/Continental' | 'Asia/Amman' | 'America/Belize' | 'Africa/Lubumbashi' | 'America/Manaus' | 'Kwajalein' | 'Asia/Harbin' | 'Australia/South' | 'Iran' | 'Africa/Johannesburg' | 'Africa/Conakry' | 'Antarctica/Syowa' | 'EET' | 'Australia/Eucla' | 'America/Argentina/Catamarca' | 'Etc/GMT+3' | 'Canada/Central' | 'Europe/Tallinn' | 'Turkey' | 'Asia/Dushanbe' | 'Asia/Famagusta' | 'Etc/GMT-3' | 'America/Catamarca' | 'Europe/Ljubljana' | 'Australia/North' | 'Pacific/Wake' | 'Pacific/Yap' | 'Europe/Vienna' | 'America/Guayaquil' | 'Africa/Abidjan' | 'Pacific/Wallis' | 'Asia/Thimbu' | 'America/Winnipeg' | 'Etc/GMT+2' | 'CET' | 'America/Ojinaga' | 'Poland' | 'America/Mendoza' | 'Asia/Damascus' | 'US/Eastern' | 'America/Boa_Vista' | 'Asia/Ulaanbaatar' | 'America/Argentina/Cordoba' | 'Etc/GMT-11' | 'EST5EDT' | 'Universal' | 'Africa/Nairobi' | 'Europe/Uzhgorod' | 'Pacific/Gambier' | 'Pacific/Majuro' | 'Etc/GMT-8' | 'US/Pacific' | 'America/Monterrey' | 'Africa/Khartoum' | 'Indian/Chagos' | 'GB-Eire' | 'Africa/Gaborone' | 'Europe/Tiraspol' | 'Europe/Skopje' | 'America/Fort_Nelson' | 'America/Glace_Bay' | 'America/Panama' | 'America/Argentina/Mendoza' | 'Australia/Perth' | 'America/Campo_Grande' | 'America/Santiago' | 'Asia/Kuala_Lumpur' | 'Pacific/Easter' | 'Africa/Monrovia' | 'America/North_Dakota/Beulah' | 'Asia/Seoul' | 'Etc/GMT-5' | 'Asia/Oral' | 'Europe/Paris' | 'Africa/Banjul' | 'Pacific/Enderbury' | 'Pacific/Truk' | 'Pacific/Tarawa' | 'Pacific/Chuuk' | 'Etc/GMT-6' | 'Europe/Madrid' | 'America/Santarem' | 'Indian/Mauritius' | 'Asia/Taipei' | 'ROK' | 'America/Indianapolis' | 'America/Atikokan' | 'Europe/Bratislava' | 'Asia/Atyrau' | 'Asia/Karachi' | 'Europe/Monaco' | 'Etc/GMT0' | 'Africa/Asmera' | 'Africa/Porto-Novo' | 'America/Marigot' | 'Asia/Katmandu' | 'America/Phoenix' | 'America/Edmonton' | 'America/Dawson' | 'Antarctica/Mawson' | 'Pacific/Apia' | 'America/La_Paz' | 'America/Araguaina' | 'America/Anchorage' | 'Australia/Adelaide' | 'Indian/Mahe' | 'Canada/Newfoundland' | 'America/Metlakatla' | 'Africa/Windhoek' | 'Etc/GMT+6' | 'Pacific/Marquesas' | 'Asia/Dacca' | 'Asia/Barnaul' | 'Asia/Vientiane' | 'Etc/GMT+0' | 'NZ-CHAT' | 'America/Yakutat' | 'Europe/Stockholm' | 'Africa/Timbuktu' | 'Asia/Aqtau' | 'Asia/Khandyga' | 'Asia/Tehran' | 'Etc/GMT-13' | 'Asia/Choibalsan' | 'Asia/Bishkek' | 'America/Cuiaba' | 'Europe/Sofia' | 'Pacific/Ponape' | 'America/Cancun' | 'Hongkong' | 'Europe/Copenhagen' | 'Europe/Malta' | 'Asia/Kamchatka' | 'Asia/Samarkand' | 'America/Argentina/Salta' | 'Factory' | 'America/Fort_Wayne' | 'Pacific/Niue' | 'Asia/Gaza' | 'Australia/Lord_Howe' | 'Eire' | 'America/Maceio' | 'America/Dawson_Creek' | 'UCT' | 'Pacific/Pitcairn' | 'Chile/EasterIsland' | 'Indian/Reunion' | 'America/Punta_Arenas' | 'America/Cayenne' | 'Pacific/Fakaofo' | 'Etc/Universal' | 'Africa/Ceuta' | 'Asia/Novokuznetsk' | 'Asia/Vladivostok' | 'Europe/Simferopol' | 'Europe/Tirane' | 'Jamaica' | 'Africa/Blantyre' | 'America/St_Thomas' | 'Asia/Novosibirsk' | 'Greenwich' | 'Europe/Moscow' | 'Canada/Saskatchewan' | 'Europe/Busingen' | 'America/Costa_Rica' | 'US/Samoa' | 'Europe/Sarajevo' | 'Asia/Hong_Kong' | 'America/El_Salvador' | 'Asia/Ujung_Pandang' | 'NZ' | 'America/Moncton';
-
 export type User = {
     readonly url: string;
     readonly uuid: string;
@@ -10726,7 +10572,7 @@ export type WebHookRequest = {
     content_type?: ContentTypeEnum;
 };
 
-export type WebhookEventEnum = 'comment_updated' | 'comment_deleted' | 'jira:issue_updated' | 'comment_created' | 'jira:issue_deleted';
+export type WebhookEventEnum = 'comment_updated' | 'comment_created' | 'comment_deleted' | 'jira:issue_deleted' | 'jira:issue_updated';
 
 export type ApiAuthBccUserDetailsRetrieveData = {
     body?: never;
@@ -11461,7 +11307,7 @@ export type AwsInstancesUpdateResponses = {
 
 export type AwsInstancesUpdateResponse = AwsInstancesUpdateResponses[keyof AwsInstancesUpdateResponses];
 
-export type AwsInstancesPullCreateData = {
+export type AwsInstancesPullData = {
     body: AwsInstanceRequest;
     path: {
         uuid: string;
@@ -11470,13 +11316,13 @@ export type AwsInstancesPullCreateData = {
     url: '/api/aws-instances/{uuid}/pull/';
 };
 
-export type AwsInstancesPullCreateResponses = {
+export type AwsInstancesPullResponses = {
     200: AwsInstance;
 };
 
-export type AwsInstancesPullCreateResponse = AwsInstancesPullCreateResponses[keyof AwsInstancesPullCreateResponses];
+export type AwsInstancesPullResponse = AwsInstancesPullResponses[keyof AwsInstancesPullResponses];
 
-export type AwsInstancesResizeCreateData = {
+export type AwsInstancesResizeData = {
     body: AwsInstanceResizeRequest;
     path: {
         uuid: string;
@@ -11485,13 +11331,13 @@ export type AwsInstancesResizeCreateData = {
     url: '/api/aws-instances/{uuid}/resize/';
 };
 
-export type AwsInstancesResizeCreateResponses = {
+export type AwsInstancesResizeResponses = {
     200: AwsInstanceResize;
 };
 
-export type AwsInstancesResizeCreateResponse = AwsInstancesResizeCreateResponses[keyof AwsInstancesResizeCreateResponses];
+export type AwsInstancesResizeResponse = AwsInstancesResizeResponses[keyof AwsInstancesResizeResponses];
 
-export type AwsInstancesRestartCreateData = {
+export type AwsInstancesRestartData = {
     body?: never;
     path: {
         uuid: string;
@@ -11500,14 +11346,14 @@ export type AwsInstancesRestartCreateData = {
     url: '/api/aws-instances/{uuid}/restart/';
 };
 
-export type AwsInstancesRestartCreateResponses = {
+export type AwsInstancesRestartResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type AwsInstancesStartCreateData = {
+export type AwsInstancesStartData = {
     body?: never;
     path: {
         uuid: string;
@@ -11516,14 +11362,14 @@ export type AwsInstancesStartCreateData = {
     url: '/api/aws-instances/{uuid}/start/';
 };
 
-export type AwsInstancesStartCreateResponses = {
+export type AwsInstancesStartResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type AwsInstancesStopCreateData = {
+export type AwsInstancesStopData = {
     body?: never;
     path: {
         uuid: string;
@@ -11532,14 +11378,14 @@ export type AwsInstancesStopCreateData = {
     url: '/api/aws-instances/{uuid}/stop/';
 };
 
-export type AwsInstancesStopCreateResponses = {
+export type AwsInstancesStopResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type AwsInstancesUnlinkCreateData = {
+export type AwsInstancesUnlinkData = {
     body: AwsInstanceRequest;
     path: {
         uuid: string;
@@ -11548,11 +11394,11 @@ export type AwsInstancesUnlinkCreateData = {
     url: '/api/aws-instances/{uuid}/unlink/';
 };
 
-export type AwsInstancesUnlinkCreateResponses = {
+export type AwsInstancesUnlinkResponses = {
     200: AwsInstance;
 };
 
-export type AwsInstancesUnlinkCreateResponse = AwsInstancesUnlinkCreateResponses[keyof AwsInstancesUnlinkCreateResponses];
+export type AwsInstancesUnlinkResponse = AwsInstancesUnlinkResponses[keyof AwsInstancesUnlinkResponses];
 
 export type AwsRegionsListData = {
     body?: never;
@@ -11731,7 +11577,7 @@ export type AwsVolumesUpdateResponses = {
 
 export type AwsVolumesUpdateResponse = AwsVolumesUpdateResponses[keyof AwsVolumesUpdateResponses];
 
-export type AwsVolumesAttachCreateData = {
+export type AwsVolumesAttachData = {
     body: AwsVolumeAttachRequest;
     path: {
         uuid: string;
@@ -11740,13 +11586,13 @@ export type AwsVolumesAttachCreateData = {
     url: '/api/aws-volumes/{uuid}/attach/';
 };
 
-export type AwsVolumesAttachCreateResponses = {
+export type AwsVolumesAttachResponses = {
     200: AwsVolumeAttach;
 };
 
-export type AwsVolumesAttachCreateResponse = AwsVolumesAttachCreateResponses[keyof AwsVolumesAttachCreateResponses];
+export type AwsVolumesAttachResponse = AwsVolumesAttachResponses[keyof AwsVolumesAttachResponses];
 
-export type AwsVolumesDetachCreateData = {
+export type AwsVolumesDetachData = {
     body?: never;
     path: {
         uuid: string;
@@ -11755,14 +11601,14 @@ export type AwsVolumesDetachCreateData = {
     url: '/api/aws-volumes/{uuid}/detach/';
 };
 
-export type AwsVolumesDetachCreateResponses = {
+export type AwsVolumesDetachResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type AwsVolumesPullCreateData = {
+export type AwsVolumesPullData = {
     body: AwsVolumeRequest;
     path: {
         uuid: string;
@@ -11771,13 +11617,13 @@ export type AwsVolumesPullCreateData = {
     url: '/api/aws-volumes/{uuid}/pull/';
 };
 
-export type AwsVolumesPullCreateResponses = {
+export type AwsVolumesPullResponses = {
     200: AwsVolume;
 };
 
-export type AwsVolumesPullCreateResponse = AwsVolumesPullCreateResponses[keyof AwsVolumesPullCreateResponses];
+export type AwsVolumesPullResponse = AwsVolumesPullResponses[keyof AwsVolumesPullResponses];
 
-export type AwsVolumesUnlinkCreateData = {
+export type AwsVolumesUnlinkData = {
     body: AwsVolumeRequest;
     path: {
         uuid: string;
@@ -11786,11 +11632,11 @@ export type AwsVolumesUnlinkCreateData = {
     url: '/api/aws-volumes/{uuid}/unlink/';
 };
 
-export type AwsVolumesUnlinkCreateResponses = {
+export type AwsVolumesUnlinkResponses = {
     200: AwsVolume;
 };
 
-export type AwsVolumesUnlinkCreateResponse = AwsVolumesUnlinkCreateResponses[keyof AwsVolumesUnlinkCreateResponses];
+export type AwsVolumesUnlinkResponse = AwsVolumesUnlinkResponses[keyof AwsVolumesUnlinkResponses];
 
 export type AzureImagesListData = {
     body?: never;
@@ -12004,7 +11850,7 @@ export type AzurePublicIpsUpdateResponses = {
 
 export type AzurePublicIpsUpdateResponse = AzurePublicIpsUpdateResponses[keyof AzurePublicIpsUpdateResponses];
 
-export type AzurePublicIpsPullCreateData = {
+export type AzurePublicIpsPullData = {
     body: AzurePublicIpRequest;
     path: {
         uuid: string;
@@ -12013,13 +11859,13 @@ export type AzurePublicIpsPullCreateData = {
     url: '/api/azure-public-ips/{uuid}/pull/';
 };
 
-export type AzurePublicIpsPullCreateResponses = {
+export type AzurePublicIpsPullResponses = {
     200: AzurePublicIp;
 };
 
-export type AzurePublicIpsPullCreateResponse = AzurePublicIpsPullCreateResponses[keyof AzurePublicIpsPullCreateResponses];
+export type AzurePublicIpsPullResponse = AzurePublicIpsPullResponses[keyof AzurePublicIpsPullResponses];
 
-export type AzurePublicIpsUnlinkCreateData = {
+export type AzurePublicIpsUnlinkData = {
     body: AzurePublicIpRequest;
     path: {
         uuid: string;
@@ -12028,11 +11874,11 @@ export type AzurePublicIpsUnlinkCreateData = {
     url: '/api/azure-public-ips/{uuid}/unlink/';
 };
 
-export type AzurePublicIpsUnlinkCreateResponses = {
+export type AzurePublicIpsUnlinkResponses = {
     200: AzurePublicIp;
 };
 
-export type AzurePublicIpsUnlinkCreateResponse = AzurePublicIpsUnlinkCreateResponses[keyof AzurePublicIpsUnlinkCreateResponses];
+export type AzurePublicIpsUnlinkResponse = AzurePublicIpsUnlinkResponses[keyof AzurePublicIpsUnlinkResponses];
 
 export type AzureResourceGroupsListData = {
     body?: never;
@@ -12244,7 +12090,7 @@ export type AzureSqlDatabasesUpdateResponses = {
 
 export type AzureSqlDatabasesUpdateResponse = AzureSqlDatabasesUpdateResponses[keyof AzureSqlDatabasesUpdateResponses];
 
-export type AzureSqlDatabasesPullCreateData = {
+export type AzureSqlDatabasesPullData = {
     body: AzureSqlDatabaseRequest;
     path: {
         uuid: string;
@@ -12253,13 +12099,13 @@ export type AzureSqlDatabasesPullCreateData = {
     url: '/api/azure-sql-databases/{uuid}/pull/';
 };
 
-export type AzureSqlDatabasesPullCreateResponses = {
+export type AzureSqlDatabasesPullResponses = {
     200: AzureSqlDatabase;
 };
 
-export type AzureSqlDatabasesPullCreateResponse = AzureSqlDatabasesPullCreateResponses[keyof AzureSqlDatabasesPullCreateResponses];
+export type AzureSqlDatabasesPullResponse = AzureSqlDatabasesPullResponses[keyof AzureSqlDatabasesPullResponses];
 
-export type AzureSqlDatabasesUnlinkCreateData = {
+export type AzureSqlDatabasesUnlinkData = {
     body: AzureSqlDatabaseRequest;
     path: {
         uuid: string;
@@ -12268,11 +12114,11 @@ export type AzureSqlDatabasesUnlinkCreateData = {
     url: '/api/azure-sql-databases/{uuid}/unlink/';
 };
 
-export type AzureSqlDatabasesUnlinkCreateResponses = {
+export type AzureSqlDatabasesUnlinkResponses = {
     200: AzureSqlDatabase;
 };
 
-export type AzureSqlDatabasesUnlinkCreateResponse = AzureSqlDatabasesUnlinkCreateResponses[keyof AzureSqlDatabasesUnlinkCreateResponses];
+export type AzureSqlDatabasesUnlinkResponse = AzureSqlDatabasesUnlinkResponses[keyof AzureSqlDatabasesUnlinkResponses];
 
 export type AzureSqlServersListData = {
     body?: never;
@@ -12401,7 +12247,7 @@ export type AzureSqlServersUpdateResponses = {
 
 export type AzureSqlServersUpdateResponse = AzureSqlServersUpdateResponses[keyof AzureSqlServersUpdateResponses];
 
-export type AzureSqlServersCreateDatabaseCreateData = {
+export type AzureSqlServersCreateDatabaseData = {
     body: AzureSqlDatabaseCreateRequest;
     path: {
         uuid: string;
@@ -12410,13 +12256,13 @@ export type AzureSqlServersCreateDatabaseCreateData = {
     url: '/api/azure-sql-servers/{uuid}/create_database/';
 };
 
-export type AzureSqlServersCreateDatabaseCreateResponses = {
+export type AzureSqlServersCreateDatabaseResponses = {
     200: AzureSqlDatabaseCreate;
 };
 
-export type AzureSqlServersCreateDatabaseCreateResponse = AzureSqlServersCreateDatabaseCreateResponses[keyof AzureSqlServersCreateDatabaseCreateResponses];
+export type AzureSqlServersCreateDatabaseResponse = AzureSqlServersCreateDatabaseResponses[keyof AzureSqlServersCreateDatabaseResponses];
 
-export type AzureSqlServersPullCreateData = {
+export type AzureSqlServersPullData = {
     body: AzureSqlServerRequest;
     path: {
         uuid: string;
@@ -12425,13 +12271,13 @@ export type AzureSqlServersPullCreateData = {
     url: '/api/azure-sql-servers/{uuid}/pull/';
 };
 
-export type AzureSqlServersPullCreateResponses = {
+export type AzureSqlServersPullResponses = {
     200: AzureSqlServer;
 };
 
-export type AzureSqlServersPullCreateResponse = AzureSqlServersPullCreateResponses[keyof AzureSqlServersPullCreateResponses];
+export type AzureSqlServersPullResponse = AzureSqlServersPullResponses[keyof AzureSqlServersPullResponses];
 
-export type AzureSqlServersUnlinkCreateData = {
+export type AzureSqlServersUnlinkData = {
     body: AzureSqlServerRequest;
     path: {
         uuid: string;
@@ -12440,11 +12286,11 @@ export type AzureSqlServersUnlinkCreateData = {
     url: '/api/azure-sql-servers/{uuid}/unlink/';
 };
 
-export type AzureSqlServersUnlinkCreateResponses = {
+export type AzureSqlServersUnlinkResponses = {
     200: AzureSqlServer;
 };
 
-export type AzureSqlServersUnlinkCreateResponse = AzureSqlServersUnlinkCreateResponses[keyof AzureSqlServersUnlinkCreateResponses];
+export type AzureSqlServersUnlinkResponse = AzureSqlServersUnlinkResponses[keyof AzureSqlServersUnlinkResponses];
 
 export type AzureVirtualmachinesListData = {
     body?: never;
@@ -12573,7 +12419,7 @@ export type AzureVirtualmachinesUpdateResponses = {
 
 export type AzureVirtualmachinesUpdateResponse = AzureVirtualmachinesUpdateResponses[keyof AzureVirtualmachinesUpdateResponses];
 
-export type AzureVirtualmachinesPullCreateData = {
+export type AzureVirtualmachinesPullData = {
     body: AzureVirtualMachineRequest;
     path: {
         uuid: string;
@@ -12582,13 +12428,13 @@ export type AzureVirtualmachinesPullCreateData = {
     url: '/api/azure-virtualmachines/{uuid}/pull/';
 };
 
-export type AzureVirtualmachinesPullCreateResponses = {
+export type AzureVirtualmachinesPullResponses = {
     200: AzureVirtualMachine;
 };
 
-export type AzureVirtualmachinesPullCreateResponse = AzureVirtualmachinesPullCreateResponses[keyof AzureVirtualmachinesPullCreateResponses];
+export type AzureVirtualmachinesPullResponse = AzureVirtualmachinesPullResponses[keyof AzureVirtualmachinesPullResponses];
 
-export type AzureVirtualmachinesRestartCreateData = {
+export type AzureVirtualmachinesRestartData = {
     body?: never;
     path: {
         uuid: string;
@@ -12597,14 +12443,14 @@ export type AzureVirtualmachinesRestartCreateData = {
     url: '/api/azure-virtualmachines/{uuid}/restart/';
 };
 
-export type AzureVirtualmachinesRestartCreateResponses = {
+export type AzureVirtualmachinesRestartResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type AzureVirtualmachinesStartCreateData = {
+export type AzureVirtualmachinesStartData = {
     body?: never;
     path: {
         uuid: string;
@@ -12613,14 +12459,14 @@ export type AzureVirtualmachinesStartCreateData = {
     url: '/api/azure-virtualmachines/{uuid}/start/';
 };
 
-export type AzureVirtualmachinesStartCreateResponses = {
+export type AzureVirtualmachinesStartResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type AzureVirtualmachinesStopCreateData = {
+export type AzureVirtualmachinesStopData = {
     body?: never;
     path: {
         uuid: string;
@@ -12629,14 +12475,14 @@ export type AzureVirtualmachinesStopCreateData = {
     url: '/api/azure-virtualmachines/{uuid}/stop/';
 };
 
-export type AzureVirtualmachinesStopCreateResponses = {
+export type AzureVirtualmachinesStopResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type AzureVirtualmachinesUnlinkCreateData = {
+export type AzureVirtualmachinesUnlinkData = {
     body: AzureVirtualMachineRequest;
     path: {
         uuid: string;
@@ -12645,11 +12491,11 @@ export type AzureVirtualmachinesUnlinkCreateData = {
     url: '/api/azure-virtualmachines/{uuid}/unlink/';
 };
 
-export type AzureVirtualmachinesUnlinkCreateResponses = {
+export type AzureVirtualmachinesUnlinkResponses = {
     200: AzureVirtualMachine;
 };
 
-export type AzureVirtualmachinesUnlinkCreateResponse = AzureVirtualmachinesUnlinkCreateResponses[keyof AzureVirtualmachinesUnlinkCreateResponses];
+export type AzureVirtualmachinesUnlinkResponse = AzureVirtualmachinesUnlinkResponses[keyof AzureVirtualmachinesUnlinkResponses];
 
 export type BillingTotalCostRetrieveData = {
     body?: never;
@@ -12763,7 +12609,7 @@ export type BookingOfferingsUpdateResponses = {
 
 export type BookingOfferingsUpdateResponse = BookingOfferingsUpdateResponses[keyof BookingOfferingsUpdateResponses];
 
-export type BookingOfferingsGoogleCalendarSyncCreateData = {
+export type BookingOfferingsGoogleCalendarSyncData = {
     body: OfferingRequest;
     path: {
         uuid: string;
@@ -12772,13 +12618,13 @@ export type BookingOfferingsGoogleCalendarSyncCreateData = {
     url: '/api/booking-offerings/{uuid}/google_calendar_sync/';
 };
 
-export type BookingOfferingsGoogleCalendarSyncCreateResponses = {
+export type BookingOfferingsGoogleCalendarSyncResponses = {
     200: Offering;
 };
 
-export type BookingOfferingsGoogleCalendarSyncCreateResponse = BookingOfferingsGoogleCalendarSyncCreateResponses[keyof BookingOfferingsGoogleCalendarSyncCreateResponses];
+export type BookingOfferingsGoogleCalendarSyncResponse = BookingOfferingsGoogleCalendarSyncResponses[keyof BookingOfferingsGoogleCalendarSyncResponses];
 
-export type BookingOfferingsShareGoogleCalendarCreateData = {
+export type BookingOfferingsShareGoogleCalendarData = {
     body: OfferingRequest;
     path: {
         uuid: string;
@@ -12787,13 +12633,13 @@ export type BookingOfferingsShareGoogleCalendarCreateData = {
     url: '/api/booking-offerings/{uuid}/share_google_calendar/';
 };
 
-export type BookingOfferingsShareGoogleCalendarCreateResponses = {
+export type BookingOfferingsShareGoogleCalendarResponses = {
     200: Offering;
 };
 
-export type BookingOfferingsShareGoogleCalendarCreateResponse = BookingOfferingsShareGoogleCalendarCreateResponses[keyof BookingOfferingsShareGoogleCalendarCreateResponses];
+export type BookingOfferingsShareGoogleCalendarResponse = BookingOfferingsShareGoogleCalendarResponses[keyof BookingOfferingsShareGoogleCalendarResponses];
 
-export type BookingOfferingsUnshareGoogleCalendarCreateData = {
+export type BookingOfferingsUnshareGoogleCalendarData = {
     body: OfferingRequest;
     path: {
         uuid: string;
@@ -12802,11 +12648,11 @@ export type BookingOfferingsUnshareGoogleCalendarCreateData = {
     url: '/api/booking-offerings/{uuid}/unshare_google_calendar/';
 };
 
-export type BookingOfferingsUnshareGoogleCalendarCreateResponses = {
+export type BookingOfferingsUnshareGoogleCalendarResponses = {
     200: Offering;
 };
 
-export type BookingOfferingsUnshareGoogleCalendarCreateResponse = BookingOfferingsUnshareGoogleCalendarCreateResponses[keyof BookingOfferingsUnshareGoogleCalendarCreateResponses];
+export type BookingOfferingsUnshareGoogleCalendarResponse = BookingOfferingsUnshareGoogleCalendarResponses[keyof BookingOfferingsUnshareGoogleCalendarResponses];
 
 export type BookingResourcesListData = {
     body?: never;
@@ -12977,7 +12823,7 @@ export type BookingResourcesUpdateResponses = {
 
 export type BookingResourcesUpdateResponse = BookingResourcesUpdateResponses[keyof BookingResourcesUpdateResponses];
 
-export type BookingResourcesAcceptCreateData = {
+export type BookingResourcesAcceptData = {
     body: BookingResourceRequest;
     path: {
         uuid: string;
@@ -12986,13 +12832,13 @@ export type BookingResourcesAcceptCreateData = {
     url: '/api/booking-resources/{uuid}/accept/';
 };
 
-export type BookingResourcesAcceptCreateResponses = {
+export type BookingResourcesAcceptResponses = {
     200: BookingResource;
 };
 
-export type BookingResourcesAcceptCreateResponse = BookingResourcesAcceptCreateResponses[keyof BookingResourcesAcceptCreateResponses];
+export type BookingResourcesAcceptResponse = BookingResourcesAcceptResponses[keyof BookingResourcesAcceptResponses];
 
-export type BookingResourcesRejectCreateData = {
+export type BookingResourcesRejectData = {
     body: BookingResourceRequest;
     path: {
         uuid: string;
@@ -13001,11 +12847,11 @@ export type BookingResourcesRejectCreateData = {
     url: '/api/booking-resources/{uuid}/reject/';
 };
 
-export type BookingResourcesRejectCreateResponses = {
+export type BookingResourcesRejectResponses = {
     200: BookingResource;
 };
 
-export type BookingResourcesRejectCreateResponse = BookingResourcesRejectCreateResponses[keyof BookingResourcesRejectCreateResponses];
+export type BookingResourcesRejectResponse = BookingResourcesRejectResponses[keyof BookingResourcesRejectResponses];
 
 export type BroadcastMessageTemplatesListData = {
     body?: never;
@@ -13222,7 +13068,7 @@ export type BroadcastMessagesUpdateResponses = {
 
 export type BroadcastMessagesUpdateResponse = BroadcastMessagesUpdateResponses[keyof BroadcastMessagesUpdateResponses];
 
-export type BroadcastMessagesSendCreateData = {
+export type BroadcastMessagesSendData = {
     body: BroadcastMessageRequest;
     path: {
         uuid: string;
@@ -13231,11 +13077,11 @@ export type BroadcastMessagesSendCreateData = {
     url: '/api/broadcast-messages/{uuid}/send/';
 };
 
-export type BroadcastMessagesSendCreateResponses = {
+export type BroadcastMessagesSendResponses = {
     200: BroadcastMessage;
 };
 
-export type BroadcastMessagesSendCreateResponse = BroadcastMessagesSendCreateResponses[keyof BroadcastMessagesSendCreateResponses];
+export type BroadcastMessagesSendResponse = BroadcastMessagesSendResponses[keyof BroadcastMessagesSendResponses];
 
 export type BroadcastMessagesRecipientsRetrieveData = {
     body?: never;
@@ -13358,7 +13204,7 @@ export type CallManagingOrganisationsUpdateResponses = {
 
 export type CallManagingOrganisationsUpdateResponse = CallManagingOrganisationsUpdateResponses[keyof CallManagingOrganisationsUpdateResponses];
 
-export type CallManagingOrganisationsAddUserCreateData = {
+export type CallManagingOrganisationsAddUserData = {
     body: UserRoleCreateRequest;
     path: {
         uuid: string;
@@ -13367,14 +13213,14 @@ export type CallManagingOrganisationsAddUserCreateData = {
     url: '/api/call-managing-organisations/{uuid}/add_user/';
 };
 
-export type CallManagingOrganisationsAddUserCreateResponses = {
+export type CallManagingOrganisationsAddUserResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type CallManagingOrganisationsDeleteUserCreateData = {
+export type CallManagingOrganisationsDeleteUserData = {
     body: UserRoleDeleteRequest;
     path: {
         uuid: string;
@@ -13383,7 +13229,7 @@ export type CallManagingOrganisationsDeleteUserCreateData = {
     url: '/api/call-managing-organisations/{uuid}/delete_user/';
 };
 
-export type CallManagingOrganisationsDeleteUserCreateResponses = {
+export type CallManagingOrganisationsDeleteUserResponses = {
     /**
      * No response body
      */
@@ -13442,7 +13288,7 @@ export type CallManagingOrganisationsStatsRetrieveResponses = {
 
 export type CallManagingOrganisationsStatsRetrieveResponse = CallManagingOrganisationsStatsRetrieveResponses[keyof CallManagingOrganisationsStatsRetrieveResponses];
 
-export type CallManagingOrganisationsUpdateUserCreateData = {
+export type CallManagingOrganisationsUpdateUserData = {
     body: UserRoleUpdateRequest;
     path: {
         uuid: string;
@@ -13451,7 +13297,7 @@ export type CallManagingOrganisationsUpdateUserCreateData = {
     url: '/api/call-managing-organisations/{uuid}/update_user/';
 };
 
-export type CallManagingOrganisationsUpdateUserCreateResponses = {
+export type CallManagingOrganisationsUpdateUserResponses = {
     /**
      * No response body
      */
@@ -13819,7 +13665,7 @@ export type CustomerCreditsUpdateResponses = {
 
 export type CustomerCreditsUpdateResponse = CustomerCreditsUpdateResponses[keyof CustomerCreditsUpdateResponses];
 
-export type CustomerCreditsApplyCompensationsCreateData = {
+export type CustomerCreditsApplyCompensationsData = {
     body: CustomerCreditRequest;
     path: {
         uuid: string;
@@ -13828,13 +13674,13 @@ export type CustomerCreditsApplyCompensationsCreateData = {
     url: '/api/customer-credits/{uuid}/apply_compensations/';
 };
 
-export type CustomerCreditsApplyCompensationsCreateResponses = {
+export type CustomerCreditsApplyCompensationsResponses = {
     200: CustomerCredit;
 };
 
-export type CustomerCreditsApplyCompensationsCreateResponse = CustomerCreditsApplyCompensationsCreateResponses[keyof CustomerCreditsApplyCompensationsCreateResponses];
+export type CustomerCreditsApplyCompensationsResponse = CustomerCreditsApplyCompensationsResponses[keyof CustomerCreditsApplyCompensationsResponses];
 
-export type CustomerCreditsClearCompensationsCreateData = {
+export type CustomerCreditsClearCompensationsData = {
     body: CustomerCreditRequest;
     path: {
         uuid: string;
@@ -13843,11 +13689,11 @@ export type CustomerCreditsClearCompensationsCreateData = {
     url: '/api/customer-credits/{uuid}/clear_compensations/';
 };
 
-export type CustomerCreditsClearCompensationsCreateResponses = {
+export type CustomerCreditsClearCompensationsResponses = {
     200: CustomerCredit;
 };
 
-export type CustomerCreditsClearCompensationsCreateResponse = CustomerCreditsClearCompensationsCreateResponses[keyof CustomerCreditsClearCompensationsCreateResponses];
+export type CustomerCreditsClearCompensationsResponse = CustomerCreditsClearCompensationsResponses[keyof CustomerCreditsClearCompensationsResponses];
 
 export type CustomerPermissionsReviewsListData = {
     body?: never;
@@ -13898,7 +13744,7 @@ export type CustomerPermissionsReviewsRetrieveResponses = {
 
 export type CustomerPermissionsReviewsRetrieveResponse = CustomerPermissionsReviewsRetrieveResponses[keyof CustomerPermissionsReviewsRetrieveResponses];
 
-export type CustomerPermissionReviewCloseData = {
+export type CustomerPermissionsReviewsCloseData = {
     body?: never;
     path: {
         uuid: string;
@@ -13907,7 +13753,7 @@ export type CustomerPermissionReviewCloseData = {
     url: '/api/customer-permissions-reviews/{uuid}/close/';
 };
 
-export type CustomerPermissionReviewCloseResponses = {
+export type CustomerPermissionsReviewsCloseResponses = {
     /**
      * No response body
      */
@@ -13990,7 +13836,7 @@ export type CustomersCreateResponses = {
 
 export type CustomersCreateResponse = CustomersCreateResponses[keyof CustomersCreateResponses];
 
-export type ChecklistCustomerRetrieveData = {
+export type CustomersMarketplaceChecklistsListData = {
     body?: never;
     path: {
         customer_uuid: string;
@@ -13999,13 +13845,13 @@ export type ChecklistCustomerRetrieveData = {
     url: '/api/customers/{customer_uuid}/marketplace-checklists/';
 };
 
-export type ChecklistCustomerRetrieveResponses = {
+export type CustomersMarketplaceChecklistsListResponses = {
     200: Array<string>;
 };
 
-export type ChecklistCustomerRetrieveResponse = ChecklistCustomerRetrieveResponses[keyof ChecklistCustomerRetrieveResponses];
+export type CustomersMarketplaceChecklistsListResponse = CustomersMarketplaceChecklistsListResponses[keyof CustomersMarketplaceChecklistsListResponses];
 
-export type ChecklistCustomerUpdateData = {
+export type CustomersMarketplaceChecklistsCreateData = {
     body: Array<string>;
     path: {
         customer_uuid: string;
@@ -14014,14 +13860,14 @@ export type ChecklistCustomerUpdateData = {
     url: '/api/customers/{customer_uuid}/marketplace-checklists/';
 };
 
-export type ChecklistCustomerUpdateResponses = {
+export type CustomersMarketplaceChecklistsCreateResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type ChecklistCustomerStatsRetrieveData = {
+export type CustomersMarketplaceChecklistsList2Data = {
     body?: never;
     path: {
         checklist_uuid: string;
@@ -14031,11 +13877,11 @@ export type ChecklistCustomerStatsRetrieveData = {
     url: '/api/customers/{customer_uuid}/marketplace-checklists/{checklist_uuid}/';
 };
 
-export type ChecklistCustomerStatsRetrieveResponses = {
+export type CustomersMarketplaceChecklistsList2Responses = {
     200: Array<CustomerChecklistStat>;
 };
 
-export type ChecklistCustomerStatsRetrieveResponse = ChecklistCustomerStatsRetrieveResponses[keyof ChecklistCustomerStatsRetrieveResponses];
+export type CustomersMarketplaceChecklistsList2Response = CustomersMarketplaceChecklistsList2Responses[keyof CustomersMarketplaceChecklistsList2Responses];
 
 export type CustomersDestroyData = {
     body?: never;
@@ -14100,7 +13946,7 @@ export type CustomersUpdateResponses = {
 
 export type CustomersUpdateResponse = CustomersUpdateResponses[keyof CustomersUpdateResponses];
 
-export type CustomersAddUserCreateData = {
+export type CustomersAddUserData = {
     body: UserRoleCreateRequest;
     path: {
         uuid: string;
@@ -14109,14 +13955,14 @@ export type CustomersAddUserCreateData = {
     url: '/api/customers/{uuid}/add_user/';
 };
 
-export type CustomersAddUserCreateResponses = {
+export type CustomersAddUserResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type CustomersDeleteUserCreateData = {
+export type CustomersDeleteUserData = {
     body: UserRoleDeleteRequest;
     path: {
         uuid: string;
@@ -14125,7 +13971,7 @@ export type CustomersDeleteUserCreateData = {
     url: '/api/customers/{uuid}/delete_user/';
 };
 
-export type CustomersDeleteUserCreateResponses = {
+export type CustomersDeleteUserResponses = {
     /**
      * No response body
      */
@@ -14193,7 +14039,7 @@ export type CustomersStatsRetrieveResponses = {
 
 export type CustomersStatsRetrieveResponse = CustomersStatsRetrieveResponses[keyof CustomersStatsRetrieveResponses];
 
-export type CustomerUpdateOrganizationGroupsData = {
+export type CustomersUpdateOrganizationGroupsData = {
     body?: OrganizationGroupsRequest;
     path: {
         uuid: string;
@@ -14202,13 +14048,13 @@ export type CustomerUpdateOrganizationGroupsData = {
     url: '/api/customers/{uuid}/update_organization_groups/';
 };
 
-export type CustomerUpdateOrganizationGroupsResponses = {
+export type CustomersUpdateOrganizationGroupsResponses = {
     200: Customer;
 };
 
-export type CustomerUpdateOrganizationGroupsResponse = CustomerUpdateOrganizationGroupsResponses[keyof CustomerUpdateOrganizationGroupsResponses];
+export type CustomersUpdateOrganizationGroupsResponse = CustomersUpdateOrganizationGroupsResponses[keyof CustomersUpdateOrganizationGroupsResponses];
 
-export type CustomersUpdateUserCreateData = {
+export type CustomersUpdateUserData = {
     body: UserRoleUpdateRequest;
     path: {
         uuid: string;
@@ -14217,7 +14063,7 @@ export type CustomersUpdateUserCreateData = {
     url: '/api/customers/{uuid}/update_user/';
 };
 
-export type CustomersUpdateUserCreateResponses = {
+export type CustomersUpdateUserResponses = {
     /**
      * No response body
      */
@@ -14436,7 +14282,7 @@ export type DigitaloceanDropletsUpdateResponses = {
 
 export type DigitaloceanDropletsUpdateResponse = DigitaloceanDropletsUpdateResponses[keyof DigitaloceanDropletsUpdateResponses];
 
-export type DigitaloceanDropletsPullCreateData = {
+export type DigitaloceanDropletsPullData = {
     body: DigitalOceanDropletRequest;
     path: {
         uuid: string;
@@ -14445,13 +14291,13 @@ export type DigitaloceanDropletsPullCreateData = {
     url: '/api/digitalocean-droplets/{uuid}/pull/';
 };
 
-export type DigitaloceanDropletsPullCreateResponses = {
+export type DigitaloceanDropletsPullResponses = {
     200: DigitalOceanDroplet;
 };
 
-export type DigitaloceanDropletsPullCreateResponse = DigitaloceanDropletsPullCreateResponses[keyof DigitaloceanDropletsPullCreateResponses];
+export type DigitaloceanDropletsPullResponse = DigitaloceanDropletsPullResponses[keyof DigitaloceanDropletsPullResponses];
 
-export type DigitaloceanDropletsResizeCreateData = {
+export type DigitaloceanDropletsResizeData = {
     body: DigitalOceanDropletResizeRequest;
     path: {
         uuid: string;
@@ -14460,13 +14306,13 @@ export type DigitaloceanDropletsResizeCreateData = {
     url: '/api/digitalocean-droplets/{uuid}/resize/';
 };
 
-export type DigitaloceanDropletsResizeCreateResponses = {
+export type DigitaloceanDropletsResizeResponses = {
     200: DigitalOceanDropletResize;
 };
 
-export type DigitaloceanDropletsResizeCreateResponse = DigitaloceanDropletsResizeCreateResponses[keyof DigitaloceanDropletsResizeCreateResponses];
+export type DigitaloceanDropletsResizeResponse = DigitaloceanDropletsResizeResponses[keyof DigitaloceanDropletsResizeResponses];
 
-export type DigitaloceanDropletsRestartCreateData = {
+export type DigitaloceanDropletsRestartData = {
     body?: never;
     path: {
         uuid: string;
@@ -14475,14 +14321,14 @@ export type DigitaloceanDropletsRestartCreateData = {
     url: '/api/digitalocean-droplets/{uuid}/restart/';
 };
 
-export type DigitaloceanDropletsRestartCreateResponses = {
+export type DigitaloceanDropletsRestartResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type DigitaloceanDropletsStartCreateData = {
+export type DigitaloceanDropletsStartData = {
     body?: never;
     path: {
         uuid: string;
@@ -14491,14 +14337,14 @@ export type DigitaloceanDropletsStartCreateData = {
     url: '/api/digitalocean-droplets/{uuid}/start/';
 };
 
-export type DigitaloceanDropletsStartCreateResponses = {
+export type DigitaloceanDropletsStartResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type DigitaloceanDropletsStopCreateData = {
+export type DigitaloceanDropletsStopData = {
     body?: never;
     path: {
         uuid: string;
@@ -14507,14 +14353,14 @@ export type DigitaloceanDropletsStopCreateData = {
     url: '/api/digitalocean-droplets/{uuid}/stop/';
 };
 
-export type DigitaloceanDropletsStopCreateResponses = {
+export type DigitaloceanDropletsStopResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type DigitaloceanDropletsUnlinkCreateData = {
+export type DigitaloceanDropletsUnlinkData = {
     body: DigitalOceanDropletRequest;
     path: {
         uuid: string;
@@ -14523,11 +14369,11 @@ export type DigitaloceanDropletsUnlinkCreateData = {
     url: '/api/digitalocean-droplets/{uuid}/unlink/';
 };
 
-export type DigitaloceanDropletsUnlinkCreateResponses = {
+export type DigitaloceanDropletsUnlinkResponses = {
     200: DigitalOceanDroplet;
 };
 
-export type DigitaloceanDropletsUnlinkCreateResponse = DigitaloceanDropletsUnlinkCreateResponses[keyof DigitaloceanDropletsUnlinkCreateResponses];
+export type DigitaloceanDropletsUnlinkResponse = DigitaloceanDropletsUnlinkResponses[keyof DigitaloceanDropletsUnlinkResponses];
 
 export type DigitaloceanImagesListData = {
     body?: never;
@@ -15139,7 +14985,7 @@ export type FreeipaProfilesUpdateResponses = {
 
 export type FreeipaProfilesUpdateResponse = FreeipaProfilesUpdateResponses[keyof FreeipaProfilesUpdateResponses];
 
-export type FreeipaProfilesUpdateSshKeysCreateData = {
+export type FreeipaProfilesUpdateSshKeysData = {
     body: ProfileRequest;
     path: {
         uuid: string;
@@ -15148,11 +14994,11 @@ export type FreeipaProfilesUpdateSshKeysCreateData = {
     url: '/api/freeipa-profiles/{uuid}/update_ssh_keys/';
 };
 
-export type FreeipaProfilesUpdateSshKeysCreateResponses = {
+export type FreeipaProfilesUpdateSshKeysResponses = {
     200: Profile;
 };
 
-export type FreeipaProfilesUpdateSshKeysCreateResponse = FreeipaProfilesUpdateSshKeysCreateResponses[keyof FreeipaProfilesUpdateSshKeysCreateResponses];
+export type FreeipaProfilesUpdateSshKeysResponse = FreeipaProfilesUpdateSshKeysResponses[keyof FreeipaProfilesUpdateSshKeysResponses];
 
 export type GoogleAuthListData = {
     body?: never;
@@ -15858,7 +15704,7 @@ export type InvoiceItemsUpdateResponses = {
 
 export type InvoiceItemsUpdateResponse = InvoiceItemsUpdateResponses[keyof InvoiceItemsUpdateResponses];
 
-export type InvoiceItemCreateCompensationData = {
+export type InvoiceItemsCreateCompensationData = {
     body: InvoiceItemCompensationRequest;
     path: {
         uuid: string;
@@ -15867,13 +15713,13 @@ export type InvoiceItemCreateCompensationData = {
     url: '/api/invoice-items/{uuid}/create_compensation/';
 };
 
-export type InvoiceItemCreateCompensationResponses = {
+export type InvoiceItemsCreateCompensationResponses = {
     200: InvoiceItemCompensation;
 };
 
-export type InvoiceItemCreateCompensationResponse = InvoiceItemCreateCompensationResponses[keyof InvoiceItemCreateCompensationResponses];
+export type InvoiceItemsCreateCompensationResponse = InvoiceItemsCreateCompensationResponses[keyof InvoiceItemsCreateCompensationResponses];
 
-export type InvoiceItemsMigrateToCreateData = {
+export type InvoiceItemsMigrateToData = {
     body: InvoiceItemMigrateToRequest;
     path: {
         uuid: string;
@@ -15882,11 +15728,11 @@ export type InvoiceItemsMigrateToCreateData = {
     url: '/api/invoice-items/{uuid}/migrate_to/';
 };
 
-export type InvoiceItemsMigrateToCreateResponses = {
+export type InvoiceItemsMigrateToResponses = {
     200: InvoiceItemMigrateTo;
 };
 
-export type InvoiceItemsMigrateToCreateResponse = InvoiceItemsMigrateToCreateResponses[keyof InvoiceItemsMigrateToCreateResponses];
+export type InvoiceItemsMigrateToResponse = InvoiceItemsMigrateToResponses[keyof InvoiceItemsMigrateToResponses];
 
 export type InvoiceItemsCostsRetrieveData = {
     body?: never;
@@ -16072,7 +15918,7 @@ export type InvoicesUpdateResponses = {
 
 export type InvoicesUpdateResponse = InvoicesUpdateResponses[keyof InvoicesUpdateResponses];
 
-export type InvoicesPaidCreateData = {
+export type InvoicesPaidData = {
     body: InvoiceRequest;
     path: {
         uuid: string;
@@ -16081,13 +15927,13 @@ export type InvoicesPaidCreateData = {
     url: '/api/invoices/{uuid}/paid/';
 };
 
-export type InvoicesPaidCreateResponses = {
+export type InvoicesPaidResponses = {
     200: Invoice;
 };
 
-export type InvoicesPaidCreateResponse = InvoicesPaidCreateResponses[keyof InvoicesPaidCreateResponses];
+export type InvoicesPaidResponse = InvoicesPaidResponses[keyof InvoicesPaidResponses];
 
-export type InvoicesSendNotificationCreateData = {
+export type InvoicesSendNotificationData = {
     body: InvoiceRequest;
     path: {
         uuid: string;
@@ -16096,13 +15942,13 @@ export type InvoicesSendNotificationCreateData = {
     url: '/api/invoices/{uuid}/send_notification/';
 };
 
-export type InvoicesSendNotificationCreateResponses = {
+export type InvoicesSendNotificationResponses = {
     200: Invoice;
 };
 
-export type InvoicesSendNotificationCreateResponse = InvoicesSendNotificationCreateResponses[keyof InvoicesSendNotificationCreateResponses];
+export type InvoicesSendNotificationResponse = InvoicesSendNotificationResponses[keyof InvoicesSendNotificationResponses];
 
-export type InvoicesSetBackendIdCreateData = {
+export type InvoicesSetBackendIdData = {
     body?: BackendIdRequest;
     path: {
         uuid: string;
@@ -16111,13 +15957,13 @@ export type InvoicesSetBackendIdCreateData = {
     url: '/api/invoices/{uuid}/set_backend_id/';
 };
 
-export type InvoicesSetBackendIdCreateResponses = {
+export type InvoicesSetBackendIdResponses = {
     200: BackendId;
 };
 
-export type InvoicesSetBackendIdCreateResponse = InvoicesSetBackendIdCreateResponses[keyof InvoicesSetBackendIdCreateResponses];
+export type InvoicesSetBackendIdResponse = InvoicesSetBackendIdResponses[keyof InvoicesSetBackendIdResponses];
 
-export type InvoiceSetPaymentUrlData = {
+export type InvoicesSetPaymentUrlData = {
     body?: PaymentUrlRequest;
     path: {
         uuid: string;
@@ -16126,13 +15972,13 @@ export type InvoiceSetPaymentUrlData = {
     url: '/api/invoices/{uuid}/set_payment_url/';
 };
 
-export type InvoiceSetPaymentUrlResponses = {
+export type InvoicesSetPaymentUrlResponses = {
     200: PaymentUrl;
 };
 
-export type InvoiceSetPaymentUrlResponse = InvoiceSetPaymentUrlResponses[keyof InvoiceSetPaymentUrlResponses];
+export type InvoicesSetPaymentUrlResponse = InvoicesSetPaymentUrlResponses[keyof InvoicesSetPaymentUrlResponses];
 
-export type InvoiceSetReferenceNumberData = {
+export type InvoicesSetReferenceNumberData = {
     body?: ReferenceNumberRequest;
     path: {
         uuid: string;
@@ -16141,11 +15987,11 @@ export type InvoiceSetReferenceNumberData = {
     url: '/api/invoices/{uuid}/set_reference_number/';
 };
 
-export type InvoiceSetReferenceNumberResponses = {
+export type InvoicesSetReferenceNumberResponses = {
     200: ReferenceNumber;
 };
 
-export type InvoiceSetReferenceNumberResponse = InvoiceSetReferenceNumberResponses[keyof InvoiceSetReferenceNumberResponses];
+export type InvoicesSetReferenceNumberResponse = InvoicesSetReferenceNumberResponses[keyof InvoicesSetReferenceNumberResponses];
 
 export type InvoicesStatsRetrieveData = {
     body?: never;
@@ -17337,7 +17183,7 @@ export type MarketplaceComponentUsagesUpdateResponses = {
 
 export type MarketplaceComponentUsagesUpdateResponse = MarketplaceComponentUsagesUpdateResponses[keyof MarketplaceComponentUsagesUpdateResponses];
 
-export type MarketplaceComponentUsagesSetUserUsageCreateData = {
+export type MarketplaceComponentUsagesSetUserUsageData = {
     body: ComponentUserUsageCreateRequest;
     path: {
         uuid: string;
@@ -17346,11 +17192,11 @@ export type MarketplaceComponentUsagesSetUserUsageCreateData = {
     url: '/api/marketplace-component-usages/{uuid}/set_user_usage/';
 };
 
-export type MarketplaceComponentUsagesSetUserUsageCreateResponses = {
+export type MarketplaceComponentUsagesSetUserUsageResponses = {
     200: ComponentUserUsageCreate;
 };
 
-export type MarketplaceComponentUsagesSetUserUsageCreateResponse = MarketplaceComponentUsagesSetUserUsageCreateResponses[keyof MarketplaceComponentUsagesSetUserUsageCreateResponses];
+export type MarketplaceComponentUsagesSetUserUsageResponse = MarketplaceComponentUsagesSetUserUsageResponses[keyof MarketplaceComponentUsagesSetUserUsageResponses];
 
 export type MarketplaceComponentUsagesSetUsageCreateData = {
     body: ComponentUsageCreateRequest;
@@ -18504,7 +18350,7 @@ export type MarketplaceOfferingUsersUpdateResponses = {
 
 export type MarketplaceOfferingUsersUpdateResponse = MarketplaceOfferingUsersUpdateResponses[keyof MarketplaceOfferingUsersUpdateResponses];
 
-export type MarketplaceOfferingUsersUpdateRestrictedCreateData = {
+export type MarketplaceOfferingUsersUpdateRestrictedData = {
     body: OfferingUserRequest;
     path: {
         uuid: string;
@@ -18513,11 +18359,11 @@ export type MarketplaceOfferingUsersUpdateRestrictedCreateData = {
     url: '/api/marketplace-offering-users/{uuid}/update_restricted/';
 };
 
-export type MarketplaceOfferingUsersUpdateRestrictedCreateResponses = {
+export type MarketplaceOfferingUsersUpdateRestrictedResponses = {
     200: OfferingUser;
 };
 
-export type MarketplaceOfferingUsersUpdateRestrictedCreateResponse = MarketplaceOfferingUsersUpdateRestrictedCreateResponses[keyof MarketplaceOfferingUsersUpdateRestrictedCreateResponses];
+export type MarketplaceOfferingUsersUpdateRestrictedResponse = MarketplaceOfferingUsersUpdateRestrictedResponses[keyof MarketplaceOfferingUsersUpdateRestrictedResponses];
 
 export type MarketplaceOrdersListData = {
     body?: never;
@@ -18669,7 +18515,7 @@ export type MarketplaceOrdersUpdateResponses = {
 
 export type MarketplaceOrdersUpdateResponse = MarketplaceOrdersUpdateResponses[keyof MarketplaceOrdersUpdateResponses];
 
-export type MarketplaceOrderApproveByConsumerData = {
+export type MarketplaceOrdersApproveByConsumerData = {
     body?: never;
     path: {
         uuid: string;
@@ -18678,14 +18524,14 @@ export type MarketplaceOrderApproveByConsumerData = {
     url: '/api/marketplace-orders/{uuid}/approve_by_consumer/';
 };
 
-export type MarketplaceOrderApproveByConsumerResponses = {
+export type MarketplaceOrdersApproveByConsumerResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type MarketplaceOrderApproveByProviderData = {
+export type MarketplaceOrdersApproveByProviderData = {
     body?: never;
     path: {
         uuid: string;
@@ -18694,14 +18540,14 @@ export type MarketplaceOrderApproveByProviderData = {
     url: '/api/marketplace-orders/{uuid}/approve_by_provider/';
 };
 
-export type MarketplaceOrderApproveByProviderResponses = {
+export type MarketplaceOrdersApproveByProviderResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type MarketplaceOrderCancelData = {
+export type MarketplaceOrdersCancelData = {
     body?: never;
     path: {
         uuid: string;
@@ -18710,7 +18556,7 @@ export type MarketplaceOrderCancelData = {
     url: '/api/marketplace-orders/{uuid}/cancel/';
 };
 
-export type MarketplaceOrderCancelResponses = {
+export type MarketplaceOrdersCancelResponses = {
     /**
      * No response body
      */
@@ -18732,7 +18578,7 @@ export type MarketplaceOrdersOfferingRetrieveResponses = {
 
 export type MarketplaceOrdersOfferingRetrieveResponse = MarketplaceOrdersOfferingRetrieveResponses[keyof MarketplaceOrdersOfferingRetrieveResponses];
 
-export type MarketplaceOrderRejectByConsumerData = {
+export type MarketplaceOrdersRejectByConsumerData = {
     body?: never;
     path: {
         uuid: string;
@@ -18741,14 +18587,14 @@ export type MarketplaceOrderRejectByConsumerData = {
     url: '/api/marketplace-orders/{uuid}/reject_by_consumer/';
 };
 
-export type MarketplaceOrderRejectByConsumerResponses = {
+export type MarketplaceOrdersRejectByConsumerResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type MarketplaceOrderRejectByProviderData = {
+export type MarketplaceOrdersRejectByProviderData = {
     body?: never;
     path: {
         uuid: string;
@@ -18757,14 +18603,14 @@ export type MarketplaceOrderRejectByProviderData = {
     url: '/api/marketplace-orders/{uuid}/reject_by_provider/';
 };
 
-export type MarketplaceOrderRejectByProviderResponses = {
+export type MarketplaceOrdersRejectByProviderResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type MarketplaceOrderSetStateDoneData = {
+export type MarketplaceOrdersSetStateDoneData = {
     body?: never;
     path: {
         uuid: string;
@@ -18773,14 +18619,14 @@ export type MarketplaceOrderSetStateDoneData = {
     url: '/api/marketplace-orders/{uuid}/set_state_done/';
 };
 
-export type MarketplaceOrderSetStateDoneResponses = {
+export type MarketplaceOrdersSetStateDoneResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type MarketplaceOrderSetStateErredData = {
+export type MarketplaceOrdersSetStateErredData = {
     body?: OrderSetStateErredRequest;
     path: {
         uuid: string;
@@ -18789,14 +18635,14 @@ export type MarketplaceOrderSetStateErredData = {
     url: '/api/marketplace-orders/{uuid}/set_state_erred/';
 };
 
-export type MarketplaceOrderSetStateErredResponses = {
+export type MarketplaceOrdersSetStateErredResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type MarketplaceOrderSetStateExecutingData = {
+export type MarketplaceOrdersSetStateExecutingData = {
     body?: never;
     path: {
         uuid: string;
@@ -18805,14 +18651,14 @@ export type MarketplaceOrderSetStateExecutingData = {
     url: '/api/marketplace-orders/{uuid}/set_state_executing/';
 };
 
-export type MarketplaceOrderSetStateExecutingResponses = {
+export type MarketplaceOrdersSetStateExecutingResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type MarketplaceOrderUnlinkData = {
+export type MarketplaceOrdersUnlinkData = {
     body?: never;
     path: {
         uuid: string;
@@ -18821,7 +18667,7 @@ export type MarketplaceOrderUnlinkData = {
     url: '/api/marketplace-orders/{uuid}/unlink/';
 };
 
-export type MarketplaceOrderUnlinkResponses = {
+export type MarketplaceOrdersUnlinkResponses = {
     /**
      * No response body
      */
@@ -18979,7 +18825,7 @@ export type MarketplacePlansUpdateResponses = {
 
 export type MarketplacePlansUpdateResponse = MarketplacePlansUpdateResponses[keyof MarketplacePlansUpdateResponses];
 
-export type MarketplacePlanArchiveData = {
+export type MarketplacePlansArchiveData = {
     body?: never;
     path: {
         uuid: string;
@@ -18988,14 +18834,14 @@ export type MarketplacePlanArchiveData = {
     url: '/api/marketplace-plans/{uuid}/archive/';
 };
 
-export type MarketplacePlanArchiveResponses = {
+export type MarketplacePlansArchiveResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type MarketplacePlanDeleteOrganizationGroupsData = {
+export type MarketplacePlansDeleteOrganizationGroupsData = {
     body?: never;
     path: {
         uuid: string;
@@ -19004,14 +18850,14 @@ export type MarketplacePlanDeleteOrganizationGroupsData = {
     url: '/api/marketplace-plans/{uuid}/delete_organization_groups/';
 };
 
-export type MarketplacePlanDeleteOrganizationGroupsResponses = {
+export type MarketplacePlansDeleteOrganizationGroupsResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type MarketplacePlanUpdateOrganizationGroupsData = {
+export type MarketplacePlansUpdateOrganizationGroupsData = {
     body?: OrganizationGroupsRequest;
     path: {
         uuid: string;
@@ -19020,14 +18866,14 @@ export type MarketplacePlanUpdateOrganizationGroupsData = {
     url: '/api/marketplace-plans/{uuid}/update_organization_groups/';
 };
 
-export type MarketplacePlanUpdateOrganizationGroupsResponses = {
+export type MarketplacePlansUpdateOrganizationGroupsResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type MarketplacePlanUpdatePricesData = {
+export type MarketplacePlansUpdatePricesData = {
     body: PricesUpdateRequest;
     path: {
         uuid: string;
@@ -19036,14 +18882,14 @@ export type MarketplacePlanUpdatePricesData = {
     url: '/api/marketplace-plans/{uuid}/update_prices/';
 };
 
-export type MarketplacePlanUpdatePricesResponses = {
+export type MarketplacePlansUpdatePricesResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type MarketplacePlanUpdateQuotasData = {
+export type MarketplacePlansUpdateQuotasData = {
     body: QuotasUpdateRequest;
     path: {
         uuid: string;
@@ -19052,7 +18898,7 @@ export type MarketplacePlanUpdateQuotasData = {
     url: '/api/marketplace-plans/{uuid}/update_quotas/';
 };
 
-export type MarketplacePlanUpdateQuotasResponses = {
+export type MarketplacePlansUpdateQuotasResponses = {
     /**
      * No response body
      */
@@ -19316,7 +19162,7 @@ export type MarketplaceProjectUpdateRequestsUpdateResponses = {
 
 export type MarketplaceProjectUpdateRequestsUpdateResponse = MarketplaceProjectUpdateRequestsUpdateResponses[keyof MarketplaceProjectUpdateRequestsUpdateResponses];
 
-export type ProjectUpdateRequestApproveData = {
+export type MarketplaceProjectUpdateRequestsApproveData = {
     body?: ReviewCommentRequest;
     path: {
         uuid: string;
@@ -19325,14 +19171,14 @@ export type ProjectUpdateRequestApproveData = {
     url: '/api/marketplace-project-update-requests/{uuid}/approve/';
 };
 
-export type ProjectUpdateRequestApproveResponses = {
+export type MarketplaceProjectUpdateRequestsApproveResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type ProjectUpdateRequestRejectData = {
+export type MarketplaceProjectUpdateRequestsRejectData = {
     body?: ReviewCommentRequest;
     path: {
         uuid: string;
@@ -19341,7 +19187,7 @@ export type ProjectUpdateRequestRejectData = {
     url: '/api/marketplace-project-update-requests/{uuid}/reject/';
 };
 
-export type ProjectUpdateRequestRejectResponses = {
+export type MarketplaceProjectUpdateRequestsRejectResponses = {
     /**
      * No response body
      */
@@ -19509,7 +19355,7 @@ export type MarketplaceProviderOfferingsUpdateResponses = {
 
 export type MarketplaceProviderOfferingsUpdateResponse = MarketplaceProviderOfferingsUpdateResponses[keyof MarketplaceProviderOfferingsUpdateResponses];
 
-export type MarketplaceOfferingActivateData = {
+export type MarketplaceProviderOfferingsActivateData = {
     body: ProviderOfferingDetailsRequest;
     path: {
         uuid: string;
@@ -19518,13 +19364,13 @@ export type MarketplaceOfferingActivateData = {
     url: '/api/marketplace-provider-offerings/{uuid}/activate/';
 };
 
-export type MarketplaceOfferingActivateResponses = {
+export type MarketplaceProviderOfferingsActivateResponses = {
     200: DetailState;
 };
 
-export type MarketplaceOfferingActivateResponse = MarketplaceOfferingActivateResponses[keyof MarketplaceOfferingActivateResponses];
+export type MarketplaceProviderOfferingsActivateResponse = MarketplaceProviderOfferingsActivateResponses[keyof MarketplaceProviderOfferingsActivateResponses];
 
-export type MarketplaceOfferingEndpointCreateData = {
+export type MarketplaceProviderOfferingsAddEndpointData = {
     body: NestedEndpointRequest;
     path: {
         uuid: string;
@@ -19533,13 +19379,13 @@ export type MarketplaceOfferingEndpointCreateData = {
     url: '/api/marketplace-provider-offerings/{uuid}/add_endpoint/';
 };
 
-export type MarketplaceOfferingEndpointCreateResponses = {
+export type MarketplaceProviderOfferingsAddEndpointResponses = {
     200: NestedEndpoint;
 };
 
-export type MarketplaceOfferingEndpointCreateResponse = MarketplaceOfferingEndpointCreateResponses[keyof MarketplaceOfferingEndpointCreateResponses];
+export type MarketplaceProviderOfferingsAddEndpointResponse = MarketplaceProviderOfferingsAddEndpointResponses[keyof MarketplaceProviderOfferingsAddEndpointResponses];
 
-export type MarketplaceProviderOfferingsAddUserCreateData = {
+export type MarketplaceProviderOfferingsAddUserData = {
     body: UserRoleCreateRequest;
     path: {
         uuid: string;
@@ -19548,14 +19394,14 @@ export type MarketplaceProviderOfferingsAddUserCreateData = {
     url: '/api/marketplace-provider-offerings/{uuid}/add_user/';
 };
 
-export type MarketplaceProviderOfferingsAddUserCreateResponses = {
+export type MarketplaceProviderOfferingsAddUserResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type MarketplaceOfferingArchiveData = {
+export type MarketplaceProviderOfferingsArchiveData = {
     body: ProviderOfferingDetailsRequest;
     path: {
         uuid: string;
@@ -19564,11 +19410,11 @@ export type MarketplaceOfferingArchiveData = {
     url: '/api/marketplace-provider-offerings/{uuid}/archive/';
 };
 
-export type MarketplaceOfferingArchiveResponses = {
+export type MarketplaceProviderOfferingsArchiveResponses = {
     200: DetailState;
 };
 
-export type MarketplaceOfferingArchiveResponse = MarketplaceOfferingArchiveResponses[keyof MarketplaceOfferingArchiveResponses];
+export type MarketplaceProviderOfferingsArchiveResponse = MarketplaceProviderOfferingsArchiveResponses[keyof MarketplaceProviderOfferingsArchiveResponses];
 
 export type MarketplaceProviderOfferingsComponentStatsRetrieveData = {
     body?: never;
@@ -19600,7 +19446,7 @@ export type MarketplaceProviderOfferingsCostsRetrieveResponses = {
 
 export type MarketplaceProviderOfferingsCostsRetrieveResponse = MarketplaceProviderOfferingsCostsRetrieveResponses[keyof MarketplaceProviderOfferingsCostsRetrieveResponses];
 
-export type MarketplaceOfferingCreateComponentData = {
+export type MarketplaceProviderOfferingsCreateOfferingComponentData = {
     body: OfferingComponentRequest;
     path: {
         uuid: string;
@@ -19609,7 +19455,7 @@ export type MarketplaceOfferingCreateComponentData = {
     url: '/api/marketplace-provider-offerings/{uuid}/create_offering_component/';
 };
 
-export type MarketplaceOfferingCreateComponentResponses = {
+export type MarketplaceProviderOfferingsCreateOfferingComponentResponses = {
     /**
      * No response body
      */
@@ -19631,7 +19477,7 @@ export type MarketplaceProviderOfferingsCustomersRetrieveResponses = {
 
 export type MarketplaceProviderOfferingsCustomersRetrieveResponse = MarketplaceProviderOfferingsCustomersRetrieveResponses[keyof MarketplaceProviderOfferingsCustomersRetrieveResponses];
 
-export type MarketplaceOfferingEndpointDeleteData = {
+export type MarketplaceProviderOfferingsDeleteEndpointData = {
     body: EndpointDeleteRequest;
     path: {
         uuid: string;
@@ -19640,13 +19486,13 @@ export type MarketplaceOfferingEndpointDeleteData = {
     url: '/api/marketplace-provider-offerings/{uuid}/delete_endpoint/';
 };
 
-export type MarketplaceOfferingEndpointDeleteResponses = {
+export type MarketplaceProviderOfferingsDeleteEndpointResponses = {
     200: EndpointDelete;
 };
 
-export type MarketplaceOfferingEndpointDeleteResponse = MarketplaceOfferingEndpointDeleteResponses[keyof MarketplaceOfferingEndpointDeleteResponses];
+export type MarketplaceProviderOfferingsDeleteEndpointResponse = MarketplaceProviderOfferingsDeleteEndpointResponses[keyof MarketplaceProviderOfferingsDeleteEndpointResponses];
 
-export type MarketplaceOfferingDeleteOrganizationGroupsData = {
+export type MarketplaceProviderOfferingsDeleteOrganizationGroupsData = {
     body?: never;
     path: {
         uuid: string;
@@ -19655,14 +19501,14 @@ export type MarketplaceOfferingDeleteOrganizationGroupsData = {
     url: '/api/marketplace-provider-offerings/{uuid}/delete_organization_groups/';
 };
 
-export type MarketplaceOfferingDeleteOrganizationGroupsResponses = {
+export type MarketplaceProviderOfferingsDeleteOrganizationGroupsResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type MarketplaceOfferingDeleteThumbnailData = {
+export type MarketplaceProviderOfferingsDeleteThumbnailData = {
     body?: never;
     path: {
         uuid: string;
@@ -19671,14 +19517,14 @@ export type MarketplaceOfferingDeleteThumbnailData = {
     url: '/api/marketplace-provider-offerings/{uuid}/delete_thumbnail/';
 };
 
-export type MarketplaceOfferingDeleteThumbnailResponses = {
+export type MarketplaceProviderOfferingsDeleteThumbnailResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type MarketplaceProviderOfferingsDeleteUserCreateData = {
+export type MarketplaceProviderOfferingsDeleteUserData = {
     body: UserRoleDeleteRequest;
     path: {
         uuid: string;
@@ -19687,14 +19533,14 @@ export type MarketplaceProviderOfferingsDeleteUserCreateData = {
     url: '/api/marketplace-provider-offerings/{uuid}/delete_user/';
 };
 
-export type MarketplaceProviderOfferingsDeleteUserCreateResponses = {
+export type MarketplaceProviderOfferingsDeleteUserResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type MarketplaceOfferingDraftData = {
+export type MarketplaceProviderOfferingsDraftData = {
     body: ProviderOfferingDetailsRequest;
     path: {
         uuid: string;
@@ -19703,11 +19549,11 @@ export type MarketplaceOfferingDraftData = {
     url: '/api/marketplace-provider-offerings/{uuid}/draft/';
 };
 
-export type MarketplaceOfferingDraftResponses = {
+export type MarketplaceProviderOfferingsDraftResponses = {
     200: DetailState;
 };
 
-export type MarketplaceOfferingDraftResponse = MarketplaceOfferingDraftResponses[keyof MarketplaceOfferingDraftResponses];
+export type MarketplaceProviderOfferingsDraftResponse = MarketplaceProviderOfferingsDraftResponses[keyof MarketplaceProviderOfferingsDraftResponses];
 
 export type MarketplaceProviderOfferingsGlauthUsersConfigRetrieveData = {
     body?: never;
@@ -19724,7 +19570,7 @@ export type MarketplaceProviderOfferingsGlauthUsersConfigRetrieveResponses = {
 
 export type MarketplaceProviderOfferingsGlauthUsersConfigRetrieveResponse = MarketplaceProviderOfferingsGlauthUsersConfigRetrieveResponses[keyof MarketplaceProviderOfferingsGlauthUsersConfigRetrieveResponses];
 
-export type MarketplaceOfferingImportResourceData = {
+export type MarketplaceProviderOfferingsImportResourceData = {
     body: ImportResourceRequest;
     path: {
         uuid: string;
@@ -19733,11 +19579,11 @@ export type MarketplaceOfferingImportResourceData = {
     url: '/api/marketplace-provider-offerings/{uuid}/import_resource/';
 };
 
-export type MarketplaceOfferingImportResourceResponses = {
+export type MarketplaceProviderOfferingsImportResourceResponses = {
     200: Resource;
 };
 
-export type MarketplaceOfferingImportResourceResponse = MarketplaceOfferingImportResourceResponses[keyof MarketplaceOfferingImportResourceResponses];
+export type MarketplaceProviderOfferingsImportResourceResponse = MarketplaceProviderOfferingsImportResourceResponses[keyof MarketplaceProviderOfferingsImportResourceResponses];
 
 export type MarketplaceProviderOfferingsImportableResourcesRetrieveData = {
     body?: never;
@@ -19754,7 +19600,7 @@ export type MarketplaceProviderOfferingsImportableResourcesRetrieveResponses = {
 
 export type MarketplaceProviderOfferingsImportableResourcesRetrieveResponse = MarketplaceProviderOfferingsImportableResourcesRetrieveResponses[keyof MarketplaceProviderOfferingsImportableResourcesRetrieveResponses];
 
-export type MarketplaceOfferingListCustomerProjectsData = {
+export type MarketplaceProviderOfferingsListCustomerProjectsListData = {
     body?: never;
     path: {
         uuid: string;
@@ -19835,13 +19681,13 @@ export type MarketplaceOfferingListCustomerProjectsData = {
     url: '/api/marketplace-provider-offerings/{uuid}/list_customer_projects/';
 };
 
-export type MarketplaceOfferingListCustomerProjectsResponses = {
+export type MarketplaceProviderOfferingsListCustomerProjectsListResponses = {
     200: PaginatedProjectList;
 };
 
-export type MarketplaceOfferingListCustomerProjectsResponse = MarketplaceOfferingListCustomerProjectsResponses[keyof MarketplaceOfferingListCustomerProjectsResponses];
+export type MarketplaceProviderOfferingsListCustomerProjectsListResponse = MarketplaceProviderOfferingsListCustomerProjectsListResponses[keyof MarketplaceProviderOfferingsListCustomerProjectsListResponses];
 
-export type MarketplaceOfferingListCustomerUsersData = {
+export type MarketplaceProviderOfferingsListCustomerUsersListData = {
     body?: never;
     path: {
         uuid: string;
@@ -19922,11 +19768,11 @@ export type MarketplaceOfferingListCustomerUsersData = {
     url: '/api/marketplace-provider-offerings/{uuid}/list_customer_users/';
 };
 
-export type MarketplaceOfferingListCustomerUsersResponses = {
+export type MarketplaceProviderOfferingsListCustomerUsersListResponses = {
     200: PaginatedUserList;
 };
 
-export type MarketplaceOfferingListCustomerUsersResponse = MarketplaceOfferingListCustomerUsersResponses[keyof MarketplaceOfferingListCustomerUsersResponses];
+export type MarketplaceProviderOfferingsListCustomerUsersListResponse = MarketplaceProviderOfferingsListCustomerUsersListResponses[keyof MarketplaceProviderOfferingsListCustomerUsersListResponses];
 
 export type MarketplaceProviderOfferingsListUsersListData = {
     body?: never;
@@ -20018,7 +19864,7 @@ export type MarketplaceProviderOfferingsListUsersListResponses = {
 
 export type MarketplaceProviderOfferingsListUsersListResponse = MarketplaceProviderOfferingsListUsersListResponses[keyof MarketplaceProviderOfferingsListUsersListResponses];
 
-export type MarketplaceOfferingPauseData = {
+export type MarketplaceProviderOfferingsPauseData = {
     body?: OfferingPauseRequest;
     path: {
         uuid: string;
@@ -20027,13 +19873,13 @@ export type MarketplaceOfferingPauseData = {
     url: '/api/marketplace-provider-offerings/{uuid}/pause/';
 };
 
-export type MarketplaceOfferingPauseResponses = {
+export type MarketplaceProviderOfferingsPauseResponses = {
     200: DetailState;
 };
 
-export type MarketplaceOfferingPauseResponse = MarketplaceOfferingPauseResponses[keyof MarketplaceOfferingPauseResponses];
+export type MarketplaceProviderOfferingsPauseResponse = MarketplaceProviderOfferingsPauseResponses[keyof MarketplaceProviderOfferingsPauseResponses];
 
-export type MarketplaceProviderOfferingsRefreshOfferingUsernamesCreateData = {
+export type MarketplaceProviderOfferingsRefreshOfferingUsernamesData = {
     body: ProviderOfferingDetailsRequest;
     path: {
         uuid: string;
@@ -20042,13 +19888,13 @@ export type MarketplaceProviderOfferingsRefreshOfferingUsernamesCreateData = {
     url: '/api/marketplace-provider-offerings/{uuid}/refresh_offering_usernames/';
 };
 
-export type MarketplaceProviderOfferingsRefreshOfferingUsernamesCreateResponses = {
+export type MarketplaceProviderOfferingsRefreshOfferingUsernamesResponses = {
     200: ProviderOfferingDetails;
 };
 
-export type MarketplaceProviderOfferingsRefreshOfferingUsernamesCreateResponse = MarketplaceProviderOfferingsRefreshOfferingUsernamesCreateResponses[keyof MarketplaceProviderOfferingsRefreshOfferingUsernamesCreateResponses];
+export type MarketplaceProviderOfferingsRefreshOfferingUsernamesResponse = MarketplaceProviderOfferingsRefreshOfferingUsernamesResponses[keyof MarketplaceProviderOfferingsRefreshOfferingUsernamesResponses];
 
-export type MarketplaceOfferingRemoveComponentData = {
+export type MarketplaceProviderOfferingsRemoveOfferingComponentData = {
     body: OfferingComponentRequest;
     path: {
         uuid: string;
@@ -20057,14 +19903,14 @@ export type MarketplaceOfferingRemoveComponentData = {
     url: '/api/marketplace-provider-offerings/{uuid}/remove_offering_component/';
 };
 
-export type MarketplaceOfferingRemoveComponentResponses = {
+export type MarketplaceProviderOfferingsRemoveOfferingComponentResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type MarketplaceOfferingSetBackendMetadataData = {
+export type MarketplaceProviderOfferingsSetBackendMetadataData = {
     body?: OfferingBackendMetadataRequest;
     path: {
         uuid: string;
@@ -20073,7 +19919,7 @@ export type MarketplaceOfferingSetBackendMetadataData = {
     url: '/api/marketplace-provider-offerings/{uuid}/set_backend_metadata/';
 };
 
-export type MarketplaceOfferingSetBackendMetadataResponses = {
+export type MarketplaceProviderOfferingsSetBackendMetadataResponses = {
     /**
      * No response body
      */
@@ -20095,7 +19941,7 @@ export type MarketplaceProviderOfferingsStatsRetrieveResponses = {
 
 export type MarketplaceProviderOfferingsStatsRetrieveResponse = MarketplaceProviderOfferingsStatsRetrieveResponses[keyof MarketplaceProviderOfferingsStatsRetrieveResponses];
 
-export type MarketplaceOfferingSyncData = {
+export type MarketplaceProviderOfferingsSyncData = {
     body?: never;
     path: {
         uuid: string;
@@ -20104,14 +19950,14 @@ export type MarketplaceOfferingSyncData = {
     url: '/api/marketplace-provider-offerings/{uuid}/sync/';
 };
 
-export type MarketplaceOfferingSyncResponses = {
+export type MarketplaceProviderOfferingsSyncResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type MarketplaceOfferingUnpauseData = {
+export type MarketplaceProviderOfferingsUnpauseData = {
     body: ProviderOfferingDetailsRequest;
     path: {
         uuid: string;
@@ -20120,13 +19966,13 @@ export type MarketplaceOfferingUnpauseData = {
     url: '/api/marketplace-provider-offerings/{uuid}/unpause/';
 };
 
-export type MarketplaceOfferingUnpauseResponses = {
+export type MarketplaceProviderOfferingsUnpauseResponses = {
     200: DetailState;
 };
 
-export type MarketplaceOfferingUnpauseResponse = MarketplaceOfferingUnpauseResponses[keyof MarketplaceOfferingUnpauseResponses];
+export type MarketplaceProviderOfferingsUnpauseResponse = MarketplaceProviderOfferingsUnpauseResponses[keyof MarketplaceProviderOfferingsUnpauseResponses];
 
-export type MarketplaceOfferingUpdateAttributesData = {
+export type MarketplaceProviderOfferingsUpdateAttributesData = {
     body: ProviderOfferingDetailsRequest;
     path: {
         uuid: string;
@@ -20135,13 +19981,13 @@ export type MarketplaceOfferingUpdateAttributesData = {
     url: '/api/marketplace-provider-offerings/{uuid}/update_attributes/';
 };
 
-export type MarketplaceOfferingUpdateAttributesResponses = {
+export type MarketplaceProviderOfferingsUpdateAttributesResponses = {
     200: ProviderOfferingDetails;
 };
 
-export type MarketplaceOfferingUpdateAttributesResponse = MarketplaceOfferingUpdateAttributesResponses[keyof MarketplaceOfferingUpdateAttributesResponses];
+export type MarketplaceProviderOfferingsUpdateAttributesResponse = MarketplaceProviderOfferingsUpdateAttributesResponses[keyof MarketplaceProviderOfferingsUpdateAttributesResponses];
 
-export type MarketplaceOfferingUpdateDescriptionData = {
+export type MarketplaceProviderOfferingsUpdateDescriptionData = {
     body: OfferingDescriptionUpdateRequest;
     path: {
         uuid: string;
@@ -20150,13 +19996,13 @@ export type MarketplaceOfferingUpdateDescriptionData = {
     url: '/api/marketplace-provider-offerings/{uuid}/update_description/';
 };
 
-export type MarketplaceOfferingUpdateDescriptionResponses = {
+export type MarketplaceProviderOfferingsUpdateDescriptionResponses = {
     200: OfferingDescriptionUpdate;
 };
 
-export type MarketplaceOfferingUpdateDescriptionResponse = MarketplaceOfferingUpdateDescriptionResponses[keyof MarketplaceOfferingUpdateDescriptionResponses];
+export type MarketplaceProviderOfferingsUpdateDescriptionResponse = MarketplaceProviderOfferingsUpdateDescriptionResponses[keyof MarketplaceProviderOfferingsUpdateDescriptionResponses];
 
-export type MarketplaceOfferingUpdateIntegrationData = {
+export type MarketplaceProviderOfferingsUpdateIntegrationData = {
     body?: OfferingIntegrationUpdateRequest;
     path: {
         uuid: string;
@@ -20165,13 +20011,13 @@ export type MarketplaceOfferingUpdateIntegrationData = {
     url: '/api/marketplace-provider-offerings/{uuid}/update_integration/';
 };
 
-export type MarketplaceOfferingUpdateIntegrationResponses = {
+export type MarketplaceProviderOfferingsUpdateIntegrationResponses = {
     200: OfferingIntegrationUpdate;
 };
 
-export type MarketplaceOfferingUpdateIntegrationResponse = MarketplaceOfferingUpdateIntegrationResponses[keyof MarketplaceOfferingUpdateIntegrationResponses];
+export type MarketplaceProviderOfferingsUpdateIntegrationResponse = MarketplaceProviderOfferingsUpdateIntegrationResponses[keyof MarketplaceProviderOfferingsUpdateIntegrationResponses];
 
-export type MarketplaceOfferingUpdateLocationData = {
+export type MarketplaceProviderOfferingsUpdateLocationData = {
     body: OfferingLocationUpdateRequest;
     path: {
         uuid: string;
@@ -20180,13 +20026,13 @@ export type MarketplaceOfferingUpdateLocationData = {
     url: '/api/marketplace-provider-offerings/{uuid}/update_location/';
 };
 
-export type MarketplaceOfferingUpdateLocationResponses = {
+export type MarketplaceProviderOfferingsUpdateLocationResponses = {
     200: OfferingLocationUpdate;
 };
 
-export type MarketplaceOfferingUpdateLocationResponse = MarketplaceOfferingUpdateLocationResponses[keyof MarketplaceOfferingUpdateLocationResponses];
+export type MarketplaceProviderOfferingsUpdateLocationResponse = MarketplaceProviderOfferingsUpdateLocationResponses[keyof MarketplaceProviderOfferingsUpdateLocationResponses];
 
-export type MarketplaceOfferingUpdateComponentData = {
+export type MarketplaceProviderOfferingsUpdateOfferingComponentData = {
     body: OfferingComponentRequest;
     path: {
         uuid: string;
@@ -20195,14 +20041,14 @@ export type MarketplaceOfferingUpdateComponentData = {
     url: '/api/marketplace-provider-offerings/{uuid}/update_offering_component/';
 };
 
-export type MarketplaceOfferingUpdateComponentResponses = {
+export type MarketplaceProviderOfferingsUpdateOfferingComponentResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type MarketplaceOfferingUpdateOptionsData = {
+export type MarketplaceProviderOfferingsUpdateOptionsData = {
     body: OfferingOptionsUpdateRequest;
     path: {
         uuid: string;
@@ -20211,13 +20057,13 @@ export type MarketplaceOfferingUpdateOptionsData = {
     url: '/api/marketplace-provider-offerings/{uuid}/update_options/';
 };
 
-export type MarketplaceOfferingUpdateOptionsResponses = {
+export type MarketplaceProviderOfferingsUpdateOptionsResponses = {
     200: OfferingOptionsUpdate;
 };
 
-export type MarketplaceOfferingUpdateOptionsResponse = MarketplaceOfferingUpdateOptionsResponses[keyof MarketplaceOfferingUpdateOptionsResponses];
+export type MarketplaceProviderOfferingsUpdateOptionsResponse = MarketplaceProviderOfferingsUpdateOptionsResponses[keyof MarketplaceProviderOfferingsUpdateOptionsResponses];
 
-export type MarketplaceOfferingUpdateOrganizationGroupsData = {
+export type MarketplaceProviderOfferingsUpdateOrganizationGroupsData = {
     body?: OrganizationGroupsRequest;
     path: {
         uuid: string;
@@ -20226,13 +20072,13 @@ export type MarketplaceOfferingUpdateOrganizationGroupsData = {
     url: '/api/marketplace-provider-offerings/{uuid}/update_organization_groups/';
 };
 
-export type MarketplaceOfferingUpdateOrganizationGroupsResponses = {
+export type MarketplaceProviderOfferingsUpdateOrganizationGroupsResponses = {
     200: ProviderOfferingDetails;
 };
 
-export type MarketplaceOfferingUpdateOrganizationGroupsResponse = MarketplaceOfferingUpdateOrganizationGroupsResponses[keyof MarketplaceOfferingUpdateOrganizationGroupsResponses];
+export type MarketplaceProviderOfferingsUpdateOrganizationGroupsResponse = MarketplaceProviderOfferingsUpdateOrganizationGroupsResponses[keyof MarketplaceProviderOfferingsUpdateOrganizationGroupsResponses];
 
-export type MarketplaceOfferingUpdateOverviewData = {
+export type MarketplaceProviderOfferingsUpdateOverviewData = {
     body: OfferingOverviewUpdateRequest;
     path: {
         uuid: string;
@@ -20241,13 +20087,13 @@ export type MarketplaceOfferingUpdateOverviewData = {
     url: '/api/marketplace-provider-offerings/{uuid}/update_overview/';
 };
 
-export type MarketplaceOfferingUpdateOverviewResponses = {
+export type MarketplaceProviderOfferingsUpdateOverviewResponses = {
     200: OfferingOverviewUpdate;
 };
 
-export type MarketplaceOfferingUpdateOverviewResponse = MarketplaceOfferingUpdateOverviewResponses[keyof MarketplaceOfferingUpdateOverviewResponses];
+export type MarketplaceProviderOfferingsUpdateOverviewResponse = MarketplaceProviderOfferingsUpdateOverviewResponses[keyof MarketplaceProviderOfferingsUpdateOverviewResponses];
 
-export type MarketplaceOfferingUpdateResourceOptionsData = {
+export type MarketplaceProviderOfferingsUpdateResourceOptionsData = {
     body: OfferingResourceOptionsUpdateRequest;
     path: {
         uuid: string;
@@ -20256,13 +20102,13 @@ export type MarketplaceOfferingUpdateResourceOptionsData = {
     url: '/api/marketplace-provider-offerings/{uuid}/update_resource_options/';
 };
 
-export type MarketplaceOfferingUpdateResourceOptionsResponses = {
+export type MarketplaceProviderOfferingsUpdateResourceOptionsResponses = {
     200: OfferingResourceOptionsUpdate;
 };
 
-export type MarketplaceOfferingUpdateResourceOptionsResponse = MarketplaceOfferingUpdateResourceOptionsResponses[keyof MarketplaceOfferingUpdateResourceOptionsResponses];
+export type MarketplaceProviderOfferingsUpdateResourceOptionsResponse = MarketplaceProviderOfferingsUpdateResourceOptionsResponses[keyof MarketplaceProviderOfferingsUpdateResourceOptionsResponses];
 
-export type MarketplaceOfferingUpdateThumbnailData = {
+export type MarketplaceProviderOfferingsUpdateThumbnailData = {
     body: OfferingThumbnailRequest;
     path: {
         uuid: string;
@@ -20271,13 +20117,13 @@ export type MarketplaceOfferingUpdateThumbnailData = {
     url: '/api/marketplace-provider-offerings/{uuid}/update_thumbnail/';
 };
 
-export type MarketplaceOfferingUpdateThumbnailResponses = {
+export type MarketplaceProviderOfferingsUpdateThumbnailResponses = {
     200: ProviderOfferingDetails;
 };
 
-export type MarketplaceOfferingUpdateThumbnailResponse = MarketplaceOfferingUpdateThumbnailResponses[keyof MarketplaceOfferingUpdateThumbnailResponses];
+export type MarketplaceProviderOfferingsUpdateThumbnailResponse = MarketplaceProviderOfferingsUpdateThumbnailResponses[keyof MarketplaceProviderOfferingsUpdateThumbnailResponses];
 
-export type MarketplaceProviderOfferingsUpdateUserCreateData = {
+export type MarketplaceProviderOfferingsUpdateUserData = {
     body: UserRoleUpdateRequest;
     path: {
         uuid: string;
@@ -20286,7 +20132,7 @@ export type MarketplaceProviderOfferingsUpdateUserCreateData = {
     url: '/api/marketplace-provider-offerings/{uuid}/update_user/';
 };
 
-export type MarketplaceProviderOfferingsUpdateUserCreateResponses = {
+export type MarketplaceProviderOfferingsUpdateUserResponses = {
     /**
      * No response body
      */
@@ -20515,7 +20361,7 @@ export type MarketplaceProviderResourcesGlauthUsersConfigRetrieveResponses = {
 
 export type MarketplaceProviderResourcesGlauthUsersConfigRetrieveResponse = MarketplaceProviderResourcesGlauthUsersConfigRetrieveResponses[keyof MarketplaceProviderResourcesGlauthUsersConfigRetrieveResponses];
 
-export type MarketplaceProviderResourcesMoveResourceCreateData = {
+export type MarketplaceProviderResourcesMoveResourceData = {
     body?: never;
     path: {
         uuid: string;
@@ -20524,11 +20370,11 @@ export type MarketplaceProviderResourcesMoveResourceCreateData = {
     url: '/api/marketplace-provider-resources/{uuid}/move_resource/';
 };
 
-export type MarketplaceProviderResourcesMoveResourceCreateResponses = {
+export type MarketplaceProviderResourcesMoveResourceResponses = {
     200: MoveResource;
 };
 
-export type MarketplaceProviderResourcesMoveResourceCreateResponse = MarketplaceProviderResourcesMoveResourceCreateResponses[keyof MarketplaceProviderResourcesMoveResourceCreateResponses];
+export type MarketplaceProviderResourcesMoveResourceResponse = MarketplaceProviderResourcesMoveResourceResponses[keyof MarketplaceProviderResourcesMoveResourceResponses];
 
 export type MarketplaceProviderResourcesOfferingRetrieveData = {
     body?: never;
@@ -20575,7 +20421,7 @@ export type MarketplaceProviderResourcesPlanPeriodsRetrieveResponses = {
 
 export type MarketplaceProviderResourcesPlanPeriodsRetrieveResponse = MarketplaceProviderResourcesPlanPeriodsRetrieveResponses[keyof MarketplaceProviderResourcesPlanPeriodsRetrieveResponses];
 
-export type MarketplaceProviderResourcesRefreshLastSyncCreateData = {
+export type MarketplaceProviderResourcesRefreshLastSyncData = {
     body: ResourceRequest;
     path: {
         uuid: string;
@@ -20584,13 +20430,13 @@ export type MarketplaceProviderResourcesRefreshLastSyncCreateData = {
     url: '/api/marketplace-provider-resources/{uuid}/refresh_last_sync/';
 };
 
-export type MarketplaceProviderResourcesRefreshLastSyncCreateResponses = {
+export type MarketplaceProviderResourcesRefreshLastSyncResponses = {
     200: Resource;
 };
 
-export type MarketplaceProviderResourcesRefreshLastSyncCreateResponse = MarketplaceProviderResourcesRefreshLastSyncCreateResponses[keyof MarketplaceProviderResourcesRefreshLastSyncCreateResponses];
+export type MarketplaceProviderResourcesRefreshLastSyncResponse = MarketplaceProviderResourcesRefreshLastSyncResponses[keyof MarketplaceProviderResourcesRefreshLastSyncResponses];
 
-export type MarketplaceProviderResourcesSetAsErredCreateData = {
+export type MarketplaceProviderResourcesSetAsErredData = {
     body?: ResourceSetStateErredRequest;
     path: {
         uuid: string;
@@ -20599,13 +20445,13 @@ export type MarketplaceProviderResourcesSetAsErredCreateData = {
     url: '/api/marketplace-provider-resources/{uuid}/set_as_erred/';
 };
 
-export type MarketplaceProviderResourcesSetAsErredCreateResponses = {
+export type MarketplaceProviderResourcesSetAsErredResponses = {
     200: ResourceSetStateErred;
 };
 
-export type MarketplaceProviderResourcesSetAsErredCreateResponse = MarketplaceProviderResourcesSetAsErredCreateResponses[keyof MarketplaceProviderResourcesSetAsErredCreateResponses];
+export type MarketplaceProviderResourcesSetAsErredResponse = MarketplaceProviderResourcesSetAsErredResponses[keyof MarketplaceProviderResourcesSetAsErredResponses];
 
-export type MarketplaceProviderResourcesSetAsOkCreateData = {
+export type MarketplaceProviderResourcesSetAsOkData = {
     body: ResourceRequest;
     path: {
         uuid: string;
@@ -20614,13 +20460,13 @@ export type MarketplaceProviderResourcesSetAsOkCreateData = {
     url: '/api/marketplace-provider-resources/{uuid}/set_as_ok/';
 };
 
-export type MarketplaceProviderResourcesSetAsOkCreateResponses = {
+export type MarketplaceProviderResourcesSetAsOkResponses = {
     200: Resource;
 };
 
-export type MarketplaceProviderResourcesSetAsOkCreateResponse = MarketplaceProviderResourcesSetAsOkCreateResponses[keyof MarketplaceProviderResourcesSetAsOkCreateResponses];
+export type MarketplaceProviderResourcesSetAsOkResponse = MarketplaceProviderResourcesSetAsOkResponses[keyof MarketplaceProviderResourcesSetAsOkResponses];
 
-export type MarketplaceProviderResourcesSetBackendIdCreateData = {
+export type MarketplaceProviderResourcesSetBackendIdData = {
     body?: ResourceBackendIdRequest;
     path: {
         uuid: string;
@@ -20629,13 +20475,13 @@ export type MarketplaceProviderResourcesSetBackendIdCreateData = {
     url: '/api/marketplace-provider-resources/{uuid}/set_backend_id/';
 };
 
-export type MarketplaceProviderResourcesSetBackendIdCreateResponses = {
+export type MarketplaceProviderResourcesSetBackendIdResponses = {
     200: ResourceBackendId;
 };
 
-export type MarketplaceProviderResourcesSetBackendIdCreateResponse = MarketplaceProviderResourcesSetBackendIdCreateResponses[keyof MarketplaceProviderResourcesSetBackendIdCreateResponses];
+export type MarketplaceProviderResourcesSetBackendIdResponse = MarketplaceProviderResourcesSetBackendIdResponses[keyof MarketplaceProviderResourcesSetBackendIdResponses];
 
-export type MarketplaceProviderResourcesSetBackendMetadataCreateData = {
+export type MarketplaceProviderResourcesSetBackendMetadataData = {
     body: ResourceBackendMetadataRequest;
     path: {
         uuid: string;
@@ -20644,13 +20490,13 @@ export type MarketplaceProviderResourcesSetBackendMetadataCreateData = {
     url: '/api/marketplace-provider-resources/{uuid}/set_backend_metadata/';
 };
 
-export type MarketplaceProviderResourcesSetBackendMetadataCreateResponses = {
+export type MarketplaceProviderResourcesSetBackendMetadataResponses = {
     200: ResourceBackendMetadata;
 };
 
-export type MarketplaceProviderResourcesSetBackendMetadataCreateResponse = MarketplaceProviderResourcesSetBackendMetadataCreateResponses[keyof MarketplaceProviderResourcesSetBackendMetadataCreateResponses];
+export type MarketplaceProviderResourcesSetBackendMetadataResponse = MarketplaceProviderResourcesSetBackendMetadataResponses[keyof MarketplaceProviderResourcesSetBackendMetadataResponses];
 
-export type MarketplaceProviderResourcesSetEndDateByProviderCreateData = {
+export type MarketplaceProviderResourcesSetEndDateByProviderData = {
     body: ResourceRequest;
     path: {
         uuid: string;
@@ -20659,13 +20505,13 @@ export type MarketplaceProviderResourcesSetEndDateByProviderCreateData = {
     url: '/api/marketplace-provider-resources/{uuid}/set_end_date_by_provider/';
 };
 
-export type MarketplaceProviderResourcesSetEndDateByProviderCreateResponses = {
+export type MarketplaceProviderResourcesSetEndDateByProviderResponses = {
     200: Resource;
 };
 
-export type MarketplaceProviderResourcesSetEndDateByProviderCreateResponse = MarketplaceProviderResourcesSetEndDateByProviderCreateResponses[keyof MarketplaceProviderResourcesSetEndDateByProviderCreateResponses];
+export type MarketplaceProviderResourcesSetEndDateByProviderResponse = MarketplaceProviderResourcesSetEndDateByProviderResponses[keyof MarketplaceProviderResourcesSetEndDateByProviderResponses];
 
-export type MarketplaceProviderResourcesSetEndDateByStaffCreateData = {
+export type MarketplaceProviderResourcesSetEndDateByStaffData = {
     body: ResourceRequest;
     path: {
         uuid: string;
@@ -20674,13 +20520,13 @@ export type MarketplaceProviderResourcesSetEndDateByStaffCreateData = {
     url: '/api/marketplace-provider-resources/{uuid}/set_end_date_by_staff/';
 };
 
-export type MarketplaceProviderResourcesSetEndDateByStaffCreateResponses = {
+export type MarketplaceProviderResourcesSetEndDateByStaffResponses = {
     200: Resource;
 };
 
-export type MarketplaceProviderResourcesSetEndDateByStaffCreateResponse = MarketplaceProviderResourcesSetEndDateByStaffCreateResponses[keyof MarketplaceProviderResourcesSetEndDateByStaffCreateResponses];
+export type MarketplaceProviderResourcesSetEndDateByStaffResponse = MarketplaceProviderResourcesSetEndDateByStaffResponses[keyof MarketplaceProviderResourcesSetEndDateByStaffResponses];
 
-export type MarketplaceProviderResourcesSetLimitsCreateData = {
+export type MarketplaceProviderResourcesSetLimitsData = {
     body: ResourceSetLimitsRequest;
     path: {
         uuid: string;
@@ -20689,13 +20535,13 @@ export type MarketplaceProviderResourcesSetLimitsCreateData = {
     url: '/api/marketplace-provider-resources/{uuid}/set_limits/';
 };
 
-export type MarketplaceProviderResourcesSetLimitsCreateResponses = {
+export type MarketplaceProviderResourcesSetLimitsResponses = {
     200: ResourceSetLimits;
 };
 
-export type MarketplaceProviderResourcesSetLimitsCreateResponse = MarketplaceProviderResourcesSetLimitsCreateResponses[keyof MarketplaceProviderResourcesSetLimitsCreateResponses];
+export type MarketplaceProviderResourcesSetLimitsResponse = MarketplaceProviderResourcesSetLimitsResponses[keyof MarketplaceProviderResourcesSetLimitsResponses];
 
-export type MarketplaceProviderResourcesSetSlugCreateData = {
+export type MarketplaceProviderResourcesSetSlugData = {
     body: ResourceSlugRequest;
     path: {
         uuid: string;
@@ -20704,13 +20550,13 @@ export type MarketplaceProviderResourcesSetSlugCreateData = {
     url: '/api/marketplace-provider-resources/{uuid}/set_slug/';
 };
 
-export type MarketplaceProviderResourcesSetSlugCreateResponses = {
+export type MarketplaceProviderResourcesSetSlugResponses = {
     200: ResourceSlug;
 };
 
-export type MarketplaceProviderResourcesSetSlugCreateResponse = MarketplaceProviderResourcesSetSlugCreateResponses[keyof MarketplaceProviderResourcesSetSlugCreateResponses];
+export type MarketplaceProviderResourcesSetSlugResponse = MarketplaceProviderResourcesSetSlugResponses[keyof MarketplaceProviderResourcesSetSlugResponses];
 
-export type MarketplaceProviderResourcesSubmitReportCreateData = {
+export type MarketplaceProviderResourcesSubmitReportData = {
     body: ResourceReportRequest;
     path: {
         uuid: string;
@@ -20719,11 +20565,11 @@ export type MarketplaceProviderResourcesSubmitReportCreateData = {
     url: '/api/marketplace-provider-resources/{uuid}/submit_report/';
 };
 
-export type MarketplaceProviderResourcesSubmitReportCreateResponses = {
+export type MarketplaceProviderResourcesSubmitReportResponses = {
     200: ResourceReport;
 };
 
-export type MarketplaceProviderResourcesSubmitReportCreateResponse = MarketplaceProviderResourcesSubmitReportCreateResponses[keyof MarketplaceProviderResourcesSubmitReportCreateResponses];
+export type MarketplaceProviderResourcesSubmitReportResponse = MarketplaceProviderResourcesSubmitReportResponses[keyof MarketplaceProviderResourcesSubmitReportResponses];
 
 export type MarketplaceProviderResourcesTeamRetrieveData = {
     body?: never;
@@ -20740,7 +20586,7 @@ export type MarketplaceProviderResourcesTeamRetrieveResponses = {
 
 export type MarketplaceProviderResourcesTeamRetrieveResponse = MarketplaceProviderResourcesTeamRetrieveResponses[keyof MarketplaceProviderResourcesTeamRetrieveResponses];
 
-export type MarketplaceProviderResourcesTerminateCreateData = {
+export type MarketplaceProviderResourcesTerminateData = {
     body?: ResourceTerminateRequest;
     path: {
         uuid: string;
@@ -20749,13 +20595,13 @@ export type MarketplaceProviderResourcesTerminateCreateData = {
     url: '/api/marketplace-provider-resources/{uuid}/terminate/';
 };
 
-export type MarketplaceProviderResourcesTerminateCreateResponses = {
+export type MarketplaceProviderResourcesTerminateResponses = {
     200: ResourceTerminate;
 };
 
-export type MarketplaceProviderResourcesTerminateCreateResponse = MarketplaceProviderResourcesTerminateCreateResponses[keyof MarketplaceProviderResourcesTerminateCreateResponses];
+export type MarketplaceProviderResourcesTerminateResponse = MarketplaceProviderResourcesTerminateResponses[keyof MarketplaceProviderResourcesTerminateResponses];
 
-export type MarketplaceProviderResourcesUnlinkCreateData = {
+export type MarketplaceProviderResourcesUnlinkData = {
     body: ResourceRequest;
     path: {
         uuid: string;
@@ -20764,11 +20610,11 @@ export type MarketplaceProviderResourcesUnlinkCreateData = {
     url: '/api/marketplace-provider-resources/{uuid}/unlink/';
 };
 
-export type MarketplaceProviderResourcesUnlinkCreateResponses = {
+export type MarketplaceProviderResourcesUnlinkResponses = {
     200: Resource;
 };
 
-export type MarketplaceProviderResourcesUnlinkCreateResponse = MarketplaceProviderResourcesUnlinkCreateResponses[keyof MarketplaceProviderResourcesUnlinkCreateResponses];
+export type MarketplaceProviderResourcesUnlinkResponse = MarketplaceProviderResourcesUnlinkResponses[keyof MarketplaceProviderResourcesUnlinkResponses];
 
 export type MarketplacePublicApiCheckSignatureCreateData = {
     body: ServiceProviderSignatureRequest;
@@ -21123,7 +20969,7 @@ export type MarketplaceRemoteSynchronisationsUpdateResponses = {
 
 export type MarketplaceRemoteSynchronisationsUpdateResponse = MarketplaceRemoteSynchronisationsUpdateResponses[keyof MarketplaceRemoteSynchronisationsUpdateResponses];
 
-export type MarketplaceRemoteSynchronisationsRunSynchronisationCreateData = {
+export type MarketplaceRemoteSynchronisationsRunSynchronisationData = {
     body: RemoteSynchronisationRequest;
     path: {
         uuid: string;
@@ -21132,11 +20978,11 @@ export type MarketplaceRemoteSynchronisationsRunSynchronisationCreateData = {
     url: '/api/marketplace-remote-synchronisations/{uuid}/run_synchronisation/';
 };
 
-export type MarketplaceRemoteSynchronisationsRunSynchronisationCreateResponses = {
+export type MarketplaceRemoteSynchronisationsRunSynchronisationResponses = {
     200: RemoteSynchronisation;
 };
 
-export type MarketplaceRemoteSynchronisationsRunSynchronisationCreateResponse = MarketplaceRemoteSynchronisationsRunSynchronisationCreateResponses[keyof MarketplaceRemoteSynchronisationsRunSynchronisationCreateResponses];
+export type MarketplaceRemoteSynchronisationsRunSynchronisationResponse = MarketplaceRemoteSynchronisationsRunSynchronisationResponses[keyof MarketplaceRemoteSynchronisationsRunSynchronisationResponses];
 
 export type MarketplaceResourceOfferingsListData = {
     body?: never;
@@ -21459,7 +21305,7 @@ export type MarketplaceResourcesGlauthUsersConfigRetrieveResponses = {
 
 export type MarketplaceResourcesGlauthUsersConfigRetrieveResponse = MarketplaceResourcesGlauthUsersConfigRetrieveResponses[keyof MarketplaceResourcesGlauthUsersConfigRetrieveResponses];
 
-export type MarketplaceResourcesMoveResourceCreateData = {
+export type MarketplaceResourcesMoveResourceData = {
     body?: never;
     path: {
         uuid: string;
@@ -21468,11 +21314,11 @@ export type MarketplaceResourcesMoveResourceCreateData = {
     url: '/api/marketplace-resources/{uuid}/move_resource/';
 };
 
-export type MarketplaceResourcesMoveResourceCreateResponses = {
+export type MarketplaceResourcesMoveResourceResponses = {
     200: MoveResource;
 };
 
-export type MarketplaceResourcesMoveResourceCreateResponse = MarketplaceResourcesMoveResourceCreateResponses[keyof MarketplaceResourcesMoveResourceCreateResponses];
+export type MarketplaceResourcesMoveResourceResponse = MarketplaceResourcesMoveResourceResponses[keyof MarketplaceResourcesMoveResourceResponses];
 
 export type MarketplaceResourcesOfferingRetrieveData = {
     body?: never;
@@ -21519,7 +21365,7 @@ export type MarketplaceResourcesPlanPeriodsRetrieveResponses = {
 
 export type MarketplaceResourcesPlanPeriodsRetrieveResponse = MarketplaceResourcesPlanPeriodsRetrieveResponses[keyof MarketplaceResourcesPlanPeriodsRetrieveResponses];
 
-export type MarketplaceResourcesSetEndDateByStaffCreateData = {
+export type MarketplaceResourcesSetEndDateByStaffData = {
     body: ResourceRequest;
     path: {
         uuid: string;
@@ -21528,13 +21374,13 @@ export type MarketplaceResourcesSetEndDateByStaffCreateData = {
     url: '/api/marketplace-resources/{uuid}/set_end_date_by_staff/';
 };
 
-export type MarketplaceResourcesSetEndDateByStaffCreateResponses = {
+export type MarketplaceResourcesSetEndDateByStaffResponses = {
     200: Resource;
 };
 
-export type MarketplaceResourcesSetEndDateByStaffCreateResponse = MarketplaceResourcesSetEndDateByStaffCreateResponses[keyof MarketplaceResourcesSetEndDateByStaffCreateResponses];
+export type MarketplaceResourcesSetEndDateByStaffResponse = MarketplaceResourcesSetEndDateByStaffResponses[keyof MarketplaceResourcesSetEndDateByStaffResponses];
 
-export type MarketplaceResourcesSetSlugCreateData = {
+export type MarketplaceResourcesSetSlugData = {
     body: ResourceSlugRequest;
     path: {
         uuid: string;
@@ -21543,13 +21389,13 @@ export type MarketplaceResourcesSetSlugCreateData = {
     url: '/api/marketplace-resources/{uuid}/set_slug/';
 };
 
-export type MarketplaceResourcesSetSlugCreateResponses = {
+export type MarketplaceResourcesSetSlugResponses = {
     200: ResourceSlug;
 };
 
-export type MarketplaceResourcesSetSlugCreateResponse = MarketplaceResourcesSetSlugCreateResponses[keyof MarketplaceResourcesSetSlugCreateResponses];
+export type MarketplaceResourcesSetSlugResponse = MarketplaceResourcesSetSlugResponses[keyof MarketplaceResourcesSetSlugResponses];
 
-export type MarketplaceResourcesSwitchPlanCreateData = {
+export type MarketplaceResourcesSwitchPlanData = {
     body: ResourceSwitchPlanRequest;
     path: {
         uuid: string;
@@ -21558,11 +21404,11 @@ export type MarketplaceResourcesSwitchPlanCreateData = {
     url: '/api/marketplace-resources/{uuid}/switch_plan/';
 };
 
-export type MarketplaceResourcesSwitchPlanCreateResponses = {
+export type MarketplaceResourcesSwitchPlanResponses = {
     200: ResourceSwitchPlan;
 };
 
-export type MarketplaceResourcesSwitchPlanCreateResponse = MarketplaceResourcesSwitchPlanCreateResponses[keyof MarketplaceResourcesSwitchPlanCreateResponses];
+export type MarketplaceResourcesSwitchPlanResponse = MarketplaceResourcesSwitchPlanResponses[keyof MarketplaceResourcesSwitchPlanResponses];
 
 export type MarketplaceResourcesTeamRetrieveData = {
     body?: never;
@@ -21579,7 +21425,7 @@ export type MarketplaceResourcesTeamRetrieveResponses = {
 
 export type MarketplaceResourcesTeamRetrieveResponse = MarketplaceResourcesTeamRetrieveResponses[keyof MarketplaceResourcesTeamRetrieveResponses];
 
-export type MarketplaceResourcesTerminateCreateData = {
+export type MarketplaceResourcesTerminateData = {
     body?: ResourceTerminateRequest;
     path: {
         uuid: string;
@@ -21588,13 +21434,13 @@ export type MarketplaceResourcesTerminateCreateData = {
     url: '/api/marketplace-resources/{uuid}/terminate/';
 };
 
-export type MarketplaceResourcesTerminateCreateResponses = {
+export type MarketplaceResourcesTerminateResponses = {
     200: ResourceTerminate;
 };
 
-export type MarketplaceResourcesTerminateCreateResponse = MarketplaceResourcesTerminateCreateResponses[keyof MarketplaceResourcesTerminateCreateResponses];
+export type MarketplaceResourcesTerminateResponse = MarketplaceResourcesTerminateResponses[keyof MarketplaceResourcesTerminateResponses];
 
-export type MarketplaceResourcesUnlinkCreateData = {
+export type MarketplaceResourcesUnlinkData = {
     body: ResourceRequest;
     path: {
         uuid: string;
@@ -21603,13 +21449,13 @@ export type MarketplaceResourcesUnlinkCreateData = {
     url: '/api/marketplace-resources/{uuid}/unlink/';
 };
 
-export type MarketplaceResourcesUnlinkCreateResponses = {
+export type MarketplaceResourcesUnlinkResponses = {
     200: Resource;
 };
 
-export type MarketplaceResourcesUnlinkCreateResponse = MarketplaceResourcesUnlinkCreateResponses[keyof MarketplaceResourcesUnlinkCreateResponses];
+export type MarketplaceResourcesUnlinkResponse = MarketplaceResourcesUnlinkResponses[keyof MarketplaceResourcesUnlinkResponses];
 
-export type MarketplaceResourcesUpdateLimitsCreateData = {
+export type MarketplaceResourcesUpdateLimitsData = {
     body: ResourceUpdateLimitsRequest;
     path: {
         uuid: string;
@@ -21618,13 +21464,13 @@ export type MarketplaceResourcesUpdateLimitsCreateData = {
     url: '/api/marketplace-resources/{uuid}/update_limits/';
 };
 
-export type MarketplaceResourcesUpdateLimitsCreateResponses = {
+export type MarketplaceResourcesUpdateLimitsResponses = {
     200: ResourceUpdateLimits;
 };
 
-export type MarketplaceResourcesUpdateLimitsCreateResponse = MarketplaceResourcesUpdateLimitsCreateResponses[keyof MarketplaceResourcesUpdateLimitsCreateResponses];
+export type MarketplaceResourcesUpdateLimitsResponse = MarketplaceResourcesUpdateLimitsResponses[keyof MarketplaceResourcesUpdateLimitsResponses];
 
-export type MarketplaceResourcesUpdateOptionsCreateData = {
+export type MarketplaceResourcesUpdateOptionsData = {
     body?: ResourceOptionsRequest;
     path: {
         uuid: string;
@@ -21633,11 +21479,11 @@ export type MarketplaceResourcesUpdateOptionsCreateData = {
     url: '/api/marketplace-resources/{uuid}/update_options/';
 };
 
-export type MarketplaceResourcesUpdateOptionsCreateResponses = {
+export type MarketplaceResourcesUpdateOptionsResponses = {
     200: ResourceOptions;
 };
 
-export type MarketplaceResourcesUpdateOptionsCreateResponse = MarketplaceResourcesUpdateOptionsCreateResponses[keyof MarketplaceResourcesUpdateOptionsCreateResponses];
+export type MarketplaceResourcesUpdateOptionsResponse = MarketplaceResourcesUpdateOptionsResponses[keyof MarketplaceResourcesUpdateOptionsResponses];
 
 export type MarketplaceResourcesSuggestNameCreateData = {
     body: ResourceSuggestNameRequest;
@@ -22076,7 +21922,7 @@ export type MarketplaceScriptDryRunUpdateResponses = {
 
 export type MarketplaceScriptDryRunUpdateResponse = MarketplaceScriptDryRunUpdateResponses[keyof MarketplaceScriptDryRunUpdateResponses];
 
-export type MarketplaceScriptDryRunAsyncRunCreateData = {
+export type MarketplaceScriptDryRunAsyncRunData = {
     body: PublicOfferingDetailsRequest;
     path: {
         uuid: string;
@@ -22085,13 +21931,13 @@ export type MarketplaceScriptDryRunAsyncRunCreateData = {
     url: '/api/marketplace-script-dry-run/{uuid}/async_run/';
 };
 
-export type MarketplaceScriptDryRunAsyncRunCreateResponses = {
+export type MarketplaceScriptDryRunAsyncRunResponses = {
     200: PublicOfferingDetails;
 };
 
-export type MarketplaceScriptDryRunAsyncRunCreateResponse = MarketplaceScriptDryRunAsyncRunCreateResponses[keyof MarketplaceScriptDryRunAsyncRunCreateResponses];
+export type MarketplaceScriptDryRunAsyncRunResponse = MarketplaceScriptDryRunAsyncRunResponses[keyof MarketplaceScriptDryRunAsyncRunResponses];
 
-export type MarketplaceScriptDryRunRunCreateData = {
+export type MarketplaceScriptDryRunRunData = {
     body: PublicOfferingDetailsRequest;
     path: {
         uuid: string;
@@ -22100,11 +21946,11 @@ export type MarketplaceScriptDryRunRunCreateData = {
     url: '/api/marketplace-script-dry-run/{uuid}/run/';
 };
 
-export type MarketplaceScriptDryRunRunCreateResponses = {
+export type MarketplaceScriptDryRunRunResponses = {
     200: PublicOfferingDetails;
 };
 
-export type MarketplaceScriptDryRunRunCreateResponse = MarketplaceScriptDryRunRunCreateResponses[keyof MarketplaceScriptDryRunRunCreateResponses];
+export type MarketplaceScriptDryRunRunResponse = MarketplaceScriptDryRunRunResponses[keyof MarketplaceScriptDryRunRunResponses];
 
 export type MarketplaceScriptSyncResourceCreateData = {
     body?: never;
@@ -22338,7 +22184,7 @@ export type MarketplaceServiceProvidersUpdateResponses = {
 
 export type MarketplaceServiceProvidersUpdateResponse = MarketplaceServiceProvidersUpdateResponses[keyof MarketplaceServiceProvidersUpdateResponses];
 
-export type MarketplaceServiceProvidersAddUserCreateData = {
+export type MarketplaceServiceProvidersAddUserData = {
     body: UserRoleCreateRequest;
     path: {
         uuid: string;
@@ -22347,7 +22193,7 @@ export type MarketplaceServiceProvidersAddUserCreateData = {
     url: '/api/marketplace-service-providers/{uuid}/add_user/';
 };
 
-export type MarketplaceServiceProvidersAddUserCreateResponses = {
+export type MarketplaceServiceProvidersAddUserResponses = {
     /**
      * No response body
      */
@@ -22369,7 +22215,7 @@ export type MarketplaceServiceProvidersApiSecretCodeRetrieveResponses = {
 
 export type MarketplaceServiceProvidersApiSecretCodeRetrieveResponse = MarketplaceServiceProvidersApiSecretCodeRetrieveResponses[keyof MarketplaceServiceProvidersApiSecretCodeRetrieveResponses];
 
-export type MarketplaceServiceProvidersApiSecretCodeCreateData = {
+export type MarketplaceServiceProvidersApiSecretCodeData = {
     body: ServiceProviderRequest;
     path: {
         uuid: string;
@@ -22378,11 +22224,11 @@ export type MarketplaceServiceProvidersApiSecretCodeCreateData = {
     url: '/api/marketplace-service-providers/{uuid}/api_secret_code/';
 };
 
-export type MarketplaceServiceProvidersApiSecretCodeCreateResponses = {
+export type MarketplaceServiceProvidersApiSecretCodeResponses = {
     200: ServiceProvider;
 };
 
-export type MarketplaceServiceProvidersApiSecretCodeCreateResponse = MarketplaceServiceProvidersApiSecretCodeCreateResponses[keyof MarketplaceServiceProvidersApiSecretCodeCreateResponses];
+export type MarketplaceServiceProvidersApiSecretCodeResponse = MarketplaceServiceProvidersApiSecretCodeResponses[keyof MarketplaceServiceProvidersApiSecretCodeResponses];
 
 export type MarketplaceServiceProvidersCustomerProjectsListData = {
     body?: never;
@@ -22452,7 +22298,7 @@ export type MarketplaceServiceProvidersCustomersListResponses = {
 
 export type MarketplaceServiceProvidersCustomersListResponse = MarketplaceServiceProvidersCustomersListResponses[keyof MarketplaceServiceProvidersCustomersListResponses];
 
-export type MarketplaceServiceProvidersDeleteUserCreateData = {
+export type MarketplaceServiceProvidersDeleteUserData = {
     body: UserRoleDeleteRequest;
     path: {
         uuid: string;
@@ -22461,7 +22307,7 @@ export type MarketplaceServiceProvidersDeleteUserCreateData = {
     url: '/api/marketplace-service-providers/{uuid}/delete_user/';
 };
 
-export type MarketplaceServiceProvidersDeleteUserCreateResponses = {
+export type MarketplaceServiceProvidersDeleteUserResponses = {
     /**
      * No response body
      */
@@ -22743,7 +22589,7 @@ export type MarketplaceServiceProvidersRobotAccountProjectsListResponses = {
 
 export type MarketplaceServiceProvidersRobotAccountProjectsListResponse = MarketplaceServiceProvidersRobotAccountProjectsListResponses[keyof MarketplaceServiceProvidersRobotAccountProjectsListResponses];
 
-export type MarketplaceServiceProviderSetOfferingsUsernameData = {
+export type MarketplaceServiceProvidersSetOfferingsUsernameData = {
     body: SetOfferingsUsernameRequest;
     path: {
         uuid: string;
@@ -22752,11 +22598,11 @@ export type MarketplaceServiceProviderSetOfferingsUsernameData = {
     url: '/api/marketplace-service-providers/{uuid}/set_offerings_username/';
 };
 
-export type MarketplaceServiceProviderSetOfferingsUsernameResponses = {
+export type MarketplaceServiceProvidersSetOfferingsUsernameResponses = {
     200: SetOfferingsUsername;
 };
 
-export type MarketplaceServiceProviderSetOfferingsUsernameResponse = MarketplaceServiceProviderSetOfferingsUsernameResponses[keyof MarketplaceServiceProviderSetOfferingsUsernameResponses];
+export type MarketplaceServiceProvidersSetOfferingsUsernameResponse = MarketplaceServiceProvidersSetOfferingsUsernameResponses[keyof MarketplaceServiceProvidersSetOfferingsUsernameResponses];
 
 export type MarketplaceServiceProvidersStatRetrieveData = {
     body?: never;
@@ -22773,7 +22619,7 @@ export type MarketplaceServiceProvidersStatRetrieveResponses = {
 
 export type MarketplaceServiceProvidersStatRetrieveResponse = MarketplaceServiceProvidersStatRetrieveResponses[keyof MarketplaceServiceProvidersStatRetrieveResponses];
 
-export type MarketplaceServiceProvidersUpdateUserCreateData = {
+export type MarketplaceServiceProvidersUpdateUserData = {
     body: UserRoleUpdateRequest;
     path: {
         uuid: string;
@@ -22782,7 +22628,7 @@ export type MarketplaceServiceProvidersUpdateUserCreateData = {
     url: '/api/marketplace-service-providers/{uuid}/update_user/';
 };
 
-export type MarketplaceServiceProvidersUpdateUserCreateResponses = {
+export type MarketplaceServiceProvidersUpdateUserResponses = {
     /**
      * No response body
      */
@@ -23320,7 +23166,7 @@ export type NotificationMessagesTemplatesUpdateResponses = {
 
 export type NotificationMessagesTemplatesUpdateResponse = NotificationMessagesTemplatesUpdateResponses[keyof NotificationMessagesTemplatesUpdateResponses];
 
-export type NotificationMessagesTemplatesOverrideCreateData = {
+export type NotificationMessagesTemplatesOverrideData = {
     body: NotificationTemplateUpdateSerializersRequest;
     path: {
         uuid: string;
@@ -23329,7 +23175,7 @@ export type NotificationMessagesTemplatesOverrideCreateData = {
     url: '/api/notification-messages-templates/{uuid}/override/';
 };
 
-export type NotificationMessagesTemplatesOverrideCreateResponses = {
+export type NotificationMessagesTemplatesOverrideResponses = {
     /**
      * No response body
      */
@@ -23399,7 +23245,7 @@ export type NotificationMessagesUpdateResponses = {
 
 export type NotificationMessagesUpdateResponse = NotificationMessagesUpdateResponses[keyof NotificationMessagesUpdateResponses];
 
-export type NotificationMessagesDisableCreateData = {
+export type NotificationMessagesDisableData = {
     body?: never;
     path: {
         uuid: string;
@@ -23408,14 +23254,14 @@ export type NotificationMessagesDisableCreateData = {
     url: '/api/notification-messages/{uuid}/disable/';
 };
 
-export type NotificationMessagesDisableCreateResponses = {
+export type NotificationMessagesDisableResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type NotificationMessagesEnableCreateData = {
+export type NotificationMessagesEnableData = {
     body?: never;
     path: {
         uuid: string;
@@ -23424,209 +23270,18 @@ export type NotificationMessagesEnableCreateData = {
     url: '/api/notification-messages/{uuid}/enable/';
 };
 
-export type NotificationMessagesEnableCreateResponses = {
+export type NotificationMessagesEnableResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type OpenstackBackupSchedulesListData = {
-    body?: never;
-    path?: never;
-    query?: {
-        backend_id?: string;
-        customer?: string;
-        customer_abbreviation?: string;
-        customer_name?: string;
-        customer_native_name?: string;
-        customer_uuid?: string;
-        description?: string;
-        external_ip?: string;
-        instance?: string;
-        instance_uuid?: string;
-        name?: string;
-        name_exact?: string;
-        /**
-         * A page number within the paginated result set.
-         */
-        page?: number;
-        /**
-         * Number of results to return per page.
-         */
-        page_size?: number;
-        project?: string;
-        project_name?: string;
-        project_uuid?: string;
-        service_settings_name?: string;
-        service_settings_uuid?: string;
-        /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
-         * * `OK` - OK
-         * * `Erred` - Erred
-         */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
-        tenant?: string;
-        tenant_uuid?: string;
-        uuid?: string;
-    };
-    url: '/api/openstack-backup-schedules/';
-};
-
-export type OpenstackBackupSchedulesListResponses = {
-    200: PaginatedOpenStackBackupScheduleList;
-};
-
-export type OpenstackBackupSchedulesListResponse = OpenstackBackupSchedulesListResponses[keyof OpenstackBackupSchedulesListResponses];
-
-export type OpenstackBackupSchedulesCreateData = {
-    body: OpenStackBackupScheduleRequest;
-    path?: never;
-    query?: never;
-    url: '/api/openstack-backup-schedules/';
-};
-
-export type OpenstackBackupSchedulesCreateResponses = {
-    201: OpenStackBackupSchedule;
-};
-
-export type OpenstackBackupSchedulesCreateResponse = OpenstackBackupSchedulesCreateResponses[keyof OpenstackBackupSchedulesCreateResponses];
-
-export type OpenstackBackupSchedulesDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-backup-schedules/{uuid}/';
-};
-
-export type OpenstackBackupSchedulesDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type OpenstackBackupSchedulesDestroyResponse = OpenstackBackupSchedulesDestroyResponses[keyof OpenstackBackupSchedulesDestroyResponses];
-
-export type OpenstackBackupSchedulesRetrieveData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-backup-schedules/{uuid}/';
-};
-
-export type OpenstackBackupSchedulesRetrieveResponses = {
-    200: OpenStackBackupSchedule;
-};
-
-export type OpenstackBackupSchedulesRetrieveResponse = OpenstackBackupSchedulesRetrieveResponses[keyof OpenstackBackupSchedulesRetrieveResponses];
-
-export type OpenstackBackupSchedulesPartialUpdateData = {
-    body?: PatchedOpenStackBackupScheduleRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-backup-schedules/{uuid}/';
-};
-
-export type OpenstackBackupSchedulesPartialUpdateResponses = {
-    200: OpenStackBackupSchedule;
-};
-
-export type OpenstackBackupSchedulesPartialUpdateResponse = OpenstackBackupSchedulesPartialUpdateResponses[keyof OpenstackBackupSchedulesPartialUpdateResponses];
-
-export type OpenstackBackupSchedulesUpdateData = {
-    body: OpenStackBackupScheduleRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-backup-schedules/{uuid}/';
-};
-
-export type OpenstackBackupSchedulesUpdateResponses = {
-    200: OpenStackBackupSchedule;
-};
-
-export type OpenstackBackupSchedulesUpdateResponse = OpenstackBackupSchedulesUpdateResponses[keyof OpenstackBackupSchedulesUpdateResponses];
-
-export type OpenstackBackupSchedulesActivateCreateData = {
-    body: OpenStackBackupScheduleRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-backup-schedules/{uuid}/activate/';
-};
-
-export type OpenstackBackupSchedulesActivateCreateResponses = {
-    200: OpenStackBackupSchedule;
-};
-
-export type OpenstackBackupSchedulesActivateCreateResponse = OpenstackBackupSchedulesActivateCreateResponses[keyof OpenstackBackupSchedulesActivateCreateResponses];
-
-export type OpenstackBackupSchedulesDeactivateCreateData = {
-    body: OpenStackBackupScheduleRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-backup-schedules/{uuid}/deactivate/';
-};
-
-export type OpenstackBackupSchedulesDeactivateCreateResponses = {
-    200: OpenStackBackupSchedule;
-};
-
-export type OpenstackBackupSchedulesDeactivateCreateResponse = OpenstackBackupSchedulesDeactivateCreateResponses[keyof OpenstackBackupSchedulesDeactivateCreateResponses];
-
-export type OpenstackBackupSchedulesPullCreateData = {
-    body: OpenStackBackupScheduleRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-backup-schedules/{uuid}/pull/';
-};
-
-export type OpenstackBackupSchedulesPullCreateResponses = {
-    200: OpenStackBackupSchedule;
-};
-
-export type OpenstackBackupSchedulesPullCreateResponse = OpenstackBackupSchedulesPullCreateResponses[keyof OpenstackBackupSchedulesPullCreateResponses];
-
-export type OpenstackBackupSchedulesUnlinkCreateData = {
-    body: OpenStackBackupScheduleRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-backup-schedules/{uuid}/unlink/';
-};
-
-export type OpenstackBackupSchedulesUnlinkCreateResponses = {
-    200: OpenStackBackupSchedule;
-};
-
-export type OpenstackBackupSchedulesUnlinkCreateResponse = OpenstackBackupSchedulesUnlinkCreateResponses[keyof OpenstackBackupSchedulesUnlinkCreateResponses];
-
 export type OpenstackBackupsListData = {
     body?: never;
     path?: never;
     query?: {
         backend_id?: string;
-        backup_schedule?: string;
-        backup_schedule_uuid?: string;
         customer?: string;
         customer_abbreviation?: string;
         customer_name?: string;
@@ -23751,7 +23406,7 @@ export type OpenstackBackupsUpdateResponses = {
 
 export type OpenstackBackupsUpdateResponse = OpenstackBackupsUpdateResponses[keyof OpenstackBackupsUpdateResponses];
 
-export type OpenstackBackupsPullCreateData = {
+export type OpenstackBackupsPullData = {
     body: BackupRequest;
     path: {
         uuid: string;
@@ -23760,13 +23415,13 @@ export type OpenstackBackupsPullCreateData = {
     url: '/api/openstack-backups/{uuid}/pull/';
 };
 
-export type OpenstackBackupsPullCreateResponses = {
+export type OpenstackBackupsPullResponses = {
     200: Backup;
 };
 
-export type OpenstackBackupsPullCreateResponse = OpenstackBackupsPullCreateResponses[keyof OpenstackBackupsPullCreateResponses];
+export type OpenstackBackupsPullResponse = OpenstackBackupsPullResponses[keyof OpenstackBackupsPullResponses];
 
-export type OpenstackBackupsRestoreCreateData = {
+export type OpenstackBackupsRestoreData = {
     body: OpenStackBackupRestorationRequest;
     path: {
         uuid: string;
@@ -23775,13 +23430,13 @@ export type OpenstackBackupsRestoreCreateData = {
     url: '/api/openstack-backups/{uuid}/restore/';
 };
 
-export type OpenstackBackupsRestoreCreateResponses = {
+export type OpenstackBackupsRestoreResponses = {
     200: OpenStackBackupRestoration;
 };
 
-export type OpenstackBackupsRestoreCreateResponse = OpenstackBackupsRestoreCreateResponses[keyof OpenstackBackupsRestoreCreateResponses];
+export type OpenstackBackupsRestoreResponse = OpenstackBackupsRestoreResponses[keyof OpenstackBackupsRestoreResponses];
 
-export type OpenstackBackupsUnlinkCreateData = {
+export type OpenstackBackupsUnlinkData = {
     body: BackupRequest;
     path: {
         uuid: string;
@@ -23790,11 +23445,11 @@ export type OpenstackBackupsUnlinkCreateData = {
     url: '/api/openstack-backups/{uuid}/unlink/';
 };
 
-export type OpenstackBackupsUnlinkCreateResponses = {
+export type OpenstackBackupsUnlinkResponses = {
     200: Backup;
 };
 
-export type OpenstackBackupsUnlinkCreateResponse = OpenstackBackupsUnlinkCreateResponses[keyof OpenstackBackupsUnlinkCreateResponses];
+export type OpenstackBackupsUnlinkResponse = OpenstackBackupsUnlinkResponses[keyof OpenstackBackupsUnlinkResponses];
 
 export type OpenstackFlavorsListData = {
     body?: never;
@@ -24003,7 +23658,7 @@ export type OpenstackFloatingIpsUpdateResponses = {
 
 export type OpenstackFloatingIpsUpdateResponse = OpenstackFloatingIpsUpdateResponses[keyof OpenstackFloatingIpsUpdateResponses];
 
-export type OpenstackFloatingIpsAttachToPortCreateData = {
+export type OpenstackFloatingIpsAttachToPortData = {
     body: OpenStackFloatingIpAttachRequest;
     path: {
         uuid: string;
@@ -24012,13 +23667,13 @@ export type OpenstackFloatingIpsAttachToPortCreateData = {
     url: '/api/openstack-floating-ips/{uuid}/attach_to_port/';
 };
 
-export type OpenstackFloatingIpsAttachToPortCreateResponses = {
+export type OpenstackFloatingIpsAttachToPortResponses = {
     200: OpenStackFloatingIpAttach;
 };
 
-export type OpenstackFloatingIpsAttachToPortCreateResponse = OpenstackFloatingIpsAttachToPortCreateResponses[keyof OpenstackFloatingIpsAttachToPortCreateResponses];
+export type OpenstackFloatingIpsAttachToPortResponse = OpenstackFloatingIpsAttachToPortResponses[keyof OpenstackFloatingIpsAttachToPortResponses];
 
-export type OpenstackFloatingIpsDetachFromPortCreateData = {
+export type OpenstackFloatingIpsDetachFromPortData = {
     body?: never;
     path: {
         uuid: string;
@@ -24027,13 +23682,13 @@ export type OpenstackFloatingIpsDetachFromPortCreateData = {
     url: '/api/openstack-floating-ips/{uuid}/detach_from_port/';
 };
 
-export type OpenstackFloatingIpsDetachFromPortCreateResponses = {
+export type OpenstackFloatingIpsDetachFromPortResponses = {
     200: OpenStackFloatingIp;
 };
 
-export type OpenstackFloatingIpsDetachFromPortCreateResponse = OpenstackFloatingIpsDetachFromPortCreateResponses[keyof OpenstackFloatingIpsDetachFromPortCreateResponses];
+export type OpenstackFloatingIpsDetachFromPortResponse = OpenstackFloatingIpsDetachFromPortResponses[keyof OpenstackFloatingIpsDetachFromPortResponses];
 
-export type OpenstackFloatingIpsPullCreateData = {
+export type OpenstackFloatingIpsPullData = {
     body?: never;
     path: {
         uuid: string;
@@ -24042,13 +23697,13 @@ export type OpenstackFloatingIpsPullCreateData = {
     url: '/api/openstack-floating-ips/{uuid}/pull/';
 };
 
-export type OpenstackFloatingIpsPullCreateResponses = {
+export type OpenstackFloatingIpsPullResponses = {
     200: OpenStackFloatingIp;
 };
 
-export type OpenstackFloatingIpsPullCreateResponse = OpenstackFloatingIpsPullCreateResponses[keyof OpenstackFloatingIpsPullCreateResponses];
+export type OpenstackFloatingIpsPullResponse = OpenstackFloatingIpsPullResponses[keyof OpenstackFloatingIpsPullResponses];
 
-export type OpenstackFloatingIpsUnlinkCreateData = {
+export type OpenstackFloatingIpsUnlinkData = {
     body?: never;
     path: {
         uuid: string;
@@ -24057,13 +23712,13 @@ export type OpenstackFloatingIpsUnlinkCreateData = {
     url: '/api/openstack-floating-ips/{uuid}/unlink/';
 };
 
-export type OpenstackFloatingIpsUnlinkCreateResponses = {
+export type OpenstackFloatingIpsUnlinkResponses = {
     200: OpenStackFloatingIp;
 };
 
-export type OpenstackFloatingIpsUnlinkCreateResponse = OpenstackFloatingIpsUnlinkCreateResponses[keyof OpenstackFloatingIpsUnlinkCreateResponses];
+export type OpenstackFloatingIpsUnlinkResponse = OpenstackFloatingIpsUnlinkResponses[keyof OpenstackFloatingIpsUnlinkResponses];
 
-export type OpenstackFloatingIpsUpdateDescriptionCreateData = {
+export type OpenstackFloatingIpsUpdateDescriptionData = {
     body?: OpenStackFloatingIpDescriptionUpdateRequest;
     path: {
         uuid: string;
@@ -24072,11 +23727,11 @@ export type OpenstackFloatingIpsUpdateDescriptionCreateData = {
     url: '/api/openstack-floating-ips/{uuid}/update_description/';
 };
 
-export type OpenstackFloatingIpsUpdateDescriptionCreateResponses = {
+export type OpenstackFloatingIpsUpdateDescriptionResponses = {
     200: OpenStackFloatingIpDescriptionUpdate;
 };
 
-export type OpenstackFloatingIpsUpdateDescriptionCreateResponse = OpenstackFloatingIpsUpdateDescriptionCreateResponses[keyof OpenstackFloatingIpsUpdateDescriptionCreateResponses];
+export type OpenstackFloatingIpsUpdateDescriptionResponse = OpenstackFloatingIpsUpdateDescriptionResponses[keyof OpenstackFloatingIpsUpdateDescriptionResponses];
 
 export type OpenstackImagesListData = {
     body?: never;
@@ -24307,7 +23962,7 @@ export type OpenstackInstancesUpdateResponses = {
 
 export type OpenstackInstancesUpdateResponse = OpenstackInstancesUpdateResponses[keyof OpenstackInstancesUpdateResponses];
 
-export type OpenstackInstancesBackupCreateData = {
+export type OpenstackInstancesBackupData = {
     body: BackupRequest;
     path: {
         uuid: string;
@@ -24316,13 +23971,13 @@ export type OpenstackInstancesBackupCreateData = {
     url: '/api/openstack-instances/{uuid}/backup/';
 };
 
-export type OpenstackInstancesBackupCreateResponses = {
+export type OpenstackInstancesBackupResponses = {
     200: Backup;
 };
 
-export type OpenstackInstancesBackupCreateResponse = OpenstackInstancesBackupCreateResponses[keyof OpenstackInstancesBackupCreateResponses];
+export type OpenstackInstancesBackupResponse = OpenstackInstancesBackupResponses[keyof OpenstackInstancesBackupResponses];
 
-export type OpenstackInstancesChangeFlavorCreateData = {
+export type OpenstackInstancesChangeFlavorData = {
     body: InstanceFlavorChangeRequest;
     path: {
         uuid: string;
@@ -24331,11 +23986,11 @@ export type OpenstackInstancesChangeFlavorCreateData = {
     url: '/api/openstack-instances/{uuid}/change_flavor/';
 };
 
-export type OpenstackInstancesChangeFlavorCreateResponses = {
+export type OpenstackInstancesChangeFlavorResponses = {
     200: InstanceFlavorChange;
 };
 
-export type OpenstackInstancesChangeFlavorCreateResponse = OpenstackInstancesChangeFlavorCreateResponses[keyof OpenstackInstancesChangeFlavorCreateResponses];
+export type OpenstackInstancesChangeFlavorResponse = OpenstackInstancesChangeFlavorResponses[keyof OpenstackInstancesChangeFlavorResponses];
 
 export type OpenstackInstancesConsoleRetrieveData = {
     body?: never;
@@ -24366,21 +24021,6 @@ export type OpenstackInstancesConsoleLogRetrieveResponses = {
 };
 
 export type OpenstackInstancesConsoleLogRetrieveResponse = OpenstackInstancesConsoleLogRetrieveResponses[keyof OpenstackInstancesConsoleLogRetrieveResponses];
-
-export type OpenstackInstancesCreateBackupScheduleCreateData = {
-    body: OpenStackBackupScheduleRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-instances/{uuid}/create_backup_schedule/';
-};
-
-export type OpenstackInstancesCreateBackupScheduleCreateResponses = {
-    200: OpenStackBackupSchedule;
-};
-
-export type OpenstackInstancesCreateBackupScheduleCreateResponse = OpenstackInstancesCreateBackupScheduleCreateResponses[keyof OpenstackInstancesCreateBackupScheduleCreateResponses];
 
 export type OpenstackInstancesFloatingIpsRetrieveData = {
     body?: never;
@@ -24413,7 +24053,7 @@ export type OpenstackInstancesPortsRetrieveResponses = {
 
 export type OpenstackInstancesPortsRetrieveResponse = OpenstackInstancesPortsRetrieveResponses[keyof OpenstackInstancesPortsRetrieveResponses];
 
-export type OpenstackInstancesPullCreateData = {
+export type OpenstackInstancesPullData = {
     body?: never;
     path: {
         uuid: string;
@@ -24422,14 +24062,14 @@ export type OpenstackInstancesPullCreateData = {
     url: '/api/openstack-instances/{uuid}/pull/';
 };
 
-export type OpenstackInstancesPullCreateResponses = {
+export type OpenstackInstancesPullResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type OpenstackInstancesRestartCreateData = {
+export type OpenstackInstancesRestartData = {
     body?: never;
     path: {
         uuid: string;
@@ -24438,14 +24078,14 @@ export type OpenstackInstancesRestartCreateData = {
     url: '/api/openstack-instances/{uuid}/restart/';
 };
 
-export type OpenstackInstancesRestartCreateResponses = {
+export type OpenstackInstancesRestartResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type OpenstackInstancesStartCreateData = {
+export type OpenstackInstancesStartData = {
     body?: never;
     path: {
         uuid: string;
@@ -24454,14 +24094,14 @@ export type OpenstackInstancesStartCreateData = {
     url: '/api/openstack-instances/{uuid}/start/';
 };
 
-export type OpenstackInstancesStartCreateResponses = {
+export type OpenstackInstancesStartResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type OpenstackInstancesStopCreateData = {
+export type OpenstackInstancesStopData = {
     body?: never;
     path: {
         uuid: string;
@@ -24470,14 +24110,14 @@ export type OpenstackInstancesStopCreateData = {
     url: '/api/openstack-instances/{uuid}/stop/';
 };
 
-export type OpenstackInstancesStopCreateResponses = {
+export type OpenstackInstancesStopResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type OpenstackInstancesUnlinkCreateData = {
+export type OpenstackInstancesUnlinkData = {
     body: OpenStackInstanceRequest;
     path: {
         uuid: string;
@@ -24486,13 +24126,13 @@ export type OpenstackInstancesUnlinkCreateData = {
     url: '/api/openstack-instances/{uuid}/unlink/';
 };
 
-export type OpenstackInstancesUnlinkCreateResponses = {
+export type OpenstackInstancesUnlinkResponses = {
     200: OpenStackInstance;
 };
 
-export type OpenstackInstancesUnlinkCreateResponse = OpenstackInstancesUnlinkCreateResponses[keyof OpenstackInstancesUnlinkCreateResponses];
+export type OpenstackInstancesUnlinkResponse = OpenstackInstancesUnlinkResponses[keyof OpenstackInstancesUnlinkResponses];
 
-export type OpenstackInstancesUpdateAllowedAddressPairsCreateData = {
+export type OpenstackInstancesUpdateAllowedAddressPairsData = {
     body: OpenStackInstanceAllowedAddressPairsUpdateRequest;
     path: {
         uuid: string;
@@ -24501,13 +24141,13 @@ export type OpenstackInstancesUpdateAllowedAddressPairsCreateData = {
     url: '/api/openstack-instances/{uuid}/update_allowed_address_pairs/';
 };
 
-export type OpenstackInstancesUpdateAllowedAddressPairsCreateResponses = {
+export type OpenstackInstancesUpdateAllowedAddressPairsResponses = {
     200: OpenStackInstanceAllowedAddressPairsUpdate;
 };
 
-export type OpenstackInstancesUpdateAllowedAddressPairsCreateResponse = OpenstackInstancesUpdateAllowedAddressPairsCreateResponses[keyof OpenstackInstancesUpdateAllowedAddressPairsCreateResponses];
+export type OpenstackInstancesUpdateAllowedAddressPairsResponse = OpenstackInstancesUpdateAllowedAddressPairsResponses[keyof OpenstackInstancesUpdateAllowedAddressPairsResponses];
 
-export type OpenstackInstancesUpdateFloatingIpsCreateData = {
+export type OpenstackInstancesUpdateFloatingIpsData = {
     body?: OpenStackInstanceFloatingIpsUpdateRequest;
     path: {
         uuid: string;
@@ -24516,13 +24156,13 @@ export type OpenstackInstancesUpdateFloatingIpsCreateData = {
     url: '/api/openstack-instances/{uuid}/update_floating_ips/';
 };
 
-export type OpenstackInstancesUpdateFloatingIpsCreateResponses = {
+export type OpenstackInstancesUpdateFloatingIpsResponses = {
     200: OpenStackInstanceFloatingIpsUpdate;
 };
 
-export type OpenstackInstancesUpdateFloatingIpsCreateResponse = OpenstackInstancesUpdateFloatingIpsCreateResponses[keyof OpenstackInstancesUpdateFloatingIpsCreateResponses];
+export type OpenstackInstancesUpdateFloatingIpsResponse = OpenstackInstancesUpdateFloatingIpsResponses[keyof OpenstackInstancesUpdateFloatingIpsResponses];
 
-export type OpenstackInstancesUpdatePortsCreateData = {
+export type OpenstackInstancesUpdatePortsData = {
     body: OpenStackInstancePortsUpdateRequest;
     path: {
         uuid: string;
@@ -24531,13 +24171,13 @@ export type OpenstackInstancesUpdatePortsCreateData = {
     url: '/api/openstack-instances/{uuid}/update_ports/';
 };
 
-export type OpenstackInstancesUpdatePortsCreateResponses = {
+export type OpenstackInstancesUpdatePortsResponses = {
     200: OpenStackInstancePortsUpdate;
 };
 
-export type OpenstackInstancesUpdatePortsCreateResponse = OpenstackInstancesUpdatePortsCreateResponses[keyof OpenstackInstancesUpdatePortsCreateResponses];
+export type OpenstackInstancesUpdatePortsResponse = OpenstackInstancesUpdatePortsResponses[keyof OpenstackInstancesUpdatePortsResponses];
 
-export type OpenstackInstancesUpdateSecurityGroupsCreateData = {
+export type OpenstackInstancesUpdateSecurityGroupsData = {
     body?: never;
     path: {
         uuid: string;
@@ -24546,11 +24186,11 @@ export type OpenstackInstancesUpdateSecurityGroupsCreateData = {
     url: '/api/openstack-instances/{uuid}/update_security_groups/';
 };
 
-export type OpenstackInstancesUpdateSecurityGroupsCreateResponses = {
+export type OpenstackInstancesUpdateSecurityGroupsResponses = {
     200: OpenStackInstanceSecurityGroupsUpdate;
 };
 
-export type OpenstackInstancesUpdateSecurityGroupsCreateResponse = OpenstackInstancesUpdateSecurityGroupsCreateResponses[keyof OpenstackInstancesUpdateSecurityGroupsCreateResponses];
+export type OpenstackInstancesUpdateSecurityGroupsResponse = OpenstackInstancesUpdateSecurityGroupsResponses[keyof OpenstackInstancesUpdateSecurityGroupsResponses];
 
 export type OpenstackMigrationsListData = {
     body?: never;
@@ -24652,7 +24292,7 @@ export type OpenstackMigrationsUpdateResponses = {
 
 export type OpenstackMigrationsUpdateResponse = OpenstackMigrationsUpdateResponses[keyof OpenstackMigrationsUpdateResponses];
 
-export type OpenstackMigrationsRunCreateData = {
+export type OpenstackMigrationsRunData = {
     body: MigrationDetailsRequest;
     path: {
         uuid: string;
@@ -24661,11 +24301,11 @@ export type OpenstackMigrationsRunCreateData = {
     url: '/api/openstack-migrations/{uuid}/run/';
 };
 
-export type OpenstackMigrationsRunCreateResponses = {
+export type OpenstackMigrationsRunResponses = {
     200: MigrationDetails;
 };
 
-export type OpenstackMigrationsRunCreateResponse = OpenstackMigrationsRunCreateResponses[keyof OpenstackMigrationsRunCreateResponses];
+export type OpenstackMigrationsRunResponse = OpenstackMigrationsRunResponses[keyof OpenstackMigrationsRunResponses];
 
 export type OpenstackNetworksListData = {
     body?: never;
@@ -24796,7 +24436,7 @@ export type OpenstackNetworksUpdateResponses = {
 
 export type OpenstackNetworksUpdateResponse = OpenstackNetworksUpdateResponses[keyof OpenstackNetworksUpdateResponses];
 
-export type OpenstackNetworksCreatePortCreateData = {
+export type OpenstackNetworksCreatePortData = {
     body: OpenStackPortRequest;
     path: {
         uuid: string;
@@ -24805,13 +24445,13 @@ export type OpenstackNetworksCreatePortCreateData = {
     url: '/api/openstack-networks/{uuid}/create_port/';
 };
 
-export type OpenstackNetworksCreatePortCreateResponses = {
+export type OpenstackNetworksCreatePortResponses = {
     200: OpenStackPort;
 };
 
-export type OpenstackNetworksCreatePortCreateResponse = OpenstackNetworksCreatePortCreateResponses[keyof OpenstackNetworksCreatePortCreateResponses];
+export type OpenstackNetworksCreatePortResponse = OpenstackNetworksCreatePortResponses[keyof OpenstackNetworksCreatePortResponses];
 
-export type OpenstackNetworksCreateSubnetCreateData = {
+export type OpenstackNetworksCreateSubnetData = {
     body: OpenStackSubNetRequest;
     path: {
         uuid: string;
@@ -24820,13 +24460,13 @@ export type OpenstackNetworksCreateSubnetCreateData = {
     url: '/api/openstack-networks/{uuid}/create_subnet/';
 };
 
-export type OpenstackNetworksCreateSubnetCreateResponses = {
+export type OpenstackNetworksCreateSubnetResponses = {
     200: OpenStackSubNet;
 };
 
-export type OpenstackNetworksCreateSubnetCreateResponse = OpenstackNetworksCreateSubnetCreateResponses[keyof OpenstackNetworksCreateSubnetCreateResponses];
+export type OpenstackNetworksCreateSubnetResponse = OpenstackNetworksCreateSubnetResponses[keyof OpenstackNetworksCreateSubnetResponses];
 
-export type OpenstackNetworksPullCreateData = {
+export type OpenstackNetworksPullData = {
     body: OpenStackNetworkRequest;
     path: {
         uuid: string;
@@ -24835,13 +24475,13 @@ export type OpenstackNetworksPullCreateData = {
     url: '/api/openstack-networks/{uuid}/pull/';
 };
 
-export type OpenstackNetworksPullCreateResponses = {
+export type OpenstackNetworksPullResponses = {
     200: OpenStackNetwork;
 };
 
-export type OpenstackNetworksPullCreateResponse = OpenstackNetworksPullCreateResponses[keyof OpenstackNetworksPullCreateResponses];
+export type OpenstackNetworksPullResponse = OpenstackNetworksPullResponses[keyof OpenstackNetworksPullResponses];
 
-export type OpenstackNetworksSetMtuCreateData = {
+export type OpenstackNetworksSetMtuData = {
     body: SetMtuRequest;
     path: {
         uuid: string;
@@ -24850,13 +24490,13 @@ export type OpenstackNetworksSetMtuCreateData = {
     url: '/api/openstack-networks/{uuid}/set_mtu/';
 };
 
-export type OpenstackNetworksSetMtuCreateResponses = {
+export type OpenstackNetworksSetMtuResponses = {
     200: SetMtu;
 };
 
-export type OpenstackNetworksSetMtuCreateResponse = OpenstackNetworksSetMtuCreateResponses[keyof OpenstackNetworksSetMtuCreateResponses];
+export type OpenstackNetworksSetMtuResponse = OpenstackNetworksSetMtuResponses[keyof OpenstackNetworksSetMtuResponses];
 
-export type OpenstackNetworksUnlinkCreateData = {
+export type OpenstackNetworksUnlinkData = {
     body: OpenStackNetworkRequest;
     path: {
         uuid: string;
@@ -24865,11 +24505,11 @@ export type OpenstackNetworksUnlinkCreateData = {
     url: '/api/openstack-networks/{uuid}/unlink/';
 };
 
-export type OpenstackNetworksUnlinkCreateResponses = {
+export type OpenstackNetworksUnlinkResponses = {
     200: OpenStackNetwork;
 };
 
-export type OpenstackNetworksUnlinkCreateResponse = OpenstackNetworksUnlinkCreateResponses[keyof OpenstackNetworksUnlinkCreateResponses];
+export type OpenstackNetworksUnlinkResponse = OpenstackNetworksUnlinkResponses[keyof OpenstackNetworksUnlinkResponses];
 
 export type OpenstackPortsListData = {
     body?: never;
@@ -24980,7 +24620,7 @@ export type OpenstackPortsUpdateResponses = {
 
 export type OpenstackPortsUpdateResponse = OpenstackPortsUpdateResponses[keyof OpenstackPortsUpdateResponses];
 
-export type OpenstackPortsPullCreateData = {
+export type OpenstackPortsPullData = {
     body: OpenStackPortRequest;
     path: {
         uuid: string;
@@ -24989,13 +24629,13 @@ export type OpenstackPortsPullCreateData = {
     url: '/api/openstack-ports/{uuid}/pull/';
 };
 
-export type OpenstackPortsPullCreateResponses = {
+export type OpenstackPortsPullResponses = {
     200: OpenStackPort;
 };
 
-export type OpenstackPortsPullCreateResponse = OpenstackPortsPullCreateResponses[keyof OpenstackPortsPullCreateResponses];
+export type OpenstackPortsPullResponse = OpenstackPortsPullResponses[keyof OpenstackPortsPullResponses];
 
-export type OpenstackPortsUnlinkCreateData = {
+export type OpenstackPortsUnlinkData = {
     body: OpenStackPortRequest;
     path: {
         uuid: string;
@@ -25004,11 +24644,11 @@ export type OpenstackPortsUnlinkCreateData = {
     url: '/api/openstack-ports/{uuid}/unlink/';
 };
 
-export type OpenstackPortsUnlinkCreateResponses = {
+export type OpenstackPortsUnlinkResponses = {
     200: OpenStackPort;
 };
 
-export type OpenstackPortsUnlinkCreateResponse = OpenstackPortsUnlinkCreateResponses[keyof OpenstackPortsUnlinkCreateResponses];
+export type OpenstackPortsUnlinkResponse = OpenstackPortsUnlinkResponses[keyof OpenstackPortsUnlinkResponses];
 
 export type OpenstackRoutersListData = {
     body?: never;
@@ -25112,7 +24752,7 @@ export type OpenstackRoutersUpdateResponses = {
 
 export type OpenstackRoutersUpdateResponse = OpenstackRoutersUpdateResponses[keyof OpenstackRoutersUpdateResponses];
 
-export type OpenstackRoutersSetRoutesCreateData = {
+export type OpenstackRoutersSetRoutesData = {
     body: OpenStackRouterSetRoutesRequest;
     path: {
         uuid: string;
@@ -25121,11 +24761,11 @@ export type OpenstackRoutersSetRoutesCreateData = {
     url: '/api/openstack-routers/{uuid}/set_routes/';
 };
 
-export type OpenstackRoutersSetRoutesCreateResponses = {
+export type OpenstackRoutersSetRoutesResponses = {
     200: OpenStackRouterSetRoutes;
 };
 
-export type OpenstackRoutersSetRoutesCreateResponse = OpenstackRoutersSetRoutesCreateResponses[keyof OpenstackRoutersSetRoutesCreateResponses];
+export type OpenstackRoutersSetRoutesResponse = OpenstackRoutersSetRoutesResponses[keyof OpenstackRoutersSetRoutesResponses];
 
 export type OpenstackSecurityGroupsListData = {
     body?: never;
@@ -25255,7 +24895,7 @@ export type OpenstackSecurityGroupsUpdateResponses = {
 
 export type OpenstackSecurityGroupsUpdateResponse = OpenstackSecurityGroupsUpdateResponses[keyof OpenstackSecurityGroupsUpdateResponses];
 
-export type OpenstackSecurityGroupsPullCreateData = {
+export type OpenstackSecurityGroupsPullData = {
     body: OpenStackSecurityGroupRequest;
     path: {
         uuid: string;
@@ -25264,13 +24904,13 @@ export type OpenstackSecurityGroupsPullCreateData = {
     url: '/api/openstack-security-groups/{uuid}/pull/';
 };
 
-export type OpenstackSecurityGroupsPullCreateResponses = {
+export type OpenstackSecurityGroupsPullResponses = {
     200: OpenStackSecurityGroup;
 };
 
-export type OpenstackSecurityGroupsPullCreateResponse = OpenstackSecurityGroupsPullCreateResponses[keyof OpenstackSecurityGroupsPullCreateResponses];
+export type OpenstackSecurityGroupsPullResponse = OpenstackSecurityGroupsPullResponses[keyof OpenstackSecurityGroupsPullResponses];
 
-export type OpenstackSecurityGroupsSetRulesCreateData = {
+export type OpenstackSecurityGroupsSetRulesData = {
     body: Array<OpenStackSecurityGroupRuleUpdateRequest>;
     path: {
         uuid: string;
@@ -25318,13 +24958,13 @@ export type OpenstackSecurityGroupsSetRulesCreateData = {
     url: '/api/openstack-security-groups/{uuid}/set_rules/';
 };
 
-export type OpenstackSecurityGroupsSetRulesCreateResponses = {
+export type OpenstackSecurityGroupsSetRulesResponses = {
     200: PaginatedOpenStackSecurityGroupRuleUpdateList;
 };
 
-export type OpenstackSecurityGroupsSetRulesCreateResponse = OpenstackSecurityGroupsSetRulesCreateResponses[keyof OpenstackSecurityGroupsSetRulesCreateResponses];
+export type OpenstackSecurityGroupsSetRulesResponse = OpenstackSecurityGroupsSetRulesResponses[keyof OpenstackSecurityGroupsSetRulesResponses];
 
-export type OpenstackSecurityGroupsUnlinkCreateData = {
+export type OpenstackSecurityGroupsUnlinkData = {
     body: OpenStackSecurityGroupRequest;
     path: {
         uuid: string;
@@ -25333,11 +24973,11 @@ export type OpenstackSecurityGroupsUnlinkCreateData = {
     url: '/api/openstack-security-groups/{uuid}/unlink/';
 };
 
-export type OpenstackSecurityGroupsUnlinkCreateResponses = {
+export type OpenstackSecurityGroupsUnlinkResponses = {
     200: OpenStackSecurityGroup;
 };
 
-export type OpenstackSecurityGroupsUnlinkCreateResponse = OpenstackSecurityGroupsUnlinkCreateResponses[keyof OpenstackSecurityGroupsUnlinkCreateResponses];
+export type OpenstackSecurityGroupsUnlinkResponse = OpenstackSecurityGroupsUnlinkResponses[keyof OpenstackSecurityGroupsUnlinkResponses];
 
 export type OpenstackServerGroupsListData = {
     body?: never;
@@ -25466,7 +25106,7 @@ export type OpenstackServerGroupsUpdateResponses = {
 
 export type OpenstackServerGroupsUpdateResponse = OpenstackServerGroupsUpdateResponses[keyof OpenstackServerGroupsUpdateResponses];
 
-export type OpenstackServerGroupsPullCreateData = {
+export type OpenstackServerGroupsPullData = {
     body: OpenStackCreateServerGroupRequest;
     path: {
         uuid: string;
@@ -25475,13 +25115,13 @@ export type OpenstackServerGroupsPullCreateData = {
     url: '/api/openstack-server-groups/{uuid}/pull/';
 };
 
-export type OpenstackServerGroupsPullCreateResponses = {
+export type OpenstackServerGroupsPullResponses = {
     200: OpenStackCreateServerGroup;
 };
 
-export type OpenstackServerGroupsPullCreateResponse = OpenstackServerGroupsPullCreateResponses[keyof OpenstackServerGroupsPullCreateResponses];
+export type OpenstackServerGroupsPullResponse = OpenstackServerGroupsPullResponses[keyof OpenstackServerGroupsPullResponses];
 
-export type OpenstackServerGroupsUnlinkCreateData = {
+export type OpenstackServerGroupsUnlinkData = {
     body: OpenStackCreateServerGroupRequest;
     path: {
         uuid: string;
@@ -25490,11 +25130,11 @@ export type OpenstackServerGroupsUnlinkCreateData = {
     url: '/api/openstack-server-groups/{uuid}/unlink/';
 };
 
-export type OpenstackServerGroupsUnlinkCreateResponses = {
+export type OpenstackServerGroupsUnlinkResponses = {
     200: OpenStackCreateServerGroup;
 };
 
-export type OpenstackServerGroupsUnlinkCreateResponse = OpenstackServerGroupsUnlinkCreateResponses[keyof OpenstackServerGroupsUnlinkCreateResponses];
+export type OpenstackServerGroupsUnlinkResponse = OpenstackServerGroupsUnlinkResponses[keyof OpenstackServerGroupsUnlinkResponses];
 
 export type OpenstackSharedSettingsCustomersRetrieveData = {
     body?: never;
@@ -25521,195 +25161,6 @@ export type OpenstackSharedSettingsInstancesRetrieveResponses = {
 };
 
 export type OpenstackSharedSettingsInstancesRetrieveResponse = OpenstackSharedSettingsInstancesRetrieveResponses[keyof OpenstackSharedSettingsInstancesRetrieveResponses];
-
-export type OpenstackSnapshotSchedulesListData = {
-    body?: never;
-    path?: never;
-    query?: {
-        backend_id?: string;
-        customer?: string;
-        customer_abbreviation?: string;
-        customer_name?: string;
-        customer_native_name?: string;
-        customer_uuid?: string;
-        description?: string;
-        external_ip?: string;
-        name?: string;
-        name_exact?: string;
-        /**
-         * A page number within the paginated result set.
-         */
-        page?: number;
-        /**
-         * Number of results to return per page.
-         */
-        page_size?: number;
-        project?: string;
-        project_name?: string;
-        project_uuid?: string;
-        service_settings_name?: string;
-        service_settings_uuid?: string;
-        source_volume?: string;
-        source_volume_uuid?: string;
-        /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
-         * * `OK` - OK
-         * * `Erred` - Erred
-         */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
-        tenant?: string;
-        tenant_uuid?: string;
-        uuid?: string;
-    };
-    url: '/api/openstack-snapshot-schedules/';
-};
-
-export type OpenstackSnapshotSchedulesListResponses = {
-    200: PaginatedOpenStackSnapshotScheduleList;
-};
-
-export type OpenstackSnapshotSchedulesListResponse = OpenstackSnapshotSchedulesListResponses[keyof OpenstackSnapshotSchedulesListResponses];
-
-export type OpenstackSnapshotSchedulesCreateData = {
-    body: OpenStackSnapshotScheduleRequest;
-    path?: never;
-    query?: never;
-    url: '/api/openstack-snapshot-schedules/';
-};
-
-export type OpenstackSnapshotSchedulesCreateResponses = {
-    201: OpenStackSnapshotSchedule;
-};
-
-export type OpenstackSnapshotSchedulesCreateResponse = OpenstackSnapshotSchedulesCreateResponses[keyof OpenstackSnapshotSchedulesCreateResponses];
-
-export type OpenstackSnapshotSchedulesDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-snapshot-schedules/{uuid}/';
-};
-
-export type OpenstackSnapshotSchedulesDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type OpenstackSnapshotSchedulesDestroyResponse = OpenstackSnapshotSchedulesDestroyResponses[keyof OpenstackSnapshotSchedulesDestroyResponses];
-
-export type OpenstackSnapshotSchedulesRetrieveData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-snapshot-schedules/{uuid}/';
-};
-
-export type OpenstackSnapshotSchedulesRetrieveResponses = {
-    200: OpenStackSnapshotSchedule;
-};
-
-export type OpenstackSnapshotSchedulesRetrieveResponse = OpenstackSnapshotSchedulesRetrieveResponses[keyof OpenstackSnapshotSchedulesRetrieveResponses];
-
-export type OpenstackSnapshotSchedulesPartialUpdateData = {
-    body?: PatchedOpenStackSnapshotScheduleRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-snapshot-schedules/{uuid}/';
-};
-
-export type OpenstackSnapshotSchedulesPartialUpdateResponses = {
-    200: OpenStackSnapshotSchedule;
-};
-
-export type OpenstackSnapshotSchedulesPartialUpdateResponse = OpenstackSnapshotSchedulesPartialUpdateResponses[keyof OpenstackSnapshotSchedulesPartialUpdateResponses];
-
-export type OpenstackSnapshotSchedulesUpdateData = {
-    body: OpenStackSnapshotScheduleRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-snapshot-schedules/{uuid}/';
-};
-
-export type OpenstackSnapshotSchedulesUpdateResponses = {
-    200: OpenStackSnapshotSchedule;
-};
-
-export type OpenstackSnapshotSchedulesUpdateResponse = OpenstackSnapshotSchedulesUpdateResponses[keyof OpenstackSnapshotSchedulesUpdateResponses];
-
-export type OpenstackSnapshotSchedulesActivateCreateData = {
-    body: OpenStackSnapshotScheduleRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-snapshot-schedules/{uuid}/activate/';
-};
-
-export type OpenstackSnapshotSchedulesActivateCreateResponses = {
-    200: OpenStackSnapshotSchedule;
-};
-
-export type OpenstackSnapshotSchedulesActivateCreateResponse = OpenstackSnapshotSchedulesActivateCreateResponses[keyof OpenstackSnapshotSchedulesActivateCreateResponses];
-
-export type OpenstackSnapshotSchedulesDeactivateCreateData = {
-    body: OpenStackSnapshotScheduleRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-snapshot-schedules/{uuid}/deactivate/';
-};
-
-export type OpenstackSnapshotSchedulesDeactivateCreateResponses = {
-    200: OpenStackSnapshotSchedule;
-};
-
-export type OpenstackSnapshotSchedulesDeactivateCreateResponse = OpenstackSnapshotSchedulesDeactivateCreateResponses[keyof OpenstackSnapshotSchedulesDeactivateCreateResponses];
-
-export type OpenstackSnapshotSchedulesPullCreateData = {
-    body: OpenStackSnapshotScheduleRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-snapshot-schedules/{uuid}/pull/';
-};
-
-export type OpenstackSnapshotSchedulesPullCreateResponses = {
-    200: OpenStackSnapshotSchedule;
-};
-
-export type OpenstackSnapshotSchedulesPullCreateResponse = OpenstackSnapshotSchedulesPullCreateResponses[keyof OpenstackSnapshotSchedulesPullCreateResponses];
-
-export type OpenstackSnapshotSchedulesUnlinkCreateData = {
-    body: OpenStackSnapshotScheduleRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-snapshot-schedules/{uuid}/unlink/';
-};
-
-export type OpenstackSnapshotSchedulesUnlinkCreateResponses = {
-    200: OpenStackSnapshotSchedule;
-};
-
-export type OpenstackSnapshotSchedulesUnlinkCreateResponse = OpenstackSnapshotSchedulesUnlinkCreateResponses[keyof OpenstackSnapshotSchedulesUnlinkCreateResponses];
 
 export type OpenstackSnapshotsListData = {
     body?: never;
@@ -25741,8 +25192,6 @@ export type OpenstackSnapshotsListData = {
         runtime_state?: string;
         service_settings_name?: string;
         service_settings_uuid?: string;
-        snapshot_schedule?: string;
-        snapshot_schedule_uuid?: string;
         source_volume?: string;
         source_volume_uuid?: string;
         /**
@@ -25845,7 +25294,7 @@ export type OpenstackSnapshotsUpdateResponses = {
 
 export type OpenstackSnapshotsUpdateResponse = OpenstackSnapshotsUpdateResponses[keyof OpenstackSnapshotsUpdateResponses];
 
-export type OpenstackSnapshotsPullCreateData = {
+export type OpenstackSnapshotsPullData = {
     body: OpenStackSnapshotRequest;
     path: {
         uuid: string;
@@ -25854,11 +25303,11 @@ export type OpenstackSnapshotsPullCreateData = {
     url: '/api/openstack-snapshots/{uuid}/pull/';
 };
 
-export type OpenstackSnapshotsPullCreateResponses = {
+export type OpenstackSnapshotsPullResponses = {
     200: OpenStackSnapshot;
 };
 
-export type OpenstackSnapshotsPullCreateResponse = OpenstackSnapshotsPullCreateResponses[keyof OpenstackSnapshotsPullCreateResponses];
+export type OpenstackSnapshotsPullResponse = OpenstackSnapshotsPullResponses[keyof OpenstackSnapshotsPullResponses];
 
 export type OpenstackSnapshotsRestorationsRetrieveData = {
     body?: never;
@@ -25875,7 +25324,7 @@ export type OpenstackSnapshotsRestorationsRetrieveResponses = {
 
 export type OpenstackSnapshotsRestorationsRetrieveResponse = OpenstackSnapshotsRestorationsRetrieveResponses[keyof OpenstackSnapshotsRestorationsRetrieveResponses];
 
-export type OpenstackSnapshotsRestoreCreateData = {
+export type OpenstackSnapshotsRestoreData = {
     body: OpenStackSnapshotRestorationRequest;
     path: {
         uuid: string;
@@ -25884,13 +25333,13 @@ export type OpenstackSnapshotsRestoreCreateData = {
     url: '/api/openstack-snapshots/{uuid}/restore/';
 };
 
-export type OpenstackSnapshotsRestoreCreateResponses = {
+export type OpenstackSnapshotsRestoreResponses = {
     200: OpenStackSnapshotRestoration;
 };
 
-export type OpenstackSnapshotsRestoreCreateResponse = OpenstackSnapshotsRestoreCreateResponses[keyof OpenstackSnapshotsRestoreCreateResponses];
+export type OpenstackSnapshotsRestoreResponse = OpenstackSnapshotsRestoreResponses[keyof OpenstackSnapshotsRestoreResponses];
 
-export type OpenstackSnapshotsUnlinkCreateData = {
+export type OpenstackSnapshotsUnlinkData = {
     body: OpenStackSnapshotRequest;
     path: {
         uuid: string;
@@ -25899,11 +25348,11 @@ export type OpenstackSnapshotsUnlinkCreateData = {
     url: '/api/openstack-snapshots/{uuid}/unlink/';
 };
 
-export type OpenstackSnapshotsUnlinkCreateResponses = {
+export type OpenstackSnapshotsUnlinkResponses = {
     200: OpenStackSnapshot;
 };
 
-export type OpenstackSnapshotsUnlinkCreateResponse = OpenstackSnapshotsUnlinkCreateResponses[keyof OpenstackSnapshotsUnlinkCreateResponses];
+export type OpenstackSnapshotsUnlinkResponse = OpenstackSnapshotsUnlinkResponses[keyof OpenstackSnapshotsUnlinkResponses];
 
 export type OpenstackSubnetsListData = {
     body?: never;
@@ -26036,7 +25485,7 @@ export type OpenstackSubnetsUpdateResponses = {
 
 export type OpenstackSubnetsUpdateResponse = OpenstackSubnetsUpdateResponses[keyof OpenstackSubnetsUpdateResponses];
 
-export type OpenstackSubnetsConnectCreateData = {
+export type OpenstackSubnetsConnectData = {
     body?: never;
     path: {
         uuid: string;
@@ -26045,14 +25494,14 @@ export type OpenstackSubnetsConnectCreateData = {
     url: '/api/openstack-subnets/{uuid}/connect/';
 };
 
-export type OpenstackSubnetsConnectCreateResponses = {
+export type OpenstackSubnetsConnectResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type OpenstackSubnetsDisconnectCreateData = {
+export type OpenstackSubnetsDisconnectData = {
     body?: never;
     path: {
         uuid: string;
@@ -26061,14 +25510,14 @@ export type OpenstackSubnetsDisconnectCreateData = {
     url: '/api/openstack-subnets/{uuid}/disconnect/';
 };
 
-export type OpenstackSubnetsDisconnectCreateResponses = {
+export type OpenstackSubnetsDisconnectResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type OpenstackSubnetsPullCreateData = {
+export type OpenstackSubnetsPullData = {
     body: OpenStackSubNetRequest;
     path: {
         uuid: string;
@@ -26077,13 +25526,13 @@ export type OpenstackSubnetsPullCreateData = {
     url: '/api/openstack-subnets/{uuid}/pull/';
 };
 
-export type OpenstackSubnetsPullCreateResponses = {
+export type OpenstackSubnetsPullResponses = {
     200: OpenStackSubNet;
 };
 
-export type OpenstackSubnetsPullCreateResponse = OpenstackSubnetsPullCreateResponses[keyof OpenstackSubnetsPullCreateResponses];
+export type OpenstackSubnetsPullResponse = OpenstackSubnetsPullResponses[keyof OpenstackSubnetsPullResponses];
 
-export type OpenstackSubnetsUnlinkCreateData = {
+export type OpenstackSubnetsUnlinkData = {
     body: OpenStackSubNetRequest;
     path: {
         uuid: string;
@@ -26092,11 +25541,11 @@ export type OpenstackSubnetsUnlinkCreateData = {
     url: '/api/openstack-subnets/{uuid}/unlink/';
 };
 
-export type OpenstackSubnetsUnlinkCreateResponses = {
+export type OpenstackSubnetsUnlinkResponses = {
     200: OpenStackSubNet;
 };
 
-export type OpenstackSubnetsUnlinkCreateResponse = OpenstackSubnetsUnlinkCreateResponses[keyof OpenstackSubnetsUnlinkCreateResponses];
+export type OpenstackSubnetsUnlinkResponse = OpenstackSubnetsUnlinkResponses[keyof OpenstackSubnetsUnlinkResponses];
 
 export type OpenstackTenantsListData = {
     body?: never;
@@ -26253,7 +25702,7 @@ export type OpenstackTenantsBackendVolumesRetrieveResponses = {
 
 export type OpenstackTenantsBackendVolumesRetrieveResponse = OpenstackTenantsBackendVolumesRetrieveResponses[keyof OpenstackTenantsBackendVolumesRetrieveResponses];
 
-export type OpenstackTenantsChangePasswordCreateData = {
+export type OpenstackTenantsChangePasswordData = {
     body: OpenStackTenantChangePasswordRequest;
     path: {
         uuid: string;
@@ -26262,13 +25711,13 @@ export type OpenstackTenantsChangePasswordCreateData = {
     url: '/api/openstack-tenants/{uuid}/change_password/';
 };
 
-export type OpenstackTenantsChangePasswordCreateResponses = {
+export type OpenstackTenantsChangePasswordResponses = {
     200: OpenStackTenantChangePassword;
 };
 
-export type OpenstackTenantsChangePasswordCreateResponse = OpenstackTenantsChangePasswordCreateResponses[keyof OpenstackTenantsChangePasswordCreateResponses];
+export type OpenstackTenantsChangePasswordResponse = OpenstackTenantsChangePasswordResponses[keyof OpenstackTenantsChangePasswordResponses];
 
-export type OpenstackTenantsCreateFloatingIpCreateData = {
+export type OpenstackTenantsCreateFloatingIpData = {
     body?: never;
     path: {
         uuid: string;
@@ -26277,13 +25726,13 @@ export type OpenstackTenantsCreateFloatingIpCreateData = {
     url: '/api/openstack-tenants/{uuid}/create_floating_ip/';
 };
 
-export type OpenstackTenantsCreateFloatingIpCreateResponses = {
+export type OpenstackTenantsCreateFloatingIpResponses = {
     200: OpenStackFloatingIp;
 };
 
-export type OpenstackTenantsCreateFloatingIpCreateResponse = OpenstackTenantsCreateFloatingIpCreateResponses[keyof OpenstackTenantsCreateFloatingIpCreateResponses];
+export type OpenstackTenantsCreateFloatingIpResponse = OpenstackTenantsCreateFloatingIpResponses[keyof OpenstackTenantsCreateFloatingIpResponses];
 
-export type OpenstackTenantsCreateNetworkCreateData = {
+export type OpenstackTenantsCreateNetworkData = {
     body: OpenStackNetworkRequest;
     path: {
         uuid: string;
@@ -26292,13 +25741,13 @@ export type OpenstackTenantsCreateNetworkCreateData = {
     url: '/api/openstack-tenants/{uuid}/create_network/';
 };
 
-export type OpenstackTenantsCreateNetworkCreateResponses = {
+export type OpenstackTenantsCreateNetworkResponses = {
     200: OpenStackNetwork;
 };
 
-export type OpenstackTenantsCreateNetworkCreateResponse = OpenstackTenantsCreateNetworkCreateResponses[keyof OpenstackTenantsCreateNetworkCreateResponses];
+export type OpenstackTenantsCreateNetworkResponse = OpenstackTenantsCreateNetworkResponses[keyof OpenstackTenantsCreateNetworkResponses];
 
-export type OpenstackTenantsCreateSecurityGroupCreateData = {
+export type OpenstackTenantsCreateSecurityGroupData = {
     body: OpenStackSecurityGroupRequest;
     path: {
         uuid: string;
@@ -26307,13 +25756,13 @@ export type OpenstackTenantsCreateSecurityGroupCreateData = {
     url: '/api/openstack-tenants/{uuid}/create_security_group/';
 };
 
-export type OpenstackTenantsCreateSecurityGroupCreateResponses = {
+export type OpenstackTenantsCreateSecurityGroupResponses = {
     200: OpenStackSecurityGroup;
 };
 
-export type OpenstackTenantsCreateSecurityGroupCreateResponse = OpenstackTenantsCreateSecurityGroupCreateResponses[keyof OpenstackTenantsCreateSecurityGroupCreateResponses];
+export type OpenstackTenantsCreateSecurityGroupResponse = OpenstackTenantsCreateSecurityGroupResponses[keyof OpenstackTenantsCreateSecurityGroupResponses];
 
-export type OpenstackTenantsCreateServerGroupCreateData = {
+export type OpenstackTenantsCreateServerGroupData = {
     body: OpenStackCreateServerGroupRequest;
     path: {
         uuid: string;
@@ -26322,13 +25771,13 @@ export type OpenstackTenantsCreateServerGroupCreateData = {
     url: '/api/openstack-tenants/{uuid}/create_server_group/';
 };
 
-export type OpenstackTenantsCreateServerGroupCreateResponses = {
+export type OpenstackTenantsCreateServerGroupResponses = {
     200: OpenStackCreateServerGroup;
 };
 
-export type OpenstackTenantsCreateServerGroupCreateResponse = OpenstackTenantsCreateServerGroupCreateResponses[keyof OpenstackTenantsCreateServerGroupCreateResponses];
+export type OpenstackTenantsCreateServerGroupResponse = OpenstackTenantsCreateServerGroupResponses[keyof OpenstackTenantsCreateServerGroupResponses];
 
-export type OpenstackTenantsPullCreateData = {
+export type OpenstackTenantsPullData = {
     body: OpenStackTenantRequest;
     path: {
         uuid: string;
@@ -26337,13 +25786,13 @@ export type OpenstackTenantsPullCreateData = {
     url: '/api/openstack-tenants/{uuid}/pull/';
 };
 
-export type OpenstackTenantsPullCreateResponses = {
+export type OpenstackTenantsPullResponses = {
     200: OpenStackTenant;
 };
 
-export type OpenstackTenantsPullCreateResponse = OpenstackTenantsPullCreateResponses[keyof OpenstackTenantsPullCreateResponses];
+export type OpenstackTenantsPullResponse = OpenstackTenantsPullResponses[keyof OpenstackTenantsPullResponses];
 
-export type OpenstackTenantsPullFloatingIpsCreateData = {
+export type OpenstackTenantsPullFloatingIpsData = {
     body?: never;
     path: {
         uuid: string;
@@ -26352,14 +25801,14 @@ export type OpenstackTenantsPullFloatingIpsCreateData = {
     url: '/api/openstack-tenants/{uuid}/pull_floating_ips/';
 };
 
-export type OpenstackTenantsPullFloatingIpsCreateResponses = {
+export type OpenstackTenantsPullFloatingIpsResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type OpenstackTenantsPullQuotasCreateData = {
+export type OpenstackTenantsPullQuotasData = {
     body: OpenStackTenantRequest;
     path: {
         uuid: string;
@@ -26368,13 +25817,13 @@ export type OpenstackTenantsPullQuotasCreateData = {
     url: '/api/openstack-tenants/{uuid}/pull_quotas/';
 };
 
-export type OpenstackTenantsPullQuotasCreateResponses = {
+export type OpenstackTenantsPullQuotasResponses = {
     200: OpenStackTenant;
 };
 
-export type OpenstackTenantsPullQuotasCreateResponse = OpenstackTenantsPullQuotasCreateResponses[keyof OpenstackTenantsPullQuotasCreateResponses];
+export type OpenstackTenantsPullQuotasResponse = OpenstackTenantsPullQuotasResponses[keyof OpenstackTenantsPullQuotasResponses];
 
-export type OpenstackTenantsPullSecurityGroupsCreateData = {
+export type OpenstackTenantsPullSecurityGroupsData = {
     body: OpenStackTenantRequest;
     path: {
         uuid: string;
@@ -26383,13 +25832,13 @@ export type OpenstackTenantsPullSecurityGroupsCreateData = {
     url: '/api/openstack-tenants/{uuid}/pull_security_groups/';
 };
 
-export type OpenstackTenantsPullSecurityGroupsCreateResponses = {
+export type OpenstackTenantsPullSecurityGroupsResponses = {
     200: OpenStackTenant;
 };
 
-export type OpenstackTenantsPullSecurityGroupsCreateResponse = OpenstackTenantsPullSecurityGroupsCreateResponses[keyof OpenstackTenantsPullSecurityGroupsCreateResponses];
+export type OpenstackTenantsPullSecurityGroupsResponse = OpenstackTenantsPullSecurityGroupsResponses[keyof OpenstackTenantsPullSecurityGroupsResponses];
 
-export type OpenstackTenantsPullServerGroupsCreateData = {
+export type OpenstackTenantsPullServerGroupsData = {
     body: OpenStackTenantRequest;
     path: {
         uuid: string;
@@ -26398,13 +25847,13 @@ export type OpenstackTenantsPullServerGroupsCreateData = {
     url: '/api/openstack-tenants/{uuid}/pull_server_groups/';
 };
 
-export type OpenstackTenantsPullServerGroupsCreateResponses = {
+export type OpenstackTenantsPullServerGroupsResponses = {
     200: OpenStackTenant;
 };
 
-export type OpenstackTenantsPullServerGroupsCreateResponse = OpenstackTenantsPullServerGroupsCreateResponses[keyof OpenstackTenantsPullServerGroupsCreateResponses];
+export type OpenstackTenantsPullServerGroupsResponse = OpenstackTenantsPullServerGroupsResponses[keyof OpenstackTenantsPullServerGroupsResponses];
 
-export type OpenstackTenantsSetQuotasCreateData = {
+export type OpenstackTenantsSetQuotasData = {
     body?: OpenStackTenantQuotaRequest;
     path: {
         uuid: string;
@@ -26413,13 +25862,13 @@ export type OpenstackTenantsSetQuotasCreateData = {
     url: '/api/openstack-tenants/{uuid}/set_quotas/';
 };
 
-export type OpenstackTenantsSetQuotasCreateResponses = {
+export type OpenstackTenantsSetQuotasResponses = {
     200: OpenStackTenantQuota;
 };
 
-export type OpenstackTenantsSetQuotasCreateResponse = OpenstackTenantsSetQuotasCreateResponses[keyof OpenstackTenantsSetQuotasCreateResponses];
+export type OpenstackTenantsSetQuotasResponse = OpenstackTenantsSetQuotasResponses[keyof OpenstackTenantsSetQuotasResponses];
 
-export type OpenstackTenantsUnlinkCreateData = {
+export type OpenstackTenantsUnlinkData = {
     body: OpenStackTenantRequest;
     path: {
         uuid: string;
@@ -26428,11 +25877,11 @@ export type OpenstackTenantsUnlinkCreateData = {
     url: '/api/openstack-tenants/{uuid}/unlink/';
 };
 
-export type OpenstackTenantsUnlinkCreateResponses = {
+export type OpenstackTenantsUnlinkResponses = {
     200: OpenStackTenant;
 };
 
-export type OpenstackTenantsUnlinkCreateResponse = OpenstackTenantsUnlinkCreateResponses[keyof OpenstackTenantsUnlinkCreateResponses];
+export type OpenstackTenantsUnlinkResponse = OpenstackTenantsUnlinkResponses[keyof OpenstackTenantsUnlinkResponses];
 
 export type OpenstackVolumeAvailabilityZonesListData = {
     body?: never;
@@ -26654,7 +26103,7 @@ export type OpenstackVolumesUpdateResponses = {
 
 export type OpenstackVolumesUpdateResponse = OpenstackVolumesUpdateResponses[keyof OpenstackVolumesUpdateResponses];
 
-export type OpenstackVolumesAttachCreateData = {
+export type OpenstackVolumesAttachData = {
     body: VolumeAttachRequest;
     path: {
         uuid: string;
@@ -26663,28 +26112,13 @@ export type OpenstackVolumesAttachCreateData = {
     url: '/api/openstack-volumes/{uuid}/attach/';
 };
 
-export type OpenstackVolumesAttachCreateResponses = {
+export type OpenstackVolumesAttachResponses = {
     200: VolumeAttach;
 };
 
-export type OpenstackVolumesAttachCreateResponse = OpenstackVolumesAttachCreateResponses[keyof OpenstackVolumesAttachCreateResponses];
+export type OpenstackVolumesAttachResponse = OpenstackVolumesAttachResponses[keyof OpenstackVolumesAttachResponses];
 
-export type OpenstackVolumesCreateSnapshotScheduleCreateData = {
-    body: OpenStackSnapshotScheduleRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-volumes/{uuid}/create_snapshot_schedule/';
-};
-
-export type OpenstackVolumesCreateSnapshotScheduleCreateResponses = {
-    200: OpenStackSnapshotSchedule;
-};
-
-export type OpenstackVolumesCreateSnapshotScheduleCreateResponse = OpenstackVolumesCreateSnapshotScheduleCreateResponses[keyof OpenstackVolumesCreateSnapshotScheduleCreateResponses];
-
-export type OpenstackVolumesDetachCreateData = {
+export type OpenstackVolumesDetachData = {
     body: OpenStackVolumeRequest;
     path: {
         uuid: string;
@@ -26693,13 +26127,13 @@ export type OpenstackVolumesDetachCreateData = {
     url: '/api/openstack-volumes/{uuid}/detach/';
 };
 
-export type OpenstackVolumesDetachCreateResponses = {
+export type OpenstackVolumesDetachResponses = {
     200: OpenStackVolume;
 };
 
-export type OpenstackVolumesDetachCreateResponse = OpenstackVolumesDetachCreateResponses[keyof OpenstackVolumesDetachCreateResponses];
+export type OpenstackVolumesDetachResponse = OpenstackVolumesDetachResponses[keyof OpenstackVolumesDetachResponses];
 
-export type OpenstackVolumesExtendCreateData = {
+export type OpenstackVolumesExtendData = {
     body: OpenStackVolumeExtendRequest;
     path: {
         uuid: string;
@@ -26708,13 +26142,13 @@ export type OpenstackVolumesExtendCreateData = {
     url: '/api/openstack-volumes/{uuid}/extend/';
 };
 
-export type OpenstackVolumesExtendCreateResponses = {
+export type OpenstackVolumesExtendResponses = {
     200: OpenStackVolumeExtend;
 };
 
-export type OpenstackVolumesExtendCreateResponse = OpenstackVolumesExtendCreateResponses[keyof OpenstackVolumesExtendCreateResponses];
+export type OpenstackVolumesExtendResponse = OpenstackVolumesExtendResponses[keyof OpenstackVolumesExtendResponses];
 
-export type OpenstackVolumesPullCreateData = {
+export type OpenstackVolumesPullData = {
     body: OpenStackVolumeRequest;
     path: {
         uuid: string;
@@ -26723,13 +26157,13 @@ export type OpenstackVolumesPullCreateData = {
     url: '/api/openstack-volumes/{uuid}/pull/';
 };
 
-export type OpenstackVolumesPullCreateResponses = {
+export type OpenstackVolumesPullResponses = {
     200: OpenStackVolume;
 };
 
-export type OpenstackVolumesPullCreateResponse = OpenstackVolumesPullCreateResponses[keyof OpenstackVolumesPullCreateResponses];
+export type OpenstackVolumesPullResponse = OpenstackVolumesPullResponses[keyof OpenstackVolumesPullResponses];
 
-export type OpenstackVolumesRetypeCreateData = {
+export type OpenstackVolumesRetypeData = {
     body: OpenStackVolumeRetypeRequest;
     path: {
         uuid: string;
@@ -26738,13 +26172,13 @@ export type OpenstackVolumesRetypeCreateData = {
     url: '/api/openstack-volumes/{uuid}/retype/';
 };
 
-export type OpenstackVolumesRetypeCreateResponses = {
+export type OpenstackVolumesRetypeResponses = {
     200: OpenStackVolumeRetype;
 };
 
-export type OpenstackVolumesRetypeCreateResponse = OpenstackVolumesRetypeCreateResponses[keyof OpenstackVolumesRetypeCreateResponses];
+export type OpenstackVolumesRetypeResponse = OpenstackVolumesRetypeResponses[keyof OpenstackVolumesRetypeResponses];
 
-export type OpenstackVolumesSnapshotCreateData = {
+export type OpenstackVolumesSnapshotData = {
     body: OpenStackSnapshotRequest;
     path: {
         uuid: string;
@@ -26753,13 +26187,13 @@ export type OpenstackVolumesSnapshotCreateData = {
     url: '/api/openstack-volumes/{uuid}/snapshot/';
 };
 
-export type OpenstackVolumesSnapshotCreateResponses = {
+export type OpenstackVolumesSnapshotResponses = {
     200: OpenStackSnapshot;
 };
 
-export type OpenstackVolumesSnapshotCreateResponse = OpenstackVolumesSnapshotCreateResponses[keyof OpenstackVolumesSnapshotCreateResponses];
+export type OpenstackVolumesSnapshotResponse = OpenstackVolumesSnapshotResponses[keyof OpenstackVolumesSnapshotResponses];
 
-export type OpenstackVolumesUnlinkCreateData = {
+export type OpenstackVolumesUnlinkData = {
     body: OpenStackVolumeRequest;
     path: {
         uuid: string;
@@ -26768,11 +26202,11 @@ export type OpenstackVolumesUnlinkCreateData = {
     url: '/api/openstack-volumes/{uuid}/unlink/';
 };
 
-export type OpenstackVolumesUnlinkCreateResponses = {
+export type OpenstackVolumesUnlinkResponses = {
     200: OpenStackVolume;
 };
 
-export type OpenstackVolumesUnlinkCreateResponse = OpenstackVolumesUnlinkCreateResponses[keyof OpenstackVolumesUnlinkCreateResponses];
+export type OpenstackVolumesUnlinkResponse = OpenstackVolumesUnlinkResponses[keyof OpenstackVolumesUnlinkResponses];
 
 export type OrganizationGroupsListData = {
     body?: never;
@@ -27025,7 +26459,7 @@ export type PaymentProfilesUpdateResponses = {
 
 export type PaymentProfilesUpdateResponse = PaymentProfilesUpdateResponses[keyof PaymentProfilesUpdateResponses];
 
-export type PaymentProfilesEnableCreateData = {
+export type PaymentProfilesEnableData = {
     body: PaymentProfileRequest;
     path: {
         uuid: string;
@@ -27034,11 +26468,11 @@ export type PaymentProfilesEnableCreateData = {
     url: '/api/payment-profiles/{uuid}/enable/';
 };
 
-export type PaymentProfilesEnableCreateResponses = {
+export type PaymentProfilesEnableResponses = {
     200: PaymentProfile;
 };
 
-export type PaymentProfilesEnableCreateResponse = PaymentProfilesEnableCreateResponses[keyof PaymentProfilesEnableCreateResponses];
+export type PaymentProfilesEnableResponse = PaymentProfilesEnableResponses[keyof PaymentProfilesEnableResponses];
 
 export type PaymentsListData = {
     body?: never;
@@ -27141,7 +26575,7 @@ export type PaymentsUpdateResponses = {
 
 export type PaymentsUpdateResponse = PaymentsUpdateResponses[keyof PaymentsUpdateResponses];
 
-export type PaymentsLinkToInvoiceCreateData = {
+export type PaymentsLinkToInvoiceData = {
     body: LinkToInvoiceRequest;
     path: {
         uuid: string;
@@ -27150,13 +26584,13 @@ export type PaymentsLinkToInvoiceCreateData = {
     url: '/api/payments/{uuid}/link_to_invoice/';
 };
 
-export type PaymentsLinkToInvoiceCreateResponses = {
+export type PaymentsLinkToInvoiceResponses = {
     200: LinkToInvoice;
 };
 
-export type PaymentsLinkToInvoiceCreateResponse = PaymentsLinkToInvoiceCreateResponses[keyof PaymentsLinkToInvoiceCreateResponses];
+export type PaymentsLinkToInvoiceResponse = PaymentsLinkToInvoiceResponses[keyof PaymentsLinkToInvoiceResponses];
 
-export type PaymentsUnlinkFromInvoiceCreateData = {
+export type PaymentsUnlinkFromInvoiceData = {
     body: PaymentRequest;
     path: {
         uuid: string;
@@ -27165,11 +26599,11 @@ export type PaymentsUnlinkFromInvoiceCreateData = {
     url: '/api/payments/{uuid}/unlink_from_invoice/';
 };
 
-export type PaymentsUnlinkFromInvoiceCreateResponses = {
+export type PaymentsUnlinkFromInvoiceResponses = {
     200: Payment;
 };
 
-export type PaymentsUnlinkFromInvoiceCreateResponse = PaymentsUnlinkFromInvoiceCreateResponses[keyof PaymentsUnlinkFromInvoiceCreateResponses];
+export type PaymentsUnlinkFromInvoiceResponse = PaymentsUnlinkFromInvoiceResponses[keyof PaymentsUnlinkFromInvoiceResponses];
 
 export type ProjectCreditsListData = {
     body?: never;
@@ -27504,7 +26938,7 @@ export type ProjectsUpdateResponses = {
 
 export type ProjectsUpdateResponse = ProjectsUpdateResponses[keyof ProjectsUpdateResponses];
 
-export type ProjectsAddUserCreateData = {
+export type ProjectsAddUserData = {
     body: UserRoleCreateRequest;
     path: {
         uuid: string;
@@ -27513,14 +26947,14 @@ export type ProjectsAddUserCreateData = {
     url: '/api/projects/{uuid}/add_user/';
 };
 
-export type ProjectsAddUserCreateResponses = {
+export type ProjectsAddUserResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type ProjectsDeleteUserCreateData = {
+export type ProjectsDeleteUserData = {
     body: UserRoleDeleteRequest;
     path: {
         uuid: string;
@@ -27529,7 +26963,7 @@ export type ProjectsDeleteUserCreateData = {
     url: '/api/projects/{uuid}/delete_user/';
 };
 
-export type ProjectsDeleteUserCreateResponses = {
+export type ProjectsDeleteUserResponses = {
     /**
      * No response body
      */
@@ -27597,7 +27031,7 @@ export type ProjectsListUsersListResponses = {
 
 export type ProjectsListUsersListResponse = ProjectsListUsersListResponses[keyof ProjectsListUsersListResponses];
 
-export type MoveProjectData = {
+export type ProjectsMoveProjectData = {
     body?: never;
     path: {
         uuid: string;
@@ -27606,11 +27040,11 @@ export type MoveProjectData = {
     url: '/api/projects/{uuid}/move_project/';
 };
 
-export type MoveProjectResponses = {
+export type ProjectsMoveProjectResponses = {
     200: Project;
 };
 
-export type MoveProjectResponse = MoveProjectResponses[keyof MoveProjectResponses];
+export type ProjectsMoveProjectResponse = ProjectsMoveProjectResponses[keyof ProjectsMoveProjectResponses];
 
 export type ProjectsStatsRetrieveData = {
     body?: never;
@@ -27627,7 +27061,7 @@ export type ProjectsStatsRetrieveResponses = {
 
 export type ProjectsStatsRetrieveResponse = ProjectsStatsRetrieveResponses[keyof ProjectsStatsRetrieveResponses];
 
-export type ProjectsUpdateUserCreateData = {
+export type ProjectsUpdateUserData = {
     body: UserRoleUpdateRequest;
     path: {
         uuid: string;
@@ -27636,7 +27070,7 @@ export type ProjectsUpdateUserCreateData = {
     url: '/api/projects/{uuid}/update_user/';
 };
 
-export type ProjectsUpdateUserCreateResponses = {
+export type ProjectsUpdateUserResponses = {
     /**
      * No response body
      */
@@ -27766,7 +27200,7 @@ export type PromotionsCampaignsUpdateResponses = {
 
 export type PromotionsCampaignsUpdateResponse = PromotionsCampaignsUpdateResponses[keyof PromotionsCampaignsUpdateResponses];
 
-export type PromotionsCampaignsActivateCreateData = {
+export type PromotionsCampaignsActivateData = {
     body: CampaignRequest;
     path: {
         uuid: string;
@@ -27775,11 +27209,11 @@ export type PromotionsCampaignsActivateCreateData = {
     url: '/api/promotions-campaigns/{uuid}/activate/';
 };
 
-export type PromotionsCampaignsActivateCreateResponses = {
+export type PromotionsCampaignsActivateResponses = {
     200: Campaign;
 };
 
-export type PromotionsCampaignsActivateCreateResponse = PromotionsCampaignsActivateCreateResponses[keyof PromotionsCampaignsActivateCreateResponses];
+export type PromotionsCampaignsActivateResponse = PromotionsCampaignsActivateResponses[keyof PromotionsCampaignsActivateResponses];
 
 export type PromotionsCampaignsOrdersRetrieveData = {
     body?: never;
@@ -27811,7 +27245,7 @@ export type PromotionsCampaignsResourcesRetrieveResponses = {
 
 export type PromotionsCampaignsResourcesRetrieveResponse = PromotionsCampaignsResourcesRetrieveResponses[keyof PromotionsCampaignsResourcesRetrieveResponses];
 
-export type PromotionsCampaignsTerminateCreateData = {
+export type PromotionsCampaignsTerminateData = {
     body: CampaignRequest;
     path: {
         uuid: string;
@@ -27820,16 +27254,34 @@ export type PromotionsCampaignsTerminateCreateData = {
     url: '/api/promotions-campaigns/{uuid}/terminate/';
 };
 
-export type PromotionsCampaignsTerminateCreateResponses = {
+export type PromotionsCampaignsTerminateResponses = {
     200: Campaign;
 };
 
-export type PromotionsCampaignsTerminateCreateResponse = PromotionsCampaignsTerminateCreateResponses[keyof PromotionsCampaignsTerminateCreateResponses];
+export type PromotionsCampaignsTerminateResponse = PromotionsCampaignsTerminateResponses[keyof PromotionsCampaignsTerminateResponses];
 
 export type ProposalProposalsListData = {
     body?: never;
     path?: never;
     query?: {
+        call_uuid?: string;
+        name?: string;
+        /**
+         * Ordering
+         *
+         * * `round__call__name` - Round  call  name
+         * * `-round__call__name` - Round  call  name (descending)
+         * * `round__start_time` - Round  start time
+         * * `-round__start_time` - Round  start time (descending)
+         * * `round__cutoff_time` - Round  cutoff time
+         * * `-round__cutoff_time` - Round  cutoff time (descending)
+         * * `state` - State
+         * * `-state` - State (descending)
+         * * `created` - Created
+         * * `-created` - Created (descending)
+         */
+        o?: Array<'-created' | '-round__call__name' | '-round__cutoff_time' | '-round__start_time' | '-state' | 'created' | 'round__call__name' | 'round__cutoff_time' | 'round__start_time' | 'state'>;
+        organization_uuid?: string;
         /**
          * A page number within the paginated result set.
          */
@@ -27838,6 +27290,18 @@ export type ProposalProposalsListData = {
          * Number of results to return per page.
          */
         page_size?: number;
+        round?: string;
+        /**
+         * * `draft` - Draft
+         * * `team_verification` - Team verification
+         * * `submitted` - Submitted
+         * * `in_review` - In review
+         * * `in_revision` - In revision
+         * * `accepted` - Accepted
+         * * `rejected` - Rejected
+         * * `canceled` - Canceled
+         */
+        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted' | 'team_verification'>;
     };
     url: '/api/proposal-proposals/';
 };
@@ -27924,7 +27388,7 @@ export type ProposalProposalsUpdateResponses = {
 
 export type ProposalProposalsUpdateResponse = ProposalProposalsUpdateResponses[keyof ProposalProposalsUpdateResponses];
 
-export type ProposalProposalsAddUserCreateData = {
+export type ProposalProposalsAddUserData = {
     body: UserRoleCreateRequest;
     path: {
         uuid: string;
@@ -27933,14 +27397,14 @@ export type ProposalProposalsAddUserCreateData = {
     url: '/api/proposal-proposals/{uuid}/add_user/';
 };
 
-export type ProposalProposalsAddUserCreateResponses = {
+export type ProposalProposalsAddUserResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type ProposalProposalsAllocateCreateData = {
+export type ProposalProposalsAllocateData = {
     body?: ProposalAllocateRequest;
     path: {
         uuid: string;
@@ -27949,13 +27413,13 @@ export type ProposalProposalsAllocateCreateData = {
     url: '/api/proposal-proposals/{uuid}/allocate/';
 };
 
-export type ProposalProposalsAllocateCreateResponses = {
+export type ProposalProposalsAllocateResponses = {
     200: ProposalAllocate;
 };
 
-export type ProposalProposalsAllocateCreateResponse = ProposalProposalsAllocateCreateResponses[keyof ProposalProposalsAllocateCreateResponses];
+export type ProposalProposalsAllocateResponse = ProposalProposalsAllocateResponses[keyof ProposalProposalsAllocateResponses];
 
-export type ProposalProposalsAttachDocumentCreateData = {
+export type ProposalProposalsAttachDocumentData = {
     body?: ProposalDocumentationRequest;
     path: {
         uuid: string;
@@ -27964,13 +27428,13 @@ export type ProposalProposalsAttachDocumentCreateData = {
     url: '/api/proposal-proposals/{uuid}/attach_document/';
 };
 
-export type ProposalProposalsAttachDocumentCreateResponses = {
+export type ProposalProposalsAttachDocumentResponses = {
     200: ProposalDocumentation;
 };
 
-export type ProposalProposalsAttachDocumentCreateResponse = ProposalProposalsAttachDocumentCreateResponses[keyof ProposalProposalsAttachDocumentCreateResponses];
+export type ProposalProposalsAttachDocumentResponse = ProposalProposalsAttachDocumentResponses[keyof ProposalProposalsAttachDocumentResponses];
 
-export type ProposalProposalsDeleteUserCreateData = {
+export type ProposalProposalsDeleteUserData = {
     body: UserRoleDeleteRequest;
     path: {
         uuid: string;
@@ -27979,14 +27443,14 @@ export type ProposalProposalsDeleteUserCreateData = {
     url: '/api/proposal-proposals/{uuid}/delete_user/';
 };
 
-export type ProposalProposalsDeleteUserCreateResponses = {
+export type ProposalProposalsDeleteUserResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type ProposalProposalsForceApproveCreateData = {
+export type ProposalProposalsForceApproveData = {
     body?: ProposalAllocateRequest;
     path: {
         uuid: string;
@@ -27995,11 +27459,11 @@ export type ProposalProposalsForceApproveCreateData = {
     url: '/api/proposal-proposals/{uuid}/force_approve/';
 };
 
-export type ProposalProposalsForceApproveCreateResponses = {
+export type ProposalProposalsForceApproveResponses = {
     200: ProposalAllocate;
 };
 
-export type ProposalProposalsForceApproveCreateResponse = ProposalProposalsForceApproveCreateResponses[keyof ProposalProposalsForceApproveCreateResponses];
+export type ProposalProposalsForceApproveResponse = ProposalProposalsForceApproveResponses[keyof ProposalProposalsForceApproveResponses];
 
 export type ProposalProposalsListUsersListData = {
     body?: never;
@@ -28007,6 +27471,24 @@ export type ProposalProposalsListUsersListData = {
         uuid: string;
     };
     query?: {
+        call_uuid?: string;
+        name?: string;
+        /**
+         * Ordering
+         *
+         * * `round__call__name` - Round  call  name
+         * * `-round__call__name` - Round  call  name (descending)
+         * * `round__start_time` - Round  start time
+         * * `-round__start_time` - Round  start time (descending)
+         * * `round__cutoff_time` - Round  cutoff time
+         * * `-round__cutoff_time` - Round  cutoff time (descending)
+         * * `state` - State
+         * * `-state` - State (descending)
+         * * `created` - Created
+         * * `-created` - Created (descending)
+         */
+        o?: Array<'-created' | '-round__call__name' | '-round__cutoff_time' | '-round__start_time' | '-state' | 'created' | 'round__call__name' | 'round__cutoff_time' | 'round__start_time' | 'state'>;
+        organization_uuid?: string;
         /**
          * A page number within the paginated result set.
          */
@@ -28016,7 +27498,19 @@ export type ProposalProposalsListUsersListData = {
          */
         page_size?: number;
         role?: string;
+        round?: string;
         search_string?: string;
+        /**
+         * * `draft` - Draft
+         * * `team_verification` - Team verification
+         * * `submitted` - Submitted
+         * * `in_review` - In review
+         * * `in_revision` - In revision
+         * * `accepted` - Accepted
+         * * `rejected` - Rejected
+         * * `canceled` - Canceled
+         */
+        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted' | 'team_verification'>;
         user?: string;
     };
     url: '/api/proposal-proposals/{uuid}/list_users/';
@@ -28028,7 +27522,7 @@ export type ProposalProposalsListUsersListResponses = {
 
 export type ProposalProposalsListUsersListResponse = ProposalProposalsListUsersListResponses[keyof ProposalProposalsListUsersListResponses];
 
-export type ProposalProposalsRejectCreateData = {
+export type ProposalProposalsRejectData = {
     body?: ProposalAllocateRequest;
     path: {
         uuid: string;
@@ -28037,11 +27531,11 @@ export type ProposalProposalsRejectCreateData = {
     url: '/api/proposal-proposals/{uuid}/reject/';
 };
 
-export type ProposalProposalsRejectCreateResponses = {
+export type ProposalProposalsRejectResponses = {
     200: ProposalAllocate;
 };
 
-export type ProposalProposalsRejectCreateResponse = ProposalProposalsRejectCreateResponses[keyof ProposalProposalsRejectCreateResponses];
+export type ProposalProposalsRejectResponse = ProposalProposalsRejectResponses[keyof ProposalProposalsRejectResponses];
 
 export type ProposalProposalsResourcesRetrieveData = {
     body?: never;
@@ -28058,7 +27552,7 @@ export type ProposalProposalsResourcesRetrieveResponses = {
 
 export type ProposalProposalsResourcesRetrieveResponse = ProposalProposalsResourcesRetrieveResponses[keyof ProposalProposalsResourcesRetrieveResponses];
 
-export type ProposalProposalsResourcesCreateData = {
+export type ProposalProposalsResourcesData = {
     body: RequestedResourceRequest;
     path: {
         uuid: string;
@@ -28067,11 +27561,11 @@ export type ProposalProposalsResourcesCreateData = {
     url: '/api/proposal-proposals/{uuid}/resources/';
 };
 
-export type ProposalProposalsResourcesCreateResponses = {
+export type ProposalProposalsResourcesResponses = {
     200: RequestedResource;
 };
 
-export type ProposalProposalsResourcesCreateResponse = ProposalProposalsResourcesCreateResponses[keyof ProposalProposalsResourcesCreateResponses];
+export type ProposalProposalsResourcesResponse = ProposalProposalsResourcesResponses[keyof ProposalProposalsResourcesResponses];
 
 export type ProposalProposalsResourcesDestroyData = {
     body?: never;
@@ -28140,7 +27634,7 @@ export type ProposalProposalsResourcesUpdateResponses = {
 
 export type ProposalProposalsResourcesUpdateResponse = ProposalProposalsResourcesUpdateResponses[keyof ProposalProposalsResourcesUpdateResponses];
 
-export type ProposalProposalsSubmitCreateData = {
+export type ProposalProposalsSubmitData = {
     body: ProposalRequest;
     path: {
         uuid: string;
@@ -28149,13 +27643,13 @@ export type ProposalProposalsSubmitCreateData = {
     url: '/api/proposal-proposals/{uuid}/submit/';
 };
 
-export type ProposalProposalsSubmitCreateResponses = {
+export type ProposalProposalsSubmitResponses = {
     200: Proposal;
 };
 
-export type ProposalProposalsSubmitCreateResponse = ProposalProposalsSubmitCreateResponses[keyof ProposalProposalsSubmitCreateResponses];
+export type ProposalProposalsSubmitResponse = ProposalProposalsSubmitResponses[keyof ProposalProposalsSubmitResponses];
 
-export type ProposalProposalsSwitchToTeamVerificationCreateData = {
+export type ProposalProposalsSwitchToTeamVerificationData = {
     body: ProposalRequest;
     path: {
         uuid: string;
@@ -28164,13 +27658,13 @@ export type ProposalProposalsSwitchToTeamVerificationCreateData = {
     url: '/api/proposal-proposals/{uuid}/switch_to_team_verification/';
 };
 
-export type ProposalProposalsSwitchToTeamVerificationCreateResponses = {
+export type ProposalProposalsSwitchToTeamVerificationResponses = {
     200: Proposal;
 };
 
-export type ProposalProposalsSwitchToTeamVerificationCreateResponse = ProposalProposalsSwitchToTeamVerificationCreateResponses[keyof ProposalProposalsSwitchToTeamVerificationCreateResponses];
+export type ProposalProposalsSwitchToTeamVerificationResponse = ProposalProposalsSwitchToTeamVerificationResponses[keyof ProposalProposalsSwitchToTeamVerificationResponses];
 
-export type ProposalProposalsUpdateProjectDetailsCreateData = {
+export type ProposalProposalsUpdateProjectDetailsData = {
     body: ProposalUpdateProjectDetailsRequest;
     path: {
         uuid: string;
@@ -28179,13 +27673,13 @@ export type ProposalProposalsUpdateProjectDetailsCreateData = {
     url: '/api/proposal-proposals/{uuid}/update_project_details/';
 };
 
-export type ProposalProposalsUpdateProjectDetailsCreateResponses = {
+export type ProposalProposalsUpdateProjectDetailsResponses = {
     200: ProposalUpdateProjectDetails;
 };
 
-export type ProposalProposalsUpdateProjectDetailsCreateResponse = ProposalProposalsUpdateProjectDetailsCreateResponses[keyof ProposalProposalsUpdateProjectDetailsCreateResponses];
+export type ProposalProposalsUpdateProjectDetailsResponse = ProposalProposalsUpdateProjectDetailsResponses[keyof ProposalProposalsUpdateProjectDetailsResponses];
 
-export type ProposalProposalsUpdateUserCreateData = {
+export type ProposalProposalsUpdateUserData = {
     body: UserRoleUpdateRequest;
     path: {
         uuid: string;
@@ -28194,7 +27688,7 @@ export type ProposalProposalsUpdateUserCreateData = {
     url: '/api/proposal-proposals/{uuid}/update_user/';
 };
 
-export type ProposalProposalsUpdateUserCreateResponses = {
+export type ProposalProposalsUpdateUserResponses = {
     /**
      * No response body
      */
@@ -28323,7 +27817,7 @@ export type ProposalProtectedCallsUpdateResponses = {
 
 export type ProposalProtectedCallsUpdateResponse = ProposalProtectedCallsUpdateResponses[keyof ProposalProtectedCallsUpdateResponses];
 
-export type ProposalProtectedCallsActivateCreateData = {
+export type ProposalProtectedCallsActivateData = {
     body: ProtectedCallRequest;
     path: {
         uuid: string;
@@ -28332,13 +27826,13 @@ export type ProposalProtectedCallsActivateCreateData = {
     url: '/api/proposal-protected-calls/{uuid}/activate/';
 };
 
-export type ProposalProtectedCallsActivateCreateResponses = {
+export type ProposalProtectedCallsActivateResponses = {
     200: ProtectedCall;
 };
 
-export type ProposalProtectedCallsActivateCreateResponse = ProposalProtectedCallsActivateCreateResponses[keyof ProposalProtectedCallsActivateCreateResponses];
+export type ProposalProtectedCallsActivateResponse = ProposalProtectedCallsActivateResponses[keyof ProposalProtectedCallsActivateResponses];
 
-export type ProposalProtectedCallsAddUserCreateData = {
+export type ProposalProtectedCallsAddUserData = {
     body: UserRoleCreateRequest;
     path: {
         uuid: string;
@@ -28347,14 +27841,14 @@ export type ProposalProtectedCallsAddUserCreateData = {
     url: '/api/proposal-protected-calls/{uuid}/add_user/';
 };
 
-export type ProposalProtectedCallsAddUserCreateResponses = {
+export type ProposalProtectedCallsAddUserResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type ProposalProtectedCallsArchiveCreateData = {
+export type ProposalProtectedCallsArchiveData = {
     body: ProtectedCallRequest;
     path: {
         uuid: string;
@@ -28363,13 +27857,13 @@ export type ProposalProtectedCallsArchiveCreateData = {
     url: '/api/proposal-protected-calls/{uuid}/archive/';
 };
 
-export type ProposalProtectedCallsArchiveCreateResponses = {
+export type ProposalProtectedCallsArchiveResponses = {
     200: ProtectedCall;
 };
 
-export type ProposalProtectedCallsArchiveCreateResponse = ProposalProtectedCallsArchiveCreateResponses[keyof ProposalProtectedCallsArchiveCreateResponses];
+export type ProposalProtectedCallsArchiveResponse = ProposalProtectedCallsArchiveResponses[keyof ProposalProtectedCallsArchiveResponses];
 
-export type ProposalProtectedCallsAttachDocumentsCreateData = {
+export type ProposalProtectedCallsAttachDocumentsData = {
     body?: CallDocumentRequest;
     path: {
         uuid: string;
@@ -28378,13 +27872,13 @@ export type ProposalProtectedCallsAttachDocumentsCreateData = {
     url: '/api/proposal-protected-calls/{uuid}/attach_documents/';
 };
 
-export type ProposalProtectedCallsAttachDocumentsCreateResponses = {
+export type ProposalProtectedCallsAttachDocumentsResponses = {
     200: CallDocument;
 };
 
-export type ProposalProtectedCallsAttachDocumentsCreateResponse = ProposalProtectedCallsAttachDocumentsCreateResponses[keyof ProposalProtectedCallsAttachDocumentsCreateResponses];
+export type ProposalProtectedCallsAttachDocumentsResponse = ProposalProtectedCallsAttachDocumentsResponses[keyof ProposalProtectedCallsAttachDocumentsResponses];
 
-export type ProposalProtectedCallsDeleteUserCreateData = {
+export type ProposalProtectedCallsDeleteUserData = {
     body: UserRoleDeleteRequest;
     path: {
         uuid: string;
@@ -28393,14 +27887,14 @@ export type ProposalProtectedCallsDeleteUserCreateData = {
     url: '/api/proposal-protected-calls/{uuid}/delete_user/';
 };
 
-export type ProposalProtectedCallsDeleteUserCreateResponses = {
+export type ProposalProtectedCallsDeleteUserResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type ProposalProtectedCallsDetachDocumentsCreateData = {
+export type ProposalProtectedCallsDetachDocumentsData = {
     body: ProtectedCallRequest;
     path: {
         uuid: string;
@@ -28409,11 +27903,11 @@ export type ProposalProtectedCallsDetachDocumentsCreateData = {
     url: '/api/proposal-protected-calls/{uuid}/detach_documents/';
 };
 
-export type ProposalProtectedCallsDetachDocumentsCreateResponses = {
+export type ProposalProtectedCallsDetachDocumentsResponses = {
     200: ProtectedCall;
 };
 
-export type ProposalProtectedCallsDetachDocumentsCreateResponse = ProposalProtectedCallsDetachDocumentsCreateResponses[keyof ProposalProtectedCallsDetachDocumentsCreateResponses];
+export type ProposalProtectedCallsDetachDocumentsResponse = ProposalProtectedCallsDetachDocumentsResponses[keyof ProposalProtectedCallsDetachDocumentsResponses];
 
 export type ProposalProtectedCallsListUsersListData = {
     body?: never;
@@ -28481,7 +27975,7 @@ export type ProposalProtectedCallsOfferingsRetrieveResponses = {
 
 export type ProposalProtectedCallsOfferingsRetrieveResponse = ProposalProtectedCallsOfferingsRetrieveResponses[keyof ProposalProtectedCallsOfferingsRetrieveResponses];
 
-export type ProposalProtectedCallsOfferingsCreateData = {
+export type ProposalProtectedCallsOfferingsData = {
     body: RequestedOfferingRequest;
     path: {
         uuid: string;
@@ -28490,11 +27984,11 @@ export type ProposalProtectedCallsOfferingsCreateData = {
     url: '/api/proposal-protected-calls/{uuid}/offerings/';
 };
 
-export type ProposalProtectedCallsOfferingsCreateResponses = {
+export type ProposalProtectedCallsOfferingsResponses = {
     200: RequestedOffering;
 };
 
-export type ProposalProtectedCallsOfferingsCreateResponse = ProposalProtectedCallsOfferingsCreateResponses[keyof ProposalProtectedCallsOfferingsCreateResponses];
+export type ProposalProtectedCallsOfferingsResponse = ProposalProtectedCallsOfferingsResponses[keyof ProposalProtectedCallsOfferingsResponses];
 
 export type ProposalProtectedCallsOfferingsDestroyData = {
     body?: never;
@@ -28578,7 +28072,7 @@ export type ProposalProtectedCallsRoundsRetrieveResponses = {
 
 export type ProposalProtectedCallsRoundsRetrieveResponse = ProposalProtectedCallsRoundsRetrieveResponses[keyof ProposalProtectedCallsRoundsRetrieveResponses];
 
-export type ProposalProtectedCallsRoundsCreateData = {
+export type ProposalProtectedCallsRoundsData = {
     body: ProtectedRoundRequest;
     path: {
         uuid: string;
@@ -28587,11 +28081,11 @@ export type ProposalProtectedCallsRoundsCreateData = {
     url: '/api/proposal-protected-calls/{uuid}/rounds/';
 };
 
-export type ProposalProtectedCallsRoundsCreateResponses = {
+export type ProposalProtectedCallsRoundsResponses = {
     200: ProtectedRound;
 };
 
-export type ProposalProtectedCallsRoundsCreateResponse = ProposalProtectedCallsRoundsCreateResponses[keyof ProposalProtectedCallsRoundsCreateResponses];
+export type ProposalProtectedCallsRoundsResponse = ProposalProtectedCallsRoundsResponses[keyof ProposalProtectedCallsRoundsResponses];
 
 export type ProposalProtectedCallsRoundsDestroyData = {
     body?: never;
@@ -28676,7 +28170,7 @@ export type ProposalProtectedCallsRoundsCloseCreateResponses = {
 
 export type ProposalProtectedCallsRoundsCloseCreateResponse = ProposalProtectedCallsRoundsCloseCreateResponses[keyof ProposalProtectedCallsRoundsCloseCreateResponses];
 
-export type ProposalProtectedCallsUpdateUserCreateData = {
+export type ProposalProtectedCallsUpdateUserData = {
     body: UserRoleUpdateRequest;
     path: {
         uuid: string;
@@ -28685,7 +28179,7 @@ export type ProposalProtectedCallsUpdateUserCreateData = {
     url: '/api/proposal-protected-calls/{uuid}/update_user/';
 };
 
-export type ProposalProtectedCallsUpdateUserCreateResponses = {
+export type ProposalProtectedCallsUpdateUserResponses = {
     /**
      * No response body
      */
@@ -28885,7 +28379,7 @@ export type ProposalRequestedOfferingsUpdateResponses = {
 
 export type ProposalRequestedOfferingsUpdateResponse = ProposalRequestedOfferingsUpdateResponses[keyof ProposalRequestedOfferingsUpdateResponses];
 
-export type ProposalRequestedOfferingsAcceptCreateData = {
+export type ProposalRequestedOfferingsAcceptData = {
     body: ProviderRequestedOfferingRequest;
     path: {
         uuid: string;
@@ -28894,13 +28388,13 @@ export type ProposalRequestedOfferingsAcceptCreateData = {
     url: '/api/proposal-requested-offerings/{uuid}/accept/';
 };
 
-export type ProposalRequestedOfferingsAcceptCreateResponses = {
+export type ProposalRequestedOfferingsAcceptResponses = {
     200: ProviderRequestedOffering;
 };
 
-export type ProposalRequestedOfferingsAcceptCreateResponse = ProposalRequestedOfferingsAcceptCreateResponses[keyof ProposalRequestedOfferingsAcceptCreateResponses];
+export type ProposalRequestedOfferingsAcceptResponse = ProposalRequestedOfferingsAcceptResponses[keyof ProposalRequestedOfferingsAcceptResponses];
 
-export type ProposalRequestedOfferingsCancelCreateData = {
+export type ProposalRequestedOfferingsCancelData = {
     body: ProviderRequestedOfferingRequest;
     path: {
         uuid: string;
@@ -28909,11 +28403,11 @@ export type ProposalRequestedOfferingsCancelCreateData = {
     url: '/api/proposal-requested-offerings/{uuid}/cancel/';
 };
 
-export type ProposalRequestedOfferingsCancelCreateResponses = {
+export type ProposalRequestedOfferingsCancelResponses = {
     200: ProviderRequestedOffering;
 };
 
-export type ProposalRequestedOfferingsCancelCreateResponse = ProposalRequestedOfferingsCancelCreateResponses[keyof ProposalRequestedOfferingsCancelCreateResponses];
+export type ProposalRequestedOfferingsCancelResponse = ProposalRequestedOfferingsCancelResponses[keyof ProposalRequestedOfferingsCancelResponses];
 
 export type ProposalRequestedResourcesListData = {
     body?: never;
@@ -29140,7 +28634,7 @@ export type ProposalReviewsUpdateResponses = {
 
 export type ProposalReviewsUpdateResponse = ProposalReviewsUpdateResponses[keyof ProposalReviewsUpdateResponses];
 
-export type ProposalReviewAcceptData = {
+export type ProposalReviewsAcceptData = {
     body: ReviewRequest;
     path: {
         uuid: string;
@@ -29149,13 +28643,13 @@ export type ProposalReviewAcceptData = {
     url: '/api/proposal-reviews/{uuid}/accept/';
 };
 
-export type ProposalReviewAcceptResponses = {
+export type ProposalReviewsAcceptResponses = {
     200: Review;
 };
 
-export type ProposalReviewAcceptResponse = ProposalReviewAcceptResponses[keyof ProposalReviewAcceptResponses];
+export type ProposalReviewsAcceptResponse = ProposalReviewsAcceptResponses[keyof ProposalReviewsAcceptResponses];
 
-export type ProposalReviewRejectData = {
+export type ProposalReviewsRejectData = {
     body: ReviewRequest;
     path: {
         uuid: string;
@@ -29164,13 +28658,13 @@ export type ProposalReviewRejectData = {
     url: '/api/proposal-reviews/{uuid}/reject/';
 };
 
-export type ProposalReviewRejectResponses = {
+export type ProposalReviewsRejectResponses = {
     200: Review;
 };
 
-export type ProposalReviewRejectResponse = ProposalReviewRejectResponses[keyof ProposalReviewRejectResponses];
+export type ProposalReviewsRejectResponse = ProposalReviewsRejectResponses[keyof ProposalReviewsRejectResponses];
 
-export type ProposalReviewSubmitData = {
+export type ProposalReviewsSubmitData = {
     body: ReviewRequest;
     path: {
         uuid: string;
@@ -29179,11 +28673,11 @@ export type ProposalReviewSubmitData = {
     url: '/api/proposal-reviews/{uuid}/submit/';
 };
 
-export type ProposalReviewSubmitResponses = {
+export type ProposalReviewsSubmitResponses = {
     200: Review;
 };
 
-export type ProposalReviewSubmitResponse = ProposalReviewSubmitResponses[keyof ProposalReviewSubmitResponses];
+export type ProposalReviewsSubmitResponse = ProposalReviewsSubmitResponses[keyof ProposalReviewsSubmitResponses];
 
 export type ProviderInvoiceItemsListData = {
     body?: never;
@@ -29499,7 +28993,7 @@ export type RancherAppsUpdateResponses = {
 
 export type RancherAppsUpdateResponse = RancherAppsUpdateResponses[keyof RancherAppsUpdateResponses];
 
-export type RancherAppsPullCreateData = {
+export type RancherAppsPullData = {
     body: RancherApplicationRequest;
     path: {
         uuid: string;
@@ -29508,13 +29002,13 @@ export type RancherAppsPullCreateData = {
     url: '/api/rancher-apps/{uuid}/pull/';
 };
 
-export type RancherAppsPullCreateResponses = {
+export type RancherAppsPullResponses = {
     200: RancherApplication;
 };
 
-export type RancherAppsPullCreateResponse = RancherAppsPullCreateResponses[keyof RancherAppsPullCreateResponses];
+export type RancherAppsPullResponse = RancherAppsPullResponses[keyof RancherAppsPullResponses];
 
-export type RancherAppsUnlinkCreateData = {
+export type RancherAppsUnlinkData = {
     body: RancherApplicationRequest;
     path: {
         uuid: string;
@@ -29523,11 +29017,11 @@ export type RancherAppsUnlinkCreateData = {
     url: '/api/rancher-apps/{uuid}/unlink/';
 };
 
-export type RancherAppsUnlinkCreateResponses = {
+export type RancherAppsUnlinkResponses = {
     200: RancherApplication;
 };
 
-export type RancherAppsUnlinkCreateResponse = RancherAppsUnlinkCreateResponses[keyof RancherAppsUnlinkCreateResponses];
+export type RancherAppsUnlinkResponse = RancherAppsUnlinkResponses[keyof RancherAppsUnlinkResponses];
 
 export type RancherCatalogsListData = {
     body?: never;
@@ -29627,7 +29121,7 @@ export type RancherCatalogsUpdateResponses = {
 
 export type RancherCatalogsUpdateResponse = RancherCatalogsUpdateResponses[keyof RancherCatalogsUpdateResponses];
 
-export type RancherCatalogsRefreshCreateData = {
+export type RancherCatalogsRefreshData = {
     body: RancherCatalogRequest;
     path: {
         uuid: string;
@@ -29636,11 +29130,11 @@ export type RancherCatalogsRefreshCreateData = {
     url: '/api/rancher-catalogs/{uuid}/refresh/';
 };
 
-export type RancherCatalogsRefreshCreateResponses = {
+export type RancherCatalogsRefreshResponses = {
     200: RancherCatalog;
 };
 
-export type RancherCatalogsRefreshCreateResponse = RancherCatalogsRefreshCreateResponses[keyof RancherCatalogsRefreshCreateResponses];
+export type RancherCatalogsRefreshResponse = RancherCatalogsRefreshResponses[keyof RancherCatalogsRefreshResponses];
 
 export type RancherClusterTemplatesListData = {
     body?: never;
@@ -29865,7 +29359,7 @@ export type RancherClustersUpdateResponses = {
 
 export type RancherClustersUpdateResponse = RancherClustersUpdateResponses[keyof RancherClustersUpdateResponses];
 
-export type RancherClustersCreateManagementSecurityGroupCreateData = {
+export type RancherClustersCreateManagementSecurityGroupData = {
     body: RancherClusterRequest;
     path: {
         uuid: string;
@@ -29874,13 +29368,13 @@ export type RancherClustersCreateManagementSecurityGroupCreateData = {
     url: '/api/rancher-clusters/{uuid}/create_management_security_group/';
 };
 
-export type RancherClustersCreateManagementSecurityGroupCreateResponses = {
+export type RancherClustersCreateManagementSecurityGroupResponses = {
     200: RancherCluster;
 };
 
-export type RancherClustersCreateManagementSecurityGroupCreateResponse = RancherClustersCreateManagementSecurityGroupCreateResponses[keyof RancherClustersCreateManagementSecurityGroupCreateResponses];
+export type RancherClustersCreateManagementSecurityGroupResponse = RancherClustersCreateManagementSecurityGroupResponses[keyof RancherClustersCreateManagementSecurityGroupResponses];
 
-export type RancherClustersImportYamlCreateData = {
+export type RancherClustersImportYamlData = {
     body: RancherImportYamlRequest;
     path: {
         uuid: string;
@@ -29889,11 +29383,11 @@ export type RancherClustersImportYamlCreateData = {
     url: '/api/rancher-clusters/{uuid}/import_yaml/';
 };
 
-export type RancherClustersImportYamlCreateResponses = {
+export type RancherClustersImportYamlResponses = {
     200: RancherImportYaml;
 };
 
-export type RancherClustersImportYamlCreateResponse = RancherClustersImportYamlCreateResponses[keyof RancherClustersImportYamlCreateResponses];
+export type RancherClustersImportYamlResponse = RancherClustersImportYamlResponses[keyof RancherClustersImportYamlResponses];
 
 export type RancherClustersKubeconfigFileRetrieveData = {
     body?: never;
@@ -29910,7 +29404,7 @@ export type RancherClustersKubeconfigFileRetrieveResponses = {
 
 export type RancherClustersKubeconfigFileRetrieveResponse = RancherClustersKubeconfigFileRetrieveResponses[keyof RancherClustersKubeconfigFileRetrieveResponses];
 
-export type RancherClustersPullCreateData = {
+export type RancherClustersPullData = {
     body: RancherClusterRequest;
     path: {
         uuid: string;
@@ -29919,13 +29413,13 @@ export type RancherClustersPullCreateData = {
     url: '/api/rancher-clusters/{uuid}/pull/';
 };
 
-export type RancherClustersPullCreateResponses = {
+export type RancherClustersPullResponses = {
     200: RancherCluster;
 };
 
-export type RancherClustersPullCreateResponse = RancherClustersPullCreateResponses[keyof RancherClustersPullCreateResponses];
+export type RancherClustersPullResponse = RancherClustersPullResponses[keyof RancherClustersPullResponses];
 
-export type RancherClustersUnlinkCreateData = {
+export type RancherClustersUnlinkData = {
     body: RancherClusterRequest;
     path: {
         uuid: string;
@@ -29934,11 +29428,11 @@ export type RancherClustersUnlinkCreateData = {
     url: '/api/rancher-clusters/{uuid}/unlink/';
 };
 
-export type RancherClustersUnlinkCreateResponses = {
+export type RancherClustersUnlinkResponses = {
     200: RancherCluster;
 };
 
-export type RancherClustersUnlinkCreateResponse = RancherClustersUnlinkCreateResponses[keyof RancherClustersUnlinkCreateResponses];
+export type RancherClustersUnlinkResponse = RancherClustersUnlinkResponses[keyof RancherClustersUnlinkResponses];
 
 export type RancherHpasListData = {
     body?: never;
@@ -30046,7 +29540,7 @@ export type RancherHpasUpdateResponses = {
 
 export type RancherHpasUpdateResponse = RancherHpasUpdateResponses[keyof RancherHpasUpdateResponses];
 
-export type RancherHpasPullCreateData = {
+export type RancherHpasPullData = {
     body: RancherHpaRequest;
     path: {
         uuid: string;
@@ -30055,13 +29549,13 @@ export type RancherHpasPullCreateData = {
     url: '/api/rancher-hpas/{uuid}/pull/';
 };
 
-export type RancherHpasPullCreateResponses = {
+export type RancherHpasPullResponses = {
     200: RancherHpa;
 };
 
-export type RancherHpasPullCreateResponse = RancherHpasPullCreateResponses[keyof RancherHpasPullCreateResponses];
+export type RancherHpasPullResponse = RancherHpasPullResponses[keyof RancherHpasPullResponses];
 
-export type RancherHpasUnlinkCreateData = {
+export type RancherHpasUnlinkData = {
     body: RancherHpaRequest;
     path: {
         uuid: string;
@@ -30070,11 +29564,11 @@ export type RancherHpasUnlinkCreateData = {
     url: '/api/rancher-hpas/{uuid}/unlink/';
 };
 
-export type RancherHpasUnlinkCreateResponses = {
+export type RancherHpasUnlinkResponses = {
     200: RancherHpa;
 };
 
-export type RancherHpasUnlinkCreateResponse = RancherHpasUnlinkCreateResponses[keyof RancherHpasUnlinkCreateResponses];
+export type RancherHpasUnlinkResponse = RancherHpasUnlinkResponses[keyof RancherHpasUnlinkResponses];
 
 export type RancherHpasYamlRetrieveData = {
     body?: never;
@@ -30234,7 +29728,7 @@ export type RancherIngressesUpdateResponses = {
 
 export type RancherIngressesUpdateResponse = RancherIngressesUpdateResponses[keyof RancherIngressesUpdateResponses];
 
-export type RancherIngressesPullCreateData = {
+export type RancherIngressesPullData = {
     body: RancherIngressRequest;
     path: {
         uuid: string;
@@ -30243,13 +29737,13 @@ export type RancherIngressesPullCreateData = {
     url: '/api/rancher-ingresses/{uuid}/pull/';
 };
 
-export type RancherIngressesPullCreateResponses = {
+export type RancherIngressesPullResponses = {
     200: RancherIngress;
 };
 
-export type RancherIngressesPullCreateResponse = RancherIngressesPullCreateResponses[keyof RancherIngressesPullCreateResponses];
+export type RancherIngressesPullResponse = RancherIngressesPullResponses[keyof RancherIngressesPullResponses];
 
-export type RancherIngressesUnlinkCreateData = {
+export type RancherIngressesUnlinkData = {
     body: RancherIngressRequest;
     path: {
         uuid: string;
@@ -30258,11 +29752,11 @@ export type RancherIngressesUnlinkCreateData = {
     url: '/api/rancher-ingresses/{uuid}/unlink/';
 };
 
-export type RancherIngressesUnlinkCreateResponses = {
+export type RancherIngressesUnlinkResponses = {
     200: RancherIngress;
 };
 
-export type RancherIngressesUnlinkCreateResponse = RancherIngressesUnlinkCreateResponses[keyof RancherIngressesUnlinkCreateResponses];
+export type RancherIngressesUnlinkResponse = RancherIngressesUnlinkResponses[keyof RancherIngressesUnlinkResponses];
 
 export type RancherIngressesYamlRetrieveData = {
     body?: never;
@@ -30477,7 +29971,7 @@ export type RancherNodesConsoleLogRetrieveResponses = {
 
 export type RancherNodesConsoleLogRetrieveResponse = RancherNodesConsoleLogRetrieveResponses[keyof RancherNodesConsoleLogRetrieveResponses];
 
-export type RancherNodesLinkOpenstackCreateData = {
+export type RancherNodesLinkOpenstackData = {
     body: LinkOpenstackRequest;
     path: {
         uuid: string;
@@ -30486,14 +29980,14 @@ export type RancherNodesLinkOpenstackCreateData = {
     url: '/api/rancher-nodes/{uuid}/link_openstack/';
 };
 
-export type RancherNodesLinkOpenstackCreateResponses = {
+export type RancherNodesLinkOpenstackResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type RancherNodesPullCreateData = {
+export type RancherNodesPullData = {
     body: RancherNodeRequest;
     path: {
         uuid: string;
@@ -30502,13 +29996,13 @@ export type RancherNodesPullCreateData = {
     url: '/api/rancher-nodes/{uuid}/pull/';
 };
 
-export type RancherNodesPullCreateResponses = {
+export type RancherNodesPullResponses = {
     200: RancherNode;
 };
 
-export type RancherNodesPullCreateResponse = RancherNodesPullCreateResponses[keyof RancherNodesPullCreateResponses];
+export type RancherNodesPullResponse = RancherNodesPullResponses[keyof RancherNodesPullResponses];
 
-export type RancherNodesUnlinkCreateData = {
+export type RancherNodesUnlinkData = {
     body: RancherNodeRequest;
     path: {
         uuid: string;
@@ -30517,13 +30011,13 @@ export type RancherNodesUnlinkCreateData = {
     url: '/api/rancher-nodes/{uuid}/unlink/';
 };
 
-export type RancherNodesUnlinkCreateResponses = {
+export type RancherNodesUnlinkResponses = {
     200: RancherNode;
 };
 
-export type RancherNodesUnlinkCreateResponse = RancherNodesUnlinkCreateResponses[keyof RancherNodesUnlinkCreateResponses];
+export type RancherNodesUnlinkResponse = RancherNodesUnlinkResponses[keyof RancherNodesUnlinkResponses];
 
-export type RancherNodesUnlinkOpenstackCreateData = {
+export type RancherNodesUnlinkOpenstackData = {
     body: RancherNodeRequest;
     path: {
         uuid: string;
@@ -30532,11 +30026,11 @@ export type RancherNodesUnlinkOpenstackCreateData = {
     url: '/api/rancher-nodes/{uuid}/unlink_openstack/';
 };
 
-export type RancherNodesUnlinkOpenstackCreateResponses = {
+export type RancherNodesUnlinkOpenstackResponses = {
     200: RancherNode;
 };
 
-export type RancherNodesUnlinkOpenstackCreateResponse = RancherNodesUnlinkOpenstackCreateResponses[keyof RancherNodesUnlinkOpenstackCreateResponses];
+export type RancherNodesUnlinkOpenstackResponse = RancherNodesUnlinkOpenstackResponses[keyof RancherNodesUnlinkOpenstackResponses];
 
 export type RancherProjectsListData = {
     body?: never;
@@ -30723,7 +30217,7 @@ export type RancherServicesUpdateResponses = {
 
 export type RancherServicesUpdateResponse = RancherServicesUpdateResponses[keyof RancherServicesUpdateResponses];
 
-export type RancherServicesPullCreateData = {
+export type RancherServicesPullData = {
     body: ServiceRequest;
     path: {
         uuid: string;
@@ -30732,13 +30226,13 @@ export type RancherServicesPullCreateData = {
     url: '/api/rancher-services/{uuid}/pull/';
 };
 
-export type RancherServicesPullCreateResponses = {
+export type RancherServicesPullResponses = {
     200: Service;
 };
 
-export type RancherServicesPullCreateResponse = RancherServicesPullCreateResponses[keyof RancherServicesPullCreateResponses];
+export type RancherServicesPullResponse = RancherServicesPullResponses[keyof RancherServicesPullResponses];
 
-export type RancherServicesUnlinkCreateData = {
+export type RancherServicesUnlinkData = {
     body: ServiceRequest;
     path: {
         uuid: string;
@@ -30747,11 +30241,11 @@ export type RancherServicesUnlinkCreateData = {
     url: '/api/rancher-services/{uuid}/unlink/';
 };
 
-export type RancherServicesUnlinkCreateResponses = {
+export type RancherServicesUnlinkResponses = {
     200: Service;
 };
 
-export type RancherServicesUnlinkCreateResponse = RancherServicesUnlinkCreateResponses[keyof RancherServicesUnlinkCreateResponses];
+export type RancherServicesUnlinkResponse = RancherServicesUnlinkResponses[keyof RancherServicesUnlinkResponses];
 
 export type RancherServicesYamlRetrieveData = {
     body?: never;
@@ -31081,7 +30575,7 @@ export type RancherWorkloadsUpdateResponses = {
 
 export type RancherWorkloadsUpdateResponse = RancherWorkloadsUpdateResponses[keyof RancherWorkloadsUpdateResponses];
 
-export type RancherWorkloadsRedeployCreateData = {
+export type RancherWorkloadsRedeployData = {
     body: RancherWorkloadRequest;
     path: {
         uuid: string;
@@ -31090,11 +30584,11 @@ export type RancherWorkloadsRedeployCreateData = {
     url: '/api/rancher-workloads/{uuid}/redeploy/';
 };
 
-export type RancherWorkloadsRedeployCreateResponses = {
+export type RancherWorkloadsRedeployResponses = {
     200: RancherWorkload;
 };
 
-export type RancherWorkloadsRedeployCreateResponse = RancherWorkloadsRedeployCreateResponses[keyof RancherWorkloadsRedeployCreateResponses];
+export type RancherWorkloadsRedeployResponse = RancherWorkloadsRedeployResponses[keyof RancherWorkloadsRedeployResponses];
 
 export type RancherWorkloadsYamlRetrieveData = {
     body?: never;
@@ -31513,7 +31007,7 @@ export type RolesUpdateResponses = {
 
 export type RolesUpdateResponse = RolesUpdateResponses[keyof RolesUpdateResponses];
 
-export type RoleDisableData = {
+export type RolesDisableData = {
     body?: never;
     path: {
         uuid: string;
@@ -31522,14 +31016,14 @@ export type RoleDisableData = {
     url: '/api/roles/{uuid}/disable/';
 };
 
-export type RoleDisableResponses = {
+export type RolesDisableResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type RoleEnableData = {
+export type RolesEnableData = {
     body?: never;
     path: {
         uuid: string;
@@ -31538,14 +31032,14 @@ export type RoleEnableData = {
     url: '/api/roles/{uuid}/enable/';
 };
 
-export type RoleEnableResponses = {
+export type RolesEnableResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type RoleDescriptionsUpdateData = {
+export type RolesUpdateDescriptionsUpdateData = {
     body?: RoleDescriptionRequest;
     path: {
         uuid: string;
@@ -31554,11 +31048,11 @@ export type RoleDescriptionsUpdateData = {
     url: '/api/roles/{uuid}/update_descriptions/';
 };
 
-export type RoleDescriptionsUpdateResponses = {
+export type RolesUpdateDescriptionsUpdateResponses = {
     200: RoleDescription;
 };
 
-export type RoleDescriptionsUpdateResponse = RoleDescriptionsUpdateResponses[keyof RoleDescriptionsUpdateResponses];
+export type RolesUpdateDescriptionsUpdateResponse = RolesUpdateDescriptionsUpdateResponses[keyof RolesUpdateDescriptionsUpdateResponses];
 
 export type SchemaRetrieveData = {
     body?: never;
@@ -31871,7 +31365,7 @@ export type SlurmAllocationsUpdateResponses = {
 
 export type SlurmAllocationsUpdateResponse = SlurmAllocationsUpdateResponses[keyof SlurmAllocationsUpdateResponses];
 
-export type SlurmAllocationsPullCreateData = {
+export type SlurmAllocationsPullData = {
     body: SlurmAllocationRequest;
     path: {
         uuid: string;
@@ -31880,13 +31374,13 @@ export type SlurmAllocationsPullCreateData = {
     url: '/api/slurm-allocations/{uuid}/pull/';
 };
 
-export type SlurmAllocationsPullCreateResponses = {
+export type SlurmAllocationsPullResponses = {
     200: SlurmAllocation;
 };
 
-export type SlurmAllocationsPullCreateResponse = SlurmAllocationsPullCreateResponses[keyof SlurmAllocationsPullCreateResponses];
+export type SlurmAllocationsPullResponse = SlurmAllocationsPullResponses[keyof SlurmAllocationsPullResponses];
 
-export type SlurmAllocationsSetLimitsCreateData = {
+export type SlurmAllocationsSetLimitsData = {
     body: SlurmAllocationSetLimitsRequest;
     path: {
         uuid: string;
@@ -31895,13 +31389,13 @@ export type SlurmAllocationsSetLimitsCreateData = {
     url: '/api/slurm-allocations/{uuid}/set_limits/';
 };
 
-export type SlurmAllocationsSetLimitsCreateResponses = {
+export type SlurmAllocationsSetLimitsResponses = {
     200: SlurmAllocationSetLimits;
 };
 
-export type SlurmAllocationsSetLimitsCreateResponse = SlurmAllocationsSetLimitsCreateResponses[keyof SlurmAllocationsSetLimitsCreateResponses];
+export type SlurmAllocationsSetLimitsResponse = SlurmAllocationsSetLimitsResponses[keyof SlurmAllocationsSetLimitsResponses];
 
-export type SlurmAllocationsUnlinkCreateData = {
+export type SlurmAllocationsUnlinkData = {
     body: SlurmAllocationRequest;
     path: {
         uuid: string;
@@ -31910,11 +31404,11 @@ export type SlurmAllocationsUnlinkCreateData = {
     url: '/api/slurm-allocations/{uuid}/unlink/';
 };
 
-export type SlurmAllocationsUnlinkCreateResponses = {
+export type SlurmAllocationsUnlinkResponses = {
     200: SlurmAllocation;
 };
 
-export type SlurmAllocationsUnlinkCreateResponse = SlurmAllocationsUnlinkCreateResponses[keyof SlurmAllocationsUnlinkCreateResponses];
+export type SlurmAllocationsUnlinkResponse = SlurmAllocationsUnlinkResponses[keyof SlurmAllocationsUnlinkResponses];
 
 export type SlurmAssociationsListData = {
     body?: never;
@@ -32053,7 +31547,7 @@ export type SlurmJobsUpdateResponses = {
 
 export type SlurmJobsUpdateResponse = SlurmJobsUpdateResponses[keyof SlurmJobsUpdateResponses];
 
-export type SlurmJobsPullCreateData = {
+export type SlurmJobsPullData = {
     body: JobRequest;
     path: {
         uuid: string;
@@ -32062,13 +31556,13 @@ export type SlurmJobsPullCreateData = {
     url: '/api/slurm-jobs/{uuid}/pull/';
 };
 
-export type SlurmJobsPullCreateResponses = {
+export type SlurmJobsPullResponses = {
     200: Job;
 };
 
-export type SlurmJobsPullCreateResponse = SlurmJobsPullCreateResponses[keyof SlurmJobsPullCreateResponses];
+export type SlurmJobsPullResponse = SlurmJobsPullResponses[keyof SlurmJobsPullResponses];
 
-export type SlurmJobsUnlinkCreateData = {
+export type SlurmJobsUnlinkData = {
     body: JobRequest;
     path: {
         uuid: string;
@@ -32077,11 +31571,11 @@ export type SlurmJobsUnlinkCreateData = {
     url: '/api/slurm-jobs/{uuid}/unlink/';
 };
 
-export type SlurmJobsUnlinkCreateResponses = {
+export type SlurmJobsUnlinkResponses = {
     200: Job;
 };
 
-export type SlurmJobsUnlinkCreateResponse = SlurmJobsUnlinkCreateResponses[keyof SlurmJobsUnlinkCreateResponses];
+export type SlurmJobsUnlinkResponse = SlurmJobsUnlinkResponses[keyof SlurmJobsUnlinkResponses];
 
 export type SupportAttachmentsListData = {
     body?: never;
@@ -32604,7 +32098,7 @@ export type SupportIssuesUpdateResponses = {
 
 export type SupportIssuesUpdateResponse = SupportIssuesUpdateResponses[keyof SupportIssuesUpdateResponses];
 
-export type SupportIssuesCommentCreateData = {
+export type SupportIssuesCommentData = {
     body: CommentRequest;
     path: {
         uuid: string;
@@ -32613,13 +32107,13 @@ export type SupportIssuesCommentCreateData = {
     url: '/api/support-issues/{uuid}/comment/';
 };
 
-export type SupportIssuesCommentCreateResponses = {
+export type SupportIssuesCommentResponses = {
     200: Comment;
 };
 
-export type SupportIssuesCommentCreateResponse = SupportIssuesCommentCreateResponses[keyof SupportIssuesCommentCreateResponses];
+export type SupportIssuesCommentResponse = SupportIssuesCommentResponses[keyof SupportIssuesCommentResponses];
 
-export type SupportIssuesSyncCreateData = {
+export type SupportIssuesSyncData = {
     body: IssueRequest;
     path: {
         uuid: string;
@@ -32628,11 +32122,11 @@ export type SupportIssuesSyncCreateData = {
     url: '/api/support-issues/{uuid}/sync/';
 };
 
-export type SupportIssuesSyncCreateResponses = {
+export type SupportIssuesSyncResponses = {
     200: Issue;
 };
 
-export type SupportIssuesSyncCreateResponse = SupportIssuesSyncCreateResponses[keyof SupportIssuesSyncCreateResponses];
+export type SupportIssuesSyncResponse = SupportIssuesSyncResponses[keyof SupportIssuesSyncResponses];
 
 export type SupportJiraWebhookCreateData = {
     body: WebHookReceiverRequest;
@@ -32811,7 +32305,7 @@ export type SupportTemplatesUpdateResponses = {
 
 export type SupportTemplatesUpdateResponse = SupportTemplatesUpdateResponses[keyof SupportTemplatesUpdateResponses];
 
-export type SupportTemplatesCreateAttachmentsCreateData = {
+export type SupportTemplatesCreateAttachmentsData = {
     body: TemplateRequest;
     path: {
         uuid: string;
@@ -32820,13 +32314,13 @@ export type SupportTemplatesCreateAttachmentsCreateData = {
     url: '/api/support-templates/{uuid}/create_attachments/';
 };
 
-export type SupportTemplatesCreateAttachmentsCreateResponses = {
+export type SupportTemplatesCreateAttachmentsResponses = {
     200: Template;
 };
 
-export type SupportTemplatesCreateAttachmentsCreateResponse = SupportTemplatesCreateAttachmentsCreateResponses[keyof SupportTemplatesCreateAttachmentsCreateResponses];
+export type SupportTemplatesCreateAttachmentsResponse = SupportTemplatesCreateAttachmentsResponses[keyof SupportTemplatesCreateAttachmentsResponses];
 
-export type SupportTemplatesDeleteAttachmentsCreateData = {
+export type SupportTemplatesDeleteAttachmentsData = {
     body: TemplateRequest;
     path: {
         uuid: string;
@@ -32835,11 +32329,11 @@ export type SupportTemplatesDeleteAttachmentsCreateData = {
     url: '/api/support-templates/{uuid}/delete_attachments/';
 };
 
-export type SupportTemplatesDeleteAttachmentsCreateResponses = {
+export type SupportTemplatesDeleteAttachmentsResponses = {
     200: Template;
 };
 
-export type SupportTemplatesDeleteAttachmentsCreateResponse = SupportTemplatesDeleteAttachmentsCreateResponses[keyof SupportTemplatesDeleteAttachmentsCreateResponses];
+export type SupportTemplatesDeleteAttachmentsResponse = SupportTemplatesDeleteAttachmentsResponses[keyof SupportTemplatesDeleteAttachmentsResponses];
 
 export type SupportUsersListData = {
     body?: never;
@@ -33083,7 +32577,7 @@ export type UserGroupInvitationsRetrieveResponses = {
 
 export type UserGroupInvitationsRetrieveResponse = UserGroupInvitationsRetrieveResponses[keyof UserGroupInvitationsRetrieveResponses];
 
-export type UserGroupInvitationsCancelCreateData = {
+export type UserGroupInvitationsCancelData = {
     body: GroupInvitationRequest;
     path: {
         uuid: string;
@@ -33092,11 +32586,11 @@ export type UserGroupInvitationsCancelCreateData = {
     url: '/api/user-group-invitations/{uuid}/cancel/';
 };
 
-export type UserGroupInvitationsCancelCreateResponses = {
+export type UserGroupInvitationsCancelResponses = {
     200: GroupInvitation;
 };
 
-export type UserGroupInvitationsCancelCreateResponse = UserGroupInvitationsCancelCreateResponses[keyof UserGroupInvitationsCancelCreateResponses];
+export type UserGroupInvitationsCancelResponse = UserGroupInvitationsCancelResponses[keyof UserGroupInvitationsCancelResponses];
 
 export type UserGroupInvitationsProjectsRetrieveData = {
     body?: never;
@@ -33113,7 +32607,7 @@ export type UserGroupInvitationsProjectsRetrieveResponses = {
 
 export type UserGroupInvitationsProjectsRetrieveResponse = UserGroupInvitationsProjectsRetrieveResponses[keyof UserGroupInvitationsProjectsRetrieveResponses];
 
-export type UserGroupInvitationsRequestCreateData = {
+export type UserGroupInvitationsRequestData = {
     body: GroupInvitationRequest;
     path: {
         uuid: string;
@@ -33122,11 +32616,11 @@ export type UserGroupInvitationsRequestCreateData = {
     url: '/api/user-group-invitations/{uuid}/request/';
 };
 
-export type UserGroupInvitationsRequestCreateResponses = {
+export type UserGroupInvitationsRequestResponses = {
     200: GroupInvitation;
 };
 
-export type UserGroupInvitationsRequestCreateResponse = UserGroupInvitationsRequestCreateResponses[keyof UserGroupInvitationsRequestCreateResponses];
+export type UserGroupInvitationsRequestResponse = UserGroupInvitationsRequestResponses[keyof UserGroupInvitationsRequestResponses];
 
 export type UserInvitationsListData = {
     body?: never;
@@ -33205,7 +32699,7 @@ export type UserInvitationsRetrieveResponses = {
 
 export type UserInvitationsRetrieveResponse = UserInvitationsRetrieveResponses[keyof UserInvitationsRetrieveResponses];
 
-export type UserInvitationsAcceptCreateData = {
+export type UserInvitationsAcceptData = {
     body: InvitationRequest;
     path: {
         uuid: string;
@@ -33214,13 +32708,13 @@ export type UserInvitationsAcceptCreateData = {
     url: '/api/user-invitations/{uuid}/accept/';
 };
 
-export type UserInvitationsAcceptCreateResponses = {
+export type UserInvitationsAcceptResponses = {
     200: Invitation;
 };
 
-export type UserInvitationsAcceptCreateResponse = UserInvitationsAcceptCreateResponses[keyof UserInvitationsAcceptCreateResponses];
+export type UserInvitationsAcceptResponse = UserInvitationsAcceptResponses[keyof UserInvitationsAcceptResponses];
 
-export type UserInvitationsCancelCreateData = {
+export type UserInvitationsCancelData = {
     body: InvitationRequest;
     path: {
         uuid: string;
@@ -33229,13 +32723,13 @@ export type UserInvitationsCancelCreateData = {
     url: '/api/user-invitations/{uuid}/cancel/';
 };
 
-export type UserInvitationsCancelCreateResponses = {
+export type UserInvitationsCancelResponses = {
     200: Invitation;
 };
 
-export type UserInvitationsCancelCreateResponse = UserInvitationsCancelCreateResponses[keyof UserInvitationsCancelCreateResponses];
+export type UserInvitationsCancelResponse = UserInvitationsCancelResponses[keyof UserInvitationsCancelResponses];
 
-export type UserInvitationsCheckCreateData = {
+export type UserInvitationsCheckData = {
     body: InvitationRequest;
     path: {
         uuid: string;
@@ -33244,13 +32738,13 @@ export type UserInvitationsCheckCreateData = {
     url: '/api/user-invitations/{uuid}/check/';
 };
 
-export type UserInvitationsCheckCreateResponses = {
+export type UserInvitationsCheckResponses = {
     200: Invitation;
 };
 
-export type UserInvitationsCheckCreateResponse = UserInvitationsCheckCreateResponses[keyof UserInvitationsCheckCreateResponses];
+export type UserInvitationsCheckResponse = UserInvitationsCheckResponses[keyof UserInvitationsCheckResponses];
 
-export type UserInvitationsDeleteCreateData = {
+export type UserInvitationsDeleteData = {
     body: InvitationRequest;
     path: {
         uuid: string;
@@ -33259,11 +32753,11 @@ export type UserInvitationsDeleteCreateData = {
     url: '/api/user-invitations/{uuid}/delete/';
 };
 
-export type UserInvitationsDeleteCreateResponses = {
+export type UserInvitationsDeleteResponses = {
     200: Invitation;
 };
 
-export type UserInvitationsDeleteCreateResponse = UserInvitationsDeleteCreateResponses[keyof UserInvitationsDeleteCreateResponses];
+export type UserInvitationsDeleteResponse = UserInvitationsDeleteResponses[keyof UserInvitationsDeleteResponses];
 
 export type UserInvitationsDetailsRetrieveData = {
     body?: never;
@@ -33280,7 +32774,7 @@ export type UserInvitationsDetailsRetrieveResponses = {
 
 export type UserInvitationsDetailsRetrieveResponse = UserInvitationsDetailsRetrieveResponses[keyof UserInvitationsDetailsRetrieveResponses];
 
-export type UserInvitationsSendCreateData = {
+export type UserInvitationsSendData = {
     body: InvitationRequest;
     path: {
         uuid: string;
@@ -33289,11 +32783,11 @@ export type UserInvitationsSendCreateData = {
     url: '/api/user-invitations/{uuid}/send/';
 };
 
-export type UserInvitationsSendCreateResponses = {
+export type UserInvitationsSendResponses = {
     200: Invitation;
 };
 
-export type UserInvitationsSendCreateResponse = UserInvitationsSendCreateResponses[keyof UserInvitationsSendCreateResponses];
+export type UserInvitationsSendResponse = UserInvitationsSendResponses[keyof UserInvitationsSendResponses];
 
 export type UserInvitationsApproveCreateData = {
     body: InvitationRequest;
@@ -33439,7 +32933,7 @@ export type UserPermissionRequestsUpdateResponses = {
 
 export type UserPermissionRequestsUpdateResponse = UserPermissionRequestsUpdateResponses[keyof UserPermissionRequestsUpdateResponses];
 
-export type UserPermissionRequestsApproveCreateData = {
+export type UserPermissionRequestsApproveData = {
     body?: ReviewCommentRequest;
     path: {
         uuid: string;
@@ -33448,13 +32942,13 @@ export type UserPermissionRequestsApproveCreateData = {
     url: '/api/user-permission-requests/{uuid}/approve/';
 };
 
-export type UserPermissionRequestsApproveCreateResponses = {
+export type UserPermissionRequestsApproveResponses = {
     200: ReviewComment;
 };
 
-export type UserPermissionRequestsApproveCreateResponse = UserPermissionRequestsApproveCreateResponses[keyof UserPermissionRequestsApproveCreateResponses];
+export type UserPermissionRequestsApproveResponse = UserPermissionRequestsApproveResponses[keyof UserPermissionRequestsApproveResponses];
 
-export type UserPermissionRequestsRejectCreateData = {
+export type UserPermissionRequestsRejectData = {
     body?: ReviewCommentRequest;
     path: {
         uuid: string;
@@ -33463,11 +32957,11 @@ export type UserPermissionRequestsRejectCreateData = {
     url: '/api/user-permission-requests/{uuid}/reject/';
 };
 
-export type UserPermissionRequestsRejectCreateResponses = {
+export type UserPermissionRequestsRejectResponses = {
     200: ReviewComment;
 };
 
-export type UserPermissionRequestsRejectCreateResponse = UserPermissionRequestsRejectCreateResponses[keyof UserPermissionRequestsRejectCreateResponses];
+export type UserPermissionRequestsRejectResponse = UserPermissionRequestsRejectResponses[keyof UserPermissionRequestsRejectResponses];
 
 export type UserPermissionsListData = {
     body?: never;
@@ -33708,7 +33202,7 @@ export type UsersUpdateResponses = {
 
 export type UsersUpdateResponse = UsersUpdateResponses[keyof UsersUpdateResponses];
 
-export type UserCancelChangeEmailData = {
+export type UsersCancelChangeEmailData = {
     body?: never;
     path: {
         uuid: string;
@@ -33717,14 +33211,14 @@ export type UserCancelChangeEmailData = {
     url: '/api/users/{uuid}/cancel_change_email/';
 };
 
-export type UserCancelChangeEmailResponses = {
+export type UsersCancelChangeEmailResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type UsersChangeEmailCreateData = {
+export type UsersChangeEmailData = {
     body: UserEmailChangeRequest;
     path: {
         uuid: string;
@@ -33733,14 +33227,14 @@ export type UsersChangeEmailCreateData = {
     url: '/api/users/{uuid}/change_email/';
 };
 
-export type UsersChangeEmailCreateResponses = {
+export type UsersChangeEmailResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type UserChangePasswordData = {
+export type UsersChangePasswordData = {
     body: PasswordChangeRequest;
     path: {
         uuid: string;
@@ -33749,14 +33243,14 @@ export type UserChangePasswordData = {
     url: '/api/users/{uuid}/change_password/';
 };
 
-export type UserChangePasswordResponses = {
+export type UsersChangePasswordResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type UserPullRemoteData = {
+export type UsersPullRemoteUserData = {
     body: UserRequest;
     path: {
         uuid: string;
@@ -33765,13 +33259,13 @@ export type UserPullRemoteData = {
     url: '/api/users/{uuid}/pull_remote_user/';
 };
 
-export type UserPullRemoteResponses = {
+export type UsersPullRemoteUserResponses = {
     200: User;
 };
 
-export type UserPullRemoteResponse = UserPullRemoteResponses[keyof UserPullRemoteResponses];
+export type UsersPullRemoteUserResponse = UsersPullRemoteUserResponses[keyof UsersPullRemoteUserResponses];
 
-export type UserRefreshTokenData = {
+export type UsersRefreshTokenData = {
     body?: never;
     path: {
         uuid: string;
@@ -33780,11 +33274,11 @@ export type UserRefreshTokenData = {
     url: '/api/users/{uuid}/refresh_token/';
 };
 
-export type UserRefreshTokenResponses = {
+export type UsersRefreshTokenResponses = {
     200: UserAuthToken;
 };
 
-export type UserRefreshTokenResponse = UserRefreshTokenResponses[keyof UserRefreshTokenResponses];
+export type UsersRefreshTokenResponse = UsersRefreshTokenResponses[keyof UsersRefreshTokenResponses];
 
 export type UsersTokenRetrieveData = {
     body?: never;
@@ -34058,7 +33552,7 @@ export type VmwareDisksUpdateResponses = {
 
 export type VmwareDisksUpdateResponse = VmwareDisksUpdateResponses[keyof VmwareDisksUpdateResponses];
 
-export type VmwareDisksExtendCreateData = {
+export type VmwareDisksExtendData = {
     body: VmwareDiskExtendRequest;
     path: {
         uuid: string;
@@ -34067,13 +33561,13 @@ export type VmwareDisksExtendCreateData = {
     url: '/api/vmware-disks/{uuid}/extend/';
 };
 
-export type VmwareDisksExtendCreateResponses = {
+export type VmwareDisksExtendResponses = {
     200: VmwareDiskExtend;
 };
 
-export type VmwareDisksExtendCreateResponse = VmwareDisksExtendCreateResponses[keyof VmwareDisksExtendCreateResponses];
+export type VmwareDisksExtendResponse = VmwareDisksExtendResponses[keyof VmwareDisksExtendResponses];
 
-export type VmwareDisksPullCreateData = {
+export type VmwareDisksPullData = {
     body: VmwareDiskRequest;
     path: {
         uuid: string;
@@ -34082,13 +33576,13 @@ export type VmwareDisksPullCreateData = {
     url: '/api/vmware-disks/{uuid}/pull/';
 };
 
-export type VmwareDisksPullCreateResponses = {
+export type VmwareDisksPullResponses = {
     200: VmwareDisk;
 };
 
-export type VmwareDisksPullCreateResponse = VmwareDisksPullCreateResponses[keyof VmwareDisksPullCreateResponses];
+export type VmwareDisksPullResponse = VmwareDisksPullResponses[keyof VmwareDisksPullResponses];
 
-export type VmwareDisksUnlinkCreateData = {
+export type VmwareDisksUnlinkData = {
     body: VmwareDiskRequest;
     path: {
         uuid: string;
@@ -34097,11 +33591,11 @@ export type VmwareDisksUnlinkCreateData = {
     url: '/api/vmware-disks/{uuid}/unlink/';
 };
 
-export type VmwareDisksUnlinkCreateResponses = {
+export type VmwareDisksUnlinkResponses = {
     200: VmwareDisk;
 };
 
-export type VmwareDisksUnlinkCreateResponse = VmwareDisksUnlinkCreateResponses[keyof VmwareDisksUnlinkCreateResponses];
+export type VmwareDisksUnlinkResponse = VmwareDisksUnlinkResponses[keyof VmwareDisksUnlinkResponses];
 
 export type VmwareFoldersListData = {
     body?: never;
@@ -34342,7 +33836,7 @@ export type VmwarePortsUpdateResponses = {
 
 export type VmwarePortsUpdateResponse = VmwarePortsUpdateResponses[keyof VmwarePortsUpdateResponses];
 
-export type VmwarePortsPullCreateData = {
+export type VmwarePortsPullData = {
     body: VmwarePortRequest;
     path: {
         uuid: string;
@@ -34351,13 +33845,13 @@ export type VmwarePortsPullCreateData = {
     url: '/api/vmware-ports/{uuid}/pull/';
 };
 
-export type VmwarePortsPullCreateResponses = {
+export type VmwarePortsPullResponses = {
     200: VmwarePort;
 };
 
-export type VmwarePortsPullCreateResponse = VmwarePortsPullCreateResponses[keyof VmwarePortsPullCreateResponses];
+export type VmwarePortsPullResponse = VmwarePortsPullResponses[keyof VmwarePortsPullResponses];
 
-export type VmwarePortsUnlinkCreateData = {
+export type VmwarePortsUnlinkData = {
     body: VmwarePortRequest;
     path: {
         uuid: string;
@@ -34366,11 +33860,11 @@ export type VmwarePortsUnlinkCreateData = {
     url: '/api/vmware-ports/{uuid}/unlink/';
 };
 
-export type VmwarePortsUnlinkCreateResponses = {
+export type VmwarePortsUnlinkResponses = {
     200: VmwarePort;
 };
 
-export type VmwarePortsUnlinkCreateResponse = VmwarePortsUnlinkCreateResponses[keyof VmwarePortsUnlinkCreateResponses];
+export type VmwarePortsUnlinkResponse = VmwarePortsUnlinkResponses[keyof VmwarePortsUnlinkResponses];
 
 export type VmwareTemplatesListData = {
     body?: never;
@@ -34554,7 +34048,7 @@ export type VmwareVirtualMachineConsoleRetrieveResponses = {
 
 export type VmwareVirtualMachineConsoleRetrieveResponse = VmwareVirtualMachineConsoleRetrieveResponses[keyof VmwareVirtualMachineConsoleRetrieveResponses];
 
-export type VmwareVirtualMachineCreateDiskCreateData = {
+export type VmwareVirtualMachineCreateDiskData = {
     body: VmwareDiskRequest;
     path: {
         uuid: string;
@@ -34563,13 +34057,13 @@ export type VmwareVirtualMachineCreateDiskCreateData = {
     url: '/api/vmware-virtual-machine/{uuid}/create_disk/';
 };
 
-export type VmwareVirtualMachineCreateDiskCreateResponses = {
+export type VmwareVirtualMachineCreateDiskResponses = {
     200: VmwareDisk;
 };
 
-export type VmwareVirtualMachineCreateDiskCreateResponse = VmwareVirtualMachineCreateDiskCreateResponses[keyof VmwareVirtualMachineCreateDiskCreateResponses];
+export type VmwareVirtualMachineCreateDiskResponse = VmwareVirtualMachineCreateDiskResponses[keyof VmwareVirtualMachineCreateDiskResponses];
 
-export type VmwareVirtualMachineCreatePortCreateData = {
+export type VmwareVirtualMachineCreatePortData = {
     body: VmwarePortRequest;
     path: {
         uuid: string;
@@ -34578,13 +34072,13 @@ export type VmwareVirtualMachineCreatePortCreateData = {
     url: '/api/vmware-virtual-machine/{uuid}/create_port/';
 };
 
-export type VmwareVirtualMachineCreatePortCreateResponses = {
+export type VmwareVirtualMachineCreatePortResponses = {
     200: VmwarePort;
 };
 
-export type VmwareVirtualMachineCreatePortCreateResponse = VmwareVirtualMachineCreatePortCreateResponses[keyof VmwareVirtualMachineCreatePortCreateResponses];
+export type VmwareVirtualMachineCreatePortResponse = VmwareVirtualMachineCreatePortResponses[keyof VmwareVirtualMachineCreatePortResponses];
 
-export type VmwareVirtualMachinePullCreateData = {
+export type VmwareVirtualMachinePullData = {
     body: VmwareVirtualMachineRequest;
     path: {
         uuid: string;
@@ -34593,13 +34087,13 @@ export type VmwareVirtualMachinePullCreateData = {
     url: '/api/vmware-virtual-machine/{uuid}/pull/';
 };
 
-export type VmwareVirtualMachinePullCreateResponses = {
+export type VmwareVirtualMachinePullResponses = {
     200: VmwareVirtualMachine;
 };
 
-export type VmwareVirtualMachinePullCreateResponse = VmwareVirtualMachinePullCreateResponses[keyof VmwareVirtualMachinePullCreateResponses];
+export type VmwareVirtualMachinePullResponse = VmwareVirtualMachinePullResponses[keyof VmwareVirtualMachinePullResponses];
 
-export type VmwareVirtualMachineRebootGuestCreateData = {
+export type VmwareVirtualMachineRebootGuestData = {
     body?: never;
     path: {
         uuid: string;
@@ -34608,14 +34102,14 @@ export type VmwareVirtualMachineRebootGuestCreateData = {
     url: '/api/vmware-virtual-machine/{uuid}/reboot_guest/';
 };
 
-export type VmwareVirtualMachineRebootGuestCreateResponses = {
+export type VmwareVirtualMachineRebootGuestResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type VmwareVirtualMachineResetCreateData = {
+export type VmwareVirtualMachineResetData = {
     body?: never;
     path: {
         uuid: string;
@@ -34624,14 +34118,14 @@ export type VmwareVirtualMachineResetCreateData = {
     url: '/api/vmware-virtual-machine/{uuid}/reset/';
 };
 
-export type VmwareVirtualMachineResetCreateResponses = {
+export type VmwareVirtualMachineResetResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type VmwareVirtualMachineShutdownGuestCreateData = {
+export type VmwareVirtualMachineShutdownGuestData = {
     body?: never;
     path: {
         uuid: string;
@@ -34640,14 +34134,14 @@ export type VmwareVirtualMachineShutdownGuestCreateData = {
     url: '/api/vmware-virtual-machine/{uuid}/shutdown_guest/';
 };
 
-export type VmwareVirtualMachineShutdownGuestCreateResponses = {
+export type VmwareVirtualMachineShutdownGuestResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type VmwareVirtualMachineStartCreateData = {
+export type VmwareVirtualMachineStartData = {
     body?: never;
     path: {
         uuid: string;
@@ -34656,14 +34150,14 @@ export type VmwareVirtualMachineStartCreateData = {
     url: '/api/vmware-virtual-machine/{uuid}/start/';
 };
 
-export type VmwareVirtualMachineStartCreateResponses = {
+export type VmwareVirtualMachineStartResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type VmwareVirtualMachineStopCreateData = {
+export type VmwareVirtualMachineStopData = {
     body?: never;
     path: {
         uuid: string;
@@ -34672,14 +34166,14 @@ export type VmwareVirtualMachineStopCreateData = {
     url: '/api/vmware-virtual-machine/{uuid}/stop/';
 };
 
-export type VmwareVirtualMachineStopCreateResponses = {
+export type VmwareVirtualMachineStopResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type VmwareVirtualMachineSuspendCreateData = {
+export type VmwareVirtualMachineSuspendData = {
     body?: never;
     path: {
         uuid: string;
@@ -34688,14 +34182,14 @@ export type VmwareVirtualMachineSuspendCreateData = {
     url: '/api/vmware-virtual-machine/{uuid}/suspend/';
 };
 
-export type VmwareVirtualMachineSuspendCreateResponses = {
+export type VmwareVirtualMachineSuspendResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type VmwareVirtualMachineUnlinkCreateData = {
+export type VmwareVirtualMachineUnlinkData = {
     body: VmwareVirtualMachineRequest;
     path: {
         uuid: string;
@@ -34704,11 +34198,11 @@ export type VmwareVirtualMachineUnlinkCreateData = {
     url: '/api/vmware-virtual-machine/{uuid}/unlink/';
 };
 
-export type VmwareVirtualMachineUnlinkCreateResponses = {
+export type VmwareVirtualMachineUnlinkResponses = {
     200: VmwareVirtualMachine;
 };
 
-export type VmwareVirtualMachineUnlinkCreateResponse = VmwareVirtualMachineUnlinkCreateResponses[keyof VmwareVirtualMachineUnlinkCreateResponses];
+export type VmwareVirtualMachineUnlinkResponse = VmwareVirtualMachineUnlinkResponses[keyof VmwareVirtualMachineUnlinkResponses];
 
 export type VmwareVirtualMachineWebConsoleRetrieveData = {
     body?: never;
@@ -34726,5 +34220,5 @@ export type VmwareVirtualMachineWebConsoleRetrieveResponses = {
 export type VmwareVirtualMachineWebConsoleRetrieveResponse = VmwareVirtualMachineWebConsoleRetrieveResponses[keyof VmwareVirtualMachineWebConsoleRetrieveResponses];
 
 export type ClientOptions = {
-    baseUrl: `${string}://waldur-openapi-schema.yaml` | (string & {});
+    baseUrl: `${string}://schema.yaml` | (string & {});
 };

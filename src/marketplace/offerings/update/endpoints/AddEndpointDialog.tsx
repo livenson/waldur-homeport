@@ -3,7 +3,7 @@ import { Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 
-import { marketplaceOfferingEndpointCreate } from '@waldur/api';
+import { marketplaceProviderOfferingsAddEndpoint } from '@waldur/api';
 import { required } from '@waldur/core/validators';
 import { StringField, SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
@@ -24,7 +24,7 @@ export const AddEndpointDialog = reduxForm<
   const update = useCallback(
     async (formData) => {
       try {
-        await marketplaceOfferingEndpointCreate({
+        await marketplaceProviderOfferingsAddEndpoint({
           path: { uuid: props.resolve.offering.uuid },
           body: formData,
         });

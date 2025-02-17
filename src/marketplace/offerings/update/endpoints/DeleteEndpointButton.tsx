@@ -1,7 +1,7 @@
 import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
-import { marketplaceOfferingEndpointDelete } from '@waldur/api';
+import { marketplaceProviderOfferingsDeleteEndpoint } from '@waldur/api';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
@@ -26,7 +26,7 @@ export const DeleteEndpointButton = ({ endpoint, offering, refetch }) => {
       return;
     }
     try {
-      await marketplaceOfferingEndpointDelete({
+      await marketplaceProviderOfferingsDeleteEndpoint({
         path: { uuid: offering.uuid },
         body: { uuid: endpoint.uuid },
       });
