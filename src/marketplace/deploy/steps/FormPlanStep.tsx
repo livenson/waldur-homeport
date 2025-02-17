@@ -23,9 +23,14 @@ export const FormPlanStep = (props: FormStepProps) => {
       title={translate('Plan')}
       id={props.id}
       disabled={props.disabled}
+      disabledTooltip={props.disabledTooltip}
       actions={
         !props.previewMode && (
-          <OrderSummaryButton offering={props.offering} className="ms-auto" />
+          <OrderSummaryButton
+            offering={props.offering}
+            className="ms-auto"
+            disabled={props.disabled}
+          />
         )
       }
     >

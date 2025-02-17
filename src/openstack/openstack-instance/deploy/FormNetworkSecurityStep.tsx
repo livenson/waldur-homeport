@@ -165,6 +165,7 @@ export const FormNetworkSecurityStep = (props: FormStepProps) => {
       id={props.id}
       loading={isLoading}
       disabled={props.disabled}
+      disabledTooltip={props.disabledTooltip}
     >
       <div className="mb-5 mt-n4 border-bottom">
         <FormSSHPublicKeysField

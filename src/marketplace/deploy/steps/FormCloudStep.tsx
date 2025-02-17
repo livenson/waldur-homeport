@@ -156,6 +156,7 @@ export const FormCloudStep = (props: FormStepProps) => {
       title={props.title || translate('Cloud')}
       id={props.id}
       disabled={props.disabled}
+      disabledTooltip={props.disabledTooltip}
       actions={
         showExperimentalUiComponents ? (
           <div className="d-flex justify-content-between flex-grow-1 align-items-center">

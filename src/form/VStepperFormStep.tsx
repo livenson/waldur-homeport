@@ -1,8 +1,12 @@
+import classNames from 'classnames';
 import React, { FC, PropsWithChildren } from 'react';
 import { Card } from 'react-bootstrap';
 
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
+import { Tip } from '@waldur/core/Tooltip';
 import { RefreshButton } from '@waldur/marketplace/offerings/update/components/RefreshButton';
+
+import './VStepperFormStep.scss';
 
 export interface VStepperFormStep<T = VStepperFormStepProps> {
   label: string;
@@ -19,6 +23,7 @@ export interface VStepperFormStepProps {
   id: string;
   title?: string;
   disabled?: boolean;
+  disabledTooltip?: string;
   change?(field: string, value: any): void;
   params?: VStepperFormStep['params'];
 }
@@ -30,6 +35,7 @@ interface StepCardProps {
   loading?: boolean;
   className?: string;
   disabled?: boolean;
+  disabledTooltip?: string;
   refetch?(): void;
   refetching?: boolean;
 }
@@ -38,32 +44,36 @@ export const VStepperFormStepCard: FC<PropsWithChildren<StepCardProps>> = (
   props,
 ) => {
   return (
-    <Card
-      className={'step-card card-bordered ' + (props.className || '')}
-      id={props.id}
-    >
-      <Card.Header className="gap-2">
-        <div className="d-flex align-items-center me-2">
-          <h4 className="mb-0">{props.title}</h4>
-          {props.refetch && (
-            <div className="ms-2">
-              <RefreshButton
-                loading={props.refetching}
-                refetch={props.refetch}
-              />
-            </div>
+    <Tip id={`tip-${props.id}`} label={props.disabledTooltip}>
+      <Card
+        className={classNames(
+          'step-card card-bordered',
+          props.disabled && 'step-disabled',
+          props.className,
+        )}
+        id={props.id}
+      >
+        {props.disabled && <div className="step-blocker" />}
+        <Card.Header className="gap-2">
+          <div className="d-flex align-items-center me-2">
+            <h4 className="mb-0">{props.title}</h4>
+            {props.refetch && (
+              <div className="ms-2">
+                <RefreshButton
+                  loading={props.refetching}
+                  refetch={props.refetch}
+                />
+              </div>
+            )}
+          </div>
+          {props.actions && (
+            <div className="d-flex flex-grow-1">{props.actions}</div>
           )}
-        </div>
-        {props.actions && (
-          <div className="d-flex flex-grow-1">{props.actions}</div>
-        )}
-      </Card.Header>
-      <Card.Body className="position-relative">
-        {props.disabled && (
-          <div className="blocker position-absolute z-index-1 w-100 h-100 cursor-not-allowed" />
-        )}
-        {props.loading ? <LoadingSpinner /> : props.children}
-      </Card.Body>
-    </Card>
+        </Card.Header>
+        <Card.Body>
+          {props.loading ? <LoadingSpinner /> : props.children}
+        </Card.Body>
+      </Card>
+    </Tip>
   );
 };

@@ -70,6 +70,7 @@ export const FormHardwareConfigurationStep = (props: FormStepProps) => {
       title={translate('Hardware configuration')}
       id={props.id}
       disabled={props.disabled}
+      disabledTooltip={props.disabledTooltip}
       actions={
         <div className="ms-auto">
           <FilterBox

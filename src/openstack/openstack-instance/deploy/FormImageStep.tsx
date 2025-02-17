@@ -55,6 +55,7 @@ export const FormImageStep = (props: FormStepProps) => {
       title={translate('Image')}
       id={props.id}
       disabled={props.disabled}
+      disabledTooltip={props.disabledTooltip}
       actions={
         <div className="ms-auto">
           <FilterBox

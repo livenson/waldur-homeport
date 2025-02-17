@@ -40,6 +40,7 @@ export const FormRancherSecurityGroupsStep = (props: FormStepProps) => {
       title={translate('Security groups')}
       id={props.id}
       disabled={props.disabled}
+      disabledTooltip={props.disabledTooltip}
     >
       {tenant ? (
         <FormSecurityGroupsField

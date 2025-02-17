@@ -48,6 +48,7 @@ export const FormProcessorStep = (props: FormStepProps) => {
       id={props.id}
       loading={isLoading}
       disabled={props.disabled}
+      disabledTooltip={props.disabledTooltip}
     >
       <Field
         name="limits.cpu"

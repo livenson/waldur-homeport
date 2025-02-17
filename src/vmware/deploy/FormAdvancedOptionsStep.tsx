@@ -29,6 +29,7 @@ export const FormAdvancedOptionsStep = (props: FormStepProps) => {
       id={props.id}
       loading={isLoading}
       disabled={props.disabled}
+      disabledTooltip={props.disabledTooltip}
     >
       {data && (
         <FormContainer submitting={false} className="size-xl">

@@ -179,6 +179,7 @@ export const FormPeriodsStep = (props: FormStepProps) => {
       id={props.id}
       loading={isLoading}
       disabled={props.disabled}
+      disabledTooltip={props.disabledTooltip}
     >
       <FieldArray
         name="attributes.schedules"

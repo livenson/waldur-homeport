@@ -13,6 +13,7 @@ export const FormOptionalServicesStep = (props: FormStepProps) => {
       title={translate('Optional')}
       id={props.id}
       disabled={props.disabled}
+      disabledTooltip={props.disabledTooltip}
     >
       <Field
         name="attributes.install_longhorn"

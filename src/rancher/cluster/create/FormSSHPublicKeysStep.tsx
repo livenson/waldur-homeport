@@ -9,6 +9,7 @@ export const FormSSHPublicKeysStep = (props: FormStepProps) => {
       title={translate('SSH public keys')}
       id={props.id}
       disabled={props.disabled}
+      disabledTooltip={props.disabledTooltip}
     >
       <FormSSHPublicKeysField change={props.change} />
     </VStepperFormStepCard>

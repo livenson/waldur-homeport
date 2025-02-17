@@ -39,6 +39,7 @@ export const FormTenantStep = (props: FormStepProps) => {
       id={props.id}
       loading={isLoading}
       disabled={props.disabled}
+      disabledTooltip={props.disabledTooltip}
     >
       <Field name="attributes.tenant" component={FormGroup} validate={required}>
         <SelectField

@@ -15,6 +15,7 @@ export const FormInternalNetworkStep = (props: FormStepProps) => {
       title={translate('Internal network')}
       id={props.id}
       disabled={props.disabled}
+      disabledTooltip={props.disabledTooltip}
     >
       <Field
         name="attributes.subnet_cidr"
