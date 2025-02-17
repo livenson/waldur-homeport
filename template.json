@@ -4003,61 +4003,13 @@
     "description": "administration/hooks/HooksList.tsx, events/BaseEventsList.tsx, marketplace/offerings/OfferingDetailsUIView.tsx, marketplace/offerings/expandable/OfferingEventsList.tsx, user/hooks/HooksList.tsx",
     "message": "Events"
   },
-  "Every day at": {
-    "description": "resource/crontab.ts",
-    "message": "Every day at"
-  },
-  "Every day": {
-    "description": "resource/crontab.ts",
-    "message": "Every day"
-  },
-  "Every hour at {minuteValues} past the hour": {
-    "description": "resource/crontab.ts",
-    "message": "Every hour at {minuteValues} past the hour"
-  },
-  "Every hour": {
-    "description": "resource/crontab.ts",
-    "message": "Every hour"
-  },
-  "Every minute": {
-    "description": "resource/crontab.ts",
-    "message": "Every minute"
-  },
-  "Every month on the {days} at {time}": {
-    "description": "resource/crontab.ts",
-    "message": "Every month on the {days} at {time}"
-  },
-  "Every month on the {days} of {months} at {time}": {
-    "description": "resource/crontab.ts",
-    "message": "Every month on the {days} of {months} at {time}"
-  },
   "Every month service provider can report up to the amount requested by user.": {
     "description": "marketplace/offerings/update/components/ComponentLimitPeriodField.tsx",
     "message": "Every month service provider can report up to the amount requested by user."
   },
-  "Every month": {
-    "description": "resource/crontab.ts",
-    "message": "Every month"
-  },
-  "Every week on {day} at {time}": {
-    "description": "resource/crontab.ts",
-    "message": "Every week on {day} at {time}"
-  },
-  "Every week": {
-    "description": "resource/crontab.ts",
-    "message": "Every week"
-  },
   "Every year service provider can report up to the amount requested by user.": {
     "description": "marketplace/offerings/update/components/ComponentLimitPeriodField.tsx",
     "message": "Every year service provider can report up to the amount requested by user."
-  },
-  "Every year": {
-    "description": "resource/crontab.ts",
-    "message": "Every year"
-  },
-  "Every": {
-    "description": "form/CronField.tsx",
-    "message": "Every"
   },
   "Example telemetry metrics": {
     "description": "administration/TelemetryExampleDialog.tsx",
@@ -14563,10 +14515,6 @@
     "description": "rancher/cluster/apps/ClusterApplicationsList.tsx",
     "message": "applications"
   },
-  "at": {
-    "description": "form/CronField.tsx",
-    "message": "at"
-  },
   "bootable": {
     "description": "openstack/openstack-volume/OpenStackVolumeSummary.tsx",
     "message": "bootable"
@@ -14602,10 +14550,6 @@
   "customer credit": {
     "description": "customer/cost-policies/CostPolicyForm.tsx",
     "message": "customer credit"
-  },
-  "day": {
-    "description": "form/CronField.tsx",
-    "message": "day"
   },
   "description": {
     "description": "user/support/UserEditRows.tsx",
@@ -14683,10 +14627,6 @@
     "description": "rancher/cluster/hpas/ClusterHPAList.tsx",
     "message": "horizontal pod autoscalers"
   },
-  "hour": {
-    "description": "form/CronField.tsx",
-    "message": "hour"
-  },
   "images": {
     "description": "openstack/openstack-tenant/TenantImagesList.tsx",
     "message": "images"
@@ -14723,14 +14663,6 @@
     "description": "rancher/cluster/hpas/utils.ts",
     "message": "milli CPUs"
   },
-  "minute": {
-    "description": "form/CronField.tsx",
-    "message": "minute"
-  },
-  "month": {
-    "description": "form/CronField.tsx",
-    "message": "month"
-  },
   "native name": {
     "description": "user/support/UserEditRows.tsx",
     "message": "native name"
@@ -14746,10 +14678,6 @@
   "notifications": {
     "description": "administration/notifications/NotificationList.tsx",
     "message": "notifications"
-  },
-  "of": {
-    "description": "form/CronField.tsx",
-    "message": "of"
   },
   "offering permissions": {
     "description": "marketplace/service-providers/OfferingPermissionsList.tsx",
@@ -14767,14 +14695,6 @@
     "description": "marketplace/category/PublicOfferingsList.tsx, proposals/details/CallOfferingsCard.tsx",
     "message": "offerings"
   },
-  "on the": {
-    "description": "form/CronField.tsx",
-    "message": "on the"
-  },
-  "on": {
-    "description": "form/CronField.tsx",
-    "message": "on"
-  },
   "orders": {
     "description": "marketplace/orders/list/ResourceOrders.tsx",
     "message": "orders"
@@ -14782,10 +14702,6 @@
   "organizations": {
     "description": "administration/organizations/OrganizationGroupOrganizationsList.tsx, resource/support/SharedProviderCustomers.tsx, user/affiliations/OrganizationsList.tsx",
     "message": "organizations"
-  },
-  "past the hour": {
-    "description": "form/CronField.tsx",
-    "message": "past the hour"
   },
   "payment profiles": {
     "description": "customer/payment-profiles/PaymentProfileList.tsx",
@@ -14983,10 +14899,6 @@
     "description": "openstack/openstack-volume/InstanceVolumesList.tsx, openstack/openstack-volume/TenantVolumesList.tsx",
     "message": "volumes"
   },
-  "week": {
-    "description": "form/CronField.tsx",
-    "message": "week"
-  },
   "worker": {
     "description": "rancher/node/NodeRoleField.tsx",
     "message": "worker"
@@ -14994,10 +14906,6 @@
   "workloads": {
     "description": "rancher/cluster/ClusterWorkloadsList.tsx",
     "message": "workloads"
-  },
-  "year": {
-    "description": "form/CronField.tsx",
-    "message": "year"
   },
   "{action} has been scheduled for {resource}.": {
     "description": "resource/actions/AsyncActionItem.tsx",
