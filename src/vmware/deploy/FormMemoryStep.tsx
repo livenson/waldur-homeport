@@ -30,6 +30,7 @@ export const FormMemoryStep = (props: FormStepProps) => {
       id={props.id}
       loading={isLoading}
       disabled={props.disabled}
+      disabledTooltip={props.disabledTooltip}
     >
       <Field
         name="limits.ram"

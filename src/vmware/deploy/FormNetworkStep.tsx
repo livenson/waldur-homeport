@@ -35,6 +35,7 @@ export const FormNetworkStep = (props: FormStepProps) => {
       title={translate('Network interfaces')}
       id={props.id}
       disabled={props.disabled}
+      disabledTooltip={props.disabledTooltip}
       actions={
         showExperimentalUiComponents ? (
           <div className="d-flex justify-content-end flex-grow-1">

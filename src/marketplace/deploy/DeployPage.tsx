@@ -32,7 +32,11 @@ import {
 import { DeployForm } from './DeployForm';
 import { DeployPageActions } from './DeployPageActions';
 import { DeployPageSidebar } from './DeployPageSidebar';
-import { formProjectSelector, hasStepWithField } from './utils';
+import {
+  formCustomerSelector,
+  formProjectSelector,
+  hasStepWithField,
+} from './utils';
 
 import './DeployPage.scss';
 
@@ -67,6 +71,7 @@ export const BaseDeployPage = ({
 
   const isEdit = useMemo(() => Boolean(props.cartItem), [props]);
 
+  const customer = useSelector(formCustomerSelector);
   const project = useSelector(formProjectSelector);
 
   const isProjectInactive = useMemo(() => {
@@ -77,6 +82,8 @@ export const BaseDeployPage = ({
     }
     return false;
   }, [project]);
+
+  const noOrganizationOrProject = !customer || !project;
 
   const plans = useMemo(
     () => selectedOffering.plans.filter((plan) => plan.archived === false),
@@ -248,7 +255,10 @@ export const BaseDeployPage = ({
                 offering={selectedOffering}
                 change={props.change}
                 params={step.params}
-                disabled={step.id !== 'step-general' && isProjectInactive}
+                disabled={
+                  step.id !== 'step-general' &&
+                  (isProjectInactive || noOrganizationOrProject)
+                }
                 previewMode
               />
             </div>
@@ -280,7 +290,19 @@ export const BaseDeployPage = ({
                   offering={selectedOffering}
                   change={props.change}
                   params={step.params}
-                  disabled={step.id !== 'step-general' && isProjectInactive}
+                  disabled={
+                    step.id !== 'step-general' &&
+                    (isProjectInactive || noOrganizationOrProject)
+                  }
+                  disabledTooltip={
+                    noOrganizationOrProject
+                      ? translate(
+                          'Select an organization and project to proceed.',
+                        )
+                      : isProjectInactive
+                        ? translate('Project has reached its end date.')
+                        : null
+                  }
                 />
               </div>
             ))}

@@ -15,6 +15,7 @@ export const FormFinalConfigurationStep = (props: FormStepProps) => {
       title={translate('Final configuration')}
       id={props.id}
       disabled={props.disabled}
+      disabledTooltip={props.disabledTooltip}
     >
       <ResourceNameGroup
         nameValidate={props.params?.nameValidate}

@@ -16,6 +16,7 @@ export const OrderSummaryButton = ({
   offering,
   label = translate('View summary'),
   className = undefined,
+  disabled = false,
 }) => {
   const dispatch = useDispatch();
   return (
@@ -25,6 +26,7 @@ export const OrderSummaryButton = ({
       onClick={() =>
         dispatch(openModalDialog(OrderSummaryDialog, { offering, size: 'sm' }))
       }
+      disabled={disabled}
     >
       <span className="svg-icon svg-icon-2">
         <Eye weight="bold" />

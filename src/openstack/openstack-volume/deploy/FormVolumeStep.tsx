@@ -8,6 +8,7 @@ export const FormVolumeStep = (props: FormStepProps) => (
     title={translate('Volume')}
     id={props.id}
     disabled={props.disabled}
+    disabledTooltip={props.disabledTooltip}
   >
     <FormAbstractVolumeFields
       typeField="attributes.type"

@@ -114,6 +114,7 @@ export const FormDataStorageStep = (props: FormStepProps) => {
       id={props.id}
       loading={isLoading}
       disabled={props.disabled}
+      disabledTooltip={props.disabledTooltip}
       className="step-data-storage"
     >
       {nodes?.length ? (

@@ -8364,7 +8364,7 @@
     "message": "Project has reached its end date {date}"
   },
   "Project has reached its end date.": {
-    "description": "marketplace/details/OrderSubmitButton.tsx",
+    "description": "marketplace/deploy/DeployPage.tsx, marketplace/details/OrderSubmitButton.tsx",
     "message": "Project has reached its end date."
   },
   "Project image": {
@@ -10190,6 +10190,10 @@
   "Select an option...": {
     "description": "rancher/template/SelectControl.tsx",
     "message": "Select an option..."
+  },
+  "Select an organization and project to proceed.": {
+    "description": "marketplace/deploy/DeployPage.tsx",
+    "message": "Select an organization and project to proceed."
   },
   "Select an organization and project, then choose a category, an offering, and follow the prompts": {
     "description": "navigation/sidebar/marketplace-popup/MarketplacePopup.tsx",
