@@ -26,24 +26,25 @@ export const TablePlaceholder: FunctionComponent<TablePlaceholderProps> = ({
   filtersStorage,
 }) => {
   const message = getNoResultMessage({ query, verboseName });
-  const title = getNoResultTitle({ verboseName });
+  const title = getNoResultTitle({
+    verboseName,
+    hasFilter: filtersStorage?.length > 0,
+  });
 
   return (
     <NoResult
       callback={!hasRetry ? null : query ? clearSearch : () => fetch(true)}
       title={title}
       message={
-        <>
-          {message}
-          <br />
-          {(query || filtersStorage?.length) && (
-            <p className="mw-300px">
-              {translate(
-                'Please try again with different keywords or check your filters',
-              )}
-            </p>
-          )}
-        </>
+        filtersStorage?.length ? (
+          <p className="mw-300px">
+            {translate(
+              'Please try again with different keywords or check your filters',
+            )}
+          </p>
+        ) : (
+          message
+        )
       }
       buttonTitle={
         query ? translate('Clear search') : translate('Search again')
