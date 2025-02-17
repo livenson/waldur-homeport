@@ -4,11 +4,6 @@ import { ResourceTabsConfiguration } from '@waldur/resource/tabs/types';
 
 import { INSTANCE_TYPE } from '../constants';
 
-const BackupsSchedulesList = lazyComponent(() =>
-  import('../openstack-backup-schedule/BackupSchedulesList').then((module) => ({
-    default: module.BackupsSchedulesList,
-  })),
-);
 const BackupsList = lazyComponent(() =>
   import('../openstack-backup/BackupsList').then((module) => ({
     default: module.BackupsList,
@@ -72,11 +67,6 @@ export const OpenStackInstanceTabConfiguration: ResourceTabsConfiguration = {
           key: 'backups',
           title: translate('Snapshots'),
           component: BackupsList,
-        },
-        {
-          key: 'backup_schedules',
-          title: translate('Snapshot schedules'),
-          component: BackupsSchedulesList,
         },
       ],
     },

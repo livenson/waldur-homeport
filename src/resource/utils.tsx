@@ -1,14 +1,10 @@
 import { get } from '@waldur/core/api';
-import { Tip } from '@waldur/core/Tooltip';
 import { detectOS, formatFilesize } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';
 import {
   getTypeDisplay,
   getServiceIcon,
 } from '@waldur/marketplace/offerings/update/integration/registry';
-import { formatCrontab } from '@waldur/resource/crontab';
-import { ResourceSummaryProps } from '@waldur/resource/summary';
-import { Schedule } from '@waldur/resource/types';
 
 export const getResourceIcon = (type) => getServiceIcon(type.split('.')[0]);
 
@@ -78,19 +74,6 @@ export const formatSummary = (resource) => {
 };
 
 export const formatDefault = (value) => value || <>&mdash;</>;
-
-export const formatSchedule = ({ resource }) => (
-  <Tip label={resource.schedule} id="scheduleTooltip">
-    {formatCrontab(resource.schedule)}
-  </Tip>
-);
-
-export const formatRetentionTime = (props: ResourceSummaryProps<Schedule>) =>
-  props.resource.retention_time === 0
-    ? translate('Keep forever')
-    : translate('{number} days', {
-        number: props.resource.retention_time,
-      });
 
 export const getData = async (url) => {
   try {

@@ -293,40 +293,10 @@ export const pullVolume = (id: string) =>
 export const detachVolume = (id: string) =>
   post(`/openstack-volumes/${id}/detach/`);
 
-export const createBackupSchedule = (id: string, data) =>
-  post(`/openstack-instances/${id}/create_backup_schedule/`, data);
-
 export const attachVolume = (volumeId, instanceUrl) =>
   post(`/openstack-volumes/${volumeId}/attach/`, {
     instance: instanceUrl,
   });
-
-export const createSnapshotSchedule = (id: string, data) =>
-  post(`/openstack-volumes/${id}/create_snapshot_schedule/`, data);
-
-export const updateBackupSchedule = (id: string, data) =>
-  put(`/openstack-backup-schedules/${id}/`, data);
-
-export const activateBackupSchedule = (id: string) =>
-  post(`/openstack-backup-schedules/${id}/activate/`);
-
-export const deactivateBackupSchedule = (id: string) =>
-  post(`/openstack-backup-schedules/${id}/deactivate/`);
-
-export const destroyBackupSchedule = (id: string) =>
-  deleteById('/openstack-backup-schedules/', id);
-
-export const updateSnapshotSchedule = (id: string, data) =>
-  put(`/openstack-snapshot-schedules/${id}/`, data);
-
-export const destroySnapshotSchedule = (id: string) =>
-  deleteById('/openstack-snapshot-schedules/', id);
-
-export const activateSnapshotSchedule = (id: string) =>
-  post(`/openstack-snapshot-schedules/${id}/activate/`);
-
-export const deactivateSnapshotSchedule = (id: string) =>
-  post(`/openstack-snapshot-schedules/${id}/deactivate/`);
 
 export const createMigration = (payload) =>
   post(`/openstack-migrations/`, payload);

@@ -18,7 +18,6 @@ export const BackupsList: FunctionComponent<{ resourceScope }> = ({
   const filter = useMemo(() => {
     const fields = {
       [INSTANCE_TYPE]: 'instance',
-      'OpenStack.BackupSchedule': 'backup_schedule',
     };
     const { resource_type, url } = resourceScope;
     const field = fields[resource_type];
