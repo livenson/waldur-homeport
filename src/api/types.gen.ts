@@ -9122,10 +9122,6 @@ export type RemoteCustomer = {
     readonly email: string;
 };
 
-export type RemoteEduteamsRequest = {
-    cuid: string;
-};
-
 export type RemoteEduteamsRequestRequest = {
     cuid: string;
 };
@@ -10171,12 +10167,7 @@ export type TemplateRequest = {
     issue_type?: IssueTypeEnum;
 };
 
-export type TimezoneEnum = 'Europe/Isle_of_Man' | 'Europe/Kirov' | 'Europe/Belgrade' | 'Asia/Ujung_Pandang' | 'Africa/Nouakchott' | 'Asia/Bangkok' | 'Asia/Kathmandu' | 'Cuba' | 'America/Buenos_Aires' | 'Africa/Kampala' | 'Africa/Freetown' | 'America/Santo_Domingo' | 'America/Fort_Nelson' | 'America/Guatemala' | 'Etc/GMT+4' | 'America/Montevideo' | 'America/Moncton' | 'America/Argentina/Salta' | 'America/Iqaluit' | 'Europe/Berlin' | 'Pacific/Saipan' | 'America/Argentina/Cordoba' | 'America/Port_of_Spain' | 'Pacific/Marquesas' | 'Europe/Gibraltar' | 'Europe/Malta' | 'America/Argentina/La_Rioja' | 'America/El_Salvador' | 'America/Dominica' | 'Pacific/Johnston' | 'Europe/Mariehamn' | 'Etc/GMT-9' | 'Asia/Choibalsan' | 'US/Alaska' | 'Asia/Yekaterinburg' | 'Australia/Lindeman' | 'America/Fort_Wayne' | 'Asia/Amman' | 'Europe/Bratislava' | 'Atlantic/Jan_Mayen' | 'Asia/Rangoon' | 'Indian/Cocos' | 'Australia/Tasmania' | 'America/Belem' | 'Europe/San_Marino' | 'America/Lima' | 'Australia/Darwin' | 'Australia/North' | 'Asia/Dili' | 'PST8PDT' | 'Etc/GMT' | 'America/Boa_Vista' | 'Australia/Brisbane' | 'Europe/Rome' | 'HST' | 'America/Argentina/Catamarca' | 'America/Kralendijk' | 'Atlantic/South_Georgia' | 'Pacific/Kwajalein' | 'CET' | 'America/Guadeloupe' | 'Portugal' | 'Europe/Zagreb' | 'Antarctica/Casey' | 'Atlantic/Faeroe' | 'America/Havana' | 'Europe/Zurich' | 'Asia/Kabul' | 'America/Adak' | 'America/Noronha' | 'Asia/Samarkand' | 'America/Rainy_River' | 'Asia/Saigon' | 'WET' | 'Africa/Tunis' | 'Greenwich' | 'America/Marigot' | 'Africa/Timbuktu' | 'Europe/Riga' | 'America/Rankin_Inlet' | 'Pacific/Port_Moresby' | 'Europe/Dublin' | 'Australia/Adelaide' | 'Africa/Mbabane' | 'Europe/Vaduz' | 'Pacific/Fakaofo' | 'Africa/Lubumbashi' | 'Asia/Nicosia' | 'Asia/Yangon' | 'Europe/Simferopol' | 'Asia/Vientiane' | 'Asia/Beirut' | 'America/Indiana/Winamac' | 'America/Creston' | 'America/Menominee' | 'Pacific/Rarotonga' | 'America/Argentina/Jujuy' | 'America/Hermosillo' | 'America/Cayenne' | 'America/Kentucky/Monticello' | 'Asia/Jerusalem' | 'Etc/GMT+7' | 'America/Santarem' | 'Asia/Shanghai' | 'Antarctica/Vostok' | 'Europe/Prague' | 'Antarctica/Macquarie' | 'GB' | 'America/Porto_Velho' | 'Atlantic/St_Helena' | 'America/Toronto' | 'Europe/Volgograd' | 'Etc/UCT' | 'Africa/Ouagadougou' | 'America/Argentina/San_Luis' | 'Asia/Ho_Chi_Minh' | 'Asia/Oral' | 'Africa/Maputo' | 'Asia/Colombo' | 'America/Cayman' | 'Canada/Pacific' | 'US/Eastern' | 'Asia/Riyadh' | 'US/Central' | 'Asia/Phnom_Penh' | 'EST' | 'America/Belize' | 'Pacific/Ponape' | 'Africa/Harare' | 'America/Bahia' | 'America/Indiana/Vevay' | 'Asia/Muscat' | 'America/St_Lucia' | 'America/Coral_Harbour' | 'MST' | 'UTC' | 'US/East-Indiana' | 'Pacific/Norfolk' | 'Atlantic/Azores' | 'Pacific/Funafuti' | 'America/Regina' | 'Iran' | 'US/Hawaii' | 'Africa/Sao_Tome' | 'Asia/Khandyga' | 'America/Rosario' | 'Africa/Banjul' | 'Pacific/Efate' | 'Asia/Dushanbe' | 'Pacific/Kosrae' | 'America/Cambridge_Bay' | 'America/Thunder_Bay' | 'Europe/Andorra' | 'America/Jujuy' | 'Europe/Nicosia' | 'Asia/Tbilisi' | 'Canada/Atlantic' | 'Europe/Saratov' | 'America/St_Barthelemy' | 'NZ' | 'Indian/Chagos' | 'Asia/Hebron' | 'Asia/Kamchatka' | 'Asia/Pyongyang' | 'Asia/Tokyo' | 'Etc/GMT+2' | 'America/Boise' | 'Africa/Blantyre' | 'Antarctica/Davis' | 'Africa/Douala' | 'America/Argentina/San_Juan' | 'Africa/Niamey' | 'Europe/Copenhagen' | 'Africa/Juba' | 'America/Indiana/Tell_City' | 'America/Panama' | 'Asia/Bahrain' | 'Africa/Abidjan' | 'Australia/Perth' | 'Etc/GMT-14' | 'Pacific/Guadalcanal' | 'W-SU' | 'Asia/Calcutta' | 'America/Indiana/Marengo' | 'Asia/Hong_Kong' | 'US/Samoa' | 'US/Arizona' | 'Etc/GMT+12' | 'Africa/Casablanca' | 'Etc/GMT0' | 'Africa/Khartoum' | 'America/Guyana' | 'America/Campo_Grande' | 'America/Godthab' | 'Asia/Krasnoyarsk' | 'ROK' | 'America/Grenada' | 'Africa/Dakar' | 'Indian/Maldives' | 'Australia/Hobart' | 'Asia/Singapore' | 'America/Los_Angeles' | 'Indian/Kerguelen' | 'Asia/Chita' | 'PRC' | 'Asia/Kuching' | 'Europe/Bucharest' | 'Pacific/Tarawa' | 'Asia/Macau' | 'Asia/Damascus' | 'Asia/Makassar' | 'Antarctica/South_Pole' | 'Brazil/DeNoronha' | 'Asia/Yerevan' | 'Jamaica' | 'Etc/GMT-12' | 'Asia/Manila' | 'GB-Eire' | 'Canada/Newfoundland' | 'Asia/Dhaka' | 'Asia/Aqtobe' | 'Pacific/Truk' | 'Turkey' | 'Asia/Tomsk' | 'Europe/Astrakhan' | 'America/Indianapolis' | 'Asia/Famagusta' | 'Asia/Yakutsk' | 'Antarctica/Syowa' | 'Asia/Jayapura' | 'Pacific/Palau' | 'America/North_Dakota/Beulah' | 'Asia/Baghdad' | 'Asia/Magadan' | 'America/Juneau' | 'America/Punta_Arenas' | 'America/Lower_Princes' | 'Antarctica/McMurdo' | 'Asia/Macao' | 'Africa/Cairo' | 'Etc/GMT-1' | 'Africa/Luanda' | 'Europe/Chisinau' | 'America/Sao_Paulo' | 'Asia/Thimphu' | 'Australia/Broken_Hill' | 'America/Porto_Acre' | 'Israel' | 'Etc/Zulu' | 'Poland' | 'Africa/Porto-Novo' | 'America/Guayaquil' | 'Asia/Kolkata' | 'America/Indiana/Knox' | 'Europe/Warsaw' | 'America/Maceio' | 'America/Inuvik' | 'Africa/Accra' | 'Africa/Monrovia' | 'America/Mendoza' | 'Asia/Ashgabat' | 'Pacific/Niue' | 'Asia/Bishkek' | 'America/Louisville' | 'Asia/Harbin' | 'America/Indiana/Petersburg' | 'Pacific/Tahiti' | 'Etc/GMT+8' | 'Africa/Conakry' | 'Indian/Reunion' | 'Asia/Ust-Nera' | 'Atlantic/Bermuda' | 'Etc/GMT-6' | 'Australia/South' | 'Europe/Sofia' | 'Asia/Thimbu' | 'America/Rio_Branco' | 'Europe/Paris' | 'Asia/Gaza' | 'Asia/Dubai' | 'Etc/GMT+10' | 'Asia/Aden' | 'Asia/Barnaul' | 'Asia/Qyzylorda' | 'Europe/Samara' | 'CST6CDT' | 'Africa/El_Aaiun' | 'America/Mexico_City' | 'Europe/Skopje' | 'Asia/Pontianak' | 'America/Martinique' | 'America/Nome' | 'America/Port-au-Prince' | 'Eire' | 'Asia/Irkutsk' | 'Egypt' | 'Hongkong' | 'Canada/Eastern' | 'Africa/Bujumbura' | 'Africa/Maseru' | 'America/Nipigon' | 'Atlantic/Cape_Verde' | 'Asia/Taipei' | 'Pacific/Pitcairn' | 'Asia/Omsk' | 'EET' | 'Iceland' | 'America/Ciudad_Juarez' | 'Africa/Windhoek' | 'Europe/Belfast' | 'America/Bogota' | 'America/Winnipeg' | 'Etc/UTC' | 'Pacific/Chatham' | 'Europe/Podgorica' | 'America/Jamaica' | 'Kwajalein' | 'Europe/Guernsey' | 'Europe/Ljubljana' | 'America/Yellowknife' | 'EST5EDT' | 'Pacific/Fiji' | 'Etc/GMT-5' | 'Pacific/Gambier' | 'GMT0' | 'Antarctica/DumontDUrville' | 'Pacific/Honolulu' | 'Africa/Brazzaville' | 'Europe/Luxembourg' | 'US/Indiana-Starke' | 'Antarctica/Mawson' | 'America/Metlakatla' | 'Europe/London' | 'Europe/Helsinki' | 'Europe/Zaporozhye' | 'Zulu' | 'MET' | 'Etc/GMT+1' | 'Canada/Central' | 'Europe/Kaliningrad' | 'America/Dawson' | 'America/Eirunepe' | 'America/Denver' | 'America/Detroit' | 'Asia/Qostanay' | 'Australia/Queensland' | 'America/Santa_Isabel' | 'Asia/Dacca' | 'America/Aruba' | 'Europe/Stockholm' | 'Asia/Atyrau' | 'America/Ensenada' | 'America/Recife' | 'Europe/Tallinn' | 'Etc/GMT+6' | 'US/Pacific' | 'Europe/Amsterdam' | 'Australia/Melbourne' | 'Atlantic/Canary' | 'America/Chihuahua' | 'America/Bahia_Banderas' | 'Asia/Kuwait' | 'America/Managua' | 'America/North_Dakota/Center' | 'Europe/Madrid' | 'Australia/LHI' | 'Africa/Mogadishu' | 'Africa/Bissau' | 'Indian/Mahe' | 'Asia/Baku' | 'Africa/Algiers' | 'Antarctica/Palmer' | 'Pacific/Wake' | 'Europe/Oslo' | 'Brazil/West' | 'Etc/GMT-3' | 'Europe/Tirane' | 'Australia/ACT' | 'Factory' | 'America/Miquelon' | 'Asia/Seoul' | 'Asia/Anadyr' | 'Australia/Currie' | 'Africa/Tripoli' | 'Atlantic/Faroe' | 'ROC' | 'Africa/Bamako' | 'Universal' | 'Africa/Lome' | 'America/Glace_Bay' | 'Africa/Kinshasa' | 'Pacific/Wallis' | 'Pacific/Enderbury' | 'America/St_Kitts' | 'Africa/Ndjamena' | 'America/Halifax' | 'America/Manaus' | 'America/Mazatlan' | 'America/Grand_Turk' | 'America/Anguilla' | 'Etc/GMT+0' | 'Europe/Kyiv' | 'America/Matamoros' | 'Etc/Greenwich' | 'Etc/GMT-10' | 'America/New_York' | 'America/Tortola' | 'America/North_Dakota/New_Salem' | 'Europe/Uzhgorod' | 'America/St_Thomas' | 'America/Caracas' | 'Pacific/Apia' | 'US/Aleutian' | 'Pacific/Majuro' | 'Europe/Sarajevo' | 'Asia/Chongqing' | 'Asia/Katmandu' | 'Asia/Tehran' | 'Asia/Kuala_Lumpur' | 'Pacific/Chuuk' | 'Etc/GMT-0' | 'America/Thule' | 'America/Indiana/Indianapolis' | 'Africa/Lagos' | 'Europe/Lisbon' | 'Etc/GMT-7' | 'Africa/Gaborone' | 'Australia/Eucla' | 'Europe/Busingen' | 'Asia/Aqtau' | 'America/Swift_Current' | 'Indian/Mayotte' | 'America/Antigua' | 'Chile/Continental' | 'America/Costa_Rica' | 'America/Catamarca' | 'GMT-0' | 'Asia/Istanbul' | 'America/Barbados' | 'Africa/Johannesburg' | 'Asia/Vladivostok' | 'America/Nassau' | 'Africa/Ceuta' | 'Asia/Urumqi' | 'Asia/Ulan_Bator' | 'Asia/Sakhalin' | 'America/Montserrat' | 'Etc/GMT+3' | 'America/Monterrey' | 'Africa/Asmera' | 'GMT+0' | 'Asia/Karachi' | 'US/Michigan' | 'Atlantic/Reykjavik' | 'Atlantic/Madeira' | 'America/Blanc-Sablon' | 'America/Atka' | 'Chile/EasterIsland' | 'America/Shiprock' | 'America/Atikokan' | 'Pacific/Auckland' | 'Asia/Brunei' | 'America/Danmarkshavn' | 'America/Montreal' | 'Australia/Yancowinna' | 'America/Argentina/Tucuman' | 'UCT' | 'America/Puerto_Rico' | 'Pacific/Midway' | 'Pacific/Bougainville' | 'Arctic/Longyearbyen' | 'Brazil/East' | 'Indian/Antananarivo' | 'America/Anchorage' | 'Pacific/Kanton' | 'Africa/Dar_es_Salaam' | 'Etc/GMT+9' | 'Europe/Vilnius' | 'Africa/Djibouti' | 'Australia/NSW' | 'Australia/Sydney' | 'Asia/Novosibirsk' | 'Europe/Monaco' | 'Europe/Ulyanovsk' | 'Atlantic/Stanley' | 'America/Whitehorse' | 'Canada/Saskatchewan' | 'Asia/Ashkhabad' | 'America/Cancun' | 'Africa/Libreville' | 'America/Tijuana' | 'Pacific/Kiritimati' | 'Australia/West' | 'Pacific/Tongatapu' | 'Europe/Brussels' | 'Navajo' | 'Asia/Srednekolymsk' | 'America/Chicago' | 'Etc/GMT+11' | 'Antarctica/Troll' | 'Pacific/Easter' | 'Asia/Tashkent' | 'Antarctica/Rothera' | 'America/Ojinaga' | 'America/Virgin' | 'GMT' | 'Europe/Kiev' | 'Indian/Christmas' | 'Indian/Mauritius' | 'Asia/Chungking' | 'Etc/GMT-2' | 'Etc/GMT-8' | 'America/Fortaleza' | 'America/Goose_Bay' | 'America/Knox_IN' | 'America/Kentucky/Louisville' | 'America/Phoenix' | 'America/Cordoba' | 'Europe/Vatican' | 'America/La_Paz' | 'America/Edmonton' | 'Europe/Istanbul' | 'America/Araguaina' | 'Africa/Addis_Ababa' | 'America/Santiago' | 'Mexico/BajaSur' | 'America/Paramaribo' | 'Europe/Moscow' | 'MST7MDT' | 'Europe/Budapest' | 'Asia/Ulaanbaatar' | 'Asia/Kashgar' | 'Pacific/Samoa' | 'America/Dawson_Creek' | 'Asia/Tel_Aviv' | 'Etc/GMT+5' | 'America/Scoresbysund' | 'Asia/Almaty' | 'Etc/GMT-13' | 'America/Nuuk' | 'Japan' | 'Africa/Lusaka' | 'America/Indiana/Vincennes' | 'America/Resolute' | 'Europe/Athens' | 'Australia/Victoria' | 'Mexico/BajaNorte' | 'Pacific/Pago_Pago' | 'Etc/Universal' | 'Etc/GMT-4' | 'America/Asuncion' | 'Africa/Nairobi' | 'America/Pangnirtung' | 'America/Argentina/Rio_Gallegos' | 'America/Yakutat' | 'Pacific/Guam' | 'Africa/Kigali' | 'Europe/Jersey' | 'America/Argentina/Mendoza' | 'Pacific/Yap' | 'America/Tegucigalpa' | 'Etc/GMT-11' | 'Asia/Jakarta' | 'Indian/Comoro' | 'Asia/Novokuznetsk' | 'America/Curacao' | 'Asia/Hovd' | 'Mexico/General' | 'Africa/Malabo' | 'America/Cuiaba' | 'US/Mountain' | 'Pacific/Pohnpei' | 'Pacific/Galapagos' | 'Brazil/Acre' | 'America/St_Johns' | 'Singapore' | 'Pacific/Noumea' | 'America/St_Vincent' | 'Europe/Tiraspol' | 'Pacific/Nauru' | 'America/Argentina/ComodRivadavia' | 'Europe/Vienna' | 'America/Argentina/Buenos_Aires' | 'Canada/Mountain' | 'NZ-CHAT' | 'America/Argentina/Ushuaia' | 'Australia/Lord_Howe' | 'localtime' | 'America/Sitka' | 'America/Vancouver' | 'Europe/Minsk' | 'Libya' | 'Canada/Yukon' | 'Australia/Canberra' | 'Africa/Bangui' | 'Asia/Qatar' | 'Africa/Asmara' | 'America/Merida';
-
-export type TotalCustomerCost = {
-    readonly total: number;
-    readonly price: number;
-};
+export type TimezoneEnum = 'PRC' | 'Etc/GMT' | 'Africa/Bamako' | 'Asia/Kuwait' | 'Asia/Colombo' | 'America/Kentucky/Monticello' | 'Canada/Atlantic' | 'Asia/Thimphu' | 'Pacific/Kanton' | 'America/Cambridge_Bay' | 'Etc/GMT-1' | 'Indian/Comoro' | 'America/Puerto_Rico' | 'America/Porto_Velho' | 'America/Montreal' | 'America/Detroit' | 'Europe/Zurich' | 'Etc/GMT+5' | 'Europe/Rome' | 'Pacific/Chatham' | 'Europe/Mariehamn' | 'Japan' | 'Europe/London' | 'Europe/Luxembourg' | 'Asia/Ulan_Bator' | 'America/Scoresbysund' | 'Europe/Vilnius' | 'Europe/Jersey' | 'Asia/Urumqi' | 'America/Rankin_Inlet' | 'Pacific/Palau' | 'Europe/Prague' | 'Canada/Eastern' | 'Atlantic/Azores' | 'America/Paramaribo' | 'Etc/GMT+12' | 'America/Bahia' | 'America/St_Barthelemy' | 'Africa/Juba' | 'Europe/Andorra' | 'Asia/Baku' | 'US/East-Indiana' | 'America/Toronto' | 'America/Anguilla' | 'Antarctica/South_Pole' | 'America/Halifax' | 'America/Boise' | 'America/Resolute' | 'America/Nassau' | 'America/Nome' | 'Asia/Ust-Nera' | 'America/Menominee' | 'Zulu' | 'America/Godthab' | 'Asia/Dubai' | 'Asia/Ho_Chi_Minh' | 'America/Guadeloupe' | 'Etc/GMT+4' | 'Asia/Aden' | 'Asia/Brunei' | 'Asia/Jayapura' | 'Australia/Tasmania' | 'Indian/Antananarivo' | 'Asia/Anadyr' | 'Etc/GMT+8' | 'Iceland' | 'Brazil/East' | 'Australia/Broken_Hill' | 'America/Rio_Branco' | 'Asia/Kolkata' | 'America/Argentina/San_Juan' | 'Australia/Hobart' | 'Africa/Accra' | 'America/Indiana/Indianapolis' | 'America/Tortola' | 'Asia/Kashgar' | 'Africa/Bujumbura' | 'Europe/Vaduz' | 'Pacific/Tahiti' | 'America/Aruba' | 'America/Virgin' | 'Singapore' | 'Atlantic/Madeira' | 'Australia/Victoria' | 'Africa/Mbabane' | 'America/Curacao' | 'US/Aleutian' | 'Europe/Kyiv' | 'America/Nipigon' | 'America/Swift_Current' | 'America/Antigua' | 'Europe/Oslo' | 'America/Argentina/La_Rioja' | 'Africa/Ndjamena' | 'America/Indiana/Vincennes' | 'Asia/Nicosia' | 'Australia/Lindeman' | 'Pacific/Guam' | 'Europe/Belgrade' | 'Pacific/Pago_Pago' | 'Africa/Brazzaville' | 'Africa/Luanda' | 'America/Inuvik' | 'Etc/GMT-7' | 'Pacific/Kosrae' | 'GB' | 'America/Regina' | 'Atlantic/Faroe' | 'America/Caracas' | 'Mexico/BajaNorte' | 'America/Chicago' | 'Europe/Istanbul' | 'America/Thunder_Bay' | 'Etc/GMT+1' | 'Egypt' | 'America/Porto_Acre' | 'localtime' | 'America/Nuuk' | 'America/Juneau' | 'Pacific/Pohnpei' | 'Asia/Pontianak' | 'US/Mountain' | 'America/Indiana/Vevay' | 'Asia/Tashkent' | 'America/Fortaleza' | 'Atlantic/Cape_Verde' | 'GMT0' | 'Asia/Ashkhabad' | 'Europe/Saratov' | 'Etc/GMT-10' | 'Europe/Chisinau' | 'Etc/GMT-9' | 'Asia/Jerusalem' | 'America/Jamaica' | 'America/Martinique' | 'Etc/GMT-4' | 'Asia/Istanbul' | 'Antarctica/Vostok' | 'Atlantic/Canary' | 'Africa/Mogadishu' | 'America/St_Kitts' | 'Libya' | 'Asia/Shanghai' | 'America/Montserrat' | 'Pacific/Johnston' | 'America/Ciudad_Juarez' | 'Africa/Maseru' | 'America/Noronha' | 'Pacific/Noumea' | 'US/Central' | 'Antarctica/Casey' | 'America/North_Dakota/New_Salem' | 'Asia/Magadan' | 'America/Coral_Harbour' | 'Europe/Brussels' | 'Africa/Asmara' | 'Asia/Yakutsk' | 'America/Knox_IN' | 'America/Tegucigalpa' | 'America/Danmarkshavn' | 'Arctic/Longyearbyen' | 'America/Barbados' | 'Pacific/Bougainville' | 'Asia/Saigon' | 'America/Bogota' | 'America/Lower_Princes' | 'America/Creston' | 'Pacific/Nauru' | 'America/St_Johns' | 'WET' | 'Africa/Harare' | 'Africa/Malabo' | 'Africa/Casablanca' | 'Europe/Amsterdam' | 'America/Jujuy' | 'Atlantic/Stanley' | 'Pacific/Rarotonga' | 'Asia/Riyadh' | 'America/Indiana/Tell_City' | 'Asia/Qostanay' | 'Indian/Kerguelen' | 'America/Hermosillo' | 'America/Buenos_Aires' | 'Africa/Libreville' | 'Asia/Rangoon' | 'Antarctica/Troll' | 'Europe/Astrakhan' | 'America/Guatemala' | 'Africa/Addis_Ababa' | 'Antarctica/DumontDUrville' | 'Etc/GMT-12' | 'GMT+0' | 'PST8PDT' | 'Asia/Dili' | 'Pacific/Port_Moresby' | 'Pacific/Fiji' | 'America/Iqaluit' | 'Asia/Beirut' | 'Pacific/Samoa' | 'Africa/Niamey' | 'Australia/Darwin' | 'Europe/Samara' | 'US/Michigan' | 'Europe/Ulyanovsk' | 'Mexico/BajaSur' | 'Asia/Baghdad' | 'America/Sitka' | 'Etc/GMT-2' | 'Africa/Douala' | 'Pacific/Norfolk' | 'Canada/Mountain' | 'America/Goose_Bay' | 'America/Sao_Paulo' | 'Europe/Bucharest' | 'Antarctica/Davis' | 'Pacific/Kwajalein' | 'Australia/LHI' | 'Africa/Lome' | 'Atlantic/Reykjavik' | 'Etc/UCT' | 'Africa/Bangui' | 'Europe/Guernsey' | 'America/Argentina/Ushuaia' | 'America/Grand_Turk' | 'MST' | 'Australia/ACT' | 'HST' | 'Europe/Minsk' | 'Canada/Yukon' | 'Europe/Belfast' | 'America/Guyana' | 'America/Cayman' | 'Europe/Vatican' | 'America/Cordoba' | 'Europe/Kiev' | 'Europe/Zaporozhye' | 'Indian/Mayotte' | 'Europe/Nicosia' | 'Africa/Kigali' | 'Africa/Nouakchott' | 'Asia/Kuching' | 'America/Havana' | 'Europe/Warsaw' | 'Asia/Yekaterinburg' | 'Pacific/Guadalcanal' | 'America/Eirunepe' | 'Asia/Makassar' | 'America/New_York' | 'Australia/Sydney' | 'Etc/GMT+11' | 'Cuba' | 'Asia/Chita' | 'Australia/West' | 'Europe/Volgograd' | 'Indian/Maldives' | 'Europe/Zagreb' | 'Etc/Zulu' | 'Africa/Dakar' | 'Atlantic/St_Helena' | 'Asia/Phnom_Penh' | 'Africa/Tunis' | 'Etc/UTC' | 'America/Recife' | 'Asia/Pyongyang' | 'America/Argentina/Jujuy' | 'Canada/Pacific' | 'America/Matamoros' | 'Africa/Tripoli' | 'Asia/Kathmandu' | 'Asia/Yerevan' | 'Europe/Dublin' | 'Europe/Kaliningrad' | 'Australia/Canberra' | 'America/Argentina/Rio_Gallegos' | 'Europe/Gibraltar' | 'Asia/Sakhalin' | 'Asia/Macao' | 'America/Miquelon' | 'Portugal' | 'UTC' | 'Antarctica/Palmer' | 'America/Whitehorse' | 'Africa/Cairo' | 'GMT' | 'Pacific/Kiritimati' | 'Atlantic/Faeroe' | 'America/Dominica' | 'Australia/NSW' | 'Pacific/Saipan' | 'America/Mexico_City' | 'America/Merida' | 'Asia/Manila' | 'Europe/Berlin' | 'Asia/Aqtobe' | 'Pacific/Honolulu' | 'US/Hawaii' | 'Africa/El_Aaiun' | 'Asia/Tokyo' | 'America/Kentucky/Louisville' | 'America/Bahia_Banderas' | 'Pacific/Tongatapu' | 'America/Santo_Domingo' | 'Europe/Kirov' | 'Brazil/DeNoronha' | 'Etc/Greenwich' | 'Pacific/Midway' | 'Etc/GMT-14' | 'Asia/Tomsk' | 'US/Alaska' | 'America/Belem' | 'America/Louisville' | 'Africa/Kampala' | 'Asia/Muscat' | 'US/Arizona' | 'America/Indiana/Marengo' | 'Africa/Dar_es_Salaam' | 'America/Rosario' | 'America/Port_of_Spain' | 'America/Santa_Isabel' | 'America/Mazatlan' | 'Asia/Jakarta' | 'Pacific/Auckland' | 'America/Adak' | 'Africa/Lagos' | 'Asia/Dhaka' | 'Asia/Bangkok' | 'Antarctica/Macquarie' | 'Australia/Yancowinna' | 'America/Argentina/Tucuman' | 'America/Indiana/Winamac' | 'America/Vancouver' | 'US/Indiana-Starke' | 'Europe/Lisbon' | 'Asia/Singapore' | 'MET' | 'Asia/Calcutta' | 'Europe/Helsinki' | 'CST6CDT' | 'Asia/Tel_Aviv' | 'Asia/Qyzylorda' | 'Asia/Qatar' | 'Africa/Lusaka' | 'W-SU' | 'Indian/Christmas' | 'Europe/Budapest' | 'EST' | 'Asia/Krasnoyarsk' | 'Asia/Chungking' | 'Asia/Irkutsk' | 'Brazil/West' | 'Africa/Ouagadougou' | 'Mexico/General' | 'Atlantic/Bermuda' | 'Asia/Chongqing' | 'Asia/Yangon' | 'America/Lima' | 'Africa/Djibouti' | 'Asia/Ashgabat' | 'GMT-0' | 'Africa/Bissau' | 'Indian/Cocos' | 'America/Los_Angeles' | 'America/St_Vincent' | 'America/Tijuana' | 'Africa/Freetown' | 'Asia/Tbilisi' | 'Navajo' | 'Asia/Srednekolymsk' | 'America/Managua' | 'Etc/GMT+9' | 'Africa/Maputo' | 'America/Argentina/Buenos_Aires' | 'Africa/Kinshasa' | 'Asia/Kabul' | 'America/St_Lucia' | 'Antarctica/McMurdo' | 'Europe/San_Marino' | 'Etc/GMT+7' | 'America/Port-au-Prince' | 'Europe/Riga' | 'Europe/Athens' | 'Europe/Isle_of_Man' | 'Pacific/Galapagos' | 'America/Argentina/ComodRivadavia' | 'Asia/Macau' | 'Atlantic/Jan_Mayen' | 'America/Kralendijk' | 'Asia/Almaty' | 'America/Indiana/Knox' | 'Asia/Hovd' | 'ROC' | 'America/Asuncion' | 'America/Shiprock' | 'America/Yellowknife' | 'Pacific/Funafuti' | 'Atlantic/South_Georgia' | 'Africa/Algiers' | 'America/Ensenada' | 'Asia/Omsk' | 'Australia/Currie' | 'America/Rainy_River' | 'America/Indiana/Petersburg' | 'Australia/Melbourne' | 'Etc/GMT-0' | 'America/Pangnirtung' | 'America/Thule' | 'America/Argentina/San_Luis' | 'America/North_Dakota/Center' | 'America/Montevideo' | 'America/Grenada' | 'Israel' | 'Australia/Brisbane' | 'Australia/Queensland' | 'America/Chihuahua' | 'America/Denver' | 'Pacific/Efate' | 'America/Atka' | 'Asia/Hebron' | 'America/Blanc-Sablon' | 'Europe/Podgorica' | 'Brazil/Acre' | 'Antarctica/Rothera' | 'MST7MDT' | 'Asia/Bahrain' | 'Africa/Sao_Tome' | 'Etc/GMT+10' | 'Chile/Continental' | 'Asia/Amman' | 'America/Belize' | 'Africa/Lubumbashi' | 'America/Manaus' | 'Kwajalein' | 'Asia/Harbin' | 'Australia/South' | 'Iran' | 'Africa/Johannesburg' | 'Africa/Conakry' | 'Antarctica/Syowa' | 'EET' | 'Australia/Eucla' | 'America/Argentina/Catamarca' | 'Etc/GMT+3' | 'Canada/Central' | 'Europe/Tallinn' | 'Turkey' | 'Asia/Dushanbe' | 'Asia/Famagusta' | 'Etc/GMT-3' | 'America/Catamarca' | 'Europe/Ljubljana' | 'Australia/North' | 'Pacific/Wake' | 'Pacific/Yap' | 'Europe/Vienna' | 'America/Guayaquil' | 'Africa/Abidjan' | 'Pacific/Wallis' | 'Asia/Thimbu' | 'America/Winnipeg' | 'Etc/GMT+2' | 'CET' | 'America/Ojinaga' | 'Poland' | 'America/Mendoza' | 'Asia/Damascus' | 'US/Eastern' | 'America/Boa_Vista' | 'Asia/Ulaanbaatar' | 'America/Argentina/Cordoba' | 'Etc/GMT-11' | 'EST5EDT' | 'Universal' | 'Africa/Nairobi' | 'Europe/Uzhgorod' | 'Pacific/Gambier' | 'Pacific/Majuro' | 'Etc/GMT-8' | 'US/Pacific' | 'America/Monterrey' | 'Africa/Khartoum' | 'Indian/Chagos' | 'GB-Eire' | 'Africa/Gaborone' | 'Europe/Tiraspol' | 'Europe/Skopje' | 'America/Fort_Nelson' | 'America/Glace_Bay' | 'America/Panama' | 'America/Argentina/Mendoza' | 'Australia/Perth' | 'America/Campo_Grande' | 'America/Santiago' | 'Asia/Kuala_Lumpur' | 'Pacific/Easter' | 'Africa/Monrovia' | 'America/North_Dakota/Beulah' | 'Asia/Seoul' | 'Etc/GMT-5' | 'Asia/Oral' | 'Europe/Paris' | 'Africa/Banjul' | 'Pacific/Enderbury' | 'Pacific/Truk' | 'Pacific/Tarawa' | 'Pacific/Chuuk' | 'Etc/GMT-6' | 'Europe/Madrid' | 'America/Santarem' | 'Indian/Mauritius' | 'Asia/Taipei' | 'ROK' | 'America/Indianapolis' | 'America/Atikokan' | 'Europe/Bratislava' | 'Asia/Atyrau' | 'Asia/Karachi' | 'Europe/Monaco' | 'Etc/GMT0' | 'Africa/Asmera' | 'Africa/Porto-Novo' | 'America/Marigot' | 'Asia/Katmandu' | 'America/Phoenix' | 'America/Edmonton' | 'America/Dawson' | 'Antarctica/Mawson' | 'Pacific/Apia' | 'America/La_Paz' | 'America/Araguaina' | 'America/Anchorage' | 'Australia/Adelaide' | 'Indian/Mahe' | 'Canada/Newfoundland' | 'America/Metlakatla' | 'Africa/Windhoek' | 'Etc/GMT+6' | 'Pacific/Marquesas' | 'Asia/Dacca' | 'Asia/Barnaul' | 'Asia/Vientiane' | 'Etc/GMT+0' | 'NZ-CHAT' | 'America/Yakutat' | 'Europe/Stockholm' | 'Africa/Timbuktu' | 'Asia/Aqtau' | 'Asia/Khandyga' | 'Asia/Tehran' | 'Etc/GMT-13' | 'Asia/Choibalsan' | 'Asia/Bishkek' | 'America/Cuiaba' | 'Europe/Sofia' | 'Pacific/Ponape' | 'America/Cancun' | 'Hongkong' | 'Europe/Copenhagen' | 'Europe/Malta' | 'Asia/Kamchatka' | 'Asia/Samarkand' | 'America/Argentina/Salta' | 'Factory' | 'America/Fort_Wayne' | 'Pacific/Niue' | 'Asia/Gaza' | 'Australia/Lord_Howe' | 'Eire' | 'America/Maceio' | 'America/Dawson_Creek' | 'UCT' | 'Pacific/Pitcairn' | 'Chile/EasterIsland' | 'Indian/Reunion' | 'America/Punta_Arenas' | 'America/Cayenne' | 'Pacific/Fakaofo' | 'Etc/Universal' | 'Africa/Ceuta' | 'Asia/Novokuznetsk' | 'Asia/Vladivostok' | 'Europe/Simferopol' | 'Europe/Tirane' | 'Jamaica' | 'Africa/Blantyre' | 'America/St_Thomas' | 'Asia/Novosibirsk' | 'Greenwich' | 'Europe/Moscow' | 'Canada/Saskatchewan' | 'Europe/Busingen' | 'America/Costa_Rica' | 'US/Samoa' | 'Europe/Sarajevo' | 'Asia/Hong_Kong' | 'America/El_Salvador' | 'Asia/Ujung_Pandang' | 'NZ' | 'America/Moncton';
 
 export type User = {
     readonly url: string;
@@ -10735,7 +10726,7 @@ export type WebHookRequest = {
     content_type?: ContentTypeEnum;
 };
 
-export type WebhookEventEnum = 'comment_updated' | 'jira:issue_deleted' | 'comment_created' | 'jira:issue_updated' | 'comment_deleted';
+export type WebhookEventEnum = 'comment_updated' | 'comment_deleted' | 'jira:issue_updated' | 'comment_created' | 'jira:issue_deleted';
 
 export type ApiAuthBccUserDetailsRetrieveData = {
     body?: never;
@@ -12668,10 +12659,11 @@ export type BillingTotalCostRetrieveData = {
 };
 
 export type BillingTotalCostRetrieveResponses = {
-    200: TotalCustomerCost;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type BillingTotalCostRetrieveResponse = BillingTotalCostRetrieveResponses[keyof BillingTotalCostRetrieveResponses];
 
 export type BookingOfferingsListData = {
     body?: never;
@@ -27838,24 +27830,6 @@ export type ProposalProposalsListData = {
     body?: never;
     path?: never;
     query?: {
-        call_uuid?: string;
-        name?: string;
-        /**
-         * Ordering
-         *
-         * * `round__call__name` - Round  call  name
-         * * `-round__call__name` - Round  call  name (descending)
-         * * `round__start_time` - Round  start time
-         * * `-round__start_time` - Round  start time (descending)
-         * * `round__cutoff_time` - Round  cutoff time
-         * * `-round__cutoff_time` - Round  cutoff time (descending)
-         * * `state` - State
-         * * `-state` - State (descending)
-         * * `created` - Created
-         * * `-created` - Created (descending)
-         */
-        o?: Array<'-created' | '-round__call__name' | '-round__cutoff_time' | '-round__start_time' | '-state' | 'created' | 'round__call__name' | 'round__cutoff_time' | 'round__start_time' | 'state'>;
-        organization_uuid?: string;
         /**
          * A page number within the paginated result set.
          */
@@ -27864,18 +27838,6 @@ export type ProposalProposalsListData = {
          * Number of results to return per page.
          */
         page_size?: number;
-        round?: string;
-        /**
-         * * `draft` - Draft
-         * * `team_verification` - Team verification
-         * * `submitted` - Submitted
-         * * `in_review` - In review
-         * * `in_revision` - In revision
-         * * `accepted` - Accepted
-         * * `rejected` - Rejected
-         * * `canceled` - Canceled
-         */
-        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted' | 'team_verification'>;
     };
     url: '/api/proposal-proposals/';
 };
@@ -28045,24 +28007,6 @@ export type ProposalProposalsListUsersListData = {
         uuid: string;
     };
     query?: {
-        call_uuid?: string;
-        name?: string;
-        /**
-         * Ordering
-         *
-         * * `round__call__name` - Round  call  name
-         * * `-round__call__name` - Round  call  name (descending)
-         * * `round__start_time` - Round  start time
-         * * `-round__start_time` - Round  start time (descending)
-         * * `round__cutoff_time` - Round  cutoff time
-         * * `-round__cutoff_time` - Round  cutoff time (descending)
-         * * `state` - State
-         * * `-state` - State (descending)
-         * * `created` - Created
-         * * `-created` - Created (descending)
-         */
-        o?: Array<'-created' | '-round__call__name' | '-round__cutoff_time' | '-round__start_time' | '-state' | 'created' | 'round__call__name' | 'round__cutoff_time' | 'round__start_time' | 'state'>;
-        organization_uuid?: string;
         /**
          * A page number within the paginated result set.
          */
@@ -28072,19 +28016,7 @@ export type ProposalProposalsListUsersListData = {
          */
         page_size?: number;
         role?: string;
-        round?: string;
         search_string?: string;
-        /**
-         * * `draft` - Draft
-         * * `team_verification` - Team verification
-         * * `submitted` - Submitted
-         * * `in_review` - In review
-         * * `in_revision` - In revision
-         * * `accepted` - Accepted
-         * * `rejected` - Rejected
-         * * `canceled` - Canceled
-         */
-        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted' | 'team_verification'>;
         user?: string;
     };
     url: '/api/proposal-proposals/{uuid}/list_users/';
@@ -31202,10 +31134,11 @@ export type RemoteEduteamsCreateData = {
 };
 
 export type RemoteEduteamsCreateResponses = {
-    200: RemoteEduteamsRequest;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type RemoteEduteamsCreateResponse = RemoteEduteamsCreateResponses[keyof RemoteEduteamsCreateResponses];
 
 export type RemoteWaldurApiCancelTerminationCreateData = {
     body?: never;
@@ -34793,5 +34726,5 @@ export type VmwareVirtualMachineWebConsoleRetrieveResponses = {
 export type VmwareVirtualMachineWebConsoleRetrieveResponse = VmwareVirtualMachineWebConsoleRetrieveResponses[keyof VmwareVirtualMachineWebConsoleRetrieveResponses];
 
 export type ClientOptions = {
-    baseUrl: `${string}://schema.yaml` | (string & {});
+    baseUrl: `${string}://waldur-openapi-schema.yaml` | (string & {});
 };
