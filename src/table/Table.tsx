@@ -341,6 +341,7 @@ class TableClass<RowType = any> extends React.Component<TableProps<RowType>> {
         return (
           <TablePlaceholder
             query={query}
+            filtersStorage={this.props.filtersStorage}
             verboseName={verboseName}
             clearSearch={() => setQuery('')}
             fetch={this.props.fetch}

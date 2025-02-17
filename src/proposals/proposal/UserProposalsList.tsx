@@ -157,7 +157,7 @@ export const UserProposalsList: FC = () => {
       {...tableProps}
       columns={columns}
       title={translate('My proposals')}
-      verboseName={translate('My proposals')}
+      verboseName={translate('Proposals')}
       hasQuery={true}
       hasOptionalColumns
       rowActions={UserProposalsRowActions}

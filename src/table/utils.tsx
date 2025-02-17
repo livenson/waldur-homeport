@@ -49,10 +49,16 @@ export function getNoResultMessage({ query, verboseName }) {
   }
 }
 
-export function getNoResultTitle({ verboseName }) {
+export function getNoResultTitle({ verboseName, hasFilter = false }) {
   const context = {
     verboseName: String(verboseName || translate('Items')).toLowerCase(),
   };
+  if (hasFilter) {
+    return translate(
+      'No {verboseName} found matching current filters',
+      context,
+    );
+  }
   return translate('No {verboseName} found', context);
 }
 

@@ -6679,6 +6679,10 @@
     "description": "marketplace/offerings/update/integration/EnvironmentVariablesList.tsx",
     "message": "No variable defined"
   },
+  "No {verboseName} found matching current filters": {
+    "description": "table/utils.tsx",
+    "message": "No {verboseName} found matching current filters"
+  },
   "No {verboseName} found": {
     "description": "table/utils.tsx",
     "message": "No {verboseName} found"
@@ -8436,7 +8440,7 @@
     "message": "Proposals in progress"
   },
   "Proposals": {
-    "description": "navigation/sidebar/CallPublicMenu.tsx, proposals/proposal/CustomerProposalsList.tsx, proposals/round/RoundUIView.tsx, proposals/round/proposals/ProposalsList.tsx, proposals/routes.ts, proposals/update/rounds/CallRoundsList.tsx",
+    "description": "navigation/sidebar/CallPublicMenu.tsx, proposals/proposal/CustomerProposalsList.tsx, proposals/proposal/UserProposalsList.tsx, proposals/round/RoundUIView.tsx, proposals/round/proposals/ProposalsList.tsx, proposals/routes.ts, proposals/update/rounds/CallRoundsList.tsx",
     "message": "Proposals"
   },
   "Propose changes": {
