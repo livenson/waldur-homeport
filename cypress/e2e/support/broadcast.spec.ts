@@ -60,7 +60,7 @@ describe('Broadcast', () => {
         .get('.modal-footer > .ms-3.btn.btn-primary')
         .click()
         .get('.modal-footer > .ms-3.btn.btn-primary')
-        .contains('Send broadcast')
+        .contains('Send now')
         .click();
       cy.get('tbody').find('tr').eq(0).should('exist').contains('Test');
     });

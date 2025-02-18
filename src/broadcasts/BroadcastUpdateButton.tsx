@@ -24,8 +24,8 @@ export const BroadcastUpdateButton: FunctionComponent<{
     dispatch(
       openModalDialog(BroadcastUpdateDialog, {
         dialogClassName: 'modal-dialog-centered',
+        initialValues: parseBroadcast(row),
         resolve: {
-          initialValues: parseBroadcast(row),
           uuid: row.uuid,
           refetch,
         },
