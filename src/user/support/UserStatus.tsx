@@ -75,7 +75,7 @@ export const UserStatus = ({ user }: { user: UserDetails }) => {
         <AwesomeCheckbox
           value={!isActive}
           onChange={toggleUserStatus}
-          label={translate('Deactivated')}
+          label={isActive ? translate('Active') : translate('Deactivated')}
         />
       }
     >

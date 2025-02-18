@@ -308,7 +308,7 @@
     "message": "Active to"
   },
   "Active": {
-    "description": "administration/announcements/AnnouncementFilter.tsx, administration/roles/RolesList.tsx, administration/users/FreeIPAUsersList.tsx, customer/utils.ts, invitations/GroupInvitationsList.tsx, marketplace/offerings/list/OfferingStateCell.tsx, marketplace/offerings/list/OfferingStateFilter.tsx, marketplace/offerings/update/plans/PlansSection.tsx, marketplace/service-providers/ProviderCampaignStateFilter.tsx, project/utils.ts, proposals/utils.ts, user/support/UserList.tsx, user/support/utils.ts",
+    "description": "administration/announcements/AnnouncementFilter.tsx, administration/roles/RolesList.tsx, administration/users/FreeIPAUsersList.tsx, customer/utils.ts, invitations/GroupInvitationsList.tsx, marketplace/offerings/list/OfferingStateCell.tsx, marketplace/offerings/list/OfferingStateFilter.tsx, marketplace/offerings/update/plans/PlansSection.tsx, marketplace/service-providers/ProviderCampaignStateFilter.tsx, project/utils.ts, proposals/utils.ts, user/support/UserList.tsx, user/support/UserStatus.tsx, user/support/utils.ts",
     "message": "Active"
   },
   "Add Waldur user SSH keys to the FreeIPA profile": {
