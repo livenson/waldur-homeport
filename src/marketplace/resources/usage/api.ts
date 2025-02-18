@@ -88,10 +88,10 @@ export const getComponentsAndUsages = async (
   let userUsages;
   try {
     usages = await getComponentUsages(resource_uuid, date_after, {
-      fields: ['type', 'usage', 'date'],
+      fields: ['type', 'usage', 'billing_period'],
     });
     userUsages = await getComponentUserUsages(resource_uuid, date_after, {
-      fields: ['component_type', 'usage', 'date'],
+      fields: ['component_type', 'usage', 'billing_period'],
     });
   } catch (error) {
     throw new Error(

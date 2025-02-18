@@ -122,8 +122,9 @@ export const getFormattedUsages = (
 
     if (matchingUsage) {
       const details = userUsages.filter(
-        (u) =>
-          parseDate(u.date).toFormat('yyyy-MM') === period.toFormat('yyyy-MM'),
+        (usage) =>
+          parseDate(usage.billing_period).toFormat('yyyy-MM') ===
+          period.toFormat('yyyy-MM'),
       );
 
       return {
@@ -146,7 +147,7 @@ export const getUsagePeriods = (usages: ComponentUsage[], months: number) => {
   if (!numberOfMonths) {
     // Calculate number of months from usages, if months param is not given
     const startDateUnix = Math.min(
-      ...usages.map((usage) => new Date(usage.date).getTime()),
+      ...usages.map((usage) => new Date(usage.billing_period).getTime()),
     );
     const _months = parseDate(startDateUnix)
       .startOf('month')
@@ -220,7 +221,7 @@ export const getTableData = (
     .filter((usage) => usage.type === component.type)
     .map((usage) => {
       return {
-        date: parseDate(usage.date).toFormat('MM/yyyy'),
+        date: parseDate(usage.billing_period).toFormat('MM/yyyy'),
         usage: Number(usage.usage),
       };
     });
