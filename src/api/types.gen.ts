@@ -10617,7 +10617,7 @@ export type WebHookRequest = {
     content_type?: ContentTypeEnum;
 };
 
-export type WebhookEventEnum = 'jira:issue_deleted' | 'jira:issue_updated' | 'comment_created' | 'comment_deleted' | 'comment_updated';
+export type WebhookEventEnum = 'comment_created' | 'comment_updated' | 'jira:issue_updated' | 'jira:issue_deleted' | 'comment_deleted';
 
 export type ApiAuthBccUserDetailsRetrieveData = {
     body?: never;
@@ -27322,24 +27322,6 @@ export type ProposalProposalsListData = {
     body?: never;
     path?: never;
     query?: {
-        call_uuid?: string;
-        name?: string;
-        /**
-         * Ordering
-         *
-         * * `round__call__name` - Round  call  name
-         * * `-round__call__name` - Round  call  name (descending)
-         * * `round__start_time` - Round  start time
-         * * `-round__start_time` - Round  start time (descending)
-         * * `round__cutoff_time` - Round  cutoff time
-         * * `-round__cutoff_time` - Round  cutoff time (descending)
-         * * `state` - State
-         * * `-state` - State (descending)
-         * * `created` - Created
-         * * `-created` - Created (descending)
-         */
-        o?: Array<'-created' | '-round__call__name' | '-round__cutoff_time' | '-round__start_time' | '-state' | 'created' | 'round__call__name' | 'round__cutoff_time' | 'round__start_time' | 'state'>;
-        organization_uuid?: string;
         /**
          * A page number within the paginated result set.
          */
@@ -27348,18 +27330,6 @@ export type ProposalProposalsListData = {
          * Number of results to return per page.
          */
         page_size?: number;
-        round?: string;
-        /**
-         * * `draft` - Draft
-         * * `team_verification` - Team verification
-         * * `submitted` - Submitted
-         * * `in_review` - In review
-         * * `in_revision` - In revision
-         * * `accepted` - Accepted
-         * * `rejected` - Rejected
-         * * `canceled` - Canceled
-         */
-        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted' | 'team_verification'>;
     };
     url: '/api/proposal-proposals/';
 };
@@ -27529,24 +27499,6 @@ export type ProposalProposalsListUsersListData = {
         uuid: string;
     };
     query?: {
-        call_uuid?: string;
-        name?: string;
-        /**
-         * Ordering
-         *
-         * * `round__call__name` - Round  call  name
-         * * `-round__call__name` - Round  call  name (descending)
-         * * `round__start_time` - Round  start time
-         * * `-round__start_time` - Round  start time (descending)
-         * * `round__cutoff_time` - Round  cutoff time
-         * * `-round__cutoff_time` - Round  cutoff time (descending)
-         * * `state` - State
-         * * `-state` - State (descending)
-         * * `created` - Created
-         * * `-created` - Created (descending)
-         */
-        o?: Array<'-created' | '-round__call__name' | '-round__cutoff_time' | '-round__start_time' | '-state' | 'created' | 'round__call__name' | 'round__cutoff_time' | 'round__start_time' | 'state'>;
-        organization_uuid?: string;
         /**
          * A page number within the paginated result set.
          */
@@ -27556,19 +27508,7 @@ export type ProposalProposalsListUsersListData = {
          */
         page_size?: number;
         role?: string;
-        round?: string;
         search_string?: string;
-        /**
-         * * `draft` - Draft
-         * * `team_verification` - Team verification
-         * * `submitted` - Submitted
-         * * `in_review` - In review
-         * * `in_revision` - In revision
-         * * `accepted` - Accepted
-         * * `rejected` - Rejected
-         * * `canceled` - Canceled
-         */
-        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted' | 'team_verification'>;
         user?: string;
     };
     url: '/api/proposal-proposals/{uuid}/list_users/';
@@ -34307,5 +34247,5 @@ export type VmwareVirtualMachineWebConsoleRetrieveResponses = {
 export type VmwareVirtualMachineWebConsoleRetrieveResponse = VmwareVirtualMachineWebConsoleRetrieveResponses[keyof VmwareVirtualMachineWebConsoleRetrieveResponses];
 
 export type ClientOptions = {
-    baseUrl: `${string}://schema.yaml` | (string & {});
+    baseUrl: `${string}://waldur-openapi-schema.yaml` | (string & {});
 };
