@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
 
+import { vmwareVirtualMachineCreatePort } from '@waldur/api';
 import { getAll } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
@@ -9,8 +10,6 @@ import { createNameField } from '@waldur/resource/actions/base';
 import { ResourceActionDialog } from '@waldur/resource/actions/ResourceActionDialog';
 import { ActionDialogProps } from '@waldur/resource/actions/types';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
-
-import { createPort } from '../api';
 
 export const CreatePortDialog: FC<ActionDialogProps> = ({
   resolve: { resource, refetch },
@@ -50,9 +49,12 @@ export const CreatePortDialog: FC<ActionDialogProps> = ({
       formFields={fields}
       submitForm={async (formData) => {
         try {
-          await createPort(resource.uuid, {
-            name: formData.name,
-            network: formData.network.value,
+          await vmwareVirtualMachineCreatePort({
+            path: { uuid: resource.uuid },
+            body: {
+              description: formData.name,
+              network: formData.network.value,
+            },
           });
           dispatch(showSuccess(translate('Port has been created.')));
           dispatch(closeModalDialog());

@@ -1,5 +1,4 @@
 import { ArrowsClockwise } from '@phosphor-icons/react';
-import { AxiosResponse } from 'axios';
 import { ReactElement } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -12,7 +11,7 @@ import { ActionContext } from './types';
 import { useValidators } from './useValidators';
 
 interface PullActionItemProps<T> {
-  apiMethod(id: string): Promise<AxiosResponse>;
+  apiMethod(id: string): Promise<any>;
   resource: T;
   staff?: boolean;
   iconClass?: string;

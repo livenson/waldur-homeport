@@ -1,8 +1,11 @@
+import { vmwareDisksPull } from '@waldur/api';
 import { PullActionItem } from '@waldur/resource/actions/PullActionItem';
 import { ActionItemType } from '@waldur/resource/actions/types';
 
-import { pullDisk } from '../api';
-
 export const PullDiskAction: ActionItemType = ({ resource, refetch }) => (
-  <PullActionItem apiMethod={pullDisk} resource={resource} refetch={refetch} />
+  <PullActionItem
+    apiMethod={(id) => vmwareDisksPull({ path: { uuid: id } })}
+    resource={resource}
+    refetch={refetch}
+  />
 );

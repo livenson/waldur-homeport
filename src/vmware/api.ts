@@ -1,4 +1,4 @@
-import { deleteById, get, getAll, getById, post, put } from '@waldur/core/api';
+import { deleteById, get, getAll, getById, put } from '@waldur/core/api';
 
 import { VMwareTemplate } from './types';
 
@@ -34,24 +34,6 @@ export const loadVMwareAdvancedOptions = async (props: {
     folders,
   };
 };
-
-interface CreatePortRequestBody {
-  name: string;
-  network: string;
-}
-
-export const createDisk = (id: string, size: number) =>
-  post(`/vmware-virtual-machine/${id}/create_disk/`, { size });
-
-export const createPort = (id: string, data: CreatePortRequestBody) =>
-  post(`/vmware-virtual-machine/${id}/create_port/`, data);
-
-export const pullPort = (id: string) => post(`/vmware-ports/${id}/pull/`);
-
-export const pullDisk = (id: string) => post(`/vmware-disks/${id}/pull/`);
-
-export const pullVirtualMachine = (id: string) =>
-  post(`/vmware-virtual-machine/${id}/pull/`);
 
 export const updateVirtualMachine = (id: string, data) =>
   put(`/vmware-virtual-machine/${id}/`, data);

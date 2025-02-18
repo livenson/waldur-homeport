@@ -10617,7 +10617,7 @@ export type WebHookRequest = {
     content_type?: ContentTypeEnum;
 };
 
-export type WebhookEventEnum = 'comment_updated' | 'jira:issue_updated' | 'comment_created' | 'jira:issue_deleted' | 'comment_deleted';
+export type WebhookEventEnum = 'jira:issue_deleted' | 'jira:issue_updated' | 'comment_created' | 'comment_deleted' | 'comment_updated';
 
 export type ApiAuthBccUserDetailsRetrieveData = {
     body?: never;
@@ -11353,7 +11353,7 @@ export type AwsInstancesUpdateResponses = {
 export type AwsInstancesUpdateResponse = AwsInstancesUpdateResponses[keyof AwsInstancesUpdateResponses];
 
 export type AwsInstancesPullData = {
-    body: AwsInstanceRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -11362,10 +11362,11 @@ export type AwsInstancesPullData = {
 };
 
 export type AwsInstancesPullResponses = {
-    200: AwsInstance;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type AwsInstancesPullResponse = AwsInstancesPullResponses[keyof AwsInstancesPullResponses];
 
 export type AwsInstancesResizeData = {
     body: AwsInstanceResizeRequest;
@@ -11431,7 +11432,7 @@ export type AwsInstancesStopResponses = {
 };
 
 export type AwsInstancesUnlinkData = {
-    body: AwsInstanceRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -11440,10 +11441,11 @@ export type AwsInstancesUnlinkData = {
 };
 
 export type AwsInstancesUnlinkResponses = {
-    200: AwsInstance;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type AwsInstancesUnlinkResponse = AwsInstancesUnlinkResponses[keyof AwsInstancesUnlinkResponses];
 
 export type AwsRegionsListData = {
     body?: never;
@@ -11654,7 +11656,7 @@ export type AwsVolumesDetachResponses = {
 };
 
 export type AwsVolumesPullData = {
-    body: AwsVolumeRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -11663,13 +11665,14 @@ export type AwsVolumesPullData = {
 };
 
 export type AwsVolumesPullResponses = {
-    200: AwsVolume;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type AwsVolumesPullResponse = AwsVolumesPullResponses[keyof AwsVolumesPullResponses];
-
 export type AwsVolumesUnlinkData = {
-    body: AwsVolumeRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -11678,10 +11681,11 @@ export type AwsVolumesUnlinkData = {
 };
 
 export type AwsVolumesUnlinkResponses = {
-    200: AwsVolume;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type AwsVolumesUnlinkResponse = AwsVolumesUnlinkResponses[keyof AwsVolumesUnlinkResponses];
 
 export type AzureImagesListData = {
     body?: never;
@@ -11896,7 +11900,7 @@ export type AzurePublicIpsUpdateResponses = {
 export type AzurePublicIpsUpdateResponse = AzurePublicIpsUpdateResponses[keyof AzurePublicIpsUpdateResponses];
 
 export type AzurePublicIpsPullData = {
-    body: AzurePublicIpRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -11905,13 +11909,14 @@ export type AzurePublicIpsPullData = {
 };
 
 export type AzurePublicIpsPullResponses = {
-    200: AzurePublicIp;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type AzurePublicIpsPullResponse = AzurePublicIpsPullResponses[keyof AzurePublicIpsPullResponses];
-
 export type AzurePublicIpsUnlinkData = {
-    body: AzurePublicIpRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -11920,10 +11925,11 @@ export type AzurePublicIpsUnlinkData = {
 };
 
 export type AzurePublicIpsUnlinkResponses = {
-    200: AzurePublicIp;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type AzurePublicIpsUnlinkResponse = AzurePublicIpsUnlinkResponses[keyof AzurePublicIpsUnlinkResponses];
 
 export type AzureResourceGroupsListData = {
     body?: never;
@@ -12136,7 +12142,7 @@ export type AzureSqlDatabasesUpdateResponses = {
 export type AzureSqlDatabasesUpdateResponse = AzureSqlDatabasesUpdateResponses[keyof AzureSqlDatabasesUpdateResponses];
 
 export type AzureSqlDatabasesPullData = {
-    body: AzureSqlDatabaseRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -12145,13 +12151,14 @@ export type AzureSqlDatabasesPullData = {
 };
 
 export type AzureSqlDatabasesPullResponses = {
-    200: AzureSqlDatabase;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type AzureSqlDatabasesPullResponse = AzureSqlDatabasesPullResponses[keyof AzureSqlDatabasesPullResponses];
-
 export type AzureSqlDatabasesUnlinkData = {
-    body: AzureSqlDatabaseRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -12160,10 +12167,11 @@ export type AzureSqlDatabasesUnlinkData = {
 };
 
 export type AzureSqlDatabasesUnlinkResponses = {
-    200: AzureSqlDatabase;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type AzureSqlDatabasesUnlinkResponse = AzureSqlDatabasesUnlinkResponses[keyof AzureSqlDatabasesUnlinkResponses];
 
 export type AzureSqlServersListData = {
     body?: never;
@@ -12308,7 +12316,7 @@ export type AzureSqlServersCreateDatabaseResponses = {
 export type AzureSqlServersCreateDatabaseResponse = AzureSqlServersCreateDatabaseResponses[keyof AzureSqlServersCreateDatabaseResponses];
 
 export type AzureSqlServersPullData = {
-    body: AzureSqlServerRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -12317,13 +12325,14 @@ export type AzureSqlServersPullData = {
 };
 
 export type AzureSqlServersPullResponses = {
-    200: AzureSqlServer;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type AzureSqlServersPullResponse = AzureSqlServersPullResponses[keyof AzureSqlServersPullResponses];
-
 export type AzureSqlServersUnlinkData = {
-    body: AzureSqlServerRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -12332,10 +12341,11 @@ export type AzureSqlServersUnlinkData = {
 };
 
 export type AzureSqlServersUnlinkResponses = {
-    200: AzureSqlServer;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type AzureSqlServersUnlinkResponse = AzureSqlServersUnlinkResponses[keyof AzureSqlServersUnlinkResponses];
 
 export type AzureVirtualmachinesListData = {
     body?: never;
@@ -12465,7 +12475,7 @@ export type AzureVirtualmachinesUpdateResponses = {
 export type AzureVirtualmachinesUpdateResponse = AzureVirtualmachinesUpdateResponses[keyof AzureVirtualmachinesUpdateResponses];
 
 export type AzureVirtualmachinesPullData = {
-    body: AzureVirtualMachineRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -12474,10 +12484,11 @@ export type AzureVirtualmachinesPullData = {
 };
 
 export type AzureVirtualmachinesPullResponses = {
-    200: AzureVirtualMachine;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type AzureVirtualmachinesPullResponse = AzureVirtualmachinesPullResponses[keyof AzureVirtualmachinesPullResponses];
 
 export type AzureVirtualmachinesRestartData = {
     body?: never;
@@ -12528,7 +12539,7 @@ export type AzureVirtualmachinesStopResponses = {
 };
 
 export type AzureVirtualmachinesUnlinkData = {
-    body: AzureVirtualMachineRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -12537,10 +12548,11 @@ export type AzureVirtualmachinesUnlinkData = {
 };
 
 export type AzureVirtualmachinesUnlinkResponses = {
-    200: AzureVirtualMachine;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type AzureVirtualmachinesUnlinkResponse = AzureVirtualmachinesUnlinkResponses[keyof AzureVirtualmachinesUnlinkResponses];
 
 export type BillingTotalCostRetrieveData = {
     body?: never;
@@ -14328,7 +14340,7 @@ export type DigitaloceanDropletsUpdateResponses = {
 export type DigitaloceanDropletsUpdateResponse = DigitaloceanDropletsUpdateResponses[keyof DigitaloceanDropletsUpdateResponses];
 
 export type DigitaloceanDropletsPullData = {
-    body: DigitalOceanDropletRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -14337,10 +14349,11 @@ export type DigitaloceanDropletsPullData = {
 };
 
 export type DigitaloceanDropletsPullResponses = {
-    200: DigitalOceanDroplet;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type DigitaloceanDropletsPullResponse = DigitaloceanDropletsPullResponses[keyof DigitaloceanDropletsPullResponses];
 
 export type DigitaloceanDropletsResizeData = {
     body: DigitalOceanDropletResizeRequest;
@@ -14406,7 +14419,7 @@ export type DigitaloceanDropletsStopResponses = {
 };
 
 export type DigitaloceanDropletsUnlinkData = {
-    body: DigitalOceanDropletRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -14415,10 +14428,11 @@ export type DigitaloceanDropletsUnlinkData = {
 };
 
 export type DigitaloceanDropletsUnlinkResponses = {
-    200: DigitalOceanDroplet;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type DigitaloceanDropletsUnlinkResponse = DigitaloceanDropletsUnlinkResponses[keyof DigitaloceanDropletsUnlinkResponses];
 
 export type DigitaloceanImagesListData = {
     body?: never;
@@ -23430,7 +23444,7 @@ export type OpenstackBackupsUpdateResponses = {
 export type OpenstackBackupsUpdateResponse = OpenstackBackupsUpdateResponses[keyof OpenstackBackupsUpdateResponses];
 
 export type OpenstackBackupsPullData = {
-    body: BackupRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -23439,10 +23453,11 @@ export type OpenstackBackupsPullData = {
 };
 
 export type OpenstackBackupsPullResponses = {
-    200: Backup;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackBackupsPullResponse = OpenstackBackupsPullResponses[keyof OpenstackBackupsPullResponses];
 
 export type OpenstackBackupsRestoreData = {
     body: OpenStackBackupRestorationRequest;
@@ -23460,7 +23475,7 @@ export type OpenstackBackupsRestoreResponses = {
 export type OpenstackBackupsRestoreResponse = OpenstackBackupsRestoreResponses[keyof OpenstackBackupsRestoreResponses];
 
 export type OpenstackBackupsUnlinkData = {
-    body: BackupRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -23469,10 +23484,11 @@ export type OpenstackBackupsUnlinkData = {
 };
 
 export type OpenstackBackupsUnlinkResponses = {
-    200: Backup;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackBackupsUnlinkResponse = OpenstackBackupsUnlinkResponses[keyof OpenstackBackupsUnlinkResponses];
 
 export type OpenstackFlavorsListData = {
     body?: never;
@@ -23721,10 +23737,11 @@ export type OpenstackFloatingIpsPullData = {
 };
 
 export type OpenstackFloatingIpsPullResponses = {
-    200: OpenStackFloatingIp;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackFloatingIpsPullResponse = OpenstackFloatingIpsPullResponses[keyof OpenstackFloatingIpsPullResponses];
 
 export type OpenstackFloatingIpsUnlinkData = {
     body?: never;
@@ -23736,10 +23753,11 @@ export type OpenstackFloatingIpsUnlinkData = {
 };
 
 export type OpenstackFloatingIpsUnlinkResponses = {
-    200: OpenStackFloatingIp;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackFloatingIpsUnlinkResponse = OpenstackFloatingIpsUnlinkResponses[keyof OpenstackFloatingIpsUnlinkResponses];
 
 export type OpenstackFloatingIpsUpdateDescriptionData = {
     body?: OpenStackFloatingIpDescriptionUpdateRequest;
@@ -24141,7 +24159,7 @@ export type OpenstackInstancesStopResponses = {
 };
 
 export type OpenstackInstancesUnlinkData = {
-    body: OpenStackInstanceRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -24150,10 +24168,11 @@ export type OpenstackInstancesUnlinkData = {
 };
 
 export type OpenstackInstancesUnlinkResponses = {
-    200: OpenStackInstance;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackInstancesUnlinkResponse = OpenstackInstancesUnlinkResponses[keyof OpenstackInstancesUnlinkResponses];
 
 export type OpenstackInstancesUpdateAllowedAddressPairsData = {
     body: OpenStackInstanceAllowedAddressPairsUpdateRequest;
@@ -24490,7 +24509,7 @@ export type OpenstackNetworksCreateSubnetResponses = {
 export type OpenstackNetworksCreateSubnetResponse = OpenstackNetworksCreateSubnetResponses[keyof OpenstackNetworksCreateSubnetResponses];
 
 export type OpenstackNetworksPullData = {
-    body: OpenStackNetworkRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -24499,10 +24518,11 @@ export type OpenstackNetworksPullData = {
 };
 
 export type OpenstackNetworksPullResponses = {
-    200: OpenStackNetwork;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackNetworksPullResponse = OpenstackNetworksPullResponses[keyof OpenstackNetworksPullResponses];
 
 export type OpenstackNetworksSetMtuData = {
     body: SetMtuRequest;
@@ -24520,7 +24540,7 @@ export type OpenstackNetworksSetMtuResponses = {
 export type OpenstackNetworksSetMtuResponse = OpenstackNetworksSetMtuResponses[keyof OpenstackNetworksSetMtuResponses];
 
 export type OpenstackNetworksUnlinkData = {
-    body: OpenStackNetworkRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -24529,10 +24549,11 @@ export type OpenstackNetworksUnlinkData = {
 };
 
 export type OpenstackNetworksUnlinkResponses = {
-    200: OpenStackNetwork;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackNetworksUnlinkResponse = OpenstackNetworksUnlinkResponses[keyof OpenstackNetworksUnlinkResponses];
 
 export type OpenstackPortsListData = {
     body?: never;
@@ -24644,7 +24665,7 @@ export type OpenstackPortsUpdateResponses = {
 export type OpenstackPortsUpdateResponse = OpenstackPortsUpdateResponses[keyof OpenstackPortsUpdateResponses];
 
 export type OpenstackPortsPullData = {
-    body: OpenStackPortRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -24653,13 +24674,14 @@ export type OpenstackPortsPullData = {
 };
 
 export type OpenstackPortsPullResponses = {
-    200: OpenStackPort;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type OpenstackPortsPullResponse = OpenstackPortsPullResponses[keyof OpenstackPortsPullResponses];
-
 export type OpenstackPortsUnlinkData = {
-    body: OpenStackPortRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -24668,10 +24690,11 @@ export type OpenstackPortsUnlinkData = {
 };
 
 export type OpenstackPortsUnlinkResponses = {
-    200: OpenStackPort;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackPortsUnlinkResponse = OpenstackPortsUnlinkResponses[keyof OpenstackPortsUnlinkResponses];
 
 export type OpenstackRoutersListData = {
     body?: never;
@@ -24919,7 +24942,7 @@ export type OpenstackSecurityGroupsUpdateResponses = {
 export type OpenstackSecurityGroupsUpdateResponse = OpenstackSecurityGroupsUpdateResponses[keyof OpenstackSecurityGroupsUpdateResponses];
 
 export type OpenstackSecurityGroupsPullData = {
-    body: OpenStackSecurityGroupRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -24928,10 +24951,11 @@ export type OpenstackSecurityGroupsPullData = {
 };
 
 export type OpenstackSecurityGroupsPullResponses = {
-    200: OpenStackSecurityGroup;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackSecurityGroupsPullResponse = OpenstackSecurityGroupsPullResponses[keyof OpenstackSecurityGroupsPullResponses];
 
 export type OpenstackSecurityGroupsSetRulesData = {
     body: Array<OpenStackSecurityGroupRuleUpdateRequest>;
@@ -24988,7 +25012,7 @@ export type OpenstackSecurityGroupsSetRulesResponses = {
 export type OpenstackSecurityGroupsSetRulesResponse = OpenstackSecurityGroupsSetRulesResponses[keyof OpenstackSecurityGroupsSetRulesResponses];
 
 export type OpenstackSecurityGroupsUnlinkData = {
-    body: OpenStackSecurityGroupRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -24997,10 +25021,11 @@ export type OpenstackSecurityGroupsUnlinkData = {
 };
 
 export type OpenstackSecurityGroupsUnlinkResponses = {
-    200: OpenStackSecurityGroup;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackSecurityGroupsUnlinkResponse = OpenstackSecurityGroupsUnlinkResponses[keyof OpenstackSecurityGroupsUnlinkResponses];
 
 export type OpenstackServerGroupsListData = {
     body?: never;
@@ -25130,7 +25155,7 @@ export type OpenstackServerGroupsUpdateResponses = {
 export type OpenstackServerGroupsUpdateResponse = OpenstackServerGroupsUpdateResponses[keyof OpenstackServerGroupsUpdateResponses];
 
 export type OpenstackServerGroupsPullData = {
-    body: OpenStackCreateServerGroupRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -25139,13 +25164,14 @@ export type OpenstackServerGroupsPullData = {
 };
 
 export type OpenstackServerGroupsPullResponses = {
-    200: OpenStackCreateServerGroup;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type OpenstackServerGroupsPullResponse = OpenstackServerGroupsPullResponses[keyof OpenstackServerGroupsPullResponses];
-
 export type OpenstackServerGroupsUnlinkData = {
-    body: OpenStackCreateServerGroupRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -25154,10 +25180,11 @@ export type OpenstackServerGroupsUnlinkData = {
 };
 
 export type OpenstackServerGroupsUnlinkResponses = {
-    200: OpenStackCreateServerGroup;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackServerGroupsUnlinkResponse = OpenstackServerGroupsUnlinkResponses[keyof OpenstackServerGroupsUnlinkResponses];
 
 export type OpenstackSharedSettingsCustomersRetrieveData = {
     body?: never;
@@ -25318,7 +25345,7 @@ export type OpenstackSnapshotsUpdateResponses = {
 export type OpenstackSnapshotsUpdateResponse = OpenstackSnapshotsUpdateResponses[keyof OpenstackSnapshotsUpdateResponses];
 
 export type OpenstackSnapshotsPullData = {
-    body: OpenStackSnapshotRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -25327,10 +25354,11 @@ export type OpenstackSnapshotsPullData = {
 };
 
 export type OpenstackSnapshotsPullResponses = {
-    200: OpenStackSnapshot;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackSnapshotsPullResponse = OpenstackSnapshotsPullResponses[keyof OpenstackSnapshotsPullResponses];
 
 export type OpenstackSnapshotsRestorationsRetrieveData = {
     body?: never;
@@ -25363,7 +25391,7 @@ export type OpenstackSnapshotsRestoreResponses = {
 export type OpenstackSnapshotsRestoreResponse = OpenstackSnapshotsRestoreResponses[keyof OpenstackSnapshotsRestoreResponses];
 
 export type OpenstackSnapshotsUnlinkData = {
-    body: OpenStackSnapshotRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -25372,10 +25400,11 @@ export type OpenstackSnapshotsUnlinkData = {
 };
 
 export type OpenstackSnapshotsUnlinkResponses = {
-    200: OpenStackSnapshot;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackSnapshotsUnlinkResponse = OpenstackSnapshotsUnlinkResponses[keyof OpenstackSnapshotsUnlinkResponses];
 
 export type OpenstackSubnetsListData = {
     body?: never;
@@ -25541,7 +25570,7 @@ export type OpenstackSubnetsDisconnectResponses = {
 };
 
 export type OpenstackSubnetsPullData = {
-    body: OpenStackSubNetRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -25550,13 +25579,14 @@ export type OpenstackSubnetsPullData = {
 };
 
 export type OpenstackSubnetsPullResponses = {
-    200: OpenStackSubNet;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type OpenstackSubnetsPullResponse = OpenstackSubnetsPullResponses[keyof OpenstackSubnetsPullResponses];
-
 export type OpenstackSubnetsUnlinkData = {
-    body: OpenStackSubNetRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -25565,10 +25595,11 @@ export type OpenstackSubnetsUnlinkData = {
 };
 
 export type OpenstackSubnetsUnlinkResponses = {
-    200: OpenStackSubNet;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackSubnetsUnlinkResponse = OpenstackSubnetsUnlinkResponses[keyof OpenstackSubnetsUnlinkResponses];
 
 export type OpenstackTenantsListData = {
     body?: never;
@@ -25801,7 +25832,7 @@ export type OpenstackTenantsCreateServerGroupResponses = {
 export type OpenstackTenantsCreateServerGroupResponse = OpenstackTenantsCreateServerGroupResponses[keyof OpenstackTenantsCreateServerGroupResponses];
 
 export type OpenstackTenantsPullData = {
-    body: OpenStackTenantRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -25810,10 +25841,11 @@ export type OpenstackTenantsPullData = {
 };
 
 export type OpenstackTenantsPullResponses = {
-    200: OpenStackTenant;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackTenantsPullResponse = OpenstackTenantsPullResponses[keyof OpenstackTenantsPullResponses];
 
 export type OpenstackTenantsPullFloatingIpsData = {
     body?: never;
@@ -25892,7 +25924,7 @@ export type OpenstackTenantsSetQuotasResponses = {
 export type OpenstackTenantsSetQuotasResponse = OpenstackTenantsSetQuotasResponses[keyof OpenstackTenantsSetQuotasResponses];
 
 export type OpenstackTenantsUnlinkData = {
-    body: OpenStackTenantRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -25901,10 +25933,11 @@ export type OpenstackTenantsUnlinkData = {
 };
 
 export type OpenstackTenantsUnlinkResponses = {
-    200: OpenStackTenant;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackTenantsUnlinkResponse = OpenstackTenantsUnlinkResponses[keyof OpenstackTenantsUnlinkResponses];
 
 export type OpenstackVolumeAvailabilityZonesListData = {
     body?: never;
@@ -26172,7 +26205,7 @@ export type OpenstackVolumesExtendResponses = {
 export type OpenstackVolumesExtendResponse = OpenstackVolumesExtendResponses[keyof OpenstackVolumesExtendResponses];
 
 export type OpenstackVolumesPullData = {
-    body: OpenStackVolumeRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -26181,10 +26214,11 @@ export type OpenstackVolumesPullData = {
 };
 
 export type OpenstackVolumesPullResponses = {
-    200: OpenStackVolume;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackVolumesPullResponse = OpenstackVolumesPullResponses[keyof OpenstackVolumesPullResponses];
 
 export type OpenstackVolumesRetypeData = {
     body: OpenStackVolumeRetypeRequest;
@@ -26217,7 +26251,7 @@ export type OpenstackVolumesSnapshotResponses = {
 export type OpenstackVolumesSnapshotResponse = OpenstackVolumesSnapshotResponses[keyof OpenstackVolumesSnapshotResponses];
 
 export type OpenstackVolumesUnlinkData = {
-    body: OpenStackVolumeRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -26226,10 +26260,11 @@ export type OpenstackVolumesUnlinkData = {
 };
 
 export type OpenstackVolumesUnlinkResponses = {
-    200: OpenStackVolume;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackVolumesUnlinkResponse = OpenstackVolumesUnlinkResponses[keyof OpenstackVolumesUnlinkResponses];
 
 export type OrganizationGroupsListData = {
     body?: never;
@@ -29017,7 +29052,7 @@ export type RancherAppsUpdateResponses = {
 export type RancherAppsUpdateResponse = RancherAppsUpdateResponses[keyof RancherAppsUpdateResponses];
 
 export type RancherAppsPullData = {
-    body: RancherApplicationRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -29026,13 +29061,14 @@ export type RancherAppsPullData = {
 };
 
 export type RancherAppsPullResponses = {
-    200: RancherApplication;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type RancherAppsPullResponse = RancherAppsPullResponses[keyof RancherAppsPullResponses];
-
 export type RancherAppsUnlinkData = {
-    body: RancherApplicationRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -29041,10 +29077,11 @@ export type RancherAppsUnlinkData = {
 };
 
 export type RancherAppsUnlinkResponses = {
-    200: RancherApplication;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type RancherAppsUnlinkResponse = RancherAppsUnlinkResponses[keyof RancherAppsUnlinkResponses];
 
 export type RancherCatalogsListData = {
     body?: never;
@@ -29428,7 +29465,7 @@ export type RancherClustersKubeconfigFileRetrieveResponses = {
 export type RancherClustersKubeconfigFileRetrieveResponse = RancherClustersKubeconfigFileRetrieveResponses[keyof RancherClustersKubeconfigFileRetrieveResponses];
 
 export type RancherClustersPullData = {
-    body: RancherClusterRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -29437,13 +29474,14 @@ export type RancherClustersPullData = {
 };
 
 export type RancherClustersPullResponses = {
-    200: RancherCluster;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type RancherClustersPullResponse = RancherClustersPullResponses[keyof RancherClustersPullResponses];
-
 export type RancherClustersUnlinkData = {
-    body: RancherClusterRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -29452,10 +29490,11 @@ export type RancherClustersUnlinkData = {
 };
 
 export type RancherClustersUnlinkResponses = {
-    200: RancherCluster;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type RancherClustersUnlinkResponse = RancherClustersUnlinkResponses[keyof RancherClustersUnlinkResponses];
 
 export type RancherHpasListData = {
     body?: never;
@@ -29564,7 +29603,7 @@ export type RancherHpasUpdateResponses = {
 export type RancherHpasUpdateResponse = RancherHpasUpdateResponses[keyof RancherHpasUpdateResponses];
 
 export type RancherHpasPullData = {
-    body: RancherHpaRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -29573,13 +29612,14 @@ export type RancherHpasPullData = {
 };
 
 export type RancherHpasPullResponses = {
-    200: RancherHpa;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type RancherHpasPullResponse = RancherHpasPullResponses[keyof RancherHpasPullResponses];
-
 export type RancherHpasUnlinkData = {
-    body: RancherHpaRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -29588,10 +29628,11 @@ export type RancherHpasUnlinkData = {
 };
 
 export type RancherHpasUnlinkResponses = {
-    200: RancherHpa;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type RancherHpasUnlinkResponse = RancherHpasUnlinkResponses[keyof RancherHpasUnlinkResponses];
 
 export type RancherHpasYamlRetrieveData = {
     body?: never;
@@ -29752,7 +29793,7 @@ export type RancherIngressesUpdateResponses = {
 export type RancherIngressesUpdateResponse = RancherIngressesUpdateResponses[keyof RancherIngressesUpdateResponses];
 
 export type RancherIngressesPullData = {
-    body: RancherIngressRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -29761,13 +29802,14 @@ export type RancherIngressesPullData = {
 };
 
 export type RancherIngressesPullResponses = {
-    200: RancherIngress;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type RancherIngressesPullResponse = RancherIngressesPullResponses[keyof RancherIngressesPullResponses];
-
 export type RancherIngressesUnlinkData = {
-    body: RancherIngressRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -29776,10 +29818,11 @@ export type RancherIngressesUnlinkData = {
 };
 
 export type RancherIngressesUnlinkResponses = {
-    200: RancherIngress;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type RancherIngressesUnlinkResponse = RancherIngressesUnlinkResponses[keyof RancherIngressesUnlinkResponses];
 
 export type RancherIngressesYamlRetrieveData = {
     body?: never;
@@ -30011,7 +30054,7 @@ export type RancherNodesLinkOpenstackResponses = {
 };
 
 export type RancherNodesPullData = {
-    body: RancherNodeRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -30020,13 +30063,14 @@ export type RancherNodesPullData = {
 };
 
 export type RancherNodesPullResponses = {
-    200: RancherNode;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type RancherNodesPullResponse = RancherNodesPullResponses[keyof RancherNodesPullResponses];
-
 export type RancherNodesUnlinkData = {
-    body: RancherNodeRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -30035,10 +30079,11 @@ export type RancherNodesUnlinkData = {
 };
 
 export type RancherNodesUnlinkResponses = {
-    200: RancherNode;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type RancherNodesUnlinkResponse = RancherNodesUnlinkResponses[keyof RancherNodesUnlinkResponses];
 
 export type RancherNodesUnlinkOpenstackData = {
     body: RancherNodeRequest;
@@ -30241,7 +30286,7 @@ export type RancherServicesUpdateResponses = {
 export type RancherServicesUpdateResponse = RancherServicesUpdateResponses[keyof RancherServicesUpdateResponses];
 
 export type RancherServicesPullData = {
-    body: ServiceRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -30250,13 +30295,14 @@ export type RancherServicesPullData = {
 };
 
 export type RancherServicesPullResponses = {
-    200: Service;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type RancherServicesPullResponse = RancherServicesPullResponses[keyof RancherServicesPullResponses];
-
 export type RancherServicesUnlinkData = {
-    body: ServiceRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -30265,10 +30311,11 @@ export type RancherServicesUnlinkData = {
 };
 
 export type RancherServicesUnlinkResponses = {
-    200: Service;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type RancherServicesUnlinkResponse = RancherServicesUnlinkResponses[keyof RancherServicesUnlinkResponses];
 
 export type RancherServicesYamlRetrieveData = {
     body?: never;
@@ -31389,7 +31436,7 @@ export type SlurmAllocationsUpdateResponses = {
 export type SlurmAllocationsUpdateResponse = SlurmAllocationsUpdateResponses[keyof SlurmAllocationsUpdateResponses];
 
 export type SlurmAllocationsPullData = {
-    body: SlurmAllocationRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -31398,10 +31445,11 @@ export type SlurmAllocationsPullData = {
 };
 
 export type SlurmAllocationsPullResponses = {
-    200: SlurmAllocation;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type SlurmAllocationsPullResponse = SlurmAllocationsPullResponses[keyof SlurmAllocationsPullResponses];
 
 export type SlurmAllocationsSetLimitsData = {
     body: SlurmAllocationSetLimitsRequest;
@@ -31419,7 +31467,7 @@ export type SlurmAllocationsSetLimitsResponses = {
 export type SlurmAllocationsSetLimitsResponse = SlurmAllocationsSetLimitsResponses[keyof SlurmAllocationsSetLimitsResponses];
 
 export type SlurmAllocationsUnlinkData = {
-    body: SlurmAllocationRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -31428,10 +31476,11 @@ export type SlurmAllocationsUnlinkData = {
 };
 
 export type SlurmAllocationsUnlinkResponses = {
-    200: SlurmAllocation;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type SlurmAllocationsUnlinkResponse = SlurmAllocationsUnlinkResponses[keyof SlurmAllocationsUnlinkResponses];
 
 export type SlurmAssociationsListData = {
     body?: never;
@@ -31571,7 +31620,7 @@ export type SlurmJobsUpdateResponses = {
 export type SlurmJobsUpdateResponse = SlurmJobsUpdateResponses[keyof SlurmJobsUpdateResponses];
 
 export type SlurmJobsPullData = {
-    body: JobRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -31580,13 +31629,14 @@ export type SlurmJobsPullData = {
 };
 
 export type SlurmJobsPullResponses = {
-    200: Job;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type SlurmJobsPullResponse = SlurmJobsPullResponses[keyof SlurmJobsPullResponses];
-
 export type SlurmJobsUnlinkData = {
-    body: JobRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -31595,10 +31645,11 @@ export type SlurmJobsUnlinkData = {
 };
 
 export type SlurmJobsUnlinkResponses = {
-    200: Job;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type SlurmJobsUnlinkResponse = SlurmJobsUnlinkResponses[keyof SlurmJobsUnlinkResponses];
 
 export type SupportAttachmentsListData = {
     body?: never;
@@ -33598,7 +33649,7 @@ export type VmwareDisksExtendResponses = {
 export type VmwareDisksExtendResponse = VmwareDisksExtendResponses[keyof VmwareDisksExtendResponses];
 
 export type VmwareDisksPullData = {
-    body: VmwareDiskRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -33607,13 +33658,14 @@ export type VmwareDisksPullData = {
 };
 
 export type VmwareDisksPullResponses = {
-    200: VmwareDisk;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type VmwareDisksPullResponse = VmwareDisksPullResponses[keyof VmwareDisksPullResponses];
-
 export type VmwareDisksUnlinkData = {
-    body: VmwareDiskRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -33622,10 +33674,11 @@ export type VmwareDisksUnlinkData = {
 };
 
 export type VmwareDisksUnlinkResponses = {
-    200: VmwareDisk;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type VmwareDisksUnlinkResponse = VmwareDisksUnlinkResponses[keyof VmwareDisksUnlinkResponses];
 
 export type VmwareFoldersListData = {
     body?: never;
@@ -33867,7 +33920,7 @@ export type VmwarePortsUpdateResponses = {
 export type VmwarePortsUpdateResponse = VmwarePortsUpdateResponses[keyof VmwarePortsUpdateResponses];
 
 export type VmwarePortsPullData = {
-    body: VmwarePortRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -33876,13 +33929,14 @@ export type VmwarePortsPullData = {
 };
 
 export type VmwarePortsPullResponses = {
-    200: VmwarePort;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type VmwarePortsPullResponse = VmwarePortsPullResponses[keyof VmwarePortsPullResponses];
-
 export type VmwarePortsUnlinkData = {
-    body: VmwarePortRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -33891,10 +33945,11 @@ export type VmwarePortsUnlinkData = {
 };
 
 export type VmwarePortsUnlinkResponses = {
-    200: VmwarePort;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type VmwarePortsUnlinkResponse = VmwarePortsUnlinkResponses[keyof VmwarePortsUnlinkResponses];
 
 export type VmwareTemplatesListData = {
     body?: never;
@@ -34109,7 +34164,7 @@ export type VmwareVirtualMachineCreatePortResponses = {
 export type VmwareVirtualMachineCreatePortResponse = VmwareVirtualMachineCreatePortResponses[keyof VmwareVirtualMachineCreatePortResponses];
 
 export type VmwareVirtualMachinePullData = {
-    body: VmwareVirtualMachineRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -34118,10 +34173,11 @@ export type VmwareVirtualMachinePullData = {
 };
 
 export type VmwareVirtualMachinePullResponses = {
-    200: VmwareVirtualMachine;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type VmwareVirtualMachinePullResponse = VmwareVirtualMachinePullResponses[keyof VmwareVirtualMachinePullResponses];
 
 export type VmwareVirtualMachineRebootGuestData = {
     body?: never;
@@ -34220,7 +34276,7 @@ export type VmwareVirtualMachineSuspendResponses = {
 };
 
 export type VmwareVirtualMachineUnlinkData = {
-    body: VmwareVirtualMachineRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -34229,10 +34285,11 @@ export type VmwareVirtualMachineUnlinkData = {
 };
 
 export type VmwareVirtualMachineUnlinkResponses = {
-    200: VmwareVirtualMachine;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type VmwareVirtualMachineUnlinkResponse = VmwareVirtualMachineUnlinkResponses[keyof VmwareVirtualMachineUnlinkResponses];
 
 export type VmwareVirtualMachineWebConsoleRetrieveData = {
     body?: never;
