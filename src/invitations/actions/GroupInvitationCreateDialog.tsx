@@ -3,6 +3,7 @@ import { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { reduxForm } from 'redux-form';
 
+import { userGroupInvitationsCreate } from '@waldur/api';
 import { SubmitButton } from '@waldur/auth/SubmitButton';
 import { translate } from '@waldur/i18n';
 import { GROUP_INVITATION_CREATE_FORM_ID } from '@waldur/invitations/actions/constants';
@@ -11,8 +12,6 @@ import { Role } from '@waldur/permissions/types';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { getCustomer } from '@waldur/workspace/selectors';
 import { Project } from '@waldur/workspace/types';
-
-import { InvitationService } from '../InvitationService';
 
 import { InvitationLinkField } from './InvitationLinkField';
 import { ProjectGroup } from './ProjectGroup';
@@ -41,18 +40,18 @@ export const GroupInvitationCreateDialog = reduxForm<
   const createInvitation = useCallback(
     async (formData: GroupInvitationCreateFormData) => {
       try {
-        const res = await InvitationService.createGroupInvitation({
-          role: formData.role.uuid,
-          scope:
-            formData.role.content_type === 'project'
-              ? formData.project.url
-              : customer.url,
+        const res = await userGroupInvitationsCreate({
+          body: {
+            role: formData.role.uuid,
+            scope:
+              formData.role.content_type === 'project'
+                ? formData.project.url
+                : customer.url,
+          },
         });
-        if (res.status === 201) {
-          setInvitation(res.data);
-          dispatch(showSuccess('Group invitation has been created.'));
-          if (refetch) refetch();
-        }
+        setInvitation(res.data);
+        dispatch(showSuccess('Group invitation has been created.'));
+        if (refetch) refetch();
       } catch (e) {
         dispatch(showErrorResponse(e, 'Unable to create group invitation.'));
       }

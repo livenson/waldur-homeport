@@ -3,13 +3,11 @@ import { Form } from 'react-bootstrap';
 import { connect, useDispatch } from 'react-redux';
 import { reduxForm, SubmissionError } from 'redux-form';
 
-import {
-  attachDocumentsToIssueTemplate,
-  removeAttachmentFromIssueTemplate,
-} from '@waldur/administration/api';
+import { attachDocumentsToIssueTemplate } from '@waldur/administration/api';
 import { IssueTemplateTypeOptions } from '@waldur/administration/utils';
 import {
   supportTemplatesCreate,
+  supportTemplatesDeleteAttachments,
   supportTemplatesRetrieve,
   supportTemplatesUpdate,
 } from '@waldur/api';
@@ -91,9 +89,9 @@ export const IssueTemplateForm = connect<
     );
 
     const removeAttachment = useCallback(
-      async (attachment) => {
+      async (attachment: Attachment) => {
         if (!attachment.uuid) {
-          cancelFile(attachment.file);
+          cancelFile(attachment.file as File);
           return;
         }
 
@@ -103,9 +101,7 @@ export const IssueTemplateForm = connect<
             translate('Confirmation'),
             translate(
               'Are you sure you want to remove {doc_name}?',
-              {
-                doc_name: <strong>{attachment.file_name}</strong>,
-              },
+              { doc_name: <strong>{attachment.file_name}</strong> },
               formatJsxTemplate,
             ),
             { forDeletion: true },
@@ -115,10 +111,10 @@ export const IssueTemplateForm = connect<
         }
 
         try {
-          await removeAttachmentFromIssueTemplate(
-            props.resolve.issueTemplate.uuid,
-            [attachment.uuid],
-          );
+          await supportTemplatesDeleteAttachments({
+            path: { uuid: props.resolve.issueTemplate.uuid },
+            body: { attachment_ids: [attachment.uuid] },
+          });
           dispatch(showSuccess(translate('Document has been removed.')));
           props.resolve.refetch();
           setAttachments((prev) =>

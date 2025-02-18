@@ -2,9 +2,9 @@ import { Modal } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 
+import { marketplacePlansUpdatePrices } from '@waldur/api';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
-import { updatePlanPrices } from '@waldur/marketplace/common/api';
 import { Offering, OfferingComponent, Plan } from '@waldur/marketplace/types';
 import { useModal } from '@waldur/modal/hooks';
 import { useNotify } from '@waldur/store/hooks';
@@ -54,8 +54,11 @@ export const EditPlanPricesDialog = connect<
     const { closeDialog } = useModal();
     const update = async (formData) => {
       try {
-        await updatePlanPrices(props.resolve.plan.uuid, {
-          prices: formData.new_prices,
+        await marketplacePlansUpdatePrices({
+          path: { uuid: props.resolve.plan.uuid },
+          body: {
+            prices: formData.new_prices,
+          },
         });
         showSuccess(translate('Prices have been updated successfully.'));
         await props.resolve.refetch();

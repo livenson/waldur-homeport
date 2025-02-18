@@ -3,10 +3,10 @@ import { Modal } from 'react-bootstrap';
 import { connect, useDispatch } from 'react-redux';
 import { FieldArray, reduxForm } from 'redux-form';
 
+import { marketplaceProviderOfferingsUpdateAttributes } from '@waldur/api';
 import { pick } from '@waldur/core/utils';
 import { FormContainer, SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
-import { updateOfferingAttributes } from '@waldur/marketplace/common/api';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
@@ -38,9 +38,12 @@ export const EditSchedulesDialog = connect(
     const update = useCallback(
       async (formData) => {
         try {
-          await updateOfferingAttributes(props.resolve.offering.uuid, {
-            ...props.resolve.offering.attributes,
-            schedules: formatSchedules(formData.schedules),
+          await marketplaceProviderOfferingsUpdateAttributes({
+            path: { uuid: props.resolve.offering.uuid },
+            body: {
+              ...props.resolve.offering.attributes,
+              schedules: formatSchedules(formData.schedules),
+            },
           });
           dispatch(
             showSuccess(translate('Schedules have been updated successfully.')),

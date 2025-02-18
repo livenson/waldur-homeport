@@ -2,6 +2,10 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { FunctionComponent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import {
+  marketplaceServiceProvidersCreate,
+  marketplaceServiceProvidersDestroy,
+} from '@waldur/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import FormTable from '@waldur/form/FormTable';
@@ -60,10 +64,12 @@ export const CustomerMarketplacePanel: FunctionComponent<{}> = () => {
       const successMessage = translate('Service provider has been registered.');
       const errorMessage = translate('Unable to register service provider.');
       try {
-        const serviceProvider = await api.createServiceProvider({
-          customer: customer.url,
+        const serviceProvider = await marketplaceServiceProvidersCreate({
+          body: {
+            customer: customer.url,
+          },
         });
-        setServiceProvider(serviceProvider);
+        setServiceProvider(serviceProvider.data);
         dispatch(showSuccess(successMessage));
         dispatch(
           setCurrentCustomer({
@@ -92,7 +98,9 @@ export const CustomerMarketplacePanel: FunctionComponent<{}> = () => {
       }
 
       try {
-        await api.deleteServiceProvider(serviceProvider.uuid);
+        await marketplaceServiceProvidersDestroy({
+          path: { uuid: serviceProvider.uuid },
+        });
         setServiceProvider(null);
         dispatch(
           showSuccess(translate('Service provider profile has been disabled.')),

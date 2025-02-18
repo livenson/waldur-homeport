@@ -3,9 +3,13 @@ import { Modal } from 'react-bootstrap';
 import { connect, useDispatch } from 'react-redux';
 import { FormSection, reduxForm } from 'redux-form';
 
+import {
+  marketplaceProviderOfferingsUpdateIntegration,
+  MergedPluginOptionsRequest,
+  MergedSecretOptionsRequest,
+} from '@waldur/api';
 import { FormContainer, SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
-import { updateOfferingIntegration } from '@waldur/marketplace/common/api';
 import { UserLexisLinkPluginOptionsForm } from '@waldur/marketplace/UserLexisLInkPluginOptionsForm';
 import { UserLexisLinkSecretOptionsForm } from '@waldur/marketplace/UserLexisLInkSecretOptionsForm';
 import { closeModalDialog } from '@waldur/modal/actions';
@@ -14,6 +18,10 @@ import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
 import { EDIT_LEXIS_LINK_INTEGRATION_FORM_ID } from './constants';
 
+type FormData = {
+  secret_options?: MergedSecretOptionsRequest;
+  plugin_options?: MergedPluginOptionsRequest;
+};
 export const EditLexisLinkIntegrationDialog = connect(
   (_, ownProps: { resolve: { offering } }) => ({
     initialValues: {
@@ -22,17 +30,17 @@ export const EditLexisLinkIntegrationDialog = connect(
     },
   }),
 )(
-  reduxForm<{}, { resolve: { offering; provider; refetch } }>({
+  reduxForm<FormData, { resolve: { offering; provider; refetch } }>({
     form: EDIT_LEXIS_LINK_INTEGRATION_FORM_ID,
   })((props) => {
     const dispatch = useDispatch();
     const update = useCallback(
-      async (formData) => {
+      async (formData: FormData) => {
         try {
-          await updateOfferingIntegration(
-            props.resolve.offering.uuid,
-            formData,
-          );
+          await marketplaceProviderOfferingsUpdateIntegration({
+            path: { uuid: props.resolve.offering.uuid },
+            body: formData,
+          });
           dispatch(
             showSuccess(
               translate(
