@@ -1,3 +1,7 @@
+import {
+  userGroupInvitationsSubmitRequest,
+  userInvitationsAccept,
+} from '@waldur/api';
 import * as AuthService from '@waldur/auth/AuthService';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { createDeferred } from '@waldur/core/utils';
@@ -13,7 +17,6 @@ import store from '@waldur/store/store';
 import { UsersService, getCurrentUser } from '@waldur/user/UsersService';
 import { setCurrentUser } from '@waldur/workspace/actions';
 
-import { InvitationService } from './InvitationService';
 import { clearInvitationToken, setInvitationToken } from './InvitationStorage';
 
 const InvitationConfirmDialog = lazyComponent(() =>
@@ -93,7 +96,7 @@ export function submitPermissionRequest(token) {
 
 export async function acceptInvitation(token) {
   try {
-    await InvitationService.accept(token);
+    await userInvitationsAccept({ path: { uuid: token } });
     store.dispatch(showSuccess(translate('Your invitation was accepted.')));
     clearInvitationToken();
     const newUser = await getCurrentUser();
@@ -117,7 +120,7 @@ export async function acceptInvitation(token) {
 }
 
 function submitGroupRequest(token) {
-  return InvitationService.submitRequest(token)
+  return userGroupInvitationsSubmitRequest({ path: { uuid: token } })
     .then(() => {
       store.dispatch(
         showSuccess(translate('Your permission request has been submitted.')),

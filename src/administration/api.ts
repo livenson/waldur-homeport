@@ -1,14 +1,7 @@
 import Axios, { AxiosRequestConfig } from 'axios';
 
 import { ENV } from '@waldur/configs/default';
-import {
-  get,
-  getAll,
-  parseResultCount,
-  post,
-  put,
-  sendForm,
-} from '@waldur/core/api';
+import { get, getAll, parseResultCount, put, sendForm } from '@waldur/core/api';
 
 import { OIDCConfig } from './types';
 
@@ -71,11 +64,3 @@ export const attachDocumentsToIssueTemplate = (
     { attachments: file, name },
     onUploadProgress,
   );
-
-export const removeAttachmentFromIssueTemplate = (
-  issue_template_uuid: string,
-  attachment_ids: string[],
-) =>
-  post(`/support-templates/${issue_template_uuid}/delete_attachments/`, {
-    attachment_ids,
-  });

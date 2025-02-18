@@ -2,9 +2,9 @@ import { Modal } from 'react-bootstrap';
 import { connect, useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
 
+import { marketplaceProviderOfferingsUpdateAttributes } from '@waldur/api';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
-import { updateOfferingAttributes } from '@waldur/marketplace/common/api';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
@@ -36,12 +36,15 @@ export const EditAttributeDialog = connect<{}, {}, OwnProps>((_, ownProps) => ({
 
     const submitRequest = async (formData: FormData) => {
       try {
-        await updateOfferingAttributes(resolve.offering.uuid, {
-          ...resolve.offering.attributes,
-          [resolve.attribute.key]: formatAttribute(
-            resolve.attribute,
-            formData.value,
-          ),
+        await marketplaceProviderOfferingsUpdateAttributes({
+          path: { uuid: resolve.offering.uuid },
+          body: {
+            ...resolve.offering.attributes,
+            [resolve.attribute.key]: formatAttribute(
+              resolve.attribute,
+              formData.value,
+            ),
+          },
         });
         if (resolve.refetch) {
           await resolve.refetch();

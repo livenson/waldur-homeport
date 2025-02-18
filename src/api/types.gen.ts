@@ -2481,6 +2481,11 @@ export type Invitation = {
     execution_state: ExecutionStateEnum;
 };
 
+export type InvitationCheck = {
+    email: string;
+    civil_number_required?: boolean;
+};
+
 export type InvitationRequest = {
     role: string;
     scope: string;
@@ -2500,6 +2505,8 @@ export type InvitationRequest = {
     civil_number?: string;
     extra_invitation_text?: string;
 };
+
+export type InvitationState = 'project' | 'requested' | 'rejected' | 'pending' | 'accepted' | 'canceled' | 'expired';
 
 export type InvitationStateEnum = 'project' | 'requested' | 'rejected' | 'pending' | 'accepted' | 'canceled' | 'expired';
 
@@ -10030,6 +10037,10 @@ export type TemplateRequest = {
     issue_type?: IssueTypeEnum;
 };
 
+export type TokenRequest = {
+    token: string;
+};
+
 export type User = {
     readonly url: string;
     readonly uuid: string;
@@ -10213,6 +10224,25 @@ export type UserStats = {
 };
 
 export type UsernameGenerationPolicyEnum = 'service_provider' | 'anonymized' | 'full_name' | 'waldur_username' | 'freeipa' | 'identity_claim';
+
+export type VisibleInvitationDetails = {
+    readonly scope_uuid: string;
+    readonly scope_name: string;
+    readonly scope_type: string;
+    readonly customer_uuid: string;
+    readonly customer_name: string;
+    readonly role_name: string;
+    readonly role_description: string;
+    readonly created_by_full_name: string;
+    readonly created_by_username: string;
+    /**
+     * Invitation link will be sent to this email. Note that user can accept invitation with different email.
+     */
+    email: string;
+    readonly error_message: string;
+    execution_state: ExecutionStateEnum;
+    state: InvitationState;
+};
 
 export type VmwareCluster = {
     readonly url: string;
@@ -10587,7 +10617,7 @@ export type WebHookRequest = {
     content_type?: ContentTypeEnum;
 };
 
-export type WebhookEventEnum = 'comment_deleted' | 'comment_created' | 'comment_updated' | 'jira:issue_updated' | 'jira:issue_deleted';
+export type WebhookEventEnum = 'comment_updated' | 'jira:issue_updated' | 'comment_created' | 'jira:issue_deleted' | 'comment_deleted';
 
 export type ApiAuthBccUserDetailsRetrieveData = {
     body?: never;
@@ -10664,58 +10694,58 @@ export type ApiAuthKeycloakInitRetrieveResponses = {
     200: unknown;
 };
 
-export type ApiAuthLogoutCreateData = {
+export type ApiAuthLogoutData = {
     body?: never;
     path?: never;
     query?: never;
     url: '/api-auth/logout/';
 };
 
-export type ApiAuthLogoutCreateResponses = {
+export type ApiAuthLogoutResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type ApiAuthPasswordCreateData = {
+export type ApiAuthPasswordData = {
     body: ObtainAuthTokenRequest;
     path?: never;
     query?: never;
     url: '/api-auth/password/';
 };
 
-export type ApiAuthPasswordCreateResponses = {
+export type ApiAuthPasswordResponses = {
     200: ObtainAuthToken;
 };
 
-export type ApiAuthPasswordCreateResponse = ApiAuthPasswordCreateResponses[keyof ApiAuthPasswordCreateResponses];
+export type ApiAuthPasswordResponse = ApiAuthPasswordResponses[keyof ApiAuthPasswordResponses];
 
-export type ApiAuthSaml2LoginCreateData = {
+export type ApiAuthSaml2LoginData = {
     body: Saml2LoginRequest;
     path?: never;
     query?: never;
     url: '/api-auth/saml2/login/';
 };
 
-export type ApiAuthSaml2LoginCreateResponses = {
+export type ApiAuthSaml2LoginResponses = {
     200: Saml2Login;
 };
 
-export type ApiAuthSaml2LoginCreateResponse = ApiAuthSaml2LoginCreateResponses[keyof ApiAuthSaml2LoginCreateResponses];
+export type ApiAuthSaml2LoginResponse = ApiAuthSaml2LoginResponses[keyof ApiAuthSaml2LoginResponses];
 
-export type ApiAuthSaml2LoginCompleteCreateData = {
+export type ApiAuthSaml2LoginCompleteData = {
     body: Saml2LoginCompleteRequest;
     path?: never;
     query?: never;
     url: '/api-auth/saml2/login/complete/';
 };
 
-export type ApiAuthSaml2LoginCompleteCreateResponses = {
+export type ApiAuthSaml2LoginCompleteResponses = {
     200: Saml2LoginComplete;
 };
 
-export type ApiAuthSaml2LoginCompleteCreateResponse = ApiAuthSaml2LoginCompleteCreateResponses[keyof ApiAuthSaml2LoginCompleteCreateResponses];
+export type ApiAuthSaml2LoginCompleteResponse = ApiAuthSaml2LoginCompleteResponses[keyof ApiAuthSaml2LoginCompleteResponses];
 
 export type ApiAuthSaml2LogoutRetrieveData = {
     body?: never;
@@ -10744,18 +10774,18 @@ export type ApiAuthSaml2LogoutCompleteRetrieveResponses = {
 
 export type ApiAuthSaml2LogoutCompleteRetrieveResponse = ApiAuthSaml2LogoutCompleteRetrieveResponses[keyof ApiAuthSaml2LogoutCompleteRetrieveResponses];
 
-export type ApiAuthSaml2LogoutCompleteCreateData = {
+export type ApiAuthSaml2LogoutCompleteData = {
     body?: Saml2LogoutCompleteRequest;
     path?: never;
     query?: never;
     url: '/api-auth/saml2/logout/complete/';
 };
 
-export type ApiAuthSaml2LogoutCompleteCreateResponses = {
+export type ApiAuthSaml2LogoutCompleteResponses = {
     200: Saml2LogoutComplete;
 };
 
-export type ApiAuthSaml2LogoutCompleteCreateResponse = ApiAuthSaml2LogoutCompleteCreateResponses[keyof ApiAuthSaml2LogoutCompleteCreateResponses];
+export type ApiAuthSaml2LogoutCompleteResponse = ApiAuthSaml2LogoutCompleteResponses[keyof ApiAuthSaml2LogoutCompleteResponses];
 
 export type ApiAuthSaml2ProvidersListData = {
     body?: never;
@@ -11144,18 +11174,18 @@ export type AuthValimoCreateResponses = {
 
 export type AuthValimoCreateResponse = AuthValimoCreateResponses[keyof AuthValimoCreateResponses];
 
-export type AuthValimoResultCreateData = {
+export type AuthValimoResultData = {
     body: AuthResultRequest;
     path?: never;
     query?: never;
     url: '/api/auth-valimo/result/';
 };
 
-export type AuthValimoResultCreateResponses = {
+export type AuthValimoResultResponses = {
     200: AuthResult;
 };
 
-export type AuthValimoResultCreateResponse = AuthValimoResultCreateResponses[keyof AuthValimoResultCreateResponses];
+export type AuthValimoResultResponse = AuthValimoResultResponses[keyof AuthValimoResultResponses];
 
 export type AwsImagesListData = {
     body?: never;
@@ -13866,7 +13896,7 @@ export type CustomersMarketplaceChecklistsListResponses = {
 
 export type CustomersMarketplaceChecklistsListResponse = CustomersMarketplaceChecklistsListResponses[keyof CustomersMarketplaceChecklistsListResponses];
 
-export type CustomersMarketplaceChecklistsCreateData = {
+export type CustomersMarketplaceChecklistsData = {
     body: Array<string>;
     path: {
         customer_uuid: string;
@@ -13875,7 +13905,7 @@ export type CustomersMarketplaceChecklistsCreateData = {
     url: '/api/customers/{customer_uuid}/marketplace-checklists/';
 };
 
-export type CustomersMarketplaceChecklistsCreateResponses = {
+export type CustomersMarketplaceChecklistsResponses = {
     /**
      * No response body
      */
@@ -14769,14 +14799,14 @@ export type EventsScopeTypesRetrieveResponses = {
 
 export type EventsScopeTypesRetrieveResponse = EventsScopeTypesRetrieveResponses[keyof EventsScopeTypesRetrieveResponses];
 
-export type FeatureValuesCreateData = {
+export type FeatureValuesData = {
     body?: never;
     path?: never;
     query?: never;
     url: '/api/feature-values/';
 };
 
-export type FeatureValuesCreateResponses = {
+export type FeatureValuesResponses = {
     /**
      * No response body
      */
@@ -15788,14 +15818,14 @@ export type InvoiceItemsProjectCostsForPeriodRetrieveResponses = {
 
 export type InvoiceItemsProjectCostsForPeriodRetrieveResponse = InvoiceItemsProjectCostsForPeriodRetrieveResponses[keyof InvoiceItemsProjectCostsForPeriodRetrieveResponses];
 
-export type InvoiceSendFinancialReportByMailCreateData = {
+export type InvoiceSendFinancialReportByMailData = {
     body: FinancialReportEmailRequest;
     path?: never;
     query?: never;
     url: '/api/invoice/send-financial-report-by-mail/';
 };
 
-export type InvoiceSendFinancialReportByMailCreateResponses = {
+export type InvoiceSendFinancialReportByMailResponses = {
     /**
      * No response body
      */
@@ -17213,18 +17243,18 @@ export type MarketplaceComponentUsagesSetUserUsageResponses = {
 
 export type MarketplaceComponentUsagesSetUserUsageResponse = MarketplaceComponentUsagesSetUserUsageResponses[keyof MarketplaceComponentUsagesSetUserUsageResponses];
 
-export type MarketplaceComponentUsagesSetUsageCreateData = {
+export type MarketplaceComponentUsagesSetUsageData = {
     body: ComponentUsageCreateRequest;
     path?: never;
     query?: never;
     url: '/api/marketplace-component-usages/set_usage/';
 };
 
-export type MarketplaceComponentUsagesSetUsageCreateResponses = {
+export type MarketplaceComponentUsagesSetUsageResponses = {
     200: ComponentUsageCreate;
 };
 
-export type MarketplaceComponentUsagesSetUsageCreateResponse = MarketplaceComponentUsagesSetUsageCreateResponses[keyof MarketplaceComponentUsagesSetUsageCreateResponses];
+export type MarketplaceComponentUsagesSetUsageResponse = MarketplaceComponentUsagesSetUsageResponses[keyof MarketplaceComponentUsagesSetUsageResponses];
 
 export type MarketplaceComponentUserUsagesListData = {
     body?: never;
@@ -20609,31 +20639,31 @@ export type MarketplaceProviderResourcesUnlinkResponses = {
 
 export type MarketplaceProviderResourcesUnlinkResponse = MarketplaceProviderResourcesUnlinkResponses[keyof MarketplaceProviderResourcesUnlinkResponses];
 
-export type MarketplacePublicApiCheckSignatureCreateData = {
+export type MarketplacePublicApiCheckSignatureData = {
     body: ServiceProviderSignatureRequest;
     path?: never;
     query?: never;
     url: '/api/marketplace-public-api/check_signature/';
 };
 
-export type MarketplacePublicApiCheckSignatureCreateResponses = {
+export type MarketplacePublicApiCheckSignatureResponses = {
     200: ServiceProviderSignature;
 };
 
-export type MarketplacePublicApiCheckSignatureCreateResponse = MarketplacePublicApiCheckSignatureCreateResponses[keyof MarketplacePublicApiCheckSignatureCreateResponses];
+export type MarketplacePublicApiCheckSignatureResponse = MarketplacePublicApiCheckSignatureResponses[keyof MarketplacePublicApiCheckSignatureResponses];
 
-export type MarketplacePublicApiSetUsageCreateData = {
+export type MarketplacePublicApiSetUsageData = {
     body: ServiceProviderSignatureRequest;
     path?: never;
     query?: never;
     url: '/api/marketplace-public-api/set_usage/';
 };
 
-export type MarketplacePublicApiSetUsageCreateResponses = {
+export type MarketplacePublicApiSetUsageResponses = {
     200: ServiceProviderSignature;
 };
 
-export type MarketplacePublicApiSetUsageCreateResponse = MarketplacePublicApiSetUsageCreateResponses[keyof MarketplacePublicApiSetUsageCreateResponses];
+export type MarketplacePublicApiSetUsageResponse = MarketplacePublicApiSetUsageResponses[keyof MarketplacePublicApiSetUsageResponses];
 
 export type MarketplacePublicOfferingsListData = {
     body?: never;
@@ -21478,18 +21508,18 @@ export type MarketplaceResourcesUpdateOptionsResponses = {
 
 export type MarketplaceResourcesUpdateOptionsResponse = MarketplaceResourcesUpdateOptionsResponses[keyof MarketplaceResourcesUpdateOptionsResponses];
 
-export type MarketplaceResourcesSuggestNameCreateData = {
+export type MarketplaceResourcesSuggestNameData = {
     body: ResourceSuggestNameRequest;
     path?: never;
     query?: never;
     url: '/api/marketplace-resources/suggest_name/';
 };
 
-export type MarketplaceResourcesSuggestNameCreateResponses = {
+export type MarketplaceResourcesSuggestNameResponses = {
     200: ResourceSuggestName;
 };
 
-export type MarketplaceResourcesSuggestNameCreateResponse = MarketplaceResourcesSuggestNameCreateResponses[keyof MarketplaceResourcesSuggestNameCreateResponses];
+export type MarketplaceResourcesSuggestNameResponse = MarketplaceResourcesSuggestNameResponses[keyof MarketplaceResourcesSuggestNameResponses];
 
 export type MarketplaceRobotAccountsListData = {
     body?: never;
@@ -21945,14 +21975,14 @@ export type MarketplaceScriptDryRunRunResponses = {
 
 export type MarketplaceScriptDryRunRunResponse = MarketplaceScriptDryRunRunResponses[keyof MarketplaceScriptDryRunRunResponses];
 
-export type MarketplaceScriptSyncResourceCreateData = {
+export type MarketplaceScriptSyncResourceData = {
     body?: never;
     path?: never;
     query?: never;
     url: '/api/marketplace-script-sync-resource/';
 };
 
-export type MarketplaceScriptSyncResourceCreateResponses = {
+export type MarketplaceScriptSyncResourceResponses = {
     /**
      * No response body
      */
@@ -26320,14 +26350,14 @@ export type OverrideSettingsRetrieveResponses = {
     200: unknown;
 };
 
-export type OverrideSettingsCreateData = {
+export type OverrideSettingsData = {
     body?: ConstanceSettingsRequest;
     path?: never;
     query?: never;
     url: '/api/override-settings/';
 };
 
-export type OverrideSettingsCreateResponses = {
+export type OverrideSettingsResponses = {
     /**
      * No response body
      */
@@ -27257,6 +27287,24 @@ export type ProposalProposalsListData = {
     body?: never;
     path?: never;
     query?: {
+        call_uuid?: string;
+        name?: string;
+        /**
+         * Ordering
+         *
+         * * `round__call__name` - Round  call  name
+         * * `-round__call__name` - Round  call  name (descending)
+         * * `round__start_time` - Round  start time
+         * * `-round__start_time` - Round  start time (descending)
+         * * `round__cutoff_time` - Round  cutoff time
+         * * `-round__cutoff_time` - Round  cutoff time (descending)
+         * * `state` - State
+         * * `-state` - State (descending)
+         * * `created` - Created
+         * * `-created` - Created (descending)
+         */
+        o?: Array<'-created' | '-round__call__name' | '-round__cutoff_time' | '-round__start_time' | '-state' | 'created' | 'round__call__name' | 'round__cutoff_time' | 'round__start_time' | 'state'>;
+        organization_uuid?: string;
         /**
          * A page number within the paginated result set.
          */
@@ -27265,6 +27313,18 @@ export type ProposalProposalsListData = {
          * Number of results to return per page.
          */
         page_size?: number;
+        round?: string;
+        /**
+         * * `draft` - Draft
+         * * `team_verification` - Team verification
+         * * `submitted` - Submitted
+         * * `in_review` - In review
+         * * `in_revision` - In revision
+         * * `accepted` - Accepted
+         * * `rejected` - Rejected
+         * * `canceled` - Canceled
+         */
+        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted' | 'team_verification'>;
     };
     url: '/api/proposal-proposals/';
 };
@@ -27434,6 +27494,24 @@ export type ProposalProposalsListUsersListData = {
         uuid: string;
     };
     query?: {
+        call_uuid?: string;
+        name?: string;
+        /**
+         * Ordering
+         *
+         * * `round__call__name` - Round  call  name
+         * * `-round__call__name` - Round  call  name (descending)
+         * * `round__start_time` - Round  start time
+         * * `-round__start_time` - Round  start time (descending)
+         * * `round__cutoff_time` - Round  cutoff time
+         * * `-round__cutoff_time` - Round  cutoff time (descending)
+         * * `state` - State
+         * * `-state` - State (descending)
+         * * `created` - Created
+         * * `-created` - Created (descending)
+         */
+        o?: Array<'-created' | '-round__call__name' | '-round__cutoff_time' | '-round__start_time' | '-state' | 'created' | 'round__call__name' | 'round__cutoff_time' | 'round__start_time' | 'state'>;
+        organization_uuid?: string;
         /**
          * A page number within the paginated result set.
          */
@@ -27443,7 +27521,19 @@ export type ProposalProposalsListUsersListData = {
          */
         page_size?: number;
         role?: string;
+        round?: string;
         search_string?: string;
+        /**
+         * * `draft` - Draft
+         * * `team_verification` - Team verification
+         * * `submitted` - Submitted
+         * * `in_review` - In review
+         * * `in_revision` - In revision
+         * * `accepted` - Accepted
+         * * `rejected` - Rejected
+         * * `canceled` - Canceled
+         */
+        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted' | 'team_verification'>;
         user?: string;
     };
     url: '/api/proposal-proposals/{uuid}/list_users/';
@@ -28087,7 +28177,7 @@ export type ProposalProtectedCallsRoundsUpdateResponses = {
 
 export type ProposalProtectedCallsRoundsUpdateResponse = ProposalProtectedCallsRoundsUpdateResponses[keyof ProposalProtectedCallsRoundsUpdateResponses];
 
-export type ProposalProtectedCallsRoundsCloseCreateData = {
+export type ProposalProtectedCallsRoundsCloseData = {
     body: ProtectedCallRequest;
     path: {
         obj_uuid: string;
@@ -28097,11 +28187,11 @@ export type ProposalProtectedCallsRoundsCloseCreateData = {
     url: '/api/proposal-protected-calls/{uuid}/rounds/{obj_uuid}/close/';
 };
 
-export type ProposalProtectedCallsRoundsCloseCreateResponses = {
+export type ProposalProtectedCallsRoundsCloseResponses = {
     200: ProtectedCall;
 };
 
-export type ProposalProtectedCallsRoundsCloseCreateResponse = ProposalProtectedCallsRoundsCloseCreateResponses[keyof ProposalProtectedCallsRoundsCloseCreateResponses];
+export type ProposalProtectedCallsRoundsCloseResponse = ProposalProtectedCallsRoundsCloseResponses[keyof ProposalProtectedCallsRoundsCloseResponses];
 
 export type ProposalProtectedCallsUpdateUserData = {
     body: UserRoleUpdateRequest;
@@ -28740,14 +28830,14 @@ export type ProviderInvoiceItemsUpdateResponses = {
 
 export type ProviderInvoiceItemsUpdateResponse = ProviderInvoiceItemsUpdateResponses[keyof ProviderInvoiceItemsUpdateResponses];
 
-export type QueryCreateData = {
+export type QueryData = {
     body?: never;
     path?: never;
     query?: never;
     url: '/api/query/';
 };
 
-export type QueryCreateResponses = {
+export type QueryResponses = {
     /**
      * No response body
      */
@@ -30553,21 +30643,21 @@ export type RancherWorkloadsYamlUpdateResponses = {
 
 export type RancherWorkloadsYamlUpdateResponse = RancherWorkloadsYamlUpdateResponses[keyof RancherWorkloadsYamlUpdateResponses];
 
-export type RemoteEduteamsCreateData = {
+export type RemoteEduteamsData = {
     body: RemoteEduteamsRequestRequest;
     path?: never;
     query?: never;
     url: '/api/remote-eduteams/';
 };
 
-export type RemoteEduteamsCreateResponses = {
+export type RemoteEduteamsResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type RemoteWaldurApiCancelTerminationCreateData = {
+export type RemoteWaldurApiCancelTerminationData = {
     body?: never;
     path: {
         uuid: string;
@@ -30576,27 +30666,27 @@ export type RemoteWaldurApiCancelTerminationCreateData = {
     url: '/api/remote-waldur-api/cancel_termination/{uuid}';
 };
 
-export type RemoteWaldurApiCancelTerminationCreateResponses = {
+export type RemoteWaldurApiCancelTerminationResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type RemoteWaldurApiImportOfferingCreateData = {
+export type RemoteWaldurApiImportOfferingData = {
     body: RemoteOfferingCreateRequest;
     path?: never;
     query?: never;
     url: '/api/remote-waldur-api/import_offering/';
 };
 
-export type RemoteWaldurApiImportOfferingCreateResponses = {
+export type RemoteWaldurApiImportOfferingResponses = {
     200: RemoteOfferingCreateResponse;
 };
 
-export type RemoteWaldurApiImportOfferingCreateResponse = RemoteWaldurApiImportOfferingCreateResponses[keyof RemoteWaldurApiImportOfferingCreateResponses];
+export type RemoteWaldurApiImportOfferingResponse = RemoteWaldurApiImportOfferingResponses[keyof RemoteWaldurApiImportOfferingResponses];
 
-export type RemoteWaldurApiPullOfferingDetailsCreateData = {
+export type RemoteWaldurApiPullOfferingDetailsData = {
     body?: never;
     path: {
         uuid: string;
@@ -30605,14 +30695,14 @@ export type RemoteWaldurApiPullOfferingDetailsCreateData = {
     url: '/api/remote-waldur-api/pull_offering_details/{uuid}/';
 };
 
-export type RemoteWaldurApiPullOfferingDetailsCreateResponses = {
+export type RemoteWaldurApiPullOfferingDetailsResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type RemoteWaldurApiPullOfferingInvoicesCreateData = {
+export type RemoteWaldurApiPullOfferingInvoicesData = {
     body?: never;
     path: {
         uuid: string;
@@ -30621,14 +30711,14 @@ export type RemoteWaldurApiPullOfferingInvoicesCreateData = {
     url: '/api/remote-waldur-api/pull_offering_invoices/{uuid}/';
 };
 
-export type RemoteWaldurApiPullOfferingInvoicesCreateResponses = {
+export type RemoteWaldurApiPullOfferingInvoicesResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type RemoteWaldurApiPullOfferingOrdersCreateData = {
+export type RemoteWaldurApiPullOfferingOrdersData = {
     body?: never;
     path: {
         uuid: string;
@@ -30637,14 +30727,14 @@ export type RemoteWaldurApiPullOfferingOrdersCreateData = {
     url: '/api/remote-waldur-api/pull_offering_orders/{uuid}/';
 };
 
-export type RemoteWaldurApiPullOfferingOrdersCreateResponses = {
+export type RemoteWaldurApiPullOfferingOrdersResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type RemoteWaldurApiPullOfferingResourcesCreateData = {
+export type RemoteWaldurApiPullOfferingResourcesData = {
     body?: never;
     path: {
         uuid: string;
@@ -30653,14 +30743,14 @@ export type RemoteWaldurApiPullOfferingResourcesCreateData = {
     url: '/api/remote-waldur-api/pull_offering_resources/{uuid}/';
 };
 
-export type RemoteWaldurApiPullOfferingResourcesCreateResponses = {
+export type RemoteWaldurApiPullOfferingResourcesResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type RemoteWaldurApiPullOfferingRobotAccountsCreateData = {
+export type RemoteWaldurApiPullOfferingRobotAccountsData = {
     body?: never;
     path: {
         uuid: string;
@@ -30669,14 +30759,14 @@ export type RemoteWaldurApiPullOfferingRobotAccountsCreateData = {
     url: '/api/remote-waldur-api/pull_offering_robot_accounts/{uuid}/';
 };
 
-export type RemoteWaldurApiPullOfferingRobotAccountsCreateResponses = {
+export type RemoteWaldurApiPullOfferingRobotAccountsResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type RemoteWaldurApiPullOfferingUsageCreateData = {
+export type RemoteWaldurApiPullOfferingUsageData = {
     body?: never;
     path: {
         uuid: string;
@@ -30685,14 +30775,14 @@ export type RemoteWaldurApiPullOfferingUsageCreateData = {
     url: '/api/remote-waldur-api/pull_offering_usage/{uuid}/';
 };
 
-export type RemoteWaldurApiPullOfferingUsageCreateResponses = {
+export type RemoteWaldurApiPullOfferingUsageResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type RemoteWaldurApiPullOfferingUsersCreateData = {
+export type RemoteWaldurApiPullOfferingUsersData = {
     body?: never;
     path: {
         uuid: string;
@@ -30701,14 +30791,14 @@ export type RemoteWaldurApiPullOfferingUsersCreateData = {
     url: '/api/remote-waldur-api/pull_offering_users/{uuid}/';
 };
 
-export type RemoteWaldurApiPullOfferingUsersCreateResponses = {
+export type RemoteWaldurApiPullOfferingUsersResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type RemoteWaldurApiPullOrderCreateData = {
+export type RemoteWaldurApiPullOrderData = {
     body?: never;
     path: {
         uuid: string;
@@ -30717,14 +30807,14 @@ export type RemoteWaldurApiPullOrderCreateData = {
     url: '/api/remote-waldur-api/pull_order/{uuid}';
 };
 
-export type RemoteWaldurApiPullOrderCreateResponses = {
+export type RemoteWaldurApiPullOrderResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type RemoteWaldurApiPushProjectDataCreateData = {
+export type RemoteWaldurApiPushProjectDataData = {
     body?: never;
     path: {
         uuid: string;
@@ -30733,14 +30823,14 @@ export type RemoteWaldurApiPushProjectDataCreateData = {
     url: '/api/remote-waldur-api/push_project_data/{uuid}/';
 };
 
-export type RemoteWaldurApiPushProjectDataCreateResponses = {
+export type RemoteWaldurApiPushProjectDataResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type RemoteWaldurApiRemoteCategoriesCreateData = {
+export type RemoteWaldurApiRemoteCategoriesData = {
     body: RemoteCredentialsRequest;
     path?: never;
     query?: {
@@ -30756,13 +30846,13 @@ export type RemoteWaldurApiRemoteCategoriesCreateData = {
     url: '/api/remote-waldur-api/remote_categories/';
 };
 
-export type RemoteWaldurApiRemoteCategoriesCreateResponses = {
+export type RemoteWaldurApiRemoteCategoriesResponses = {
     200: PaginatedMarketplaceCategoryList;
 };
 
-export type RemoteWaldurApiRemoteCategoriesCreateResponse = RemoteWaldurApiRemoteCategoriesCreateResponses[keyof RemoteWaldurApiRemoteCategoriesCreateResponses];
+export type RemoteWaldurApiRemoteCategoriesResponse = RemoteWaldurApiRemoteCategoriesResponses[keyof RemoteWaldurApiRemoteCategoriesResponses];
 
-export type RemoteWaldurApiRemoteCustomersCreateData = {
+export type RemoteWaldurApiRemoteCustomersData = {
     body: RemoteCredentialsRequest;
     path?: never;
     query?: {
@@ -30778,13 +30868,13 @@ export type RemoteWaldurApiRemoteCustomersCreateData = {
     url: '/api/remote-waldur-api/remote_customers/';
 };
 
-export type RemoteWaldurApiRemoteCustomersCreateResponses = {
+export type RemoteWaldurApiRemoteCustomersResponses = {
     200: PaginatedRemoteCustomerList;
 };
 
-export type RemoteWaldurApiRemoteCustomersCreateResponse = RemoteWaldurApiRemoteCustomersCreateResponses[keyof RemoteWaldurApiRemoteCustomersCreateResponses];
+export type RemoteWaldurApiRemoteCustomersResponse = RemoteWaldurApiRemoteCustomersResponses[keyof RemoteWaldurApiRemoteCustomersResponses];
 
-export type RemoteWaldurApiSharedOfferingsCreateData = {
+export type RemoteWaldurApiSharedOfferingsData = {
     body: RemoteCredentialsRequest;
     path?: never;
     query?: {
@@ -30801,13 +30891,13 @@ export type RemoteWaldurApiSharedOfferingsCreateData = {
     url: '/api/remote-waldur-api/shared_offerings/';
 };
 
-export type RemoteWaldurApiSharedOfferingsCreateResponses = {
+export type RemoteWaldurApiSharedOfferingsResponses = {
     200: PaginatedRemoteOfferingList;
 };
 
-export type RemoteWaldurApiSharedOfferingsCreateResponse = RemoteWaldurApiSharedOfferingsCreateResponses[keyof RemoteWaldurApiSharedOfferingsCreateResponses];
+export type RemoteWaldurApiSharedOfferingsResponse = RemoteWaldurApiSharedOfferingsResponses[keyof RemoteWaldurApiSharedOfferingsResponses];
 
-export type RemoteWaldurApiSyncResourceCreateData = {
+export type RemoteWaldurApiSyncResourceData = {
     body?: never;
     path: {
         uuid: string;
@@ -30816,14 +30906,14 @@ export type RemoteWaldurApiSyncResourceCreateData = {
     url: '/api/remote-waldur-api/sync_resource/{uuid}/';
 };
 
-export type RemoteWaldurApiSyncResourceCreateResponses = {
+export type RemoteWaldurApiSyncResourceResponses = {
     /**
      * No response body
      */
     200: unknown;
 };
 
-export type RemoteWaldurApiSyncResourceProjectPermissionsCreateData = {
+export type RemoteWaldurApiSyncResourceProjectPermissionsData = {
     body?: never;
     path: {
         uuid: string;
@@ -30832,7 +30922,7 @@ export type RemoteWaldurApiSyncResourceProjectPermissionsCreateData = {
     url: '/api/remote-waldur-api/sync_resource_project_permissions/{uuid}/';
 };
 
-export type RemoteWaldurApiSyncResourceProjectPermissionsCreateResponses = {
+export type RemoteWaldurApiSyncResourceProjectPermissionsResponses = {
     /**
      * No response body
      */
@@ -32061,18 +32151,18 @@ export type SupportIssuesSyncResponses = {
 
 export type SupportIssuesSyncResponse = SupportIssuesSyncResponses[keyof SupportIssuesSyncResponses];
 
-export type SupportJiraWebhookCreateData = {
+export type SupportJiraWebhookData = {
     body: WebHookReceiverRequest;
     path?: never;
     query?: never;
     url: '/api/support-jira-webhook/';
 };
 
-export type SupportJiraWebhookCreateResponses = {
+export type SupportJiraWebhookResponses = {
     200: WebHookReceiver;
 };
 
-export type SupportJiraWebhookCreateResponse = SupportJiraWebhookCreateResponses[keyof SupportJiraWebhookCreateResponses];
+export type SupportJiraWebhookResponse = SupportJiraWebhookResponses[keyof SupportJiraWebhookResponses];
 
 export type SupportPrioritiesListData = {
     body?: never;
@@ -32113,14 +32203,14 @@ export type SupportPrioritiesRetrieveResponses = {
 
 export type SupportPrioritiesRetrieveResponse = SupportPrioritiesRetrieveResponses[keyof SupportPrioritiesRetrieveResponses];
 
-export type SupportSmaxWebhookCreateData = {
+export type SupportSmaxWebhookData = {
     body?: never;
     path?: never;
     query?: never;
     url: '/api/support-smax-webhook/';
 };
 
-export type SupportSmaxWebhookCreateResponses = {
+export type SupportSmaxWebhookResponses = {
     /**
      * No response body
      */
@@ -32309,14 +32399,14 @@ export type SupportUsersRetrieveResponses = {
 
 export type SupportUsersRetrieveResponse = SupportUsersRetrieveResponses[keyof SupportUsersRetrieveResponses];
 
-export type SupportZammadWebhookCreateData = {
+export type SupportZammadWebhookData = {
     body?: never;
     path?: never;
     query?: never;
     url: '/api/support-zammad-webhook/';
 };
 
-export type SupportZammadWebhookCreateResponses = {
+export type SupportZammadWebhookResponses = {
     /**
      * No response body
      */
@@ -32337,14 +32427,14 @@ export type SyncIssuesRetrieveResponses = {
     200: unknown;
 };
 
-export type SyncIssuesCreateData = {
+export type SyncIssuesData = {
     body?: never;
     path?: never;
     query?: never;
     url: '/api/sync-issues/';
 };
 
-export type SyncIssuesCreateResponses = {
+export type SyncIssuesResponses = {
     /**
      * No response body
      */
@@ -32541,20 +32631,20 @@ export type UserGroupInvitationsProjectsRetrieveResponses = {
 
 export type UserGroupInvitationsProjectsRetrieveResponse = UserGroupInvitationsProjectsRetrieveResponses[keyof UserGroupInvitationsProjectsRetrieveResponses];
 
-export type UserGroupInvitationsRequestData = {
-    body: GroupInvitationRequest;
+export type UserGroupInvitationsSubmitRequestData = {
+    body?: never;
     path: {
         uuid: string;
     };
     query?: never;
-    url: '/api/user-group-invitations/{uuid}/request/';
+    url: '/api/user-group-invitations/{uuid}/submit_request/';
 };
 
-export type UserGroupInvitationsRequestResponses = {
+export type UserGroupInvitationsSubmitRequestResponses = {
     200: GroupInvitation;
 };
 
-export type UserGroupInvitationsRequestResponse = UserGroupInvitationsRequestResponses[keyof UserGroupInvitationsRequestResponses];
+export type UserGroupInvitationsSubmitRequestResponse = UserGroupInvitationsSubmitRequestResponses[keyof UserGroupInvitationsSubmitRequestResponses];
 
 export type UserInvitationsListData = {
     body?: never;
@@ -32634,7 +32724,7 @@ export type UserInvitationsRetrieveResponses = {
 export type UserInvitationsRetrieveResponse = UserInvitationsRetrieveResponses[keyof UserInvitationsRetrieveResponses];
 
 export type UserInvitationsAcceptData = {
-    body: InvitationRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -32643,13 +32733,14 @@ export type UserInvitationsAcceptData = {
 };
 
 export type UserInvitationsAcceptResponses = {
-    200: Invitation;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type UserInvitationsAcceptResponse = UserInvitationsAcceptResponses[keyof UserInvitationsAcceptResponses];
-
 export type UserInvitationsCancelData = {
-    body: InvitationRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -32658,13 +32749,14 @@ export type UserInvitationsCancelData = {
 };
 
 export type UserInvitationsCancelResponses = {
-    200: Invitation;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type UserInvitationsCancelResponse = UserInvitationsCancelResponses[keyof UserInvitationsCancelResponses];
-
 export type UserInvitationsCheckData = {
-    body: InvitationRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -32673,13 +32765,13 @@ export type UserInvitationsCheckData = {
 };
 
 export type UserInvitationsCheckResponses = {
-    200: Invitation;
+    200: InvitationCheck;
 };
 
 export type UserInvitationsCheckResponse = UserInvitationsCheckResponses[keyof UserInvitationsCheckResponses];
 
 export type UserInvitationsDeleteData = {
-    body: InvitationRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -32688,10 +32780,11 @@ export type UserInvitationsDeleteData = {
 };
 
 export type UserInvitationsDeleteResponses = {
-    200: Invitation;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type UserInvitationsDeleteResponse = UserInvitationsDeleteResponses[keyof UserInvitationsDeleteResponses];
 
 export type UserInvitationsDetailsRetrieveData = {
     body?: never;
@@ -32703,13 +32796,13 @@ export type UserInvitationsDetailsRetrieveData = {
 };
 
 export type UserInvitationsDetailsRetrieveResponses = {
-    200: Invitation;
+    200: VisibleInvitationDetails;
 };
 
 export type UserInvitationsDetailsRetrieveResponse = UserInvitationsDetailsRetrieveResponses[keyof UserInvitationsDetailsRetrieveResponses];
 
 export type UserInvitationsSendData = {
-    body: InvitationRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -32718,36 +32811,39 @@ export type UserInvitationsSendData = {
 };
 
 export type UserInvitationsSendResponses = {
-    200: Invitation;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type UserInvitationsSendResponse = UserInvitationsSendResponses[keyof UserInvitationsSendResponses];
-
-export type UserInvitationsApproveCreateData = {
-    body: InvitationRequest;
+export type UserInvitationsApproveData = {
+    body: TokenRequest;
     path?: never;
     query?: never;
     url: '/api/user-invitations/approve/';
 };
 
-export type UserInvitationsApproveCreateResponses = {
-    200: Invitation;
+export type UserInvitationsApproveResponses = {
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type UserInvitationsApproveCreateResponse = UserInvitationsApproveCreateResponses[keyof UserInvitationsApproveCreateResponses];
-
-export type UserInvitationsRejectCreateData = {
-    body: InvitationRequest;
+export type UserInvitationsRejectData = {
+    body: TokenRequest;
     path?: never;
     query?: never;
     url: '/api/user-invitations/reject/';
 };
 
-export type UserInvitationsRejectCreateResponses = {
-    200: Invitation;
+export type UserInvitationsRejectResponses = {
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type UserInvitationsRejectCreateResponse = UserInvitationsRejectCreateResponses[keyof UserInvitationsRejectCreateResponses];
 
 export type UserPermissionRequestsListData = {
     body?: never;
@@ -33229,18 +33325,18 @@ export type UsersTokenRetrieveResponses = {
 
 export type UsersTokenRetrieveResponse = UsersTokenRetrieveResponses[keyof UsersTokenRetrieveResponses];
 
-export type UsersConfirmEmailCreateData = {
+export type UsersConfirmEmailData = {
     body: UserRequest;
     path?: never;
     query?: never;
     url: '/api/users/confirm_email/';
 };
 
-export type UsersConfirmEmailCreateResponses = {
+export type UsersConfirmEmailResponses = {
     200: User;
 };
 
-export type UsersConfirmEmailCreateResponse = UsersConfirmEmailCreateResponses[keyof UsersConfirmEmailCreateResponses];
+export type UsersConfirmEmailResponse = UsersConfirmEmailResponses[keyof UsersConfirmEmailResponses];
 
 export type UsersMeRetrieveData = {
     body?: never;
@@ -34154,5 +34250,5 @@ export type VmwareVirtualMachineWebConsoleRetrieveResponses = {
 export type VmwareVirtualMachineWebConsoleRetrieveResponse = VmwareVirtualMachineWebConsoleRetrieveResponses[keyof VmwareVirtualMachineWebConsoleRetrieveResponses];
 
 export type ClientOptions = {
-    baseUrl: `${string}://waldur-openapi-schema.yaml` | (string & {});
+    baseUrl: `${string}://schema.yaml` | (string & {});
 };

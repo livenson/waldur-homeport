@@ -1,5 +1,6 @@
 import { ArrowsClockwise } from '@phosphor-icons/react';
 
+import { vmwareVirtualMachineReset } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { AsyncActionItem } from '@waldur/resource/actions/AsyncActionItem';
 import {
@@ -8,8 +9,6 @@ import {
 } from '@waldur/resource/actions/base';
 import { ActionItemType } from '@waldur/resource/actions/types';
 
-import { resetVirtualMachine } from '../api';
-
 const validators = [validateState('OK'), validateRuntimeState('POWERED_ON')];
 
 export const ResetAction: ActionItemType = ({ resource, refetch }) => (
@@ -17,7 +16,7 @@ export const ResetAction: ActionItemType = ({ resource, refetch }) => (
     title={translate('Reset')}
     resource={resource}
     validators={validators}
-    apiMethod={resetVirtualMachine}
+    apiMethod={(id) => vmwareVirtualMachineReset({ path: { uuid: id } })}
     refetch={refetch}
     iconNode={<ArrowsClockwise />}
   />

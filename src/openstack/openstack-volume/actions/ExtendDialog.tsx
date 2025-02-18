@@ -3,8 +3,8 @@ import { Form, InputGroup, Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { Field, reduxForm, change } from 'redux-form';
 
+import { openstackVolumesExtend } from '@waldur/api';
 import { SubmitButton } from '@waldur/auth/SubmitButton';
-import { post } from '@waldur/core/api';
 import { formatFilesize } from '@waldur/core/utils';
 import { InputField } from '@waldur/form/InputField';
 import { translate } from '@waldur/i18n';
@@ -47,11 +47,13 @@ export const VolumeExtendDialog = reduxForm<
 
   const extendVolume = useCallback(
     async (formData: VolumeExtendDialogFormData) => {
-      const payload = {
-        disk_size: formData.size * 1024,
-      };
       try {
-        await post(`/openstack-volumes/${resource.uuid}/extend/`, payload);
+        await openstackVolumesExtend({
+          path: { uuid: resource.uuid },
+          body: {
+            disk_size: formData.size * 1024,
+          },
+        });
         dispatch(
           showSuccess(translate('Volume extension has been scheduled.')),
         );

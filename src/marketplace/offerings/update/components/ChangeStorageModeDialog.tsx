@@ -2,16 +2,20 @@ import { FC } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { Field, Form } from 'react-final-form';
 
+import {
+  marketplaceProviderOfferingsUpdateIntegration,
+  MergedPluginOptionsRequest,
+  StorageModeEnum,
+} from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import { updateOfferingIntegration } from '@waldur/marketplace/common/api';
 import { useModal } from '@waldur/modal/hooks';
 import { useNotify } from '@waldur/store/hooks';
 
 interface ChangeStorageModeDialogProps {
   resolve: {
-    offering: any;
+    offering: { plugin_options: MergedPluginOptionsRequest; uuid: string };
     refetch(): void;
-    currentMode: string;
+    currentMode: StorageModeEnum;
     modes: Array<{ value: string; label: string }>;
   };
 }
@@ -23,13 +27,16 @@ export const ChangeStorageModeDialog: FC<ChangeStorageModeDialogProps> = (
   const { closeDialog } = useModal();
 
   return (
-    <Form
+    <Form<{ storage_mode: StorageModeEnum }>
       onSubmit={async (formData) => {
         try {
-          await updateOfferingIntegration(props.resolve.offering.uuid, {
-            plugin_options: {
-              ...props.resolve.offering.plugin_options,
-              storage_mode: formData.storage_mode,
+          await marketplaceProviderOfferingsUpdateIntegration({
+            path: { uuid: props.resolve.offering.uuid },
+            body: {
+              plugin_options: {
+                ...props.resolve.offering.plugin_options,
+                storage_mode: formData.storage_mode,
+              },
             },
           });
           showSuccess(translate('Storage mode has been updated.'));

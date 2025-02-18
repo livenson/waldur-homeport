@@ -1,12 +1,5 @@
 import { ENV } from '@waldur/configs/default';
-import {
-  deleteById,
-  get,
-  getById,
-  getList,
-  post,
-  sendForm,
-} from '@waldur/core/api';
+import { deleteById, get, getById, getList, sendForm } from '@waldur/core/api';
 import { formatDate } from '@waldur/core/dateUtils';
 import { InvoiceSummary } from '@waldur/dashboard/types';
 import { Customer, Project } from '@waldur/workspace/types';
@@ -74,13 +67,6 @@ export const updateProject = (
     data,
   );
 };
-
-export const moveProject = (data) =>
-  post(`/projects/${data.project.uuid}/move_project/`, {
-    customer: {
-      url: data.organization.url,
-    },
-  });
 
 export const deleteCustomer = (customerId: string) =>
   deleteById('/customers/', customerId);

@@ -2,9 +2,12 @@ import { set, unset } from 'lodash-es';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
+import {
+  marketplaceProviderOfferingsUpdateIntegration,
+  OfferingIntegrationUpdateRequest,
+} from '@waldur/api';
 import { flattenObject } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';
-import { updateOfferingIntegration } from '@waldur/marketplace/common/api';
 import { Offering } from '@waldur/marketplace/types';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
@@ -38,7 +41,7 @@ export const SCRIPT_ROWS = [
 export const useUpdateOfferingIntegration = (offering: Offering, refetch?) => {
   const dispatch = useDispatch();
   const update = useCallback(
-    async (formData) => {
+    async (formData: OfferingIntegrationUpdateRequest) => {
       const payload = {
         service_attributes: offering.service_attributes,
         secret_options: offering.secret_options,
@@ -57,7 +60,10 @@ export const useUpdateOfferingIntegration = (offering: Offering, refetch?) => {
         }
       });
       try {
-        await updateOfferingIntegration(offering.uuid, payload);
+        await marketplaceProviderOfferingsUpdateIntegration({
+          path: { uuid: offering.uuid },
+          body: payload,
+        });
         dispatch(
           showSuccess(translate('Offering has been updated successfully.')),
         );

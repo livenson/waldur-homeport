@@ -1,10 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from '@uirouter/react';
-import { useCallback, FunctionComponent, useEffect } from 'react';
+import { FunctionComponent, useCallback, useEffect } from 'react';
 import { Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { getInvitationLinkProps } from '@waldur/administration/getInvitationLinkProps';
+import { userInvitationsDetailsRetrieve } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
@@ -13,7 +14,6 @@ import { getUser } from '@waldur/workspace/selectors';
 import { InvitationButtons } from './InvitationButtons';
 import { InvitationErrorMessage } from './InvitationErrorMessage';
 import { InvitationMessage } from './InvitationMessage';
-import { InvitationService } from './InvitationService';
 import { formatInvitationState } from './InvitationStateFilter';
 import { clearInvitationToken } from './InvitationStorage';
 
@@ -25,7 +25,9 @@ export const InvitationConfirmDialog: FunctionComponent<{
 
   const user = useSelector(getUser);
   const asyncResult = useQuery(['invitation', token], () =>
-    InvitationService.details(token).then((response) => response.data),
+    userInvitationsDetailsRetrieve({ path: { uuid: token } }).then(
+      (response) => response.data,
+    ),
   );
   const invitation = asyncResult.data;
 

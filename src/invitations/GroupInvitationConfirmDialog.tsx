@@ -3,6 +3,7 @@ import { Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
 
+import { userGroupInvitationsRetrieve } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
@@ -10,7 +11,6 @@ import { closeModalDialog } from '@waldur/modal/actions';
 import { GroupInvitationButtons } from './GroupinvitationButtons';
 import { GroupInvitationErrorMessage } from './GroupInvitationErrorMessage';
 import { GroupInvitationMessage } from './GroupInvitationMessage';
-import { InvitationService } from './InvitationService';
 
 export const GroupInvitationConfirmDialog: FunctionComponent<{
   resolve: { token; deferred };
@@ -30,7 +30,7 @@ export const GroupInvitationConfirmDialog: FunctionComponent<{
   }, [close, deferred]);
 
   const asyncResult = useAsync(() =>
-    InvitationService.fetchUserGroupInvitationById(token).then(
+    userGroupInvitationsRetrieve({ path: { uuid: token } }).then(
       (response) => response.data,
     ),
   );

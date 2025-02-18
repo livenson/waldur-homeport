@@ -3,9 +3,9 @@ import { Modal } from 'react-bootstrap';
 import { connect, useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
 
+import { marketplacePlansUpdateQuotas } from '@waldur/api';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
-import { updatePlanQuotas } from '@waldur/marketplace/common/api';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
@@ -34,8 +34,11 @@ export const EditPlanQuotasDialog = connect<
     const update = useCallback(
       async (formData) => {
         try {
-          await updatePlanQuotas(props.resolve.plan.uuid, {
-            quotas: formData.quotas,
+          await marketplacePlansUpdateQuotas({
+            path: { uuid: props.resolve.plan.uuid },
+            body: {
+              quotas: formData.quotas,
+            },
           });
           dispatch(
             showSuccess(translate('Quotas have been updated successfully.')),

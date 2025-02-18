@@ -1,5 +1,6 @@
 import { Stop } from '@phosphor-icons/react';
 
+import { vmwareVirtualMachineStop } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { AsyncActionItem } from '@waldur/resource/actions/AsyncActionItem';
 import {
@@ -7,8 +8,6 @@ import {
   validateState,
 } from '@waldur/resource/actions/base';
 import { ActionItemType } from '@waldur/resource/actions/types';
-
-import { stopVirtualMachine } from '../api';
 
 const validators = [
   validateState('OK'),
@@ -20,7 +19,7 @@ export const StopAction: ActionItemType = ({ resource, refetch }) => (
     title={translate('Stop')}
     resource={resource}
     validators={validators}
-    apiMethod={stopVirtualMachine}
+    apiMethod={(id) => vmwareVirtualMachineStop({ path: { uuid: id } })}
     refetch={refetch}
     iconNode={<Stop />}
   />

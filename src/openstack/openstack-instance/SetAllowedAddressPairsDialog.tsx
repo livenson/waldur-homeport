@@ -5,7 +5,7 @@ import { connect, useDispatch } from 'react-redux';
 import { compose } from 'redux';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 
-import { post } from '@waldur/core/api';
+import { openstackInstancesUpdateAllowedAddressPairs } from '@waldur/api';
 import { SubmitButton } from '@waldur/form';
 import { renderValidationWrapper } from '@waldur/form/FieldValidationWrapper';
 import { InputField } from '@waldur/form/InputField';
@@ -115,13 +115,13 @@ export const SetAllowedAddressPairsDialog = enhance(
     const dispatch = useDispatch();
     const setAllowedAddressPairs = async (formData: FormData) => {
       try {
-        await post(
-          `/openstack-instances/${resolve.instance.uuid}/update_allowed_address_pairs/`,
-          {
+        await openstackInstancesUpdateAllowedAddressPairs({
+          path: { uuid: resolve.instance.uuid },
+          body: {
             subnet: resolve.port.subnet,
             allowed_address_pairs: formData.pairs || [],
           },
-        );
+        });
         dispatch(
           showSuccess(translate('Allowed address pairs update was scheduled.')),
         );

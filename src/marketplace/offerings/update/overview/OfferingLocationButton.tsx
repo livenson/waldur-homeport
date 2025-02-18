@@ -1,10 +1,10 @@
 import { useDispatch } from 'react-redux';
 
+import { marketplaceProviderOfferingsUpdateLocation } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { EditButton } from '@waldur/form/EditButton';
 import { translate } from '@waldur/i18n';
 import { GeolocationPoint } from '@waldur/map/types';
-import { updateOfferingLocation } from '@waldur/marketplace/common/api';
 import { closeModalDialog, openModalDialog } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { useUser } from '@waldur/workspace/hooks';
@@ -31,7 +31,10 @@ export const OfferingLocationButton = ({ offering, refetch }) => {
           },
           setLocationFn: async (formData: GeolocationPoint) => {
             try {
-              await updateOfferingLocation(offering.uuid, formData);
+              await marketplaceProviderOfferingsUpdateLocation({
+                path: { uuid: offering.uuid },
+                body: formData,
+              });
               dispatch(
                 showSuccess(translate('Location has been saved successfully.')),
               );
