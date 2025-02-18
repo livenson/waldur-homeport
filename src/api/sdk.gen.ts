@@ -13279,7 +13279,11 @@ export const projectsMoveProject = <ThrowOnError extends boolean = false>(option
             }
         ],
         url: '/api/projects/{uuid}/move_project/',
-        ...options
+        ...options,
+        headers: {
+            'Content-Type': 'application/json',
+            ...options?.headers
+        }
     });
 };
 

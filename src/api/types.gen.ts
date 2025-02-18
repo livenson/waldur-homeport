@@ -3428,6 +3428,10 @@ export type MinimalConsumptionLogicEnum = 'fixed' | 'linear';
 
 export type MountPointEnum = '/var/lib/docker' | '/var/lib/etcd' | '/opt/media01';
 
+export type MoveProjectRequest = {
+    customer: string;
+};
+
 export type MoveResource = {
     project: NestedProject;
 };
@@ -10583,7 +10587,7 @@ export type WebHookRequest = {
     content_type?: ContentTypeEnum;
 };
 
-export type WebhookEventEnum = 'comment_created' | 'jira:issue_updated' | 'comment_deleted' | 'jira:issue_deleted' | 'comment_updated';
+export type WebhookEventEnum = 'comment_deleted' | 'comment_created' | 'comment_updated' | 'jira:issue_updated' | 'jira:issue_deleted';
 
 export type ApiAuthBccUserDetailsRetrieveData = {
     body?: never;
@@ -17471,32 +17475,10 @@ export type MarketplaceIntegrationStatusesListData = {
         /**
          * Ordering
          *
-         * * `l` - L
-         * * `-l` - L (descending)
-         * * `a` - A
-         * * `-a` - A (descending)
-         * * `s` - S
-         * * `-s` - S (descending)
-         * * `t` - T
-         * * `-t` - T (descending)
-         * * `_` -
-         * * `-_` -   (descending)
-         * * `r` - R
-         * * `-r` - R (descending)
-         * * `e` - E
-         * * `-e` - E (descending)
-         * * `q` - Q
-         * * `-q` - Q (descending)
-         * * `u` - U
-         * * `-u` - U (descending)
-         * * `i` - I
-         * * `-i` - I (descending)
-         * * `m` - M
-         * * `-m` - M (descending)
-         * * `p` - P
-         * * `-p` - P (descending)
+         * * `last_request_timestamp` - Last request timestamp
+         * * `-last_request_timestamp` - Last request timestamp (descending)
          */
-        o?: Array<'-_' | '-a' | '-e' | '-i' | '-l' | '-m' | '-p' | '-q' | '-r' | '-s' | '-t' | '-u' | '_' | 'a' | 'e' | 'i' | 'l' | 'm' | 'p' | 'q' | 'r' | 's' | 't' | 'u'>;
+        o?: Array<'-last_request_timestamp' | 'last_request_timestamp'>;
         offering?: string;
         offering_uuid?: string;
         /**
@@ -27043,7 +27025,7 @@ export type ProjectsListUsersListResponses = {
 export type ProjectsListUsersListResponse = ProjectsListUsersListResponses[keyof ProjectsListUsersListResponses];
 
 export type ProjectsMoveProjectData = {
-    body?: never;
+    body: MoveProjectRequest;
     path: {
         uuid: string;
     };
