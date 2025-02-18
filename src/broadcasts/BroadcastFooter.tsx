@@ -6,15 +6,19 @@ import {
 } from '@phosphor-icons/react';
 import { useCallback } from 'react';
 import { Button, Modal } from 'react-bootstrap';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { getFormValues } from 'redux-form';
 
+import { formatDate } from '@waldur/core/dateUtils';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog, openModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
+import { RootState } from '@waldur/store/reducers';
 
 import { createBroadcast, sendBroadcast, updateBroadcast } from './api';
+import { BROADCAST_CREATE_FORM_ID } from './constants';
 import { BroadcastFormData } from './types';
 import { serializeBroadcast } from './utils';
 
@@ -40,6 +44,10 @@ export const BroadcastFooter = ({
   broadcastId?;
 }) => {
   const dispatch = useDispatch();
+  const formValues = useSelector<RootState, BroadcastFormData>(
+    getFormValues(BROADCAST_CREATE_FORM_ID) as any,
+  );
+
   const saveAsTemplate = (broadcastData) =>
     dispatch(
       openModalDialog(BroadcastSaveAsTemplateDialog, {
@@ -83,15 +91,35 @@ export const BroadcastFooter = ({
         } else {
           response = await createBroadcast(serializeBroadcast(formData));
         }
-        await sendBroadcast((response.data as { uuid: string }).uuid);
+        if (!formValues.send_at) {
+          await sendBroadcast((response.data as { uuid: string }).uuid);
+        }
         await refetch();
-        dispatch(showSuccess(translate('Broadcast has been sent.')));
+        if (formValues.send_at) {
+          dispatch(
+            showSuccess(
+              translate('This message will be sent on {date}.', {
+                date: formatDate(formValues.send_at),
+              }),
+            ),
+          );
+        } else {
+          dispatch(showSuccess(translate('Broadcast has been sent.')));
+        }
         dispatch(closeModalDialog());
       } catch (e) {
-        dispatch(showErrorResponse(e, translate('Unable to send broadcast.')));
+        if (formValues.send_at) {
+          dispatch(
+            showErrorResponse(e, translate('Unable to schedule broadcast.')),
+          );
+        } else {
+          dispatch(
+            showErrorResponse(e, translate('Unable to send broadcast.')),
+          );
+        }
       }
     },
-    [dispatch, refetch, broadcastId],
+    [dispatch, refetch, broadcastId, formValues],
   );
 
   return (
@@ -155,7 +183,9 @@ export const BroadcastFooter = ({
             <span className="svg-icon svg-icon-2">
               <Share />
             </span>{' '}
-            {translate('Send broadcast')}
+            {formValues.send_at
+              ? translate('Schedule broadcast')
+              : translate('Send now')}
           </Button>
         </>
       )}

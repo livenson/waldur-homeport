@@ -1,3 +1,4 @@
+import { DateTime } from 'luxon';
 import { Col, Modal, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { change, FormName, getFormValues } from 'redux-form';
@@ -13,10 +14,12 @@ import {
   offeringsAutocomplete,
   organizationAutocomplete,
 } from '@waldur/marketplace/common/autocompletes';
+import { RootState } from '@waldur/store/reducers';
 
 import { templateAutocomplete } from './autocomplete';
+import { BROADCAST_CREATE_FORM_ID } from './constants';
 import { RecipientsList } from './RecipientsList';
-import { MessageTemplate, BroadcastFormData } from './types';
+import { BroadcastFormData, MessageTemplate } from './types';
 
 const RecipientsListQuery = ({ form }) => {
   const query = useSelector(getFormValues(form));
@@ -25,16 +28,18 @@ const RecipientsListQuery = ({ form }) => {
 
 export const BroadcastForm = ({
   submitting,
-  formValues,
   step,
   setStep,
 }: {
   submitting: boolean;
-  formValues: BroadcastFormData;
   step: number;
   setStep(step: number): void;
 }) => {
   const dispatch = useDispatch();
+  const formValues = useSelector<RootState, BroadcastFormData>(
+    getFormValues(BROADCAST_CREATE_FORM_ID) as any,
+  );
+
   return (
     <>
       <WizardStepIndicator
@@ -85,7 +90,11 @@ export const BroadcastForm = ({
                   required={true}
                   validate={required}
                 />
-                <DateField name="send_at" label={translate('Send at')} />
+                <DateField
+                  name="send_at"
+                  label={translate('Send at')}
+                  minDate={DateTime.now().plus({ days: 1 }).toISO()}
+                />
               </FormContainer>
             ) : (
               <Row>

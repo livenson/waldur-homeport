@@ -9959,6 +9959,10 @@
     "description": "rancher/cluster/ClusterWorkloadsList.tsx",
     "message": "Scale"
   },
+  "Schedule broadcast": {
+    "description": "broadcasts/BroadcastFooter.tsx",
+    "message": "Schedule broadcast"
+  },
   "Schedule termination of existing resources": {
     "description": "customer/cost-policies/utils.ts",
     "message": "Schedule termination of existing resources"
@@ -10399,10 +10403,6 @@
     "description": "proposals/review/ReviewItemActions.tsx",
     "message": "Send back"
   },
-  "Send broadcast": {
-    "description": "broadcasts/BroadcastFooter.tsx",
-    "message": "Send broadcast"
-  },
   "Send invitation": {
     "description": "invitations/actions/create/FormButtons.tsx",
     "message": "Send invitation"
@@ -10414,6 +10414,10 @@
   "Send notification": {
     "description": "invoices/list/SendNotificationButton.tsx",
     "message": "Send notification"
+  },
+  "Send now": {
+    "description": "broadcasts/BroadcastFooter.tsx",
+    "message": "Send now"
   },
   "Send report": {
     "description": "customer/list/ExportAsEmailDialog.tsx",
@@ -11839,6 +11843,10 @@
     "description": "core/validators.ts, customer/cost-policies/CostPolicyForm.tsx",
     "message": "This field is required."
   },
+  "This message will be sent on {date}.": {
+    "description": "broadcasts/BroadcastFooter.tsx",
+    "message": "This message will be sent on {date}."
+  },
   "This name will be visible in accounting data.": {
     "description": "azure/sql/AzureSQLServerForm.tsx, azure/vm/AzureVirtualMachineForm.tsx, marketplace/deploy/steps/ResourceNameGroup.tsx, project/create/NameGroup.tsx",
     "message": "This name will be visible in accounting data."
@@ -12962,6 +12970,10 @@
   "Unable to save location.": {
     "description": "customer/list/SetLocationButton.tsx, marketplace/offerings/update/overview/OfferingLocationButton.tsx",
     "message": "Unable to save location."
+  },
+  "Unable to schedule broadcast.": {
+    "description": "broadcasts/BroadcastFooter.tsx",
+    "message": "Unable to schedule broadcast."
   },
   "Unable to schedule service synchronization.": {
     "description": "marketplace/offerings/update/integration/SyncButton.tsx",
