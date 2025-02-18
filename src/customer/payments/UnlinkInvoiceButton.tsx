@@ -1,7 +1,7 @@
 import { FileText } from '@phosphor-icons/react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import * as api from '@waldur/customer/payments/api';
+import { paymentsUnlinkFromInvoice } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
@@ -16,7 +16,7 @@ export const UnlinkInvoiceButton = ({ row: payment }) => {
 
   const callback = async () => {
     try {
-      await api.unlinkInvoice(payment.uuid);
+      await paymentsUnlinkFromInvoice({ path: { uuid: payment.uuid } });
       dispatch(
         showSuccess(
           translate('Invoice has been successfully unlinked from payment.'),

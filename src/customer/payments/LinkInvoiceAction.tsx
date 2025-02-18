@@ -2,8 +2,8 @@ import { FunctionComponent, useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useAsyncFn, useBoolean } from 'react-use';
 
+import { paymentsLinkToInvoice } from '@waldur/api';
 import { getAll } from '@waldur/core/api';
-import * as api from '@waldur/customer/payments/api';
 import { InvoicesDropdown } from '@waldur/customer/payments/InvoicesDropdown';
 import { translate } from '@waldur/i18n';
 import { Invoice } from '@waldur/invoices/types';
@@ -40,9 +40,11 @@ export const LinkInvoiceAction: FunctionComponent<{ row }> = ({
 
   const triggerAction = async (selectedInvoice: Invoice) => {
     try {
-      await api.linkInvoice({
-        paymentUuid: payment.uuid,
-        invoiceUrl: selectedInvoice.url,
+      await paymentsLinkToInvoice({
+        path: { uuid: payment.uuid },
+        body: {
+          invoice: selectedInvoice.url,
+        },
       });
       dispatch(
         showSuccess(

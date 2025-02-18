@@ -1,7 +1,7 @@
 import { Trash } from '@phosphor-icons/react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import * as api from '@waldur/customer/payments/api';
+import { paymentsDestroy } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog, waitForConfirmation } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
@@ -30,7 +30,7 @@ export const DeletePaymentButton = ({ row: payment }) => {
           return;
         }
         try {
-          await api.deletePayment(payment.uuid);
+          await paymentsDestroy({ path: { uuid: payment.uuid } });
           dispatch(showSuccess(translate('Payment has been deleted.')));
           dispatch(closeModalDialog());
           dispatch(updatePaymentsList(customer));

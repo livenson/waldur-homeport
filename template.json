@@ -899,6 +899,10 @@
     "description": "navigation/header/confirmation-drawer/ApproveAllButton.tsx, navigation/header/confirmation-drawer/ConsumerApproveAll.tsx",
     "message": "Approve all"
   },
+  "Approve and reject proposals": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Approve and reject proposals"
+  },
   "Approve order": {
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Approve order"
@@ -1756,7 +1760,7 @@
     "message": "Call details"
   },
   "Call management": {
-    "description": "organization/OrganizationUIView.tsx, proposals/routes.ts",
+    "description": "administration/roles/PermissionOptions.tsx, organization/OrganizationUIView.tsx, proposals/routes.ts",
     "message": "Call management"
   },
   "Call manager": {
@@ -2078,6 +2082,10 @@
   "Clone": {
     "description": "marketplace/offerings/update/plans/ClonePlanButton.tsx",
     "message": "Clone"
+  },
+  "Close rounds": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Close rounds"
   },
   "Close": {
     "description": "administration/TelemetryExampleDialog.tsx, booking/components/BookingResourceDetailsDialog.tsx, broadcasts/RecipientsListDialog.tsx, marketplace/aggregate-limits/AllComponentsDialog.tsx, marketplace/details/plan/EstimateUsageComponentDialog.tsx, marketplace/offerings/images/ImageDetailsDialog.tsx, marketplace/offerings/update/integration/GLAuthConfigDialog.tsx, marketplace/referral/OfferingReferralsDialog.tsx, marketplace/resources/usage/ResourceShowUsageDialog.tsx, marketplace/service-providers/ProviderProjectResourcesDialog.tsx, proposals/round/proposals/ProposalReviewsDetailButton.tsx, resource/summary/ResourceMetadataDialog.tsx, resource/summary/ResourceSummaryModal.tsx",
@@ -2462,6 +2470,10 @@
   "Create application": {
     "description": "rancher/template/TemplateQuestions.tsx",
     "message": "Create application"
+  },
+  "Create call permission": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Create call permission"
   },
   "Create call": {
     "description": "proposals/call-management/CallFormDialog.tsx",
@@ -3031,6 +3043,10 @@
     "description": "invitations/MultiDeleteAction.tsx",
     "message": "Delete all selected invitations."
   },
+  "Delete call permission": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Delete call permission"
+  },
   "Delete catalog": {
     "description": "rancher/catalog/CatalogDeleteButton.tsx",
     "message": "Delete catalog"
@@ -3082,6 +3098,10 @@
   "Delete project": {
     "description": "administration/roles/PermissionOptions.tsx, project/manage/ProjectDelete.tsx",
     "message": "Delete project"
+  },
+  "Delete proposal permission": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Delete proposal permission"
   },
   "Delete remote synchronization": {
     "description": "administration/remote-offering-sync/RemoteSyncDeleteAction.tsx",
@@ -5651,6 +5671,10 @@
     "description": "SettingsDescription.ts, administration/settings/AdministrationBranding.tsx",
     "message": "Links"
   },
+  "List calls": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "List calls"
+  },
   "List importable resources": {
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "List importable resources"
@@ -5687,9 +5711,17 @@
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "List projects"
   },
+  "List proposals": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "List proposals"
+  },
   "List resources": {
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "List resources"
+  },
+  "List rounds": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "List rounds"
   },
   "List service provider customer projects": {
     "description": "administration/roles/PermissionOptions.tsx",
@@ -5870,6 +5902,10 @@
   "Manage profile": {
     "description": "user/support/IdentityProviderIndicator.tsx",
     "message": "Manage profile"
+  },
+  "Manage proposal": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Manage proposal"
   },
   "Manage resource users": {
     "description": "administration/roles/PermissionOptions.tsx",
@@ -13415,6 +13451,10 @@
     "description": "marketplace/offerings/update/plans/UpdateAccessPoliciesAction.tsx",
     "message": "Update access policies"
   },
+  "Update call permission": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Update call permission"
+  },
   "Update customer permission": {
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Update customer permission"
@@ -13542,6 +13582,10 @@
   "Update project": {
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Update project"
+  },
+  "Update proposal permission": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Update proposal permission"
   },
   "Update proposal": {
     "description": "proposals/proposal/create/ProposalManagePage.tsx",
