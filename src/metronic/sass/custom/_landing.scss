@@ -1,0 +1,127 @@
+$bg-height: 232px;
+
+.landing-hero__background {
+  height: $bg-height;
+  width: 100%;
+  background-color: $primary-900;
+  background-image: url('/src/dashboard/hero/servers-room-dark.png');
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+  &::before {
+    content: ' ';
+    background-color: rgba($primary-900, 0.4);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: $bg-height;
+  }
+
+  @if (isDarkMode()) {
+    background-color: $black !important;
+    &::before {
+      background-color: rgba($black, 0.4) !important;
+    }
+  } @else {
+    &.bg-mode-light,
+    &.bg-mode-accent {
+      background-image: url('/src/dashboard/hero/servers-room-light.png');
+      background-position: 50% 40%;
+    }
+
+    &.bg-mode-light {
+      background-color: $white;
+      &::before {
+        background-color: rgba($white, 0.4);
+      }
+    }
+    &.bg-mode-accent {
+      background-color: $primary-50;
+      &::before {
+        background-color: rgba($primary-50, 0.4);
+      }
+    }
+  }
+}
+
+.landing-hero__table {
+  display: table;
+  height: $bg-height;
+  width: 100%;
+
+  .landing-hero__cell {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  .landing-hero__main {
+    max-width: 800px;
+    margin-right: auto;
+    margin-left: auto;
+
+    > * {
+      position: relative;
+    }
+
+    h1,
+    h2 {
+      color: #fff;
+      font-weight: 500;
+      text-align: center;
+
+      .bg-mode-accent &,
+      .bg-mode-light & {
+        color: if(isDarkMode(), #fff, $dark);
+      }
+    }
+
+    h2 {
+      font-size: 28px;
+      margin-bottom: 0;
+    }
+
+    h1 {
+      font-size: 38px;
+      margin-bottom: 20px;
+    }
+
+    #search-box-wrapper {
+      input {
+        color: if(isDarkMode(), $grey-400, $primary-500);
+        @include placeholder(if(isDarkMode(), $grey-400, $primary-500));
+        background-color: if(isDarkMode(), #000, $primary-950);
+        border-color: if(isDarkMode(), $grey-300, $primary-300);
+      }
+      svg path {
+        fill: if(isDarkMode(), $grey-400, $primary-500);
+      }
+
+      @if (isDarkMode() == false) {
+        .bg-mode-light & {
+          input {
+            color: $gray-700;
+            @include placeholder($gray-700);
+            background-color: white;
+            border-color: $grey-300;
+          }
+          svg path {
+            fill: $grey-500;
+          }
+        }
+        .bg-mode-accent & {
+          input {
+            color: $primary-700;
+            @include placeholder($primary-700);
+            background-color: $primary-25;
+            border-color: $primary-300;
+          }
+          svg path {
+            fill: $primary-500;
+          }
+        }
+      }
+    }
+  }
+}

@@ -12083,10 +12083,6 @@
     "description": "marketplace/resources/usage/utils.ts",
     "message": "Turn off"
   },
-  "Type in name of offering or provider": {
-    "description": "marketplace/landing/OfferingsSearchBox.tsx",
-    "message": "Type in name of offering or provider"
-  },
   "Type in name of project": {
     "description": "project/ProjectBreadcrumbPopover.tsx",
     "message": "Type in name of project"
