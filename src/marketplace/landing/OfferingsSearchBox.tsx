@@ -99,7 +99,6 @@ export const OfferingsSearchBox = () => {
       queryField="keyword"
       params={params}
       RowComponent={OfferingListItem}
-      placeholder={translate('Type in name of offering or provider') + '...'}
       emptyMessage={translate('There are no offerings.')}
       className="w-400px"
     />
