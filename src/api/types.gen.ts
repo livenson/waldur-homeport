@@ -705,6 +705,30 @@ export type BackupRequest = {
     kept_until?: string | null;
 };
 
+export type BaseComponentUsage = {
+    readonly uuid: string;
+    readonly created: string;
+    description?: string;
+    /**
+     * Unique internal name of the measured unit, for example floating_ip.
+     */
+    readonly type: string;
+    /**
+     * Display name for the measured unit, for example, Floating IP.
+     */
+    readonly name: string;
+    /**
+     * Unit of measurement, for example, GB.
+     */
+    readonly measured_unit: string;
+    usage?: string;
+    date: string;
+    /**
+     * Reported value is reused every month until changed.
+     */
+    recurring?: boolean;
+};
+
 export type BaseProviderPlan = {
     readonly url: string;
     readonly uuid: string;
@@ -6131,6 +6155,8 @@ export type PaginatedResourceList = Array<Resource>;
 
 export type PaginatedResourceOfferingList = Array<ResourceOffering>;
 
+export type PaginatedResourcePlanPeriodList = Array<ResourcePlanPeriod>;
+
 export type PaginatedResourceUserList = Array<ResourceUser>;
 
 export type PaginatedReviewList = Array<Review>;
@@ -6207,7 +6233,6 @@ export type PasswordChangeRequest = {
 export type PatchedAccessSubnetRequest = {
     inet?: string;
     description?: string;
-    customer?: string;
 };
 
 export type PatchedAdminAnnouncementRequest = {
@@ -9293,6 +9318,15 @@ export type ResourceOptionsRequest = {
     options?: unknown;
 };
 
+export type ResourcePlanPeriod = {
+    readonly uuid: string;
+    readonly plan_name: string;
+    readonly plan_uuid: string;
+    start?: string | null;
+    end?: string | null;
+    components: Array<BaseComponentUsage>;
+};
+
 export type ResourceReport = {
     report: Array<ReportSection>;
 };
@@ -10132,6 +10166,7 @@ export type User = {
 
 export type UserAgreement = {
     readonly url: string;
+    readonly uuid: string;
     content?: string;
     agreement_type: AgreementTypeEnum;
     readonly created: string;
@@ -10644,7 +10679,7 @@ export type WebHookRequest = {
     content_type?: ContentTypeEnum;
 };
 
-export type WebhookEventEnum = 'jira:issue_deleted' | 'comment_updated' | 'jira:issue_updated' | 'comment_created' | 'comment_deleted';
+export type WebhookEventEnum = 'comment_updated' | 'comment_created' | 'comment_deleted' | 'jira:issue_updated' | 'jira:issue_deleted';
 
 export type ApiAuthBccUserDetailsRetrieveData = {
     body?: never;
@@ -13156,7 +13191,7 @@ export type BroadcastMessagesUpdateResponses = {
 export type BroadcastMessagesUpdateResponse = BroadcastMessagesUpdateResponses[keyof BroadcastMessagesUpdateResponses];
 
 export type BroadcastMessagesSendData = {
-    body: BroadcastMessageRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -13165,10 +13200,11 @@ export type BroadcastMessagesSendData = {
 };
 
 export type BroadcastMessagesSendResponses = {
-    200: BroadcastMessage;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type BroadcastMessagesSendResponse = BroadcastMessagesSendResponses[keyof BroadcastMessagesSendResponses];
 
 export type BroadcastMessagesRecipientsRetrieveData = {
     body?: never;
@@ -20524,20 +20560,29 @@ export type MarketplaceProviderResourcesOfferingForSubresourcesRetrieveResponses
 
 export type MarketplaceProviderResourcesOfferingForSubresourcesRetrieveResponse = MarketplaceProviderResourcesOfferingForSubresourcesRetrieveResponses[keyof MarketplaceProviderResourcesOfferingForSubresourcesRetrieveResponses];
 
-export type MarketplaceProviderResourcesPlanPeriodsRetrieveData = {
+export type MarketplaceProviderResourcesPlanPeriodsListData = {
     body?: never;
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+    };
     url: '/api/marketplace-provider-resources/{uuid}/plan_periods/';
 };
 
-export type MarketplaceProviderResourcesPlanPeriodsRetrieveResponses = {
-    200: Resource;
+export type MarketplaceProviderResourcesPlanPeriodsListResponses = {
+    200: PaginatedResourcePlanPeriodList;
 };
 
-export type MarketplaceProviderResourcesPlanPeriodsRetrieveResponse = MarketplaceProviderResourcesPlanPeriodsRetrieveResponses[keyof MarketplaceProviderResourcesPlanPeriodsRetrieveResponses];
+export type MarketplaceProviderResourcesPlanPeriodsListResponse = MarketplaceProviderResourcesPlanPeriodsListResponses[keyof MarketplaceProviderResourcesPlanPeriodsListResponses];
 
 export type MarketplaceProviderResourcesRefreshLastSyncData = {
     body: ResourceRequest;
@@ -20720,7 +20765,7 @@ export type MarketplaceProviderResourcesTerminateResponses = {
 export type MarketplaceProviderResourcesTerminateResponse = MarketplaceProviderResourcesTerminateResponses[keyof MarketplaceProviderResourcesTerminateResponses];
 
 export type MarketplaceProviderResourcesUnlinkData = {
-    body: ResourceRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -20729,10 +20774,11 @@ export type MarketplaceProviderResourcesUnlinkData = {
 };
 
 export type MarketplaceProviderResourcesUnlinkResponses = {
-    200: Resource;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type MarketplaceProviderResourcesUnlinkResponse = MarketplaceProviderResourcesUnlinkResponses[keyof MarketplaceProviderResourcesUnlinkResponses];
 
 export type MarketplacePublicApiCheckSignatureData = {
     body: ServiceProviderSignatureRequest;
@@ -21468,20 +21514,29 @@ export type MarketplaceResourcesOfferingForSubresourcesRetrieveResponses = {
 
 export type MarketplaceResourcesOfferingForSubresourcesRetrieveResponse = MarketplaceResourcesOfferingForSubresourcesRetrieveResponses[keyof MarketplaceResourcesOfferingForSubresourcesRetrieveResponses];
 
-export type MarketplaceResourcesPlanPeriodsRetrieveData = {
+export type MarketplaceResourcesPlanPeriodsListData = {
     body?: never;
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+    };
     url: '/api/marketplace-resources/{uuid}/plan_periods/';
 };
 
-export type MarketplaceResourcesPlanPeriodsRetrieveResponses = {
-    200: Resource;
+export type MarketplaceResourcesPlanPeriodsListResponses = {
+    200: PaginatedResourcePlanPeriodList;
 };
 
-export type MarketplaceResourcesPlanPeriodsRetrieveResponse = MarketplaceResourcesPlanPeriodsRetrieveResponses[keyof MarketplaceResourcesPlanPeriodsRetrieveResponses];
+export type MarketplaceResourcesPlanPeriodsListResponse = MarketplaceResourcesPlanPeriodsListResponses[keyof MarketplaceResourcesPlanPeriodsListResponses];
 
 export type MarketplaceResourcesSetEndDateByStaffData = {
     body?: ResourceEndDateByProviderRequest;
@@ -21559,7 +21614,7 @@ export type MarketplaceResourcesTerminateResponses = {
 export type MarketplaceResourcesTerminateResponse = MarketplaceResourcesTerminateResponses[keyof MarketplaceResourcesTerminateResponses];
 
 export type MarketplaceResourcesUnlinkData = {
-    body: ResourceRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -21568,10 +21623,11 @@ export type MarketplaceResourcesUnlinkData = {
 };
 
 export type MarketplaceResourcesUnlinkResponses = {
-    200: Resource;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type MarketplaceResourcesUnlinkResponse = MarketplaceResourcesUnlinkResponses[keyof MarketplaceResourcesUnlinkResponses];
 
 export type MarketplaceResourcesUpdateLimitsData = {
     body: ResourceUpdateLimitsRequest;
@@ -22041,7 +22097,7 @@ export type MarketplaceScriptDryRunUpdateResponses = {
 export type MarketplaceScriptDryRunUpdateResponse = MarketplaceScriptDryRunUpdateResponses[keyof MarketplaceScriptDryRunUpdateResponses];
 
 export type MarketplaceScriptDryRunAsyncRunData = {
-    body: PublicOfferingDetailsRequest;
+    body?: DryRunRequest;
     path: {
         uuid: string;
     };
@@ -26599,7 +26655,7 @@ export type PaymentProfilesUpdateResponses = {
 export type PaymentProfilesUpdateResponse = PaymentProfilesUpdateResponses[keyof PaymentProfilesUpdateResponses];
 
 export type PaymentProfilesEnableData = {
-    body: PaymentProfileRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -26608,10 +26664,11 @@ export type PaymentProfilesEnableData = {
 };
 
 export type PaymentProfilesEnableResponses = {
-    200: PaymentProfile;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type PaymentProfilesEnableResponse = PaymentProfilesEnableResponses[keyof PaymentProfilesEnableResponses];
 
 export type PaymentsListData = {
     body?: never;
