@@ -642,10 +642,6 @@ export type AzureVirtualMachineRequest = {
     location: string;
 };
 
-export type BackendId = {
-    backend_id?: string;
-};
-
 export type BackendIdRequest = {
     backend_id?: string;
 };
@@ -1497,6 +1493,10 @@ export type ComponentUserUsageRequest = {
 
 export type ComponentsUsageStats = {
     readonly components: Array<ComponentStats>;
+};
+
+export type ConfirmEmailRequestRequest = {
+    code: string;
 };
 
 export type ConstanceSettingsRequest = {
@@ -2541,6 +2541,18 @@ export type Invoice = {
     reference_number?: string;
 };
 
+export type InvoiceGrowth = {
+    readonly periods: Array<string>;
+    readonly total_periods: Array<number>;
+    readonly other_periods: Array<number>;
+    customer_periods: Array<InvoiceGrowthCustomerPeriod>;
+};
+
+export type InvoiceGrowthCustomerPeriod = {
+    readonly name: string;
+    readonly periods: Array<number>;
+};
+
 export type InvoiceItem = {
     readonly uuid: string;
     readonly url: string;
@@ -2745,6 +2757,16 @@ export type InvoiceRequest = {
 };
 
 export type InvoiceStateEnum = 'pending' | 'created' | 'paid' | 'canceled';
+
+export type InvoiceStatsOffering = {
+    readonly offering_name: string;
+    readonly aggregated_price: number;
+    readonly aggregated_tax: number;
+    readonly aggregated_total: number;
+    readonly service_category_title: string;
+    readonly service_provider_name: string;
+    readonly service_provider_uuid: string;
+};
 
 export type Issue = {
     readonly url: string;
@@ -4447,6 +4469,10 @@ export type OfferingUserRoleRequest = {
     offering: string;
 };
 
+export type OfferingUserUpdateRestrictionRequest = {
+    is_restricted: boolean;
+};
+
 export type OpenStackAllowedAddressPair = {
     mac_address?: string;
 };
@@ -5945,6 +5971,8 @@ export type PaginatedInvoiceItemList = Array<InvoiceItem>;
 
 export type PaginatedInvoiceList = Array<Invoice>;
 
+export type PaginatedInvoiceStatsOfferingList = Array<InvoiceStatsOffering>;
+
 export type PaginatedIssueList = Array<Issue>;
 
 export type PaginatedJobList = Array<Job>;
@@ -6166,6 +6194,11 @@ export type PaginatedVmwareTemplateList = Array<VmwareTemplate>;
 export type PaginatedVmwareVirtualMachineList = Array<VmwareVirtualMachine>;
 
 export type PaginatedWebHookList = Array<WebHook>;
+
+export type PaidRequest = {
+    date: string;
+    proof?: Blob | File;
+};
 
 export type PasswordChangeRequest = {
     new_password: string;
@@ -8959,13 +8992,6 @@ export type RancherWorkloadRequest = {
     scale: number;
 };
 
-export type ReferenceNumber = {
-    /**
-     * Reference number associated with the invoice.
-     */
-    reference_number?: string;
-};
-
 export type ReferenceNumberRequest = {
     /**
      * Reference number associated with the invoice.
@@ -10618,7 +10644,7 @@ export type WebHookRequest = {
     content_type?: ContentTypeEnum;
 };
 
-export type WebhookEventEnum = 'comment_deleted' | 'jira:issue_deleted' | 'comment_updated' | 'comment_created' | 'jira:issue_updated';
+export type WebhookEventEnum = 'jira:issue_deleted' | 'comment_updated' | 'jira:issue_updated' | 'comment_created' | 'comment_deleted';
 
 export type ApiAuthBccUserDetailsRetrieveData = {
     body?: never;
@@ -12668,7 +12694,7 @@ export type BookingOfferingsUpdateResponses = {
 export type BookingOfferingsUpdateResponse = BookingOfferingsUpdateResponses[keyof BookingOfferingsUpdateResponses];
 
 export type BookingOfferingsGoogleCalendarSyncData = {
-    body: OfferingRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -12677,13 +12703,14 @@ export type BookingOfferingsGoogleCalendarSyncData = {
 };
 
 export type BookingOfferingsGoogleCalendarSyncResponses = {
-    200: Offering;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type BookingOfferingsGoogleCalendarSyncResponse = BookingOfferingsGoogleCalendarSyncResponses[keyof BookingOfferingsGoogleCalendarSyncResponses];
-
 export type BookingOfferingsShareGoogleCalendarData = {
-    body: OfferingRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -12692,13 +12719,14 @@ export type BookingOfferingsShareGoogleCalendarData = {
 };
 
 export type BookingOfferingsShareGoogleCalendarResponses = {
-    200: Offering;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type BookingOfferingsShareGoogleCalendarResponse = BookingOfferingsShareGoogleCalendarResponses[keyof BookingOfferingsShareGoogleCalendarResponses];
-
 export type BookingOfferingsUnshareGoogleCalendarData = {
-    body: OfferingRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -12707,10 +12735,11 @@ export type BookingOfferingsUnshareGoogleCalendarData = {
 };
 
 export type BookingOfferingsUnshareGoogleCalendarResponses = {
-    200: Offering;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type BookingOfferingsUnshareGoogleCalendarResponse = BookingOfferingsUnshareGoogleCalendarResponses[keyof BookingOfferingsUnshareGoogleCalendarResponses];
 
 export type BookingResourcesListData = {
     body?: never;
@@ -15979,7 +16008,7 @@ export type InvoicesUpdateResponses = {
 export type InvoicesUpdateResponse = InvoicesUpdateResponses[keyof InvoicesUpdateResponses];
 
 export type InvoicesPaidData = {
-    body: InvoiceRequest;
+    body: PaidRequest;
     path: {
         uuid: string;
     };
@@ -15994,7 +16023,7 @@ export type InvoicesPaidResponses = {
 export type InvoicesPaidResponse = InvoicesPaidResponses[keyof InvoicesPaidResponses];
 
 export type InvoicesSendNotificationData = {
-    body: InvoiceRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -16003,10 +16032,11 @@ export type InvoicesSendNotificationData = {
 };
 
 export type InvoicesSendNotificationResponses = {
-    200: Invoice;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type InvoicesSendNotificationResponse = InvoicesSendNotificationResponses[keyof InvoicesSendNotificationResponses];
 
 export type InvoicesSetBackendIdData = {
     body?: BackendIdRequest;
@@ -16018,10 +16048,11 @@ export type InvoicesSetBackendIdData = {
 };
 
 export type InvoicesSetBackendIdResponses = {
-    200: BackendId;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type InvoicesSetBackendIdResponse = InvoicesSetBackendIdResponses[keyof InvoicesSetBackendIdResponses];
 
 export type InvoicesSetPaymentUrlData = {
     body?: PaymentUrlRequest;
@@ -16048,35 +16079,83 @@ export type InvoicesSetReferenceNumberData = {
 };
 
 export type InvoicesSetReferenceNumberResponses = {
-    200: ReferenceNumber;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type InvoicesSetReferenceNumberResponse = InvoicesSetReferenceNumberResponses[keyof InvoicesSetReferenceNumberResponses];
-
-export type InvoicesStatsRetrieveData = {
+export type InvoicesStatsListData = {
     body?: never;
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        created?: string;
+        customer?: string;
+        customer_uuid?: string;
+        end_date?: string;
+        /**
+         * Max sum
+         */
+        max_sum?: number;
+        /**
+         * Min sum
+         */
+        min_sum?: number;
+        month?: number;
+        /**
+         * Ordering
+         *
+         * * `created` - Created
+         * * `-created` - Created (descending)
+         * * `year` - Year
+         * * `-year` - Year (descending)
+         * * `month` - Month
+         * * `-month` - Month (descending)
+         */
+        o?: Array<'-created' | '-month' | '-year' | 'created' | 'month' | 'year'>;
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+        provider_uuid?: string;
+        start_date?: string;
+        /**
+         * * `pending` - Pending
+         * * `created` - Created
+         * * `paid` - Paid
+         * * `canceled` - Canceled
+         */
+        state?: Array<'canceled' | 'created' | 'paid' | 'pending'>;
+        year?: number;
+    };
     url: '/api/invoices/{uuid}/stats/';
 };
 
-export type InvoicesStatsRetrieveResponses = {
-    200: Invoice;
+export type InvoicesStatsListResponses = {
+    200: PaginatedInvoiceStatsOfferingList;
 };
 
-export type InvoicesStatsRetrieveResponse = InvoicesStatsRetrieveResponses[keyof InvoicesStatsRetrieveResponses];
+export type InvoicesStatsListResponse = InvoicesStatsListResponses[keyof InvoicesStatsListResponses];
 
 export type InvoicesGrowthRetrieveData = {
     body?: never;
     path?: never;
-    query?: never;
+    query?: {
+        accounting_is_running?: boolean;
+        accounting_mode?: string;
+        customers_count?: number;
+    };
     url: '/api/invoices/growth/';
 };
 
 export type InvoicesGrowthRetrieveResponses = {
-    200: Invoice;
+    200: InvoiceGrowth;
 };
 
 export type InvoicesGrowthRetrieveResponse = InvoicesGrowthRetrieveResponses[keyof InvoicesGrowthRetrieveResponses];
@@ -18389,7 +18468,7 @@ export type MarketplaceOfferingUsersUpdateResponses = {
 export type MarketplaceOfferingUsersUpdateResponse = MarketplaceOfferingUsersUpdateResponses[keyof MarketplaceOfferingUsersUpdateResponses];
 
 export type MarketplaceOfferingUsersUpdateRestrictedData = {
-    body: OfferingUserRequest;
+    body: OfferingUserUpdateRestrictionRequest;
     path: {
         uuid: string;
     };
@@ -18398,10 +18477,11 @@ export type MarketplaceOfferingUsersUpdateRestrictedData = {
 };
 
 export type MarketplaceOfferingUsersUpdateRestrictedResponses = {
-    200: OfferingUser;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type MarketplaceOfferingUsersUpdateRestrictedResponse = MarketplaceOfferingUsersUpdateRestrictedResponses[keyof MarketplaceOfferingUsersUpdateRestrictedResponses];
 
 export type MarketplaceOrdersListData = {
     body?: never;
@@ -21008,7 +21088,7 @@ export type MarketplaceRemoteSynchronisationsUpdateResponses = {
 export type MarketplaceRemoteSynchronisationsUpdateResponse = MarketplaceRemoteSynchronisationsUpdateResponses[keyof MarketplaceRemoteSynchronisationsUpdateResponses];
 
 export type MarketplaceRemoteSynchronisationsRunSynchronisationData = {
-    body: RemoteSynchronisationRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -33274,7 +33354,7 @@ export type UsersChangePasswordResponses = {
 };
 
 export type UsersPullRemoteUserData = {
-    body: UserRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -33283,10 +33363,11 @@ export type UsersPullRemoteUserData = {
 };
 
 export type UsersPullRemoteUserResponses = {
-    200: User;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type UsersPullRemoteUserResponse = UsersPullRemoteUserResponses[keyof UsersPullRemoteUserResponses];
 
 export type UsersRefreshTokenData = {
     body?: never;
@@ -33319,17 +33400,18 @@ export type UsersTokenRetrieveResponses = {
 export type UsersTokenRetrieveResponse = UsersTokenRetrieveResponses[keyof UsersTokenRetrieveResponses];
 
 export type UsersConfirmEmailData = {
-    body: UserRequest;
+    body: ConfirmEmailRequestRequest;
     path?: never;
     query?: never;
     url: '/api/users/confirm_email/';
 };
 
 export type UsersConfirmEmailResponses = {
-    200: User;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type UsersConfirmEmailResponse = UsersConfirmEmailResponses[keyof UsersConfirmEmailResponses];
 
 export type UsersMeRetrieveData = {
     body?: never;
