@@ -2,6 +2,7 @@ import { UIView, useCurrentStateAndParams } from '@uirouter/react';
 import { FunctionComponent } from 'react';
 import { useEffectOnce } from 'react-use';
 
+import { usersRetrieve } from '@waldur/api';
 import { usePageHero } from '@waldur/navigation/context';
 import { router } from '@waldur/router';
 import store from '@waldur/store/store';
@@ -11,7 +12,6 @@ import { getUser } from '@waldur/workspace/selectors';
 import { UserDetails as IUserDetails } from '@waldur/workspace/types';
 
 import { UserProfileHero } from './dashboard/UserProfileHero';
-import { UsersService } from './UsersService';
 
 async function loadUser() {
   const currentUser = getUser(store.getState());
@@ -22,8 +22,10 @@ async function loadUser() {
     store.dispatch(setCurrentUser(currentUser));
   } else if (currentUser.is_staff || currentUser.is_support) {
     try {
-      const user = await UsersService.get(router.globals.params.uuid);
-      store.dispatch(setCurrentUser(user));
+      const user = await usersRetrieve({
+        path: { uuid: router.globals.params.uuid },
+      });
+      store.dispatch(setCurrentUser(user.data));
     } catch (error) {
       if (error.response?.status === 404) {
         router.stateService.go('errorPage.notFound');

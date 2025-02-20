@@ -4,6 +4,7 @@ import { Form } from 'react-bootstrap';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { Field, FieldArray, formValueSelector, reduxForm } from 'redux-form';
 
+import { openstackMigrationsCreate } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { FormGroup, SelectField, SubmitButton } from '@waldur/form';
 import { AsyncSelectField } from '@waldur/form/AsyncSelectField';
@@ -14,7 +15,7 @@ import { offeringsAutocomplete } from '@waldur/marketplace/common/autocompletes'
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
-import { createMigration, loadVolumeTypes } from '@waldur/openstack/api';
+import { loadVolumeTypes } from '@waldur/openstack/api';
 import { TENANT_TYPE } from '@waldur/openstack/constants';
 import { RESOURCE_ACTION_FORM } from '@waldur/resource/actions/constants';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
@@ -49,20 +50,22 @@ export const MigrateTenantDialog = connect<
 
       const submitForm = async (formData) => {
         try {
-          await createMigration({
-            src_resource: resource.marketplace_resource_uuid,
-            dst_offering: formData.offering.uuid,
-            dst_plan: formData.plan.uuid,
-            mappings: {
-              volume_types: formData.volumeTypes?.map((type) => ({
-                src_type_uuid: type.source.uuid,
-                dst_type_uuid: type.destination.uuid,
-              })),
-              subnets: formData.subnets?.map((type) => ({
-                src_cidr: type.source,
-                dst_cidr: type.destination,
-              })),
-              skip_connection_extnet: formData.skip_connection_extnet,
+          await openstackMigrationsCreate({
+            body: {
+              src_resource: resource.marketplace_resource_uuid,
+              dst_offering: formData.offering.uuid,
+              dst_plan: formData.plan.uuid,
+              mappings: {
+                volume_types: formData.volumeTypes?.map((type) => ({
+                  src_type_uuid: type.source.uuid,
+                  dst_type_uuid: type.destination.uuid,
+                })),
+                subnets: formData.subnets?.map((type) => ({
+                  src_cidr: type.source,
+                  dst_cidr: type.destination,
+                })),
+                skip_connection_extnet: formData.skip_connection_extnet,
+              },
             },
           });
           dispatch(

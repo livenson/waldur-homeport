@@ -1,13 +1,15 @@
 import { Transition } from '@uirouter/react';
 
+import { projectsRetrieve } from '@waldur/api';
 import { router } from '@waldur/router';
 import store from '@waldur/store/store';
 import {
   setCurrentCustomer,
   setCurrentProject,
 } from '@waldur/workspace/actions';
+import { Project } from '@waldur/workspace/types';
 
-import { getCustomer, getProject } from './api';
+import { getCustomer } from './api';
 
 export function loadProject(transition: Transition) {
   if (!transition.params().uuid) {
@@ -16,10 +18,12 @@ export function loadProject(transition: Transition) {
 
   async function loadData() {
     try {
-      const project = await getProject(transition.params().uuid);
-      const customer = await getCustomer(project.customer_uuid);
+      const project = await projectsRetrieve({
+        path: { uuid: transition.params().uuid },
+      });
+      const customer = await getCustomer(project.data.customer_uuid);
       store.dispatch(setCurrentCustomer(customer));
-      store.dispatch(setCurrentProject(project));
+      store.dispatch(setCurrentProject(project.data as unknown as Project));
     } catch (error) {
       if (error.response?.status === 404) {
         router.stateService.go('errorPage.notFound');

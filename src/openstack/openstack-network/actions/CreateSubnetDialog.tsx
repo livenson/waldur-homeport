@@ -1,9 +1,9 @@
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { openstackNetworksCreateSubnet } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
-import { createSubnet } from '@waldur/openstack/api';
 import { getFields } from '@waldur/openstack/openstack-subnet/fields';
 import { SUBNET_PRIVATE_CIDR_PATTERN } from '@waldur/openstack/utils';
 import { ResourceActionDialog } from '@waldur/resource/actions/ResourceActionDialog';
@@ -42,7 +42,10 @@ export const CreateSubnetDialog: FC<ActionDialogProps> = ({
       }}
       submitForm={async (formData) => {
         try {
-          await createSubnet(resource.uuid, formData);
+          await openstackNetworksCreateSubnet({
+            path: { uuid: resource.uuid },
+            body: formData,
+          });
           dispatch(showSuccess(translate('Subnet has been created.')));
           dispatch(closeModalDialog());
           if (refetch) {

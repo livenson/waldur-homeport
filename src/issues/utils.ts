@@ -1,12 +1,11 @@
 import { DateTime } from 'luxon';
 import { useMemo } from 'react';
 
+import { Issue } from '@waldur/api';
 import { getUUID } from '@waldur/core/utils';
 import { PeriodOption } from '@waldur/form/types';
 import { usePresetBreadcrumbItems } from '@waldur/navigation/header/breadcrumb/utils';
 import { IBreadcrumbItem } from '@waldur/navigation/types';
-
-import { Issue } from './list/types';
 
 export const getStartAndEndDatesOfMonth = (period: PeriodOption) => {
   const { year, month } = period;

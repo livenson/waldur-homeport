@@ -1,7 +1,7 @@
 import { ArrowClockwise } from '@phosphor-icons/react';
 
+import { openstackInstancesRestart } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import { restartInstance } from '@waldur/openstack/api';
 import { OpenStackInstance } from '@waldur/openstack/openstack-instance/types';
 import {
   AsyncActionItem,
@@ -29,7 +29,7 @@ export const getProps = () =>
   ({
     title: translate('Restart'),
     validators,
-    apiMethod: restartInstance,
+    apiMethod: (uuid) => openstackInstancesRestart({ path: { uuid } }),
     important: true,
   }) as AsyncActionItemProps<OpenStackInstance>;
 

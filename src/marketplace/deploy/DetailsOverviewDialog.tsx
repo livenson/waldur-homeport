@@ -2,6 +2,7 @@ import { useQueries } from '@tanstack/react-query';
 import { FC } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
 
+import { projectsRetrieve } from '@waldur/api';
 import { CopyToClipboardButton } from '@waldur/core/CopyToClipboardButton';
 import { formatDate } from '@waldur/core/dateUtils';
 import { LoadingErred } from '@waldur/core/LoadingErred';
@@ -10,7 +11,7 @@ import { formatPhoneNumber } from '@waldur/core/utils';
 import FormTable from '@waldur/form/FormTable';
 import { translate } from '@waldur/i18n';
 import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
-import { getCustomer, getProject } from '@waldur/project/api';
+import { getCustomer } from '@waldur/project/api';
 import { renderFieldOrDash } from '@waldur/table/utils';
 import { Customer, Project } from '@waldur/workspace/types';
 
@@ -62,14 +63,17 @@ export const DetailsOverviewDialog: FC<{
       props.project
         ? {
             queryKey: ['project', props.project?.uuid],
-            queryFn: () => getProject(props.project.uuid),
+            queryFn: () =>
+              projectsRetrieve({ path: { uuid: props.project.uuid } }),
             staleTime: STALE_TIME,
           }
         : {
             queryKey: ['offering', 'project', props.offering?.uuid],
             queryFn: () =>
               props.offering.project_uuid
-                ? getProject(props.offering.project_uuid)
+                ? projectsRetrieve({
+                    path: { uuid: props.offering.project_uuid },
+                  })
                 : null,
             staleTime: STALE_TIME,
           },
@@ -137,13 +141,13 @@ export const DetailsOverviewDialog: FC<{
               <FormTable hideActions alignTop className="gy-5">
                 <FormTable.Item
                   label={translate('Name')}
-                  value={withCopy(project.data.name)}
+                  value={withCopy(project.data.data.name)}
                 />
                 <FormTable.Item
                   label={translate('End date')}
                   value={withCopy(
-                    project.data.end_date
-                      ? formatDate(project.data.end_date)
+                    project.data.data.end_date
+                      ? formatDate(project.data.data.end_date)
                       : null,
                   )}
                 />

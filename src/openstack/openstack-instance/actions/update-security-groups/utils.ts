@@ -3,12 +3,10 @@ import { useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
 import { reduxForm } from 'redux-form';
 
+import { openstackInstancesUpdateSecurityGroups } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
-import {
-  loadSecurityGroups,
-  updateSecurityGroups,
-} from '@waldur/openstack/api';
+import { loadSecurityGroups } from '@waldur/openstack/api';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
 import { OpenStackInstance } from '../../types';
@@ -37,10 +35,13 @@ export const useUpdateSecurityGroupsForm = (
   const dispatch = useDispatch();
   const submitRequest = async (formData: UpdateSecurityGroupsFormData) => {
     try {
-      await updateSecurityGroups(resource.uuid, {
-        security_groups: (formData.security_groups || []).map((item) => ({
-          url: item.value,
-        })),
+      await openstackInstancesUpdateSecurityGroups({
+        path: { uuid: resource.uuid },
+        body: {
+          security_groups: (formData.security_groups || []).map(
+            (item) => item.value,
+          ),
+        },
       });
       dispatch(
         showSuccess(

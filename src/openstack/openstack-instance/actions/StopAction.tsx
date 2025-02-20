@@ -1,7 +1,7 @@
 import { Stop } from '@phosphor-icons/react';
 
+import { openstackInstancesStop } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import { stopInstance } from '@waldur/openstack/api';
 import { OpenStackInstance } from '@waldur/openstack/openstack-instance/types';
 import {
   AsyncActionItem,
@@ -29,7 +29,7 @@ export const getProps = () =>
   ({
     title: translate('Stop'),
     validators,
-    apiMethod: stopInstance,
+    apiMethod: (uuid) => openstackInstancesStop({ path: { uuid } }),
     important: true,
   }) as AsyncActionItemProps<OpenStackInstance>;
 

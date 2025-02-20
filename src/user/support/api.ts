@@ -1,8 +1,6 @@
 import { ENV } from '@waldur/configs/default';
-import { getById, post, sendForm } from '@waldur/core/api';
+import { post, sendForm } from '@waldur/core/api';
 import { UserDetails } from '@waldur/workspace/types';
-
-export const getUser = (userUuid) => getById<UserDetails>('/users/', userUuid);
 
 export const updateUser = (userUuid: string, values: Record<string, any>) => {
   const data = { ...values };

@@ -1,9 +1,8 @@
 import { FunctionComponent, useCallback } from 'react';
 
-import { getById } from '@waldur/core/api';
+import { openstackInstancesRetrieve } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { UpdateFloatingIpsActionButton } from '@waldur/openstack/openstack-instance/actions/update-floating-ips/UpdateFloatingIpsActionButton';
-import { VirtualMachine } from '@waldur/resource/types';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
 
@@ -13,10 +12,10 @@ export const FloatingIpsList: FunctionComponent<{ resourceScope; refetch }> = ({
 }) => {
   const fetchData = useCallback(
     () =>
-      getById<VirtualMachine>('/openstack-instances/', resourceScope.uuid).then(
+      openstackInstancesRetrieve({ path: { uuid: resourceScope.uuid } }).then(
         (vm) => ({
-          rows: vm.floating_ips,
-          resultCount: vm.floating_ips.length,
+          rows: vm.data.floating_ips,
+          resultCount: vm.data.floating_ips.length,
         }),
       ),
     [resourceScope],

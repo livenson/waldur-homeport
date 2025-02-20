@@ -1,6 +1,10 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
+import {
+  ChecklistCategory,
+  marketplaceChecklistsCategoriesRetrieve,
+} from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
 
@@ -10,7 +14,6 @@ import {
   getAnswers,
   postAnswers,
   getStats,
-  getCategory,
 } from './api';
 import { Checklist, Answer, ChecklistStats, Question } from './types';
 
@@ -73,7 +76,7 @@ export const useUserChecklist = (userId, categoryId?) => {
   const [questionsList, setQuestionsList] = useState<Question[]>([]);
   const [questionsLoading, setQuestionsLoading] = useState(true);
   const [questionsErred, setQuestionsErred] = useState(true);
-  const [categoryInfo, setCategoryInfo] = useState(null);
+  const [categoryInfo, setCategoryInfo] = useState<ChecklistCategory>(null);
 
   const [answers, setAnswers] = useState<AnswersTableType>();
   const [answersTable, setAnswersTable] = useState<AnswersTableType>();
@@ -89,8 +92,10 @@ export const useUserChecklist = (userId, categoryId?) => {
         const questions = await getQuestions(checklist.uuid);
         const answersList = await getAnswers(userId, checklist.uuid);
         if (categoryId) {
-          const category = await getCategory(categoryId);
-          setCategoryInfo(category);
+          const category = await marketplaceChecklistsCategoriesRetrieve({
+            path: { uuid: categoryId },
+          });
+          setCategoryInfo(category.data);
         }
 
         setQuestionsList(questions);

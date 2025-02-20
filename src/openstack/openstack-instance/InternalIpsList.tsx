@@ -1,8 +1,8 @@
 import { FunctionComponent, useCallback } from 'react';
 
-import { getById } from '@waldur/core/api';
+import { openstackInstancesRetrieve } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import { VirtualMachine, Port } from '@waldur/resource/types';
+import { Port } from '@waldur/resource/types';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
 
@@ -16,10 +16,10 @@ export const InternalIpsList: FunctionComponent<{ resourceScope; refetch }> = ({
 }) => {
   const fetchData = useCallback(
     () =>
-      getById<VirtualMachine>('/openstack-instances/', resourceScope.uuid).then(
+      openstackInstancesRetrieve({ path: { uuid: resourceScope.uuid } }).then(
         (vm) => ({
-          rows: vm.ports,
-          resultCount: vm.ports.length,
+          rows: vm.data.ports,
+          resultCount: vm.data.ports.length,
         }),
       ),
     [resourceScope],

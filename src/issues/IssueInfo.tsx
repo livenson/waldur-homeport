@@ -2,6 +2,7 @@ import { Eye } from '@phosphor-icons/react';
 import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { Issue } from '@waldur/api';
 import { Badge } from '@waldur/core/Badge';
 import { formatRelative, formatDateTime } from '@waldur/core/dateUtils';
 import { ExternalLink } from '@waldur/core/ExternalLink';
@@ -10,8 +11,6 @@ import { openModalDialog } from '@waldur/modal/actions';
 import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
 import { Field } from '@waldur/resource/summary';
 import { isStaffOrSupport } from '@waldur/workspace/selectors';
-
-import { Issue } from './list/types';
 
 const IssueInfoDialog = ({ issue }: { issue: Issue }) => {
   const staffOrSupport = useSelector(isStaffOrSupport);

@@ -4839,6 +4839,10 @@ export type OpenStackInstanceRequest = {
     tenant: string;
 };
 
+export type OpenStackInstanceSecurityGroupsUpdateRequest = {
+    security_groups: Array<string>;
+};
+
 export type OpenStackNestedFloatingIp = {
     readonly url: string;
     readonly uuid: string;
@@ -10146,7 +10150,7 @@ export type User = {
     readonly identity_provider_name: string;
     readonly identity_provider_label: string;
     readonly identity_provider_management_url: string;
-    readonly identity_provider_fields: string;
+    readonly identity_provider_fields: Array<string>;
     image?: string | null;
     /**
      * Indicates what identity provider was used.
@@ -10616,10 +10620,6 @@ export type VmwareVirtualMachineRequest = {
     folder?: string | null;
 };
 
-export type VolumeAttach = {
-    instance: string;
-};
-
 export type VolumeAttachRequest = {
     instance: string;
 };
@@ -10677,7 +10677,7 @@ export type WebHookRequest = {
     content_type?: ContentTypeEnum;
 };
 
-export type WebhookEventEnum = 'comment_created' | 'jira:issue_deleted' | 'jira:issue_updated' | 'comment_updated' | 'comment_deleted';
+export type WebhookEventEnum = 'comment_created' | 'comment_updated' | 'jira:issue_deleted' | 'jira:issue_updated' | 'comment_deleted';
 
 export type ApiAuthBccUserDetailsRetrieveData = {
     body?: never;
@@ -24379,7 +24379,7 @@ export type OpenstackInstancesUpdatePortsResponses = {
 };
 
 export type OpenstackInstancesUpdateSecurityGroupsData = {
-    body?: never;
+    body: OpenStackInstanceSecurityGroupsUpdateRequest;
     path: {
         uuid: string;
     };
@@ -26329,10 +26329,11 @@ export type OpenstackVolumesAttachData = {
 };
 
 export type OpenstackVolumesAttachResponses = {
-    200: VolumeAttach;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackVolumesAttachResponse = OpenstackVolumesAttachResponses[keyof OpenstackVolumesAttachResponses];
 
 export type OpenstackVolumesDetachData = {
     body: OpenStackVolumeRequest;
