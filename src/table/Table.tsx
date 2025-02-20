@@ -190,9 +190,9 @@ class TableClass<RowType = any> extends React.Component<TableProps<RowType>> {
                           )}
                         >
                           {this.props.title ||
+                            this.props.alterTitle ||
                             (this.props.verboseName &&
-                              titleCase(this.props.verboseName)) ||
-                            this.props.alterTitle}
+                              titleCase(this.props.verboseName))}
                         </span>
                         {Boolean(this.props.subtitle) && (
                           <small className="fs-6 fw-normal d-block mt-2">

@@ -1,3 +1,4 @@
+import { translate } from '@waldur/i18n';
 import { CampaignFormData } from '@waldur/marketplace/service-providers/types';
 import { IBreadcrumbItem } from '@waldur/navigation/types';
 
@@ -28,5 +29,18 @@ export const getProviderBreadcrumbItems = (provider): IBreadcrumbItem[] => [
     key: 'provider',
     text: provider.customer_name,
     active: true,
+  },
+];
+
+export const PROVIDER_CUSTOMERS_TABLE_TABS = [
+  {
+    key: 'marketplace-provider-organizations',
+    title: translate('Organizations'),
+    state: 'marketplace-provider-organizations',
+  },
+  {
+    key: 'marketplace-provider-users',
+    title: translate('Users'),
+    state: 'marketplace-provider-users',
   },
 ];

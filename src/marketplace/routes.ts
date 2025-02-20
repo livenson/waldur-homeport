@@ -258,6 +258,7 @@ export const states: StateDeclaration[] = [
     abstract: true,
     component: UIView,
     url: '',
+    redirectTo: 'marketplace-provider-organizations',
     data: {
       breadcrumb: () => translate('Customers'),
       priority: 110,
@@ -358,7 +359,7 @@ export const states: StateDeclaration[] = [
       ),
     ),
     data: {
-      breadcrumb: () => translate('Organizations'),
+      skipBreadcrumb: true,
     },
   },
 
@@ -372,7 +373,7 @@ export const states: StateDeclaration[] = [
       })),
     ),
     data: {
-      breadcrumb: () => translate('Users'),
+      skipBreadcrumb: true,
     },
   },
   {

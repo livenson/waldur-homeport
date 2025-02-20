@@ -7436,7 +7436,7 @@
     "message": "Organizations owner"
   },
   "Organizations": {
-    "description": "administration/dashboard/AdminStatistics.tsx, administration/organizations/OrganizationGroupOrganizationsList.tsx, administration/routes.ts, broadcasts/BroadcastExpandableRow.tsx, broadcasts/BroadcastForm.tsx, broadcasts/RecipientsList.tsx, customer/list/CustomerList.tsx, marketplace/offerings/OfferingDetailsUIView.tsx, marketplace/offerings/expandable/OfferingCustomersList.tsx, marketplace/resources/details/ResourceDetailsContainer.tsx, marketplace/routes.ts, marketplace/service-providers/ProviderOrganizationsList.tsx, marketplace/service-providers/ProviderUserCustomersList.tsx, navigation/header/search/SearchPopover.tsx, navigation/sidebar/OrganizationsListMenu.tsx, organization/OrganizationUIView.tsx, project/ProjectContainer.tsx, proposals/round/RoundUIView.tsx, proposals/utils.ts, resource/support/SharedProviderTabs.tsx, user/affiliations/OrganizationsList.tsx",
+    "description": "administration/dashboard/AdminStatistics.tsx, administration/organizations/OrganizationGroupOrganizationsList.tsx, administration/routes.ts, broadcasts/BroadcastExpandableRow.tsx, broadcasts/BroadcastForm.tsx, broadcasts/RecipientsList.tsx, customer/list/CustomerList.tsx, marketplace/offerings/OfferingDetailsUIView.tsx, marketplace/offerings/expandable/OfferingCustomersList.tsx, marketplace/resources/details/ResourceDetailsContainer.tsx, marketplace/service-providers/ProviderOrganizationsList.tsx, marketplace/service-providers/ProviderUserCustomersList.tsx, marketplace/service-providers/utils.ts, navigation/header/search/SearchPopover.tsx, navigation/sidebar/OrganizationsListMenu.tsx, organization/OrganizationUIView.tsx, project/ProjectContainer.tsx, proposals/round/RoundUIView.tsx, proposals/utils.ts, resource/support/SharedProviderTabs.tsx, user/affiliations/OrganizationsList.tsx",
     "message": "Organizations"
   },
   "Other agricultural sciences": {
@@ -14016,7 +14016,7 @@
     "message": "Users should be revoked before role is removed."
   },
   "Users": {
-    "description": "administration/dashboard/AdminStatistics.tsx, administration/providers/ProviderCard.tsx, administration/routes.ts, customer/routes.ts, marketplace/offerings/OfferingDetailsUIView.tsx, marketplace/offerings/details/OfferingUsersTable.tsx, marketplace/robot-accounts/CreateRobotAccountDialog.tsx, marketplace/routes.ts, project/routes.ts, proposals/team/TeamSection.tsx, proposals/team/UsersList.tsx, rancher/cluster/tabs.ts, user/UserManageContainer.tsx",
+    "description": "administration/dashboard/AdminStatistics.tsx, administration/providers/ProviderCard.tsx, administration/routes.ts, customer/routes.ts, marketplace/offerings/OfferingDetailsUIView.tsx, marketplace/offerings/details/OfferingUsersTable.tsx, marketplace/robot-accounts/CreateRobotAccountDialog.tsx, marketplace/service-providers/utils.ts, project/routes.ts, proposals/team/TeamSection.tsx, proposals/team/UsersList.tsx, rancher/cluster/tabs.ts, user/UserManageContainer.tsx",
     "message": "Users"
   },
   "VAT code": {
