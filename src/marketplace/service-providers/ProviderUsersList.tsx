@@ -13,6 +13,7 @@ import { CustomerContactColumn } from './CustomerContactColumn';
 import { ProjectsCountColumn } from './ProjectsCountColumn';
 import { ProviderUserCustomersList } from './ProviderUserCustomersList';
 import { ProviderUsersRowActions } from './ProviderUsersRowActions';
+import { PROVIDER_CUSTOMERS_TABLE_TABS } from './utils';
 
 const UserNameColumn = ({ row }) => (
   <>
@@ -62,6 +63,7 @@ const ProviderUsersListComponent = ({ provider }) => {
       ]}
       rowActions={ProviderUsersRowActions}
       showPageSizeSelector={true}
+      tabs={PROVIDER_CUSTOMERS_TABLE_TABS}
       verboseName={translate('users')}
       expandableRow={ExpandableRow}
       hasQuery={true}
