@@ -2,6 +2,12 @@ import { FunctionComponent } from 'react';
 import { Field, Form } from 'react-final-form';
 import { useAsync } from 'react-use';
 
+import {
+  hooksEmailPartialUpdate,
+  hooksWebPartialUpdate,
+  PatchedEmailHookRequest,
+  PatchedWebHookRequest,
+} from '@waldur/api';
 import { SubmitButton } from '@waldur/auth/SubmitButton';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { titleCase } from '@waldur/core/utils';
@@ -14,7 +20,7 @@ import { closeModalDialog } from '@waldur/modal/actions';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { useNotify } from '@waldur/store/hooks';
 
-import { createHook, updateHook } from './api';
+import { createHook } from './api';
 import { HookTypeField } from './HookTypeField';
 import { MultiSelectField } from './MultiSelectField';
 import { HookFormData, HookResponse, HookType } from './types';
@@ -36,7 +42,17 @@ const useHookForm = (hook, refetch) => {
     }
     if (hook) {
       try {
-        await updateHook(hook.uuid, hook.hook_type, payload);
+        if (hook.hookType == 'email') {
+          await hooksEmailPartialUpdate({
+            path: { uuid: hook.uuid },
+            body: payload as PatchedEmailHookRequest,
+          });
+        } else {
+          await hooksWebPartialUpdate({
+            path: { uuid: hook.uuid },
+            body: payload as PatchedWebHookRequest,
+          });
+        }
         await refetch();
         showSuccess(translate('Notification has been updated.'));
         closeModalDialog();

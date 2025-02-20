@@ -1,8 +1,8 @@
 import Axios, {
   AxiosPromise,
-  Method,
   AxiosRequestConfig,
   AxiosResponse,
+  Method,
 } from 'axios';
 
 import { ENV } from '@waldur/configs/default';
@@ -20,15 +20,6 @@ export function get<T = {}>(
   return Axios.get(fixURL(endpoint), options);
 }
 
-export async function getList<T = {}>(
-  endpoint: string,
-  params?: {},
-  options?: AxiosRequestConfig,
-) {
-  const response = await get<T>(endpoint, { ...options, params });
-  return Array.isArray(response.data) ? (response.data as T[]) : [];
-}
-
 export function getSelectData<T = {}>(endpoint: string, params?: {}) {
   const options = params ? { params } : undefined;
   return get<T>(endpoint, options).then((response) => ({
@@ -42,8 +33,8 @@ export async function getFirst<T = {}>(
   params?,
   options?: AxiosRequestConfig,
 ) {
-  const data = await getList<T>(endpoint, params, options);
-  return data[0] ?? null;
+  const response = await get<T>(endpoint, { ...options, params });
+  return (response.data[0] as T) ?? null;
 }
 
 export function getById<T = {}>(
@@ -52,19 +43,6 @@ export function getById<T = {}>(
   options?: AxiosRequestConfig,
 ): Promise<T> {
   return get<T>(`${endpoint}${id}/`, options).then((response) => response.data);
-}
-
-export function remove<T = {}>(
-  endpoint: string,
-  options?: AxiosRequestConfig,
-): AxiosPromise<T> {
-  return Axios.delete(fixURL(endpoint), options);
-}
-
-export function deleteById<T = {}>(endpoint, id, options?: AxiosRequestConfig) {
-  return remove<T>(`${endpoint}${id}/`, options).then(
-    (response) => response.data,
-  );
 }
 
 export function post<T = {}>(

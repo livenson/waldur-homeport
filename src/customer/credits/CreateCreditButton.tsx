@@ -1,12 +1,12 @@
 import { SubmissionError } from 'redux-form';
 
+import { customerCreditsCreate } from '@waldur/api';
 import { AddButton } from '@waldur/core/AddButton';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { useModal } from '@waldur/modal/hooks';
 import { useNotify } from '@waldur/store/hooks';
 
-import { createCustomerCredit } from './api';
 import { serializeCustomerCredit } from './utils';
 
 const CreditFormDialog = lazyComponent(() =>
@@ -21,9 +21,8 @@ export const CreateCreditButton = ({ refetch }) => {
   const { closeDialog, openDialog } = useModal();
   const { showErrorResponse, showSuccess } = useNotify();
   const callback = async (formData) => {
-    const payload = serializeCustomerCredit(formData);
     try {
-      await createCustomerCredit(payload);
+      await customerCreditsCreate({ body: serializeCustomerCredit(formData) });
       showSuccess(translate('Credit has been created.'));
       closeDialog();
       refetch();

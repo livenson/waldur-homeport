@@ -2446,10 +2446,6 @@ export type ImportResourceRequest = {
     plan?: string;
 };
 
-export type InstanceFlavorChange = {
-    flavor: string;
-};
-
 export type InstanceFlavorChangeRequest = {
     flavor: string;
 };
@@ -4503,10 +4499,6 @@ export type OfferingUserUpdateRestrictionRequest = {
     is_restricted: boolean;
 };
 
-export type OpenStackAllowedAddressPair = {
-    mac_address?: string;
-};
-
 export type OpenStackAllowedAddressPairRequest = {
     ip_address?: string;
     mac_address?: string;
@@ -4534,10 +4526,6 @@ export type OpenStackBackupRestorationRequest = {
     name?: string;
     floating_ips?: Array<OpenStackNestedFloatingIpRequest>;
     ports?: Array<OpenStackNestedPortRequest>;
-};
-
-export type OpenStackConsoleLog = {
-    length?: number;
 };
 
 export type OpenStackCreateServerGroup = {
@@ -4799,10 +4787,6 @@ export type OpenStackInstance = {
     readonly is_limit_based: boolean;
 };
 
-export type OpenStackInstanceAllowedAddressPairsUpdate = {
-    allowed_address_pairs: Array<OpenStackAllowedAddressPair>;
-};
-
 export type OpenStackInstanceAllowedAddressPairsUpdateRequest = {
     subnet: string;
     allowed_address_pairs: Array<OpenStackAllowedAddressPairRequest>;
@@ -4816,16 +4800,16 @@ export type OpenStackInstanceAvailabilityZone = {
     available?: boolean;
 };
 
+export type OpenStackInstanceConsole = {
+    readonly url: string;
+};
+
 export type OpenStackInstanceFloatingIpsUpdate = {
     floating_ips?: Array<OpenStackNestedFloatingIp>;
 };
 
 export type OpenStackInstanceFloatingIpsUpdateRequest = {
     floating_ips?: Array<OpenStackNestedFloatingIpRequest>;
-};
-
-export type OpenStackInstancePortsUpdate = {
-    ports: Array<OpenStackNestedPort>;
 };
 
 export type OpenStackInstancePortsUpdateRequest = {
@@ -4853,10 +4837,6 @@ export type OpenStackInstanceRequest = {
     availability_zone?: string | null;
     connect_directly_to_external_network?: boolean;
     tenant: string;
-};
-
-export type OpenStackInstanceSecurityGroupsUpdate = {
-    security_groups: Array<OpenStackNestedSecurityGroup>;
 };
 
 export type OpenStackNestedFloatingIp = {
@@ -6050,6 +6030,8 @@ export type PaginatedOpenStackImageList = Array<OpenStackImage>;
 export type PaginatedOpenStackInstanceAvailabilityZoneList = Array<OpenStackInstanceAvailabilityZone>;
 
 export type PaginatedOpenStackInstanceList = Array<OpenStackInstance>;
+
+export type PaginatedOpenStackNestedFloatingIpList = Array<OpenStackNestedFloatingIp>;
 
 export type PaginatedOpenStackNetworkList = Array<OpenStackNetwork>;
 
@@ -10407,6 +10389,14 @@ export type VmwareFolder = {
     name: string;
 };
 
+export type VmwareLimit = {
+    readonly max_cpu: number;
+    readonly max_cores_per_socket: number;
+    readonly max_ram: number;
+    readonly max_disk: number;
+    readonly max_disk_total: number;
+};
+
 export type VmwareNestedDisk = {
     readonly url: string;
     readonly uuid: string;
@@ -10687,7 +10677,7 @@ export type WebHookRequest = {
     content_type?: ContentTypeEnum;
 };
 
-export type WebhookEventEnum = 'comment_deleted' | 'jira:issue_deleted' | 'comment_updated' | 'jira:issue_updated' | 'comment_created';
+export type WebhookEventEnum = 'comment_created' | 'jira:issue_deleted' | 'jira:issue_updated' | 'comment_updated' | 'comment_deleted';
 
 export type ApiAuthBccUserDetailsRetrieveData = {
     body?: never;
@@ -24184,10 +24174,11 @@ export type OpenstackInstancesChangeFlavorData = {
 };
 
 export type OpenstackInstancesChangeFlavorResponses = {
-    200: InstanceFlavorChange;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackInstancesChangeFlavorResponse = OpenstackInstancesChangeFlavorResponses[keyof OpenstackInstancesChangeFlavorResponses];
 
 export type OpenstackInstancesConsoleRetrieveData = {
     body?: never;
@@ -24199,7 +24190,7 @@ export type OpenstackInstancesConsoleRetrieveData = {
 };
 
 export type OpenstackInstancesConsoleRetrieveResponses = {
-    200: OpenStackInstance;
+    200: OpenStackInstanceConsole;
 };
 
 export type OpenstackInstancesConsoleRetrieveResponse = OpenstackInstancesConsoleRetrieveResponses[keyof OpenstackInstancesConsoleRetrieveResponses];
@@ -24209,31 +24200,41 @@ export type OpenstackInstancesConsoleLogRetrieveData = {
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        length?: number;
+    };
     url: '/api/openstack-instances/{uuid}/console_log/';
 };
 
 export type OpenstackInstancesConsoleLogRetrieveResponses = {
-    200: OpenStackConsoleLog;
+    200: string;
 };
 
 export type OpenstackInstancesConsoleLogRetrieveResponse = OpenstackInstancesConsoleLogRetrieveResponses[keyof OpenstackInstancesConsoleLogRetrieveResponses];
 
-export type OpenstackInstancesFloatingIpsRetrieveData = {
+export type OpenstackInstancesFloatingIpsListData = {
     body?: never;
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+    };
     url: '/api/openstack-instances/{uuid}/floating_ips/';
 };
 
-export type OpenstackInstancesFloatingIpsRetrieveResponses = {
-    /**
-     * No response body
-     */
-    200: unknown;
+export type OpenstackInstancesFloatingIpsListResponses = {
+    200: PaginatedOpenStackNestedFloatingIpList;
 };
+
+export type OpenstackInstancesFloatingIpsListResponse = OpenstackInstancesFloatingIpsListResponses[keyof OpenstackInstancesFloatingIpsListResponses];
 
 export type OpenstackInstancesPortsRetrieveData = {
     body?: never;
@@ -24340,10 +24341,11 @@ export type OpenstackInstancesUpdateAllowedAddressPairsData = {
 };
 
 export type OpenstackInstancesUpdateAllowedAddressPairsResponses = {
-    200: OpenStackInstanceAllowedAddressPairsUpdate;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackInstancesUpdateAllowedAddressPairsResponse = OpenstackInstancesUpdateAllowedAddressPairsResponses[keyof OpenstackInstancesUpdateAllowedAddressPairsResponses];
 
 export type OpenstackInstancesUpdateFloatingIpsData = {
     body?: OpenStackInstanceFloatingIpsUpdateRequest;
@@ -24370,10 +24372,11 @@ export type OpenstackInstancesUpdatePortsData = {
 };
 
 export type OpenstackInstancesUpdatePortsResponses = {
-    200: OpenStackInstancePortsUpdate;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackInstancesUpdatePortsResponse = OpenstackInstancesUpdatePortsResponses[keyof OpenstackInstancesUpdatePortsResponses];
 
 export type OpenstackInstancesUpdateSecurityGroupsData = {
     body?: never;
@@ -24385,10 +24388,11 @@ export type OpenstackInstancesUpdateSecurityGroupsData = {
 };
 
 export type OpenstackInstancesUpdateSecurityGroupsResponses = {
-    200: OpenStackInstanceSecurityGroupsUpdate;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackInstancesUpdateSecurityGroupsResponse = OpenstackInstancesUpdateSecurityGroupsResponses[keyof OpenstackInstancesUpdateSecurityGroupsResponses];
 
 export type OpenstackMigrationsListData = {
     body?: never;
@@ -27480,6 +27484,24 @@ export type ProposalProposalsListData = {
     body?: never;
     path?: never;
     query?: {
+        call_uuid?: string;
+        name?: string;
+        /**
+         * Ordering
+         *
+         * * `round__call__name` - Round  call  name
+         * * `-round__call__name` - Round  call  name (descending)
+         * * `round__start_time` - Round  start time
+         * * `-round__start_time` - Round  start time (descending)
+         * * `round__cutoff_time` - Round  cutoff time
+         * * `-round__cutoff_time` - Round  cutoff time (descending)
+         * * `state` - State
+         * * `-state` - State (descending)
+         * * `created` - Created
+         * * `-created` - Created (descending)
+         */
+        o?: Array<'-created' | '-round__call__name' | '-round__cutoff_time' | '-round__start_time' | '-state' | 'created' | 'round__call__name' | 'round__cutoff_time' | 'round__start_time' | 'state'>;
+        organization_uuid?: string;
         /**
          * A page number within the paginated result set.
          */
@@ -27488,6 +27510,18 @@ export type ProposalProposalsListData = {
          * Number of results to return per page.
          */
         page_size?: number;
+        round?: string;
+        /**
+         * * `draft` - Draft
+         * * `team_verification` - Team verification
+         * * `submitted` - Submitted
+         * * `in_review` - In review
+         * * `in_revision` - In revision
+         * * `accepted` - Accepted
+         * * `rejected` - Rejected
+         * * `canceled` - Canceled
+         */
+        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted' | 'team_verification'>;
     };
     url: '/api/proposal-proposals/';
 };
@@ -27657,6 +27691,24 @@ export type ProposalProposalsListUsersListData = {
         uuid: string;
     };
     query?: {
+        call_uuid?: string;
+        name?: string;
+        /**
+         * Ordering
+         *
+         * * `round__call__name` - Round  call  name
+         * * `-round__call__name` - Round  call  name (descending)
+         * * `round__start_time` - Round  start time
+         * * `-round__start_time` - Round  start time (descending)
+         * * `round__cutoff_time` - Round  cutoff time
+         * * `-round__cutoff_time` - Round  cutoff time (descending)
+         * * `state` - State
+         * * `-state` - State (descending)
+         * * `created` - Created
+         * * `-created` - Created (descending)
+         */
+        o?: Array<'-created' | '-round__call__name' | '-round__cutoff_time' | '-round__start_time' | '-state' | 'created' | 'round__call__name' | 'round__cutoff_time' | 'round__start_time' | 'state'>;
+        organization_uuid?: string;
         /**
          * A page number within the paginated result set.
          */
@@ -27666,7 +27718,19 @@ export type ProposalProposalsListUsersListData = {
          */
         page_size?: number;
         role?: string;
+        round?: string;
         search_string?: string;
+        /**
+         * * `draft` - Draft
+         * * `team_verification` - Team verification
+         * * `submitted` - Submitted
+         * * `in_review` - In review
+         * * `in_revision` - In revision
+         * * `accepted` - Accepted
+         * * `rejected` - Rejected
+         * * `canceled` - Canceled
+         */
+        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted' | 'team_verification'>;
         user?: string;
     };
     url: '/api/proposal-proposals/{uuid}/list_users/';
@@ -33835,11 +33899,10 @@ export type VmwareLimitsRetrieveData = {
 };
 
 export type VmwareLimitsRetrieveResponses = {
-    /**
-     * No response body
-     */
-    200: unknown;
+    200: VmwareLimit;
 };
+
+export type VmwareLimitsRetrieveResponse = VmwareLimitsRetrieveResponses[keyof VmwareLimitsRetrieveResponses];
 
 export type VmwareNetworksListData = {
     body?: never;
@@ -34407,5 +34470,5 @@ export type VmwareVirtualMachineWebConsoleRetrieveResponses = {
 export type VmwareVirtualMachineWebConsoleRetrieveResponse = VmwareVirtualMachineWebConsoleRetrieveResponses[keyof VmwareVirtualMachineWebConsoleRetrieveResponses];
 
 export type ClientOptions = {
-    baseUrl: `${string}://waldur-openapi-schema.yaml` | (string & {});
+    baseUrl: `${string}://schema.yaml` | (string & {});
 };

@@ -1,6 +1,10 @@
 import { DateTime } from 'luxon';
 
-import { get, getList } from '@waldur/core/api';
+import {
+  marketplaceServiceProvidersRevenueList,
+  ServiceProviderRevenues,
+} from '@waldur/api';
+import { get } from '@waldur/core/api';
 import { parseDate } from '@waldur/core/dateUtils';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import {
@@ -15,16 +19,13 @@ import { ServiceProvider } from '@waldur/marketplace/types';
 
 import { ProviderStatistics } from './types';
 
-interface EstimatedRevenueSummary {
-  year: number;
-  month: number;
-  total: number;
-}
-
-const formatCostChart = (records: EstimatedRevenueSummary[]): Chart => {
+const formatCostChart = (records: ServiceProviderRevenues[]): Chart => {
   let items: DateValuePair[] = records.map((record) => ({
     value: record.total,
-    date: DateTime.fromObject({ year: record.year, month: record.month }),
+    date: DateTime.fromObject({
+      year: record.year,
+      month: record.month,
+    }),
   }));
 
   items = padMissingValues(items);
@@ -59,18 +60,20 @@ const formatCostChart = (records: EstimatedRevenueSummary[]): Chart => {
   };
 };
 
-const getEstimatedRevenueSummary = (providerUuid: string) =>
-  getList<EstimatedRevenueSummary>(
-    `/marketplace-service-providers/${providerUuid}/revenue/`,
-    {
-      page_size: 12,
-      field: ['year', 'month', 'total'],
-    },
-  );
-
 async function getProviderCharts(provider: ServiceProvider): Promise<Chart[]> {
   const charts: Chart[] = [];
-  const estimatedRevenue = await getEstimatedRevenueSummary(provider.uuid);
+  const estimatedRevenue = (
+    await marketplaceServiceProvidersRevenueList({
+      path: {
+        uuid: provider.uuid,
+      },
+      query: {
+        page_size: 12,
+        // @ts-ignore
+        field: ['year', 'month', 'total'],
+      },
+    })
+  ).data;
   const costChart = formatCostChart(estimatedRevenue);
   charts.push(costChart);
 

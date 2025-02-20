@@ -1,9 +1,13 @@
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import {
+  bookingOfferingsGoogleCalendarSync,
+  bookingOfferingsShareGoogleCalendar,
+  bookingOfferingsUnshareGoogleCalendar,
+} from '@waldur/api';
 import { OFFERING_TYPE_BOOKING } from '@waldur/booking/constants';
 import { translate } from '@waldur/i18n';
-import * as api from '@waldur/marketplace/common/api';
 import { isOfferingTypeSchedulable } from '@waldur/marketplace/common/registry';
 import { ARCHIVED } from '@waldur/marketplace/offerings/store/constants';
 import { closeModalDialog } from '@waldur/modal/actions';
@@ -20,7 +24,7 @@ const useGoogleCalendarSync = () => {
   return useCallback(
     async (uuid: string) => {
       try {
-        await api.syncGoogleCalendar(uuid);
+        await bookingOfferingsGoogleCalendarSync({ path: { uuid } });
         dispatch(
           showSuccess(
             translate('Google Calendar has been synced successfully.'),
@@ -46,7 +50,7 @@ const useGoogleCalendarPublish = () => {
   return useCallback(
     async (uuid: string) => {
       try {
-        await api.publishGoogleCalendar(uuid);
+        await bookingOfferingsShareGoogleCalendar({ path: { uuid } });
         dispatch(
           showSuccess(
             translate('Google Calendar has been published successfully.'),
@@ -72,7 +76,7 @@ const useGoogleCalendarUnpublish = () => {
   return useCallback(
     async (uuid: string) => {
       try {
-        await api.unpublishGoogleCalendar(uuid);
+        await bookingOfferingsUnshareGoogleCalendar({ path: { uuid } });
         dispatch(
           showSuccess(
             translate('Google Calendar has been unpublished successfully.'),

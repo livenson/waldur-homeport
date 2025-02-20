@@ -1,11 +1,11 @@
-import { getAll, put, post, deleteById, get } from '@waldur/core/api';
+import { getAll, post, put } from '@waldur/core/api';
 import { terminateResource } from '@waldur/marketplace/common/api';
 import {
   Flavor,
   FloatingIp,
-  Subnet,
   Image,
   OpenStackInstance,
+  Subnet,
 } from '@waldur/openstack/openstack-instance/types';
 import { SecurityGroup } from '@waldur/openstack/openstack-security-groups/types';
 
@@ -54,21 +54,10 @@ export interface CreateServerGroupRequestBody {
   policy: string;
 }
 
-interface UpdatePortsRequestBody {
-  ports: {
-    subnet: string;
-  }[];
-}
-
 interface UpdateSecurityGroupsRequestBody {
   security_groups: {
     url: string;
   }[];
-}
-
-interface CreateNetworkRequestBody {
-  name: string;
-  description: string;
 }
 
 export interface DestroyInstanceParams {
@@ -76,18 +65,11 @@ export interface DestroyInstanceParams {
   release_floating_ips?: boolean;
 }
 
-export interface ChangeFlavorRequestBody {
-  flavor: string;
-}
-
 export const pullTenant = (id: string) =>
   post(`/openstack-tenants/${id}/pull/`);
 
 export const pullFloatingIP = (id: string) =>
   post(`/openstack-floating-ips/${id}/pull/`);
-
-export const destroyFloatingIP = (id: string) =>
-  deleteById('/openstack-floating-ips/', id);
 
 export const pullSubnet = (id: string) =>
   post(`/openstack-subnets/${id}/pull/`);
@@ -98,32 +80,17 @@ export const connectSubnet = (id: string) =>
 export const disconnectSubnet = (id: string) =>
   post(`/openstack-subnets/${id}/disconnect/`);
 
-export const destroySubnet = (id: string) =>
-  deleteById('/openstack-subnets/', id);
-
 export const pullSecurityGroup = (id: string) =>
   post(`/openstack-security-groups/${id}/pull/`);
 
 export const pullServerGroup = (id: string) =>
   post(`/openstack-server-groups/${id}/pull/`);
 
-export const destroySecurityGroup = (id: string) =>
-  deleteById('/openstack-security-groups/', id);
-
-export const destroyServerGroup = (id: string) =>
-  deleteById('/openstack-server-groups/', id);
-
 export const pullNetwork = (id: string) =>
   post(`/openstack-networks/${id}/pull/`);
 
-export const destroyNetwork = (id: string) =>
-  deleteById('/openstack-networks/', id);
-
 export const pullSnapshot = (id: string) =>
   post(`/openstack-snapshots/${id}/pull/`);
-
-export const destroySnapshot = (id: string) =>
-  deleteById('/openstack-snapshots/', id);
 
 export const pullInstance = (id: string) =>
   post(`/openstack-instances/${id}/pull/`);
@@ -173,22 +140,6 @@ export const loadFloatingIps = (params) =>
     params,
   });
 
-export const setFloatingIps = (id: string, data) =>
-  post(`/openstack-instances/${id}/update_floating_ips/`, data);
-
-export const getInstanceConsoleUrl = (id: string) =>
-  get<{ url: string }>(`/openstack-instances/${id}/console/`).then(
-    (response) => response.data.url,
-  );
-
-export const getInstanceConsoleLog = (id: string) =>
-  get<string>(`/openstack-instances/${id}/console_log/`).then(
-    (response) => response.data,
-  );
-
-export const updatePorts = (id: string, data: UpdatePortsRequestBody) =>
-  post(`/openstack-instances/${id}/update_ports/`, data);
-
 export const updateSecurityGroups = (
   id: string,
   data: UpdateSecurityGroupsRequestBody,
@@ -202,19 +153,6 @@ export const getInstances = (params) =>
 export const updateTenant = (id: string, data) =>
   put(`/openstack-tenants/${id}/`, data);
 
-export const createSecurityGroup = (
-  id: string,
-  data: CreateSecurityGroupRequestBody,
-) => post(`/openstack-tenants/${id}/create_security_group/`, data);
-
-export const createServerGroup = (
-  id: string,
-  data: CreateServerGroupRequestBody,
-) => post(`/openstack-tenants/${id}/create_server_group/`, data);
-
-export const createNetwork = (id: string, data: CreateNetworkRequestBody) =>
-  post(`/openstack-tenants/${id}/create_network/`, data);
-
 export const pullTenantSecurityGroups = (id: string) =>
   post(`/openstack-tenants/${id}/pull_security_groups/`);
 
@@ -223,9 +161,6 @@ export const pullTenantServerGroups = (id: string) =>
 
 export const pullTenantFloatingIps = (id: string) =>
   post(`/openstack-tenants/${id}/pull_floating_ips/`);
-
-export const createFloatingIp = (id: string) =>
-  post(`/openstack-tenants/${id}/create_floating_ip/`);
 
 export const updateNetwork = (id: string, data) =>
   put(`/openstack-networks/${id}/`, data);
@@ -242,9 +177,6 @@ export const setNetworkMtu = (id, mtu) =>
 export const updateInstance = (id: string, data) =>
   put(`/openstack-instances/${id}/`, data);
 
-export const changeFlavor = (id: string, data: ChangeFlavorRequestBody) =>
-  post(`/openstack-instances/${id}/change_flavor/`, data);
-
 export const destroyInstance = (
   id: string,
   attributes: DestroyInstanceParams,
@@ -257,8 +189,6 @@ export const forceDestroyInstance = (
   terminateResource(id, {
     attributes: { action: 'force_destroy', ...attributes },
   });
-
-export const destroyPort = (id: string) => deleteById('/openstack-ports/', id);
 
 export const updateVolume = (id: string, data) =>
   put(`/openstack-volumes/${id}/`, data);
@@ -274,12 +204,6 @@ export const restoreSnapshot = (id: string, data) =>
 
 export const updateBackup = (id: string, data) =>
   put(`/openstack-backups/${id}/`, data);
-
-export const destroyBackup = (id: string) =>
-  deleteById('/openstack-backups/', id);
-
-export const restoreBackup = (id: string, data: BackupRestoreRequestBody) =>
-  post(`/openstack-backups/${id}/restore/`, data);
 
 export const createBackup = (id: string, data) =>
   post(`/openstack-instances/${id}/backup/`, data);
@@ -302,6 +226,3 @@ export const createMigration = (payload) =>
   post(`/openstack-migrations/`, payload);
 
 export const runMigration = (id) => post(`/openstack-migrations/${id}/run/`);
-
-export const deleteMigration = (id: string) =>
-  deleteById('/openstack-migrations/', id);

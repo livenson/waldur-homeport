@@ -3,9 +3,9 @@ import React from 'react';
 import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
+import { marketplaceOrdersApproveByProvider } from '@waldur/api';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
-import { approveOrderByProvider } from '@waldur/marketplace/common/api';
 import {
   TABLE_PENDING_PROVIDER_PUBLIC_ORDERS,
   TABLE_PENDING_PUBLIC_ORDERS,
@@ -27,7 +27,11 @@ export const ApproveAllButton: React.FC<ApproveAllButtonProps> = (props) => {
     try {
       const promises = [];
       props.orders.forEach((order) => {
-        promises.push(approveOrderByProvider(order.uuid));
+        promises.push(
+          marketplaceOrdersApproveByProvider({
+            path: { uuid: order.uuid },
+          }),
+        );
       });
       await Promise.all(promises);
       // refresh tables

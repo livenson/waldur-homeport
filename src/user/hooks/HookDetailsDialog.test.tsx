@@ -2,14 +2,16 @@ import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
+import { hooksWebPartialUpdate } from '@waldur/api';
 import { useNotify } from '@waldur/store/hooks';
 
-import { createHook, updateHook } from './api';
+import { createHook } from './api';
 import { HookDetailsDialog } from './HookDetailsDialog';
 import { HookResponse } from './types';
 import { loadEventGroupsOptions } from './utils';
 
 // Mock the required modules
+vi.mock('@waldur/api');
 vi.mock('./api');
 vi.mock('./utils');
 vi.mock('@waldur/modal/actions', () => ({
@@ -145,7 +147,7 @@ describe('HookDetailsDialog', () => {
     });
 
     it('should handle hook update', async () => {
-      vi.mocked(updateHook).mockResolvedValue(null);
+      vi.mocked(hooksWebPartialUpdate).mockResolvedValue(null);
       // Update URL
       const urlInput = screen.getByTestId('destination-url');
       await userEvent.clear(urlInput);
@@ -163,11 +165,14 @@ describe('HookDetailsDialog', () => {
       const submitButton = screen.getByText('Update');
       await userEvent.click(submitButton);
       await waitFor(() => {
-        expect(updateHook).toHaveBeenCalledWith('test-uuid', 'webhook', {
-          hook_type: 'webhook',
-          destination_url: 'https://new-example.com/webhook',
-          is_active: true,
-          event_groups: ['users', 'resources'],
+        expect(hooksWebPartialUpdate).toHaveBeenCalledWith({
+          path: { uuid: 'test-uuid' },
+          body: {
+            hook_type: 'webhook',
+            destination_url: 'https://new-example.com/webhook',
+            is_active: true,
+            event_groups: ['users', 'resources'],
+          },
         });
         expect(mockRefetch).toHaveBeenCalled();
       });
@@ -175,7 +180,7 @@ describe('HookDetailsDialog', () => {
 
     it('should handle update error', async () => {
       const error = new Error('Update failed');
-      vi.mocked(updateHook).mockRejectedValue(error);
+      vi.mocked(hooksWebPartialUpdate).mockRejectedValue(error);
 
       // Submit form without changes
       const submitButton = screen.getByText('Update');

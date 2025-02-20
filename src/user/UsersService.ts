@@ -1,7 +1,7 @@
 import Axios from 'axios';
 
 import { ENV } from '@waldur/configs/default';
-import { get, getById, patch } from '@waldur/core/api';
+import { get, getById } from '@waldur/core/api';
 import store from '@waldur/store/store';
 import { setCurrentUser } from '@waldur/workspace/actions';
 import { getUser } from '@waldur/workspace/selectors';
@@ -26,10 +26,6 @@ export const clearImpersonationData = () => {
 class UsersServiceClass {
   get(userId) {
     return getById<UserDetails>('/users/', userId);
-  }
-
-  update(user) {
-    return patch(`/users/${user.uuid}/`, user);
   }
 
   getCurrentUser(refetch = false) {

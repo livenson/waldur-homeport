@@ -2,14 +2,16 @@ import { useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
 import { reduxForm } from 'redux-form';
 
+import {
+  openstackTenantsCreateSecurityGroup,
+  openstackTenantsCreateServerGroup,
+} from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import {
   loadSecurityGroupsResources,
   loadServerGroupsResources,
-  createSecurityGroup,
-  createServerGroup,
   CreateSecurityGroupRequestBody,
   CreateServerGroupRequestBody,
 } from '@waldur/openstack/api';
@@ -27,8 +29,6 @@ export function userCanModifyTenant(ctx: ActionContext): string {
   }
 }
 
-type CreateSecurityGroupFormData = CreateSecurityGroupRequestBody;
-
 export const useCreateSecurityGroupForm = (
   resource: OpenStackTenant,
   refetch,
@@ -43,22 +43,25 @@ export const useCreateSecurityGroupForm = (
     [resource.url],
   );
   const dispatch = useDispatch();
-  const submitRequest = async (formData: CreateSecurityGroupFormData) => {
+  const submitRequest = async (formData: CreateSecurityGroupRequestBody) => {
     try {
-      await createSecurityGroup(resource.uuid, {
-        ...formData,
-        rules:
-          formData.rules === undefined
-            ? []
-            : formData.rules.map(({ port_range, ...rule }) => ({
-                ...rule,
-                protocol:
-                  rule.protocol === 'any' || rule.protocol === null
-                    ? ''
-                    : rule.protocol,
-                from_port: port_range.min,
-                to_port: port_range.max,
-              })),
+      await openstackTenantsCreateSecurityGroup({
+        path: { uuid: resource.uuid },
+        body: {
+          ...formData,
+          rules:
+            formData.rules === undefined
+              ? []
+              : formData.rules.map(({ port_range, ...rule }) => ({
+                  ...rule,
+                  protocol:
+                    rule.protocol === 'any' || rule.protocol === null
+                      ? ''
+                      : rule.protocol,
+                  from_port: port_range.min,
+                  to_port: port_range.max,
+                })),
+        },
       });
       await refetch();
       dispatch(
@@ -78,7 +81,7 @@ const FORM_NAME = 'CreateSecurityGroupForm';
 
 type OwnProps = ReturnType<typeof useCreateSecurityGroupForm>;
 
-export const connectForm = reduxForm<CreateSecurityGroupFormData, OwnProps>({
+export const connectForm = reduxForm<CreateSecurityGroupRequestBody, OwnProps>({
   form: FORM_NAME,
 });
 
@@ -98,9 +101,12 @@ export const useCreateServerGroupForm = (resource: OpenStackTenant) => {
   const dispatch = useDispatch();
   const submitRequest = async (formData: CreateServerGroupFormData) => {
     try {
-      await createServerGroup(resource.uuid, {
-        ...formData,
-        policy: formData.policy['value'],
+      await openstackTenantsCreateServerGroup({
+        path: { uuid: resource.uuid },
+        body: {
+          ...formData,
+          policy: formData.policy['value'],
+        },
       });
       dispatch(
         showSuccess(translate('Server group creation has been scheduled.')),

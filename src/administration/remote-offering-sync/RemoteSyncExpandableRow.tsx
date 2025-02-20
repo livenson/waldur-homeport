@@ -1,12 +1,11 @@
 import { FC, useEffect } from 'react';
 
+import { NestedRemoteLocalCategory, RemoteSynchronisation } from '@waldur/api';
 import { CopyToClipboardButton } from '@waldur/core/CopyToClipboardButton';
 import { translate } from '@waldur/i18n';
 import { ExpandableContainer } from '@waldur/table/ExpandableContainer';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
-
-import { RemoteSync, RemoteSyncCategoryRule } from './types';
 
 const FieldWithCopy = ({ value }) => {
   return (
@@ -18,7 +17,7 @@ const FieldWithCopy = ({ value }) => {
 };
 
 export const RemoteSyncExpandableRow: FC<{
-  row: RemoteSync;
+  row: RemoteSynchronisation;
 }> = ({ row: remoteSync }) => {
   const tableProps = useTable({
     table: 'RemoteSyncCategoryRules-' + remoteSync.uuid,
@@ -34,7 +33,7 @@ export const RemoteSyncExpandableRow: FC<{
 
   return (
     <ExpandableContainer>
-      <Table<RemoteSyncCategoryRule>
+      <Table<NestedRemoteLocalCategory>
         {...tableProps}
         columns={[
           {

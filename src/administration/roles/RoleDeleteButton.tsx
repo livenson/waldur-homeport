@@ -1,12 +1,13 @@
 import { Trash } from '@phosphor-icons/react';
 import { useDispatch } from 'react-redux';
 
+import { rolesDestroy } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 
-import { deleteRole, getRoles } from './api';
+import { getRoles } from './api';
 
 export const RoleDeleteButton = ({ row, refetch }) => {
   const dispatch = useDispatch();
@@ -25,7 +26,7 @@ export const RoleDeleteButton = ({ row, refetch }) => {
     } catch {
       return;
     }
-    await deleteRole(row.uuid);
+    await rolesDestroy({ path: { uuid: row.uuid } });
     ENV.roles = await getRoles();
     refetch();
   };

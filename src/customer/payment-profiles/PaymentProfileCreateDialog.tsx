@@ -2,9 +2,9 @@ import { useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 
+import { paymentProfilesCreate, paymentProfilesEnable } from '@waldur/api';
 import { AwesomeCheckbox } from '@waldur/core/AwesomeCheckbox';
 import { required } from '@waldur/core/validators';
-import * as api from '@waldur/customer/payment-profiles/api';
 import { ADD_PAYMENT_PROFILE_FORM_ID } from '@waldur/customer/payment-profiles/constants';
 import { getPaymentProfileTypeOptions } from '@waldur/customer/payment-profiles/utils';
 import {
@@ -37,19 +37,21 @@ const PaymentProfileCreate = (props) => {
 
   const addPaymentProfile = async (formData) => {
     try {
-      const paymentProfile = await api.createPaymentProfile({
-        is_active: false,
-        name: formData.name,
-        organization: customer.url,
-        payment_type: formData.payment_type.value,
-        attributes: {
-          end_date: formData.end_date,
-          agreement_number: formData.agreement_number,
-          contract_sum: formData.contract_sum,
+      const paymentProfile = await paymentProfilesCreate({
+        body: {
+          is_active: false,
+          name: formData.name,
+          organization: customer.url,
+          payment_type: formData.payment_type.value,
+          attributes: {
+            end_date: formData.end_date,
+            agreement_number: formData.agreement_number,
+            contract_sum: formData.contract_sum,
+          },
         },
-      });
+      }).then((response) => response.data);
       if (paymentProfile?.uuid && formData.enabled) {
-        await api.enablePaymentProfile(paymentProfile.uuid);
+        await paymentProfilesEnable({ path: { uuid: paymentProfile.uuid } });
       }
       dispatch(
         showSuccess(

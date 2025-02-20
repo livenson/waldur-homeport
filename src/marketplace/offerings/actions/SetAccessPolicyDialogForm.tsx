@@ -3,14 +3,14 @@ import { connect, useDispatch } from 'react-redux';
 import { compose } from 'redux';
 import { reduxForm } from 'redux-form';
 
-import { OrganizationGroup } from '@waldur/api';
-import { updateCustomerOrganizationGroups } from '@waldur/customer/details/api';
+import {
+  marketplaceProviderOfferingsUpdateOrganizationGroups,
+  marketplacePlansUpdateOrganizationGroups,
+  OrganizationGroup,
+  customersUpdateOrganizationGroups,
+} from '@waldur/api';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
-import {
-  updateOfferingAccessPolicy,
-  updatePlanAccessPolicy,
-} from '@waldur/marketplace/common/api';
 import { SET_ACCESS_POLICY_FORM_ID } from '@waldur/marketplace/offerings/actions/constants';
 import { formatRequestBodyForSetAccessPolicyForm } from '@waldur/marketplace/offerings/actions/utils';
 import { Offering, Plan } from '@waldur/marketplace/types';
@@ -34,23 +34,25 @@ const PureSetAccessPolicyDialogForm: FunctionComponent<any> = (props) => {
   const submitRequest = async (formData) => {
     try {
       const updateAccessPolicy = props.plan
-        ? updatePlanAccessPolicy
+        ? marketplacePlansUpdateOrganizationGroups
         : props.offering
-          ? updateOfferingAccessPolicy
-          : updateCustomerOrganizationGroups;
+          ? marketplaceProviderOfferingsUpdateOrganizationGroups
+          : customersUpdateOrganizationGroups;
       const uuid = props.plan
         ? props.plan.uuid
         : props.offering
           ? props.offering.uuid
           : props.customer.uuid;
 
-      await updateAccessPolicy(
-        uuid,
-        formatRequestBodyForSetAccessPolicyForm(
-          formData,
-          props.organizationGroups,
-        ),
-      );
+      await updateAccessPolicy({
+        path: { uuid },
+        body: {
+          organization_groups: formatRequestBodyForSetAccessPolicyForm(
+            formData,
+            props.organizationGroups,
+          ),
+        },
+      });
       dispatch(
         showSuccess(translate('Access policy has been updated successfully.')),
       );

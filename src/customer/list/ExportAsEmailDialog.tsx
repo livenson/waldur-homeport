@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 
-import { getList } from '@waldur/core/api';
+import { invoicesList } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { AccountingPeriodField } from '@waldur/customer/list/AccountingPeriodField';
 import { getOptions } from '@waldur/customer/list/AccountingRunningField';
@@ -19,20 +19,17 @@ import { closeModalDialog } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { ActionButton } from '@waldur/table/ActionButton';
 
-interface Invoice {
-  year: number;
-  month: number;
-}
-
-const getInvoices = (params) => getList<Invoice>('/invoices/', params);
-
 async function oldestInvoice() {
-  const params = {
-    page_size: 1,
-    o: ['year', 'month'].join(','),
-    field: ['year', 'month'],
-  };
-  const response = await getInvoices(params);
+  const response = (
+    await invoicesList({
+      query: {
+        page_size: 1,
+        // @ts-ignore
+        o: ['year', 'month'].join(','),
+        field: ['year', 'month'],
+      },
+    })
+  ).data;
   if (response.length === 1) {
     const invoice = response[0];
     return DateTime.fromObject({

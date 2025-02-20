@@ -7,7 +7,7 @@ import { translate } from '@waldur/i18n';
 import { openModalDialog, waitForConfirmation } from '@waldur/modal/actions';
 
 import { issueCommentsDelete } from './actions';
-import { getIsUiDisabled, getUser } from './selectors';
+import { getUser } from './selectors';
 
 const CommentFormDialog = lazyComponent(() =>
   import('./CommentFormDialog').then((module) => ({
@@ -19,7 +19,6 @@ export const CommentActions = ({ comment }) => {
   const dispatch = useDispatch();
 
   const user = useSelector(getUser);
-  const uiDisabled = useSelector(getIsUiDisabled);
 
   const openEditCommentDialog = () => {
     dispatch(
@@ -51,7 +50,7 @@ export const CommentActions = ({ comment }) => {
             variant="outline btn-outline-default"
             size="sm"
             className="btn-icon-right me-3"
-            disabled={uiDisabled || !comment.update_is_available}
+            disabled={!comment.update_is_available}
             onClick={openEditCommentDialog}
           >
             {translate('Change')}
@@ -63,7 +62,7 @@ export const CommentActions = ({ comment }) => {
             variant="outline btn-outline-default"
             size="sm"
             className="btn-icon-right"
-            disabled={uiDisabled || !comment.destroy_is_available}
+            disabled={!comment.destroy_is_available}
             onClick={openDeleteDialog}
           >
             {translate('Remove')}

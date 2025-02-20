@@ -1,12 +1,13 @@
 import { DateTime } from 'luxon';
 
+import { InvoiceCost } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { get } from '@waldur/core/api';
 import { parseDate } from '@waldur/core/dateUtils';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { translate } from '@waldur/i18n';
 
-import { Scope, Chart, ChartData, InvoiceSummary } from './types';
+import { Chart, ChartData, Scope } from './types';
 
 interface DailyQuota {
   [key: string]: number[];
@@ -97,7 +98,7 @@ export const formatCostChartLabel = (
   });
 };
 
-export const formatCostChart = (invoices: InvoiceSummary[]): Chart => {
+export const formatCostChart = (invoices: InvoiceCost[]): Chart => {
   let items: DateValuePair[] = invoices.map((invoice) => ({
     value: Number(invoice.price),
     date: DateTime.fromObject({ year: invoice.year, month: invoice.month }),

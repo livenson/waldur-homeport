@@ -1,6 +1,11 @@
 import { useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
 
+import {
+  CategoryColumnRequest,
+  marketplaceCategoryColumnsCreate,
+  marketplaceCategoryColumnsUpdate,
+} from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import {
   Category,
@@ -10,11 +15,7 @@ import {
 import { closeModalDialog } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
-import {
-  createCategoryColumn,
-  getCategoryColumns,
-  updateCategoryColumn,
-} from './admin/api';
+import { getCategoryColumns } from './admin/api';
 
 export const countSelectedFilters = (filterValues) => {
   const selectedFilters = [];
@@ -119,9 +120,14 @@ export const useCategoryColumnsEditor = (category: Category) => {
     try {
       const columnRequests = formData.columns.map((column: CategoryColumn) => {
         if (column.uuid) {
-          return updateCategoryColumn(column.uuid, column);
+          return marketplaceCategoryColumnsUpdate({
+            path: { uuid: column.uuid },
+            body: column as CategoryColumnRequest,
+          });
         } else {
-          return createCategoryColumn({ ...column, category: category.url });
+          return marketplaceCategoryColumnsCreate({
+            body: { ...column, category: category.url },
+          });
         }
       });
 

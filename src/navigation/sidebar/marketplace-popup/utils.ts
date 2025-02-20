@@ -1,10 +1,10 @@
+import { marketplacePublicOfferingsList } from '@waldur/api';
 import {
   getCategories,
   getProviderOfferingsOptions,
-  getPublicOfferingsList,
   getPublicOfferingsOptions,
 } from '@waldur/marketplace/common/api';
-import { Category } from '@waldur/marketplace/types';
+import { Category, Offering } from '@waldur/marketplace/types';
 import { Customer, Project } from '@waldur/workspace/types';
 
 export const fetchCategories = async (
@@ -68,24 +68,29 @@ export const fetchLastNOfferings = async (
   project: Project,
   page_size = 5,
 ) => {
-  const offerings = await getPublicOfferingsList({
-    page: 1,
-    page_size,
-    ...(customer ? { allowed_customer_uuid: customer.uuid } : {}),
-    ...(project ? { project_uuid: project.uuid } : {}),
-    field: [
-      'uuid',
-      'category_uuid',
-      'customer_uuid',
-      'category_title',
-      'name',
-      'description',
-      'image',
-      'state',
-      'paused_reason',
-    ],
-    state: ['Active', 'Paused'],
-    o: '-created',
-  });
+  const offerings = (
+    await marketplacePublicOfferingsList({
+      query: {
+        page: 1,
+        page_size,
+        ...(customer ? { allowed_customer_uuid: customer.uuid } : {}),
+        ...(project ? { project_uuid: project.uuid } : {}),
+        // @ts-ignore
+        field: [
+          'uuid',
+          'category_uuid',
+          'customer_uuid',
+          'category_title',
+          'name',
+          'description',
+          'image',
+          'state',
+          'paused_reason',
+        ],
+        state: ['Active', 'Paused'],
+        o: ['-created'],
+      },
+    })
+  ).data as any as Offering[];
   return offerings;
 };

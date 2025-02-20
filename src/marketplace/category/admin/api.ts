@@ -1,10 +1,7 @@
 import { ENV } from '@waldur/configs/default';
-import { deleteById, getAll, post, put, sendForm } from '@waldur/core/api';
+import { getAll, sendForm } from '@waldur/core/api';
 
 import { Category, CategoryGroup } from '../../types';
-
-export const removeCategory = (uuid: string) =>
-  deleteById('/marketplace-categories/', uuid);
 
 export const createCategory = (data) => {
   const formData = {
@@ -45,9 +42,6 @@ export const updateCategory = (data, uuid) => {
   );
 };
 
-export const removeCategoryGroup = (uuid: string) =>
-  deleteById('/marketplace-category-groups/', uuid);
-
 export const createCategoryGroup = (data) => {
   const formData = {
     title: data.title,
@@ -81,12 +75,3 @@ export const updateCategoryGroup = (data, uuid) => {
 
 export const getCategoryColumns = (params) =>
   getAll<any>(`/marketplace-category-columns/`, { params });
-
-export const updateCategoryColumn = (uuid, data) =>
-  put(`/marketplace-category-columns/${uuid}/`, data);
-
-export const createCategoryColumn = (data) =>
-  post(`/marketplace-category-columns/`, data);
-
-export const deleteCategoryColumn = (uuid) =>
-  deleteById('/marketplace-category-columns/', uuid);

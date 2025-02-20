@@ -2,7 +2,7 @@ import { Modal } from 'react-bootstrap';
 import { Field, Form } from 'react-final-form';
 import { useDispatch } from 'react-redux';
 
-import { patch } from '@waldur/core/api';
+import { userAgreementsPartialUpdate } from '@waldur/api';
 import { FormGroup, SubmitButton, TextField } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
@@ -26,7 +26,10 @@ export const UserAgreementsEditDialog = ({
   const dispatch = useDispatch();
 
   const onSubmit = async (formValues) => {
-    await patch(formValues.url, formValues);
+    await userAgreementsPartialUpdate({
+      path: { uuid: formValues.uuid },
+      body: formValues,
+    });
     await resolve.refetch();
     dispatch(showSuccess(translate('User agreement was updated')));
     dispatch(closeModalDialog());

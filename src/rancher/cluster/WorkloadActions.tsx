@@ -3,12 +3,13 @@ import { FunctionComponent } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAsyncFn } from 'react-use';
 
+import { rancherWorkloadsDestroy } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
 import { RowActionButton } from '@waldur/table/ActionButton';
 import { deleteEntity } from '@waldur/table/actions';
 
-import { redeployWorkload, deleteWorkload } from '../api';
+import { redeployWorkload } from '../api';
 
 import { ViewYAMLButton } from './ViewYAMLButton';
 
@@ -27,7 +28,7 @@ export const WorkloadActions: FunctionComponent<{ workload }> = ({
 
   const [deleteResult, deleteCallback] = useAsyncFn(async () => {
     try {
-      await deleteWorkload(workload.uuid);
+      await rancherWorkloadsDestroy({ path: { uuid: workload.uuid } });
       dispatch(showSuccess('Workload has been deleted.'));
       dispatch(deleteEntity('rancher-workloads', workload.uuid));
     } catch (e) {

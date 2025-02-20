@@ -7,10 +7,8 @@ import {
   getAll,
   getById,
   getFirst,
-  getList,
   getSelectData,
   parseResultCount,
-  patch,
   post,
   put,
   sendForm,
@@ -59,9 +57,6 @@ export const getComponentUserUsages = (
     params: { resource_uuid, date_after, ...params },
   });
 
-export const getPublicOfferingsList = (params?: {}) =>
-  getList<Offering>('/marketplace-public-offerings/', params);
-
 export const getProviderOfferingsOptions = (params?: {}) =>
   getSelectData<Offering>('/marketplace-provider-offerings/', params);
 
@@ -96,14 +91,6 @@ export const getProviderOfferingGLAuthConfig = (uuid: string) =>
 export const getPublicOffering = (id: string, options?: AxiosRequestConfig) =>
   getById<Offering>('/marketplace-public-offerings/', id, options);
 
-export const updateResource = (resourceId: string, data) =>
-  put<Resource>(`/marketplace-resources/${resourceId}/`, data);
-
-export const updateResourceEndDate = (resourceUuid: string, end_date: string) =>
-  patch<Resource>(`/marketplace-resources/${resourceUuid}/`, {
-    end_date,
-  });
-
 export const getResourceDetails = (resourceId: string) =>
   get<any>(`/marketplace-resources/${resourceId}/details/`).then(
     (response) => response.data,
@@ -121,12 +108,6 @@ export const getSubResourcesOfferings = (resourceId: string) =>
   getAll<{ uuid; type }>(
     `/marketplace-resources/${resourceId}/offering_for_subresources/`,
   );
-
-export const submitResourceOptions = (resourceId: string, payload) =>
-  post(`/marketplace-resources/${resourceId}/update_options/`, payload);
-
-export const setSlug = (resourceId: string, payload) =>
-  post(`/marketplace-resources/${resourceId}/set_slug/`, payload);
 
 export const updateOfferingOptions = (offeringId, data) =>
   post(`/marketplace-provider-offerings/${offeringId}/update_options/`, data);
@@ -169,9 +150,6 @@ export const approveOrderByConsumer = (orderUuid: string) =>
   post(`/marketplace-orders/${orderUuid}/approve_by_consumer/`).then(
     (response) => response.data,
   );
-
-export const approveOrderByProvider = (id) =>
-  post(`/marketplace-orders/${id}/approve_by_provider/`);
 
 export const rejectOrderByConsumer = (orderUuid: string) =>
   post(`/marketplace-orders/${orderUuid}/reject_by_consumer/`).then(
@@ -230,9 +208,6 @@ export const getRuntimeStates = (projectUuid?, categoryUuid?) => {
   }).then((response) => response.data);
 };
 
-export const updateServiceProvider = (uuid, params) =>
-  patch<ServiceProvider>(`/marketplace-service-providers/${uuid}/`, params);
-
 export const getServiceProviderByCustomer = (params, options?) =>
   getFirst<ServiceProvider>('/marketplace-service-providers/', params, options);
 
@@ -254,18 +229,8 @@ export const submitUsageReport = (payload) =>
 export const getResource = (id: string, options?: AxiosRequestConfig) =>
   getById<Resource>('/marketplace-resources/', id, options);
 
-export const switchPlan = (resource_uuid: string, plan_url: string) =>
-  post(`/marketplace-resources/${resource_uuid}/switch_plan/`, {
-    plan: plan_url,
-  }).then((response) => response.data);
-
 export const terminateResource = (resource_uuid: string, data?) =>
   post(`/marketplace-resources/${resource_uuid}/terminate/`, data).then(
-    (response) => response.data,
-  );
-
-export const unlinkResource = (resource_uuid: string) =>
-  post(`/marketplace-resources/${resource_uuid}/unlink/`).then(
     (response) => response.data,
   );
 
@@ -276,34 +241,11 @@ export const moveResource = (resourceUuid: string, projectUrl: string) =>
     },
   });
 
-export const changeLimits = (
-  resource_uuid: string,
-  limits: Record<string, number>,
-) =>
-  post(`/marketplace-resources/${resource_uuid}/update_limits/`, {
-    limits,
-  }).then((response) => response.data);
-
 export const importResource = ({ offering_uuid, ...payload }) =>
   post<Resource>(
     `/marketplace-provider-offerings/${offering_uuid}/import_resource/`,
     payload,
   ).then((response) => response.data);
-
-export const syncGoogleCalendar = (uuid: string) =>
-  post(`/booking-offerings/${uuid}/google_calendar_sync/`).then(
-    (response) => response.data,
-  );
-
-export const publishGoogleCalendar = (uuid: string) =>
-  post(`/booking-offerings/${uuid}/share_google_calendar/`).then(
-    (response) => response.data,
-  );
-
-export const unpublishGoogleCalendar = (uuid: string) =>
-  post(`/booking-offerings/${uuid}/unshare_google_calendar/`).then(
-    (response) => response.data,
-  );
 
 export const updateOfferingOverview = (offeringId, data) =>
   post(`/marketplace-provider-offerings/${offeringId}/update_overview/`, data);
@@ -314,37 +256,8 @@ export const updateOfferingDescription = (offeringId, data) =>
     data,
   );
 
-export const asyncRunOfferingScript = (
-  offeringUuid: string,
-  plan: string,
-  type: string,
-) =>
-  post(`/marketplace-script-dry-run/${offeringUuid}/async_run/`, {
-    plan,
-    type,
-  });
-
 export const getAsyncDryRun = (uuid) =>
   get(`/marketplace-script-async-dry-run/${uuid}/`);
-
-export const updateOfferingAccessPolicy = (
-  offeringUuid: string,
-  organizationGroups: string[],
-) =>
-  post(
-    `/marketplace-provider-offerings/${offeringUuid}/update_organization_groups/`,
-    {
-      organization_groups: organizationGroups,
-    },
-  );
-
-export const updatePlanAccessPolicy = (
-  planUuid: string,
-  organizationGroups: string[],
-) =>
-  post(`/marketplace-plans/${planUuid}/update_organization_groups/`, {
-    organization_groups: organizationGroups,
-  });
 
 export const updateOfferingLogo = (offeringUuid: string, formData) =>
   sendForm(
@@ -355,21 +268,6 @@ export const updateOfferingLogo = (offeringUuid: string, formData) =>
     },
   );
 
-export const updateOfferingUserRestrictionStatus = (uuid, data) =>
-  post(`/marketplace-offering-users/${uuid}/update_restricted/`, data);
-
-export const pullRemoteOfferingDetails = (uuid) =>
-  post(`/remote-waldur-api/pull_offering_details/${uuid}/`);
-
-export const pullRemoteOfferingUsers = (uuid) =>
-  post(`/remote-waldur-api/pull_offering_users/${uuid}/`);
-
-export const pullRemoteOfferingUsage = (uuid) =>
-  post(`/remote-waldur-api/pull_offering_usage/${uuid}/`);
-
-export const pullRemoteOfferingResources = (uuid) =>
-  post(`/remote-waldur-api/pull_offering_resources/${uuid}/`);
-
 export const pullRemoteOfferingOrders = (uuid) =>
   post(`/remote-waldur-api/pull_offering_orders/${uuid}/`);
 
@@ -378,9 +276,6 @@ export const pullRemoteOfferingInvoices = (uuid) =>
 
 export const pullRemoteOfferingRobotAccounts = (uuid) =>
   post(`/remote-waldur-api/pull_offering_robot_accounts/${uuid}/`);
-
-export const pushRemoteOfferingProjectData = (uuid) =>
-  post(`/remote-waldur-api/push_project_data/${uuid}/`);
 
 export const countOrders = (params) =>
   Axios.request({
@@ -402,9 +297,6 @@ export const countLexisLinks = (params?) =>
     url: ENV.apiEndpoint + 'api/lexis-links/',
     params,
   }).then(parseResultCount);
-
-export const updateRobotAccount = (id, payload) =>
-  patch(`/marketplace-robot-accounts/${id}/`, payload);
 
 export const syncCustomScriptResource = (payload) =>
   post(`/marketplace-script-sync-resource/`, payload);

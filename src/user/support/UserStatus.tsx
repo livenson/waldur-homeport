@@ -2,14 +2,13 @@ import { useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { usersPartialUpdate } from '@waldur/api';
 import { AwesomeCheckbox } from '@waldur/core/AwesomeCheckbox';
 import { Panel } from '@waldur/core/Panel';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { useNotify } from '@waldur/store/hooks';
 import { UserDetails } from '@waldur/workspace/types';
-
-import { activateUser, deactivateUser } from './api';
 
 const getConfirmationText = (isActive, name) => {
   return isActive
@@ -51,13 +50,17 @@ export const UserStatus = ({ user }: { user: UserDetails }) => {
     }
     try {
       setIsActive(!isActive);
-      const api = user.is_active ? deactivateUser : activateUser;
-      await api(user.uuid);
+      await usersPartialUpdate({
+        path: { uuid: user.uuid },
+        body: {
+          is_active: !isActive,
+        },
+      });
       queryClient.setQueryData(['UserDetails', user.uuid], {
         ...user,
-        is_active: !user.is_active,
+        is_active: !isActive,
       });
-      if (user.is_active) {
+      if (isActive) {
         showSuccess(translate('User has been deactivated.'));
       } else {
         showSuccess(translate('User has been activated.'));

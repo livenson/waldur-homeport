@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { openstackTenantsCreateNetwork } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import {
@@ -10,8 +11,6 @@ import {
 import { ResourceActionDialog } from '@waldur/resource/actions/ResourceActionDialog';
 import { ActionDialogProps } from '@waldur/resource/actions/types';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
-
-import { createNetwork } from '../../api';
 
 export const CreateNetworkDialog: FC<ActionDialogProps> = ({
   resolve: { resource, refetch },
@@ -23,7 +22,10 @@ export const CreateNetworkDialog: FC<ActionDialogProps> = ({
       formFields={[createLatinNameField(), createDescriptionField()]}
       submitForm={async (formData) => {
         try {
-          await createNetwork(resource.uuid, formData);
+          await openstackTenantsCreateNetwork({
+            path: { uuid: resource.uuid },
+            body: formData,
+          });
           dispatch(
             showSuccess(translate('OpenStack networks has been created.')),
           );

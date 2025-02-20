@@ -1,7 +1,7 @@
 import { Trash } from '@phosphor-icons/react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import * as api from '@waldur/customer/payment-profiles/api';
+import { paymentProfilesDestroy } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog, waitForConfirmation } from '@waldur/modal/actions';
 import { getCustomer as getCustomerApi } from '@waldur/project/api';
@@ -26,7 +26,7 @@ export const PaymentProfileDeleteButton = (props) => {
     }
 
     try {
-      await api.deletePaymentProfile(props.row.uuid);
+      await paymentProfilesDestroy({ path: { uuid: props.row.uuid } });
       dispatch(showSuccess(translate('Payment profile has been removed.')));
       dispatch(closeModalDialog());
       await props.refetch();

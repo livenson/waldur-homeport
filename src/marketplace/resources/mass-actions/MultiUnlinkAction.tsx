@@ -2,8 +2,8 @@ import { LinkBreak } from '@phosphor-icons/react';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { marketplaceResourcesUnlink } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import { unlinkResource } from '@waldur/marketplace/common/api';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 
@@ -21,11 +21,13 @@ export const MultiUnlinkAction = ({ rows, refetch }) => {
     } catch {
       return;
     }
-    Promise.all(rows.map((resource) => unlinkResource(resource.uuid))).then(
-      () => {
-        refetch();
-      },
-    );
+    Promise.all(
+      rows.map((resource) =>
+        marketplaceResourcesUnlink({ path: { uuid: resource.uuid } }),
+      ),
+    ).then(() => {
+      refetch();
+    });
   }, [dispatch, rows, refetch]);
   return (
     <ActionItem

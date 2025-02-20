@@ -2,12 +2,12 @@ import { Trash } from '@phosphor-icons/react';
 import { useMutation } from '@tanstack/react-query';
 import { useDispatch } from 'react-redux';
 
+import { marketplaceRemoteSynchronisationsDestroy } from '@waldur/api';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
-import { removeRemoteSync } from './api';
 import { RemoteSyncActionProps } from './types';
 
 export const RemoteSyncDeleteAction = (props: RemoteSyncActionProps) => {
@@ -29,7 +29,9 @@ export const RemoteSyncDeleteAction = (props: RemoteSyncActionProps) => {
       return;
     }
     try {
-      await removeRemoteSync(props.row.uuid);
+      await marketplaceRemoteSynchronisationsDestroy({
+        path: { uuid: props.row.uuid },
+      });
       dispatch(showSuccess(translate('Remote synchronization deleted')));
       props.refetch();
     } catch (e) {

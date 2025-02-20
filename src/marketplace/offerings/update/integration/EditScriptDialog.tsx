@@ -3,6 +3,7 @@ import { Button, Col, Modal, Row } from 'react-bootstrap';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { Field, getFormValues, initialize, reduxForm } from 'redux-form';
 
+import { marketplaceScriptDryRunAsyncRun } from '@waldur/api';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
 import { Tip } from '@waldur/core/Tooltip';
 import { wait } from '@waldur/core/utils';
@@ -10,7 +11,6 @@ import { SubmitButton, SelectField } from '@waldur/form';
 import { MonacoField } from '@waldur/form/MonacoField';
 import { translate } from '@waldur/i18n';
 import {
-  asyncRunOfferingScript,
   getAsyncDryRun,
   updateOfferingSecretOptions,
 } from '@waldur/marketplace/common/api';
@@ -98,11 +98,13 @@ export const EditScriptDialog = connect<{}, {}, OwnProps>((_, ownProps) => ({
         : null;
       await props.handleSubmit(update)();
       try {
-        const response: any = await asyncRunOfferingScript(
-          props.resolve.offering.uuid,
-          planUrl,
-          props.resolve.dry_run,
-        );
+        const response: any = await marketplaceScriptDryRunAsyncRun({
+          path: { uuid: props.resolve.offering.uuid },
+          body: {
+            plan: planUrl,
+            type: props.resolve.dry_run,
+          },
+        });
 
         const asyncDryRunResult: any = await pollAsyncDryRunResult(
           response.data.uuid,

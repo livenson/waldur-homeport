@@ -4,9 +4,11 @@ import { FunctionComponent } from 'react';
 import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
-import { marketplaceOrdersRetrieve } from '@waldur/api';
+import {
+  marketplaceOrdersApproveByProvider,
+  marketplaceOrdersRetrieve,
+} from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import { approveOrderByProvider } from '@waldur/marketplace/common/api';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
 import { updateEntity } from '@waldur/table/actions';
@@ -31,7 +33,9 @@ export const ApproveByProviderButton: FunctionComponent<
   const dispatch = useDispatch();
   const { mutate, isLoading } = useMutation(async () => {
     try {
-      await approveOrderByProvider(props.row.uuid);
+      await marketplaceOrdersApproveByProvider({
+        path: { uuid: props.row.uuid },
+      });
       const newOrder = await marketplaceOrdersRetrieve({
         path: { uuid: props.row.uuid },
       }).then((response) => response.data);

@@ -9,6 +9,11 @@ import { Button, Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 
+import {
+  broadcastMessagesCreate,
+  broadcastMessagesSend,
+  broadcastMessagesUpdate,
+} from '@waldur/api';
 import { formatDate } from '@waldur/core/dateUtils';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
@@ -17,7 +22,6 @@ import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { RootState } from '@waldur/store/reducers';
 
-import { createBroadcast, sendBroadcast, updateBroadcast } from './api';
 import { BROADCAST_CREATE_FORM_ID } from './constants';
 import { BroadcastFormData } from './types';
 import { serializeBroadcast } from './utils';
@@ -63,9 +67,12 @@ export const BroadcastFooter = ({
     async (formData: BroadcastFormData) => {
       try {
         if (broadcastId) {
-          await updateBroadcast(broadcastId, serializeBroadcast(formData));
+          await broadcastMessagesUpdate({
+            path: { uuid: broadcastId },
+            body: serializeBroadcast(formData),
+          });
         } else {
-          await createBroadcast(serializeBroadcast(formData));
+          await broadcastMessagesCreate({ body: serializeBroadcast(formData) });
         }
         await refetch();
         dispatch(
@@ -84,15 +91,17 @@ export const BroadcastFooter = ({
       try {
         let response;
         if (broadcastId) {
-          response = await updateBroadcast(
-            broadcastId,
-            serializeBroadcast(formData),
-          );
+          response = await broadcastMessagesUpdate({
+            path: { uuid: broadcastId },
+            body: serializeBroadcast(formData),
+          });
         } else {
-          response = await createBroadcast(serializeBroadcast(formData));
+          response = await broadcastMessagesCreate({
+            body: serializeBroadcast(formData),
+          });
         }
         if (!formValues.send_at) {
-          await sendBroadcast((response.data as { uuid: string }).uuid);
+          await broadcastMessagesSend({ path: { uuid: response.data.uuid } });
         }
         await refetch();
         if (formValues.send_at) {

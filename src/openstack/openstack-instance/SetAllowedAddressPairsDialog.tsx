@@ -5,7 +5,10 @@ import { connect, useDispatch } from 'react-redux';
 import { compose } from 'redux';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 
-import { openstackInstancesUpdateAllowedAddressPairs } from '@waldur/api';
+import {
+  OpenStackAllowedAddressPairRequest,
+  openstackInstancesUpdateAllowedAddressPairs,
+} from '@waldur/api';
 import { SubmitButton } from '@waldur/form';
 import { renderValidationWrapper } from '@waldur/form/FieldValidationWrapper';
 import { InputField } from '@waldur/form/InputField';
@@ -19,15 +22,10 @@ import { validatePrivateCIDR } from '../utils';
 
 import { formatAddressList } from './utils';
 
-interface AllowedAddressPair {
-  ip_address: string;
-  mac_address: string;
-}
-
 interface OwnProps {
   resolve: {
     port: {
-      allowed_address_pairs: AllowedAddressPair[];
+      allowed_address_pairs: OpenStackAllowedAddressPairRequest[];
     };
     instance: {
       url: string;
@@ -36,7 +34,7 @@ interface OwnProps {
 }
 
 interface FormData {
-  pairs: AllowedAddressPair[];
+  pairs: OpenStackAllowedAddressPairRequest[];
 }
 
 const ValidatedInputField = renderValidationWrapper(InputField);

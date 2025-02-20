@@ -1,5 +1,5 @@
 import { ENV } from '@waldur/configs/default';
-import { deleteById, getFirst, post, sendForm } from '@waldur/core/api';
+import { getFirst, sendForm } from '@waldur/core/api';
 import { Customer } from '@waldur/workspace/types';
 
 export const getPendingReview = (customerId: string) =>
@@ -7,15 +7,6 @@ export const getPendingReview = (customerId: string) =>
     customer_uuid: customerId,
     is_pending: true,
   });
-
-export const createAccessSubnet = (data) =>
-  sendForm('POST', `${ENV.apiEndpoint}api/access-subnets/`, data);
-
-export const removeAccessSubnet = (uuid) =>
-  deleteById('/access-subnets/', uuid);
-
-export const updateAccessSubnet = (uuid, data) =>
-  sendForm('PATCH', `${ENV.apiEndpoint}api/access-subnets/${uuid}/`, data);
 
 export const updateCustomer = (
   customerUuid: string,
@@ -35,14 +26,3 @@ export const updateCustomer = (
     data,
   );
 };
-
-export const updateCustomerOrganizationGroups = (
-  customerUuid: string,
-  organizationGroups: string[],
-) =>
-  post(
-    `${ENV.apiEndpoint}api/customers/${customerUuid}/update_organization_groups/`,
-    {
-      organization_groups: organizationGroups,
-    },
-  );

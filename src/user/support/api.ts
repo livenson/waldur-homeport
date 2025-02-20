@@ -1,5 +1,5 @@
 import { ENV } from '@waldur/configs/default';
-import { deleteById, getById, patch, post, sendForm } from '@waldur/core/api';
+import { getById, post, sendForm } from '@waldur/core/api';
 import { UserDetails } from '@waldur/workspace/types';
 
 export const getUser = (userUuid) => getById<UserDetails>('/users/', userUuid);
@@ -20,13 +20,4 @@ export const updateUser = (userUuid: string, values: Record<string, any>) => {
   );
 };
 
-export const activateUser = (userUuid) =>
-  patch(`/users/${userUuid}/`, { is_active: true });
-
-export const deactivateUser = (userUuid) =>
-  patch(`/users/${userUuid}/`, { is_active: false });
-
 export const addRemoteUser = (cuid) => post('/remote-eduteams/', { cuid });
-
-export const deleteUser = (userUuid) =>
-  deleteById<UserDetails>('/users/', userUuid);

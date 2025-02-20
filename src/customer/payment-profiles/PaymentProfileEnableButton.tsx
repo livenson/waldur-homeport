@@ -1,11 +1,11 @@
 import { Play } from '@phosphor-icons/react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import * as api from '@waldur/customer/payment-profiles/api';
+import { paymentProfilesEnable } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { getCustomer as getCustomerApi } from '@waldur/project/api';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
-import { showSuccess, showErrorResponse } from '@waldur/store/notify';
+import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { setCurrentCustomer } from '@waldur/workspace/actions';
 import { getCustomer } from '@waldur/workspace/selectors';
 
@@ -14,7 +14,7 @@ export const PaymentProfileEnableButton = (props) => {
   const customer = useSelector(getCustomer);
   const callback = async () => {
     try {
-      await api.enablePaymentProfile(props.row.uuid);
+      await paymentProfilesEnable({ path: { uuid: props.row.uuid } });
       dispatch(showSuccess(translate('Payment profile has been enabled.')));
       await props.refetch();
       const updatedCustomer = await getCustomerApi(customer.uuid);

@@ -1,4 +1,3 @@
-import { AxiosResponse } from 'axios';
 import { ReactElement, ReactNode } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -10,7 +9,7 @@ import { ActionValidator } from './types';
 import { useValidators } from './useValidators';
 
 interface AsyncActionButtonProps<T> {
-  apiMethod(id: string): Promise<AxiosResponse>;
+  apiMethod(id: string): Promise<any>;
   resource: T;
   validators?: ActionValidator<T>[];
   title: string;

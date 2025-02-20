@@ -2,13 +2,16 @@ import { PencilSimple } from '@phosphor-icons/react';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
+import {
+  marketplaceCustomerEstimatedCostPoliciesUpdate,
+  marketplaceProjectEstimatedCostPoliciesUpdate,
+} from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog, openModalDialog } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { Customer, Project } from '@waldur/workspace/types';
 
-import { updateOrganizationCostPolicy, updateProjectCostPolicy } from './api';
 import { CostPolicyFormData, CostPolicyType, PolicyPeriod } from './types';
 import { getCostPolicyActionOptions } from './utils';
 
@@ -48,9 +51,15 @@ const submit = (
       options,
     };
     if (type === 'project') {
-      return updateProjectCostPolicy(uuid, data);
+      return marketplaceProjectEstimatedCostPoliciesUpdate({
+        path: { uuid },
+        body: data,
+      });
     }
-    return updateOrganizationCostPolicy(uuid, data);
+    return marketplaceCustomerEstimatedCostPoliciesUpdate({
+      path: { uuid },
+      body: data,
+    });
   });
   return Promise.all(promises);
 };

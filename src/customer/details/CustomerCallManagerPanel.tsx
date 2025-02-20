@@ -4,17 +4,17 @@ import { Card } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useAsyncFn } from 'react-use';
 
+import {
+  callManagingOrganisationsCreate,
+  callManagingOrganisationsDestroy,
+} from '@waldur/api';
 import { AwesomeCheckbox } from '@waldur/core/AwesomeCheckbox';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { getCustomer as getCustomerApi } from '@waldur/project/api';
-import {
-  disableCallManagingOrganization,
-  enableCallManagingOrganization,
-  getCallManagingOrganization,
-} from '@waldur/proposals/api';
+import { getCallManagingOrganization } from '@waldur/proposals/api';
 import { showErrorResponse } from '@waldur/store/notify';
 import { setCurrentCustomer } from '@waldur/workspace/actions';
 import { getCustomer } from '@waldur/workspace/selectors';
@@ -53,13 +53,14 @@ export const CustomerCallManagerPanel: FunctionComponent = () => {
         return;
       }
       if (value) {
-        const payload = {
-          customer: customer.url,
-          description: '',
-          image: null,
-        };
         try {
-          const result = await enableCallManagingOrganization(payload);
+          const result = await callManagingOrganisationsCreate({
+            body: {
+              customer: customer.url,
+              description: '',
+              image: null,
+            },
+          }).then((response) => response.data);
           const newCustomer = await getCustomerApi(customer.uuid);
           dispatch(setCurrentCustomer(newCustomer));
           setInfoUuid(result.uuid);
@@ -73,7 +74,9 @@ export const CustomerCallManagerPanel: FunctionComponent = () => {
       } else {
         if (!infoUuid) return null;
         try {
-          const result = await disableCallManagingOrganization(infoUuid);
+          const result = await callManagingOrganisationsDestroy({
+            path: { uuid: infoUuid },
+          });
           const newCustomer = await getCustomerApi(customer.uuid);
           dispatch(setCurrentCustomer(newCustomer));
           return result;

@@ -3,9 +3,9 @@ import { FunctionComponent, useMemo } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
+import { customersStatsRetrieve } from '@waldur/api';
 import { COMMON_WIDGET_HEIGHT } from '@waldur/dashboard/constants';
 import { AggregateLimitWidget } from '@waldur/marketplace/aggregate-limits/AggregateLimitWidget';
-import { getCustomerStats } from '@waldur/marketplace/aggregate-limits/api';
 import { ProjectsList } from '@waldur/project/ProjectsList';
 import {
   checkIsServiceManager,
@@ -33,7 +33,7 @@ export const CustomerDashboard: FunctionComponent = () => {
     error: aggregateLimitError,
   } = useQuery(
     ['customer-stats', customer?.uuid],
-    () => getCustomerStats(customer?.uuid),
+    () => customersStatsRetrieve({ path: { uuid: customer?.uuid } }),
     { refetchOnWindowFocus: false, staleTime: 60 * 1000 },
   );
 
@@ -56,7 +56,7 @@ export const CustomerDashboard: FunctionComponent = () => {
               <Col md={6} sm={12} className="mb-5" style={COMMON_WIDGET_HEIGHT}>
                 <AggregateLimitWidget
                   customer={customer}
-                  data={aggregateLimitData}
+                  data={aggregateLimitData?.data}
                   isLoading={isAggregateLimitLoading}
                   error={aggregateLimitError}
                 />

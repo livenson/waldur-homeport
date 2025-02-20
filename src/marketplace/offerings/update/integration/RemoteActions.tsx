@@ -1,6 +1,13 @@
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import {
+  remoteWaldurApiPullOfferingDetails,
+  remoteWaldurApiPullOfferingResources,
+  remoteWaldurApiPullOfferingUsage,
+  remoteWaldurApiPullOfferingUsers,
+  remoteWaldurApiPushProjectData,
+} from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import * as api from '@waldur/marketplace/common/api';
 import { REMOTE_OFFERING_TYPE } from '@waldur/marketplace-remote/constants';
@@ -19,7 +26,7 @@ const usePullRemoteOfferingDetails = () => {
   return useCallback(
     async (uuid: string) => {
       try {
-        await api.pullRemoteOfferingDetails(uuid);
+        await remoteWaldurApiPullOfferingDetails({ path: { uuid } });
         dispatch(
           showSuccess(
             translate('Offering details synchronization has been scheduled.'),
@@ -43,7 +50,7 @@ const usePullRemoteOfferingUsers = () => {
   return useCallback(
     async (uuid: string) => {
       try {
-        await api.pullRemoteOfferingUsers(uuid);
+        await remoteWaldurApiPullOfferingUsers({ path: { uuid } });
         dispatch(
           showSuccess(
             translate('Offering users synchronization has been scheduled.'),
@@ -67,7 +74,7 @@ const usePushRemoteOfferingProjectData = () => {
   return useCallback(
     async (uuid: string) => {
       try {
-        await api.pushRemoteOfferingProjectData(uuid);
+        await remoteWaldurApiPushProjectData({ path: { uuid } });
         dispatch(
           showSuccess(
             translate(
@@ -93,7 +100,7 @@ const usePullRemoteOfferingUsage = () => {
   return useCallback(
     async (uuid: string) => {
       try {
-        await api.pullRemoteOfferingUsage(uuid);
+        await remoteWaldurApiPullOfferingUsage({ path: { uuid } });
         dispatch(
           showSuccess(
             translate('Offering usage synchronization has been scheduled.'),
@@ -117,7 +124,7 @@ const usePullRemoteOfferingResources = () => {
   return useCallback(
     async (uuid: string) => {
       try {
-        await api.pullRemoteOfferingResources(uuid);
+        await remoteWaldurApiPullOfferingResources({ path: { uuid } });
         dispatch(
           showSuccess(
             translate('Offering resources synchronization has been scheduled.'),
