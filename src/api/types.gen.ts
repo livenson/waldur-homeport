@@ -2565,6 +2565,12 @@ export type Invoice = {
     reference_number?: string;
 };
 
+export type InvoiceCost = {
+    readonly price: number;
+    readonly year: number;
+    readonly month: number;
+};
+
 export type InvoiceGrowth = {
     readonly periods: Array<string>;
     readonly total_periods: Array<number>;
@@ -5988,6 +5994,8 @@ export type PaginatedIdentityProviderList = Array<IdentityProvider>;
 export type PaginatedIntegrationStatusDetailsList = Array<IntegrationStatusDetails>;
 
 export type PaginatedInvitationList = Array<Invitation>;
+
+export type PaginatedInvoiceCostList = Array<InvoiceCost>;
 
 export type PaginatedInvoiceItemDetailList = Array<InvoiceItemDetail>;
 
@@ -9834,8 +9842,8 @@ export type ServiceProviderRequest = {
 
 export type ServiceProviderRevenues = {
     readonly total: number;
-    readonly year: string;
-    readonly month: string;
+    readonly year: number;
+    readonly month: number;
 };
 
 export type ServiceProviderSignature = {
@@ -10679,7 +10687,7 @@ export type WebHookRequest = {
     content_type?: ContentTypeEnum;
 };
 
-export type WebhookEventEnum = 'comment_updated' | 'comment_created' | 'comment_deleted' | 'jira:issue_updated' | 'jira:issue_deleted';
+export type WebhookEventEnum = 'comment_deleted' | 'jira:issue_deleted' | 'comment_updated' | 'jira:issue_updated' | 'comment_created';
 
 export type ApiAuthBccUserDetailsRetrieveData = {
     body?: never;
@@ -12946,7 +12954,7 @@ export type BookingResourcesUpdateResponses = {
 export type BookingResourcesUpdateResponse = BookingResourcesUpdateResponses[keyof BookingResourcesUpdateResponses];
 
 export type BookingResourcesAcceptData = {
-    body: BookingResourceRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -12955,13 +12963,14 @@ export type BookingResourcesAcceptData = {
 };
 
 export type BookingResourcesAcceptResponses = {
-    200: BookingResource;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type BookingResourcesAcceptResponse = BookingResourcesAcceptResponses[keyof BookingResourcesAcceptResponses];
-
 export type BookingResourcesRejectData = {
-    body: BookingResourceRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -12970,10 +12979,11 @@ export type BookingResourcesRejectData = {
 };
 
 export type BookingResourcesRejectResponses = {
-    200: BookingResource;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type BookingResourcesRejectResponse = BookingResourcesRejectResponses[keyof BookingResourcesRejectResponses];
 
 export type BroadcastMessageTemplatesListData = {
     body?: never;
@@ -15859,18 +15869,27 @@ export type InvoiceItemsMigrateToResponses = {
 
 export type InvoiceItemsMigrateToResponse = InvoiceItemsMigrateToResponses[keyof InvoiceItemsMigrateToResponses];
 
-export type InvoiceItemsCostsRetrieveData = {
+export type InvoiceItemsCostsListData = {
     body?: never;
     path?: never;
-    query?: never;
+    query?: {
+        credit_uuid?: string;
+        customer_uuid?: string;
+        month?: number;
+        page?: number;
+        page_size?: number;
+        project_uuid?: string;
+        resource_uuid?: string;
+        year?: number;
+    };
     url: '/api/invoice-items/costs/';
 };
 
-export type InvoiceItemsCostsRetrieveResponses = {
-    200: InvoiceItemDetail;
+export type InvoiceItemsCostsListResponses = {
+    200: PaginatedInvoiceCostList;
 };
 
-export type InvoiceItemsCostsRetrieveResponse = InvoiceItemsCostsRetrieveResponses[keyof InvoiceItemsCostsRetrieveResponses];
+export type InvoiceItemsCostsListResponse = InvoiceItemsCostsListResponses[keyof InvoiceItemsCostsListResponses];
 
 export type InvoiceItemsCustomerCostsForPeriodRetrieveData = {
     body?: never;
