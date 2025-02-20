@@ -3,6 +3,7 @@ import { useAsync } from 'react-use';
 import { reduxForm } from 'redux-form';
 
 import {
+  OpenStackCreateServerGroupRequest,
   openstackTenantsCreateSecurityGroup,
   openstackTenantsCreateServerGroup,
 } from '@waldur/api';
@@ -13,7 +14,6 @@ import {
   loadSecurityGroupsResources,
   loadServerGroupsResources,
   CreateSecurityGroupRequestBody,
-  CreateServerGroupRequestBody,
 } from '@waldur/openstack/api';
 import { ActionContext } from '@waldur/resource/actions/types';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
@@ -86,8 +86,6 @@ export const connectForm = reduxForm<CreateSecurityGroupRequestBody, OwnProps>({
 });
 
 /////////////////////////////
-type CreateServerGroupFormData = CreateServerGroupRequestBody;
-
 export const useCreateServerGroupForm = (resource: OpenStackTenant) => {
   const asyncState = useAsync(
     () =>
@@ -99,7 +97,7 @@ export const useCreateServerGroupForm = (resource: OpenStackTenant) => {
     [resource.url],
   );
   const dispatch = useDispatch();
-  const submitRequest = async (formData: CreateServerGroupFormData) => {
+  const submitRequest = async (formData: OpenStackCreateServerGroupRequest) => {
     try {
       await openstackTenantsCreateServerGroup({
         path: { uuid: resource.uuid },
@@ -126,7 +124,7 @@ const SERVER_GROUP_FORM_NAME = 'CreateServerGroupForm';
 type ServerGroupOwnProps = ReturnType<typeof useCreateServerGroupForm>;
 
 export const connectServerGroupForm = reduxForm<
-  CreateServerGroupFormData,
+  OpenStackCreateServerGroupRequest,
   ServerGroupOwnProps
 >({
   form: SERVER_GROUP_FORM_NAME,

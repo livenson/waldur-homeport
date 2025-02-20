@@ -1,7 +1,7 @@
 import { Play } from '@phosphor-icons/react';
 
+import { openstackInstancesStart } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import { startInstance } from '@waldur/openstack/api';
 import { OpenStackInstance } from '@waldur/openstack/openstack-instance/types';
 import {
   AsyncActionItem,
@@ -29,7 +29,7 @@ export const getProps = () =>
   ({
     title: translate('Start'),
     validators,
-    apiMethod: startInstance,
+    apiMethod: (uuid) => openstackInstancesStart({ path: { uuid } }),
     important: true,
   }) as AsyncActionItemProps<OpenStackInstance>;
 

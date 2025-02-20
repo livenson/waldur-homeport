@@ -2,12 +2,15 @@ import { useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
 import { formValueSelector, reduxForm } from 'redux-form';
 
+import {
+  DirectionEnum,
+  EthertypeEnum,
+  openstackSecurityGroupsSetRules,
+  ProtocolEnum,
+} from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
-import {
-  loadSecurityGroupsResources,
-  setSecurityGroupRules,
-} from '@waldur/openstack/api';
+import { loadSecurityGroupsResources } from '@waldur/openstack/api';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { type RootState } from '@waldur/store/reducers';
 
@@ -52,15 +55,19 @@ export const useRulesEditor = (resource: SecurityGroup) => {
   const dispatch = useDispatch();
   const submitRequest = async (formData: FormData) => {
     try {
-      await setSecurityGroupRules(
-        resource.uuid,
-        formData.rules.map(({ protocol, port_range, ...rest }) => ({
-          ...rest,
-          protocol: protocol === 'any' ? '' : protocol,
-          from_port: port_range.min,
-          to_port: port_range.max,
-        })),
-      );
+      await openstackSecurityGroupsSetRules({
+        path: { uuid: resource.uuid },
+        body: formData.rules.map(
+          ({ protocol, port_range, ethertype, direction, ...rest }) => ({
+            ...rest,
+            ethertype: ethertype as EthertypeEnum,
+            direction: direction as DirectionEnum,
+            protocol: (protocol === 'any' ? '' : protocol) as ProtocolEnum,
+            from_port: port_range.min,
+            to_port: port_range.max,
+          }),
+        ),
+      });
       dispatch(
         showSuccess(
           translate('Security group rules update has been scheduled.'),

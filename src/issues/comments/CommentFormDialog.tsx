@@ -3,7 +3,11 @@ import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { InjectedFormProps, reduxForm } from 'redux-form';
 
-import { supportCommentsUpdate, supportIssuesComment } from '@waldur/api';
+import {
+  Issue,
+  supportCommentsUpdate,
+  supportIssuesComment,
+} from '@waldur/api';
 import { required } from '@waldur/core/validators';
 import { FormContainer, SubmitButton, TextField } from '@waldur/form';
 import { translate } from '@waldur/i18n';
@@ -11,8 +15,6 @@ import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
 import { showErrorResponse } from '@waldur/store/notify';
-
-import { Issue } from '../list/types';
 
 import * as actions from './actions';
 import * as constants from './constants';

@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { openstackVolumesAttach } from '@waldur/api';
 import { getAll } from '@waldur/core/api';
 import { formatFilesize } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
-import { attachVolume } from '@waldur/openstack/api';
 import { ResourceActionDialog } from '@waldur/resource/actions/ResourceActionDialog';
 import { ActionDialogProps } from '@waldur/resource/actions/types';
 import { Volume } from '@waldur/resource/types';
@@ -46,7 +46,10 @@ export const AttachVolumeDialog: FC<ActionDialogProps> = ({
       ]}
       submitForm={async (formData) => {
         try {
-          await attachVolume(formData.volume.uuid, resource.url);
+          await openstackVolumesAttach({
+            path: { uuid: formData.volume.uuid },
+            body: { instance: resource.url },
+          });
           dispatch(showSuccess(translate('Attach has been scheduled.')));
           dispatch(closeModalDialog());
           if (refetch) {

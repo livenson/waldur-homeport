@@ -49,17 +49,6 @@ export interface CreateSecurityGroupRequestBody {
   rules: CreateSecurityGroupRuleRequestBody[];
 }
 
-export interface CreateServerGroupRequestBody {
-  name: string;
-  policy: string;
-}
-
-interface UpdateSecurityGroupsRequestBody {
-  security_groups: {
-    url: string;
-  }[];
-}
-
 export interface DestroyInstanceParams {
   delete_volumes?: boolean;
   release_floating_ips?: boolean;
@@ -95,15 +84,6 @@ export const pullSnapshot = (id: string) =>
 export const pullInstance = (id: string) =>
   post(`/openstack-instances/${id}/pull/`);
 
-export const startInstance = (id: string) =>
-  post(`/openstack-instances/${id}/start/`);
-
-export const stopInstance = (id: string) =>
-  post(`/openstack-instances/${id}/stop/`);
-
-export const restartInstance = (id: string) =>
-  post(`/openstack-instances/${id}/restart/`);
-
 export const loadFlavors = (params) =>
   getAll<Flavor>('/openstack-flavors/', { params });
 
@@ -124,9 +104,6 @@ export const loadServerGroupsResources = (params?) =>
 export const updateSecurityGroup = (id: string, data) =>
   put(`/openstack-security-groups/${id}/`, data);
 
-export const setSecurityGroupRules = (id: string, data) =>
-  post(`/openstack-security-groups/${id}/set_rules/`, data);
-
 export const loadVolumeTypes = (params) =>
   getAll<VolumeType>('/openstack-volume-types/', {
     params,
@@ -139,11 +116,6 @@ export const loadFloatingIps = (params) =>
   getAll<FloatingIp>('/openstack-floating-ips/', {
     params,
   });
-
-export const updateSecurityGroups = (
-  id: string,
-  data: UpdateSecurityGroupsRequestBody,
-) => post(`/openstack-instances/${id}/update_security_groups/`, data);
 
 export const getInstances = (params) =>
   getAll<OpenStackInstance>('/openstack-instances/', {
@@ -167,12 +139,6 @@ export const updateNetwork = (id: string, data) =>
 
 export const updateSubnet = (id: string, data) =>
   put(`/openstack-subnets/${id}/`, data);
-
-export const createSubnet = (id: string, data) =>
-  post(`/openstack-networks/${id}/create_subnet/`, data);
-
-export const setNetworkMtu = (id, mtu) =>
-  post(`/openstack-networks/${id}/set_mtu/`, { mtu });
 
 export const updateInstance = (id: string, data) =>
   put(`/openstack-instances/${id}/`, data);
@@ -208,21 +174,10 @@ export const updateBackup = (id: string, data) =>
 export const createBackup = (id: string, data) =>
   post(`/openstack-instances/${id}/backup/`, data);
 
-export const createSnapshot = (id: string, data) =>
-  post(`/openstack-volumes/${id}/snapshot/`, data);
-
 export const pullVolume = (id: string) =>
   post(`/openstack-volumes/${id}/pull/`);
 
 export const detachVolume = (id: string) =>
   post(`/openstack-volumes/${id}/detach/`);
-
-export const attachVolume = (volumeId, instanceUrl) =>
-  post(`/openstack-volumes/${volumeId}/attach/`, {
-    instance: instanceUrl,
-  });
-
-export const createMigration = (payload) =>
-  post(`/openstack-migrations/`, payload);
 
 export const runMigration = (id) => post(`/openstack-migrations/${id}/run/`);

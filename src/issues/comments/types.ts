@@ -1,4 +1,4 @@
-import { Issue } from '../list/types';
+import { Issue } from '@waldur/api';
 
 export interface Comment {
   author_name: string;

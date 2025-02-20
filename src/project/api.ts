@@ -2,7 +2,7 @@ import { invoiceItemsCostsList } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { get, getById, sendForm } from '@waldur/core/api';
 import { formatDate } from '@waldur/core/dateUtils';
-import { Customer, Project } from '@waldur/workspace/types';
+import { Customer } from '@waldur/workspace/types';
 
 export interface ProjectInput {
   name: string;
@@ -15,9 +15,6 @@ export interface ProjectInput {
   is_industry: boolean;
   image?: File | string;
 }
-
-export const getProject = (projectId: string) =>
-  getById<Project>('/projects/', projectId);
 
 export const getCustomer = (customerId: string) =>
   getById<Customer>('/customers/', customerId);

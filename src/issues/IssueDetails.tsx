@@ -4,8 +4,8 @@ import { Card, Col, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { useAsync } from 'react-use';
 
+import { supportIssuesRetrieve } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
-import { getById } from '@waldur/core/api';
 import { formatDateTime, formatRelative } from '@waldur/core/dateUtils';
 import { ExternalLink } from '@waldur/core/ExternalLink';
 import { FormattedHtml } from '@waldur/core/FormattedHtml';
@@ -26,12 +26,10 @@ import { IssueInfoButton } from './IssueInfo';
 import { IssueStatus } from './IssueStatus';
 import { useIssueBreadcrumbItems } from './utils';
 
-const loadIssue = (id) => getById<any>('/support-issues/', id);
-
 const loadDependencies = async (issueId: string) => {
   const [issue, issueAttachmentsSaga, issueCommentsSaga, reducer] =
     await Promise.all([
-      loadIssue(issueId),
+      supportIssuesRetrieve({ path: { uuid: issueId } }),
       import('@waldur/issues/attachments/effects').then(
         (module) => module.default,
       ),
@@ -43,7 +41,7 @@ const loadDependencies = async (issueId: string) => {
   injectSaga('issueAttachmentsSaga', issueAttachmentsSaga);
   injectSaga('issueCommentsSaga', issueCommentsSaga);
   injectReducer('issues', reducer);
-  return issue;
+  return issue.data;
 };
 
 export const IssueDetails: FunctionComponent = () => {

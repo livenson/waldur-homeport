@@ -1,4 +1,4 @@
-import { Issue } from '../list/types';
+import { Issue } from '@waldur/api';
 
 import * as constants from './constants';
 import { Comment } from './types';
