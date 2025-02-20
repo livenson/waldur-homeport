@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SubmissionError } from 'redux-form';
 
+import { marketplaceServiceProvidersPartialUpdate } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { FieldEditButton } from '@waldur/customer/details/FieldEditButton';
 import FormTable from '@waldur/form/FormTable';
@@ -93,10 +94,10 @@ export const ServiceProviderManagement: FC<OwnProps> = ({
 
   const update = async (formData) => {
     try {
-      const res = await api.updateServiceProvider(
-        serviceProvider.uuid,
-        formData,
-      );
+      const res = await marketplaceServiceProvidersPartialUpdate({
+        path: { uuid: serviceProvider.uuid },
+        body: formData,
+      });
       setServiceProvider(res.data);
       return res;
     } catch (error) {

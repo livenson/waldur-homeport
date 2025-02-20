@@ -2,12 +2,12 @@ import { PencilSimple } from '@phosphor-icons/react';
 import { Dropdown } from 'react-bootstrap';
 import { SubmissionError } from 'redux-form';
 
+import { customerCreditsUpdate } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { useModal } from '@waldur/modal/hooks';
 import { useNotify } from '@waldur/store/hooks';
 
-import { updateCustomerCredit } from './api';
 import { getCreditInitialValues, serializeCustomerCredit } from './utils';
 
 const CreditFormDialog = lazyComponent(() =>
@@ -23,9 +23,11 @@ export const EditCreditButton = ({ row, refetch }) => {
   const { showErrorResponse, showSuccess } = useNotify();
 
   const callback = async (formData) => {
-    const payload = serializeCustomerCredit(formData);
     try {
-      await updateCustomerCredit(row.uuid, payload);
+      await customerCreditsUpdate({
+        path: { uuid: row.uuid },
+        body: serializeCustomerCredit(formData),
+      });
       showSuccess(translate('Credit has been updated.'));
       closeDialog();
       refetch();

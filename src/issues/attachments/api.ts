@@ -1,15 +1,5 @@
-import Axios from 'axios';
-
 import { ENV } from '@waldur/configs/default';
-import { deleteById, sendForm } from '@waldur/core/api';
-
-export const getAttachments = (issue: string) => {
-  return Axios.get(`${ENV.apiEndpoint}api/support-attachments/`, {
-    params: {
-      issue,
-    },
-  });
-};
+import { sendForm } from '@waldur/core/api';
 
 export const putAttachment = (
   issueUrl: string,
@@ -22,8 +12,4 @@ export const putAttachment = (
     { issue: issueUrl, file },
     onUploadProgress,
   );
-};
-
-export const deleteAttachment = (uuid: string) => {
-  return deleteById('/support-attachments/', uuid);
 };

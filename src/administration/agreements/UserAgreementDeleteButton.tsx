@@ -2,7 +2,7 @@ import { Trash } from '@phosphor-icons/react';
 import { FC, useState } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { remove } from '@waldur/core/api';
+import { userAgreementsDestroy } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
@@ -28,7 +28,7 @@ export const UserAgreementDeleteButton: FC<{ row; refetch }> = ({
     }
     try {
       setRemoving(true);
-      await remove(row.url);
+      await userAgreementsDestroy({ path: { uuid: row.uuid } });
       await refetch();
       dispatch(showSuccess(translate('User agreement has been deleted.')));
     } catch (e) {

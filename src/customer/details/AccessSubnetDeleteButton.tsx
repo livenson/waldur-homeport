@@ -2,12 +2,12 @@ import { Trash } from '@phosphor-icons/react';
 import { useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { accessSubnetsDestroy } from '@waldur/api';
 import { translate, formatJsxTemplate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { RowActionButton } from '@waldur/table/ActionButton';
 
-import { removeAccessSubnet } from './api';
 import { AccessSubnet } from './types';
 
 interface AccessSubnetDeleteButtonProps {
@@ -38,7 +38,7 @@ export const AccessSubnetDeleteButton = (
     }
     setRemoving(true);
     try {
-      await removeAccessSubnet(props.row.uuid);
+      await accessSubnetsDestroy({ path: { uuid: props.row.uuid } });
       props.refetch();
       dispatch(showSuccess(translate('Access subnet has been removed.')));
     } catch (e) {

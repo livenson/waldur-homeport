@@ -1,10 +1,10 @@
 import { PencilSimpleLine } from '@phosphor-icons/react';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { marketplaceResourcesPartialUpdate } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
-import { updateResourceEndDate } from '@waldur/marketplace/common/api';
 import { openModalDialog } from '@waldur/modal/actions';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';
@@ -31,7 +31,11 @@ export const EditResourceEndDateAction: ActionItemType = ({
         resolve: {
           resource,
           refetch,
-          updateEndDate: updateResourceEndDate,
+          updateEndDate: (uuid, end_date) =>
+            marketplaceResourcesPartialUpdate({
+              path: { uuid },
+              body: { end_date },
+            }),
         },
         size: 'md',
       }),

@@ -16,15 +16,6 @@ interface Broadcast extends Message {
   send_at: string;
 }
 
-interface BroadcastTemplate extends Message {
-  uuid?: string;
-  name: string;
-}
-
-export type BroadcastTemplateFormData = BroadcastTemplate;
-
-export type BroadcastTemplateRequestData = BroadcastTemplate;
-
 export interface BroadcastFormData extends Broadcast {
   customers: IdNamePair[];
   offerings: IdNamePair[];

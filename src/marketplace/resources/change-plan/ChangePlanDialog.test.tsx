@@ -2,7 +2,7 @@ import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { switchPlan } from '@waldur/marketplace/common/api';
+import { marketplaceResourcesSwitchPlan } from '@waldur/api';
 import { useModal } from '@waldur/modal/hooks';
 import { usePermission } from '@waldur/permissions/hooks';
 import { useNotify } from '@waldur/store/hooks';
@@ -11,7 +11,7 @@ import { ChangePlanDialog } from './ChangePlanDialog';
 import { loadData } from './utils';
 
 vi.mock('./utils');
-vi.mock('@waldur/marketplace/common/api');
+vi.mock('@waldur/api');
 vi.mock('@waldur/store/hooks');
 vi.mock('@waldur/modal/hooks');
 vi.mock('@waldur/permissions/hooks');
@@ -118,14 +118,19 @@ describe('ChangePlanDialog', () => {
     const submitButton = screen.getByText('Submit');
     await userEvent.click(submitButton);
 
-    expect(switchPlan).toHaveBeenCalledWith('test-uuid', 'plan2-url');
+    expect(marketplaceResourcesSwitchPlan).toHaveBeenCalledWith({
+      path: { uuid: 'test-uuid' },
+      body: { plan: 'plan2-url' },
+    });
     expect(showSuccess).toHaveBeenCalled();
     expect(closeDialog).toHaveBeenCalled();
   });
 
   it('should show error when plan switching fails', async () => {
     vi.mocked(loadData).mockResolvedValue(mockData as any);
-    vi.mocked(switchPlan).mockRejectedValue(new Error('Switch failed'));
+    vi.mocked(marketplaceResourcesSwitchPlan).mockRejectedValue(
+      new Error('Switch failed'),
+    );
     const { showErrorResponse } = useNotify();
 
     renderDialog();

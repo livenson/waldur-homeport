@@ -4,6 +4,7 @@ import { FunctionComponent } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
+import { projectsStatsRetrieve } from '@waldur/api';
 import { Panel } from '@waldur/core/Panel';
 import { getProjectCredit } from '@waldur/customer/credits/api';
 import { CreditStatusWidget } from '@waldur/customer/dashboard/CreditStatusWidget';
@@ -14,7 +15,6 @@ import { MarketplaceFeatures } from '@waldur/FeaturesEnums';
 import { translate } from '@waldur/i18n';
 import { useCreateInvitation } from '@waldur/invitations/actions/useCreateInvitation';
 import { AggregateLimitWidget } from '@waldur/marketplace/aggregate-limits/AggregateLimitWidget';
-import { getProjectStats } from '@waldur/marketplace/aggregate-limits/api';
 import { fetchSelectProjectUsers } from '@waldur/permissions/api';
 import { useUser } from '@waldur/workspace/hooks';
 import { getProject } from '@waldur/workspace/selectors';
@@ -50,7 +50,7 @@ export const ProjectDashboard: FunctionComponent<{}> = () => {
     error: aggregateLimitError,
   } = useQuery(
     ['project-stats', project?.uuid],
-    () => getProjectStats(project?.uuid),
+    () => projectsStatsRetrieve({ path: { uuid: project?.uuid } }),
     { refetchOnWindowFocus: false, staleTime: 60 * 1000 },
   );
 
@@ -107,7 +107,7 @@ export const ProjectDashboard: FunctionComponent<{}> = () => {
           <Col md={6} sm={12} className="mb-5" style={COMMON_WIDGET_HEIGHT}>
             <AggregateLimitWidget
               project={project}
-              data={aggregateLimitData}
+              data={aggregateLimitData?.data}
               isLoading={isAggregateLimitLoading}
               error={aggregateLimitError}
             />

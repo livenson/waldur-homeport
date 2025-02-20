@@ -1,14 +1,12 @@
 import { useRouter } from '@uirouter/react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { projectsDestroy } from '@waldur/api';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';
-import {
-  getCustomer as getCustomerApi,
-  deleteProject,
-} from '@waldur/project/api';
+import { getCustomer as getCustomerApi } from '@waldur/project/api';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import {
   setCurrentCustomer,
@@ -59,7 +57,7 @@ export const useProjectDelete = ({
       return;
     }
     try {
-      await deleteProject(project.uuid);
+      await projectsDestroy({ path: { uuid: project.uuid } });
       if (refetch) {
         await refetch();
       }

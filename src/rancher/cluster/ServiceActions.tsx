@@ -4,12 +4,11 @@ import { ButtonGroup } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useAsyncFn } from 'react-use';
 
+import { rancherServicesDestroy } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import { showSuccess, showErrorResponse } from '@waldur/store/notify';
+import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { ActionButton } from '@waldur/table/ActionButton';
 import { deleteEntity } from '@waldur/table/actions';
-
-import { deleteService } from '../api';
 
 import { ViewYAMLButton } from './ViewYAMLButton';
 
@@ -18,7 +17,7 @@ export const ServiceActions: FunctionComponent<{ service }> = ({ service }) => {
 
   const [deleteResult, deleteCallback] = useAsyncFn(async () => {
     try {
-      await deleteService(service.uuid);
+      await rancherServicesDestroy({ path: { uuid: service.uuid } });
       dispatch(showSuccess('Service has been deleted.'));
       dispatch(deleteEntity('rancher-services', service.uuid));
     } catch (e) {

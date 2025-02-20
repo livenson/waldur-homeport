@@ -1,4 +1,4 @@
-import { getList } from '@waldur/core/api';
+import { invoicesList } from '@waldur/api';
 import { formatCostChart, getTeamSizeChart } from '@waldur/dashboard/api';
 import {
   getLineChartOptions,
@@ -7,17 +7,17 @@ import {
 import { Scope, Chart, InvoiceSummary } from '@waldur/dashboard/types';
 import { getActiveFixedPricePaymentProfile } from '@waldur/invoices/details/utils';
 
-const getInvoiceSummary = (customer: string) =>
-  getList<InvoiceSummary>('/invoices/', {
-    customer,
-    page_size: 12,
-    field: ['year', 'month', 'price'],
-  });
-
 async function getCustomerCostChart(customer: Scope): Promise<Chart> {
   if (!getActiveFixedPricePaymentProfile(customer.payment_profiles)) {
-    const invoices = await getInvoiceSummary(customer.url);
-    const costChart = formatCostChart(invoices);
+    const invoices = await invoicesList({
+      query: {
+        customer: customer.url,
+        page_size: 12,
+        // @ts-ignore
+        field: ['year', 'month', 'price'],
+      },
+    });
+    const costChart = formatCostChart(invoices.data as any as InvoiceSummary[]);
     return costChart;
   }
   return null;

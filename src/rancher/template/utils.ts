@@ -1,9 +1,6 @@
-import {
-  getTemplate,
-  getCluster,
-  getTemplateVersion,
-  getProjects,
-} from '../api';
+import { rancherClustersRetrieve, rancherTemplatesRetrieve } from '@waldur/api';
+
+import { getTemplateVersion, getProjects } from '../api';
 import { Template, Question, QuestionType } from '../types';
 
 import { FormData } from './types';
@@ -79,8 +76,12 @@ export const parseQuestions = (questions: Question[]) => {
 };
 
 export const loadData = async (templateUuid: string, clusterUuid: string) => {
-  const template = await getTemplate(templateUuid);
-  const cluster = await getCluster(clusterUuid);
+  const template = await rancherTemplatesRetrieve({
+    path: { uuid: templateUuid },
+  }).then((response) => response.data);
+  const cluster = await rancherClustersRetrieve({
+    path: { uuid: clusterUuid },
+  }).then((response) => response.data);
   const version = await getTemplateVersion(
     template.uuid,
     template.default_version,

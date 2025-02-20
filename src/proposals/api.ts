@@ -2,7 +2,6 @@ import Axios, { AxiosRequestConfig } from 'axios';
 
 import { ENV } from '@waldur/configs/default';
 import {
-  deleteById,
   fixURL,
   get,
   getAll,
@@ -31,14 +30,6 @@ export const getCallManagingOrganization = (customerUuid) =>
   getFirst<CallManagingOrganization>('/call-managing-organisations/', {
     customer_uuid: customerUuid,
   }).then((data) => (data ? data : null));
-
-export const enableCallManagingOrganization = (payload) =>
-  post<CallManagingOrganization>('/call-managing-organisations/', payload).then(
-    (response) => response.data,
-  );
-
-export const disableCallManagingOrganization = (uuid) =>
-  deleteById('/call-managing-organisations/', uuid);
 
 export const getProtectedCall = (uuid: string, options?: AxiosRequestConfig) =>
   getById<Call>('/proposal-protected-calls/', uuid, options);
@@ -149,9 +140,6 @@ export const updateProposalResource = (data, proposalUuid, uuid) =>
     `/proposal-proposals/${proposalUuid}/resources/${uuid}/`,
     data,
   );
-
-export const removeProposalResource = (proposalUuid, uuid) =>
-  deleteById(`/proposal-proposals/${proposalUuid}/resources/`, uuid);
 
 export const getProposalReview = (reviewUuid) =>
   getById<ProposalReview>('/proposal-reviews/', reviewUuid);

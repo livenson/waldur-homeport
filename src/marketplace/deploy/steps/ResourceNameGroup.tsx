@@ -4,7 +4,7 @@ import { Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { Field } from 'redux-form';
 
-import { post } from '@waldur/core/api';
+import { marketplaceResourcesSuggestName } from '@waldur/api';
 import { Tip } from '@waldur/core/Tooltip';
 import { getNameFieldValidators } from '@waldur/core/validators';
 import { FormGroup, StringField } from '@waldur/form';
@@ -14,9 +14,11 @@ import { orderProjectSelector } from '@waldur/marketplace/details/utils';
 const ResourceNameField = (props) => {
   const project = useSelector(orderProjectSelector);
   const { mutate: suggestName, isLoading } = useMutation(async () => {
-    const response = await post('/marketplace-resources/suggest_name/', {
-      project: project.uuid,
-      offering: props.offering.uuid,
+    const response = await marketplaceResourcesSuggestName({
+      body: {
+        project: project.uuid,
+        offering: props.offering.uuid,
+      },
     });
     props.input.onChange(response.data['name']);
   });

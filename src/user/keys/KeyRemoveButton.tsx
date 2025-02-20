@@ -2,12 +2,11 @@ import { Trash } from '@phosphor-icons/react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { keysDestroy } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { ActionButton } from '@waldur/table/ActionButton';
-
-import { removeKey } from './api';
 
 export const KeyRemoveButton = ({ uuid, refetch }) => {
   const dispatch = useDispatch();
@@ -26,7 +25,7 @@ export const KeyRemoveButton = ({ uuid, refetch }) => {
     }
     try {
       setPending(true);
-      await removeKey(uuid);
+      await keysDestroy({ path: { uuid } });
       await refetch();
       dispatch(showSuccess(translate('SSH key has been removed.')));
     } catch (e) {

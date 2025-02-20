@@ -3,6 +3,7 @@ import { useCallback } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
+import { ComponentsUsageStats } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { WidgetCard } from '@waldur/dashboard/WidgetCard';
@@ -17,7 +18,7 @@ import { getBillingTypeLabel } from '../resources/usage/utils';
 interface AggregateLimitWidgetProps {
   project?: Project;
   customer?: Customer;
-  data: any;
+  data: ComponentsUsageStats;
   isLoading: boolean;
   error: any;
 }
@@ -61,7 +62,7 @@ export const AggregateLimitWidget = ({
             [isProject ? 'project' : 'customer']: isProject
               ? project
               : customer,
-            components: data?.data.components,
+            components: data?.components,
           },
           size: 'lg',
         }),
@@ -81,7 +82,7 @@ export const AggregateLimitWidget = ({
     );
   }
 
-  const components = data.data.components;
+  const components = data.components;
 
   return components?.length ? (
     <WidgetCard

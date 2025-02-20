@@ -33,7 +33,11 @@ export const format = (error, parseResponse?) => {
   }
 
   if (!Object.prototype.hasOwnProperty.call(error, 'status')) {
-    return error;
+    if (typeof error === 'object') {
+      return formatErrorObject(error);
+    } else {
+      return error;
+    }
   }
 
   if (error.response && error.response.status === 413) {

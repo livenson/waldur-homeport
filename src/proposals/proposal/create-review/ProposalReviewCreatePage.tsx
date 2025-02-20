@@ -117,20 +117,19 @@ export const ProposalReviewCreatePage = (props) => {
           resolve: {
             title: label,
             value: reviewObject[commentField],
-            onSubmit: (formData) => {
-              return updateProposalReview(
-                { [commentField]: formData.comment },
-                data.review.uuid,
-              )
-                .then((res) => {
-                  setReviewObject(res.data);
-                  dispatch(closeModalDialog());
-                })
-                .catch((error) => {
-                  dispatch(
-                    showErrorResponse(error, translate('Something went wrong')),
-                  );
-                });
+            onSubmit: async (formData) => {
+              try {
+                const res = await updateProposalReview(
+                  { [commentField]: formData.comment },
+                  data.review.uuid,
+                );
+                setReviewObject(res.data);
+                dispatch(closeModalDialog());
+              } catch (error) {
+                dispatch(
+                  showErrorResponse(error, translate('Something went wrong')),
+                );
+              }
             },
           },
           size: 'md',

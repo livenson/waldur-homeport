@@ -2,12 +2,11 @@ import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
+import { accessSubnetsCreate } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
-
-import { createAccessSubnet } from './api';
 
 export const AccessSubnetCreateForm = ({ refetch, customer_url }) => {
   const dispatch = useDispatch();
@@ -27,7 +26,7 @@ export const AccessSubnetCreateForm = ({ refetch, customer_url }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await createAccessSubnet(formData);
+      await accessSubnetsCreate({ body: formData });
       dispatch(showSuccess(translate('Access subnet has been created.')));
       refetch();
       dispatch(closeModalDialog());

@@ -1,5 +1,5 @@
+import { rancherNodesDestroy } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
-import { destroyNode } from '@waldur/rancher/api';
 import { validateState } from '@waldur/resource/actions/base';
 import { DestroyActionItem } from '@waldur/resource/actions/DestroyActionItem';
 import { ActionItemType } from '@waldur/resource/actions/types';
@@ -11,7 +11,7 @@ export const DestroyAction: ActionItemType = ({ resource, refetch }) =>
     <DestroyActionItem
       validators={validators}
       resource={resource}
-      apiMethod={destroyNode}
+      apiMethod={(id) => rancherNodesDestroy({ path: { uuid: id } })}
       refetch={refetch}
     />
   ) : null;

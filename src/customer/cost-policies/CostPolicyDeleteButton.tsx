@@ -1,11 +1,14 @@
 import { Trash } from '@phosphor-icons/react';
 import { useDispatch } from 'react-redux';
 
+import {
+  marketplaceCustomerEstimatedCostPoliciesDestroy,
+  marketplaceProjectEstimatedCostPoliciesDestroy,
+} from '@waldur/api';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 
-import { deleteOrganizationCostPolicy, deleteProjectCostPolicy } from './api';
 import { CostPolicyType } from './types';
 
 export const CostPolicyDeleteButton = ({
@@ -40,13 +43,15 @@ export const CostPolicyDeleteButton = ({
       return;
     }
     if (type === 'project') {
-      deleteProjectCostPolicy(row.uuid).then(() => {
-        refetch();
+      await marketplaceProjectEstimatedCostPoliciesDestroy({
+        path: { uuid: row.uuid },
       });
+      refetch();
     } else {
-      deleteOrganizationCostPolicy(row.uuid).then(() => {
-        refetch();
+      await marketplaceCustomerEstimatedCostPoliciesDestroy({
+        path: { uuid: row.uuid },
       });
+      refetch();
     }
   };
   return (

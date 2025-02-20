@@ -2,6 +2,7 @@ import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
+import { openstackBackupsRestore } from '@waldur/api';
 import { useModal } from '@waldur/modal/hooks';
 import * as api from '@waldur/openstack/api';
 import { Flavor, Subnet } from '@waldur/openstack/openstack-instance/types';
@@ -71,6 +72,7 @@ const fakeFlavors = [
   },
 ] as unknown as Flavor[];
 
+vi.mock('@waldur/api');
 vi.mock('@waldur/openstack/api');
 vi.mock('@waldur/modal/hooks');
 
@@ -222,7 +224,7 @@ describe('BackupRestoreDialog', () => {
 
   it('shows success notification with correct message on successful submit', async () => {
     apiMock.loadFlavors.mockResolvedValue(fakeFlavors);
-    apiMock.restoreBackup.mockResolvedValue(null);
+    vi.mocked(openstackBackupsRestore).mockResolvedValue(null);
     await renderDialog();
 
     // Select flavor and submit
@@ -238,7 +240,7 @@ describe('BackupRestoreDialog', () => {
   it('shows error notification with correct message on failed submit', async () => {
     const error = new Error('API Error');
     apiMock.loadFlavors.mockResolvedValue(fakeFlavors);
-    apiMock.restoreBackup.mockRejectedValue(error);
+    vi.mocked(openstackBackupsRestore).mockRejectedValue(error);
     await renderDialog();
 
     // Select flavor and submit
@@ -254,7 +256,7 @@ describe('BackupRestoreDialog', () => {
 
   it('submits form with correct data', async () => {
     apiMock.loadFlavors.mockResolvedValue(fakeFlavors);
-    apiMock.restoreBackup.mockResolvedValue(null);
+    vi.mocked(openstackBackupsRestore).mockResolvedValue(null);
     await renderDialog();
 
     // Select flavor
@@ -266,17 +268,20 @@ describe('BackupRestoreDialog', () => {
     const submitButton = screen.getByRole('button', { name: /Submit/i });
     await userEvent.click(submitButton);
 
-    expect(apiMock.restoreBackup).toHaveBeenCalledWith(fakeBackup.uuid, {
-      flavor: fakeFlavors[0].url,
-      floating_ips: [],
-      ports: [
-        {
-          subnet: fakeSubnet.url,
-        },
-      ],
-      security_groups: fakeBackup.instance_security_groups.map((group) => ({
-        url: group.url,
-      })),
+    expect(vi.mocked(openstackBackupsRestore)).toHaveBeenCalledWith({
+      path: { uuid: fakeBackup.uuid },
+      body: {
+        flavor: fakeFlavors[0].url,
+        floating_ips: [],
+        ports: [
+          {
+            subnet: fakeSubnet.url,
+          },
+        ],
+        security_groups: fakeBackup.instance_security_groups.map((group) => ({
+          url: group.url,
+        })),
+      },
     });
   });
 
@@ -309,7 +314,7 @@ describe('BackupRestoreDialog', () => {
     apiMock.loadFloatingIps.mockResolvedValue([
       { address: '1.1.1.1', url: 'floating_ip_url' },
     ] as any);
-    apiMock.restoreBackup.mockResolvedValue(null);
+    vi.mocked(openstackBackupsRestore).mockResolvedValue(null);
 
     const { container } = await renderDialog();
 
@@ -326,9 +331,9 @@ describe('BackupRestoreDialog', () => {
     // Submit form
     await userEvent.click(screen.getByRole('button', { name: /Submit/i }));
 
-    expect(apiMock.restoreBackup).toHaveBeenCalledWith(
-      fakeBackup.uuid,
-      expect.objectContaining({
+    expect(vi.mocked(openstackBackupsRestore)).toHaveBeenCalledWith({
+      path: { uuid: fakeBackup.uuid },
+      body: expect.objectContaining({
         floating_ips: [
           {
             subnet: fakeSubnet.url,
@@ -336,13 +341,13 @@ describe('BackupRestoreDialog', () => {
           },
         ],
       }),
-    );
+    });
   });
 
   it('handles refetch callback after successful submit', async () => {
     const refetch = vi.fn();
     apiMock.loadFlavors.mockResolvedValue(fakeFlavors);
-    apiMock.restoreBackup.mockResolvedValue(null);
+    vi.mocked(openstackBackupsRestore).mockResolvedValue(null);
 
     render(<BackupRestoreDialog resolve={{ resource: fakeBackup, refetch }} />);
 

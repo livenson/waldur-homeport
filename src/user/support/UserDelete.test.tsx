@@ -4,10 +4,10 @@ import { useRouter } from '@uirouter/react';
 import { useDispatch } from 'react-redux';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
+import { usersDestroy } from '@waldur/api';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { useNotify } from '@waldur/store/hooks';
 
-import { deleteUser } from './api';
 import { UserDelete } from './UserDelete';
 
 vi.mock('react-redux');
@@ -20,7 +20,7 @@ vi.mock('@waldur/navigation/useTabs', () => ({
   isDescendantOf: vi.fn(),
 }));
 vi.mock('@waldur/store/hooks');
-vi.mock('./api');
+vi.mock('@waldur/api');
 
 describe('UserDelete', () => {
   let user;
@@ -62,14 +62,16 @@ describe('UserDelete', () => {
 
   it('handles user deletion successfully', async () => {
     vi.mocked(waitForConfirmation).mockResolvedValueOnce(null);
-    vi.mocked(deleteUser).mockResolvedValueOnce(null);
+    vi.mocked(usersDestroy).mockResolvedValueOnce(null);
 
     render(<UserDelete user={user} />);
     fireEvent.click(screen.getByRole('button', { name: 'Delete' }));
 
     await waitFor(() => {
       expect(waitForConfirmation).toHaveBeenCalled();
-      expect(deleteUser).toHaveBeenCalledWith('test-uuid');
+      expect(usersDestroy).toHaveBeenCalledWith({
+        path: { uuid: 'test-uuid' },
+      });
       expect(queryClient.setQueryData).toHaveBeenCalledWith(
         ['UserDetails', 'test-uuid'],
         undefined,
@@ -94,14 +96,16 @@ describe('UserDelete', () => {
 
   it('handles user deletion failure', async () => {
     vi.mocked(waitForConfirmation).mockResolvedValueOnce(null);
-    vi.mocked(deleteUser).mockRejectedValueOnce(new Error('Test error'));
+    vi.mocked(usersDestroy).mockRejectedValueOnce(new Error('Test error'));
 
     render(<UserDelete user={user} />);
     fireEvent.click(screen.getByRole('button', { name: 'Delete' }));
 
     await waitFor(() => {
       expect(waitForConfirmation).toHaveBeenCalled();
-      expect(deleteUser).toHaveBeenCalledWith('test-uuid');
+      expect(usersDestroy).toHaveBeenCalledWith({
+        path: { uuid: 'test-uuid' },
+      });
       expect(notify.showErrorResponse).toHaveBeenCalledWith(
         new Error('Test error'),
         'Unable to delete user.',

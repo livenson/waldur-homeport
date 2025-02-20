@@ -1,11 +1,10 @@
+import { vmwareVirtualMachineDestroy } from '@waldur/api';
 import {
   validateRuntimeState,
   validateState,
 } from '@waldur/resource/actions/base';
 import { DestroyActionItem } from '@waldur/resource/actions/DestroyActionItem';
 import { ActionItemType } from '@waldur/resource/actions/types';
-
-import { destroyVirtualMachine } from '../api';
 
 const validators = [
   validateState('OK', 'Erred'),
@@ -19,7 +18,7 @@ export const DestroyVirtualMachineAction: ActionItemType = ({
   <DestroyActionItem
     validators={validators}
     resource={resource}
-    apiMethod={destroyVirtualMachine}
+    apiMethod={(id) => vmwareVirtualMachineDestroy({ path: { uuid: id } })}
     refetch={refetch}
   />
 );

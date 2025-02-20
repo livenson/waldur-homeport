@@ -1,7 +1,7 @@
+import { invoiceItemsCostsList } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
-import { deleteById, get, getById, getList, sendForm } from '@waldur/core/api';
+import { get, getById, sendForm } from '@waldur/core/api';
 import { formatDate } from '@waldur/core/dateUtils';
-import { InvoiceSummary } from '@waldur/dashboard/types';
 import { Customer, Project } from '@waldur/workspace/types';
 
 export interface ProjectInput {
@@ -68,18 +68,14 @@ export const updateProject = (
   );
 };
 
-export const deleteCustomer = (customerId: string) =>
-  deleteById('/customers/', customerId);
-
-export const deleteProject = (projectId: string) =>
-  deleteById('/projects/', projectId);
-
 export const loadProjectTypes = () =>
   get<{ url; name }[]>(`/project-types/`).then((response) => response.data);
 
 export const fetchLast12MonthProjectCosts = (projectId: string) =>
-  getList<InvoiceSummary>('/invoice-items/costs/', {
-    project_uuid: projectId,
-    page: 1,
-    page_size: 12,
-  });
+  invoiceItemsCostsList({
+    query: {
+      project_uuid: projectId,
+      page: 1,
+      page_size: 12,
+    },
+  }).then((response) => response.data);

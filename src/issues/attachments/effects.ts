@@ -1,5 +1,6 @@
 import { call, put, race, select, spawn, takeEvery } from 'redux-saga/effects';
 
+import { supportAttachmentsDestroy, supportAttachmentsList } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { translate } from '@waldur/i18n';
 import { showError, showErrorResponse } from '@waldur/store/notify';
@@ -13,7 +14,9 @@ import * as utils from './utils';
 function* issueAttachmentsGet(action) {
   const { issueUrl } = action.payload;
   try {
-    const response = yield call(api.getAttachments, issueUrl);
+    const response = yield call(supportAttachmentsList, {
+      query: { issue: issueUrl },
+    });
     const data = response.data.sort((a, b) => (a.created > b.created ? -1 : 1));
     yield put(actions.issueAttachmentsGetSuccess(data));
   } catch (error) {
@@ -77,7 +80,7 @@ function* issueAttachmentsDelete(action) {
   }
   try {
     yield put(actions.issueAttachmentsDeleteStart(uuid));
-    yield call(api.deleteAttachment, uuid);
+    yield call(supportAttachmentsDestroy, { path: { uuid } });
     yield put(actions.issueAttachmentsDeleteSuccess(uuid));
   } catch (error) {
     yield put(actions.issueAttachmentsDeleteError(error, uuid));

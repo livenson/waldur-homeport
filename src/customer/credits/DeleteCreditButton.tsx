@@ -2,11 +2,10 @@ import { Trash } from '@phosphor-icons/react';
 import { Dropdown } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
+import { customerCreditsDestroy } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
-
-import { deleteCustomerCredit } from './api';
 
 export const DeleteCreditButton = ({ row, refetch }) => {
   const dispatch = useDispatch();
@@ -23,7 +22,7 @@ export const DeleteCreditButton = ({ row, refetch }) => {
       return;
     }
     try {
-      await deleteCustomerCredit(row.uuid);
+      await customerCreditsDestroy({ path: { uuid: row.uuid } });
       refetch();
       dispatch(showSuccess(translate('Credit deleted successfully.')));
     } catch (error) {

@@ -19,6 +19,7 @@ export function initAuthToken() {
   client.setConfig({
     auth: () => 'Token ' + token,
     baseUrl: ENV.apiEndpoint,
+    throwOnError: true,
   });
 }
 

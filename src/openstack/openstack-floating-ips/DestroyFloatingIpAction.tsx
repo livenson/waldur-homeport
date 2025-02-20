@@ -1,8 +1,7 @@
+import { openstackFloatingIpsDestroy } from '@waldur/api';
 import { validateState } from '@waldur/resource/actions/base';
 import { DestroyActionItem } from '@waldur/resource/actions/DestroyActionItem';
 import { ActionItemType } from '@waldur/resource/actions/types';
-
-import { destroyFloatingIP } from '../api';
 
 const validators = [validateState('OK', 'Erred')];
 
@@ -13,7 +12,7 @@ export const DestroyFloatingIpAction: ActionItemType = ({
   <DestroyActionItem
     validators={validators}
     resource={resource}
-    apiMethod={destroyFloatingIP}
+    apiMethod={(id) => openstackFloatingIpsDestroy({ path: { uuid: id } })}
     refetch={refetch}
   />
 );

@@ -4,12 +4,11 @@ import { ButtonGroup } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useAsyncFn } from 'react-use';
 
+import { rancherIngressesDestroy } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
 import { ActionButton } from '@waldur/table/ActionButton';
 import { deleteEntity } from '@waldur/table/actions';
-
-import { deleteIngress } from '../api';
 
 import { ViewYAMLButton } from './ViewYAMLButton';
 
@@ -18,7 +17,7 @@ export const IngressActions: FunctionComponent<{ ingress }> = ({ ingress }) => {
 
   const [deleteResult, deleteCallback] = useAsyncFn(async () => {
     try {
-      await deleteIngress(ingress.uuid);
+      await rancherIngressesDestroy({ path: { uuid: ingress.uuid } });
       dispatch(showSuccess('Ingress has been deleted.'));
       dispatch(deleteEntity('rancher-ingresses', ingress.uuid));
     } catch (e) {

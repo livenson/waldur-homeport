@@ -1,9 +1,7 @@
-import { deleteById, getAll, post, put } from '@waldur/core/api';
+import { getAll, post, put } from '@waldur/core/api';
 import { Role } from '@waldur/permissions/types';
 
 export const createRole = (payload) => post('/roles/', payload);
-
-export const deleteRole = (uuid: string) => deleteById('/roles/', uuid);
 
 export const editRole = (uuid, formData) => put(`/roles/${uuid}/`, formData);
 

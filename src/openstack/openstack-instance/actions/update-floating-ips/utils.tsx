@@ -3,9 +3,10 @@ import { useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
 import { formValueSelector, reduxForm } from 'redux-form';
 
+import { openstackInstancesUpdateFloatingIps } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
-import { loadFloatingIps, setFloatingIps } from '@waldur/openstack/api';
+import { loadFloatingIps } from '@waldur/openstack/api';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { type RootState } from '@waldur/store/reducers';
 
@@ -73,21 +74,24 @@ export const useFloatingIpsEditor = (resource: OpenStackInstance, refetch?) => {
 
   const submitRequest = async (formData: FloatingIPsFormData) => {
     try {
-      await setFloatingIps(resource.uuid, {
-        floating_ips: formData.floating_ips
-          .filter((item) => item.subnet)
-          .map((item) => {
-            if (item.floating_ip === true) {
-              return {
-                subnet: item.subnet,
-              };
-            } else {
-              return {
-                subnet: item.subnet,
-                url: item.floating_ip,
-              };
-            }
-          }),
+      await openstackInstancesUpdateFloatingIps({
+        path: { uuid: resource.uuid },
+        body: {
+          floating_ips: formData.floating_ips
+            .filter((item) => item.subnet)
+            .map((item) => {
+              if (item.floating_ip === true) {
+                return {
+                  subnet: item.subnet,
+                };
+              } else {
+                return {
+                  subnet: item.subnet,
+                  url: item.floating_ip,
+                };
+              }
+            }),
+        },
       });
       dispatch(
         showSuccess(translate('Floating IPs update has been scheduled.')),

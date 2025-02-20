@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Button, Spinner } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
-import { post } from '@waldur/core/api';
+import { marketplaceProviderOfferingsSync } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
@@ -13,7 +13,7 @@ export const SyncButton = ({ offering, refetch }) => {
   const dispatch = useDispatch();
   const callback = async () => {
     try {
-      await post(`/marketplace-provider-offerings/${offering.uuid}/sync/`);
+      await marketplaceProviderOfferingsSync({ path: { uuid: offering.uuid } });
       dispatch(
         showSuccess(translate('Service synchronization has been scheduled.')),
       );

@@ -46,7 +46,7 @@ export interface Template {
   uuid: string;
   default_version: string;
   catalog_name: string;
-  catalog_uuid: string;
+  catalog_uuid?: string;
   versions: string[];
 }
 

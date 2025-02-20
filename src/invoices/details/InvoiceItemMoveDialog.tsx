@@ -1,13 +1,14 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useAsync } from 'react-use';
 
+import { invoiceItemsMigrateTo } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { ResourceActionDialog } from '@waldur/resource/actions/ResourceActionDialog';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
 import { getCustomer } from '@waldur/workspace/selectors';
 
-import { loadInvoices, moveInvoiceItem } from '../api';
+import { loadInvoices } from '../api';
 
 const formatDate = (invoice) => `${invoice.year}-${invoice.month}`;
 
@@ -56,8 +57,11 @@ export const InvoiceItemMoveDialog = ({
       error={asyncState.error}
       submitForm={async (formData) => {
         try {
-          await moveInvoiceItem(resource.uuid, {
-            invoice: formData.invoice.url,
+          await invoiceItemsMigrateTo({
+            path: { uuid: resource.uuid },
+            body: {
+              invoice: formData.invoice.url,
+            },
           });
           dispatch(
             showSuccess(

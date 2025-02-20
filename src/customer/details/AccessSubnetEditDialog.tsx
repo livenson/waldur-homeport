@@ -2,12 +2,11 @@ import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
+import { accessSubnetsPartialUpdate } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
-import { showSuccess, showErrorResponse } from '@waldur/store/notify';
-
-import { updateAccessSubnet } from './api';
+import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
 export const AccessSubnetEditDialog = ({ refetch, row }) => {
   const dispatch = useDispatch();
@@ -26,7 +25,10 @@ export const AccessSubnetEditDialog = ({ refetch, row }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await updateAccessSubnet(row.uuid, formData);
+      await accessSubnetsPartialUpdate({
+        path: { uuid: row.uuid },
+        body: formData,
+      });
       dispatch(showSuccess(translate('Access subnet has been updated.')));
       refetch();
       dispatch(closeModalDialog());

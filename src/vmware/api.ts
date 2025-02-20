@@ -1,9 +1,6 @@
-import { deleteById, get, getAll, getById, put } from '@waldur/core/api';
+import { getAll } from '@waldur/core/api';
 
 import { VMwareTemplate } from './types';
-
-export const getVMwareLimits = (settingsId) =>
-  getById<Record<string, number>>('/vmware-limits/', settingsId);
 
 export const getVMwareTemplates = (
   settings_uuid: string,
@@ -34,14 +31,3 @@ export const loadVMwareAdvancedOptions = async (props: {
     folders,
   };
 };
-
-export const updateVirtualMachine = (id: string, data) =>
-  put(`/vmware-virtual-machine/${id}/`, data);
-
-export const getVirtualMachineConsoleUrl = (id: string) =>
-  get<{ url: string }>(`/vmware-virtual-machine/${id}/console/`).then(
-    (response) => response.data.url,
-  );
-
-export const destroyVirtualMachine = (id: string) =>
-  deleteById('/vmware-virtual-machine/', id);
