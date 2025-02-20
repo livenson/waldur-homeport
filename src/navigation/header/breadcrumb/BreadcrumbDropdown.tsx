@@ -107,6 +107,7 @@ export const BreadcrumbDropdown: FC<BreadcrumbDropdownProps> = ({
           onChange={(e) => applyQuery(e.target.value)}
           inputClassName="border-0 shadow-none"
           className="flex-grow-1"
+          autoFocus
         />
         {Boolean(filters) && (
           <Button
