@@ -99,7 +99,8 @@ $bg-height: 232px;
       }
 
       @if (isDarkMode() == false) {
-        .bg-mode-light & {
+        .bg-mode-light &,
+        .bg-mode-accent & {
           input {
             color: $gray-700;
             @include placeholder($gray-700);
@@ -108,17 +109,6 @@ $bg-height: 232px;
           }
           svg path {
             fill: $grey-500;
-          }
-        }
-        .bg-mode-accent & {
-          input {
-            color: $primary-700;
-            @include placeholder($primary-700);
-            background-color: $primary-25;
-            border-color: $primary-300;
-          }
-          svg path {
-            fill: $primary-500;
           }
         }
       }
