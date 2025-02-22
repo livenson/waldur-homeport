@@ -92,7 +92,7 @@ $bg-height: 232px;
         color: if(isDarkMode(), $grey-400, $primary-500);
         @include placeholder(if(isDarkMode(), $grey-400, $primary-500));
         background-color: if(isDarkMode(), #000, $primary-950);
-        border-color: if(isDarkMode(), $grey-300, $primary-300);
+        border-color: if(isDarkMode(), $gray-300, $primary-300);
       }
       svg path {
         fill: if(isDarkMode(), $grey-400, $primary-500);
@@ -105,7 +105,7 @@ $bg-height: 232px;
             color: $gray-700;
             @include placeholder($gray-700);
             background-color: white;
-            border-color: $grey-300;
+            border-color: $gray-300;
           }
           svg path {
             fill: $grey-500;

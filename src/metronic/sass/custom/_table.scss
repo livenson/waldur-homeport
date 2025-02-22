@@ -14,7 +14,7 @@
   }
 
   thead > tr {
-    background-color: if(isDarkMode(), $primary-50, $gray-50);
+    background-color: $gray-50;
 
     > th {
       font-size: 12px;
@@ -63,7 +63,7 @@
   &.table-expandable tr {
     &.expanded,
     &.expanded + tr {
-      background-color: if(isDarkMode(), $primary-50, $gray-50);
+      background-color: $gray-50;
     }
     &.expanded + tr {
       > td {
@@ -337,8 +337,8 @@
       .page-link:focus,
       .page-link:hover,
       &.active .page-link {
-        color: $primary;
-        background-color: $primary-100;
+        color: if(isDarkMode(), $primary-600, $primary);
+        background-color: if(isDarkMode(), $primary-50, $primary-100);
       }
     }
 
