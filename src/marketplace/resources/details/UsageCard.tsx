@@ -4,11 +4,11 @@ import { useMemo, useState } from 'react';
 import { Button, Card, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 import { useAsync } from 'react-use';
 
+import { marketplaceResourcesTeamList } from '@waldur/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { Select } from '@waldur/form/themed-select';
 import { translate } from '@waldur/i18n';
-import { getResourceTeam } from '@waldur/marketplace/common/api';
 
 import { getComponentsAndUsages } from '../usage/api';
 import { ResourceUsageTabsContainer } from '../usage/ResourceUsageTabsContainer';
@@ -43,7 +43,7 @@ export const UsageCard = ({ resource }) => {
     refetch: refetchTeam,
   } = useQuery(
     ['ResourceTeam', resource.uuid],
-    () => getResourceTeam(resource.uuid),
+    () => marketplaceResourcesTeamList(resource.uuid).then((r) => r.data),
     { staleTime: 3 * 60 * 1000 },
   );
 

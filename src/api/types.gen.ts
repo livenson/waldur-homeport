@@ -646,6 +646,13 @@ export type BackendIdRequest = {
     backend_id?: string;
 };
 
+export type BackendMetadata = {
+    readonly state: string;
+    readonly runtime_state: string;
+    readonly action: string;
+    readonly instance_name: string | null;
+};
+
 export type Backup = {
     readonly url: string;
     readonly uuid: string;
@@ -895,11 +902,10 @@ export type BookingResource = {
     readonly plan_name: string;
     readonly plan_uuid: string;
     readonly plan_description: string;
-    /**
-     * Get attributes excluding secret attributes, such as username and password.
-     */
     readonly attributes: {};
-    limits?: unknown;
+    readonly limits: {
+        [key: string]: number;
+    };
     readonly uuid: string;
     readonly created: string;
     readonly modified: string;
@@ -907,7 +913,7 @@ export type BookingResource = {
     readonly scope: string;
     readonly description: string;
     readonly state: string;
-    readonly resource_uuid: string | null;
+    readonly resource_uuid: string;
     readonly backend_id: string;
     readonly effective_id: string;
     readonly resource_type: string | null;
@@ -926,12 +932,14 @@ export type BookingResource = {
     readonly parent_offering_name: string;
     readonly parent_uuid: string;
     readonly parent_name: string;
-    readonly backend_metadata: unknown;
+    backend_metadata: BackendMetadata;
     readonly is_usage_based: boolean;
     readonly is_limit_based: boolean;
     name: string;
     readonly slug: string;
-    readonly current_usages: unknown;
+    readonly current_usages: {
+        [key: string]: number;
+    };
     readonly can_terminate: boolean;
     readonly report: unknown;
     /**
@@ -951,6 +959,8 @@ export type BookingResource = {
     readonly options: unknown;
     readonly available_actions: Array<string>;
     readonly last_sync: string;
+    order_in_progress: OrderDetails;
+    creation_order: OrderDetails;
     readonly created_by: string;
     /**
      * Required. 128 characters or fewer. Lowercase letters, numbers and @/./+/-/_ characters
@@ -969,8 +979,6 @@ export type BookingResource = {
 export type BookingResourceRequest = {
     offering: string;
     plan?: string;
-    attributes?: unknown;
-    limits?: unknown;
     name: string;
     /**
      * The date is inclusive. Once reached, a resource will be scheduled for termination.
@@ -1323,6 +1331,14 @@ export type ChecklistCategory = {
     name: string;
     description?: string;
     readonly checklists_count: number;
+};
+
+export type ChecklistCustomerStats = {
+    readonly name: string;
+    readonly uuid: string;
+    readonly latitude: number;
+    readonly longitude: number;
+    readonly score: number;
 };
 
 export type ChecklistQuestion = {
@@ -1856,6 +1872,14 @@ export type CustomerIndustryFlagStats = {
     readonly count: number;
     readonly abbreviation: string;
     is_industry: string;
+};
+
+export type CustomerMemberCount = {
+    readonly uuid: string;
+    readonly name: string;
+    readonly abbreviation: string;
+    readonly count: number;
+    readonly has_resources: boolean;
 };
 
 export type CustomerOecdCodeStats = {
@@ -3063,6 +3087,13 @@ export type MarketplaceCategoryRequest = {
     group?: string | null;
 };
 
+export type MarketplaceCustomerStats = {
+    readonly name: string;
+    readonly uuid: string;
+    readonly count: number;
+    readonly abbreviation: string;
+};
+
 export type MergedPluginOptions = {
     /**
      * If set to True, an order can be processed without approval
@@ -3488,10 +3519,6 @@ export type MoveProjectRequest = {
     customer: string;
 };
 
-export type MoveResource = {
-    project: NestedProject;
-};
-
 export type NameUuid = {
     readonly name: string;
     readonly uuid: string;
@@ -3642,11 +3669,6 @@ export type NestedPriceEstimate = {
     readonly current: number;
     readonly tax: number;
     readonly tax_current: number;
-};
-
-export type NestedProject = {
-    readonly uuid: string;
-    readonly url: string;
 };
 
 export type NestedProjectPermission = {
@@ -4412,6 +4434,14 @@ export type OfferingStats = {
     country: string;
 };
 
+export type OfferingStatsCounter = {
+    category_uuid: string;
+    category_title: string;
+    service_provider_name: string;
+    service_provider_uuid: string;
+    count: number;
+};
+
 export type OfferingThumbnailRequest = {
     thumbnail: Blob | File;
 };
@@ -4502,6 +4532,34 @@ export type OfferingUserUpdateRestrictionRequest = {
 export type OpenStackAllowedAddressPairRequest = {
     ip_address?: string;
     mac_address?: string;
+};
+
+export type OpenStackBackendInstance = {
+    name: string;
+    key_name?: string;
+    start_time?: string | null;
+    readonly state: string;
+    runtime_state?: string;
+    readonly created: string;
+    backend_id?: string | null;
+    readonly availability_zone: string;
+    hypervisor_hostname?: string;
+};
+
+export type OpenStackBackendVolumes = {
+    name: string;
+    description?: string;
+    /**
+     * Size in MiB
+     */
+    size: number;
+    metadata?: string;
+    backend_id?: string | null;
+    readonly type: string;
+    bootable?: boolean;
+    runtime_state?: string;
+    readonly state: string;
+    readonly availability_zone: string;
 };
 
 export type OpenStackBackupRestoration = {
@@ -5690,8 +5748,8 @@ export type OrderCreate = {
     readonly created: string;
     readonly modified: string;
     type?: RequestTypes;
-    readonly resource_uuid: string | null;
-    readonly resource_type: string | null;
+    readonly resource_uuid: string;
+    readonly resource_type: string;
     readonly resource_name: string;
     readonly cost: string | null;
     readonly state: string;
@@ -5777,8 +5835,8 @@ export type OrderDetails = {
     readonly created: string;
     readonly modified: string;
     type?: RequestTypes;
-    readonly resource_uuid: string | null;
-    readonly resource_type: string | null;
+    readonly resource_uuid: string;
+    readonly resource_type: string;
     readonly resource_name: string;
     readonly cost: string | null;
     readonly state: string;
@@ -5917,6 +5975,8 @@ export type PaginatedCategoryHelpArticlesList = Array<CategoryHelpArticles>;
 
 export type PaginatedChecklistCategoryList = Array<ChecklistCategory>;
 
+export type PaginatedChecklistCustomerStatsList = Array<ChecklistCustomerStats>;
+
 export type PaginatedChecklistList = Array<Checklist>;
 
 export type PaginatedChecklistQuestionList = Array<ChecklistQuestion>;
@@ -5929,11 +5989,21 @@ export type PaginatedComponentUserUsageLimitList = Array<ComponentUserUsageLimit
 
 export type PaginatedComponentUserUsageList = Array<ComponentUserUsage>;
 
+export type PaginatedCountStatsList = Array<CountStats>;
+
+export type PaginatedCustomerChecklistStatList = Array<CustomerChecklistStat>;
+
 export type PaginatedCustomerCreditList = Array<CustomerCredit>;
 
 export type PaginatedCustomerEstimatedCostPolicyList = Array<CustomerEstimatedCostPolicy>;
 
+export type PaginatedCustomerIndustryFlagStatsList = Array<CustomerIndustryFlagStats>;
+
 export type PaginatedCustomerList = Array<Customer>;
+
+export type PaginatedCustomerMemberCountList = Array<CustomerMemberCount>;
+
+export type PaginatedCustomerOecdCodeStatsList = Array<CustomerOecdCodeStats>;
 
 export type PaginatedCustomerPermissionReviewList = Array<CustomerPermissionReview>;
 
@@ -5997,6 +6067,8 @@ export type PaginatedLexisLinkList = Array<LexisLink>;
 
 export type PaginatedMarketplaceCategoryList = Array<MarketplaceCategory>;
 
+export type PaginatedMarketplaceCustomerStatsList = Array<MarketplaceCustomerStats>;
+
 export type PaginatedMessageTemplateList = Array<MessageTemplate>;
 
 export type PaginatedMigrationDetailsList = Array<MigrationDetails>;
@@ -6006,6 +6078,8 @@ export type PaginatedNameUuidList = Array<NameUuid>;
 export type PaginatedNotificationList = Array<Notification>;
 
 export type PaginatedNotificationTemplateDetailSerializersList = Array<NotificationTemplateDetailSerializers>;
+
+export type PaginatedOfferingCountryStatsList = Array<OfferingCountryStats>;
 
 export type PaginatedOfferingEstimatedCostPolicyList = Array<OfferingEstimatedCostPolicy>;
 
@@ -6017,11 +6091,19 @@ export type PaginatedOfferingPermissionList = Array<OfferingPermission>;
 
 export type PaginatedOfferingReferralList = Array<OfferingReferral>;
 
+export type PaginatedOfferingStatsCounterList = Array<OfferingStatsCounter>;
+
+export type PaginatedOfferingStatsList = Array<OfferingStats>;
+
 export type PaginatedOfferingUsagePolicyList = Array<OfferingUsagePolicy>;
 
 export type PaginatedOfferingUserList = Array<OfferingUser>;
 
 export type PaginatedOfferingUserRoleList = Array<OfferingUserRole>;
+
+export type PaginatedOpenStackBackendInstanceList = Array<OpenStackBackendInstance>;
+
+export type PaginatedOpenStackBackendVolumesList = Array<OpenStackBackendVolumes>;
 
 export type PaginatedOpenStackCreateServerGroupList = Array<OpenStackCreateServerGroup>;
 
@@ -6095,6 +6177,8 @@ export type PaginatedProposalList = Array<Proposal>;
 
 export type PaginatedProtectedCallList = Array<ProtectedCall>;
 
+export type PaginatedProtectedRoundList = Array<ProtectedRound>;
+
 export type PaginatedProviderCustomerList = Array<ProviderCustomer>;
 
 export type PaginatedProviderCustomerProjectList = Array<ProviderCustomerProject>;
@@ -6145,6 +6229,10 @@ export type PaginatedRemoteProjectUpdateRequestList = Array<RemoteProjectUpdateR
 
 export type PaginatedRemoteSynchronisationList = Array<RemoteSynchronisation>;
 
+export type PaginatedRequestedOfferingList = Array<RequestedOffering>;
+
+export type PaginatedRequestedResourceList = Array<RequestedResource>;
+
 export type PaginatedResourceList = Array<Resource>;
 
 export type PaginatedResourceOfferingList = Array<ResourceOffering>;
@@ -6164,6 +6252,8 @@ export type PaginatedRobotAccountDetailsList = Array<RobotAccountDetails>;
 export type PaginatedRoleDetailsList = Array<RoleDetails>;
 
 export type PaginatedRoundList = Array<Round>;
+
+export type PaginatedRuntimeStatesList = Array<RuntimeStates>;
 
 export type PaginatedSaml2ProviderList = Array<Saml2Provider>;
 
@@ -6285,8 +6375,6 @@ export type PatchedBackupRequest = {
 
 export type PatchedBookingResourceRequest = {
     plan?: string;
-    attributes?: unknown;
-    limits?: unknown;
     name?: string;
     /**
      * The date is inclusive. Once reached, a resource will be scheduled for termination.
@@ -7749,6 +7837,20 @@ export type ProjectType = {
     description?: string;
 };
 
+export type ProjectUser = {
+    readonly url: string;
+    readonly uuid: string;
+    /**
+     * Required. 128 characters or fewer. Lowercase letters, numbers and @/./+/-/_ characters
+     */
+    username: string;
+    readonly full_name: string;
+    email?: string;
+    readonly role: string;
+    readonly expiration_time: string | null;
+    readonly offering_user_username: string | null;
+};
+
 export type Proposal = {
     readonly uuid: string;
     readonly url: string;
@@ -7773,10 +7875,6 @@ export type Proposal = {
     readonly oecd_fos_2007_label: string;
     readonly allocation_comment: string | null;
     readonly created: string;
-};
-
-export type ProposalAllocate = {
-    allocation_comment?: string;
 };
 
 export type ProposalAllocateRequest = {
@@ -8391,6 +8489,18 @@ export type PublicOfferingDetailsRequest = {
     backend_id?: string;
     image?: (Blob | File) | null;
     backend_metadata?: unknown;
+};
+
+export type PullMarketplaceScriptResourceRequest = {
+    resource_uuid: string;
+};
+
+export type Query = {
+    query: string;
+};
+
+export type QueryRequest = {
+    query: string;
 };
 
 export type Quota = {
@@ -9126,6 +9236,10 @@ export type RemoteSynchronisationRequest = {
     remotelocalcategory_set: Array<NestedRemoteLocalCategoryRequest>;
 };
 
+export type RemoveOfferingComponentRequest = {
+    uuid: string;
+};
+
 export type ReportSection = {
     header: string;
     body: string;
@@ -9221,8 +9335,10 @@ export type Resource = {
     readonly plan_name: string;
     readonly plan_uuid: string;
     readonly plan_description: string;
-    attributes?: unknown;
-    limits?: unknown;
+    readonly attributes: {};
+    readonly limits: {
+        [key: string]: number;
+    };
     readonly uuid: string;
     readonly created: string;
     readonly modified: string;
@@ -9230,7 +9346,7 @@ export type Resource = {
     readonly scope: string;
     readonly description: string;
     readonly state: string;
-    readonly resource_uuid: string | null;
+    readonly resource_uuid: string;
     readonly backend_id: string;
     readonly effective_id: string;
     readonly resource_type: string | null;
@@ -9249,12 +9365,14 @@ export type Resource = {
     readonly parent_offering_name: string;
     readonly parent_uuid: string;
     readonly parent_name: string;
-    readonly backend_metadata: unknown;
+    backend_metadata: BackendMetadata;
     readonly is_usage_based: boolean;
     readonly is_limit_based: boolean;
     name: string;
     readonly slug: string;
-    readonly current_usages: unknown;
+    readonly current_usages: {
+        [key: string]: number;
+    };
     readonly can_terminate: boolean;
     readonly report: unknown;
     /**
@@ -9274,6 +9392,8 @@ export type Resource = {
     readonly options: unknown;
     readonly available_actions: Array<string>;
     readonly last_sync: string;
+    order_in_progress: OrderDetails;
+    creation_order: OrderDetails;
 };
 
 export type ResourceBackendId = {
@@ -9332,8 +9452,6 @@ export type ResourceReportRequest = {
 export type ResourceRequest = {
     offering: string;
     plan?: string;
-    attributes?: unknown;
-    limits?: unknown;
     name: string;
     /**
      * The date is inclusive. Once reached, a resource will be scheduled for termination.
@@ -9359,10 +9477,6 @@ export type ResourceSetStateErred = {
 export type ResourceSetStateErredRequest = {
     error_message?: string;
     error_traceback?: string;
-};
-
-export type ResourceSlug = {
-    slug: string;
 };
 
 export type ResourceSlugRequest = {
@@ -9682,6 +9796,11 @@ export type Round = {
 export type RoundRequest = {
     start_time: string;
     cutoff_time: string;
+};
+
+export type RuntimeStates = {
+    readonly value: string;
+    readonly label: string;
 };
 
 export type Saml2Login = {
@@ -10007,6 +10126,14 @@ export type SlurmAssociation = {
     allocation: string;
 };
 
+export type SmaxWebHookReceiver = {
+    id: string;
+};
+
+export type SmaxWebHookReceiverRequest = {
+    id: string;
+};
+
 export type SshKey = {
     readonly url: string;
     readonly uuid: string;
@@ -10094,6 +10221,11 @@ export type TemplateRequest = {
 
 export type TokenRequest = {
     token: string;
+};
+
+export type TotalCustomerCost = {
+    readonly total: number;
+    readonly price: number;
 };
 
 export type User = {
@@ -10677,7 +10809,7 @@ export type WebHookRequest = {
     content_type?: ContentTypeEnum;
 };
 
-export type WebhookEventEnum = 'jira:issue_updated' | 'jira:issue_deleted' | 'comment_updated' | 'comment_created' | 'comment_deleted';
+export type WebhookEventEnum = 'jira:issue_updated' | 'jira:issue_deleted' | 'comment_created' | 'comment_updated' | 'comment_deleted';
 
 export type ApiAuthBccUserDetailsRetrieveData = {
     body?: never;
@@ -12617,16 +12749,21 @@ export type AzureVirtualmachinesUnlinkResponses = {
 export type BillingTotalCostRetrieveData = {
     body?: never;
     path?: never;
-    query?: never;
+    query?: {
+        accounting_is_running?: boolean;
+        customer_uuid?: string;
+        month?: number;
+        name?: string;
+        year?: number;
+    };
     url: '/api/billing-total-cost/';
 };
 
 export type BillingTotalCostRetrieveResponses = {
-    /**
-     * No response body
-     */
-    200: unknown;
+    200: TotalCustomerCost;
 };
+
+export type BillingTotalCostRetrieveResponse = BillingTotalCostRetrieveResponses[keyof BillingTotalCostRetrieveResponses];
 
 export type BookingOfferingsListData = {
     body?: never;
@@ -13668,11 +13805,10 @@ export type ConfigurationRetrieveData = {
 };
 
 export type ConfigurationRetrieveResponses = {
-    /**
-     * No response body
-     */
-    200: unknown;
+    200: {};
 };
+
+export type ConfigurationRetrieveResponse = ConfigurationRetrieveResponses[keyof ConfigurationRetrieveResponses];
 
 export type CustomerCreditsListData = {
     body?: never;
@@ -13964,7 +14100,16 @@ export type CustomersMarketplaceChecklistsListData = {
     path: {
         customer_uuid: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+    };
     url: '/api/customers/{customer_uuid}/marketplace-checklists/';
 };
 
@@ -13990,21 +14135,30 @@ export type CustomersMarketplaceChecklistsResponses = {
     200: unknown;
 };
 
-export type CustomersMarketplaceChecklistsList2Data = {
+export type MarketplaceChecklistsCustomerStatsData = {
     body?: never;
     path: {
         checklist_uuid: string;
         customer_uuid: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+    };
     url: '/api/customers/{customer_uuid}/marketplace-checklists/{checklist_uuid}/';
 };
 
-export type CustomersMarketplaceChecklistsList2Responses = {
-    200: Array<CustomerChecklistStat>;
+export type MarketplaceChecklistsCustomerStatsResponses = {
+    200: PaginatedCustomerChecklistStatList;
 };
 
-export type CustomersMarketplaceChecklistsList2Response = CustomersMarketplaceChecklistsList2Responses[keyof CustomersMarketplaceChecklistsList2Responses];
+export type MarketplaceChecklistsCustomerStatsResponse = MarketplaceChecklistsCustomerStatsResponses[keyof MarketplaceChecklistsCustomerStatsResponses];
 
 export type CustomersDestroyData = {
     body?: never;
@@ -14880,18 +15034,17 @@ export type EventsScopeTypesRetrieveResponses = {
 export type EventsScopeTypesRetrieveResponse = EventsScopeTypesRetrieveResponses[keyof EventsScopeTypesRetrieveResponses];
 
 export type FeatureValuesData = {
-    body?: never;
+    body?: {};
     path?: never;
     query?: never;
     url: '/api/feature-values/';
 };
 
 export type FeatureValuesResponses = {
-    /**
-     * No response body
-     */
-    200: unknown;
+    200: string;
 };
+
+export type FeatureValuesResponse = FeatureValuesResponses[keyof FeatureValuesResponses];
 
 export type FinancialReportsListData = {
     body?: never;
@@ -15508,9 +15661,16 @@ export type IconsFaviconRetrieveData = {
     url: '/api/icons/favicon/';
 };
 
-export type IconsFaviconRetrieveResponses = {
+export type IconsFaviconRetrieveErrors = {
     /**
      * No response body
+     */
+    404: unknown;
+};
+
+export type IconsFaviconRetrieveResponses = {
+    /**
+     * Logo image
      */
     200: unknown;
 };
@@ -15522,9 +15682,16 @@ export type IconsHeroImageRetrieveData = {
     url: '/api/icons/hero_image/';
 };
 
-export type IconsHeroImageRetrieveResponses = {
+export type IconsHeroImageRetrieveErrors = {
     /**
      * No response body
+     */
+    404: unknown;
+};
+
+export type IconsHeroImageRetrieveResponses = {
+    /**
+     * Logo image
      */
     200: unknown;
 };
@@ -15536,9 +15703,16 @@ export type IconsLoginLogoRetrieveData = {
     url: '/api/icons/login_logo/';
 };
 
-export type IconsLoginLogoRetrieveResponses = {
+export type IconsLoginLogoRetrieveErrors = {
     /**
      * No response body
+     */
+    404: unknown;
+};
+
+export type IconsLoginLogoRetrieveResponses = {
+    /**
+     * Logo image
      */
     200: unknown;
 };
@@ -15550,9 +15724,16 @@ export type IconsOfferingLogoPlaceholderRetrieveData = {
     url: '/api/icons/offering_logo_placeholder/';
 };
 
-export type IconsOfferingLogoPlaceholderRetrieveResponses = {
+export type IconsOfferingLogoPlaceholderRetrieveErrors = {
     /**
      * No response body
+     */
+    404: unknown;
+};
+
+export type IconsOfferingLogoPlaceholderRetrieveResponses = {
+    /**
+     * Logo image
      */
     200: unknown;
 };
@@ -15564,9 +15745,16 @@ export type IconsPoweredByLogoRetrieveData = {
     url: '/api/icons/powered_by_logo/';
 };
 
-export type IconsPoweredByLogoRetrieveResponses = {
+export type IconsPoweredByLogoRetrieveErrors = {
     /**
      * No response body
+     */
+    404: unknown;
+};
+
+export type IconsPoweredByLogoRetrieveResponses = {
+    /**
+     * Logo image
      */
     200: unknown;
 };
@@ -15578,9 +15766,16 @@ export type IconsSidebarLogoRetrieveData = {
     url: '/api/icons/sidebar_logo/';
 };
 
-export type IconsSidebarLogoRetrieveResponses = {
+export type IconsSidebarLogoRetrieveErrors = {
     /**
      * No response body
+     */
+    404: unknown;
+};
+
+export type IconsSidebarLogoRetrieveResponses = {
+    /**
+     * Logo image
      */
     200: unknown;
 };
@@ -15592,9 +15787,16 @@ export type IconsSidebarLogoDarkRetrieveData = {
     url: '/api/icons/sidebar_logo_dark/';
 };
 
-export type IconsSidebarLogoDarkRetrieveResponses = {
+export type IconsSidebarLogoDarkRetrieveErrors = {
     /**
      * No response body
+     */
+    404: unknown;
+};
+
+export type IconsSidebarLogoDarkRetrieveResponses = {
+    /**
+     * Logo image
      */
     200: unknown;
 };
@@ -15606,9 +15808,16 @@ export type IconsSidebarLogoMobileRetrieveData = {
     url: '/api/icons/sidebar_logo_mobile/';
 };
 
-export type IconsSidebarLogoMobileRetrieveResponses = {
+export type IconsSidebarLogoMobileRetrieveErrors = {
     /**
      * No response body
+     */
+    404: unknown;
+};
+
+export type IconsSidebarLogoMobileRetrieveResponses = {
+    /**
+     * Logo image
      */
     200: unknown;
 };
@@ -15620,9 +15829,16 @@ export type IconsSiteLogoRetrieveData = {
     url: '/api/icons/site_logo/';
 };
 
-export type IconsSiteLogoRetrieveResponses = {
+export type IconsSiteLogoRetrieveErrors = {
     /**
      * No response body
+     */
+    404: unknown;
+};
+
+export type IconsSiteLogoRetrieveResponses = {
+    /**
+     * Logo image
      */
     200: unknown;
 };
@@ -17219,21 +17435,29 @@ export type MarketplaceChecklistsQuestionsListResponses = {
 
 export type MarketplaceChecklistsQuestionsListResponse = MarketplaceChecklistsQuestionsListResponses[keyof MarketplaceChecklistsQuestionsListResponses];
 
-export type MarketplaceChecklistsStatsRetrieveData = {
+export type MarketplaceChecklistsStatsListData = {
     body?: never;
     path: {
         checklist_uuid: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+    };
     url: '/api/marketplace-checklists/{checklist_uuid}/stats/';
 };
 
-export type MarketplaceChecklistsStatsRetrieveResponses = {
-    /**
-     * No response body
-     */
-    200: unknown;
+export type MarketplaceChecklistsStatsListResponses = {
+    200: PaginatedChecklistCustomerStatsList;
 };
+
+export type MarketplaceChecklistsStatsListResponse = MarketplaceChecklistsStatsListResponses[keyof MarketplaceChecklistsStatsListResponses];
 
 export type MarketplaceChecklistsUserAnswersListData = {
     body?: never;
@@ -18830,12 +19054,21 @@ export type MarketplaceOrdersUnlinkData = {
     url: '/api/marketplace-orders/{uuid}/unlink/';
 };
 
+export type MarketplaceOrdersUnlinkErrors = {
+    /**
+     * No response body
+     */
+    403: unknown;
+};
+
 export type MarketplaceOrdersUnlinkResponses = {
     /**
      * No response body
      */
-    200: unknown;
+    204: void;
 };
+
+export type MarketplaceOrdersUnlinkResponse = MarketplaceOrdersUnlinkResponses[keyof MarketplaceOrdersUnlinkResponses];
 
 export type MarketplacePlanComponentsListData = {
     body?: never;
@@ -20058,7 +20291,7 @@ export type MarketplaceProviderOfferingsRefreshOfferingUsernamesResponses = {
 export type MarketplaceProviderOfferingsRefreshOfferingUsernamesResponse = MarketplaceProviderOfferingsRefreshOfferingUsernamesResponses[keyof MarketplaceProviderOfferingsRefreshOfferingUsernamesResponses];
 
 export type MarketplaceProviderOfferingsRemoveOfferingComponentData = {
-    body: OfferingComponentRequest;
+    body: RemoveOfferingComponentRequest;
     path: {
         uuid: string;
     };
@@ -20519,7 +20752,7 @@ export type MarketplaceProviderResourcesGlauthUsersConfigRetrieveData = {
 };
 
 export type MarketplaceProviderResourcesGlauthUsersConfigRetrieveResponses = {
-    200: Resource;
+    200: string;
 };
 
 export type MarketplaceProviderResourcesGlauthUsersConfigRetrieveResponse = MarketplaceProviderResourcesGlauthUsersConfigRetrieveResponses[keyof MarketplaceProviderResourcesGlauthUsersConfigRetrieveResponses];
@@ -20534,7 +20767,7 @@ export type MarketplaceProviderResourcesMoveResourceData = {
 };
 
 export type MarketplaceProviderResourcesMoveResourceResponses = {
-    200: MoveResource;
+    200: Resource;
 };
 
 export type MarketplaceProviderResourcesMoveResourceResponse = MarketplaceProviderResourcesMoveResourceResponses[keyof MarketplaceProviderResourcesMoveResourceResponses];
@@ -20693,10 +20926,11 @@ export type MarketplaceProviderResourcesSetEndDateByStaffData = {
 };
 
 export type MarketplaceProviderResourcesSetEndDateByStaffResponses = {
-    200: Resource;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type MarketplaceProviderResourcesSetEndDateByStaffResponse = MarketplaceProviderResourcesSetEndDateByStaffResponses[keyof MarketplaceProviderResourcesSetEndDateByStaffResponses];
 
 export type MarketplaceProviderResourcesSetLimitsData = {
     body: ResourceSetLimitsRequest;
@@ -20723,10 +20957,11 @@ export type MarketplaceProviderResourcesSetSlugData = {
 };
 
 export type MarketplaceProviderResourcesSetSlugResponses = {
-    200: ResourceSlug;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type MarketplaceProviderResourcesSetSlugResponse = MarketplaceProviderResourcesSetSlugResponses[keyof MarketplaceProviderResourcesSetSlugResponses];
 
 export type MarketplaceProviderResourcesSubmitReportData = {
     body: ResourceReportRequest;
@@ -20743,7 +20978,7 @@ export type MarketplaceProviderResourcesSubmitReportResponses = {
 
 export type MarketplaceProviderResourcesSubmitReportResponse = MarketplaceProviderResourcesSubmitReportResponses[keyof MarketplaceProviderResourcesSubmitReportResponses];
 
-export type MarketplaceProviderResourcesTeamRetrieveData = {
+export type MarketplaceProviderResourcesTeamListData = {
     body?: never;
     path: {
         uuid: string;
@@ -20752,11 +20987,11 @@ export type MarketplaceProviderResourcesTeamRetrieveData = {
     url: '/api/marketplace-provider-resources/{uuid}/team/';
 };
 
-export type MarketplaceProviderResourcesTeamRetrieveResponses = {
-    200: Resource;
+export type MarketplaceProviderResourcesTeamListResponses = {
+    200: Array<ProjectUser>;
 };
 
-export type MarketplaceProviderResourcesTeamRetrieveResponse = MarketplaceProviderResourcesTeamRetrieveResponses[keyof MarketplaceProviderResourcesTeamRetrieveResponses];
+export type MarketplaceProviderResourcesTeamListResponse = MarketplaceProviderResourcesTeamListResponses[keyof MarketplaceProviderResourcesTeamListResponses];
 
 export type MarketplaceProviderResourcesTerminateData = {
     body?: ResourceTerminateRequest;
@@ -21473,7 +21708,7 @@ export type MarketplaceResourcesGlauthUsersConfigRetrieveData = {
 };
 
 export type MarketplaceResourcesGlauthUsersConfigRetrieveResponses = {
-    200: Resource;
+    200: string;
 };
 
 export type MarketplaceResourcesGlauthUsersConfigRetrieveResponse = MarketplaceResourcesGlauthUsersConfigRetrieveResponses[keyof MarketplaceResourcesGlauthUsersConfigRetrieveResponses];
@@ -21488,7 +21723,7 @@ export type MarketplaceResourcesMoveResourceData = {
 };
 
 export type MarketplaceResourcesMoveResourceResponses = {
-    200: MoveResource;
+    200: Resource;
 };
 
 export type MarketplaceResourcesMoveResourceResponse = MarketplaceResourcesMoveResourceResponses[keyof MarketplaceResourcesMoveResourceResponses];
@@ -21557,10 +21792,11 @@ export type MarketplaceResourcesSetEndDateByStaffData = {
 };
 
 export type MarketplaceResourcesSetEndDateByStaffResponses = {
-    200: Resource;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type MarketplaceResourcesSetEndDateByStaffResponse = MarketplaceResourcesSetEndDateByStaffResponses[keyof MarketplaceResourcesSetEndDateByStaffResponses];
 
 export type MarketplaceResourcesSetSlugData = {
     body: ResourceSlugRequest;
@@ -21572,10 +21808,11 @@ export type MarketplaceResourcesSetSlugData = {
 };
 
 export type MarketplaceResourcesSetSlugResponses = {
-    200: ResourceSlug;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type MarketplaceResourcesSetSlugResponse = MarketplaceResourcesSetSlugResponses[keyof MarketplaceResourcesSetSlugResponses];
 
 export type MarketplaceResourcesSwitchPlanData = {
     body: ResourceSwitchPlanRequest;
@@ -21592,7 +21829,7 @@ export type MarketplaceResourcesSwitchPlanResponses = {
 
 export type MarketplaceResourcesSwitchPlanResponse = MarketplaceResourcesSwitchPlanResponses[keyof MarketplaceResourcesSwitchPlanResponses];
 
-export type MarketplaceResourcesTeamRetrieveData = {
+export type MarketplaceResourcesTeamListData = {
     body?: never;
     path: {
         uuid: string;
@@ -21601,11 +21838,11 @@ export type MarketplaceResourcesTeamRetrieveData = {
     url: '/api/marketplace-resources/{uuid}/team/';
 };
 
-export type MarketplaceResourcesTeamRetrieveResponses = {
-    200: Resource;
+export type MarketplaceResourcesTeamListResponses = {
+    200: Array<ProjectUser>;
 };
 
-export type MarketplaceResourcesTeamRetrieveResponse = MarketplaceResourcesTeamRetrieveResponses[keyof MarketplaceResourcesTeamRetrieveResponses];
+export type MarketplaceResourcesTeamListResponse = MarketplaceResourcesTeamListResponses[keyof MarketplaceResourcesTeamListResponses];
 
 export type MarketplaceResourcesTerminateData = {
     body?: ResourceTerminateRequest;
@@ -21785,19 +22022,35 @@ export type MarketplaceRobotAccountsUpdateResponses = {
 
 export type MarketplaceRobotAccountsUpdateResponse = MarketplaceRobotAccountsUpdateResponses[keyof MarketplaceRobotAccountsUpdateResponses];
 
-export type MarketplaceRuntimeStatesRetrieveData = {
+export type MarketplaceRuntimeStatesListData = {
     body?: never;
     path?: never;
-    query?: never;
+    query?: {
+        /**
+         * UUID of the category to filter runtime states by.
+         */
+        category_uuid?: string;
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+        /**
+         * UUID of the project to filter runtime states by.
+         */
+        project_uuid?: string;
+    };
     url: '/api/marketplace-runtime-states/';
 };
 
-export type MarketplaceRuntimeStatesRetrieveResponses = {
-    /**
-     * No response body
-     */
-    200: unknown;
+export type MarketplaceRuntimeStatesListResponses = {
+    200: PaginatedRuntimeStatesList;
 };
+
+export type MarketplaceRuntimeStatesListResponse = MarketplaceRuntimeStatesListResponses[keyof MarketplaceRuntimeStatesListResponses];
 
 export type MarketplaceScreenshotsListData = {
     body?: never;
@@ -22121,7 +22374,7 @@ export type MarketplaceScriptDryRunAsyncRunResponses = {
 export type MarketplaceScriptDryRunAsyncRunResponse = MarketplaceScriptDryRunAsyncRunResponses[keyof MarketplaceScriptDryRunAsyncRunResponses];
 
 export type MarketplaceScriptDryRunRunData = {
-    body: PublicOfferingDetailsRequest;
+    body?: DryRunRequest;
     path: {
         uuid: string;
     };
@@ -22136,17 +22389,24 @@ export type MarketplaceScriptDryRunRunResponses = {
 export type MarketplaceScriptDryRunRunResponse = MarketplaceScriptDryRunRunResponses[keyof MarketplaceScriptDryRunRunResponses];
 
 export type MarketplaceScriptSyncResourceData = {
-    body?: never;
+    body: PullMarketplaceScriptResourceRequest;
     path?: never;
     query?: never;
     url: '/api/marketplace-script-sync-resource/';
+};
+
+export type MarketplaceScriptSyncResourceErrors = {
+    /**
+     * No response body
+     */
+    404: unknown;
 };
 
 export type MarketplaceScriptSyncResourceResponses = {
     /**
      * No response body
      */
-    200: unknown;
+    202: unknown;
 };
 
 export type MarketplaceSectionsListData = {
@@ -22931,12 +23191,21 @@ export type MarketplaceStatsComponentUsagesPerProjectRetrieveResponses = {
 export type MarketplaceStatsCountActiveResourcesGroupedByOfferingListData = {
     body?: never;
     path?: never;
-    query?: never;
+    query?: {
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+    };
     url: '/api/marketplace-stats/count_active_resources_grouped_by_offering/';
 };
 
 export type MarketplaceStatsCountActiveResourcesGroupedByOfferingListResponses = {
-    200: Array<OfferingStats>;
+    200: PaginatedOfferingStatsList;
 };
 
 export type MarketplaceStatsCountActiveResourcesGroupedByOfferingListResponse = MarketplaceStatsCountActiveResourcesGroupedByOfferingListResponses[keyof MarketplaceStatsCountActiveResourcesGroupedByOfferingListResponses];
@@ -22944,12 +23213,21 @@ export type MarketplaceStatsCountActiveResourcesGroupedByOfferingListResponse = 
 export type MarketplaceStatsCountActiveResourcesGroupedByOfferingCountryListData = {
     body?: never;
     path?: never;
-    query?: never;
+    query?: {
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+    };
     url: '/api/marketplace-stats/count_active_resources_grouped_by_offering_country/';
 };
 
 export type MarketplaceStatsCountActiveResourcesGroupedByOfferingCountryListResponses = {
-    200: Array<OfferingCountryStats>;
+    200: PaginatedOfferingCountryStatsList;
 };
 
 export type MarketplaceStatsCountActiveResourcesGroupedByOfferingCountryListResponse = MarketplaceStatsCountActiveResourcesGroupedByOfferingCountryListResponses[keyof MarketplaceStatsCountActiveResourcesGroupedByOfferingCountryListResponses];
@@ -22957,12 +23235,21 @@ export type MarketplaceStatsCountActiveResourcesGroupedByOfferingCountryListResp
 export type MarketplaceStatsCountActiveResourcesGroupedByOrganizationGroupListData = {
     body?: never;
     path?: never;
-    query?: never;
+    query?: {
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+    };
     url: '/api/marketplace-stats/count_active_resources_grouped_by_organization_group/';
 };
 
 export type MarketplaceStatsCountActiveResourcesGroupedByOrganizationGroupListResponses = {
-    200: Array<CountStats>;
+    200: PaginatedCountStatsList;
 };
 
 export type MarketplaceStatsCountActiveResourcesGroupedByOrganizationGroupListResponse = MarketplaceStatsCountActiveResourcesGroupedByOrganizationGroupListResponses[keyof MarketplaceStatsCountActiveResourcesGroupedByOrganizationGroupListResponses];
@@ -22970,12 +23257,21 @@ export type MarketplaceStatsCountActiveResourcesGroupedByOrganizationGroupListRe
 export type MarketplaceStatsCountProjectsGroupedByProviderAndIndustryFlagListData = {
     body?: never;
     path?: never;
-    query?: never;
+    query?: {
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+    };
     url: '/api/marketplace-stats/count_projects_grouped_by_provider_and_industry_flag/';
 };
 
 export type MarketplaceStatsCountProjectsGroupedByProviderAndIndustryFlagListResponses = {
-    200: Array<CustomerIndustryFlagStats>;
+    200: PaginatedCustomerIndustryFlagStatsList;
 };
 
 export type MarketplaceStatsCountProjectsGroupedByProviderAndIndustryFlagListResponse = MarketplaceStatsCountProjectsGroupedByProviderAndIndustryFlagListResponses[keyof MarketplaceStatsCountProjectsGroupedByProviderAndIndustryFlagListResponses];
@@ -22983,12 +23279,21 @@ export type MarketplaceStatsCountProjectsGroupedByProviderAndIndustryFlagListRes
 export type MarketplaceStatsCountProjectsGroupedByProviderAndOecdListData = {
     body?: never;
     path?: never;
-    query?: never;
+    query?: {
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+    };
     url: '/api/marketplace-stats/count_projects_grouped_by_provider_and_oecd/';
 };
 
 export type MarketplaceStatsCountProjectsGroupedByProviderAndOecdListResponses = {
-    200: Array<CustomerOecdCodeStats>;
+    200: PaginatedCustomerOecdCodeStatsList;
 };
 
 export type MarketplaceStatsCountProjectsGroupedByProviderAndOecdListResponse = MarketplaceStatsCountProjectsGroupedByProviderAndOecdListResponses[keyof MarketplaceStatsCountProjectsGroupedByProviderAndOecdListResponses];
@@ -23049,61 +23354,93 @@ export type MarketplaceStatsCountUsersOfServiceProvidersRetrieveResponses = {
     200: unknown;
 };
 
-export type MarketplaceStatsCustomerMemberCountRetrieveData = {
+export type MarketplaceStatsCustomerMemberCountListData = {
     body?: never;
     path?: never;
-    query?: never;
+    query?: {
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+    };
     url: '/api/marketplace-stats/customer_member_count/';
 };
 
-export type MarketplaceStatsCustomerMemberCountRetrieveResponses = {
-    /**
-     * No response body
-     */
-    200: unknown;
+export type MarketplaceStatsCustomerMemberCountListResponses = {
+    200: PaginatedCustomerMemberCountList;
 };
 
-export type MarketplaceStatsOfferingsCounterStatsRetrieveData = {
+export type MarketplaceStatsCustomerMemberCountListResponse = MarketplaceStatsCustomerMemberCountListResponses[keyof MarketplaceStatsCustomerMemberCountListResponses];
+
+export type MarketplaceStatsOfferingsCounterStatsListData = {
     body?: never;
     path?: never;
-    query?: never;
+    query?: {
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+    };
     url: '/api/marketplace-stats/offerings_counter_stats/';
 };
 
-export type MarketplaceStatsOfferingsCounterStatsRetrieveResponses = {
-    /**
-     * No response body
-     */
-    200: unknown;
+export type MarketplaceStatsOfferingsCounterStatsListResponses = {
+    200: PaginatedOfferingStatsCounterList;
 };
 
-export type MarketplaceStatsOrganizationProjectCountRetrieveData = {
+export type MarketplaceStatsOfferingsCounterStatsListResponse = MarketplaceStatsOfferingsCounterStatsListResponses[keyof MarketplaceStatsOfferingsCounterStatsListResponses];
+
+export type MarketplaceStatsOrganizationProjectCountListData = {
     body?: never;
     path?: never;
-    query?: never;
+    query?: {
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+    };
     url: '/api/marketplace-stats/organization_project_count/';
 };
 
-export type MarketplaceStatsOrganizationProjectCountRetrieveResponses = {
-    /**
-     * No response body
-     */
-    200: unknown;
+export type MarketplaceStatsOrganizationProjectCountListResponses = {
+    200: PaginatedMarketplaceCustomerStatsList;
 };
 
-export type MarketplaceStatsOrganizationResourceCountRetrieveData = {
+export type MarketplaceStatsOrganizationProjectCountListResponse = MarketplaceStatsOrganizationProjectCountListResponses[keyof MarketplaceStatsOrganizationProjectCountListResponses];
+
+export type MarketplaceStatsOrganizationResourceCountListData = {
     body?: never;
     path?: never;
-    query?: never;
+    query?: {
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+    };
     url: '/api/marketplace-stats/organization_resource_count/';
 };
 
-export type MarketplaceStatsOrganizationResourceCountRetrieveResponses = {
-    /**
-     * No response body
-     */
-    200: unknown;
+export type MarketplaceStatsOrganizationResourceCountListResponses = {
+    200: PaginatedMarketplaceCustomerStatsList;
 };
+
+export type MarketplaceStatsOrganizationResourceCountListResponse = MarketplaceStatsOrganizationResourceCountListResponses[keyof MarketplaceStatsOrganizationResourceCountListResponses];
 
 export type MarketplaceStatsProjectsLimitsGroupedByIndustryFlagRetrieveData = {
     body?: never;
@@ -23199,11 +23536,10 @@ export type MediaRetrieveData = {
 };
 
 export type MediaRetrieveResponses = {
-    /**
-     * No response body
-     */
-    200: unknown;
+    200: Blob | File;
 };
+
+export type MediaRetrieveResponse = MediaRetrieveResponses[keyof MediaRetrieveResponses];
 
 export type NotificationMessagesListData = {
     body?: never;
@@ -25886,35 +26222,107 @@ export type OpenstackTenantsUpdateResponses = {
 
 export type OpenstackTenantsUpdateResponse = OpenstackTenantsUpdateResponses[keyof OpenstackTenantsUpdateResponses];
 
-export type OpenstackTenantsBackendInstancesRetrieveData = {
+export type OpenstackTenantsBackendInstancesListData = {
     body?: never;
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        backend_id?: string;
+        customer?: string;
+        customer_abbreviation?: string;
+        customer_name?: string;
+        customer_native_name?: string;
+        customer_uuid?: string;
+        description?: string;
+        external_ip?: string;
+        name?: string;
+        name_exact?: string;
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+        project?: string;
+        project_name?: string;
+        project_uuid?: string;
+        service_settings_name?: string;
+        service_settings_uuid?: string;
+        /**
+         * * `Creation Scheduled` - Creation Scheduled
+         * * `Creating` - Creating
+         * * `Update Scheduled` - Update Scheduled
+         * * `Updating` - Updating
+         * * `Deletion Scheduled` - Deletion Scheduled
+         * * `Deleting` - Deleting
+         * * `OK` - OK
+         * * `Erred` - Erred
+         */
+        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        uuid?: string;
+    };
     url: '/api/openstack-tenants/{uuid}/backend_instances/';
 };
 
-export type OpenstackTenantsBackendInstancesRetrieveResponses = {
-    200: OpenStackTenant;
+export type OpenstackTenantsBackendInstancesListResponses = {
+    200: PaginatedOpenStackBackendInstanceList;
 };
 
-export type OpenstackTenantsBackendInstancesRetrieveResponse = OpenstackTenantsBackendInstancesRetrieveResponses[keyof OpenstackTenantsBackendInstancesRetrieveResponses];
+export type OpenstackTenantsBackendInstancesListResponse = OpenstackTenantsBackendInstancesListResponses[keyof OpenstackTenantsBackendInstancesListResponses];
 
-export type OpenstackTenantsBackendVolumesRetrieveData = {
+export type OpenstackTenantsBackendVolumesListData = {
     body?: never;
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        backend_id?: string;
+        customer?: string;
+        customer_abbreviation?: string;
+        customer_name?: string;
+        customer_native_name?: string;
+        customer_uuid?: string;
+        description?: string;
+        external_ip?: string;
+        name?: string;
+        name_exact?: string;
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+        project?: string;
+        project_name?: string;
+        project_uuid?: string;
+        service_settings_name?: string;
+        service_settings_uuid?: string;
+        /**
+         * * `Creation Scheduled` - Creation Scheduled
+         * * `Creating` - Creating
+         * * `Update Scheduled` - Update Scheduled
+         * * `Updating` - Updating
+         * * `Deletion Scheduled` - Deletion Scheduled
+         * * `Deleting` - Deleting
+         * * `OK` - OK
+         * * `Erred` - Erred
+         */
+        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        uuid?: string;
+    };
     url: '/api/openstack-tenants/{uuid}/backend_volumes/';
 };
 
-export type OpenstackTenantsBackendVolumesRetrieveResponses = {
-    200: OpenStackTenant;
+export type OpenstackTenantsBackendVolumesListResponses = {
+    200: PaginatedOpenStackBackendVolumesList;
 };
 
-export type OpenstackTenantsBackendVolumesRetrieveResponse = OpenstackTenantsBackendVolumesRetrieveResponses[keyof OpenstackTenantsBackendVolumesRetrieveResponses];
+export type OpenstackTenantsBackendVolumesListResponse = OpenstackTenantsBackendVolumesListResponses[keyof OpenstackTenantsBackendVolumesListResponses];
 
 export type OpenstackTenantsChangePasswordData = {
     body: OpenStackTenantChangePasswordRequest;
@@ -27422,7 +27830,7 @@ export type PromotionsCampaignsUpdateResponses = {
 export type PromotionsCampaignsUpdateResponse = PromotionsCampaignsUpdateResponses[keyof PromotionsCampaignsUpdateResponses];
 
 export type PromotionsCampaignsActivateData = {
-    body: CampaignRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -27430,61 +27838,42 @@ export type PromotionsCampaignsActivateData = {
     url: '/api/promotions-campaigns/{uuid}/activate/';
 };
 
+export type PromotionsCampaignsActivateErrors = {
+    /**
+     * No response body
+     */
+    409: unknown;
+};
+
 export type PromotionsCampaignsActivateResponses = {
-    200: Campaign;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type PromotionsCampaignsActivateResponse = PromotionsCampaignsActivateResponses[keyof PromotionsCampaignsActivateResponses];
-
-export type PromotionsCampaignsOrdersRetrieveData = {
+export type PromotionsCampaignsOrdersListData = {
     body?: never;
     path: {
         uuid: string;
     };
-    query?: never;
-    url: '/api/promotions-campaigns/{uuid}/orders/';
-};
-
-export type PromotionsCampaignsOrdersRetrieveResponses = {
-    200: Campaign;
-};
-
-export type PromotionsCampaignsOrdersRetrieveResponse = PromotionsCampaignsOrdersRetrieveResponses[keyof PromotionsCampaignsOrdersRetrieveResponses];
-
-export type PromotionsCampaignsResourcesRetrieveData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/promotions-campaigns/{uuid}/resources/';
-};
-
-export type PromotionsCampaignsResourcesRetrieveResponses = {
-    200: Campaign;
-};
-
-export type PromotionsCampaignsResourcesRetrieveResponse = PromotionsCampaignsResourcesRetrieveResponses[keyof PromotionsCampaignsResourcesRetrieveResponses];
-
-export type PromotionsCampaignsTerminateData = {
-    body: CampaignRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/promotions-campaigns/{uuid}/terminate/';
-};
-
-export type PromotionsCampaignsTerminateResponses = {
-    200: Campaign;
-};
-
-export type PromotionsCampaignsTerminateResponse = PromotionsCampaignsTerminateResponses[keyof PromotionsCampaignsTerminateResponses];
-
-export type ProposalProposalsListData = {
-    body?: never;
-    path?: never;
     query?: {
+        discount_type?: string;
+        end_date?: string;
+        /**
+         * Ordering
+         *
+         * * `start_date` - Start date
+         * * `-start_date` - Start date (descending)
+         * * `end_date` - End date
+         * * `-end_date` - End date (descending)
+         */
+        o?: Array<'-end_date' | '-start_date' | 'end_date' | 'start_date'>;
+        /**
+         * Offering
+         */
+        offering?: string;
+        offering_uuid?: string;
         /**
          * A page number within the paginated result set.
          */
@@ -27493,6 +27882,139 @@ export type ProposalProposalsListData = {
          * Number of results to return per page.
          */
         page_size?: number;
+        query?: string;
+        service_provider_uuid?: string;
+        start_date?: string;
+        /**
+         * * `1` - Draft
+         * * `2` - Active
+         * * `3` - Terminated
+         */
+        state?: Array<1 | 2 | 3>;
+    };
+    url: '/api/promotions-campaigns/{uuid}/orders/';
+};
+
+export type PromotionsCampaignsOrdersListResponses = {
+    200: PaginatedOrderDetailsList;
+};
+
+export type PromotionsCampaignsOrdersListResponse = PromotionsCampaignsOrdersListResponses[keyof PromotionsCampaignsOrdersListResponses];
+
+export type PromotionsCampaignsResourcesListData = {
+    body?: never;
+    path: {
+        uuid: string;
+    };
+    query?: {
+        discount_type?: string;
+        end_date?: string;
+        /**
+         * Ordering
+         *
+         * * `start_date` - Start date
+         * * `-start_date` - Start date (descending)
+         * * `end_date` - End date
+         * * `-end_date` - End date (descending)
+         */
+        o?: Array<'-end_date' | '-start_date' | 'end_date' | 'start_date'>;
+        /**
+         * Offering
+         */
+        offering?: string;
+        offering_uuid?: string;
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+        query?: string;
+        service_provider_uuid?: string;
+        start_date?: string;
+        /**
+         * * `1` - Draft
+         * * `2` - Active
+         * * `3` - Terminated
+         */
+        state?: Array<1 | 2 | 3>;
+    };
+    url: '/api/promotions-campaigns/{uuid}/resources/';
+};
+
+export type PromotionsCampaignsResourcesListResponses = {
+    200: PaginatedResourceList;
+};
+
+export type PromotionsCampaignsResourcesListResponse = PromotionsCampaignsResourcesListResponses[keyof PromotionsCampaignsResourcesListResponses];
+
+export type PromotionsCampaignsTerminateData = {
+    body?: never;
+    path: {
+        uuid: string;
+    };
+    query?: never;
+    url: '/api/promotions-campaigns/{uuid}/terminate/';
+};
+
+export type PromotionsCampaignsTerminateErrors = {
+    /**
+     * No response body
+     */
+    409: unknown;
+};
+
+export type PromotionsCampaignsTerminateResponses = {
+    /**
+     * No response body
+     */
+    200: unknown;
+};
+
+export type ProposalProposalsListData = {
+    body?: never;
+    path?: never;
+    query?: {
+        call_uuid?: string;
+        name?: string;
+        /**
+         * Ordering
+         *
+         * * `round__call__name` - Round  call  name
+         * * `-round__call__name` - Round  call  name (descending)
+         * * `round__start_time` - Round  start time
+         * * `-round__start_time` - Round  start time (descending)
+         * * `round__cutoff_time` - Round  cutoff time
+         * * `-round__cutoff_time` - Round  cutoff time (descending)
+         * * `state` - State
+         * * `-state` - State (descending)
+         * * `created` - Created
+         * * `-created` - Created (descending)
+         */
+        o?: Array<'-created' | '-round__call__name' | '-round__cutoff_time' | '-round__start_time' | '-state' | 'created' | 'round__call__name' | 'round__cutoff_time' | 'round__start_time' | 'state'>;
+        organization_uuid?: string;
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+        round?: string;
+        /**
+         * * `draft` - Draft
+         * * `team_verification` - Team verification
+         * * `submitted` - Submitted
+         * * `in_review` - In review
+         * * `in_revision` - In revision
+         * * `accepted` - Accepted
+         * * `rejected` - Rejected
+         * * `canceled` - Canceled
+         */
+        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted' | 'team_verification'>;
     };
     url: '/api/proposal-proposals/';
 };
@@ -27605,10 +28127,11 @@ export type ProposalProposalsAllocateData = {
 };
 
 export type ProposalProposalsAllocateResponses = {
-    200: ProposalAllocate;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type ProposalProposalsAllocateResponse = ProposalProposalsAllocateResponses[keyof ProposalProposalsAllocateResponses];
 
 export type ProposalProposalsAttachDocumentData = {
     body?: ProposalDocumentationRequest;
@@ -27620,10 +28143,11 @@ export type ProposalProposalsAttachDocumentData = {
 };
 
 export type ProposalProposalsAttachDocumentResponses = {
-    200: ProposalDocumentation;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type ProposalProposalsAttachDocumentResponse = ProposalProposalsAttachDocumentResponses[keyof ProposalProposalsAttachDocumentResponses];
 
 export type ProposalProposalsDeleteUserData = {
     body: UserRoleDeleteRequest;
@@ -27651,10 +28175,11 @@ export type ProposalProposalsForceApproveData = {
 };
 
 export type ProposalProposalsForceApproveResponses = {
-    200: ProposalAllocate;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type ProposalProposalsForceApproveResponse = ProposalProposalsForceApproveResponses[keyof ProposalProposalsForceApproveResponses];
 
 export type ProposalProposalsListUsersListData = {
     body?: never;
@@ -27662,6 +28187,24 @@ export type ProposalProposalsListUsersListData = {
         uuid: string;
     };
     query?: {
+        call_uuid?: string;
+        name?: string;
+        /**
+         * Ordering
+         *
+         * * `round__call__name` - Round  call  name
+         * * `-round__call__name` - Round  call  name (descending)
+         * * `round__start_time` - Round  start time
+         * * `-round__start_time` - Round  start time (descending)
+         * * `round__cutoff_time` - Round  cutoff time
+         * * `-round__cutoff_time` - Round  cutoff time (descending)
+         * * `state` - State
+         * * `-state` - State (descending)
+         * * `created` - Created
+         * * `-created` - Created (descending)
+         */
+        o?: Array<'-created' | '-round__call__name' | '-round__cutoff_time' | '-round__start_time' | '-state' | 'created' | 'round__call__name' | 'round__cutoff_time' | 'round__start_time' | 'state'>;
+        organization_uuid?: string;
         /**
          * A page number within the paginated result set.
          */
@@ -27671,7 +28214,19 @@ export type ProposalProposalsListUsersListData = {
          */
         page_size?: number;
         role?: string;
+        round?: string;
         search_string?: string;
+        /**
+         * * `draft` - Draft
+         * * `team_verification` - Team verification
+         * * `submitted` - Submitted
+         * * `in_review` - In review
+         * * `in_revision` - In revision
+         * * `accepted` - Accepted
+         * * `rejected` - Rejected
+         * * `canceled` - Canceled
+         */
+        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted' | 'team_verification'>;
         user?: string;
     };
     url: '/api/proposal-proposals/{uuid}/list_users/';
@@ -27693,27 +28248,67 @@ export type ProposalProposalsRejectData = {
 };
 
 export type ProposalProposalsRejectResponses = {
-    200: ProposalAllocate;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type ProposalProposalsRejectResponse = ProposalProposalsRejectResponses[keyof ProposalProposalsRejectResponses];
-
-export type ProposalProposalsResourcesRetrieveData = {
+export type ProposalProposalsResourcesListData = {
     body?: never;
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        call_uuid?: string;
+        name?: string;
+        /**
+         * Ordering
+         *
+         * * `round__call__name` - Round  call  name
+         * * `-round__call__name` - Round  call  name (descending)
+         * * `round__start_time` - Round  start time
+         * * `-round__start_time` - Round  start time (descending)
+         * * `round__cutoff_time` - Round  cutoff time
+         * * `-round__cutoff_time` - Round  cutoff time (descending)
+         * * `state` - State
+         * * `-state` - State (descending)
+         * * `created` - Created
+         * * `-created` - Created (descending)
+         */
+        o?: Array<'-created' | '-round__call__name' | '-round__cutoff_time' | '-round__start_time' | '-state' | 'created' | 'round__call__name' | 'round__cutoff_time' | 'round__start_time' | 'state'>;
+        organization_uuid?: string;
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+        round?: string;
+        /**
+         * * `draft` - Draft
+         * * `team_verification` - Team verification
+         * * `submitted` - Submitted
+         * * `in_review` - In review
+         * * `in_revision` - In revision
+         * * `accepted` - Accepted
+         * * `rejected` - Rejected
+         * * `canceled` - Canceled
+         */
+        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted' | 'team_verification'>;
+    };
     url: '/api/proposal-proposals/{uuid}/resources/';
 };
 
-export type ProposalProposalsResourcesRetrieveResponses = {
-    200: RequestedResource;
+export type ProposalProposalsResourcesListResponses = {
+    200: PaginatedRequestedResourceList;
 };
 
-export type ProposalProposalsResourcesRetrieveResponse = ProposalProposalsResourcesRetrieveResponses[keyof ProposalProposalsResourcesRetrieveResponses];
+export type ProposalProposalsResourcesListResponse = ProposalProposalsResourcesListResponses[keyof ProposalProposalsResourcesListResponses];
 
-export type ProposalProposalsResourcesData = {
+export type ProposalProposalsResourcesSetData = {
     body: RequestedResourceRequest;
     path: {
         uuid: string;
@@ -27722,11 +28317,11 @@ export type ProposalProposalsResourcesData = {
     url: '/api/proposal-proposals/{uuid}/resources/';
 };
 
-export type ProposalProposalsResourcesResponses = {
+export type ProposalProposalsResourcesSetResponses = {
     200: RequestedResource;
 };
 
-export type ProposalProposalsResourcesResponse = ProposalProposalsResourcesResponses[keyof ProposalProposalsResourcesResponses];
+export type ProposalProposalsResourcesSetResponse = ProposalProposalsResourcesSetResponses[keyof ProposalProposalsResourcesSetResponses];
 
 export type ProposalProposalsResourcesDestroyData = {
     body?: never;
@@ -27747,7 +28342,7 @@ export type ProposalProposalsResourcesDestroyResponses = {
 
 export type ProposalProposalsResourcesDestroyResponse = ProposalProposalsResourcesDestroyResponses[keyof ProposalProposalsResourcesDestroyResponses];
 
-export type ProposalProposalsResourcesRetrieve2Data = {
+export type ProposalProposalsResourcesRetrieveData = {
     body?: never;
     path: {
         obj_uuid: string;
@@ -27757,11 +28352,11 @@ export type ProposalProposalsResourcesRetrieve2Data = {
     url: '/api/proposal-proposals/{uuid}/resources/{obj_uuid}/';
 };
 
-export type ProposalProposalsResourcesRetrieve2Responses = {
+export type ProposalProposalsResourcesRetrieveResponses = {
     200: RequestedResource;
 };
 
-export type ProposalProposalsResourcesRetrieve2Response = ProposalProposalsResourcesRetrieve2Responses[keyof ProposalProposalsResourcesRetrieve2Responses];
+export type ProposalProposalsResourcesRetrieveResponse = ProposalProposalsResourcesRetrieveResponses[keyof ProposalProposalsResourcesRetrieveResponses];
 
 export type ProposalProposalsResourcesPartialUpdateData = {
     body?: PatchedRequestedResourceRequest;
@@ -28019,10 +28614,11 @@ export type ProposalProtectedCallsArchiveData = {
 };
 
 export type ProposalProtectedCallsArchiveResponses = {
-    200: ProtectedCall;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type ProposalProtectedCallsArchiveResponse = ProposalProtectedCallsArchiveResponses[keyof ProposalProtectedCallsArchiveResponses];
 
 export type ProposalProtectedCallsAttachDocumentsData = {
     body?: CallDocumentRequest;
@@ -28121,22 +28717,55 @@ export type ProposalProtectedCallsListUsersListResponses = {
 
 export type ProposalProtectedCallsListUsersListResponse = ProposalProtectedCallsListUsersListResponses[keyof ProposalProtectedCallsListUsersListResponses];
 
-export type ProposalProtectedCallsOfferingsRetrieveData = {
+export type ProposalProtectedCallsOfferingsListData = {
     body?: never;
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        customer?: string;
+        customer_keyword?: string;
+        customer_uuid?: string;
+        has_active_round?: boolean;
+        name?: string;
+        /**
+         * Ordering
+         *
+         * * `manager__customer__name` - Manager  customer  name
+         * * `-manager__customer__name` - Manager  customer  name (descending)
+         * * `created` - Created
+         * * `-created` - Created (descending)
+         * * `name` - Name
+         * * `-name` - Name (descending)
+         */
+        o?: Array<'-created' | '-manager__customer__name' | '-name' | 'created' | 'manager__customer__name' | 'name'>;
+        offering_uuid?: string;
+        offerings_provider_uuid?: string;
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+        /**
+         * * `draft` - Draft
+         * * `active` - Active
+         * * `archived` - Archived
+         */
+        state?: Array<'active' | 'archived' | 'draft'>;
+    };
     url: '/api/proposal-protected-calls/{uuid}/offerings/';
 };
 
-export type ProposalProtectedCallsOfferingsRetrieveResponses = {
-    200: RequestedOffering;
+export type ProposalProtectedCallsOfferingsListResponses = {
+    200: PaginatedRequestedOfferingList;
 };
 
-export type ProposalProtectedCallsOfferingsRetrieveResponse = ProposalProtectedCallsOfferingsRetrieveResponses[keyof ProposalProtectedCallsOfferingsRetrieveResponses];
+export type ProposalProtectedCallsOfferingsListResponse = ProposalProtectedCallsOfferingsListResponses[keyof ProposalProtectedCallsOfferingsListResponses];
 
-export type ProposalProtectedCallsOfferingsData = {
+export type ProposalProtectedCallsOfferingsSetData = {
     body: RequestedOfferingRequest;
     path: {
         uuid: string;
@@ -28145,11 +28774,11 @@ export type ProposalProtectedCallsOfferingsData = {
     url: '/api/proposal-protected-calls/{uuid}/offerings/';
 };
 
-export type ProposalProtectedCallsOfferingsResponses = {
+export type ProposalProtectedCallsOfferingsSetResponses = {
     200: RequestedOffering;
 };
 
-export type ProposalProtectedCallsOfferingsResponse = ProposalProtectedCallsOfferingsResponses[keyof ProposalProtectedCallsOfferingsResponses];
+export type ProposalProtectedCallsOfferingsSetResponse = ProposalProtectedCallsOfferingsSetResponses[keyof ProposalProtectedCallsOfferingsSetResponses];
 
 export type ProposalProtectedCallsOfferingsDestroyData = {
     body?: never;
@@ -28170,7 +28799,7 @@ export type ProposalProtectedCallsOfferingsDestroyResponses = {
 
 export type ProposalProtectedCallsOfferingsDestroyResponse = ProposalProtectedCallsOfferingsDestroyResponses[keyof ProposalProtectedCallsOfferingsDestroyResponses];
 
-export type ProposalProtectedCallsOfferingsRetrieve2Data = {
+export type ProposalProtectedCallsOfferingsRetrieveData = {
     body?: never;
     path: {
         obj_uuid: string;
@@ -28180,11 +28809,11 @@ export type ProposalProtectedCallsOfferingsRetrieve2Data = {
     url: '/api/proposal-protected-calls/{uuid}/offerings/{obj_uuid}/';
 };
 
-export type ProposalProtectedCallsOfferingsRetrieve2Responses = {
+export type ProposalProtectedCallsOfferingsRetrieveResponses = {
     200: RequestedOffering;
 };
 
-export type ProposalProtectedCallsOfferingsRetrieve2Response = ProposalProtectedCallsOfferingsRetrieve2Responses[keyof ProposalProtectedCallsOfferingsRetrieve2Responses];
+export type ProposalProtectedCallsOfferingsRetrieveResponse = ProposalProtectedCallsOfferingsRetrieveResponses[keyof ProposalProtectedCallsOfferingsRetrieveResponses];
 
 export type ProposalProtectedCallsOfferingsPartialUpdateData = {
     body?: PatchedRequestedOfferingRequest;
@@ -28218,22 +28847,55 @@ export type ProposalProtectedCallsOfferingsUpdateResponses = {
 
 export type ProposalProtectedCallsOfferingsUpdateResponse = ProposalProtectedCallsOfferingsUpdateResponses[keyof ProposalProtectedCallsOfferingsUpdateResponses];
 
-export type ProposalProtectedCallsRoundsRetrieveData = {
+export type ProposalProtectedCallsRoundsListData = {
     body?: never;
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        customer?: string;
+        customer_keyword?: string;
+        customer_uuid?: string;
+        has_active_round?: boolean;
+        name?: string;
+        /**
+         * Ordering
+         *
+         * * `manager__customer__name` - Manager  customer  name
+         * * `-manager__customer__name` - Manager  customer  name (descending)
+         * * `created` - Created
+         * * `-created` - Created (descending)
+         * * `name` - Name
+         * * `-name` - Name (descending)
+         */
+        o?: Array<'-created' | '-manager__customer__name' | '-name' | 'created' | 'manager__customer__name' | 'name'>;
+        offering_uuid?: string;
+        offerings_provider_uuid?: string;
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+        /**
+         * * `draft` - Draft
+         * * `active` - Active
+         * * `archived` - Archived
+         */
+        state?: Array<'active' | 'archived' | 'draft'>;
+    };
     url: '/api/proposal-protected-calls/{uuid}/rounds/';
 };
 
-export type ProposalProtectedCallsRoundsRetrieveResponses = {
-    200: ProtectedRound;
+export type ProposalProtectedCallsRoundsListResponses = {
+    200: PaginatedProtectedRoundList;
 };
 
-export type ProposalProtectedCallsRoundsRetrieveResponse = ProposalProtectedCallsRoundsRetrieveResponses[keyof ProposalProtectedCallsRoundsRetrieveResponses];
+export type ProposalProtectedCallsRoundsListResponse = ProposalProtectedCallsRoundsListResponses[keyof ProposalProtectedCallsRoundsListResponses];
 
-export type ProposalProtectedCallsRoundsData = {
+export type ProposalProtectedCallsRoundsSetData = {
     body: ProtectedRoundRequest;
     path: {
         uuid: string;
@@ -28242,11 +28904,11 @@ export type ProposalProtectedCallsRoundsData = {
     url: '/api/proposal-protected-calls/{uuid}/rounds/';
 };
 
-export type ProposalProtectedCallsRoundsResponses = {
+export type ProposalProtectedCallsRoundsSetResponses = {
     200: ProtectedRound;
 };
 
-export type ProposalProtectedCallsRoundsResponse = ProposalProtectedCallsRoundsResponses[keyof ProposalProtectedCallsRoundsResponses];
+export type ProposalProtectedCallsRoundsSetResponse = ProposalProtectedCallsRoundsSetResponses[keyof ProposalProtectedCallsRoundsSetResponses];
 
 export type ProposalProtectedCallsRoundsDestroyData = {
     body?: never;
@@ -28267,7 +28929,7 @@ export type ProposalProtectedCallsRoundsDestroyResponses = {
 
 export type ProposalProtectedCallsRoundsDestroyResponse = ProposalProtectedCallsRoundsDestroyResponses[keyof ProposalProtectedCallsRoundsDestroyResponses];
 
-export type ProposalProtectedCallsRoundsRetrieve2Data = {
+export type ProposalProtectedCallsRoundsRetrieveData = {
     body?: never;
     path: {
         obj_uuid: string;
@@ -28277,11 +28939,11 @@ export type ProposalProtectedCallsRoundsRetrieve2Data = {
     url: '/api/proposal-protected-calls/{uuid}/rounds/{obj_uuid}/';
 };
 
-export type ProposalProtectedCallsRoundsRetrieve2Responses = {
+export type ProposalProtectedCallsRoundsRetrieveResponses = {
     200: ProtectedRound;
 };
 
-export type ProposalProtectedCallsRoundsRetrieve2Response = ProposalProtectedCallsRoundsRetrieve2Responses[keyof ProposalProtectedCallsRoundsRetrieve2Responses];
+export type ProposalProtectedCallsRoundsRetrieveResponse = ProposalProtectedCallsRoundsRetrieveResponses[keyof ProposalProtectedCallsRoundsRetrieveResponses];
 
 export type ProposalProtectedCallsRoundsPartialUpdateData = {
     body?: PatchedProtectedRoundRequest;
@@ -28701,6 +29363,17 @@ export type ProposalReviewsListData = {
     body?: never;
     path?: never;
     query?: {
+        call_uuid?: string;
+        /**
+         * Ordering
+         *
+         * * `created` - Created
+         * * `-created` - Created (descending)
+         * * `state` - State
+         * * `-state` - State (descending)
+         */
+        o?: Array<'-created' | '-state' | 'created' | 'state'>;
+        organization_uuid?: string;
         /**
          * A page number within the paginated result set.
          */
@@ -28709,6 +29382,16 @@ export type ProposalReviewsListData = {
          * Number of results to return per page.
          */
         page_size?: number;
+        proposal?: string;
+        proposal_uuid?: string;
+        reviewer_uuid?: string;
+        /**
+         * * `created` - Created
+         * * `in_review` - In review
+         * * `submitted` - Submitted
+         * * `rejected` - Rejected
+         */
+        state?: Array<'created' | 'in_review' | 'rejected' | 'submitted'>;
     };
     url: '/api/proposal-reviews/';
 };
@@ -28796,7 +29479,7 @@ export type ProposalReviewsUpdateResponses = {
 export type ProposalReviewsUpdateResponse = ProposalReviewsUpdateResponses[keyof ProposalReviewsUpdateResponses];
 
 export type ProposalReviewsAcceptData = {
-    body: ReviewRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -28805,13 +29488,14 @@ export type ProposalReviewsAcceptData = {
 };
 
 export type ProposalReviewsAcceptResponses = {
-    200: Review;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type ProposalReviewsAcceptResponse = ProposalReviewsAcceptResponses[keyof ProposalReviewsAcceptResponses];
-
 export type ProposalReviewsRejectData = {
-    body: ReviewRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -28820,13 +29504,14 @@ export type ProposalReviewsRejectData = {
 };
 
 export type ProposalReviewsRejectResponses = {
-    200: Review;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type ProposalReviewsRejectResponse = ProposalReviewsRejectResponses[keyof ProposalReviewsRejectResponses];
-
 export type ProposalReviewsSubmitData = {
-    body: ReviewRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -28835,10 +29520,11 @@ export type ProposalReviewsSubmitData = {
 };
 
 export type ProposalReviewsSubmitResponses = {
-    200: Review;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type ProposalReviewsSubmitResponse = ProposalReviewsSubmitResponses[keyof ProposalReviewsSubmitResponses];
 
 export type ProviderInvoiceItemsListData = {
     body?: never;
@@ -28969,18 +29655,17 @@ export type ProviderInvoiceItemsUpdateResponses = {
 export type ProviderInvoiceItemsUpdateResponse = ProviderInvoiceItemsUpdateResponses[keyof ProviderInvoiceItemsUpdateResponses];
 
 export type QueryData = {
-    body?: never;
+    body: QueryRequest;
     path?: never;
     query?: never;
     url: '/api/query/';
 };
 
 export type QueryResponses = {
-    /**
-     * No response body
-     */
-    200: unknown;
+    200: Query;
 };
+
+export type QueryResponse = QueryResponses[keyof QueryResponses];
 
 export type RabbitmqUserStatsListData = {
     body?: never;
@@ -30801,9 +31486,6 @@ export type RemoteEduteamsData = {
 };
 
 export type RemoteEduteamsResponses = {
-    /**
-     * No response body
-     */
     200: unknown;
 };
 
@@ -32358,18 +33040,17 @@ export type SupportPrioritiesRetrieveResponses = {
 export type SupportPrioritiesRetrieveResponse = SupportPrioritiesRetrieveResponses[keyof SupportPrioritiesRetrieveResponses];
 
 export type SupportSmaxWebhookData = {
-    body?: never;
+    body: SmaxWebHookReceiverRequest;
     path?: never;
     query?: never;
     url: '/api/support-smax-webhook/';
 };
 
 export type SupportSmaxWebhookResponses = {
-    /**
-     * No response body
-     */
-    200: unknown;
+    200: SmaxWebHookReceiver;
 };
+
+export type SupportSmaxWebhookResponse = SupportSmaxWebhookResponses[keyof SupportSmaxWebhookResponses];
 
 export type SupportStatisticsRetrieveData = {
     body?: never;
@@ -32483,7 +33164,7 @@ export type SupportTemplatesUpdateResponses = {
 export type SupportTemplatesUpdateResponse = SupportTemplatesUpdateResponses[keyof SupportTemplatesUpdateResponses];
 
 export type SupportTemplatesCreateAttachmentsData = {
-    body: TemplateRequest;
+    body: TemplateAttachmentRequest;
     path: {
         uuid: string;
     };
@@ -32491,11 +33172,19 @@ export type SupportTemplatesCreateAttachmentsData = {
     url: '/api/support-templates/{uuid}/create_attachments/';
 };
 
-export type SupportTemplatesCreateAttachmentsResponses = {
-    200: Template;
+export type SupportTemplatesCreateAttachmentsErrors = {
+    /**
+     * No response body
+     */
+    400: unknown;
 };
 
-export type SupportTemplatesCreateAttachmentsResponse = SupportTemplatesCreateAttachmentsResponses[keyof SupportTemplatesCreateAttachmentsResponses];
+export type SupportTemplatesCreateAttachmentsResponses = {
+    /**
+     * No response body
+     */
+    201: unknown;
+};
 
 export type SupportTemplatesDeleteAttachmentsData = {
     body: DeleteAttachmentsRequest;
@@ -32574,11 +33263,18 @@ export type SyncIssuesRetrieveData = {
     url: '/api/sync-issues/';
 };
 
+export type SyncIssuesRetrieveErrors = {
+    /**
+     * No response body
+     */
+    403: unknown;
+};
+
 export type SyncIssuesRetrieveResponses = {
     /**
      * No response body
      */
-    200: unknown;
+    202: unknown;
 };
 
 export type SyncIssuesData = {
@@ -32588,11 +33284,18 @@ export type SyncIssuesData = {
     url: '/api/sync-issues/';
 };
 
+export type SyncIssuesErrors = {
+    /**
+     * No response body
+     */
+    403: unknown;
+};
+
 export type SyncIssuesResponses = {
     /**
      * No response body
      */
-    200: unknown;
+    202: unknown;
 };
 
 export type UserAgreementsListData = {
@@ -33515,11 +34218,10 @@ export type VersionRetrieveData = {
 };
 
 export type VersionRetrieveResponses = {
-    /**
-     * No response body
-     */
-    200: unknown;
+    200: {};
 };
+
+export type VersionRetrieveResponse = VersionRetrieveResponses[keyof VersionRetrieveResponses];
 
 export type VmwareClustersListData = {
     body?: never;
@@ -34411,5 +35113,5 @@ export type VmwareVirtualMachineWebConsoleRetrieveResponses = {
 export type VmwareVirtualMachineWebConsoleRetrieveResponse = VmwareVirtualMachineWebConsoleRetrieveResponses[keyof VmwareVirtualMachineWebConsoleRetrieveResponses];
 
 export type ClientOptions = {
-    baseUrl: `${string}://waldur-openapi-schema.yaml` | (string & {});
+    baseUrl: `${string}://schema.yaml` | (string & {});
 };

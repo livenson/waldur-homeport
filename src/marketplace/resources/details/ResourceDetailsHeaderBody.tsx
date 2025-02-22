@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
 
-import { Resource } from '../types';
+import { Resource } from '@waldur/api';
 
 import { EndDateField } from './EndDateField';
 import { OfferingDetailsField } from './OfferingDetailsField';

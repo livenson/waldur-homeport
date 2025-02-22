@@ -3,12 +3,12 @@ import { Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
 
+import {
+  marketplaceProviderOfferingsUpdateOptions,
+  marketplaceProviderOfferingsUpdateResourceOptions,
+} from '@waldur/api';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
-import {
-  updateOfferingOptions,
-  updateOfferingResourceOptions,
-} from '@waldur/marketplace/common/api';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
@@ -41,12 +41,18 @@ export const AddOptionDialog = reduxForm<
       };
       try {
         if (props.resolve.type === 'options') {
-          await updateOfferingOptions(props.resolve.offering.uuid, {
-            options: newOptions,
+          await marketplaceProviderOfferingsUpdateOptions({
+            path: { uuid: props.resolve.offering.uuid },
+            body: {
+              options: newOptions,
+            },
           });
         } else if (props.resolve.type === 'resource_options') {
-          await updateOfferingResourceOptions(props.resolve.offering.uuid, {
-            resource_options: newOptions,
+          await marketplaceProviderOfferingsUpdateResourceOptions({
+            path: { uuid: props.resolve.offering.uuid },
+            body: {
+              resource_options: newOptions,
+            },
           });
         }
         dispatch(showSuccess(translate('Option has been added successfully.')));

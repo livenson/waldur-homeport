@@ -2,7 +2,7 @@ import Axios from 'axios';
 import React from 'react';
 import { useAsyncFn, useBoolean } from 'react-use';
 
-import { getResource } from '@waldur/marketplace/common/api';
+import { marketplaceResourcesRetrieve } from '@waldur/api';
 import {
   CustomerResourceActions,
   StaffActions,
@@ -27,7 +27,9 @@ async function loadData(url: string) {
   if (resource.marketplace_resource_uuid) {
     staffActions = StaffActions;
     customerResourceActions = CustomerResourceActions;
-    marketplaceResource = await getResource(resource.marketplace_resource_uuid);
+    marketplaceResource = await marketplaceResourcesRetrieve({
+      path: { uuid: resource.marketplace_resource_uuid },
+    }).then((r) => r.data);
   }
   return {
     resource,

@@ -1,4 +1,8 @@
-import { marketplaceResourcesOfferingRetrieve } from '@waldur/api';
+import {
+  marketplaceResourcesDetailsRetrieve,
+  marketplaceResourcesOfferingRetrieve,
+  marketplaceResourcesRetrieve,
+} from '@waldur/api';
 import { OFFERING_TYPE_BOOKING } from '@waldur/booking/constants';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { isFeatureVisible } from '@waldur/features/connect';
@@ -12,8 +16,6 @@ import { hasSupport } from '@waldur/issues/hooks';
 import {
   countLexisLinks,
   countRobotAccounts,
-  getResource,
-  getResourceDetails,
 } from '@waldur/marketplace/common/api';
 import { PageBarTab } from '@waldur/navigation/types';
 import { INSTANCE_TYPE, TENANT_TYPE } from '@waldur/openstack/constants';
@@ -241,10 +243,17 @@ export const getResourceTabs = ({
 };
 
 export const fetchData = async (resourceId) => {
-  const resource = await getResource(resourceId);
+  const resource = await marketplaceResourcesRetrieve({
+    path: { uuid: resourceId },
+  }).then((r) => r.data);
+
   let scope;
   if (resource.scope) {
-    scope = await getResourceDetails(resourceId);
+    scope = (
+      await marketplaceResourcesDetailsRetrieve({
+        path: { uuid: resourceId },
+      })
+    ).data;
   }
   const offering = await marketplaceResourcesOfferingRetrieve({
     path: { uuid: resource.uuid },

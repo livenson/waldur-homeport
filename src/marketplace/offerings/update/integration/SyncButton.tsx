@@ -31,8 +31,9 @@ export const SyncButton = ({ offering, refetch }) => {
   useQuery({
     queryKey: ['SyncButton', offering.scope],
     queryFn: refetch,
-    enabled:
+    enabled: Boolean(
       offering.scope_state && !['OK', 'Erred'].includes(offering.scope_state),
+    ),
     refetchInterval: 5000,
   });
 

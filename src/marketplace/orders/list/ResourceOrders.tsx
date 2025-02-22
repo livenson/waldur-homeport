@@ -1,11 +1,11 @@
 import { FunctionComponent, useMemo } from 'react';
 
+import { Resource } from '@waldur/api';
 import { CopyToClipboardButton } from '@waldur/core/CopyToClipboardButton';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 import { OrderDetailsLink } from '@waldur/marketplace/orders/details/OrderDetailsLink';
 import { IssueLinkRenderer } from '@waldur/marketplace/orders/list/IssueLinkRenderer';
-import { Resource } from '@waldur/marketplace/resources/types';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';

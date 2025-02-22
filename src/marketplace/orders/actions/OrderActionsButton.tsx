@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
+import { OrderDetails } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';
@@ -12,7 +13,6 @@ import { ActionsDropdownComponent } from '@waldur/table/ActionsDropdown';
 import { getUser } from '@waldur/workspace/selectors';
 
 import { CancelOrderButton } from '../details/CancelOrderButton';
-import { OrderDetailsType } from '../types';
 
 import { ApproveByProviderButton } from './ApproveByProviderButton';
 import { OrderConsumerActions } from './OrderConsumerActions';
@@ -21,7 +21,7 @@ export const OrderActionsButton = ({
   order,
   loadData,
 }: {
-  order: OrderDetailsType;
+  order: OrderDetails;
   loadData;
 }) => {
   const user = useSelector(getUser);

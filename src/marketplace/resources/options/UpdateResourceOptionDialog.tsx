@@ -3,14 +3,13 @@ import { connect, useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
 
 import { marketplaceResourcesUpdateOptions, OptionField } from '@waldur/api';
+import { Resource } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { OptionsForm } from '@waldur/marketplace/common/OptionsForm';
 import { Offering } from '@waldur/marketplace/types';
 import { ActionDialog } from '@waldur/modal/ActionDialog';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
-
-import { Resource } from '../types';
 
 interface UpdateResourceOptionDialogProps {
   resolve: {

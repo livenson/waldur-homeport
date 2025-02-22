@@ -1,3 +1,4 @@
+import { Resource } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { formatDate } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
@@ -6,7 +7,6 @@ import { formatResourceType } from '@waldur/resource/utils';
 
 import { KeyValueButton } from '../KeyValueButton';
 import { ResourceStateField } from '../list/ResourceStateField';
-import { Resource } from '../types';
 
 import { PlanDetailsField } from './PlanDetailsField';
 

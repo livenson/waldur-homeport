@@ -5,6 +5,7 @@ import { FC } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
+import { Resource } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { ProgressSteps } from '@waldur/core/ProgressSteps';
@@ -15,8 +16,6 @@ import { formatOrderForCreate } from '@waldur/marketplace/details/utils';
 import { OrderDetailsLink } from '@waldur/marketplace/orders/details/OrderDetailsLink';
 import { openModalDialog, waitForConfirmation } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
-
-import { Resource } from '../types';
 
 const ResourceOrderErrorDialog = lazyComponent(() =>
   import('./ResourceOrderErrorDialog').then((module) => ({
@@ -117,7 +116,7 @@ export const OrderErredView: FC<OrderErredViewProps> = ({ resource }) => {
         },
         project: {
           // We only need the url in the order request
-          url: resource.project || resource.creation_order.project,
+          url: resource.project,
         },
       },
       offering: {

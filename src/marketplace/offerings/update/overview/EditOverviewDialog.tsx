@@ -3,6 +3,7 @@ import { Modal } from 'react-bootstrap';
 import { connect, useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
 
+import { marketplaceProviderOfferingsUpdateOverview } from '@waldur/api';
 import {
   StringField,
   FormContainer,
@@ -11,7 +12,6 @@ import {
 } from '@waldur/form';
 import MarkdownEditor from '@waldur/form/MarkdownEditor';
 import { translate } from '@waldur/i18n';
-import { updateOfferingOverview } from '@waldur/marketplace/common/api';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
@@ -34,9 +34,12 @@ export const EditOverviewDialog = connect(
     const update = useCallback(
       async (formData) => {
         try {
-          await updateOfferingOverview(props.resolve.offering.uuid, {
-            ...pickOverview(props.resolve.offering),
-            [props.resolve.attribute.key]: formData.value,
+          await marketplaceProviderOfferingsUpdateOverview({
+            path: { uuid: props.resolve.offering.uuid },
+            body: {
+              ...pickOverview(props.resolve.offering),
+              [props.resolve.attribute.key]: formData.value,
+            },
           });
           dispatch(
             showSuccess(translate('Offering has been updated successfully.')),

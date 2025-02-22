@@ -1,7 +1,6 @@
+import { Resource } from '@waldur/api';
 import { StateIndicator } from '@waldur/core/StateIndicator';
 import { translate } from '@waldur/i18n';
-
-import { Resource } from '../types';
 
 export const ResourceStateField = ({
   resource,

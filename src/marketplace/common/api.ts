@@ -23,7 +23,6 @@ import {
 import { Customer, Project } from '@waldur/workspace/types';
 
 import { PlanUsageRow } from '../../reporting/plan-usage/types';
-import { Resource } from '../resources/types';
 import {
   ComponentUsage,
   ComponentUserUsage,
@@ -91,14 +90,6 @@ export const getProviderOfferingGLAuthConfig = (uuid: string) =>
 export const getPublicOffering = (id: string, options?: AxiosRequestConfig) =>
   getById<Offering>('/marketplace-public-offerings/', id, options);
 
-export const getResourceDetails = (resourceId: string) =>
-  get<any>(`/marketplace-resources/${resourceId}/details/`).then(
-    (response) => response.data,
-  );
-
-export const getResourceTeam = (resourceId: string) =>
-  getAll<any>(`/marketplace-resources/${resourceId}/team/`);
-
 export const getProviderResourcePlanPeriods = (resourceId: string) =>
   getAll<ResourcePlanPeriod>(
     `/marketplace-provider-resources/${resourceId}/plan_periods/`,
@@ -107,33 +98,6 @@ export const getProviderResourcePlanPeriods = (resourceId: string) =>
 export const getSubResourcesOfferings = (resourceId: string) =>
   getAll<{ uuid; type }>(
     `/marketplace-resources/${resourceId}/offering_for_subresources/`,
-  );
-
-export const updateOfferingOptions = (offeringId, data) =>
-  post(`/marketplace-provider-offerings/${offeringId}/update_options/`, data);
-
-export const updateOfferingResourceOptions = (offeringId, data) =>
-  post(
-    `/marketplace-provider-offerings/${offeringId}/update_resource_options/`,
-    data,
-  );
-
-export const removeProviderOfferingComponent = (offeringId, data) =>
-  post(
-    `/marketplace-provider-offerings/${offeringId}/remove_offering_component/`,
-    data,
-  );
-
-export const createProviderOfferingComponent = (offeringId, data) =>
-  post(
-    `/marketplace-provider-offerings/${offeringId}/create_offering_component/`,
-    data,
-  );
-
-export const updateOfferingComponent = (offeringId, data) =>
-  post(
-    `/marketplace-provider-offerings/${offeringId}/update_offering_component/`,
-    data,
   );
 
 export const updateOfferingSecretOptions = (offeringId, data) =>
@@ -226,9 +190,6 @@ export const submitUsageReport = (payload) =>
     (response) => response.data,
   );
 
-export const getResource = (id: string, options?: AxiosRequestConfig) =>
-  getById<Resource>('/marketplace-resources/', id, options);
-
 export const terminateResource = (resource_uuid: string, data?) =>
   post(`/marketplace-resources/${resource_uuid}/terminate/`, data).then(
     (response) => response.data,
@@ -240,21 +201,6 @@ export const moveResource = (resourceUuid: string, projectUrl: string) =>
       url: projectUrl,
     },
   });
-
-export const importResource = ({ offering_uuid, ...payload }) =>
-  post<Resource>(
-    `/marketplace-provider-offerings/${offering_uuid}/import_resource/`,
-    payload,
-  ).then((response) => response.data);
-
-export const updateOfferingOverview = (offeringId, data) =>
-  post(`/marketplace-provider-offerings/${offeringId}/update_overview/`, data);
-
-export const updateOfferingDescription = (offeringId, data) =>
-  post(
-    `/marketplace-provider-offerings/${offeringId}/update_description/`,
-    data,
-  );
 
 export const getAsyncDryRun = (uuid) =>
   get(`/marketplace-script-async-dry-run/${uuid}/`);

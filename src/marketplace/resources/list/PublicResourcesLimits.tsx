@@ -1,4 +1,4 @@
-import { Resource } from '../types';
+import { Resource } from '@waldur/api';
 
 export const PublicResourcesLimits = ({ row }: { row: Resource }) => {
   if (!row.limits || !Object.keys(row.limits).length) return 'N/A';

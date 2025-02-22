@@ -2,11 +2,11 @@ import { FC } from 'react';
 import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
-import { formatJsxTemplate, translate } from '@waldur/i18n';
 import {
-  updateOfferingOptions,
-  updateOfferingResourceOptions,
-} from '@waldur/marketplace/common/api';
+  marketplaceProviderOfferingsUpdateOptions,
+  marketplaceProviderOfferingsUpdateResourceOptions,
+} from '@waldur/api';
+import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
@@ -45,12 +45,18 @@ export const DeleteOptionButton: FC<
     };
     try {
       if (type === 'options') {
-        await updateOfferingOptions(offering.uuid, {
-          options: newOptions,
+        await marketplaceProviderOfferingsUpdateOptions({
+          path: { uuid: offering.uuid },
+          body: {
+            options: newOptions,
+          },
         });
       } else if (type === 'resource_options') {
-        await updateOfferingResourceOptions(offering.uuid, {
-          resource_options: newOptions,
+        await marketplaceProviderOfferingsUpdateResourceOptions({
+          path: { uuid: offering.uuid },
+          body: {
+            resource_options: newOptions,
+          },
         });
         if (refetch) await refetch();
       }

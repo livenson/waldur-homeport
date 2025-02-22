@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import {
   marketplaceOrdersRejectByProvider,
   marketplaceOrdersRetrieve,
+  OrderDetails,
 } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import {
@@ -19,10 +20,8 @@ import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
 import { updateEntity } from '@waldur/table/actions';
 
-import { OrderResponse } from '../types';
-
 interface RejectByProviderButtonProps {
-  row: OrderResponse;
+  row: OrderDetails;
   refetch?: () => void;
   as?: React.ComponentType;
 }

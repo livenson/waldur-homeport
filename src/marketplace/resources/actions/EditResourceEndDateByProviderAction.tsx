@@ -1,11 +1,13 @@
 import { Clock } from '@phosphor-icons/react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { marketplaceProviderResourcesSetEndDateByProvider } from '@waldur/api';
+import {
+  marketplaceProviderResourcesSetEndDateByProvider,
+  Resource,
+} from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
-import { Resource } from '@waldur/marketplace/resources/types';
 import { openModalDialog } from '@waldur/modal/actions';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';

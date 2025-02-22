@@ -1,3 +1,4 @@
+import { Resource } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
@@ -5,8 +6,6 @@ import { BooleanField } from '@waldur/table/BooleanField';
 import { SLUG_COLUMN } from '@waldur/table/slug';
 import { Column } from '@waldur/table/types';
 import { renderFieldOrDash } from '@waldur/table/utils';
-
-import { Resource } from '../types';
 
 import { ResourceNameField } from './ResourceNameField';
 import { ResourceStateField } from './ResourceStateField';

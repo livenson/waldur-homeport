@@ -2,14 +2,13 @@ import { Info } from '@phosphor-icons/react';
 import { FC } from 'react';
 import { Button, Card } from 'react-bootstrap';
 
+import { Resource } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { ProgressSteps } from '@waldur/core/ProgressSteps';
 import { translate } from '@waldur/i18n';
 import { OrderConsumerActions } from '@waldur/marketplace/orders/actions/OrderConsumerActions';
 import { OrderProviderActions } from '@waldur/marketplace/orders/actions/OrderProviderActions';
 import { OrderDetailsLink } from '@waldur/marketplace/orders/details/OrderDetailsLink';
-
-import { Resource } from '../types';
 
 interface OrderInProgressViewProps {
   resource: Resource;
