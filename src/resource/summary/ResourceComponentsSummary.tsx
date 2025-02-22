@@ -3,10 +3,10 @@ import { FC } from 'react';
 import { Col, Row } from 'react-bootstrap';
 
 import { marketplaceResourcesOfferingRetrieve } from '@waldur/api';
+import { Resource } from '@waldur/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { ResourceComponentItem } from '@waldur/marketplace/resources/details/ResourceComponentItem';
-import { Resource } from '@waldur/marketplace/resources/types';
 
 interface ResourceComponentsSummaryProps {
   resource: Resource;

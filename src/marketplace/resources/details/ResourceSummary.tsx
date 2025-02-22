@@ -1,9 +1,8 @@
 import { FunctionComponent, PropsWithChildren, useMemo } from 'react';
 import { Container } from 'react-bootstrap';
 
+import { Resource } from '@waldur/api';
 import { Field } from '@waldur/resource/summary';
-
-import { Resource } from '../types';
 
 import { getResourceSummaryFields } from './utils';
 

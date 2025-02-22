@@ -1,8 +1,8 @@
 import { FC, useMemo } from 'react';
 
+import { Resource } from '@waldur/api';
 import { FieldWithCopy } from '@waldur/core/FieldWithCopy';
 import FormTable from '@waldur/form/FormTable';
-import { Resource } from '@waldur/marketplace/resources/types';
 
 import { getResourceSummaryFields } from '../utils';
 

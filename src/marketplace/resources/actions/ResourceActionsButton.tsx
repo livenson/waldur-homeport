@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import { useBoolean } from 'react-use';
 
-import { Resource } from '@waldur/marketplace/resources/types';
+import { Resource } from '@waldur/api';
 import { ResourceActionComponent } from '@waldur/resource/actions/ResourceActionComponent';
 
 import { CustomerResourceActions, StaffActions } from './ActionsList';

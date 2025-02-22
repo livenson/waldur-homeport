@@ -1,8 +1,6 @@
 import Axios from 'axios';
 
-import { getResource } from '@waldur/marketplace/common/api';
-
-import { Resource } from '../types';
+import { marketplaceResourcesRetrieve, Resource } from '@waldur/api';
 
 export async function loadData(url: string) {
   try {
@@ -10,9 +8,9 @@ export async function loadData(url: string) {
     const resource = response.data;
     let marketplaceResource: Resource;
     if (resource.marketplace_resource_uuid) {
-      marketplaceResource = await getResource(
-        resource.marketplace_resource_uuid,
-      );
+      marketplaceResource = await marketplaceResourcesRetrieve({
+        path: { uuid: resource.marketplace_resource_uuid },
+      }).then((r) => r.data);
     }
     return { resource, marketplaceResource };
   } catch (error) {

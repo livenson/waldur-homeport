@@ -1,14 +1,13 @@
+import { marketplaceResourcesRetrieve, Resource } from '@waldur/api';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import {
   SelectDialogFieldColumn,
   SelectDialogFieldChoice,
 } from '@waldur/form/types';
 import { translate } from '@waldur/i18n';
-import { getPublicOffering, getResource } from '@waldur/marketplace/common/api';
+import { getPublicOffering } from '@waldur/marketplace/common/api';
 import { filterOfferingComponents } from '@waldur/marketplace/common/registry';
 import { Offering, Plan } from '@waldur/marketplace/types';
-
-import { Resource } from '../types';
 
 export interface FetchedData {
   resource: Resource;
@@ -79,7 +78,9 @@ const getChoices = (
   }));
 
 export async function loadData(resource_uuid): Promise<FetchedData> {
-  const resource = await getResource(resource_uuid);
+  const resource = await marketplaceResourcesRetrieve({
+    path: { uuid: resource_uuid },
+  }).then((r) => r.data);
   const offering = await getPublicOffering(resource.offering_uuid);
   const columns = getColumns(offering);
   const choices = getChoices(offering, resource);

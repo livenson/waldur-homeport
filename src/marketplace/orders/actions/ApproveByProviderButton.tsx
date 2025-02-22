@@ -7,6 +7,7 @@ import { useDispatch } from 'react-redux';
 import {
   marketplaceOrdersApproveByProvider,
   marketplaceOrdersRetrieve,
+  OrderDetails,
 } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
@@ -19,10 +20,9 @@ import {
   TABLE_PENDING_PUBLIC_ORDERS,
   TABLE_PUBLIC_ORDERS,
 } from '../list/constants';
-import { OrderResponse } from '../types';
 
 interface SupportOrderApproveButtonProps {
-  row: OrderResponse;
+  row: OrderDetails;
   refetch?: () => void;
   as?: React.ComponentType;
 }

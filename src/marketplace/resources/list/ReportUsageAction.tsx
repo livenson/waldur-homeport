@@ -1,9 +1,9 @@
 import { FileText } from '@phosphor-icons/react';
 import { useDispatch } from 'react-redux';
 
+import { Resource } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
-import { Resource } from '@waldur/marketplace/resources/types';
 import { UsageReportContext } from '@waldur/marketplace/resources/usage/types';
 import { openModalDialog } from '@waldur/modal/actions';
 import { PermissionEnum } from '@waldur/permissions/enums';

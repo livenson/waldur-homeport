@@ -1,11 +1,10 @@
 import { FC } from 'react';
 import { Card, Table } from 'react-bootstrap';
 
+import { Resource } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { RefreshButton } from '@waldur/marketplace/offerings/update/components/RefreshButton';
 import { Offering } from '@waldur/marketplace/types';
-
-import { Resource } from '../types';
 
 import { OptionValue } from './OptionValue';
 import { UpdateResourceOptionButton } from './UpdateResourceOptionButton';

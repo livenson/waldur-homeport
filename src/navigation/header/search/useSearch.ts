@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { useCallback, useEffect, useState } from 'react';
 
+import { Resource } from '@waldur/api';
 import { get, parseResultCount } from '@waldur/core/api';
-import { Resource } from '@waldur/marketplace/resources/types';
 import { Customer, Project } from '@waldur/workspace/types';
 
 export const useSearch = () => {

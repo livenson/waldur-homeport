@@ -9,12 +9,12 @@ import { useCallback, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 
 import { marketplaceCategoriesRetrieve } from '@waldur/api';
+import { Resource } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import {
   getProviderOffering,
   getPublicOffering,
 } from '@waldur/marketplace/common/api';
-import { Resource } from '@waldur/marketplace/resources/types';
 import { getTitle } from '@waldur/navigation/title';
 import { isDescendantOf } from '@waldur/navigation/useTabs';
 import store from '@waldur/store/store';

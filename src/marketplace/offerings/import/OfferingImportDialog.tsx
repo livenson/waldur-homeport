@@ -3,6 +3,7 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { reduxForm } from 'redux-form';
 
+import { remoteWaldurApiImportOffering } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { StepsList } from '@waldur/marketplace/common/StepsList';
 import { useModal } from '@waldur/modal/hooks';
@@ -10,7 +11,6 @@ import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { useNotify } from '@waldur/store/hooks';
 import { getCustomer } from '@waldur/workspace/selectors';
 
-import { importOffering } from './api';
 import { OFFERING_IMPORT_FORM_ID } from './constants';
 import { importOfferingSelector } from './selectors';
 import { OFFERING_IMPORT_STEPS, OFFERING_IMPORT_TABS } from './tabs';
@@ -44,13 +44,15 @@ export const OfferingImportDialog = reduxForm<
         const categoryMap = formData.categories_set.find(
           (map) => map.remote_category === offering.category_title,
         );
-        return importOffering({
-          api_url: formData.api_url,
-          token: formData.token,
-          remote_offering_uuid: offering.uuid,
-          remote_customer_uuid: formData.customer.uuid,
-          local_category_uuid: categoryMap.local_category.uuid,
-          local_customer_uuid: customer.uuid,
+        return remoteWaldurApiImportOffering({
+          body: {
+            api_url: formData.api_url,
+            token: formData.token,
+            remote_offering_uuid: offering.uuid,
+            remote_customer_uuid: formData.customer.uuid,
+            local_category_uuid: categoryMap.local_category.uuid,
+            local_customer_uuid: customer.uuid,
+          },
         });
       });
       const response = await Promise.all(promises);

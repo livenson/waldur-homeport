@@ -1,8 +1,9 @@
 import {
   marketplacePublicOfferingsPlansRetrieve,
   marketplacePublicOfferingsRetrieve,
+  marketplaceResourcesRetrieve,
+  Resource,
 } from '@waldur/api';
-import { getResource } from '@waldur/marketplace/common/api';
 import {
   filterOfferingComponents,
   getFormLimitParser,
@@ -14,8 +15,6 @@ import { parseOfferingLimits } from '@waldur/marketplace/offerings/store/limits'
 import { OfferingLimits } from '@waldur/marketplace/offerings/store/types';
 import { StateProps } from '@waldur/marketplace/resources/change-limits/connector';
 import { Offering, Plan } from '@waldur/marketplace/types';
-
-import { Resource } from '../types';
 
 export interface FetchedData {
   resource: Resource;
@@ -29,7 +28,9 @@ export interface FetchedData {
 }
 
 export async function loadData(resource_uuid): Promise<FetchedData> {
-  const resource = await getResource(resource_uuid);
+  const resource = await marketplaceResourcesRetrieve({
+    path: { uuid: resource_uuid },
+  }).then((r) => r.data);
   const offering = (await marketplacePublicOfferingsRetrieve({
     path: { uuid: resource.offering_uuid },
   }).then((response) => response.data)) as Offering;
