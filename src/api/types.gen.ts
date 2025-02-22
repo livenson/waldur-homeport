@@ -959,8 +959,8 @@ export type BookingResource = {
     readonly options: unknown;
     readonly available_actions: Array<string>;
     readonly last_sync: string;
-    order_in_progress: OrderDetails;
-    creation_order: OrderDetails;
+    readonly order_in_progress: string;
+    readonly creation_order: string;
     readonly created_by: string;
     /**
      * Required. 128 characters or fewer. Lowercase letters, numbers and @/./+/-/_ characters
@@ -5975,8 +5975,6 @@ export type PaginatedCategoryHelpArticlesList = Array<CategoryHelpArticles>;
 
 export type PaginatedChecklistCategoryList = Array<ChecklistCategory>;
 
-export type PaginatedChecklistCustomerStatsList = Array<ChecklistCustomerStats>;
-
 export type PaginatedChecklistList = Array<Checklist>;
 
 export type PaginatedChecklistQuestionList = Array<ChecklistQuestion>;
@@ -5990,8 +5988,6 @@ export type PaginatedComponentUserUsageLimitList = Array<ComponentUserUsageLimit
 export type PaginatedComponentUserUsageList = Array<ComponentUserUsage>;
 
 export type PaginatedCountStatsList = Array<CountStats>;
-
-export type PaginatedCustomerChecklistStatList = Array<CustomerChecklistStat>;
 
 export type PaginatedCustomerCreditList = Array<CustomerCredit>;
 
@@ -6169,8 +6165,6 @@ export type PaginatedProjectPermissionLogList = Array<ProjectPermissionLog>;
 
 export type PaginatedProjectQuotasList = Array<ProjectQuotas>;
 
-export type PaginatedProjectStatsItemList = Array<ProjectStatsItem>;
-
 export type PaginatedProjectTypeList = Array<ProjectType>;
 
 export type PaginatedProposalList = Array<Proposal>;
@@ -6245,15 +6239,11 @@ export type PaginatedReviewList = Array<Review>;
 
 export type PaginatedRmqUserStatsItemList = Array<RmqUserStatsItem>;
 
-export type PaginatedRmqVHostStatsItemList = Array<RmqVHostStatsItem>;
-
 export type PaginatedRobotAccountDetailsList = Array<RobotAccountDetails>;
 
 export type PaginatedRoleDetailsList = Array<RoleDetails>;
 
 export type PaginatedRoundList = Array<Round>;
-
-export type PaginatedRuntimeStatesList = Array<RuntimeStates>;
 
 export type PaginatedSaml2ProviderList = Array<Saml2Provider>;
 
@@ -9392,8 +9382,8 @@ export type Resource = {
     readonly options: unknown;
     readonly available_actions: Array<string>;
     readonly last_sync: string;
-    order_in_progress: OrderDetails;
-    creation_order: OrderDetails;
+    readonly order_in_progress: string;
+    readonly creation_order: string;
 };
 
 export type ResourceBackendId = {
@@ -14100,16 +14090,7 @@ export type CustomersMarketplaceChecklistsListData = {
     path: {
         customer_uuid: string;
     };
-    query?: {
-        /**
-         * A page number within the paginated result set.
-         */
-        page?: number;
-        /**
-         * Number of results to return per page.
-         */
-        page_size?: number;
-    };
+    query?: never;
     url: '/api/customers/{customer_uuid}/marketplace-checklists/';
 };
 
@@ -14141,21 +14122,12 @@ export type MarketplaceChecklistsCustomerStatsData = {
         checklist_uuid: string;
         customer_uuid: string;
     };
-    query?: {
-        /**
-         * A page number within the paginated result set.
-         */
-        page?: number;
-        /**
-         * Number of results to return per page.
-         */
-        page_size?: number;
-    };
+    query?: never;
     url: '/api/customers/{customer_uuid}/marketplace-checklists/{checklist_uuid}/';
 };
 
 export type MarketplaceChecklistsCustomerStatsResponses = {
-    200: PaginatedCustomerChecklistStatList;
+    200: Array<CustomerChecklistStat>;
 };
 
 export type MarketplaceChecklistsCustomerStatsResponse = MarketplaceChecklistsCustomerStatsResponses[keyof MarketplaceChecklistsCustomerStatsResponses];
@@ -17440,21 +17412,12 @@ export type MarketplaceChecklistsStatsListData = {
     path: {
         checklist_uuid: string;
     };
-    query?: {
-        /**
-         * A page number within the paginated result set.
-         */
-        page?: number;
-        /**
-         * Number of results to return per page.
-         */
-        page_size?: number;
-    };
+    query?: never;
     url: '/api/marketplace-checklists/{checklist_uuid}/stats/';
 };
 
 export type MarketplaceChecklistsStatsListResponses = {
-    200: PaginatedChecklistCustomerStatsList;
+    200: Array<ChecklistCustomerStats>;
 };
 
 export type MarketplaceChecklistsStatsListResponse = MarketplaceChecklistsStatsListResponses[keyof MarketplaceChecklistsStatsListResponses];
@@ -22031,14 +21994,6 @@ export type MarketplaceRuntimeStatesListData = {
          */
         category_uuid?: string;
         /**
-         * A page number within the paginated result set.
-         */
-        page?: number;
-        /**
-         * Number of results to return per page.
-         */
-        page_size?: number;
-        /**
          * UUID of the project to filter runtime states by.
          */
         project_uuid?: string;
@@ -22047,7 +22002,7 @@ export type MarketplaceRuntimeStatesListData = {
 };
 
 export type MarketplaceRuntimeStatesListResponses = {
-    200: PaginatedRuntimeStatesList;
+    200: Array<RuntimeStates>;
 };
 
 export type MarketplaceRuntimeStatesListResponse = MarketplaceRuntimeStatesListResponses[keyof MarketplaceRuntimeStatesListResponses];
@@ -27485,21 +27440,12 @@ export type ProjectsMarketplaceChecklistsListData = {
     path: {
         project_uuid: string;
     };
-    query?: {
-        /**
-         * A page number within the paginated result set.
-         */
-        page?: number;
-        /**
-         * Number of results to return per page.
-         */
-        page_size?: number;
-    };
+    query?: never;
     url: '/api/projects/{project_uuid}/marketplace-checklists/';
 };
 
 export type ProjectsMarketplaceChecklistsListResponses = {
-    200: PaginatedProjectStatsItemList;
+    200: Array<ProjectStatsItem>;
 };
 
 export type ProjectsMarketplaceChecklistsListResponse = ProjectsMarketplaceChecklistsListResponses[keyof ProjectsMarketplaceChecklistsListResponses];
@@ -27977,24 +27923,6 @@ export type ProposalProposalsListData = {
     body?: never;
     path?: never;
     query?: {
-        call_uuid?: string;
-        name?: string;
-        /**
-         * Ordering
-         *
-         * * `round__call__name` - Round  call  name
-         * * `-round__call__name` - Round  call  name (descending)
-         * * `round__start_time` - Round  start time
-         * * `-round__start_time` - Round  start time (descending)
-         * * `round__cutoff_time` - Round  cutoff time
-         * * `-round__cutoff_time` - Round  cutoff time (descending)
-         * * `state` - State
-         * * `-state` - State (descending)
-         * * `created` - Created
-         * * `-created` - Created (descending)
-         */
-        o?: Array<'-created' | '-round__call__name' | '-round__cutoff_time' | '-round__start_time' | '-state' | 'created' | 'round__call__name' | 'round__cutoff_time' | 'round__start_time' | 'state'>;
-        organization_uuid?: string;
         /**
          * A page number within the paginated result set.
          */
@@ -28003,18 +27931,6 @@ export type ProposalProposalsListData = {
          * Number of results to return per page.
          */
         page_size?: number;
-        round?: string;
-        /**
-         * * `draft` - Draft
-         * * `team_verification` - Team verification
-         * * `submitted` - Submitted
-         * * `in_review` - In review
-         * * `in_revision` - In revision
-         * * `accepted` - Accepted
-         * * `rejected` - Rejected
-         * * `canceled` - Canceled
-         */
-        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted' | 'team_verification'>;
     };
     url: '/api/proposal-proposals/';
 };
@@ -28187,24 +28103,6 @@ export type ProposalProposalsListUsersListData = {
         uuid: string;
     };
     query?: {
-        call_uuid?: string;
-        name?: string;
-        /**
-         * Ordering
-         *
-         * * `round__call__name` - Round  call  name
-         * * `-round__call__name` - Round  call  name (descending)
-         * * `round__start_time` - Round  start time
-         * * `-round__start_time` - Round  start time (descending)
-         * * `round__cutoff_time` - Round  cutoff time
-         * * `-round__cutoff_time` - Round  cutoff time (descending)
-         * * `state` - State
-         * * `-state` - State (descending)
-         * * `created` - Created
-         * * `-created` - Created (descending)
-         */
-        o?: Array<'-created' | '-round__call__name' | '-round__cutoff_time' | '-round__start_time' | '-state' | 'created' | 'round__call__name' | 'round__cutoff_time' | 'round__start_time' | 'state'>;
-        organization_uuid?: string;
         /**
          * A page number within the paginated result set.
          */
@@ -28214,19 +28112,7 @@ export type ProposalProposalsListUsersListData = {
          */
         page_size?: number;
         role?: string;
-        round?: string;
         search_string?: string;
-        /**
-         * * `draft` - Draft
-         * * `team_verification` - Team verification
-         * * `submitted` - Submitted
-         * * `in_review` - In review
-         * * `in_revision` - In revision
-         * * `accepted` - Accepted
-         * * `rejected` - Rejected
-         * * `canceled` - Canceled
-         */
-        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted' | 'team_verification'>;
         user?: string;
     };
     url: '/api/proposal-proposals/{uuid}/list_users/';
@@ -28260,24 +28146,6 @@ export type ProposalProposalsResourcesListData = {
         uuid: string;
     };
     query?: {
-        call_uuid?: string;
-        name?: string;
-        /**
-         * Ordering
-         *
-         * * `round__call__name` - Round  call  name
-         * * `-round__call__name` - Round  call  name (descending)
-         * * `round__start_time` - Round  start time
-         * * `-round__start_time` - Round  start time (descending)
-         * * `round__cutoff_time` - Round  cutoff time
-         * * `-round__cutoff_time` - Round  cutoff time (descending)
-         * * `state` - State
-         * * `-state` - State (descending)
-         * * `created` - Created
-         * * `-created` - Created (descending)
-         */
-        o?: Array<'-created' | '-round__call__name' | '-round__cutoff_time' | '-round__start_time' | '-state' | 'created' | 'round__call__name' | 'round__cutoff_time' | 'round__start_time' | 'state'>;
-        organization_uuid?: string;
         /**
          * A page number within the paginated result set.
          */
@@ -28286,18 +28154,6 @@ export type ProposalProposalsResourcesListData = {
          * Number of results to return per page.
          */
         page_size?: number;
-        round?: string;
-        /**
-         * * `draft` - Draft
-         * * `team_verification` - Team verification
-         * * `submitted` - Submitted
-         * * `in_review` - In review
-         * * `in_revision` - In revision
-         * * `accepted` - Accepted
-         * * `rejected` - Rejected
-         * * `canceled` - Canceled
-         */
-        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted' | 'team_verification'>;
     };
     url: '/api/proposal-proposals/{uuid}/resources/';
 };
@@ -29692,21 +29548,12 @@ export type RabbitmqUserStatsListResponse = RabbitmqUserStatsListResponses[keyof
 export type RabbitmqVhostStatsListData = {
     body?: never;
     path?: never;
-    query?: {
-        /**
-         * A page number within the paginated result set.
-         */
-        page?: number;
-        /**
-         * Number of results to return per page.
-         */
-        page_size?: number;
-    };
+    query?: never;
     url: '/api/rabbitmq-vhost-stats/';
 };
 
 export type RabbitmqVhostStatsListResponses = {
-    200: PaginatedRmqVHostStatsItemList;
+    200: Array<RmqVHostStatsItem>;
 };
 
 export type RabbitmqVhostStatsListResponse = RabbitmqVhostStatsListResponses[keyof RabbitmqVhostStatsListResponses];
@@ -35113,5 +34960,5 @@ export type VmwareVirtualMachineWebConsoleRetrieveResponses = {
 export type VmwareVirtualMachineWebConsoleRetrieveResponse = VmwareVirtualMachineWebConsoleRetrieveResponses[keyof VmwareVirtualMachineWebConsoleRetrieveResponses];
 
 export type ClientOptions = {
-    baseUrl: `${string}://schema.yaml` | (string & {});
+    baseUrl: `${string}://waldur-openapi-schema.yaml` | (string & {});
 };

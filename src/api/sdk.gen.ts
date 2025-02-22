@@ -13806,12 +13806,6 @@ export const proposalProposalsList = <ThrowOnError extends boolean = false>(opti
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/proposal-proposals/',
         ...options
     });
@@ -13987,12 +13981,6 @@ export const proposalProposalsListUsersList = <ThrowOnError extends boolean = fa
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/proposal-proposals/{uuid}/list_users/',
         ...options
     });
@@ -14023,12 +14011,6 @@ export const proposalProposalsResourcesList = <ThrowOnError extends boolean = fa
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/proposal-proposals/{uuid}/resources/',
         ...options
     });
