@@ -10677,7 +10677,7 @@ export type WebHookRequest = {
     content_type?: ContentTypeEnum;
 };
 
-export type WebhookEventEnum = 'comment_created' | 'jira:issue_updated' | 'comment_deleted' | 'comment_updated' | 'jira:issue_deleted';
+export type WebhookEventEnum = 'jira:issue_updated' | 'jira:issue_deleted' | 'comment_updated' | 'comment_created' | 'comment_deleted';
 
 export type ApiAuthBccUserDetailsRetrieveData = {
     body?: never;
