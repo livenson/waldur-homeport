@@ -3,12 +3,12 @@ import { useCallback } from 'react';
 import { Form } from 'react-final-form';
 import { useDispatch } from 'react-redux';
 
+import { notificationMessagesTemplatesOverride } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
-import { overrideNotificationTemplate } from './api';
 import { NotificationForm } from './NotificationForm';
 
 function findDifferentTemplates(formTemplate, initTemplate) {
@@ -34,8 +34,11 @@ export const NotificationUpdateDialog = ({ resolve }) => {
 
       for (const template of templatesToUpdate) {
         try {
-          await overrideNotificationTemplate(template.url, {
-            content: template.content,
+          await notificationMessagesTemplatesOverride({
+            path: { uuid: template.uuid },
+            body: {
+              content: template.content,
+            },
           });
           await resolve.refetch();
           dispatch(showSuccess(translate('Notification has been updated.')));
