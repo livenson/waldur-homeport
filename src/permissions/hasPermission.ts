@@ -9,7 +9,7 @@ export function checkScope(
   targetScopeId,
   targetPerm,
 ) {
-  if (user.is_staff) {
+  if (user?.is_staff) {
     return true;
   }
   const userRole = user.permissions?.find(
@@ -25,7 +25,7 @@ export function checkScope(
 }
 
 export const hasPermission = (user: User, request: PermissionRequest) => {
-  if (user.is_staff) {
+  if (user?.is_staff) {
     return true;
   }
   if (request.projectId) {

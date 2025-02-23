@@ -44,7 +44,7 @@ export const UnlinkAction: ActionItemType = ({ resource, refetch }) => {
   };
   if (
     resource.instance !== null &&
-    user.is_staff &&
+    user?.is_staff &&
     !ENV.plugins.WALDUR_RANCHER.READ_ONLY_MODE
   ) {
     return (
