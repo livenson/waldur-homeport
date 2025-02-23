@@ -6,8 +6,8 @@ import { User } from '@waldur/workspace/types';
 export function getShowAllTypes(user: User) {
   return (
     !isFeatureVisible(SupportFeatures.conceal_change_request) ||
-    user.is_staff ||
-    user.is_support
+    user?.is_staff ||
+    user?.is_support
   );
 }
 

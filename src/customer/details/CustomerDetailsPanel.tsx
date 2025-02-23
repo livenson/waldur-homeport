@@ -137,7 +137,7 @@ export const CustomerDetailsPanel: FC<CustomerEditPanelProps> = (props) => {
             label={translate('Slug')}
             value={props.customer.slug}
             actions={
-              user.is_staff ? (
+              user?.is_staff ? (
                 <FieldEditButton
                   customer={props.customer}
                   name="slug"
