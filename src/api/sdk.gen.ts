@@ -8362,12 +8362,6 @@ export const marketplacePublicOfferingsPlansList = <ThrowOnError extends boolean
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-public-offerings/{uuid}/plans/',
         ...options
     });

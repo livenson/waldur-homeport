@@ -3211,7 +3211,7 @@ export type MergedPluginOptions = {
      * * `None` - None
      * * `project_slug` - project_slug
      */
-    account_name_generation_policy?: AccountNameGenerationPolicyEnum | NullEnum;
+    account_name_generation_policy?: AccountNameGenerationPolicyEnum | NullEnum | null;
 };
 
 export type MergedPluginOptionsRequest = {
@@ -3331,7 +3331,7 @@ export type MergedPluginOptionsRequest = {
      * * `None` - None
      * * `project_slug` - project_slug
      */
-    account_name_generation_policy?: AccountNameGenerationPolicyEnum | NullEnum;
+    account_name_generation_policy?: AccountNameGenerationPolicyEnum | NullEnum | null;
 };
 
 export type MergedSecretOptions = {
@@ -5950,8 +5950,6 @@ export type PaginatedAzureSqlServerList = Array<AzureSqlServer>;
 export type PaginatedAzureVirtualMachineList = Array<AzureVirtualMachine>;
 
 export type PaginatedBackupList = Array<Backup>;
-
-export type PaginatedBasePublicPlanList = Array<BasePublicPlan>;
 
 export type PaginatedBasicCustomerList = Array<BasicCustomer>;
 
@@ -21118,84 +21116,12 @@ export type MarketplacePublicOfferingsPlansListData = {
     path: {
         uuid: string;
     };
-    query?: {
-        /**
-         * Accessible via calls
-         */
-        accessible_via_calls?: boolean;
-        /**
-         * Allowed customer UUID
-         */
-        allowed_customer_uuid?: string;
-        attributes?: string;
-        billable?: boolean;
-        category_group_uuid?: string;
-        category_uuid?: string;
-        customer?: string;
-        customer_uuid?: string;
-        description?: string;
-        /**
-         * Keyword
-         */
-        keyword?: string;
-        name?: string;
-        name_exact?: string;
-        /**
-         * Ordering
-         *
-         * * `name` - Name
-         * * `-name` - Name (descending)
-         * * `created` - Created
-         * * `-created` - Created (descending)
-         * * `type` - Type
-         * * `-type` - Type (descending)
-         * * `total_customers` - Total customers
-         * * `-total_customers` - Total customers (descending)
-         * * `total_cost` - Total cost
-         * * `-total_cost` - Total cost (descending)
-         * * `total_cost_estimated` - Total cost estimated
-         * * `-total_cost_estimated` - Total cost estimated (descending)
-         * * `state` - State
-         * * `-state` - State (descending)
-         */
-        o?: Array<'-created' | '-name' | '-state' | '-total_cost' | '-total_cost_estimated' | '-total_customers' | '-type' | 'created' | 'name' | 'state' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type'>;
-        organization_group_uuid?: Array<string>;
-        /**
-         * A page number within the paginated result set.
-         */
-        page?: number;
-        /**
-         * Number of results to return per page.
-         */
-        page_size?: number;
-        parent_uuid?: string;
-        /**
-         * Project UUID
-         */
-        project_uuid?: string;
-        /**
-         * Scope UUID
-         */
-        scope_uuid?: string;
-        /**
-         * Service manager UUID
-         */
-        service_manager_uuid?: string;
-        shared?: boolean;
-        /**
-         * * `Draft` - Draft
-         * * `Active` - Active
-         * * `Paused` - Paused
-         * * `Archived` - Archived
-         */
-        state?: Array<'Active' | 'Archived' | 'Draft' | 'Paused'>;
-        type?: Array<string>;
-    };
+    query?: never;
     url: '/api/marketplace-public-offerings/{uuid}/plans/';
 };
 
 export type MarketplacePublicOfferingsPlansListResponses = {
-    200: PaginatedBasePublicPlanList;
+    200: Array<BasePublicPlan>;
 };
 
 export type MarketplacePublicOfferingsPlansListResponse = MarketplacePublicOfferingsPlansListResponses[keyof MarketplacePublicOfferingsPlansListResponses];
