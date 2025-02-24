@@ -10,6 +10,9 @@ import { setRedirect } from './AuthRedirectStorage';
 import * as AuthService from './AuthService';
 import { getToken } from './TokenStorage';
 
+const querySerializer = (params) =>
+  Qs.stringify(params, { arrayFormat: 'repeat' });
+
 export function initAuthToken() {
   // When application starts up, we need to inject auth token if it exists
   const token = getToken();
@@ -20,12 +23,12 @@ export function initAuthToken() {
       auth: () => 'Token ' + token,
       baseUrl: ENV.apiEndpoint,
       throwOnError: true,
+      querySerializer,
     });
   }
 }
 
-Axios.defaults.paramsSerializer = (params) =>
-  Qs.stringify(params, { arrayFormat: 'repeat' });
+Axios.defaults.paramsSerializer = querySerializer;
 
 // On 401 error received, user session has expired and he should logged out
 Axios.interceptors.response.use(

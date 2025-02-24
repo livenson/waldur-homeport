@@ -276,12 +276,6 @@ export const adminAnnouncementsList = <ThrowOnError extends boolean = false>(opt
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/admin-announcements/',
         ...options
     });
@@ -1722,12 +1716,6 @@ export const bookingResourcesList = <ThrowOnError extends boolean = false>(optio
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/booking-resources/',
         ...options
     });
@@ -1934,12 +1922,6 @@ export const broadcastMessagesList = <ThrowOnError extends boolean = false>(opti
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/broadcast-messages/',
         ...options
     });
@@ -2056,12 +2038,6 @@ export const callManagingOrganisationsList = <ThrowOnError extends boolean = fal
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/call-managing-organisations/',
         ...options
     });
@@ -2186,12 +2162,6 @@ export const callManagingOrganisationsListUsersList = <ThrowOnError extends bool
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/call-managing-organisations/{uuid}/list_users/',
         ...options
     });
@@ -2457,12 +2427,6 @@ export const customerCreditsList = <ThrowOnError extends boolean = false>(option
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/customer-credits/',
         ...options
     });
@@ -2587,12 +2551,6 @@ export const customerPermissionsReviewsList = <ThrowOnError extends boolean = fa
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/customer-permissions-reviews/',
         ...options
     });
@@ -3158,12 +3116,6 @@ export const digitaloceanImagesList = <ThrowOnError extends boolean = false>(opt
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/digitalocean-images/',
         ...options
     });
@@ -3242,12 +3194,6 @@ export const emailLogsList = <ThrowOnError extends boolean = false>(options?: Op
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/email-logs/',
         ...options
     });
@@ -3274,12 +3220,6 @@ export const eventSubscriptionsList = <ThrowOnError extends boolean = false>(opt
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/event-subscriptions/',
         ...options
     });
@@ -3336,12 +3276,6 @@ export const eventsList = <ThrowOnError extends boolean = false>(options?: Optio
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/events/',
         ...options
     });
@@ -4398,12 +4332,6 @@ export const invoicesList = <ThrowOnError extends boolean = false>(options?: Opt
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/invoices/',
         ...options
     });
@@ -4575,12 +4503,6 @@ export const invoicesStatsList = <ThrowOnError extends boolean = false>(options:
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/invoices/{uuid}/stats/',
         ...options
     });
@@ -4612,12 +4534,6 @@ export const keysList = <ThrowOnError extends boolean = false>(options?: Options
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/keys/',
         ...options
     });
@@ -5784,12 +5700,6 @@ export const marketplaceIntegrationStatusesList = <ThrowOnError extends boolean 
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-integration-statuses/',
         ...options
     });
@@ -5983,12 +5893,6 @@ export const marketplaceOfferingFilesList = <ThrowOnError extends boolean = fals
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-offering-files/',
         ...options
     });
@@ -6079,12 +5983,6 @@ export const marketplaceOfferingPermissionsList = <ThrowOnError extends boolean 
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-offering-permissions/',
         ...options
     });
@@ -6098,12 +5996,6 @@ export const marketplaceOfferingPermissionsLogList = <ThrowOnError extends boole
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-offering-permissions-log/',
         ...options
     });
@@ -6143,12 +6035,6 @@ export const marketplaceOfferingReferralsList = <ThrowOnError extends boolean = 
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-offering-referrals/',
         ...options
     });
@@ -6368,12 +6254,6 @@ export const marketplaceOfferingUsersList = <ThrowOnError extends boolean = fals
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-offering-users/',
         ...options
     });
@@ -6481,12 +6361,6 @@ export const marketplaceOrdersList = <ThrowOnError extends boolean = false>(opti
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-orders/',
         ...options
     });
@@ -7157,12 +7031,6 @@ export const marketplaceProviderOfferingsList = <ThrowOnError extends boolean = 
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-provider-offerings/',
         ...options
     });
@@ -7503,12 +7371,6 @@ export const marketplaceProviderOfferingsListCustomerProjectsList = <ThrowOnErro
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-provider-offerings/{uuid}/list_customer_projects/',
         ...options
     });
@@ -7522,12 +7384,6 @@ export const marketplaceProviderOfferingsListCustomerUsersList = <ThrowOnError e
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-provider-offerings/{uuid}/list_customer_users/',
         ...options
     });
@@ -7541,12 +7397,6 @@ export const marketplaceProviderOfferingsListUsersList = <ThrowOnError extends b
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-provider-offerings/{uuid}/list_users/',
         ...options
     });
@@ -7884,12 +7734,6 @@ export const marketplaceProviderResourcesList = <ThrowOnError extends boolean = 
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-provider-resources/',
         ...options
     });
@@ -8330,12 +8174,6 @@ export const marketplacePublicOfferingsList = <ThrowOnError extends boolean = fa
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-public-offerings/',
         ...options
     });
@@ -8607,12 +8445,6 @@ export const marketplaceResourcesList = <ThrowOnError extends boolean = false>(o
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-resources/',
         ...options
     });
@@ -9057,12 +8889,6 @@ export const marketplaceScreenshotsList = <ThrowOnError extends boolean = false>
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-screenshots/',
         ...options
     });
@@ -9480,12 +9306,6 @@ export const marketplaceServiceProvidersList = <ThrowOnError extends boolean = f
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-service-providers/',
         ...options
     });
@@ -9631,12 +9451,6 @@ export const marketplaceServiceProvidersCustomerProjectsList = <ThrowOnError ext
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-service-providers/{uuid}/customer_projects/',
         ...options
     });
@@ -9650,12 +9464,6 @@ export const marketplaceServiceProvidersCustomersList = <ThrowOnError extends bo
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-service-providers/{uuid}/customers/',
         ...options
     });
@@ -9686,12 +9494,6 @@ export const marketplaceServiceProvidersKeysList = <ThrowOnError extends boolean
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-service-providers/{uuid}/keys/',
         ...options
     });
@@ -9705,12 +9507,6 @@ export const marketplaceServiceProvidersListUsersList = <ThrowOnError extends bo
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-service-providers/{uuid}/list_users/',
         ...options
     });
@@ -9724,12 +9520,6 @@ export const marketplaceServiceProvidersOfferingsList = <ThrowOnError extends bo
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-service-providers/{uuid}/offerings/',
         ...options
     });
@@ -9743,12 +9533,6 @@ export const marketplaceServiceProvidersProjectPermissionsList = <ThrowOnError e
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-service-providers/{uuid}/project_permissions/',
         ...options
     });
@@ -9762,12 +9546,6 @@ export const marketplaceServiceProvidersProjectsList = <ThrowOnError extends boo
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-service-providers/{uuid}/projects/',
         ...options
     });
@@ -9781,12 +9559,6 @@ export const marketplaceServiceProvidersRevenueList = <ThrowOnError extends bool
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-service-providers/{uuid}/revenue/',
         ...options
     });
@@ -9800,12 +9572,6 @@ export const marketplaceServiceProvidersRobotAccountCustomersList = <ThrowOnErro
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-service-providers/{uuid}/robot_account_customers/',
         ...options
     });
@@ -9819,12 +9585,6 @@ export const marketplaceServiceProvidersRobotAccountProjectsList = <ThrowOnError
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-service-providers/{uuid}/robot_account_projects/',
         ...options
     });
@@ -9885,12 +9645,6 @@ export const marketplaceServiceProvidersUserCustomersList = <ThrowOnError extend
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-service-providers/{uuid}/user_customers/',
         ...options
     });
@@ -9904,12 +9658,6 @@ export const marketplaceServiceProvidersUsersList = <ThrowOnError extends boolea
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/marketplace-service-providers/{uuid}/users/',
         ...options
     });
@@ -10598,12 +10346,6 @@ export const openstackFlavorsList = <ThrowOnError extends boolean = false>(optio
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/openstack-flavors/',
         ...options
     });
@@ -11463,12 +11205,6 @@ export const openstackPortsList = <ThrowOnError extends boolean = false>(options
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/openstack-ports/',
         ...options
     });
@@ -13032,12 +12768,6 @@ export const paymentProfilesList = <ThrowOnError extends boolean = false>(option
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/payment-profiles/',
         ...options
     });
@@ -13261,12 +12991,6 @@ export const projectCreditsList = <ThrowOnError extends boolean = false>(options
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/project-credits/',
         ...options
     });
@@ -13413,12 +13137,6 @@ export const projectsList = <ThrowOnError extends boolean = false>(options?: Opt
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/projects/',
         ...options
     });
@@ -13574,12 +13292,6 @@ export const projectsListUsersList = <ThrowOnError extends boolean = false>(opti
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/projects/{uuid}/list_users/',
         ...options
     });
@@ -13640,12 +13352,6 @@ export const promotionsCampaignsList = <ThrowOnError extends boolean = false>(op
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/promotions-campaigns/',
         ...options
     });
@@ -13749,12 +13455,6 @@ export const promotionsCampaignsOrdersList = <ThrowOnError extends boolean = fal
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/promotions-campaigns/{uuid}/orders/',
         ...options
     });
@@ -13768,12 +13468,6 @@ export const promotionsCampaignsResourcesList = <ThrowOnError extends boolean = 
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/promotions-campaigns/{uuid}/resources/',
         ...options
     });
@@ -13800,12 +13494,6 @@ export const proposalProposalsList = <ThrowOnError extends boolean = false>(opti
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/proposal-proposals/',
         ...options
     });
@@ -13981,12 +13669,6 @@ export const proposalProposalsListUsersList = <ThrowOnError extends boolean = fa
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/proposal-proposals/{uuid}/list_users/',
         ...options
     });
@@ -14017,12 +13699,6 @@ export const proposalProposalsResourcesList = <ThrowOnError extends boolean = fa
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/proposal-proposals/{uuid}/resources/',
         ...options
     });
@@ -14181,12 +13857,6 @@ export const proposalProtectedCallsList = <ThrowOnError extends boolean = false>
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/proposal-protected-calls/',
         ...options
     });
@@ -14379,12 +14049,6 @@ export const proposalProtectedCallsListUsersList = <ThrowOnError extends boolean
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/proposal-protected-calls/{uuid}/list_users/',
         ...options
     });
@@ -14398,12 +14062,6 @@ export const proposalProtectedCallsOfferingsList = <ThrowOnError extends boolean
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/proposal-protected-calls/{uuid}/offerings/',
         ...options
     });
@@ -14494,12 +14152,6 @@ export const proposalProtectedCallsRoundsList = <ThrowOnError extends boolean = 
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/proposal-protected-calls/{uuid}/rounds/',
         ...options
     });
@@ -14624,12 +14276,6 @@ export const proposalPublicCallsList = <ThrowOnError extends boolean = false>(op
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/proposal-public-calls/',
         ...options
     });
@@ -14656,12 +14302,6 @@ export const proposalRequestedOfferingsList = <ThrowOnError extends boolean = fa
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/proposal-requested-offerings/',
         ...options
     });
@@ -14786,12 +14426,6 @@ export const proposalRequestedResourcesList = <ThrowOnError extends boolean = fa
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/proposal-requested-resources/',
         ...options
     });
@@ -14882,12 +14516,6 @@ export const proposalReviewsList = <ThrowOnError extends boolean = false>(option
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/proposal-reviews/',
         ...options
     });
@@ -15026,12 +14654,6 @@ export const providerInvoiceItemsList = <ThrowOnError extends boolean = false>(o
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/provider-invoice-items/',
         ...options
     });
@@ -15953,12 +15575,6 @@ export const rancherNamespacesList = <ThrowOnError extends boolean = false>(opti
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/rancher-namespaces/',
         ...options
     });
@@ -16369,12 +15985,6 @@ export const rancherTemplatesList = <ThrowOnError extends boolean = false>(optio
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/rancher-templates/',
         ...options
     });
@@ -16491,12 +16101,6 @@ export const rancherWorkloadsList = <ThrowOnError extends boolean = false>(optio
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/rancher-workloads/',
         ...options
     });
@@ -17533,12 +17137,6 @@ export const supportCommentsList = <ThrowOnError extends boolean = false>(option
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/support-comments/',
         ...options
     });
@@ -17745,12 +17343,6 @@ export const supportIssuesList = <ThrowOnError extends boolean = false>(options?
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/support-issues/',
         ...options
     });
@@ -18218,12 +17810,6 @@ export const userGroupInvitationsList = <ThrowOnError extends boolean = false>(o
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/user-group-invitations/',
         ...options
     });
@@ -18310,12 +17896,6 @@ export const userInvitationsList = <ThrowOnError extends boolean = false>(option
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/user-invitations/',
         ...options
     });
@@ -18482,12 +18062,6 @@ export const userPermissionRequestsList = <ThrowOnError extends boolean = false>
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/user-permission-requests/',
         ...options
     });
@@ -18612,12 +18186,6 @@ export const userPermissionsList = <ThrowOnError extends boolean = false>(option
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/user-permissions/',
         ...options
     });
@@ -18644,12 +18212,6 @@ export const usersList = <ThrowOnError extends boolean = false>(options?: Option
                 type: 'apiKey'
             }
         ],
-        querySerializer: {
-            array: {
-                explode: false,
-                style: 'form'
-            }
-        },
         url: '/api/users/',
         ...options
     });

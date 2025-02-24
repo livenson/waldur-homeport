@@ -24,8 +24,8 @@ async function oldestInvoice() {
     await invoicesList({
       query: {
         page_size: 1,
+        o: ['year', 'month'],
         // @ts-ignore
-        o: ['year', 'month'].join(','),
         field: ['year', 'month'],
       },
     })
