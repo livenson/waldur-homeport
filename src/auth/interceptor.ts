@@ -15,12 +15,13 @@ export function initAuthToken() {
   const token = getToken();
   if (token) {
     Axios.defaults.headers.Authorization = 'Token ' + token;
+
+    client.setConfig({
+      auth: () => 'Token ' + token,
+      baseUrl: ENV.apiEndpoint,
+      throwOnError: true,
+    });
   }
-  client.setConfig({
-    auth: () => 'Token ' + token,
-    baseUrl: ENV.apiEndpoint,
-    throwOnError: true,
-  });
 }
 
 Axios.defaults.paramsSerializer = (params) =>
