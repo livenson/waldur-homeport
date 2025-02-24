@@ -9,7 +9,7 @@ $bg-height: 232px;
   background-repeat: no-repeat;
   background-size: cover;
 
-  &::before {
+  &.marketplace-landing::before {
     content: ' ';
     background-color: rgba($primary-900, 0.4);
     position: absolute;
@@ -71,8 +71,8 @@ $bg-height: 232px;
       font-weight: 500;
       text-align: center;
 
-      .bg-mode-accent &,
-      .bg-mode-light & {
+      .marketplace-landing.bg-mode-accent &,
+      .marketplace-landing.bg-mode-light & {
         color: if(isDarkMode(), #fff, $dark);
       }
     }

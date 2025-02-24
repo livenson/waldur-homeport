@@ -56,6 +56,7 @@ export const LandingPage: FC<{}> = () => {
           ENV.plugins.WALDUR_CORE.MARKETPLACE_LANDING_PAGE ||
           translate('Marketplace')
         }
+        marketplaceLanding
       >
         <div className="d-flex justify-content-center">
           <OfferingsSearchBox />
