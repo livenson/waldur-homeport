@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
 
+import { proposalPublicCallsRetrieve } from '@waldur/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { VStepperFormStepProps } from '@waldur/form/VStepperFormStep';
 import { translate } from '@waldur/i18n';
-import { getPublicCall } from '@waldur/proposals/api';
 import {
   Proposal,
   ProposalResource,
@@ -49,7 +49,10 @@ export const FormResourceRequestsStep = (props: VStepperFormStepProps) => {
     refetch: refetchCall,
   } = useQuery(
     ['publicCall', proposal.call_uuid],
-    () => getPublicCall(proposal.call_uuid),
+    () =>
+      proposalPublicCallsRetrieve({ path: { uuid: proposal.call_uuid } }).then(
+        (r) => r.data,
+      ),
     {
       refetchOnWindowFocus: false,
       staleTime: 60 * 1000,

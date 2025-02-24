@@ -187,7 +187,9 @@ export const checkIsCallManager = (call: Call, user: User): boolean =>
       permission.role_name === RoleEnum.CALL_MANAGER,
   );
 
-export const useCallBreadcrumbItems = (call: Call): IBreadcrumbItem[] => {
+export const useCallBreadcrumbItems = (
+  call: Pick<Call, 'customer_uuid' | 'customer_name' | 'name'>,
+): IBreadcrumbItem[] => {
   const { getOrganizationBreadcrumbItem } = usePresetBreadcrumbItems();
 
   return useMemo(

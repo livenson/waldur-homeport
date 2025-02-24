@@ -54,9 +54,6 @@ export const updateCall = (data, uuid) =>
 export const updateCallState = (state: 'activate' | 'archive', uuid) =>
   post<Call>(`/proposal-protected-calls/${uuid}/${state}/`);
 
-export const getPublicCall = (uuid: string, options?: AxiosRequestConfig) =>
-  getById<Call>('/proposal-public-calls/', uuid, options);
-
 export const createCallRound = (callUuid, data) => {
   return post<Round>(`/proposal-protected-calls/${callUuid}/rounds/`, data);
 };

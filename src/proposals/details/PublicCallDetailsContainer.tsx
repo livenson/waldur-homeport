@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { UIView, useCurrentStateAndParams } from '@uirouter/react';
 import { FC, useMemo } from 'react';
 
+import { proposalPublicCallsRetrieve } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { isFeatureVisible } from '@waldur/features/connect';
@@ -12,7 +13,6 @@ import { useTitle } from '@waldur/navigation/title';
 import { PageBarTab } from '@waldur/navigation/types';
 import { usePageTabsTransmitter } from '@waldur/navigation/usePageTabsTransmitter';
 
-import { getPublicCall } from '../api';
 import { useCallBreadcrumbItems } from '../utils';
 
 import { CallTabs } from './CallTabs';
@@ -80,10 +80,17 @@ export const PublicCallDetailsContainer: FC = () => {
     isLoading,
     error,
     refetch,
-  } = useQuery(['publicCall', call_uuid], () => getPublicCall(call_uuid), {
-    refetchOnWindowFocus: false,
-    staleTime: 60 * 1000,
-  });
+  } = useQuery(
+    ['publicCall', call_uuid],
+    () =>
+      proposalPublicCallsRetrieve({ path: { uuid: call_uuid } }).then(
+        (r) => r.data,
+      ),
+    {
+      refetchOnWindowFocus: false,
+      staleTime: 60 * 1000,
+    },
+  );
 
   useTitle(call ? call.name : translate('Call details'));
 

@@ -8,7 +8,7 @@ import { TableFilterItem } from '@waldur/table/TableFilterItem';
 import { CallOfferingFilter } from './CallOfferingFilter';
 
 interface OwnProps {
-  offerings: CallOffering[];
+  offerings: Pick<CallOffering, 'offering_name' | 'offering_uuid'>[];
 }
 
 const PureProposalResourcesFilter: FC<OwnProps> = ({ offerings }) => (
