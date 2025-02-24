@@ -43,7 +43,7 @@ export const AppHeader: FunctionComponent<AppHeaderProps> = ({
     <div className="header align-items-stretch">
       <div className="container-fluid d-flex align-items-stretch justify-content-between">
         <div className="d-flex align-items-center d-lg-none ms-n2 me-2">
-          <AsideMobileToggle />
+          {Boolean(user) && <AsideMobileToggle />}
 
           <div className="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
             <div className="d-lg-none">
