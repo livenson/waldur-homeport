@@ -11367,16 +11367,12 @@
     "description": "administration/roles/PermissionOptions.tsx, marketplace/service-providers/ProviderTeamPage.tsx, project/team/ProjectUsersList.tsx, proposals/call-management/CallManagementTeamPage.tsx, user/affiliations/SummaryTeamTable.tsx",
     "message": "Team members"
   },
-  "Team size": {
-    "description": "dashboard/TeamWidget.tsx, dashboard/api.ts",
-    "message": "Team size"
-  },
   "Team verification": {
     "description": "proposals/utils.ts",
     "message": "Team verification"
   },
   "Team": {
-    "description": "customer/routes.ts, customer/team/CustomerUsersList.tsx, invitations/GroupInvitationsList.tsx, invitations/InvitationsList.tsx, marketplace/routes.ts, project/ProjectUsersBadge.tsx, project/routes.ts, project/team/InvitationsList.tsx, project/team/ProjectUsersList.tsx, proposals/routes.ts, user/affiliations/OrganizationExpandableRow.tsx, user/affiliations/ProjectExpandableRow.tsx",
+    "description": "customer/routes.ts, customer/team/CustomerUsersList.tsx, dashboard/TeamWidget.tsx, dashboard/api.ts, invitations/GroupInvitationsList.tsx, invitations/InvitationsList.tsx, marketplace/routes.ts, project/ProjectUsersBadge.tsx, project/routes.ts, project/team/InvitationsList.tsx, project/team/ProjectUsersList.tsx, proposals/routes.ts, user/affiliations/OrganizationExpandableRow.tsx, user/affiliations/ProjectExpandableRow.tsx",
     "message": "Team"
   },
   "Technical code used by accounting software.": {

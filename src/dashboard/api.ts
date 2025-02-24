@@ -46,7 +46,7 @@ const formatTeamSizeChart = (values: number[]): Chart => {
   }
 
   return {
-    title: translate('Team size'),
+    title: translate('Team'),
     units: null,
     current: currentCount,
     total: currentCount,
