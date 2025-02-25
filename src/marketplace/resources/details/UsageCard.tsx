@@ -43,7 +43,10 @@ export const UsageCard = ({ resource }) => {
     refetch: refetchTeam,
   } = useQuery(
     ['ResourceTeam', resource.uuid],
-    () => marketplaceResourcesTeamList(resource.uuid).then((r) => r.data),
+    () =>
+      marketplaceResourcesTeamList({ path: { uuid: resource.uuid } }).then(
+        (r) => r.data,
+      ),
     { staleTime: 3 * 60 * 1000 },
   );
 
