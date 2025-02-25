@@ -1,3 +1,8 @@
+import { useMemo } from 'react';
+
+import { translate } from '@waldur/i18n';
+import { showComponentsList } from '@waldur/marketplace/common/registry';
+
 import { getAccountingTypeOptions } from './components/ComponentAccountingTypeField';
 import { getLimitPeriods } from './components/ComponentLimitPeriodField';
 
@@ -26,4 +31,25 @@ export const parseComponent = (component) => {
       (option) => option.value === component.limit_period,
     ),
   };
+};
+
+export const useOfferingAccountingTableTabs = (offering) => {
+  return useMemo(
+    () =>
+      [
+        showComponentsList(offering.type) && {
+          key: 'components',
+          title: translate('Components'),
+          state: 'marketplace-offering-update',
+          params: { tab: 'components' },
+        },
+        {
+          key: 'plans',
+          title: translate('Plans'),
+          state: 'marketplace-offering-update',
+          params: { tab: 'plans' },
+        },
+      ].filter(Boolean),
+    [offering],
+  );
 };

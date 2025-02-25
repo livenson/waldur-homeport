@@ -6,13 +6,14 @@ import {
   useRouter,
 } from '@uirouter/react';
 import classNames from 'classnames';
-import { FunctionComponent, useCallback, useEffect, useState } from 'react';
+import { isMatch } from 'lodash-es';
+import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 
 import { Link } from '@waldur/core/Link';
 
 import { isDescendantOf, useTabs } from './useTabs';
 
-const MenuLink: FunctionComponent<
+const MenuLink: FC<
   UISrefProps & { className?: string; disabled?: boolean }
 > = ({ to, params, disabled, children, className }) =>
   to && !disabled ? (
@@ -52,7 +53,7 @@ const findActiveTab = (tabs, router) => {
   });
 };
 
-export const TabsList: FunctionComponent = () => {
+export const TabsList: FC = () => {
   const tabs = useTabs();
   const router = useRouter();
   const updateActiveTab = useCallback(
@@ -63,20 +64,43 @@ export const TabsList: FunctionComponent = () => {
   useEffect(updateActiveTab, [tabs, router]);
   useOnStateChanged(updateActiveTab);
 
+  const visibleTabs = useMemo(() => {
+    const _tabs = tabs.filter((tab) => tab.visible !== false);
+    return _tabs.map((tab) =>
+      tab.children?.length
+        ? {
+            ...tab,
+            children: tab.children.filter((child) => child.visible !== false),
+          }
+        : tab,
+    );
+  }, [tabs]);
+
   return (
     <>
-      {tabs.map((parentTab, parentIndex) =>
+      {visibleTabs.map((parentTab, parentIndex) =>
         parentTab.children?.length > 0 ? (
           <span
             data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
             data-kt-menu-placement="bottom-start"
             className={classNames(
               'menu-item menu-lg-down-accordion menu-sub-lg-down-indention me-0 me-lg-2',
-              { here: parentTab === activeTab },
+              { here: isMatch(activeTab, parentTab) },
             )}
             key={parentIndex}
           >
-            <MenuLink to={parentTab.redirectTo || parentTab.to}>
+            <MenuLink
+              to={
+                (typeof parentTab.redirectTo === 'string'
+                  ? parentTab.redirectTo
+                  : parentTab.redirectTo?.state) || parentTab.to
+              }
+              params={
+                typeof parentTab.redirectTo === 'object'
+                  ? parentTab.redirectTo.params
+                  : undefined
+              }
+            >
               <span className="menu-title">{parentTab.title}</span>
               <span className="menu-arrow" />
             </MenuLink>
@@ -97,17 +121,25 @@ export const TabsList: FunctionComponent = () => {
               ))}
             </div>
           </span>
-        ) : parentTab.to ? (
+        ) : parentTab.to || parentTab.redirectTo ? (
           <span
             key={parentIndex}
             className={classNames('menu-item text-nowrap', {
-              here: parentTab === activeTab,
+              here: isMatch(activeTab, parentTab),
             })}
             data-kt-menu-trigger="click"
           >
             <MenuLink
-              to={parentTab.redirectTo || parentTab.to}
-              params={parentTab.params}
+              to={
+                (typeof parentTab.redirectTo === 'string'
+                  ? parentTab.redirectTo
+                  : parentTab.redirectTo?.state) || parentTab.to
+              }
+              params={
+                (typeof parentTab.redirectTo === 'object'
+                  ? parentTab.redirectTo.params
+                  : undefined) || parentTab.params
+              }
               disabled={parentTab.disabled}
             >
               <span className="menu-title">{parentTab.title}</span>

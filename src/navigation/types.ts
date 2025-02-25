@@ -4,8 +4,11 @@ export interface PageBarTab {
   key: string;
   title: ReactNode;
   component?: ComponentType<any>;
+  /** The default key that will be activated when the parent is clicked. It can be the key of one of the children. */
+  defaultKey?: string;
   disabled?: boolean;
-  children?: Omit<PageBarTab, 'children'>[];
+  visible?: boolean;
+  children?: Omit<PageBarTab, 'children' | 'defaultKey'>[];
 }
 
 export interface IBreadcrumbItem {
