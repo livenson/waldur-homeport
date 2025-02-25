@@ -39,7 +39,7 @@ const SignInWithLocalAccount: FC<SigninWithLocalAccountProps> = ({
 export const LocalLogin: FC<LocalLoginProps> = ({
   enableSeperator = false,
 }) => {
-  const [showSigninForm, setShowSigninForm] = useState(false);
+  const [showSigninForm, setShowSigninForm] = useState<boolean>(false);
   return (
     <>
       {enableSeperator && (
