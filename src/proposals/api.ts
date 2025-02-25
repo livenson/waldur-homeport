@@ -3,7 +3,6 @@ import Axios, { AxiosRequestConfig } from 'axios';
 import { ENV } from '@waldur/configs/default';
 import {
   fixURL,
-  get,
   getAll,
   getById,
   getFirst,
@@ -18,7 +17,6 @@ import { GenericPermission } from '@waldur/permissions/types';
 
 import {
   Call,
-  CallManagementStatistics,
   CallManagingOrganization,
   CallOffering,
   Proposal,
@@ -30,9 +28,6 @@ export const getCallManagingOrganization = (customerUuid) =>
   getFirst<CallManagingOrganization>('/call-managing-organisations/', {
     customer_uuid: customerUuid,
   }).then((data) => (data ? data : null));
-
-export const getProtectedCall = (uuid: string, options?: AxiosRequestConfig) =>
-  getById<Call>('/proposal-protected-calls/', uuid, options);
 
 export const getProtectedCallRound = (
   callUuid: string,
@@ -66,12 +61,6 @@ export const updateCallRound = (callUuid, roundUuid, data) =>
 
 export const createCallOffering = (callUuid, data) =>
   post<CallOffering>(`/proposal-protected-calls/${callUuid}/offerings/`, data);
-
-export const acceptCallOfferingRequest = (uuid) =>
-  post(`/proposal-requested-offerings/${uuid}/accept/`);
-
-export const rejectCallOfferingRequest = (uuid) =>
-  post(`/proposal-requested-offerings/${uuid}/cancel/`);
 
 const getProtectedCallsOptions = (params?: {}) =>
   getSelectData<Call>('/proposal-protected-calls/', params);
@@ -108,26 +97,11 @@ export const getAllCallUsers = (callUuid, role = null) =>
     role ? { params: { role } } : null,
   );
 
-export const createProposal = (data) =>
-  post<Proposal>(`/proposal-proposals/`, data);
-
 export const getProposal = (uuid) =>
   getById<Proposal>(`/proposal-proposals/`, uuid);
 
-export const rejectProposal = (uuid) =>
-  post<Proposal>(`/proposal-proposals/${uuid}/reject/`);
-
-export const forceApproveProposal = (uuid) =>
-  post<Proposal>(`/proposal-proposals/${uuid}/force_approve/`);
-
-export const updateProposalProjectDetails = (data, uuid) =>
-  post<Proposal>(`/proposal-proposals/${uuid}/update_project_details/`, data);
-
 export const submitProposal = (uuid) =>
   post<Proposal>(`/proposal-proposals/${uuid}/submit/`);
-
-export const switchProposalToTeamVerification = (uuid) =>
-  post<Proposal>(`/proposal-proposals/${uuid}/switch_to_team_verification/`);
 
 export const createProposalResource = (data, proposalUuid) =>
   post<Proposal>(`/proposal-proposals/${proposalUuid}/resources/`, data);
@@ -138,34 +112,13 @@ export const updateProposalResource = (data, proposalUuid, uuid) =>
     data,
   );
 
-export const getProposalReview = (reviewUuid) =>
-  getById<ProposalReview>('/proposal-reviews/', reviewUuid);
-
 export const getAllProposalReviews = (proposalUuid) =>
   getAll<ProposalReview>('/proposal-reviews/', {
     params: { proposal_uuid: proposalUuid },
   });
 
-export const createProposalReview = (data) =>
-  post<ProposalReview>(`/proposal-reviews/`, data);
-
 export const updateProposalReview = (data, uuid) =>
   patch<ProposalReview>(`/proposal-reviews/${uuid}/`, data);
-
-export const submitProposalReview = (data, uuid) =>
-  post<ProposalReview>(`/proposal-reviews/${uuid}/submit/`, data);
-
-export const acceptProposalReview = (uuid) =>
-  post(`/proposal-reviews/${uuid}/accept/`);
-
-export const rejectProposalReview = (uuid) =>
-  post(`/proposal-reviews/${uuid}/reject/`);
-
-export const getCallManagementStatistics = (uuid) => {
-  return get<CallManagementStatistics>(
-    `/call-managing-organisations/${uuid}/stats/`,
-  ).then((response) => response.data);
-};
 
 export const attachDocument = (proposal_uuid, file) =>
   sendForm(

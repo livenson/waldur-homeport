@@ -3,6 +3,7 @@ import { useCurrentStateAndParams, useRouter } from '@uirouter/react';
 import { createRef, useCallback, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { proposalReviewsRetrieve, proposalReviewsSubmit } from '@waldur/api';
 import { Badge } from '@waldur/core/Badge';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { LoadingErred } from '@waldur/core/LoadingErred';
@@ -19,12 +20,7 @@ import {
 } from '@waldur/modal/actions';
 import { useFullPage } from '@waldur/navigation/context';
 import { useTitle } from '@waldur/navigation/title';
-import {
-  getProposal,
-  getProposalReview,
-  submitProposalReview,
-  updateProposalReview,
-} from '@waldur/proposals/api';
+import { getProposal, updateProposalReview } from '@waldur/proposals/api';
 import { PROPOSAL_UPDATE_REVIEW_FORM_ID } from '@waldur/proposals/constants';
 import { ProposalReview } from '@waldur/proposals/types';
 import { formatReviewState } from '@waldur/proposals/utils';
@@ -40,8 +36,10 @@ const CommentFormDialog = lazyComponent(() =>
   })),
 );
 
-const loadData = async (reviewUuid) => {
-  const review = await getProposalReview(reviewUuid);
+const loadData = async (reviewUuid: string) => {
+  const review = (await proposalReviewsRetrieve({
+    path: { uuid: reviewUuid },
+  }).then((response) => response.data)) as ProposalReview;
   const proposal = await getProposal(getUUID(review.proposal));
   return { review, proposal };
 };
@@ -78,38 +76,37 @@ export const ProposalReviewCreatePage = (props) => {
     (_, i) => stepRefs.current[i] ?? createRef(),
   );
 
-  const submit = useCallback(
-    async (formData, dispatch) => {
-      try {
-        await waitForConfirmation(
-          dispatch,
-          translate('Confirm your review'),
-          translate(
-            'Are you sure you want to submit this review for the {name} proposal?',
-            {
-              name: <b>{data.proposal.name}</b>,
-            },
-            formatJsxTemplate,
-          ),
-        );
-      } catch {
-        return;
-      }
-      return submitProposalReview(formData, data.review.uuid)
-        .then(() => {
-          dispatch(
-            showSuccess(translate('Proposal review submitted successfully')),
-          );
-          refetch();
-        })
-        .catch((error) => {
-          dispatch(showErrorResponse(error, translate('Something went wrong')));
-        });
-    },
-    [data, router, user],
-  );
-
   const dispatch = useDispatch();
+
+  const submit = useCallback(async () => {
+    try {
+      await waitForConfirmation(
+        dispatch,
+        translate('Confirm your review'),
+        translate(
+          'Are you sure you want to submit this review for the {name} proposal?',
+          {
+            name: <b>{data.proposal.name}</b>,
+          },
+          formatJsxTemplate,
+        ),
+      );
+    } catch {
+      return;
+    }
+    try {
+      await proposalReviewsSubmit({
+        path: { uuid: data.review.uuid },
+      });
+      dispatch(
+        showSuccess(translate('Proposal review submitted successfully')),
+      );
+      refetch();
+    } catch (error) {
+      dispatch(showErrorResponse(error, translate('Something went wrong')));
+    }
+  }, [data, router, user]);
+
   const openCommentFormDialog = useCallback(
     ({ commentField, label }) =>
       dispatch(

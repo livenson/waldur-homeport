@@ -6236,6 +6236,8 @@ export type PaginatedResourceUserList = Array<ResourceUser>;
 
 export type PaginatedReviewList = Array<Review>;
 
+export type PaginatedReviewerList = Array<Reviewer>;
+
 export type PaginatedRmqUserStatsItemList = Array<RmqUserStatsItem>;
 
 export type PaginatedRobotAccountDetailsList = Array<RobotAccountDetails>;
@@ -9609,6 +9611,14 @@ export type ReviewRequest = {
 export type ReviewStateEnum = 'created' | 'in_review' | 'submitted' | 'rejected';
 
 export type ReviewStrategyEnum = 'after_round' | 'after_proposal';
+
+export type Reviewer = {
+    readonly full_name: string;
+    email: string;
+    accepted_proposals: number;
+    rejected_proposals: number;
+    in_review_proposals: number;
+};
 
 export type RmqConnection = {
     readonly source_ip: string;
@@ -13651,20 +13661,29 @@ export type CallRoundsUpdateResponses = {
 
 export type CallRoundsUpdateResponse = CallRoundsUpdateResponses[keyof CallRoundsUpdateResponses];
 
-export type CallRoundsReviewersRetrieveData = {
+export type CallRoundsReviewersListData = {
     body?: never;
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+    };
     url: '/api/call-rounds/{uuid}/reviewers/';
 };
 
-export type CallRoundsReviewersRetrieveResponses = {
-    200: Round;
+export type CallRoundsReviewersListResponses = {
+    200: PaginatedReviewerList;
 };
 
-export type CallRoundsReviewersRetrieveResponse = CallRoundsReviewersRetrieveResponses[keyof CallRoundsReviewersRetrieveResponses];
+export type CallRoundsReviewersListResponse = CallRoundsReviewersListResponses[keyof CallRoundsReviewersListResponses];
 
 export type CeleryStatsRetrieveData = {
     body?: never;
@@ -19944,7 +19963,7 @@ export type MarketplaceProviderOfferingsGlauthUsersConfigRetrieveData = {
 };
 
 export type MarketplaceProviderOfferingsGlauthUsersConfigRetrieveResponses = {
-    200: ProviderOfferingDetails;
+    200: string;
 };
 
 export type MarketplaceProviderOfferingsGlauthUsersConfigRetrieveResponse = MarketplaceProviderOfferingsGlauthUsersConfigRetrieveResponses[keyof MarketplaceProviderOfferingsGlauthUsersConfigRetrieveResponses];
@@ -29079,7 +29098,7 @@ export type ProposalRequestedOfferingsUpdateResponses = {
 export type ProposalRequestedOfferingsUpdateResponse = ProposalRequestedOfferingsUpdateResponses[keyof ProposalRequestedOfferingsUpdateResponses];
 
 export type ProposalRequestedOfferingsAcceptData = {
-    body: ProviderRequestedOfferingRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -29088,13 +29107,14 @@ export type ProposalRequestedOfferingsAcceptData = {
 };
 
 export type ProposalRequestedOfferingsAcceptResponses = {
-    200: ProviderRequestedOffering;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type ProposalRequestedOfferingsAcceptResponse = ProposalRequestedOfferingsAcceptResponses[keyof ProposalRequestedOfferingsAcceptResponses];
-
 export type ProposalRequestedOfferingsCancelData = {
-    body: ProviderRequestedOfferingRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -29103,10 +29123,11 @@ export type ProposalRequestedOfferingsCancelData = {
 };
 
 export type ProposalRequestedOfferingsCancelResponses = {
-    200: ProviderRequestedOffering;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type ProposalRequestedOfferingsCancelResponse = ProposalRequestedOfferingsCancelResponses[keyof ProposalRequestedOfferingsCancelResponses];
 
 export type ProposalRequestedResourcesListData = {
     body?: never;
@@ -34969,5 +34990,5 @@ export type VmwareVirtualMachineWebConsoleRetrieveResponses = {
 export type VmwareVirtualMachineWebConsoleRetrieveResponse = VmwareVirtualMachineWebConsoleRetrieveResponses[keyof VmwareVirtualMachineWebConsoleRetrieveResponses];
 
 export type ClientOptions = {
-    baseUrl: `${string}://waldur-openapi-schema.yaml` | (string & {});
+    baseUrl: `${string}://schema.yaml` | (string & {});
 };

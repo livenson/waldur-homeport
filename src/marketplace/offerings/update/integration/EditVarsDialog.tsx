@@ -4,9 +4,9 @@ import { Button, Modal } from 'react-bootstrap';
 import { connect, useDispatch } from 'react-redux';
 import { FieldArray, reduxForm } from 'redux-form';
 
+import { marketplaceProviderOfferingsUpdateIntegration } from '@waldur/api';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
-import { updateOfferingSecretOptions } from '@waldur/marketplace/common/api';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
@@ -27,10 +27,13 @@ export const EditVarsDialog = connect<{}, {}, OwnProps>((_, ownProps) => ({
     const update = useCallback(
       async (formData) => {
         try {
-          await updateOfferingSecretOptions(props.resolve.offering.uuid, {
-            secret_options: {
-              ...props.resolve.offering.secret_options,
-              environ: formData.environ,
+          await marketplaceProviderOfferingsUpdateIntegration({
+            path: { uuid: props.resolve.offering.uuid },
+            body: {
+              secret_options: {
+                ...props.resolve.offering.secret_options,
+                environ: formData.environ,
+              },
             },
           });
           dispatch(

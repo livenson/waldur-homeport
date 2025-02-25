@@ -1,15 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
 import { FunctionComponent, useEffect } from 'react';
 
+import { marketplacePublicOfferingsRetrieve } from '@waldur/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { getUUID } from '@waldur/core/utils';
 import { FormContainer } from '@waldur/form';
 import { WizardForm, WizardFormStepProps } from '@waldur/form/WizardForm';
 import { translate } from '@waldur/i18n';
-import { getPublicOffering } from '@waldur/marketplace/common/api';
 import { PlanDescriptionButton } from '@waldur/marketplace/details/plan/PlanDescriptionButton';
 import { PlanDetailsTable2 } from '@waldur/marketplace/details/plan/PlanDetailsTable2';
+import { Offering } from '@waldur/marketplace/types';
 
 export const ResourceRequestWizardFormSecondPage: FunctionComponent<
   WizardFormStepProps
@@ -21,7 +22,10 @@ export const ResourceRequestWizardFormSecondPage: FunctionComponent<
 
         const queryData = useQuery(
           ['offering', offering?.uuid],
-          () => getPublicOffering(offering.uuid),
+          () =>
+            marketplacePublicOfferingsRetrieve({
+              path: { uuid: offering.uuid },
+            }).then((response) => response.data as unknown as Offering),
           {
             staleTime: 3 * 60 * 1000,
           },

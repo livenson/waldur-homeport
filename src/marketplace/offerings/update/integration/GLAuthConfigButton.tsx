@@ -3,10 +3,10 @@ import { useQuery } from '@tanstack/react-query';
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { marketplaceProviderOfferingsGlauthUsersConfigRetrieve } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { translate } from '@waldur/i18n';
-import { getProviderOfferingGLAuthConfig } from '@waldur/marketplace/common/api';
 import { openModalDialog } from '@waldur/modal/actions';
 import { ActionButton } from '@waldur/table/ActionButton';
 
@@ -23,7 +23,12 @@ export const GLAuthConfigButton: FC<{
     offering.secret_options?.service_provider_can_create_offering_user;
   const { data, error, isLoading, refetch } = useQuery(
     ['OfferingGLAuthConfig', offering.uuid, enabled],
-    () => (enabled ? getProviderOfferingGLAuthConfig(offering.uuid) : null),
+    () =>
+      enabled
+        ? marketplaceProviderOfferingsGlauthUsersConfigRetrieve({
+            path: { uuid: offering.uuid },
+          }).then((response) => response.data)
+        : null,
     { refetchOnWindowFocus: false, staleTime: 5 * 60 * 1000 },
   );
 

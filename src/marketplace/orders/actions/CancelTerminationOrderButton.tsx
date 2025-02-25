@@ -2,8 +2,8 @@ import { Prohibit } from '@phosphor-icons/react';
 import { useMutation } from '@tanstack/react-query';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { remoteWaldurApiCancelTermination } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import { cancelTerminationOrder } from '@waldur/marketplace/common/api';
 import { REMOTE_OFFERING_TYPE } from '@waldur/marketplace-remote/constants';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
@@ -23,7 +23,7 @@ export const CancelTerminationOrderButton = ({
   const dispatch = useDispatch();
   const { mutate, isLoading } = useMutation(async () => {
     try {
-      await cancelTerminationOrder(row.uuid);
+      await remoteWaldurApiCancelTermination({ path: { uuid: row.uuid } });
       await fetch();
       dispatch(showSuccess(translate('Order has been canceled.')));
     } catch (response) {

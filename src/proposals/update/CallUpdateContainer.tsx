@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useCurrentStateAndParams } from '@uirouter/react';
 import { FunctionComponent, useMemo } from 'react';
 
+import { proposalProtectedCallsRetrieve } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { InvalidRoutePage } from '@waldur/error/InvalidRoutePage';
 import { isFeatureVisible } from '@waldur/features/connect';
@@ -14,9 +15,9 @@ import { PageBarTab } from '@waldur/navigation/types';
 import { usePageTabsTransmitter } from '@waldur/navigation/usePageTabsTransmitter';
 import { RoleEnum } from '@waldur/permissions/enums';
 
-import { getProtectedCall } from '../api';
 import { CallTabs } from '../details/CallTabs';
 import { TeamSection } from '../team/TeamSection';
+import { Call } from '../types';
 import { useCallBreadcrumbItems } from '../utils';
 
 import { CallUpdateHero } from './CallUpdateHero';
@@ -119,7 +120,10 @@ export const CallUpdateContainer: FunctionComponent = () => {
     isRefetching,
   } = useQuery(
     ['CallUpdateContainer', call_uuid],
-    () => getProtectedCall(call_uuid),
+    () =>
+      proposalProtectedCallsRetrieve({ path: { uuid: call_uuid } }).then(
+        (r) => r.data as any as Call,
+      ),
     {
       refetchOnWindowFocus: false,
     },

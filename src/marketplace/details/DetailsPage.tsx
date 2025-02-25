@@ -4,7 +4,10 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { useAsync } from 'react-use';
 
-import { marketplacePluginsList } from '@waldur/api';
+import {
+  marketplacePluginsList,
+  marketplacePublicOfferingsRetrieve,
+} from '@waldur/api';
 import { usePermissionView } from '@waldur/auth/PermissionLayout';
 import { formatDate, parseDate } from '@waldur/core/dateUtils';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
@@ -12,11 +15,13 @@ import { translate } from '@waldur/i18n';
 import { formProjectSelector } from '@waldur/marketplace/deploy/utils';
 import { useTitle } from '@waldur/navigation/title';
 
-import { getPublicOffering } from '../common/api';
 import { DeployPage } from '../deploy/DeployPage';
+import { Offering } from '../types';
 
 async function loadData(offering_uuid: string) {
-  const offering = await getPublicOffering(offering_uuid);
+  const offering = (await marketplacePublicOfferingsRetrieve({
+    path: { uuid: offering_uuid },
+  }).then((response) => response.data)) as Offering;
   const plugins = await marketplacePluginsList();
   const limits = plugins.data.find(
     (plugin) => plugin.offering_type === offering.type,

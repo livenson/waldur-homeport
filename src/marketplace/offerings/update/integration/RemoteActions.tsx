@@ -3,13 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import {
   remoteWaldurApiPullOfferingDetails,
+  remoteWaldurApiPullOfferingInvoices,
+  remoteWaldurApiPullOfferingOrders,
   remoteWaldurApiPullOfferingResources,
+  remoteWaldurApiPullOfferingRobotAccounts,
   remoteWaldurApiPullOfferingUsage,
   remoteWaldurApiPullOfferingUsers,
   remoteWaldurApiPushProjectData,
 } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import * as api from '@waldur/marketplace/common/api';
 import { REMOTE_OFFERING_TYPE } from '@waldur/marketplace-remote/constants';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import {
@@ -148,7 +150,7 @@ const usePullRemoteOfferingOrders = () => {
   return useCallback(
     async (uuid: string) => {
       try {
-        await api.pullRemoteOfferingOrders(uuid);
+        await remoteWaldurApiPullOfferingOrders({ path: { uuid } });
         dispatch(
           showSuccess(
             translate('Offering orders synchronization has been scheduled.'),
@@ -173,7 +175,7 @@ const usePullRemoteOfferingInvoices = () => {
   return useCallback(
     async (uuid: string) => {
       try {
-        await api.pullRemoteOfferingInvoices(uuid);
+        await remoteWaldurApiPullOfferingInvoices({ path: { uuid } });
         dispatch(
           showSuccess(
             translate('Offering invoices synchronization has been scheduled.'),
@@ -198,7 +200,7 @@ const usePullRemoteOfferingRobotAccounts = () => {
   return useCallback(
     async (uuid: string) => {
       try {
-        await api.pullRemoteOfferingRobotAccounts(uuid);
+        await remoteWaldurApiPullOfferingRobotAccounts({ path: { uuid } });
         dispatch(
           showSuccess(
             translate('Robot accounts synchronization has been scheduled.'),

@@ -2,16 +2,16 @@ import { useQuery } from '@tanstack/react-query';
 import { UIView, useCurrentStateAndParams } from '@uirouter/react';
 import { useCallback, useMemo } from 'react';
 
-import { marketplaceCategoriesRetrieve } from '@waldur/api';
+import {
+  marketplaceCategoriesRetrieve,
+  marketplaceProviderOfferingsRetrieve,
+} from '@waldur/api';
 import { OFFERING_TYPE_BOOKING } from '@waldur/booking/constants';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { isFeatureVisible } from '@waldur/features/connect';
 import { MarketplaceFeatures } from '@waldur/FeaturesEnums';
 import { translate } from '@waldur/i18n';
-import {
-  getOfferingPlansUsage,
-  getProviderOffering,
-} from '@waldur/marketplace/common/api';
+import { getOfferingPlansUsage } from '@waldur/marketplace/common/api';
 import { Offering, ServiceProvider } from '@waldur/marketplace/types';
 import { useBreadcrumbs, usePageHero } from '@waldur/navigation/context';
 import { PageBarTab } from '@waldur/navigation/types';
@@ -92,7 +92,9 @@ const OfferingEventsList = lazyComponent(() =>
 );
 
 async function loadOfferingData(offering_uuid: string) {
-  const offering = await getProviderOffering(offering_uuid);
+  const offering = (await marketplaceProviderOfferingsRetrieve({
+    path: { uuid: offering_uuid },
+  }).then((response) => response.data)) as Offering;
   const category = await marketplaceCategoriesRetrieve({
     path: { uuid: offering.category_uuid },
   }).then((response) => response.data);

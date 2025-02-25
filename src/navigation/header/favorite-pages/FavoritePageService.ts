@@ -8,13 +8,14 @@ import { isMatch, pickBy, uniqueId } from 'lodash-es';
 import { useCallback, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
 
-import { marketplaceCategoriesRetrieve } from '@waldur/api';
+import {
+  marketplaceCategoriesRetrieve,
+  marketplaceProviderOfferingsRetrieve,
+  marketplacePublicOfferingsRetrieve,
+  Offering,
+} from '@waldur/api';
 import { Resource } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import {
-  getProviderOffering,
-  getPublicOffering,
-} from '@waldur/marketplace/common/api';
 import { getTitle } from '@waldur/navigation/title';
 import { isDescendantOf } from '@waldur/navigation/useTabs';
 import store from '@waldur/store/store';
@@ -92,9 +93,11 @@ const getDataForFavoritePage = async (
   let image;
   const newParams = params ? { ...params } : {};
   if (state.name.startsWith('marketplace-offering') && params.offering_uuid) {
-    const offering = await getProviderOffering(params.offering_uuid, {
-      params: { field: ['name', 'customer_name', 'thumbnail'] },
-    });
+    const offering = (await marketplaceProviderOfferingsRetrieve({
+      path: { uuid: params.offering_uuid },
+      // @ts-ignore
+      query: { field: ['name', 'customer_name', 'thumbnail'] },
+    }).then((response) => response.data)) as Offering;
     title = offering.customer_name;
     subtitle = offering.name;
     image = offering.thumbnail;
@@ -102,9 +105,14 @@ const getDataForFavoritePage = async (
     state.name === 'public-offering.marketplace-public-offering' &&
     params.uuid
   ) {
-    const offering = await getPublicOffering(params.offering_uuid, {
-      params: { field: ['name', 'customer_name', 'thumbnail'] },
-    });
+    const offering = await marketplacePublicOfferingsRetrieve({
+      path: { uuid: params.offering_uuid },
+      // @ts-ignore
+      query: {
+        field: ['name', 'customer_name', 'thumbnail'],
+      },
+    }).then((response) => response.data);
+
     title = offering.customer_name;
     subtitle = offering.name;
     image = offering.thumbnail;

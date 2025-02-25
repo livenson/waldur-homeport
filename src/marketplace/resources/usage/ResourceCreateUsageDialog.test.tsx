@@ -8,15 +8,15 @@ import {
 import { Provider } from 'react-redux';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
+import { marketplaceComponentUsagesSetUsage } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import { submitUsageReport } from '@waldur/marketplace/common/api';
 import { createActionStore } from '@waldur/resource/actions/testUtils';
 
 import * as api from './api';
 import { ResourceCreateUsageDialog } from './ResourceCreateUsageDialog';
 
-vi.mock('@waldur/marketplace/common/api', () => ({
-  submitUsageReport: vi.fn(),
+vi.mock('@waldur/api', () => ({
+  marketplaceComponentUsagesSetUsage: vi.fn(),
 }));
 
 const loader = vi.spyOn(api, 'getProviderUsageComponents');
@@ -112,8 +112,8 @@ describe('ResourceCreateUsageDialog', () => {
 
   it('submits form with usage values', async () => {
     loader.mockResolvedValue(mockData);
-    const submitSpy = vi.mocked(submitUsageReport);
-    submitSpy.mockResolvedValue({});
+    const submitSpy = vi.mocked(marketplaceComponentUsagesSetUsage);
+    submitSpy.mockResolvedValue({} as any);
 
     await act(() => {
       renderDialog(props);
@@ -132,14 +132,16 @@ describe('ResourceCreateUsageDialog', () => {
 
     await waitFor(() => {
       expect(submitSpy).toHaveBeenCalledWith({
-        plan_period: 'period-1',
-        usages: [
-          {
-            type: 'comp1',
-            amount: '10',
-            description: 'Test usage',
-          },
-        ],
+        body: {
+          plan_period: 'period-1',
+          usages: [
+            {
+              type: 'comp1',
+              amount: '10',
+              description: 'Test usage',
+            },
+          ],
+        },
       });
     });
   });

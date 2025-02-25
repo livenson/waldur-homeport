@@ -3,6 +3,7 @@ import { useRouter } from '@uirouter/react';
 import { useCallback } from 'react';
 import { reduxForm } from 'redux-form';
 
+import { proposalReviewsCreate } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { fixURL } from '@waldur/core/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
@@ -14,7 +15,7 @@ import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { RoleEnum } from '@waldur/permissions/enums';
-import { createProposalReview, getAllCallUsers } from '@waldur/proposals/api';
+import { getAllCallUsers } from '@waldur/proposals/api';
 import { CALL_REVIEWERS_QUERY_KEY } from '@waldur/proposals/constants';
 import { Proposal } from '@waldur/proposals/types';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
@@ -47,25 +48,23 @@ export const CreateReviewDialog = reduxForm<
 
   const router = useRouter();
   const processRequest = useCallback(
-    (values: FormData, dispatch) => {
+    async (values: FormData, dispatch) => {
       if (!values.reviewer) return;
       const proposalUrl =
         props.resolve.proposal.url ||
         fixURL(`/proposal-proposals/${props.resolve.proposal.uuid}/`);
-      Object.assign(values, {
-        proposal: proposalUrl,
-      });
-      return createProposalReview(values)
-        .then(() => {
-          dispatch(
-            showSuccess(translate('Proposal review created successfully')),
-          );
-          dispatch(closeModalDialog());
-          router.stateService.go('call-management.review-list');
-        })
-        .catch((error) => {
-          dispatch(showErrorResponse(error, translate('Something went wrong')));
+      try {
+        await proposalReviewsCreate({
+          body: { proposal: proposalUrl, ...values },
         });
+        dispatch(
+          showSuccess(translate('Proposal review created successfully')),
+        );
+        dispatch(closeModalDialog());
+        router.stateService.go('call-management.review-list');
+      } catch (error) {
+        dispatch(showErrorResponse(error, translate('Something went wrong')));
+      }
     },
     [props.resolve, router],
   );

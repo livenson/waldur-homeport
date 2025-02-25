@@ -3,18 +3,20 @@ import { UIView, useCurrentStateAndParams, useRouter } from '@uirouter/react';
 import { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { marketplaceCategoriesRetrieve } from '@waldur/api';
+import {
+  marketplaceCategoriesRetrieve,
+  marketplacePublicOfferingsRetrieve,
+} from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { isFeatureVisible } from '@waldur/features/connect';
 import { MarketplaceFeatures } from '@waldur/FeaturesEnums';
 import { translate } from '@waldur/i18n';
-import { getPublicOffering } from '@waldur/marketplace/common/api';
 import { useBreadcrumbs, usePageHero } from '@waldur/navigation/context';
 import { PageBarTab } from '@waldur/navigation/types';
 import { usePageTabsTransmitter } from '@waldur/navigation/usePageTabsTransmitter';
-import { ANONYMOUS_CONFIG } from '@waldur/table/api';
 import { getUser } from '@waldur/workspace/selectors';
 
+import { Offering } from '../types';
 import { isExperimentalUiComponentsVisible } from '../utils';
 
 import { PUBLIC_OFFERING_DATA_QUERY_KEY } from './constants';
@@ -145,8 +147,11 @@ export const OfferingPublicUIView = () => {
   const { isLoading, error, data, refetch, isRefetching } = useQuery(
     [PUBLIC_OFFERING_DATA_QUERY_KEY, uuid, user?.uuid],
     async () => {
-      const options = user ? undefined : ANONYMOUS_CONFIG;
-      const offering = await getPublicOffering(uuid, options);
+      const options = user ? undefined : { auth: null };
+      const offering = (await marketplacePublicOfferingsRetrieve({
+        path: { uuid },
+        ...options,
+      }).then((response) => response.data)) as Offering;
       const category = await marketplaceCategoriesRetrieve({
         path: { uuid: offering.category_uuid },
         ...options,

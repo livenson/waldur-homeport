@@ -1,13 +1,16 @@
 import { DateTime } from 'luxon';
 
-import { marketplaceResourcesOfferingRetrieve } from '@waldur/api';
+import {
+  marketplaceProviderOfferingsRetrieve,
+  marketplaceResourcesOfferingRetrieve,
+} from '@waldur/api';
 import { formatDateTime, parseDate } from '@waldur/core/dateUtils';
 import {
   getComponentUsages,
   getComponentUserUsages,
-  getProviderOffering,
   getProviderResourcePlanPeriods,
 } from '@waldur/marketplace/common/api';
+import { Offering } from '@waldur/marketplace/types';
 
 import { UsageReportContext, ResourcePlanPeriod } from './types';
 
@@ -32,7 +35,9 @@ export const getProviderUsageComponents = async (
 ) => {
   let components = null;
   if (params.offering_uuid) {
-    const offering = await getProviderOffering(params.offering_uuid);
+    const offering = (await marketplaceProviderOfferingsRetrieve({
+      path: { uuid: params.offering_uuid },
+    }).then((response) => response.data)) as Offering;
     components = await getUsageBasedOfferingComponents(offering);
   }
   const periods = await getProviderResourcePlanPeriods(params.resource_uuid);
