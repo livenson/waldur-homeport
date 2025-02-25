@@ -2715,17 +2715,6 @@ export const customersDestroy = <ThrowOnError extends boolean = false>(options: 
     });
 };
 
-/**
- * Optional `field` query parameter (can be list) allows to limit what fields are returned.
- * For example, given request /api/customers/<uuid>/?field=uuid&field=name you get response like this:
- *
- * .. code-block:: javascript
- *
- * {
- * "uuid": "90bcfe38b0124c9bbdadd617b5d739f5",
- * "name": "Ministry of Bells"
- * }
- */
 export const customersRetrieve = <ThrowOnError extends boolean = false>(options: Options<CustomersRetrieveData, ThrowOnError>) => {
     return (options.client ?? _heyApiClient).get<CustomersRetrieveResponse, unknown, ThrowOnError>({
         security: [
