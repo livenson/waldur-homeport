@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { useAsync } from 'react-use';
 
+import { billingTotalCostRetrieve } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
@@ -10,7 +11,6 @@ import { type RootState } from '@waldur/store/reducers';
 import { selectFiltersStorage } from '@waldur/table/selectors';
 import { FilterItem } from '@waldur/table/types';
 
-import * as api from './api';
 import { TotalCostField } from './TotalCostField';
 
 interface CustomerFilterData {
@@ -37,19 +37,20 @@ const loadData = async (filter: CustomerFilterData) => {
   if (!filter || !filter.accounting_period) {
     return { total: 0 };
   }
-  const params = {
-    customer_uuid: filter.provider?.customer_uuid,
-    accounting_is_running: filter.accounting_is_running
-      ? filter.accounting_is_running.value
-      : undefined,
-    ...filter.accounting_period.value,
-  };
-  const data = await api.getTotal({ params });
+  const response = await billingTotalCostRetrieve({
+    query: {
+      customer_uuid: filter.provider?.customer_uuid,
+      accounting_is_running: filter.accounting_is_running
+        ? filter.accounting_is_running.value
+        : undefined,
+      ...filter.accounting_period.value,
+    },
+  });
   // VAT is not included only when accounting mode is activated
   if (ENV.accountingMode === 'accounting') {
-    return { total: data.price };
+    return { total: response.data.price };
   } else {
-    return { total: data.total };
+    return { total: response.data.total };
   }
 };
 

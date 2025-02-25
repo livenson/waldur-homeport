@@ -1,15 +1,16 @@
 import { useQuery } from '@tanstack/react-query';
 import { formValueSelector } from 'redux-form';
 
+import { marketplacePublicOfferingsRetrieve } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { translate } from '@waldur/i18n';
 import { ORDER_FORM_ID } from '@waldur/marketplace/details/constants';
 import { Offering } from '@waldur/marketplace/types';
 import {
   loadFlavors,
+  loadSecurityGroups,
   loadSubnets,
   loadVolumeTypes,
-  loadSecurityGroups,
 } from '@waldur/openstack/api';
 import { Flavor, Subnet } from '@waldur/openstack/openstack-instance/types';
 import {
@@ -57,7 +58,10 @@ export const getRancherMountPointChoices = () => {
   }));
 };
 
-export const loadData = async (cluster: Cluster, offering: Offering) => {
+export const loadNodeCreateData = async (cluster: Cluster) => {
+  const offering = (await marketplacePublicOfferingsRetrieve({
+    path: { uuid: cluster.marketplace_offering_uuid },
+  }).then((response) => response.data)) as Offering;
   const flavors = await filterFlavors(cluster.tenant_uuid, offering);
   const subnets = await formatSubnets(cluster.tenant_uuid);
   const volumeTypes = await loadVolumeTypes({

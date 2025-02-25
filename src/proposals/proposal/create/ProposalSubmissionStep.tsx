@@ -3,16 +3,13 @@ import { createRef, FC, useCallback, useMemo, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { change, getFormValues } from 'redux-form';
 
+import { proposalProposalsUpdateProjectDetails } from '@waldur/api';
 import { isEmpty } from '@waldur/core/utils';
 import { Form } from '@waldur/form/Form';
 import { SidebarLayout } from '@waldur/form/SidebarLayout';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
-import {
-  attachDocument,
-  switchProposalToTeamVerification,
-  updateProposalProjectDetails,
-} from '@waldur/proposals/api';
+import { attachDocument } from '@waldur/proposals/api';
 import { PROPOSAL_UPDATE_SUBMISSION_FORM_ID } from '@waldur/proposals/constants';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
@@ -65,7 +62,10 @@ export const ProposalSubmissionStep: FC<{ proposal; reviews?; refetch }> = ({
   const submitForm = useCallback(
     async (formData) => {
       try {
-        await updateProposalProjectDetails(formData, proposal_uuid);
+        await proposalProposalsUpdateProjectDetails({
+          path: { uuid: proposal_uuid },
+          body: formData,
+        });
         await attachDocuments(proposal_uuid, formData.supporting_documentation);
         dispatch(showSuccess(translate('Proposal updated successfully')));
         // clear formData.supporting_documentation from redux-form store to prevent file upload on next submit/switchToTeam
@@ -107,9 +107,11 @@ export const ProposalSubmissionStep: FC<{ proposal; reviews?; refetch }> = ({
       return;
     }
     try {
-      await updateProposalProjectDetails(formData, proposal_uuid);
+      await proposalProposalsUpdateProjectDetails({
+        path: { uuid: proposal_uuid },
+        body: formData,
+      });
       await attachDocuments(proposal_uuid, formData.supporting_documentation);
-      await switchProposalToTeamVerification(proposal_uuid);
       await refetch();
       dispatch(
         showSuccess(

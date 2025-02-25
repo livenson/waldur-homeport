@@ -1,17 +1,7 @@
 import { ENV } from '@waldur/configs/default';
-import { get, post, sendForm } from '@waldur/core/api';
+import { get, sendForm } from '@waldur/core/api';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
 import { getOrganizationGroupList } from '@waldur/marketplace/common/api';
-
-interface TotalStats {
-  price: number;
-  total: number;
-}
-
-export const getTotal = (params) =>
-  get<TotalStats>('/billing-total-cost/', params).then(
-    (response) => response.data,
-  );
 
 export const getInvoice = (invoiceUrl, date) =>
   get('/invoices/', {
@@ -46,8 +36,4 @@ export const organizationGroupAutocomplete = async (
   };
   const response = await getOrganizationGroupList(params);
   return returnReactSelectAsyncPaginateObject(response, prevOptions, page);
-};
-
-export const sendFinancialReport = (payload) => {
-  return post('/invoice/send-financial-report-by-mail/', payload);
 };

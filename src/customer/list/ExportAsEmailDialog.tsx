@@ -5,11 +5,10 @@ import { useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
 import { Field, FieldArray, reduxForm } from 'redux-form';
 
-import { invoicesList } from '@waldur/api';
+import { invoiceSendFinancialReportByMail, invoicesList } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { AccountingPeriodField } from '@waldur/customer/list/AccountingPeriodField';
 import { getOptions } from '@waldur/customer/list/AccountingRunningField';
-import { sendFinancialReport } from '@waldur/customer/list/api';
 import { EXPORT_AS_EMAIL_FORM_ID } from '@waldur/customer/list/constants';
 import { makeAccountingPeriods } from '@waldur/customer/list/utils';
 import { SubmitButton } from '@waldur/form';
@@ -64,25 +63,24 @@ export const ExportAsEmailDialog = reduxForm<{}, any>({
     return <>{translate('Unable to load financial overview.')}</>;
   }
 
-  const submit = (formData: any) => {
-    const payload = {
-      emails: formData.emails || [],
-      month: formData.accounting_period
-        ? formData.accounting_period.value.month || null
-        : null,
-      year: formData.accounting_period
-        ? formData.accounting_period.value.year || null
-        : null,
-    };
-
-    sendFinancialReport(payload)
-      .then(() => {
-        dispatch(showSuccess(translate('Report has been sent')));
-        dispatch(closeModalDialog());
-      })
-      .catch((error) => {
-        dispatch(showErrorResponse(error, translate('Something went wrong')));
+  const submit = async (formData: any) => {
+    try {
+      await invoiceSendFinancialReportByMail({
+        body: {
+          emails: formData.emails || [],
+          month: formData.accounting_period
+            ? formData.accounting_period.value.month || null
+            : null,
+          year: formData.accounting_period
+            ? formData.accounting_period.value.year || null
+            : null,
+        },
       });
+      dispatch(showSuccess(translate('Report has been sent')));
+      dispatch(closeModalDialog());
+    } catch (error) {
+      dispatch(showErrorResponse(error, translate('Something went wrong')));
+    }
   };
 
   return (

@@ -3,17 +3,17 @@ import { Button, Col, Modal, Row } from 'react-bootstrap';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { Field, getFormValues, initialize, reduxForm } from 'redux-form';
 
-import { marketplaceScriptDryRunAsyncRun } from '@waldur/api';
+import {
+  marketplaceProviderOfferingsUpdateIntegration,
+  marketplaceScriptDryRunAsyncRun,
+} from '@waldur/api';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
 import { Tip } from '@waldur/core/Tooltip';
 import { wait } from '@waldur/core/utils';
 import { SubmitButton, SelectField } from '@waldur/form';
 import { MonacoField } from '@waldur/form/MonacoField';
 import { translate } from '@waldur/i18n';
-import {
-  getAsyncDryRun,
-  updateOfferingSecretOptions,
-} from '@waldur/marketplace/common/api';
+import { getAsyncDryRun } from '@waldur/marketplace/common/api';
 import { closeModalDialog } from '@waldur/modal/actions';
 import {
   showError,
@@ -52,10 +52,13 @@ export const EditScriptDialog = connect<{}, {}, OwnProps>((_, ownProps) => ({
     const update = useCallback(
       async (formData) => {
         try {
-          await updateOfferingSecretOptions(props.resolve.offering.uuid, {
-            secret_options: {
-              ...props.resolve.offering.secret_options,
-              [props.resolve.type]: formData.script,
+          await marketplaceProviderOfferingsUpdateIntegration({
+            path: { uuid: props.resolve.offering.uuid },
+            body: {
+              secret_options: {
+                ...props.resolve.offering.secret_options,
+                [props.resolve.type]: formData.script,
+              },
             },
           });
           dispatch(

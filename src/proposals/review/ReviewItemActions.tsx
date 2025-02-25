@@ -1,13 +1,10 @@
-import { X, ListChecks } from '@phosphor-icons/react';
+import { ListChecks, X } from '@phosphor-icons/react';
 import { useMutation } from '@tanstack/react-query';
 import { useDispatch } from 'react-redux';
 
+import { proposalReviewsAccept, proposalReviewsReject } from '@waldur/api';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
-import {
-  acceptProposalReview,
-  rejectProposalReview,
-} from '@waldur/proposals/api';
 import { ProposalReview } from '@waldur/proposals/types';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
@@ -37,7 +34,7 @@ export const ReviewItemAction = ({ row, refetch }: ReviewItemActionProps) => {
         return;
       }
       try {
-        await acceptProposalReview(row.uuid);
+        await proposalReviewsAccept({ path: { uuid: row.uuid } });
         refetch();
         dispatch(showSuccess(translate('Review has been accepted.')));
       } catch (response) {
@@ -65,7 +62,7 @@ export const ReviewItemAction = ({ row, refetch }: ReviewItemActionProps) => {
         return;
       }
       try {
-        await rejectProposalReview(row.uuid);
+        await proposalReviewsReject({ path: { uuid: row.uuid } });
         refetch();
         dispatch(showSuccess(translate('Review has been rejected.')));
       } catch (response) {

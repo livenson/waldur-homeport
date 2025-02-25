@@ -2,6 +2,10 @@ import { ChatText, Check, Eye, X } from '@phosphor-icons/react';
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import {
+  proposalProposalsForceApprove,
+  proposalProposalsReject,
+} from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { openModalDialog, waitForConfirmation } from '@waldur/modal/actions';
@@ -10,8 +14,6 @@ import { router } from '@waldur/router';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { ActionsDropdownComponent } from '@waldur/table/ActionsDropdown';
 import { isStaff as isStaffSelector } from '@waldur/workspace/selectors';
-
-import { forceApproveProposal, rejectProposal } from '../api';
 
 const CreateReviewDialog = lazyComponent(() =>
   import('./create-review/CreateReviewDialog').then((module) => ({
@@ -47,7 +49,7 @@ export const ProposalRowActions = ({ row, refetch }) => {
     [dispatch],
   );
 
-  const handleRejectProposal = async (proposalUuid) => {
+  const handleRejectProposal = async (proposalUuid: string) => {
     await waitForConfirmation(
       dispatch,
       translate('Confirmation'),
@@ -56,7 +58,7 @@ export const ProposalRowActions = ({ row, refetch }) => {
       }),
     );
     try {
-      await rejectProposal(proposalUuid);
+      await proposalProposalsReject({ path: { uuid: proposalUuid } });
       dispatch(showSuccess(translate('Proposal has been rejected.')));
       refetch();
     } catch (error) {
@@ -65,7 +67,7 @@ export const ProposalRowActions = ({ row, refetch }) => {
       );
     }
   };
-  const handleForceApproveProposal = async (proposalUuid) => {
+  const handleForceApproveProposal = async (proposalUuid: string) => {
     await waitForConfirmation(
       dispatch,
       translate('Confirmation'),
@@ -74,7 +76,7 @@ export const ProposalRowActions = ({ row, refetch }) => {
       }),
     );
     try {
-      await forceApproveProposal(proposalUuid);
+      await proposalProposalsForceApprove({ path: { uuid: proposalUuid } });
       dispatch(showSuccess(translate('Proposal has been approved.')));
       refetch();
     } catch (error) {

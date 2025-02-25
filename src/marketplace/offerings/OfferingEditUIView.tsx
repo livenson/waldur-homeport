@@ -5,11 +5,11 @@ import { useMemo } from 'react';
 import {
   marketplaceCategoriesRetrieve,
   marketplacePluginsList,
+  marketplaceProviderOfferingsRetrieve,
 } from '@waldur/api';
 import { OFFERING_TYPE_BOOKING } from '@waldur/booking/constants';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
-import { getProviderOffering } from '@waldur/marketplace/common/api';
 import { Offering, ServiceProvider } from '@waldur/marketplace/types';
 import { OFFERING_TYPE_CUSTOM_SCRIPTS } from '@waldur/marketplace-script/constants';
 import { useBreadcrumbs, usePageHero } from '@waldur/navigation/context';
@@ -97,15 +97,15 @@ const RolesSection = lazyComponent(() =>
   })),
 );
 
-const getOfferingData = async (offering_uuid) => {
-  const offering = await getProviderOffering(offering_uuid);
+const getOfferingData = async (offering_uuid: string) => {
+  const offering = (await marketplaceProviderOfferingsRetrieve({
+    path: { uuid: offering_uuid },
+  }).then((response) => response.data)) as Offering;
   const category = await marketplaceCategoriesRetrieve({
     path: { uuid: offering.category_uuid },
   }).then((response) => response.data);
   return { offering, category };
 };
-
-type Awaited<T> = T extends PromiseLike<infer U> ? U : T;
 
 export type OfferingData = Awaited<ReturnType<typeof getOfferingData>>;
 

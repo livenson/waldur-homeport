@@ -3,9 +3,9 @@ import { useMutation } from '@tanstack/react-query';
 import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
+import { marketplaceOrdersApproveByConsumer } from '@waldur/api';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
-import { approveOrderByConsumer } from '@waldur/marketplace/common/api';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
 
 export const ConsumerApproveAll = ({ orders, refetch }) => {
@@ -13,7 +13,9 @@ export const ConsumerApproveAll = ({ orders, refetch }) => {
   const { mutate, isLoading } = useMutation(async () => {
     try {
       await Promise.all(
-        orders.map((order) => approveOrderByConsumer(order.uuid)),
+        orders.map((order) =>
+          marketplaceOrdersApproveByConsumer({ path: { uuid: order.uuid } }),
+        ),
       );
       await refetch();
       dispatch(showSuccess(translate('All orders have been approved.')));

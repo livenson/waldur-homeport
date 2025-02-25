@@ -5,7 +5,6 @@ import { ENV } from '@waldur/configs/default';
 import {
   get,
   getAll,
-  getById,
   getFirst,
   getSelectData,
   parseResultCount,
@@ -79,17 +78,6 @@ export const getOfferingPlansUsage = (offeringUuid: string) =>
     params: { offering_uuid: offeringUuid },
   });
 
-export const getProviderOffering = (id: string, options?: AxiosRequestConfig) =>
-  getById<Offering>('/marketplace-provider-offerings/', id, options);
-
-export const getProviderOfferingGLAuthConfig = (uuid: string) =>
-  get(`/marketplace-provider-offerings/${uuid}/glauth_users_config/`).then(
-    (response) => response.data,
-  );
-
-export const getPublicOffering = (id: string, options?: AxiosRequestConfig) =>
-  getById<Offering>('/marketplace-public-offerings/', id, options);
-
 export const getProviderResourcePlanPeriods = (resourceId: string) =>
   getAll<ResourcePlanPeriod>(
     `/marketplace-provider-resources/${resourceId}/plan_periods/`,
@@ -100,28 +88,7 @@ export const getSubResourcesOfferings = (resourceId: string) =>
     `/marketplace-resources/${resourceId}/offering_for_subresources/`,
   );
 
-export const updateOfferingSecretOptions = (offeringId, data) =>
-  post(
-    `/marketplace-provider-offerings/${offeringId}/update_integration/`,
-    data,
-  );
-
 export const createOrder = (payload) => post(`/marketplace-orders/`, payload);
-
-export const cancelOrder = (id) => post(`/marketplace-orders/${id}/cancel/`);
-
-export const approveOrderByConsumer = (orderUuid: string) =>
-  post(`/marketplace-orders/${orderUuid}/approve_by_consumer/`).then(
-    (response) => response.data,
-  );
-
-export const rejectOrderByConsumer = (orderUuid: string) =>
-  post(`/marketplace-orders/${orderUuid}/reject_by_consumer/`).then(
-    (response) => response.data,
-  );
-
-export const cancelTerminationOrder = (id) =>
-  post(`/remote-waldur-api/cancel_termination/${id}/`);
 
 export const getCustomerList = (params?: {}) =>
   getSelectData<Customer>('/customers/', params);
@@ -185,11 +152,6 @@ export const generateServiceProviderSecretCode = (id) =>
     `/marketplace-service-providers/${id}/api_secret_code/`,
   ).then((response) => response.data);
 
-export const submitUsageReport = (payload) =>
-  post(`/marketplace-component-usages/set_usage/`, payload).then(
-    (response) => response.data,
-  );
-
 export const terminateResource = (resource_uuid: string, data?) =>
   post(`/marketplace-resources/${resource_uuid}/terminate/`, data).then(
     (response) => response.data,
@@ -214,15 +176,6 @@ export const updateOfferingLogo = (offeringUuid: string, formData) =>
     },
   );
 
-export const pullRemoteOfferingOrders = (uuid) =>
-  post(`/remote-waldur-api/pull_offering_orders/${uuid}/`);
-
-export const pullRemoteOfferingInvoices = (uuid) =>
-  post(`/remote-waldur-api/pull_offering_invoices/${uuid}/`);
-
-export const pullRemoteOfferingRobotAccounts = (uuid) =>
-  post(`/remote-waldur-api/pull_offering_robot_accounts/${uuid}/`);
-
 export const countOrders = (params) =>
   Axios.request({
     method: 'HEAD',
@@ -243,6 +196,3 @@ export const countLexisLinks = (params?) =>
     url: ENV.apiEndpoint + 'api/lexis-links/',
     params,
   }).then(parseResultCount);
-
-export const syncCustomScriptResource = (payload) =>
-  post(`/marketplace-script-sync-resource/`, payload);

@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { UIView, useCurrentStateAndParams } from '@uirouter/react';
 import { useMemo } from 'react';
 
+import { proposalProtectedCallsRetrieve } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { useBreadcrumbs, usePageHero } from '@waldur/navigation/context';
@@ -10,7 +11,8 @@ import { useTitle } from '@waldur/navigation/title';
 import { IBreadcrumbItem, PageBarTab } from '@waldur/navigation/types';
 import { usePageTabsTransmitter } from '@waldur/navigation/usePageTabsTransmitter';
 
-import { getProtectedCall, getProtectedCallRound } from '../api';
+import { getProtectedCallRound } from '../api';
+import { Call } from '../types';
 
 import { RoundPageHero } from './RoundPageHero';
 
@@ -91,9 +93,16 @@ export const RoundUIView = () => {
     data: call,
     isLoading: isLoadingCall,
     error: errorCall,
-  } = useQuery(['RoundCall', call_uuid], () => getProtectedCall(call_uuid), {
-    refetchOnWindowFocus: false,
-  });
+  } = useQuery(
+    ['RoundCall', call_uuid],
+    () =>
+      proposalProtectedCallsRetrieve({ path: { uuid: call_uuid } }).then(
+        (r) => r.data as any as Call,
+      ),
+    {
+      refetchOnWindowFocus: false,
+    },
+  );
 
   useTitle(round ? round.name : translate('Call round'));
 

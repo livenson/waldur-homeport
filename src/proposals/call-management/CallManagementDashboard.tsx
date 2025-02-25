@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { Card, Col, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
+import { callManagingOrganisationsStatsRetrieve } from '@waldur/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { StatisticsCard } from '@waldur/core/StatisticsCard';
@@ -14,8 +15,6 @@ import {
   getReviewStateOptions,
 } from '@waldur/proposals/utils';
 import { getCustomer } from '@waldur/workspace/selectors';
-
-import { getCallManagementStatistics } from '../api';
 
 const FlatStatistics = ({ count, title }) => {
   return (
@@ -63,7 +62,10 @@ export const CallManagementDashboard = () => {
   const customer = useSelector(getCustomer);
   const { data, isLoading, error, refetch } = useQuery(
     ['call-management-dashboard', customer.call_managing_organization_uuid],
-    () => getCallManagementStatistics(customer.call_managing_organization_uuid),
+    () =>
+      callManagingOrganisationsStatsRetrieve({
+        path: { uuid: customer.call_managing_organization_uuid },
+      }).then((response) => response.data),
     {
       staleTime: 5 * 60 * 1000,
     },
