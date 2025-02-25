@@ -217,6 +217,7 @@ const getTabs = (offering: Offering): PageBarTab[] => {
   tabs.push({
     title: translate('Accounting'),
     key: 'accounting',
+    defaultKey: 'plans',
     children: [
       {
         title: (
@@ -227,6 +228,7 @@ const getTabs = (offering: Offering): PageBarTab[] => {
         ),
         key: 'plans',
         component: PlansSection,
+        visible: false,
       },
       showComponentsList(offering.type) && {
         key: 'components',
@@ -237,6 +239,7 @@ const getTabs = (offering: Offering): PageBarTab[] => {
             {translate('Accounting components')}
           </>
         ),
+        visible: false,
       },
     ].filter(Boolean),
   });
