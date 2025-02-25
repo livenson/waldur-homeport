@@ -95,7 +95,6 @@ const getDataForFavoritePage = async (
   if (state.name.startsWith('marketplace-offering') && params.offering_uuid) {
     const offering = (await marketplaceProviderOfferingsRetrieve({
       path: { uuid: params.offering_uuid },
-      // @ts-ignore
       query: { field: ['name', 'customer_name', 'thumbnail'] },
     }).then((response) => response.data)) as Offering;
     title = offering.customer_name;
@@ -107,7 +106,6 @@ const getDataForFavoritePage = async (
   ) {
     const offering = await marketplacePublicOfferingsRetrieve({
       path: { uuid: params.offering_uuid },
-      // @ts-ignore
       query: {
         field: ['name', 'customer_name', 'thumbnail'],
       },
@@ -125,7 +123,6 @@ const getDataForFavoritePage = async (
   ) {
     const category = await marketplaceCategoriesRetrieve({
       path: { uuid: params.category_uuid },
-      // @ts-ignore
       query: { field: ['title', 'icon'] },
     }).then((response) => response.data);
     subtitle = category.title;

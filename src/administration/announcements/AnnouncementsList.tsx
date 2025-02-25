@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
 
+import { AdminAnnouncementsListData } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { StateIndicator } from '@waldur/core/StateIndicator';
 import { createFetcher } from '@waldur/table/api';
@@ -39,7 +40,7 @@ const renderStatus = ({ row }) => (
 const filtersSelector = createSelector(
   getFormValues('AdminAnnouncementsFilter'),
   (filterValues: any) => {
-    const result: Record<string, any> = {};
+    const result: AdminAnnouncementsListData['query'] = {};
     if (filterValues?.type) {
       result.type = filterValues.type.value;
     }

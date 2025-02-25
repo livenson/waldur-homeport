@@ -75,7 +75,6 @@ export const fetchLastNOfferings = async (
         page_size,
         ...(customer ? { allowed_customer_uuid: customer.uuid } : {}),
         ...(project ? { project_uuid: project.uuid } : {}),
-        // @ts-ignore
         field: [
           'uuid',
           'category_uuid',

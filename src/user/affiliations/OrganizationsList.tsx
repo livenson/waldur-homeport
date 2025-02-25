@@ -4,6 +4,7 @@ import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
 
 import { OrganizationsFilter } from '@waldur/administration/organizations/OrganizationsFilter';
+import { Customer, CustomersListData } from '@waldur/api';
 import { formatDate, formatDateTime } from '@waldur/core/dateUtils';
 import { OrganizationCard } from '@waldur/customer/list/OrganizationCard';
 import { OrganizationCreateButton } from '@waldur/customer/list/OrganizationCreateButton';
@@ -18,6 +19,7 @@ import { createFetcher } from '@waldur/table/api';
 import { DASH_ESCAPE_CODE } from '@waldur/table/constants';
 import { SLUG_COLUMN } from '@waldur/table/slug';
 import Table from '@waldur/table/Table';
+import { Column } from '@waldur/table/types';
 import { useTable } from '@waldur/table/useTable';
 import { renderFieldOrDash } from '@waldur/table/utils';
 import { getUser } from '@waldur/workspace/selectors';
@@ -49,14 +51,13 @@ const mapStateToFilter = createSelector(
   },
 );
 
-const mandatoryFields = [
+const mandatoryFields: CustomersListData['query']['field'] = [
   // Grid view
   'uuid',
   'name',
   'email',
   'image',
   'created',
-  'resource_count',
   'customer_credit',
   'billing_price_estimate',
   'organization_groups',
@@ -82,7 +83,7 @@ export const OrganizationsList: FunctionComponent = () => {
   const onClickDetails = (row) =>
     syncResourceFilters({ organization: row, project: null });
 
-  const columns = [
+  const columns: Array<Column<Customer>> = [
     {
       title: translate('Organization'),
       orderField: 'name',
@@ -300,7 +301,7 @@ export const OrganizationsList: FunctionComponent = () => {
       gridSize={{ md: 6, xl: 4 }}
       gridItem={({ row }) => (
         <OrganizationCard
-          organization={row}
+          organization={row as any}
           onClickDetails={() => onClickDetails(row)}
         />
       )}

@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import { Modal } from 'react-bootstrap';
 
+import { User, UsersListData } from '@waldur/api';
 import { FREEIPA_IDP } from '@waldur/auth/providers/constants';
 import { CancelButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
@@ -13,7 +14,7 @@ import { renderFieldOrDash } from '@waldur/table/utils';
 import { FreeIPAUsersList } from '../users/FreeIPAUsersList';
 
 const ProviderUsersList = (props) => {
-  const filter = useMemo(
+  const filter = useMemo<UsersListData['query']>(
     () => ({
       registration_method: props.resolve.type,
       field: ['full_name', 'email', 'is_active'],
@@ -28,7 +29,7 @@ const ProviderUsersList = (props) => {
   });
 
   return (
-    <Table
+    <Table<User>
       {...tableProps}
       columns={[
         {

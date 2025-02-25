@@ -18,7 +18,6 @@ export const OverviewLastMonths: FunctionComponent = () => {
         page: 1,
         page_size: 2,
         customer: customer.url,
-        // @ts-ignore
         field: [
           'uuid',
           'items',

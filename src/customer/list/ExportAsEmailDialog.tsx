@@ -24,7 +24,6 @@ async function oldestInvoice() {
       query: {
         page_size: 1,
         o: ['year', 'month'],
-        // @ts-ignore
         field: ['year', 'month'],
       },
     })
