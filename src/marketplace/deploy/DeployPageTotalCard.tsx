@@ -10,20 +10,28 @@ import { DASH_ESCAPE_CODE } from '@waldur/table/constants';
 import { OfferingTosNotification } from './OfferingTosNotification';
 
 export const DeployPageTotalCard: FC<
-  PropsWithChildren<{ total; offering }>
-> = ({ total, offering, children }) => {
+  PropsWithChildren<{ total?; offering; header? }>
+> = ({ total, offering, header, children }) => {
   const shouldConcealPrices = isFeatureVisible(
     MarketplaceFeatures.conceal_prices,
   );
   return (
     <Card className="card-bordered w-100">
       <Card.Header>
-        <h3 className="fw-normal text-gray-700 mb-0">{translate('Total')}:</h3>
-        <div className="card-toolbar">
-          <h3 className="fw-bold mb-0">
-            {shouldConcealPrices ? DASH_ESCAPE_CODE : total}
-          </h3>
-        </div>
+        {header ? (
+          header
+        ) : (
+          <>
+            <h3 className="fw-normal text-gray-700 mb-0">
+              {translate('Total')}:
+            </h3>
+            <div className="card-toolbar">
+              <h3 className="fw-bold mb-0">
+                {shouldConcealPrices ? DASH_ESCAPE_CODE : total}
+              </h3>
+            </div>
+          </>
+        )}
       </Card.Header>
       <Card.Body>
         {children}
