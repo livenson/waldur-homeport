@@ -1,3 +1,6 @@
+import React from 'react';
+
+import { ENV } from '@waldur/configs/default';
 import WaldurLogo from '@waldur/images/logo.svg';
 
 import {
@@ -13,13 +16,31 @@ import KeycloakLogo from './KeycloakLogo.svg';
 import Saml2Logo from './Saml2Logo.svg';
 import TaraLogo from './TaraLogo.svg';
 
+const KeycloakLogoComponent = (props) => {
+  const iconUrl = ENV.plugins.WALDUR_CORE.KEYCLOAK_ICON;
+  const [useDefault, setUseDefault] = React.useState(!iconUrl);
+
+  if (useDefault) {
+    return <KeycloakLogo {...props} />;
+  }
+
+  return (
+    <img
+      src={iconUrl}
+      alt="Keycloak"
+      onError={() => setUseDefault(true)}
+      {...props}
+    />
+  );
+};
+
 const LogoMap = {
   [EDUTEAMS_IDP]: (props) => (
     <img src={EduteamsLogo} alt="eduteams" {...props} />
   ),
   [FREEIPA_IDP]: (props) => <img src={FreeipaLogo} alt="freeipa" {...props} />,
   [TARA_IDP]: TaraLogo,
-  [KEYCLOAK_IDP]: KeycloakLogo,
+  [KEYCLOAK_IDP]: KeycloakLogoComponent,
   [SAML2_IDP]: Saml2Logo,
   waldur: WaldurLogo,
 };
