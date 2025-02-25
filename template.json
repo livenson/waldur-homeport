@@ -63,6 +63,10 @@
     "description": "SettingsDescription.ts",
     "message": "A custom .png image file for login page"
   },
+  "A custom PNG icon for Keycloak login button": {
+    "description": "SettingsDescription.ts",
+    "message": "A custom PNG icon for Keycloak login button"
+  },
   "A custom favicon .png image file": {
     "description": "SettingsDescription.ts",
     "message": "A custom favicon .png image file"
@@ -4887,9 +4891,9 @@
     "description": "marketplace/UserSecretOptionsForm.tsx",
     "message": "If defined, will be set as a password for all offering users"
   },
-  "If this is true and user email is pre-validated then accepting invitation to only do that if user’s email and email of the invitation fully match.": {
+  "If this is true and user email is pre-validated then accepting invitation to only do that if user's email and email of the invitation fully match.": {
     "description": "SettingsDescription.ts",
-    "message": "If this is true and user email is pre-validated then accepting invitation to only do that if user’s email and email of the invitation fully match."
+    "message": "If this is true and user email is pre-validated then accepting invitation to only do that if user's email and email of the invitation fully match."
   },
   "If true, notify users about resource changes from Marketplace perspective. Can generate duplicate events if plugins also log": {
     "description": "SettingsDescription.ts",

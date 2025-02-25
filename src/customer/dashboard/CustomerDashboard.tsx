@@ -33,12 +33,15 @@ export const CustomerDashboard: FunctionComponent = () => {
     error: aggregateLimitError,
   } = useQuery(
     ['customer-stats', customer?.uuid],
-    () => customersStatsRetrieve({ path: { uuid: customer?.uuid } }),
+    () =>
+      customersStatsRetrieve({ path: { uuid: customer?.uuid } }).then(
+        (r) => r.data,
+      ),
     { refetchOnWindowFocus: false, staleTime: 60 * 1000 },
   );
 
   const shouldShowAggregateLimitWidget =
-    aggregateLimitData?.data.components?.length > 0;
+    aggregateLimitData?.components?.length > 0;
 
   if (!customer) return null;
 
@@ -56,7 +59,7 @@ export const CustomerDashboard: FunctionComponent = () => {
               <Col md={6} sm={12} className="mb-5" style={COMMON_WIDGET_HEIGHT}>
                 <AggregateLimitWidget
                   customer={customer}
-                  data={aggregateLimitData?.data}
+                  data={aggregateLimitData}
                   isLoading={isAggregateLimitLoading}
                   error={aggregateLimitError}
                 />
