@@ -99,6 +99,7 @@ export interface Offering {
   state: OfferingState;
   scope?: string;
   scope_uuid?: string;
+  scope_name?: string;
   created?: string;
   shared?: boolean;
   billable?: boolean;
@@ -112,6 +113,7 @@ export interface Offering {
   organization_groups: OrganizationGroup[];
   parent_description?: string;
   parent_name?: string;
+  parent_uuid?: string;
   getting_started?: string;
   integration_status: any;
 }
