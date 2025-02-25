@@ -1,13 +1,23 @@
 import { useCallback, FunctionComponent } from 'react';
-import { Field } from 'redux-form';
+import { Field, WrappedFieldInputProps } from 'redux-form';
 
-export const InputGroup: FunctionComponent<{
-  fieldName;
-  placeholder;
-  type;
-}> = ({ fieldName, placeholder, type }) => {
+interface InputGroupProps {
+  fieldName: string;
+  placeholder: string;
+  type: 'text' | 'password' | 'email'; // Limit to common input types
+}
+
+interface RenderInputProps {
+  input: WrappedFieldInputProps;
+}
+
+export const InputGroup: FunctionComponent<InputGroupProps> = ({
+  fieldName,
+  placeholder,
+  type,
+}) => {
   const renderComponent = useCallback(
-    ({ input }) => (
+    ({ input }: RenderInputProps) => (
       <input
         className="login-input"
         type={type}

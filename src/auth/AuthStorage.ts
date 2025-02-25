@@ -6,16 +6,18 @@ const getStorage = (): Storage => {
   } else if (ENV.authStorage === 'sessionStorage') {
     return sessionStorage;
   }
+  // Default to sessionStorage if not specified
+  return sessionStorage;
 };
 
 export const removeItem = (key: string): void => {
   getStorage().removeItem(key);
 };
 
-export const getItem = (key: string): string => {
+export const getItem = (key: string): string | null => {
   return getStorage().getItem(key);
 };
 
-export const setItem = (key: string, value: string) => {
+export const setItem = (key: string, value: string): void => {
   getStorage().setItem(key, value);
 };

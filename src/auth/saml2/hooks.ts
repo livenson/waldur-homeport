@@ -6,9 +6,10 @@ import { format } from '@waldur/core/ErrorMessageFormatter';
 import { translate } from '@waldur/i18n';
 import { showError } from '@waldur/store/notify';
 
-export const useSaml2 = () => {
+export const useSaml2 = (): ((providerUrl: string) => Promise<void>) => {
   const dispatch = useDispatch();
-  async function handleSaml2Login(providerUrl) {
+
+  async function handleSaml2Login(providerUrl: string): Promise<void> {
     try {
       /* We support only 2 SAML2 bindings: HTTP redirect and HTTP POST.
        * If HTTP redirect binding is used, we're redirecting user
@@ -25,7 +26,7 @@ export const useSaml2 = () => {
         });
       }
     } catch (error) {
-      let errorMessage;
+      let errorMessage: string;
       if (error.status === 400) {
         errorMessage = error.data.error_message;
       } else {
