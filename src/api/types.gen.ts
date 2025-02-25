@@ -1659,6 +1659,7 @@ export type ConstanceSettingsRequest = {
     FREEIPA_GROUPNAME_PREFIX?: string;
     FREEIPA_BLACKLISTED_USERNAMES?: Array<string>;
     FREEIPA_GROUP_SYNCHRONIZATION_ENABLED?: boolean;
+    KEYCLOAK_ICON?: (Blob | File) | null;
 };
 
 export type ContentTypeEnum = 'json' | 'form';
@@ -7899,7 +7900,7 @@ export type ProposalRequest = {
     oecd_fos_2007_code?: OecdFos2007CodeEnum | BlankEnum | NullEnum | null;
 };
 
-export type ProposalStates = 'draft' | 'team_verification' | 'submitted' | 'in_review' | 'in_revision' | 'accepted' | 'rejected' | 'canceled';
+export type ProposalStates = 'draft' | 'submitted' | 'in_review' | 'in_revision' | 'accepted' | 'rejected' | 'canceled';
 
 export type ProposalUpdateProjectDetails = {
     name: string;
@@ -15660,6 +15661,27 @@ export type IconsHeroImageRetrieveErrors = {
 };
 
 export type IconsHeroImageRetrieveResponses = {
+    /**
+     * Logo image
+     */
+    200: unknown;
+};
+
+export type IconsKeycloakIconRetrieveData = {
+    body?: never;
+    path?: never;
+    query?: never;
+    url: '/api/icons/keycloak_icon/';
+};
+
+export type IconsKeycloakIconRetrieveErrors = {
+    /**
+     * No response body
+     */
+    404: unknown;
+};
+
+export type IconsKeycloakIconRetrieveResponses = {
     /**
      * Logo image
      */
@@ -27878,7 +27900,6 @@ export type ProposalProposalsListData = {
         round?: string;
         /**
          * * `draft` - Draft
-         * * `team_verification` - Team verification
          * * `submitted` - Submitted
          * * `in_review` - In review
          * * `in_revision` - In revision
@@ -27886,7 +27907,7 @@ export type ProposalProposalsListData = {
          * * `rejected` - Rejected
          * * `canceled` - Canceled
          */
-        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted' | 'team_verification'>;
+        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted'>;
     };
     url: '/api/proposal-proposals/';
 };
@@ -28090,7 +28111,6 @@ export type ProposalProposalsListUsersListData = {
         search_string?: string;
         /**
          * * `draft` - Draft
-         * * `team_verification` - Team verification
          * * `submitted` - Submitted
          * * `in_review` - In review
          * * `in_revision` - In revision
@@ -28098,7 +28118,7 @@ export type ProposalProposalsListUsersListData = {
          * * `rejected` - Rejected
          * * `canceled` - Canceled
          */
-        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted' | 'team_verification'>;
+        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted'>;
         user?: string;
     };
     url: '/api/proposal-proposals/{uuid}/list_users/';
@@ -28161,7 +28181,6 @@ export type ProposalProposalsResourcesListData = {
         round?: string;
         /**
          * * `draft` - Draft
-         * * `team_verification` - Team verification
          * * `submitted` - Submitted
          * * `in_review` - In review
          * * `in_revision` - In revision
@@ -28169,7 +28188,7 @@ export type ProposalProposalsResourcesListData = {
          * * `rejected` - Rejected
          * * `canceled` - Canceled
          */
-        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted' | 'team_verification'>;
+        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted'>;
     };
     url: '/api/proposal-proposals/{uuid}/resources/';
 };
@@ -28276,21 +28295,6 @@ export type ProposalProposalsSubmitResponses = {
 };
 
 export type ProposalProposalsSubmitResponse = ProposalProposalsSubmitResponses[keyof ProposalProposalsSubmitResponses];
-
-export type ProposalProposalsSwitchToTeamVerificationData = {
-    body: ProposalRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/proposal-proposals/{uuid}/switch_to_team_verification/';
-};
-
-export type ProposalProposalsSwitchToTeamVerificationResponses = {
-    200: Proposal;
-};
-
-export type ProposalProposalsSwitchToTeamVerificationResponse = ProposalProposalsSwitchToTeamVerificationResponses[keyof ProposalProposalsSwitchToTeamVerificationResponses];
 
 export type ProposalProposalsUpdateProjectDetailsData = {
     body: ProposalUpdateProjectDetailsRequest;
@@ -31772,22 +31776,6 @@ export type RolesUpdateDescriptionsUpdateResponses = {
 
 export type RolesUpdateDescriptionsUpdateResponse = RolesUpdateDescriptionsUpdateResponses[keyof RolesUpdateDescriptionsUpdateResponses];
 
-export type SchemaRetrieveData = {
-    body?: never;
-    path?: never;
-    query?: {
-        format?: 'json' | 'yaml';
-        lang?: 'ar' | 'cs' | 'da' | 'de' | 'en' | 'es' | 'et' | 'fr' | 'it' | 'lt' | 'lv' | 'nb' | 'ru' | 'sv';
-    };
-    url: '/api/schema/';
-};
-
-export type SchemaRetrieveResponses = {
-    200: {};
-};
-
-export type SchemaRetrieveResponse = SchemaRetrieveResponses[keyof SchemaRetrieveResponses];
-
 export type ServiceSettingsListData = {
     body?: never;
     path?: never;
@@ -33165,6 +33153,11 @@ export type UserAgreementsListData = {
     body?: never;
     path?: never;
     query?: {
+        /**
+         * * `TOS` - Terms of services
+         * * `PP` - Privacy policy
+         */
+        agreement_type?: 'PP' | 'TOS';
         /**
          * A page number within the paginated result set.
          */
