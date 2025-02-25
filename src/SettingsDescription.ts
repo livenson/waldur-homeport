@@ -340,6 +340,12 @@ export const SettingsDescription = [
         default: '',
         type: 'image_field',
       },
+      {
+        key: 'KEYCLOAK_ICON',
+        description: translate('A custom PNG icon for Keycloak login button'),
+        default: '',
+        type: 'image_field',
+      },
     ],
   },
   {
@@ -730,7 +736,7 @@ export const SettingsDescription = [
       },
       {
         key: 'ENABLE_STRICT_CHECK_ACCEPTING_INVITATION',
-        description: translate('If this is true and user email is pre-validated then accepting invitation to only do that if user’s email and email of the invitation fully match.'),
+        description: translate('If this is true and user email is pre-validated then accepting invitation to only do that if user\'s email and email of the invitation fully match.'),
         default: false,
         type: 'boolean',
       },
