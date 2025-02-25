@@ -18,14 +18,13 @@ export function initAuthToken() {
   const token = getToken();
   if (token) {
     Axios.defaults.headers.Authorization = 'Token ' + token;
-
-    client.setConfig({
-      auth: () => 'Token ' + token,
-      baseUrl: ENV.apiEndpoint,
-      throwOnError: true,
-      querySerializer,
-    });
   }
+  client.setConfig({
+    auth: () => (getToken() ? 'Token ' + getToken() : undefined),
+    baseUrl: ENV.apiEndpoint,
+    throwOnError: true,
+    querySerializer,
+  });
 }
 
 Axios.defaults.paramsSerializer = querySerializer;
