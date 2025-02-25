@@ -90,7 +90,8 @@ const getTabs = (offering?): PageBarTab[] => {
           component: PublicOfferingGettingStarted,
         }
       : null,
-    isFeatureVisible(MarketplaceFeatures.catalogue_only)
+    isFeatureVisible(MarketplaceFeatures.catalogue_only) ||
+    !offering.plans?.length
       ? null
       : {
           title: translate('Pricing'),
