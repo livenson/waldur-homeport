@@ -11,11 +11,7 @@ export const SAML2DiscoveryCompleted = () => {
   const handleSaml2Login = useSaml2();
   useEffect(() => {
     const qs = Qs.parse(getQueryString());
-    const entityID = qs.entityID;
-    if (!entityID || typeof entityID !== 'string') {
-      throw new Error('Invalid entityID received');
-    }
-    handleSaml2Login(entityID);
+    handleSaml2Login(qs.entityID);
   });
   return (
     <div className="middle-box text-center">

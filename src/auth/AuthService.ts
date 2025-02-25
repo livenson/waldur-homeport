@@ -12,48 +12,21 @@ import { setCurrentUser } from '@waldur/workspace/actions';
 import { getRedirect, resetRedirect, setRedirect } from './AuthRedirectStorage';
 import { getToken, removeToken, setToken } from './TokenStorage';
 
-interface LoginResponse {
-  token: string;
-  method?: string;
-  [key: string]: any;
-}
-
-/**
- * Sets the authentication token in the header for API requests
- * @param token - The authentication token
- */
-export function setAuthHeader(token: string): void {
+export function setAuthHeader(token) {
   setToken(token);
   Axios.defaults.headers.Authorization = 'Token ' + token;
 }
 
-/**
- * Processes successful login by storing the token and user data
- * @param response - The login response data with token and user info
- */
-export function loginSuccess(response: { data: LoginResponse }): void {
+export function loginSuccess(response) {
   setAuthHeader(response.data.token);
   store.dispatch(setCurrentUser(response.data));
 }
 
-/**
- * Checks if the user is currently authenticated
- * @returns True if authenticated, false otherwise
- */
-export function isAuthenticated(): boolean {
+export function isAuthenticated() {
   return !!getToken();
 }
 
-/**
- * Authenticates a user with username and password
- * @param username - The username
- * @param password - The password
- * @returns Promise resolving to the authenticated user data
- */
-export async function signin(
-  username: string,
-  password: string,
-): Promise<void> {
+export async function signin(username, password) {
   const response = await Axios.post<{ token: string }>(
     ENV.apiEndpoint + 'api-auth/password/',
     {
@@ -61,16 +34,12 @@ export async function signin(
       password,
     },
   );
+  setAuthHeader(response.data.token);
   const user = await UsersService.getCurrentUser();
-  loginSuccess({
-    data: { ...user, token: response.data.token, method: 'local' },
-  });
+  loginSuccess({ data: { ...user, method: 'local' } });
 }
 
-/**
- * Stores the current state and params for redirect after authentication
- */
-export function storeRedirect(): void {
+export function storeRedirect() {
   if (
     router.globals.params?.toState &&
     router.globals.params?.toState !== 'profile.details'
@@ -82,11 +51,7 @@ export function storeRedirect(): void {
   }
 }
 
-/**
- * Redirects the user to the stored location after successful authentication
- * @returns Promise that resolves when the redirection is complete
- */
-export function redirectOnSuccess(): Promise<any> {
+export function redirectOnSuccess() {
   const redirect = getRedirect();
   if (redirect) {
     resetRedirect();
@@ -106,20 +71,14 @@ export function redirectOnSuccess(): Promise<any> {
   }
 }
 
-/**
- * Clears the authentication cache including token and user data
- */
-export function clearAuthCache(): void {
+export function clearAuthCache() {
   store.dispatch(setCurrentUser(undefined));
   clearImpersonationData();
   delete Axios.defaults.headers.Authorization;
   removeToken();
 }
 
-/**
- * Performs a local logout by clearing auth cache and redirecting to login
- */
-export function localLogout(): void {
+export function localLogout() {
   clearAuthCache();
   router.stateService.go('login');
 }

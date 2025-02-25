@@ -5,16 +5,17 @@ import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { UsersService } from '@waldur/user/UsersService';
 
-import { loginSuccess } from '../AuthService';
+import { setAuthHeader, loginSuccess } from '../AuthService';
 
 export const AuthLoginCompleted: FunctionComponent = () => {
   const router = useRouter();
   const { params } = useCurrentStateAndParams();
   const completeAuth = useCallback(
     async (token, method) => {
+      setAuthHeader(token);
       const user = await UsersService.getCurrentUser();
       loginSuccess({
-        data: { ...user, token: token, method },
+        data: { ...user, method },
       });
       router.stateService.go('profile.details');
     },

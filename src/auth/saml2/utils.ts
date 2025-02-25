@@ -1,12 +1,4 @@
-/**
- * Redirects to a URL with POST data by creating and submitting a form
- * @param url - The target URL to redirect to
- * @param data - The data to include in the POST request
- */
-export const redirectPost = (
-  url: string,
-  data: Record<string, string>,
-): void => {
+export const redirectPost = (url: string, data: object) => {
   const form = document.createElement('form');
   document.body.appendChild(form);
   form.method = 'POST';

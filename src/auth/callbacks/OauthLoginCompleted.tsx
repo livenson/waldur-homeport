@@ -21,13 +21,10 @@ export const OauthLoginCompleted: FunctionComponent = () => {
     async function fetchToken() {
       const qs = Qs.parse(getQueryString());
       try {
+        AuthService.setAuthHeader(qs.token);
         const user = await UsersService.getCurrentUser();
-        const token = qs.token;
-        if (!token || typeof token !== 'string') {
-          throw new Error('Invalid token received');
-        }
         AuthService.loginSuccess({
-          data: { ...user, token, method: provider },
+          data: { ...user, method: provider },
         });
         AuthService.redirectOnSuccess();
       } catch (e) {

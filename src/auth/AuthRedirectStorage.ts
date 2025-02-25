@@ -1,23 +1,17 @@
-interface RedirectData {
-  toState: string;
-  toParams?: Record<string, any>;
-}
-
 const key = 'waldur/auth/redirect';
 
-export const setRedirect = (value: RedirectData): void =>
+export const setRedirect = (value) =>
   localStorage.setItem(key, JSON.stringify(value));
 
-export const resetRedirect = (): void => localStorage.removeItem(key);
+export const resetRedirect = () => localStorage.removeItem(key);
 
-export const getRedirect = (): RedirectData | undefined => {
+export const getRedirect = () => {
   const value = localStorage.getItem(key);
   if (value) {
     try {
-      return JSON.parse(value) as RedirectData;
+      return JSON.parse(value);
     } catch {
-      return undefined;
+      return;
     }
   }
-  return undefined;
 };
