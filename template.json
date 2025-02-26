@@ -27,8 +27,12 @@
     "description": "dashboard/TeamWidget.tsx",
     "message": "1 member"
   },
+  "1 star rate": {
+    "description": "proposals/proposal/create/ProposalDecisionResult.tsx",
+    "message": "1 star rate"
+  },
   "1 star": {
-    "description": "proposals/proposal/create-review/steps/FormSummaryStep.tsx",
+    "description": "proposals/proposal/create/ProposalReviewDialog.tsx, proposals/proposal/create-review/steps/FormSummaryStep.tsx",
     "message": "1 star"
   },
   "10 - Very positive": {
@@ -136,7 +140,7 @@
     "message": "Accepted proposals"
   },
   "Accepted": {
-    "description": "booking/BookingStateField.tsx, booking/utils.ts, invitations/InvitationStateFilter.tsx, proposals/proposal/create/ProgressSteps.tsx, proposals/utils.ts",
+    "description": "booking/BookingStateField.tsx, booking/utils.ts, invitations/InvitationStateFilter.tsx, proposals/utils.ts",
     "message": "Accepted"
   },
   "Accepting offering request": {
@@ -404,7 +408,7 @@
     "message": "Add key"
   },
   "Add member": {
-    "description": "customer/team/UserAddButton.tsx, marketplace/service-providers/UserAddButton.tsx, proposals/call-management/UserAddButton.tsx",
+    "description": "customer/team/UserAddButton.tsx, marketplace/service-providers/UserAddButton.tsx, proposals/call-management/UserAddButton.tsx, proposals/team/AddUserButton.tsx, proposals/team/AddUserDialog.tsx",
     "message": "Add member"
   },
   "Add new": {
@@ -460,7 +464,7 @@
     "message": "Add resource"
   },
   "Add role": {
-    "description": "marketplace/offerings/update/roles/AddRoleButton.tsx, marketplace/offerings/update/roles/AddRoleDialog.tsx, project/team/AddUserDialog.tsx",
+    "description": "marketplace/offerings/update/roles/AddRoleButton.tsx, marketplace/offerings/update/roles/AddRoleDialog.tsx, project/team/AddUserDialog.tsx, proposals/team/AddUserDialog.tsx",
     "message": "Add role"
   },
   "Add route": {
@@ -488,7 +492,7 @@
     "message": "Add to a new namespace"
   },
   "Add user": {
-    "description": "invitations/actions/create/EmailsListGroup.tsx, marketplace/offerings/details/permissions/OfferingPermissionCreateButton.tsx, marketplace/service-providers/OfferingPermissionCreateButton.tsx, project/team/AddUserDialog.tsx, proposals/team/AddUserButton.tsx, proposals/team/AddUserDialog.tsx, user/support/AddRemoteUserDialog.tsx, user/support/UserTableActions.tsx",
+    "description": "invitations/actions/create/EmailsListGroup.tsx, marketplace/offerings/details/permissions/OfferingPermissionCreateButton.tsx, marketplace/service-providers/OfferingPermissionCreateButton.tsx, project/team/AddUserDialog.tsx, user/support/AddRemoteUserDialog.tsx, user/support/UserTableActions.tsx",
     "message": "Add user"
   },
   "Add your comment here": {
@@ -859,10 +863,6 @@
     "description": "rancher/template/TemplateDetail.tsx",
     "message": "Application has been created."
   },
-  "Application progress": {
-    "description": "proposals/proposal/create/ProposalRejectionStep.tsx",
-    "message": "Application progress"
-  },
   "Application secret key.": {
     "description": "administration/providers/ProviderForm.tsx",
     "message": "Application secret key."
@@ -948,7 +948,7 @@
     "message": "Archive offering"
   },
   "Archive": {
-    "description": "marketplace/offerings/actions/OfferingStateActions.tsx, marketplace/offerings/update/plans/ArchivePlanButton.tsx, proposals/proposal/create/ProposalRejectionStep.tsx, proposals/update/CallActions.tsx, proposals/utils.ts",
+    "description": "marketplace/offerings/actions/OfferingStateActions.tsx, marketplace/offerings/update/plans/ArchivePlanButton.tsx, proposals/update/CallActions.tsx, proposals/utils.ts",
     "message": "Archive"
   },
   "Archived": {
@@ -1132,7 +1132,7 @@
     "message": "Are you sure you want to reject the {name} offering request?"
   },
   "Are you sure you want to reject the {name} proposal review?": {
-    "description": "proposals/review/ReviewItemActions.tsx",
+    "description": "proposals/review/utils.tsx",
     "message": "Are you sure you want to reject the {name} proposal review?"
   },
   "Are you sure you want to remove invoice item {name}?": {
@@ -1187,10 +1187,6 @@
     "description": "rancher/cluster/create/FormNodesStep.tsx",
     "message": "Are you sure you want to select template? Note this will reset the node plan."
   },
-  "Are you sure you want to send the proposal to team verification step?": {
-    "description": "proposals/proposal/create/ProposalSubmissionStep.tsx",
-    "message": "Are you sure you want to send the proposal to team verification step?"
-  },
   "Are you sure you want to set {count} resources to erred?": {
     "description": "marketplace/resources/mass-actions/MultiSetErredAction.tsx",
     "message": "Are you sure you want to set {count} resources to erred?"
@@ -1200,7 +1196,7 @@
     "message": "Are you sure you want to set {name} {resourceType} to erred state? "
   },
   "Are you sure you want to start reviewing proposal {name}?": {
-    "description": "proposals/review/ReviewItemActions.tsx",
+    "description": "proposals/review/utils.tsx",
     "message": "Are you sure you want to start reviewing proposal {name}?"
   },
   "Are you sure you want to submit the order?": {
@@ -1208,7 +1204,7 @@
     "message": "Are you sure you want to submit the order?"
   },
   "Are you sure you want to submit the proposal?": {
-    "description": "proposals/proposal/create/ProposalTeamVerificationStep.tsx",
+    "description": "proposals/proposal/create/ProposalSubmissionStep.tsx",
     "message": "Are you sure you want to submit the proposal?"
   },
   "Are you sure you want to submit this review for the {name} proposal?": {
@@ -1779,6 +1775,10 @@
     "description": "proposals/update/CallActions.tsx",
     "message": "Call must have a round to be activated."
   },
+  "Call name": {
+    "description": "proposals/proposal/create/ProposalDetailsOverviewStep.tsx",
+    "message": "Call name"
+  },
   "Call round": {
     "description": "proposals/round/RoundUIView.tsx",
     "message": "Call round"
@@ -1792,7 +1792,7 @@
     "message": "Call update"
   },
   "Call": {
-    "description": "permissions/constants.tsx, proposals/offering-requests/OfferingRequestsList.tsx, proposals/offering-requests/OfferingRequestsTableFilter.tsx, proposals/proposal/CustomerProposalsList.tsx, proposals/proposal/ProposalsTableFilter.tsx, proposals/proposal/UserProposalsList.tsx, proposals/review/CustomerReviewsList.tsx, proposals/review/ReviewsTableFilter.tsx, proposals/review/UserReviewsList.tsx",
+    "description": "permissions/constants.tsx, proposals/offering-requests/OfferingRequestsList.tsx, proposals/offering-requests/OfferingRequestsTableFilter.tsx, proposals/proposal/CustomerProposalsList.tsx, proposals/proposal/ProposalDetailsDialog.tsx, proposals/proposal/ProposalsTableFilter.tsx, proposals/proposal/UserProposalsList.tsx, proposals/review/CustomerReviewsList.tsx, proposals/review/ReviewsTableFilter.tsx, proposals/review/UserReviewsList.tsx",
     "message": "Call"
   },
   "Caller field name": {
@@ -1860,7 +1860,7 @@
     "message": "Cancel"
   },
   "Canceled": {
-    "description": "invitations/InvitationStateFilter.tsx, invoices/list/InvoicesFilter.tsx, marketplace/orders/list/MarketplaceOrdersListFilter.tsx, marketplace/orders/list/OrderStateCell.tsx, marketplace/resources/resource-pending/OrderInProgressView.tsx, marketplace-remote/RequestStateFilter.tsx, proposals/utils.ts",
+    "description": "invitations/InvitationStateFilter.tsx, invoices/list/InvoicesFilter.tsx, marketplace/orders/list/MarketplaceOrdersListFilter.tsx, marketplace/orders/list/OrderStateCell.tsx, marketplace/resources/resource-pending/OrderInProgressView.tsx, marketplace-remote/RequestStateFilter.tsx, proposals/proposal/create/ProgressSteps.tsx, proposals/utils.ts",
     "message": "Canceled"
   },
   "Cannot create floating IP if tenant external network is not defined.": {
@@ -1999,9 +1999,9 @@
     "description": "resource/state/constants.ts",
     "message": "Changing password"
   },
-  "Charged as part of the {name}.": {
+  "Charged as part of {name}.": {
     "description": "openstack/openstack-instance/deploy/CheckoutSummary.tsx",
-    "message": "Charged as part of the {name}."
+    "message": "Charged as part of {name}."
   },
   "Charset": {
     "description": "azure/sql/AzureSQLDatabaseSummary.tsx",
@@ -2175,6 +2175,10 @@
     "description": "SettingsDescription.ts",
     "message": "Comma-separated list of file extenstions not allowed for attachment."
   },
+  "Comment about \"{name}\"": {
+    "description": "proposals/proposal/create-review/CommentFormDialog.tsx",
+    "message": "Comment about \"{name}\""
+  },
   "Comment prefix with user info.": {
     "description": "SettingsDescription.ts",
     "message": "Comment prefix with user info."
@@ -2184,7 +2188,7 @@
     "message": "Comment"
   },
   "Comments": {
-    "description": "issues/comments/IssueCommentsContainer.tsx, proposals/proposal/create-review/steps/FormSummaryStep.tsx",
+    "description": "issues/comments/IssueCommentsContainer.tsx, proposals/proposal/create/ProposalReviewDialog.tsx, proposals/proposal/create-review/steps/FormSummaryStep.tsx",
     "message": "Comments"
   },
   "Common footer in html format for all emails.": {
@@ -2288,7 +2292,7 @@
     "message": "Confirm your review"
   },
   "Confirm": {
-    "description": "administration/settings/ConfigurationEditDialog.tsx, customer/credits/CreditFormDialog.tsx, customer/credits/ProjectCreditFormDialog.tsx, customer/details/EditFieldDialog.tsx, issues/comments/CommentFormDialog.tsx, marketplace/details/CustomerField.tsx, marketplace/offerings/import/WizardButtons.tsx, marketplace/offerings/update/integration/EditFieldDialog.tsx, project/manage/EditFieldDialog.tsx",
+    "description": "administration/settings/ConfigurationEditDialog.tsx, customer/credits/CreditFormDialog.tsx, customer/credits/ProjectCreditFormDialog.tsx, customer/details/EditFieldDialog.tsx, issues/comments/CommentFormDialog.tsx, marketplace/details/CustomerField.tsx, marketplace/offerings/import/WizardButtons.tsx, marketplace/offerings/update/integration/EditFieldDialog.tsx, project/manage/EditFieldDialog.tsx, proposals/proposal/create-review/CommentFormDialog.tsx",
     "message": "Confirm"
   },
   "Confirmation notification template": {
@@ -2296,7 +2300,7 @@
     "message": "Confirmation notification template"
   },
   "Confirmation": {
-    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerCallManagerPanel.tsx, customer/details/CustomerLocationRow.tsx, customer/payment-profiles/PaymentProfileDeleteButton.tsx, customer/payments/DeletePaymentButton.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, invoices/details/InvoiceItemDelete.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/ColumnRow.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/deploy/DeployForm.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/images/DeleteImageButton.tsx, marketplace/offerings/update/components/DeleteComponentButton.tsx, marketplace/offerings/update/endpoints/DeleteEndpointButton.tsx, marketplace/offerings/update/options/DeleteOptionButton.tsx, marketplace/offerings/update/plans/ArchivePlanButton.tsx, marketplace/offerings/update/roles/DeleteRoleButton.tsx, marketplace/orders/actions/OrderUnlinkButton.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, marketplace/resources/resource-pending/OrderErredView.tsx, marketplace/resources/users/DeleteUserButton.tsx, marketplace/service-providers/OfferingPermissionRemoveButton.tsx, marketplace/service-providers/RestrictOfferingUser.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/ProposalRowActions.tsx, proposals/proposal/create/ProposalSubmissionStep.tsx, proposals/proposal/create/ProposalTeamVerificationStep.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/CallActions.tsx, proposals/update/documents/RemoveDocumentButton.tsx, rancher/cluster/create/FormNodesStep.tsx, resource/actions/AsyncActionItem.tsx, resource/actions/ResourceDeleteButton.tsx, user/support/UserDelete.tsx, user/support/UserStatus.tsx",
+    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerCallManagerPanel.tsx, customer/details/CustomerLocationRow.tsx, customer/payment-profiles/PaymentProfileDeleteButton.tsx, customer/payments/DeletePaymentButton.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, invoices/details/InvoiceItemDelete.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/ColumnRow.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/deploy/DeployForm.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/images/DeleteImageButton.tsx, marketplace/offerings/update/components/DeleteComponentButton.tsx, marketplace/offerings/update/endpoints/DeleteEndpointButton.tsx, marketplace/offerings/update/options/DeleteOptionButton.tsx, marketplace/offerings/update/plans/ArchivePlanButton.tsx, marketplace/offerings/update/roles/DeleteRoleButton.tsx, marketplace/orders/actions/OrderUnlinkButton.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, marketplace/resources/resource-pending/OrderErredView.tsx, marketplace/resources/users/DeleteUserButton.tsx, marketplace/service-providers/OfferingPermissionRemoveButton.tsx, marketplace/service-providers/RestrictOfferingUser.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/ProposalRowActions.tsx, proposals/proposal/create/ProposalSubmissionStep.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/CallActions.tsx, proposals/update/documents/RemoveDocumentButton.tsx, rancher/cluster/create/FormNodesStep.tsx, resource/actions/AsyncActionItem.tsx, resource/actions/ResourceDeleteButton.tsx, user/support/UserDelete.tsx, user/support/UserStatus.tsx",
     "message": "Confirmation"
   },
   "Confirming that data is correct": {
@@ -2864,7 +2868,7 @@
     "message": "Cutoff date must be after start date"
   },
   "Cutoff date": {
-    "description": "proposals/details/CallRoundsList.tsx, proposals/round/submission/RoundSubmissionSection.tsx, proposals/update/rounds/CallRoundsList.tsx, proposals/update/rounds/WizardFormFirstPage.tsx",
+    "description": "proposals/details/CallRoundsList.tsx, proposals/proposal/ProposalDetailsDialog.tsx, proposals/round/submission/RoundSubmissionSection.tsx, proposals/update/rounds/CallRoundsList.tsx, proposals/update/rounds/WizardFormFirstPage.tsx",
     "message": "Cutoff date"
   },
   "Cutoff": {
@@ -2976,7 +2980,7 @@
     "message": "Deciding entity"
   },
   "Decision": {
-    "description": "proposals/proposal/create/ProposalRejectionStep.tsx",
+    "description": "proposals/proposal/create/ProgressSteps.tsx",
     "message": "Decision"
   },
   "Default SLURM account for user": {
@@ -3180,7 +3184,7 @@
     "message": "Description of the Waldur deployment."
   },
   "Description": {
-    "description": "administration/roles/RolesList.tsx, administration/service-desk/issue-templates/AdministrationIssueTemplatesList.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, azure/vm/AzureVirtualMachineForm.tsx, customer/details/AccessSubnetCreateForm.tsx, customer/details/AccessSubnetEditDialog.tsx, customer/details/CustomerAccessControlPanel.tsx, customer/details/EditFieldDialog.tsx, issues/IssueDetails.tsx, issues/create/IssueCreateForm.tsx, issues/list/IssuesListExpandableRow.tsx, marketplace/category/admin/AdminCategoriesPage.tsx, marketplace/category/admin/CategoryEditDialog.tsx, marketplace/category/admin/CategoryGroupsList.tsx, marketplace/category/admin/GroupFromDialog.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/deploy/steps/FormFinalConfigurationStep.tsx, marketplace/details/OfferingTabs.tsx, marketplace/details/plan/PlanSection.tsx, marketplace/offerings/OfferingPublicUIView.tsx, marketplace/offerings/actions/RequestActionDialog.tsx, marketplace/offerings/details/PublicOfferingComponentsTable.tsx, marketplace/offerings/details/PublicOfferingInfo.tsx, marketplace/offerings/images/CreateImageDialog.tsx, marketplace/offerings/images/OfferingImagesList.tsx, marketplace/offerings/update/options/OptionForm.tsx, marketplace/offerings/update/overview/OverviewSection.tsx, marketplace/offerings/update/plans/PlanForm.tsx, marketplace/orders/details/OrderDetailsApprovalsTab.tsx, marketplace/resources/usage/utils.ts, marketplace/service-providers/OrganizationProjectsExpandable.tsx, marketplace/service-providers/ServiceProviderManagement.tsx, marketplace/service-providers/ServiceProvidersList.tsx, marketplace/service-providers/details/ServiceProviderDetails.tsx, marketplace-remote/ProjectUpdateRequestExpandable.tsx, openstack/openstack-backup/BackupsList.tsx, openstack/openstack-instance/deploy/FormSecurityGroupsField.tsx, openstack/openstack-security-groups/SecurityGroupRuleHeader.tsx, openstack/openstack-security-groups/SecurityGroupsList.tsx, openstack/openstack-security-groups/rule-editor/RulesHeader.tsx, openstack/openstack-snapshot/TenantSnapshotsList.tsx, openstack/openstack-tenant/actions/CreateSecurityGroupForm.tsx, openstack/openstack-tenant/actions/RequestDirectAccessDialog.tsx, openstack/openstack-volume/TenantVolumeTypesList.tsx, openstack/openstack-volume/VolumeSnapshotsList.tsx, project/ProjectDashboard.tsx, project/ProjectsList.tsx, project/details/ProjectDetailsDialog.tsx, project/manage/ProjectGeneral.tsx, proposals/CallsAvailableOfferingsPage.tsx, proposals/call-management/CallFormDialog.tsx, proposals/details/CallDescriptionCard.tsx, proposals/details/CallDocumentsCard.tsx, proposals/details/PublicCallDetailsContainer.tsx, proposals/proposal/create/ProjectDetailsSummary.tsx, proposals/update/general/CallGeneralSection.tsx, proposals/update/general/EditGeneralInfoDialog.tsx, rancher/ClusterProjectList.tsx, rancher/catalog/CatalogCreateDialog.tsx, rancher/catalog/ClusterCatalogList.tsx, rancher/cluster/hpas/HPACreateDialog.tsx, rancher/cluster/hpas/HPAUpdateDialog.tsx, rancher/template/ApplicationConfiguration.tsx, rancher/template/CatalogTemplateList.tsx, rancher/template/ClusterTemplateList.tsx, resource/actions/base.ts, resource/summary/ResourceSummaryBase.tsx, slurm/RequestLimitsChangeDialog.tsx, user/support/EditFieldDialog.tsx, user/support/UserEditRows.tsx, user/support/UserList.tsx",
+    "description": "administration/roles/RolesList.tsx, administration/service-desk/issue-templates/AdministrationIssueTemplatesList.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, azure/vm/AzureVirtualMachineForm.tsx, customer/details/AccessSubnetCreateForm.tsx, customer/details/AccessSubnetEditDialog.tsx, customer/details/CustomerAccessControlPanel.tsx, customer/details/EditFieldDialog.tsx, issues/IssueDetails.tsx, issues/create/IssueCreateForm.tsx, issues/list/IssuesListExpandableRow.tsx, marketplace/category/admin/AdminCategoriesPage.tsx, marketplace/category/admin/CategoryEditDialog.tsx, marketplace/category/admin/CategoryGroupsList.tsx, marketplace/category/admin/GroupFromDialog.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/deploy/steps/FormFinalConfigurationStep.tsx, marketplace/details/OfferingTabs.tsx, marketplace/details/plan/PlanSection.tsx, marketplace/offerings/OfferingPublicUIView.tsx, marketplace/offerings/actions/RequestActionDialog.tsx, marketplace/offerings/details/PublicOfferingComponentsTable.tsx, marketplace/offerings/details/PublicOfferingInfo.tsx, marketplace/offerings/images/CreateImageDialog.tsx, marketplace/offerings/images/OfferingImagesList.tsx, marketplace/offerings/update/options/OptionForm.tsx, marketplace/offerings/update/overview/OverviewSection.tsx, marketplace/offerings/update/plans/PlanForm.tsx, marketplace/orders/details/OrderDetailsApprovalsTab.tsx, marketplace/resources/usage/utils.ts, marketplace/service-providers/OrganizationProjectsExpandable.tsx, marketplace/service-providers/ServiceProviderManagement.tsx, marketplace/service-providers/ServiceProvidersList.tsx, marketplace/service-providers/details/ServiceProviderDetails.tsx, marketplace-remote/ProjectUpdateRequestExpandable.tsx, openstack/openstack-backup/BackupsList.tsx, openstack/openstack-instance/deploy/FormSecurityGroupsField.tsx, openstack/openstack-security-groups/SecurityGroupRuleHeader.tsx, openstack/openstack-security-groups/SecurityGroupsList.tsx, openstack/openstack-security-groups/rule-editor/RulesHeader.tsx, openstack/openstack-snapshot/TenantSnapshotsList.tsx, openstack/openstack-tenant/actions/CreateSecurityGroupForm.tsx, openstack/openstack-tenant/actions/RequestDirectAccessDialog.tsx, openstack/openstack-volume/TenantVolumeTypesList.tsx, openstack/openstack-volume/VolumeSnapshotsList.tsx, project/ProjectDashboard.tsx, project/ProjectsList.tsx, project/details/ProjectDetailsDialog.tsx, project/manage/ProjectGeneral.tsx, proposals/CallsAvailableOfferingsPage.tsx, proposals/call-management/CallFormDialog.tsx, proposals/details/CallDescriptionCard.tsx, proposals/details/CallDocumentsCard.tsx, proposals/details/PublicCallDetailsContainer.tsx, proposals/proposal/create/ProjectDetailsStep.tsx, proposals/proposal/create/ProjectDetailsSummary.tsx, proposals/update/general/CallGeneralSection.tsx, proposals/update/general/EditGeneralInfoDialog.tsx, rancher/ClusterProjectList.tsx, rancher/catalog/CatalogCreateDialog.tsx, rancher/catalog/ClusterCatalogList.tsx, rancher/cluster/hpas/HPACreateDialog.tsx, rancher/cluster/hpas/HPAUpdateDialog.tsx, rancher/template/ApplicationConfiguration.tsx, rancher/template/CatalogTemplateList.tsx, rancher/template/ClusterTemplateList.tsx, resource/actions/base.ts, resource/summary/ResourceSummaryBase.tsx, slurm/RequestLimitsChangeDialog.tsx, user/support/EditFieldDialog.tsx, user/support/UserEditRows.tsx, user/support/UserList.tsx",
     "message": "Description"
   },
   "Desired replicas": {
@@ -3247,16 +3251,12 @@
     "description": "resource/state/constants.ts",
     "message": "Detaching"
   },
-  "Detailed description": {
-    "description": "proposals/proposal/create/ProjectDetailsStep.tsx",
-    "message": "Detailed description"
-  },
   "Details for {provider}": {
     "description": "administration/providers/ProviderDetailsDialog.tsx",
     "message": "Details for {provider}"
   },
   "Details overview": {
-    "description": "marketplace/deploy/steps/FormDetailsOverviewStep.tsx, marketplace/deploy/steps/constants.ts",
+    "description": "marketplace/deploy/steps/FormDetailsOverviewStep.tsx, marketplace/deploy/steps/constants.ts, proposals/proposal/create/ProposalDetailsOverviewStep.tsx, proposals/proposal/create/steps.ts, proposals/proposal/create-review/steps/steps.ts",
     "message": "Details overview"
   },
   "Details": {
@@ -3424,7 +3424,7 @@
     "message": "Download full price list"
   },
   "Download": {
-    "description": "form/upload/FileDownloader.tsx, proposals/proposal/create/DocumentationFiles.tsx",
+    "description": "form/upload/FileDownloader.tsx",
     "message": "Download"
   },
   "Downscaled": {
@@ -3434,14 +3434,6 @@
   "Draft": {
     "description": "marketplace/offerings/details/PublicOfferingDetails.tsx, marketplace/offerings/list/OfferingStateCell.tsx, marketplace/offerings/list/OfferingStateFilter.tsx, marketplace/service-providers/ProviderCampaignStateFilter.tsx, proposals/utils.ts",
     "message": "Draft"
-  },
-  "Drag and drop file here or <u>Choose file</u>": {
-    "description": "proposals/proposal/create/UploadDocumentationFiles.tsx",
-    "message": "Drag and drop file here or <u>Choose file</u>"
-  },
-  "Drop files here, or click to select files": {
-    "description": "core/DropzoneFiles.tsx",
-    "message": "Drop files here, or click to select files"
   },
   "Drop files to attach them.": {
     "description": "form/upload/UploadContainer.tsx",
@@ -3696,7 +3688,7 @@
     "message": "Email verification has been sent. Please check your inbox."
   },
   "Email": {
-    "description": "administration/InvitationList.tsx, administration/hooks/HooksList.tsx, administration/organizations/OrganizationGroupOrganizationsList.tsx, administration/providers/ProviderUsersDialog.tsx, broadcasts/RecipientsList.tsx, customer/details/CustomerContactPanel.tsx, customer/details/EditFieldDialog.tsx, customer/list/ExportAsEmailDialog.tsx, customer/list/OrganizationCard.tsx, customer/team/CustomerUsersList.tsx, customer/team/UserGroup.tsx, invitations/InvitationsList.tsx, invitations/actions/create/EmailsListGroup.tsx, marketplace/service-providers/ProviderTeamPage.tsx, project/team/InvitationsList.tsx, project/team/ProjectUsersList.tsx, project/team/UserGroup.tsx, proposals/call-management/CallManagementTeamPage.tsx, proposals/round/reviewers/RoundReviewersList.tsx, proposals/team/InvitationsList.tsx, proposals/team/UsersList.tsx, user/affiliations/OrganizationsList.tsx, user/affiliations/SummaryTeamTable.tsx, user/hooks/HookTypeField.tsx, user/support/UserDetailsTable.tsx, user/support/UserEditRows.tsx, user/support/UserEmailChangeDialog.tsx, user/support/UserList.tsx",
+    "description": "administration/InvitationList.tsx, administration/hooks/HooksList.tsx, administration/organizations/OrganizationGroupOrganizationsList.tsx, administration/providers/ProviderUsersDialog.tsx, broadcasts/RecipientsList.tsx, customer/details/CustomerContactPanel.tsx, customer/details/EditFieldDialog.tsx, customer/list/ExportAsEmailDialog.tsx, customer/list/OrganizationCard.tsx, customer/team/CustomerUsersList.tsx, customer/team/UserGroup.tsx, invitations/InvitationsList.tsx, invitations/actions/create/EmailsListGroup.tsx, marketplace/service-providers/ProviderTeamPage.tsx, project/team/InvitationsList.tsx, project/team/ProjectUsersList.tsx, project/team/UserGroup.tsx, proposals/call-management/CallManagementTeamPage.tsx, proposals/round/reviewers/RoundReviewersList.tsx, proposals/team/InvitationsList.tsx, user/affiliations/OrganizationsList.tsx, user/affiliations/SummaryTeamTable.tsx, user/hooks/HookTypeField.tsx, user/support/UserDetailsTable.tsx, user/support/UserEditRows.tsx, user/support/UserEmailChangeDialog.tsx, user/support/UserList.tsx",
     "message": "Email"
   },
   "Email: {email}": {
@@ -3860,7 +3852,7 @@
     "message": "Enter a comma separated list of fields of the user profile that would be protected from editing in Waldur."
   },
   "Enter a comment": {
-    "description": "issues/comments/CommentFormDialog.tsx",
+    "description": "issues/comments/CommentFormDialog.tsx, proposals/proposal/create-review/CommentFormDialog.tsx",
     "message": "Enter a comment"
   },
   "Enter a contact number for the user": {
@@ -3868,12 +3860,20 @@
     "message": "Enter a contact number for the user"
   },
   "Enter a description": {
-    "description": "marketplace/resources/usage/ResourceUsageForm.tsx, project/create/DescriptionGroup.tsx",
+    "description": "marketplace/resources/usage/ResourceUsageForm.tsx, project/create/DescriptionGroup.tsx, proposals/proposal/create/ProjectDetailsStep.tsx",
     "message": "Enter a description"
+  },
+  "Enter a name": {
+    "description": "proposals/proposal/create/ProjectDetailsStep.tsx",
+    "message": "Enter a name"
   },
   "Enter a single port (22) or a port range (5000-6000) or just leave blank for all ports.": {
     "description": "openstack/openstack-security-groups/rule-editor/PortRangeField.tsx",
     "message": "Enter a single port (22) or a port range (5000-6000) or just leave blank for all ports."
+  },
+  "Enter a summary": {
+    "description": "proposals/proposal/create/ProjectDetailsStep.tsx",
+    "message": "Enter a summary"
   },
   "Enter address...": {
     "description": "map/LocationContainer.tsx",
@@ -3890,6 +3890,10 @@
   "Enter email addresses separated by commas (e.g., user1@example.com, user2@example.com)": {
     "description": "customer/cost-policies/CostPolicyForm.tsx",
     "message": "Enter email addresses separated by commas (e.g., user1@example.com, user2@example.com)"
+  },
+  "Enter number of days": {
+    "description": "proposals/proposal/create/ProjectDetailsStep.tsx",
+    "message": "Enter number of days"
   },
   "Enter private IPv4 CIDR.": {
     "description": "openstack/utils.ts",
@@ -4450,10 +4454,6 @@
   "From date": {
     "description": "booking/deploy/CustomRangeDatePicker.tsx",
     "message": "From date"
-  },
-  "From reviewer {number}": {
-    "description": "proposals/proposal/create-review/FieldReviewComments.tsx",
-    "message": "From reviewer {number}"
   },
   "Full access": {
     "description": "administration/roles/PermissionField.tsx",
@@ -5211,6 +5211,10 @@
     "description": "customer/cost-policies/CostPolicyForm.tsx",
     "message": "Invalid email: {email}"
   },
+  "Invalid files": {
+    "description": "form/upload/UploadContainer.tsx",
+    "message": "Invalid files"
+  },
   "Invitation approval": {
     "description": "invitations/InvitationApprove.tsx",
     "message": "Invitation approval"
@@ -5302,6 +5306,10 @@
   "Invite by email": {
     "description": "invitations/actions/create/InvitationCreateDialog.tsx",
     "message": "Invite by email"
+  },
+  "Invite member": {
+    "description": "invitations/actions/create/InvitationCreateButton.tsx",
+    "message": "Invite member"
   },
   "Invoice date": {
     "description": "invoices/details/InvoiceDetails.tsx, invoices/list/InvoicesList.tsx",
@@ -5879,6 +5887,10 @@
     "description": "openstack/openstack-network/OpenStackNetworkSummary.tsx, openstack/openstack-network/actions/SetMtuDialog.tsx",
     "message": "MTU"
   },
+  "Mail": {
+    "description": "proposals/team/UsersList.tsx",
+    "message": "Mail"
+  },
   "Make civil number field mandatory in invitation creation form.": {
     "description": "features/FeaturesDescription.ts",
     "message": "Make civil number field mandatory in invitation creation form."
@@ -6051,10 +6063,6 @@
     "description": "openstack/OpenStackProvisioningConfigForm.tsx",
     "message": "Maximum parallel executions of provisioning operations for volumes"
   },
-  "Maximum size": {
-    "description": "proposals/proposal/create/UploadDocumentationFiles.tsx",
-    "message": "Maximum size"
-  },
   "Maximum total size of the disk space per VM": {
     "description": "vmware/VMwareForm.tsx",
     "message": "Maximum total size of the disk space per VM"
@@ -6216,7 +6224,7 @@
     "message": "Months"
   },
   "More details": {
-    "description": "marketplace/deploy/DetailsOverviewButton.tsx",
+    "description": "marketplace/deploy/DetailsOverviewButton.tsx, proposals/proposal/create/ProposalDecisionResult.tsx, proposals/proposal/create/ProposalDetailsOverviewStep.tsx",
     "message": "More details"
   },
   "More resources": {
@@ -6319,10 +6327,6 @@
     "description": "marketplace-checklist/AnswersTable.tsx",
     "message": "N/A"
   },
-  "NB! After clicking Yes, you will not be able to edit the proposal!": {
-    "description": "proposals/proposal/create/ProposalSubmissionStep.tsx",
-    "message": "NB! After clicking Yes, you will not be able to edit the proposal!"
-  },
   "Name \"{label}\" must be 1-63 characters long, each of which can only be alphanumeric or a hyphen": {
     "description": "openstack/openstack-instance/utils.ts",
     "message": "Name \"{label}\" must be 1-63 characters long, each of which can only be alphanumeric or a hyphen"
@@ -6372,7 +6376,7 @@
     "message": "Name should contain at least 3 symbols."
   },
   "Name": {
-    "description": "administration/organizations/OrganizationGroupForm.tsx, administration/organizations/OrganizationGroupsList.tsx, administration/roles/RoleForm.tsx, administration/roles/RolesList.tsx, administration/service-desk/issue-templates/AdministrationIssueTemplatesList.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, azure/vm/AzureVirtualMachineForm.tsx, broadcasts/BroadcastSaveAsTemplateDialog.tsx, broadcasts/BroadcastTemplateForm.tsx, broadcasts/BroadcastTemplateList.tsx, customer/create/CustomerCreateForm.tsx, customer/credits/CreditUsageDialog.tsx, customer/credits/ProjectCreditsList.tsx, customer/details/CustomerDetailsPanel.tsx, customer/details/EditFieldDialog.tsx, customer/payment-profiles/PaymentProfileCreateDialog.tsx, customer/payment-profiles/PaymentProfileDetails.tsx, customer/payment-profiles/PaymentProfileList.tsx, customer/payment-profiles/PaymentProfileUpdateDialog.tsx, invoices/details/InvoiceItemCompensationDialog.tsx, invoices/details/InvoiceItemExpandableRow.tsx, marketplace/aggregate-limits/AggregateLimitDetailsDialog.tsx, marketplace/category/PublicOfferingsList.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/deploy/steps/ResourceNameGroup.tsx, marketplace/details/plan/PlanSection.tsx, marketplace/offerings/actions/OfferingCreateDialog.tsx, marketplace/offerings/actions/SetAccessPolicyFormContainer.tsx, marketplace/offerings/details/OfferingUsersTable.tsx, marketplace/offerings/details/PublicOfferingComponentsTable.tsx, marketplace/offerings/images/CreateImageDialog.tsx, marketplace/offerings/images/OfferingImagesList.tsx, marketplace/offerings/list/OfferingsList.tsx, marketplace/offerings/update/components/ComponentsSection.tsx, marketplace/offerings/update/endpoints/AddEndpointDialog.tsx, marketplace/offerings/update/overview/OverviewSection.tsx, marketplace/offerings/update/plans/PlanForm.tsx, marketplace/offerings/update/plans/PlansSection.tsx, marketplace/offerings/update/plans/PricesTable.tsx, marketplace/offerings/update/plans/QuotasTable.tsx, marketplace/offerings/update/roles/AddRoleDialog.tsx, marketplace/orders/details/LimitsSection.tsx, marketplace/orders/list/OrdersTableComponent.tsx, marketplace/resources/change-limits/ChangeLimitsComponent.tsx, marketplace/resources/change-plan/utils.tsx, marketplace/resources/details/utils.tsx, marketplace/resources/import/ResourcesList.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/utils.tsx, marketplace/service-providers/OrganizationProjectsExpandable.tsx, marketplace/service-providers/ProviderCampaignResourceExpandable.tsx, marketplace/service-providers/ProviderCampaignsList.tsx, marketplace/service-providers/ProviderOrganizationsList.tsx, marketplace/service-providers/ProviderProjectResourcesList.tsx, marketplace/service-providers/ProviderUserCustomersList.tsx, marketplace/service-providers/ServiceProvidersList.tsx, marketplace/service-providers/details/ProviderDashboardTab.tsx, marketplace-remote/ProjectUpdateRequestExpandable.tsx, openstack/openstack-backup/BackupsList.tsx, openstack/openstack-instance/actions/EditDialog.tsx, openstack/openstack-network/TenantNetworksList.tsx, openstack/openstack-security-groups/SecurityGroupsList.tsx, openstack/openstack-server-groups/ServerGroupsList.tsx, openstack/openstack-snapshot/TenantSnapshotsList.tsx, openstack/openstack-subnet/TenantSubnetsList.tsx, openstack/openstack-tenant/TenantFlavorsList.tsx, openstack/openstack-tenant/TenantImagesList.tsx, openstack/openstack-tenant/TenantInstancesList.tsx, openstack/openstack-tenant/TenantRoutersList.tsx, openstack/openstack-tenant/actions/CreateSecurityGroupForm.tsx, openstack/openstack-tenant/actions/CreateServerGroupForm.tsx, openstack/openstack-tenant/actions/MigrateTenantDialog.tsx, openstack/openstack-volume/InstanceVolumesList.tsx, openstack/openstack-volume/TenantVolumeTypesList.tsx, openstack/openstack-volume/TenantVolumesList.tsx, openstack/openstack-volume/VolumeSnapshotsList.tsx, project/ProjectsList.tsx, project/details/ProjectDetailsDialog.tsx, project/manage/ProjectGeneral.tsx, proposals/CallsAvailableOfferingsPage.tsx, proposals/PublicCallsList.tsx, proposals/call-management/CallFormDialog.tsx, proposals/call-management/CallManagementPage.tsx, proposals/proposal/create/AddProposalDialog.tsx, proposals/proposal/create/ProjectDetailsSummary.tsx, proposals/round/proposals/ProposalsList.tsx, proposals/update/general/CallGeneralSection.tsx, proposals/update/general/EditGeneralInfoDialog.tsx, rancher/ClusterProjectList.tsx, rancher/catalog/CatalogCreateDialog.tsx, rancher/catalog/ClusterCatalogList.tsx, rancher/cluster/ClusterIngressesList.tsx, rancher/cluster/ClusterServicesList.tsx, rancher/cluster/ClusterWorkloadsList.tsx, rancher/cluster/apps/ClusterApplicationsList.tsx, rancher/cluster/hpas/ClusterHPAList.tsx, rancher/cluster/hpas/HPACreateDialog.tsx, rancher/cluster/hpas/HPAUpdateDialog.tsx, rancher/template/ApplicationConfiguration.tsx, rancher/template/CatalogTemplateList.tsx, rancher/template/ClusterTemplateList.tsx, reporting/quotas/CustomerQuotasList.tsx, resource/actions/base.ts, resource/summary/ResourceSummaryBase.tsx, resource/support/SharedProviderResources.tsx, slurm/details/AllocationJobsTable.tsx, user/affiliations/ProjectsList.tsx, user/affiliations/SummaryResourcesTable.tsx, vmware/DisksList.tsx, vmware/PortsList.tsx",
+    "description": "administration/organizations/OrganizationGroupForm.tsx, administration/organizations/OrganizationGroupsList.tsx, administration/roles/RoleForm.tsx, administration/roles/RolesList.tsx, administration/service-desk/issue-templates/AdministrationIssueTemplatesList.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, azure/vm/AzureVirtualMachineForm.tsx, broadcasts/BroadcastSaveAsTemplateDialog.tsx, broadcasts/BroadcastTemplateForm.tsx, broadcasts/BroadcastTemplateList.tsx, customer/create/CustomerCreateForm.tsx, customer/credits/CreditUsageDialog.tsx, customer/credits/ProjectCreditsList.tsx, customer/details/CustomerDetailsPanel.tsx, customer/details/EditFieldDialog.tsx, customer/payment-profiles/PaymentProfileCreateDialog.tsx, customer/payment-profiles/PaymentProfileDetails.tsx, customer/payment-profiles/PaymentProfileList.tsx, customer/payment-profiles/PaymentProfileUpdateDialog.tsx, invoices/details/InvoiceItemCompensationDialog.tsx, invoices/details/InvoiceItemExpandableRow.tsx, marketplace/aggregate-limits/AggregateLimitDetailsDialog.tsx, marketplace/category/PublicOfferingsList.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/deploy/steps/ResourceNameGroup.tsx, marketplace/details/plan/PlanSection.tsx, marketplace/offerings/actions/OfferingCreateDialog.tsx, marketplace/offerings/actions/SetAccessPolicyFormContainer.tsx, marketplace/offerings/details/OfferingUsersTable.tsx, marketplace/offerings/details/PublicOfferingComponentsTable.tsx, marketplace/offerings/images/CreateImageDialog.tsx, marketplace/offerings/images/OfferingImagesList.tsx, marketplace/offerings/list/OfferingsList.tsx, marketplace/offerings/update/components/ComponentsSection.tsx, marketplace/offerings/update/endpoints/AddEndpointDialog.tsx, marketplace/offerings/update/overview/OverviewSection.tsx, marketplace/offerings/update/plans/PlanForm.tsx, marketplace/offerings/update/plans/PlansSection.tsx, marketplace/offerings/update/plans/PricesTable.tsx, marketplace/offerings/update/plans/QuotasTable.tsx, marketplace/offerings/update/roles/AddRoleDialog.tsx, marketplace/orders/details/LimitsSection.tsx, marketplace/orders/list/OrdersTableComponent.tsx, marketplace/resources/change-limits/ChangeLimitsComponent.tsx, marketplace/resources/change-plan/utils.tsx, marketplace/resources/details/utils.tsx, marketplace/resources/import/ResourcesList.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/utils.tsx, marketplace/service-providers/OrganizationProjectsExpandable.tsx, marketplace/service-providers/ProviderCampaignResourceExpandable.tsx, marketplace/service-providers/ProviderCampaignsList.tsx, marketplace/service-providers/ProviderOrganizationsList.tsx, marketplace/service-providers/ProviderProjectResourcesList.tsx, marketplace/service-providers/ProviderUserCustomersList.tsx, marketplace/service-providers/ServiceProvidersList.tsx, marketplace/service-providers/details/ProviderDashboardTab.tsx, marketplace-remote/ProjectUpdateRequestExpandable.tsx, openstack/openstack-backup/BackupsList.tsx, openstack/openstack-instance/actions/EditDialog.tsx, openstack/openstack-network/TenantNetworksList.tsx, openstack/openstack-security-groups/SecurityGroupsList.tsx, openstack/openstack-server-groups/ServerGroupsList.tsx, openstack/openstack-snapshot/TenantSnapshotsList.tsx, openstack/openstack-subnet/TenantSubnetsList.tsx, openstack/openstack-tenant/TenantFlavorsList.tsx, openstack/openstack-tenant/TenantImagesList.tsx, openstack/openstack-tenant/TenantInstancesList.tsx, openstack/openstack-tenant/TenantRoutersList.tsx, openstack/openstack-tenant/actions/CreateSecurityGroupForm.tsx, openstack/openstack-tenant/actions/CreateServerGroupForm.tsx, openstack/openstack-tenant/actions/MigrateTenantDialog.tsx, openstack/openstack-volume/InstanceVolumesList.tsx, openstack/openstack-volume/TenantVolumeTypesList.tsx, openstack/openstack-volume/TenantVolumesList.tsx, openstack/openstack-volume/VolumeSnapshotsList.tsx, project/ProjectsList.tsx, project/details/ProjectDetailsDialog.tsx, project/manage/ProjectGeneral.tsx, proposals/CallsAvailableOfferingsPage.tsx, proposals/PublicCallsList.tsx, proposals/call-management/CallFormDialog.tsx, proposals/call-management/CallManagementPage.tsx, proposals/proposal/ProposalDetailsDialog.tsx, proposals/proposal/create/AddProposalDialog.tsx, proposals/proposal/create/ProjectDetailsStep.tsx, proposals/proposal/create/ProjectDetailsSummary.tsx, proposals/round/proposals/ProposalsList.tsx, proposals/team/UsersList.tsx, proposals/update/general/CallGeneralSection.tsx, proposals/update/general/EditGeneralInfoDialog.tsx, rancher/ClusterProjectList.tsx, rancher/catalog/CatalogCreateDialog.tsx, rancher/catalog/ClusterCatalogList.tsx, rancher/cluster/ClusterIngressesList.tsx, rancher/cluster/ClusterServicesList.tsx, rancher/cluster/ClusterWorkloadsList.tsx, rancher/cluster/apps/ClusterApplicationsList.tsx, rancher/cluster/hpas/ClusterHPAList.tsx, rancher/cluster/hpas/HPACreateDialog.tsx, rancher/cluster/hpas/HPAUpdateDialog.tsx, rancher/template/ApplicationConfiguration.tsx, rancher/template/CatalogTemplateList.tsx, rancher/template/ClusterTemplateList.tsx, reporting/quotas/CustomerQuotasList.tsx, resource/actions/base.ts, resource/summary/ResourceSummaryBase.tsx, resource/support/SharedProviderResources.tsx, slurm/details/AllocationJobsTable.tsx, user/affiliations/ProjectsList.tsx, user/affiliations/SummaryResourcesTable.tsx, vmware/DisksList.tsx, vmware/PortsList.tsx",
     "message": "Name"
   },
   "Namespace should be unique.": {
@@ -6686,6 +6690,10 @@
   "No request types": {
     "description": "issues/create/TypeField.tsx",
     "message": "No request types"
+  },
+  "No resources available in the current project. Start by adding or managing resources to get started.": {
+    "description": "proposals/proposal/create/resource-requests-step/FormResourceRequestsStep.tsx",
+    "message": "No resources available in the current project. Start by adding or managing resources to get started."
   },
   "No result found": {
     "description": "navigation/header/search/SearchPopover.tsx",
@@ -7475,10 +7483,6 @@
     "description": "marketplace/orders/details/OrderDetails.tsx, marketplace/orders/details/OutputTab.tsx",
     "message": "Output"
   },
-  "Overall score": {
-    "description": "proposals/proposal/create/RejectionSummary.tsx",
-    "message": "Overall score"
-  },
   "Overridden": {
     "description": "administration/notifications/NotificationFilter.tsx",
     "message": "Overridden"
@@ -7887,6 +7891,10 @@
     "description": "marketplace/offerings/OfferingDetailsUIView.tsx, marketplace/offerings/details/PlanUsageList.tsx, marketplace/offerings/update/utils.ts",
     "message": "Plans"
   },
+  "Please add a comment for the \"{name}\"": {
+    "description": "proposals/proposal/create-review/CommentFormDialog.tsx",
+    "message": "Please add a comment for the \"{name}\""
+  },
   "Please add a node": {
     "description": "rancher/cluster/create/FormDataStorageStep.tsx, rancher/cluster/create/FormSystemStorageStep.tsx",
     "message": "Please add a node"
@@ -7914,10 +7922,6 @@
   "Please give us a moment to validate your invitation.": {
     "description": "invitations/GroupInvitationConfirmDialog.tsx, invitations/InvitationConfirmDialog.tsx",
     "message": "Please give us a moment to validate your invitation."
-  },
-  "Please make sure that project proposal details and resource requests are finalised. During team verification they will not be editable.": {
-    "description": "proposals/proposal/create/ProposalSidebar.tsx",
-    "message": "Please make sure that project proposal details and resource requests are finalised. During team verification they will not be editable."
   },
   "Please make sure you know what you are doing and set to 10 minutes if unsure.": {
     "description": "user/api-key/UserTokenLifetime.tsx",
@@ -7964,7 +7968,7 @@
     "message": "Please review organization permissions"
   },
   "Please review the application below. If you want to add a comment to a specific field, click on the comment action in the corresponding field.": {
-    "description": "proposals/proposal/create-review/ProposalReviewCreatePage.tsx",
+    "description": "proposals/proposal/create-review/ReviewHeader.tsx",
     "message": "Please review the application below. If you want to add a comment to a specific field, click on the comment action in the corresponding field."
   },
   "Please search for your organization": {
@@ -8244,7 +8248,7 @@
     "message": "Profile settings"
   },
   "Progress": {
-    "description": "marketplace/deploy/DeployPageSidebar.tsx",
+    "description": "marketplace/deploy/DeployPageSidebar.tsx, proposals/proposal/ProposalDetails.tsx, proposals/proposal/create/ProposalSidebar.tsx, proposals/proposal/create-review/CreatePageSidebar.tsx",
     "message": "Progress"
   },
   "Project cost history": {
@@ -8280,7 +8284,7 @@
     "message": "Project details for {name}"
   },
   "Project details": {
-    "description": "proposals/proposal/create/steps.ts, proposals/proposal/create-review/steps/steps.ts",
+    "description": "proposals/proposal/create/ProjectDetailsSummary.tsx, proposals/proposal/create/steps.ts, proposals/proposal/create-review/steps/steps.ts",
     "message": "Project details"
   },
   "Project duration in days": {
@@ -8363,13 +8367,9 @@
     "description": "marketplace/UserPluginOptionsForm.tsx",
     "message": "Project slug"
   },
-  "Project summary": {
-    "description": "proposals/proposal/create/ProjectDetailsStep.tsx",
-    "message": "Project summary"
-  },
-  "Project title": {
-    "description": "proposals/proposal/create/ProjectDetailsStep.tsx",
-    "message": "Project title"
+  "Project team": {
+    "description": "proposals/proposal/create/ProposalTeamStep.tsx, proposals/proposal/create/steps.ts",
+    "message": "Project team"
   },
   "Project type": {
     "description": "project/create/TypeGroup.tsx",
@@ -8427,6 +8427,10 @@
     "description": "proposals/proposal/create/AddProposalDialog.tsx",
     "message": "Proposal created successfully"
   },
+  "Proposal details overview": {
+    "description": "proposals/proposal/ProposalDetailsDialog.tsx",
+    "message": "Proposal details overview"
+  },
   "Proposal has been approved.": {
     "description": "proposals/proposal/ProposalRowActions.tsx",
     "message": "Proposal has been approved."
@@ -8435,17 +8439,13 @@
     "description": "proposals/proposal/ProposalRowActions.tsx",
     "message": "Proposal has been rejected."
   },
-  "Proposal has been switched to team verification step.": {
-    "description": "proposals/proposal/create/ProposalSubmissionStep.tsx",
-    "message": "Proposal has been switched to team verification step."
-  },
-  "Proposal rejected": {
-    "description": "proposals/proposal/create/RejectionSummary.tsx",
-    "message": "Proposal rejected"
-  },
   "Proposal review created successfully": {
     "description": "proposals/proposal/create-review/CreateReviewDialog.tsx",
     "message": "Proposal review created successfully"
+  },
+  "Proposal review details": {
+    "description": "proposals/proposal/create/ProposalReviewDialog.tsx",
+    "message": "Proposal review details"
   },
   "Proposal review submitted successfully": {
     "description": "proposals/proposal/create-review/ProposalReviewCreatePage.tsx",
@@ -8456,19 +8456,15 @@
     "message": "Proposal settings"
   },
   "Proposal submitted successfully": {
-    "description": "proposals/proposal/create/ProposalTeamVerificationStep.tsx",
+    "description": "proposals/proposal/create/ProposalSubmissionStep.tsx",
     "message": "Proposal submitted successfully"
-  },
-  "Proposal summary": {
-    "description": "proposals/proposal/create/ProjectDetailsSummary.tsx",
-    "message": "Proposal summary"
   },
   "Proposal updated successfully": {
     "description": "proposals/proposal/create/ProposalSubmissionStep.tsx",
     "message": "Proposal updated successfully"
   },
   "Proposal": {
-    "description": "permissions/constants.tsx, proposals/proposal/CustomerProposalsList.tsx, proposals/proposal/ProposalDetails.tsx, proposals/proposal/UserProposalsList.tsx, proposals/proposal/create/ProposalHeader.tsx, proposals/proposal/create/ProposalRejectionStep.tsx, proposals/review/CustomerReviewsList.tsx, proposals/review/UserReviewsList.tsx",
+    "description": "permissions/constants.tsx, proposals/proposal/CustomerProposalsList.tsx, proposals/proposal/ProposalDetails.tsx, proposals/proposal/UserProposalsList.tsx, proposals/review/CustomerReviewsList.tsx, proposals/review/UserReviewsList.tsx",
     "message": "Proposal"
   },
   "Proposals in progress": {
@@ -8538,10 +8534,6 @@
   "Proposed postal code: {value}.": {
     "description": "customer/details/CustomerErrorDialog.tsx",
     "message": "Proposed postal code: {value}."
-  },
-  "Proposed project team": {
-    "description": "proposals/proposal/create/ProposalTeam.tsx, proposals/proposal/create/ProposalTeamVerificationStep.tsx",
-    "message": "Proposed project team"
   },
   "Proposed registry code: {value}.": {
     "description": "customer/details/CustomerErrorDialog.tsx",
@@ -8772,7 +8764,7 @@
     "message": "Rancher server URL"
   },
   "Rate": {
-    "description": "proposals/proposal/create-review/steps/FormSummaryStep.tsx",
+    "description": "proposals/proposal/create/ProposalReviewDialog.tsx, proposals/proposal/create-review/steps/FormSummaryStep.tsx",
     "message": "Rate"
   },
   "Read-only field": {
@@ -8836,7 +8828,7 @@
     "message": "Redeploy"
   },
   "Reference code": {
-    "description": "proposals/details/CallDetailsFields.tsx, proposals/update/general/CallGeneralSection.tsx, proposals/update/general/EditGeneralInfoDialog.tsx",
+    "description": "proposals/details/CallDetailsFields.tsx, proposals/proposal/ProposalDetailsDialog.tsx, proposals/update/general/CallGeneralSection.tsx, proposals/update/general/EditGeneralInfoDialog.tsx",
     "message": "Reference code"
   },
   "Referral count": {
@@ -8904,7 +8896,7 @@
     "message": "Reject permission request by {name}"
   },
   "Reject review": {
-    "description": "proposals/review/ReviewItemActions.tsx",
+    "description": "proposals/review/utils.tsx",
     "message": "Reject review"
   },
   "Reject": {
@@ -8916,7 +8908,7 @@
     "message": "Rejected proposals"
   },
   "Rejected": {
-    "description": "booking/BookingStateField.tsx, booking/utils.ts, invitations/InvitationStateFilter.tsx, marketplace/orders/list/MarketplaceOrdersListFilter.tsx, marketplace/orders/list/OrderStateCell.tsx, marketplace/resources/resource-pending/OrderInProgressView.tsx, marketplace-remote/RequestStateFilter.tsx, proposals/proposal/create/ProgressSteps.tsx, proposals/proposal/create/ProposalRejectionStep.tsx, proposals/utils.ts, user/UserPermissionRequestsStateFilter.tsx",
+    "description": "booking/BookingStateField.tsx, booking/utils.ts, invitations/InvitationStateFilter.tsx, marketplace/orders/list/MarketplaceOrdersListFilter.tsx, marketplace/orders/list/OrderStateCell.tsx, marketplace/resources/resource-pending/OrderInProgressView.tsx, marketplace-remote/RequestStateFilter.tsx, proposals/utils.ts, user/UserPermissionRequestsStateFilter.tsx",
     "message": "Rejected"
   },
   "Rejecting offering request": {
@@ -9532,7 +9524,7 @@
     "message": "Resources in project and provider"
   },
   "Resources": {
-    "description": "administration/dashboard/AdminStatistics.tsx, customer/routes.ts, marketplace/aggregate-limits/AggregateLimitDetailsDialog.tsx, marketplace/details/OfferingResourcesList.tsx, marketplace/offerings/OfferingDetailsUIView.tsx, marketplace/offerings/update/plans/PlansSection.tsx, marketplace/resources/import/ResourcesList.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/ResourcesAllListTable.tsx, marketplace/routes.ts, marketplace/service-providers/OrganizationProjectsExpandable.tsx, marketplace/service-providers/ProviderCampaignResourceExpandable.tsx, marketplace/service-providers/ProviderOfferingsList.tsx, marketplace/service-providers/ProviderProjectResourcesList.tsx, marketplace/utils.ts, navigation/header/search/SearchPopover.tsx, navigation/sidebar/ResourcesMenu.tsx, project/ProjectCard.tsx, project/routes.ts, reporting/quotas/constants.tsx, user/affiliations/OrganizationExpandableRow.tsx, user/affiliations/ProjectExpandableRow.tsx, user/affiliations/ProjectsList.tsx, user/affiliations/SummaryResourcesTable.tsx",
+    "description": "administration/dashboard/AdminStatistics.tsx, customer/routes.ts, marketplace/aggregate-limits/AggregateLimitDetailsDialog.tsx, marketplace/details/OfferingResourcesList.tsx, marketplace/offerings/OfferingDetailsUIView.tsx, marketplace/offerings/update/plans/PlansSection.tsx, marketplace/resources/import/ResourcesList.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/ResourcesAllListTable.tsx, marketplace/routes.ts, marketplace/service-providers/OrganizationProjectsExpandable.tsx, marketplace/service-providers/ProviderCampaignResourceExpandable.tsx, marketplace/service-providers/ProviderOfferingsList.tsx, marketplace/service-providers/ProviderProjectResourcesList.tsx, marketplace/utils.ts, navigation/header/search/SearchPopover.tsx, navigation/sidebar/ResourcesMenu.tsx, project/ProjectCard.tsx, project/routes.ts, proposals/proposal/create/resource-requests-step/FormResourceRequestsStep.tsx, reporting/quotas/constants.tsx, user/affiliations/OrganizationExpandableRow.tsx, user/affiliations/ProjectExpandableRow.tsx, user/affiliations/ProjectsList.tsx, user/affiliations/SummaryResourcesTable.tsx",
     "message": "Resources"
   },
   "Responsible user": {
@@ -9636,7 +9628,7 @@
     "message": "Review duration"
   },
   "Review has been accepted.": {
-    "description": "proposals/review/ReviewItemActions.tsx",
+    "description": "proposals/review/utils.tsx",
     "message": "Review has been accepted."
   },
   "Review has been closed.": {
@@ -9648,7 +9640,7 @@
     "message": "Review has been performed."
   },
   "Review has been rejected.": {
-    "description": "proposals/review/ReviewItemActions.tsx",
+    "description": "proposals/review/utils.tsx",
     "message": "Review has been rejected."
   },
   "Review has been submitted.": {
@@ -9707,6 +9699,10 @@
     "description": "proposals/round/RoundQuotas.tsx",
     "message": "Reviewed"
   },
+  "Reviewer {number}": {
+    "description": "proposals/proposal/create-review/FieldReviewComments.tsx",
+    "message": "Reviewer {number}"
+  },
   "Reviewer": {
     "description": "proposals/proposal/create-review/CreateReviewDialog.tsx, proposals/review/CustomerReviewsList.tsx, proposals/round/proposals/ProposalExpandableRow.tsx",
     "message": "Reviewer"
@@ -9760,7 +9756,7 @@
     "message": "Role details: {roleName}"
   },
   "Role expiration": {
-    "description": "customer/team/CustomerUsersList.tsx, marketplace/service-providers/ProviderTeamPage.tsx, project/team/ProjectUsersList.tsx, proposals/call-management/CallManagementTeamPage.tsx, user/affiliations/SummaryTeamTable.tsx",
+    "description": "customer/team/CustomerUsersList.tsx, marketplace/service-providers/ProviderTeamPage.tsx, project/team/ProjectUsersList.tsx, proposals/call-management/CallManagementTeamPage.tsx, proposals/team/UsersList.tsx, user/affiliations/SummaryTeamTable.tsx",
     "message": "Role expiration"
   },
   "Role expires on": {
@@ -9807,6 +9803,10 @@
     "description": "proposals/call-management/CallManagementDashboard.tsx",
     "message": "Round closing soon"
   },
+  "Round deadline": {
+    "description": "proposals/proposal/create/ProposalDetailsOverviewStep.tsx",
+    "message": "Round deadline"
+  },
   "Round has been created.": {
     "description": "proposals/update/rounds/CallRoundCreateDialog.tsx",
     "message": "Round has been created."
@@ -9814,6 +9814,10 @@
   "Round name": {
     "description": "proposals/details/CallRoundsList.tsx, proposals/update/rounds/CallRoundsList.tsx",
     "message": "Round name"
+  },
+  "Round reference": {
+    "description": "proposals/proposal/create/ProposalDetailsOverviewStep.tsx",
+    "message": "Round reference"
   },
   "Round strategy in active round": {
     "description": "proposals/details/CallDetailsFields.tsx",
@@ -9824,7 +9828,7 @@
     "message": "Round strategy"
   },
   "Round": {
-    "description": "proposals/proposal/CustomerProposalsList.tsx, proposals/review/CustomerReviewsList.tsx, proposals/review/UserReviewsList.tsx, proposals/round/RoundPageHero.tsx",
+    "description": "proposals/proposal/CustomerProposalsList.tsx, proposals/proposal/ProposalDetailsDialog.tsx, proposals/review/CustomerReviewsList.tsx, proposals/review/UserReviewsList.tsx, proposals/round/RoundPageHero.tsx",
     "message": "Round"
   },
   "Rounds": {
@@ -9924,7 +9928,7 @@
     "message": "Save as a template"
   },
   "Save as draft": {
-    "description": "broadcasts/BroadcastFooter.tsx",
+    "description": "broadcasts/BroadcastFooter.tsx, proposals/proposal/create/ProposalSidebar.tsx",
     "message": "Save as draft"
   },
   "Save as": {
@@ -9935,10 +9939,6 @@
     "description": "user/api-key/UserTokenLifetime.tsx",
     "message": "Save changes"
   },
-  "Save draft": {
-    "description": "proposals/proposal/create/ProposalSidebar.tsx",
-    "message": "Save draft"
-  },
   "Save filter": {
     "description": "table/SaveFilterDialog.tsx, table/TableFilterActions.tsx",
     "message": "Save filter"
@@ -9948,7 +9948,7 @@
     "message": "Save summary"
   },
   "Save": {
-    "description": "administration/FeaturesList.tsx, administration/agreements/UserAgreementCreateDialog.tsx, administration/agreements/UserAgreementsEditDialog.tsx, administration/languages/AdministrationLanguages.tsx, administration/notifications/NotificationForm.tsx, administration/providers/UpdateProviderDialog.tsx, administration/remote-offering-sync/RemoteSyncFormDialog.tsx, administration/roles/RoleDescriptionEditDialog.tsx, administration/roles/RoleForm.tsx, broadcasts/BroadcastSaveAsTemplateDialog.tsx, broadcasts/BroadcastTemplateForm.tsx, customer/details/CustomerMediaPanel.tsx, customer/team/AddProjectUserDialog.tsx, customer/team/EditProjectUserDialog.tsx, customer/team/EditUserDialog.tsx, form/InsertLinkPopover.tsx, map/SetLocationDialog.tsx, marketplace/offerings/actions/SetAccessPolicyDialogForm.tsx, marketplace/offerings/actions/UpdateOfferingLogoDialog.tsx, marketplace/offerings/expandable/utils.ts, marketplace/offerings/update/attributes/EditAttributeDialog.tsx, marketplace/offerings/update/attributes/EditCategoryDialog.tsx, marketplace/offerings/update/components/ChangeStorageModeDialog.tsx, marketplace/offerings/update/components/EditComponentDialog.tsx, marketplace/offerings/update/integration/EditLexisLinkIntegrationDialog.tsx, marketplace/offerings/update/integration/EditScriptDialog.tsx, marketplace/offerings/update/integration/EditVarsDialog.tsx, marketplace/offerings/update/options/EditOptionDialog.tsx, marketplace/offerings/update/plans/EditPlanDescriptionDialog.tsx, marketplace/offerings/update/plans/EditPlanPricesDialog.tsx, marketplace/offerings/update/plans/EditPlanQuotasDialog.tsx, marketplace/resources/actions/EditResourceEndDateDialog.tsx, marketplace/resources/actions/MoveResourceDialog.tsx, marketplace/resources/mass-actions/MultiMoveDialog.tsx, marketplace/resources/usage/utils.ts, marketplace-checklist/ChecklistCustomer.tsx, project/MoveProjectDialog.tsx, project/manage/ProjectAvatar.tsx, project/team/EditUserDialog.tsx, proposals/proposal/create-review/CommentFormDialog.tsx, proposals/team/AddUserDialog.tsx, proposals/update/documents/AttachDocumentsDialog.tsx, proposals/update/general/EditGeneralInfoDialog.tsx, reporting/invoices/utils.ts, table/SaveFilterDialog.tsx, user/support/UserEditAvatarFormItem.tsx",
+    "description": "administration/FeaturesList.tsx, administration/agreements/UserAgreementCreateDialog.tsx, administration/agreements/UserAgreementsEditDialog.tsx, administration/languages/AdministrationLanguages.tsx, administration/notifications/NotificationForm.tsx, administration/providers/UpdateProviderDialog.tsx, administration/remote-offering-sync/RemoteSyncFormDialog.tsx, administration/roles/RoleDescriptionEditDialog.tsx, administration/roles/RoleForm.tsx, broadcasts/BroadcastSaveAsTemplateDialog.tsx, broadcasts/BroadcastTemplateForm.tsx, customer/details/CustomerMediaPanel.tsx, customer/team/AddProjectUserDialog.tsx, customer/team/EditProjectUserDialog.tsx, customer/team/EditUserDialog.tsx, form/InsertLinkPopover.tsx, map/SetLocationDialog.tsx, marketplace/offerings/actions/SetAccessPolicyDialogForm.tsx, marketplace/offerings/actions/UpdateOfferingLogoDialog.tsx, marketplace/offerings/expandable/utils.ts, marketplace/offerings/update/attributes/EditAttributeDialog.tsx, marketplace/offerings/update/attributes/EditCategoryDialog.tsx, marketplace/offerings/update/components/ChangeStorageModeDialog.tsx, marketplace/offerings/update/components/EditComponentDialog.tsx, marketplace/offerings/update/integration/EditLexisLinkIntegrationDialog.tsx, marketplace/offerings/update/integration/EditScriptDialog.tsx, marketplace/offerings/update/integration/EditVarsDialog.tsx, marketplace/offerings/update/options/EditOptionDialog.tsx, marketplace/offerings/update/plans/EditPlanDescriptionDialog.tsx, marketplace/offerings/update/plans/EditPlanPricesDialog.tsx, marketplace/offerings/update/plans/EditPlanQuotasDialog.tsx, marketplace/resources/actions/EditResourceEndDateDialog.tsx, marketplace/resources/actions/MoveResourceDialog.tsx, marketplace/resources/mass-actions/MultiMoveDialog.tsx, marketplace/resources/usage/utils.ts, marketplace-checklist/ChecklistCustomer.tsx, project/MoveProjectDialog.tsx, project/manage/ProjectAvatar.tsx, project/team/EditUserDialog.tsx, proposals/update/documents/AttachDocumentsDialog.tsx, proposals/update/general/EditGeneralInfoDialog.tsx, reporting/invoices/utils.ts, table/SaveFilterDialog.tsx, user/support/UserEditAvatarFormItem.tsx",
     "message": "Save"
   },
   "Saved filters": {
@@ -10043,6 +10043,10 @@
     "description": "customer/cost-policies/CostPolicyForm.tsx",
     "message": "Search and select project"
   },
+  "Search and select user...": {
+    "description": "proposals/team/AddUserDialog.tsx",
+    "message": "Search and select user..."
+  },
   "Search by name": {
     "description": "marketplace/resources/actions/ActionDialogBody.tsx",
     "message": "Search by name"
@@ -10126,6 +10130,10 @@
   "Select a project": {
     "description": "marketplace/resources/import/ResourceImportDialog.tsx, navigation/sidebar/marketplace-popup/MarketplacePopup.tsx",
     "message": "Select a project"
+  },
+  "Select a user to assign a role within the project.": {
+    "description": "proposals/team/AddUserDialog.tsx",
+    "message": "Select a user to assign a role within the project."
   },
   "Select accounting period": {
     "description": "customer/list/AccountingPeriodField.tsx",
@@ -10368,7 +10376,7 @@
     "message": "Select type..."
   },
   "Select user...": {
-    "description": "issues/feedback/UserAutocomplete.tsx, marketplace/offerings/details/permissions/OfferingPermissionCreateDialog.tsx, marketplace/service-providers/OfferingPermissionCreateDialog.tsx, project/team/AddUserDialog.tsx, proposals/team/AddUserDialog.tsx",
+    "description": "issues/feedback/UserAutocomplete.tsx, marketplace/offerings/details/permissions/OfferingPermissionCreateDialog.tsx, marketplace/service-providers/OfferingPermissionCreateDialog.tsx, project/team/AddUserDialog.tsx",
     "message": "Select user..."
   },
   "Select volume type": {
@@ -10400,7 +10408,7 @@
     "message": "Send at"
   },
   "Send back": {
-    "description": "proposals/review/ReviewItemActions.tsx",
+    "description": "proposals/proposal/create-review/CreatePageSidebar.tsx, proposals/review/ReviewItemActions.tsx",
     "message": "Send back"
   },
   "Send invitation": {
@@ -10936,7 +10944,7 @@
     "message": "Some functionality may not be accessible."
   },
   "Something went wrong": {
-    "description": "ErrorView.tsx, customer/list/ExportAsEmailDialog.tsx, marketplace/service-providers/ServiceProviderManagement.tsx, proposals/proposal/create/AddProposalDialog.tsx, proposals/proposal/create/ProposalSubmissionStep.tsx, proposals/proposal/create/ProposalTeamVerificationStep.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestFormDialog.tsx, proposals/proposal/create-review/CreateReviewDialog.tsx, proposals/proposal/create-review/ProposalReviewCreatePage.tsx, proposals/update/offerings/CallOfferingCreateDialog.tsx",
+    "description": "ErrorView.tsx, customer/list/ExportAsEmailDialog.tsx, marketplace/service-providers/ServiceProviderManagement.tsx, proposals/proposal/create/AddProposalDialog.tsx, proposals/proposal/create/ProposalSubmissionStep.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestFormDialog.tsx, proposals/proposal/create-review/CreateReviewDialog.tsx, proposals/proposal/create-review/ProposalReviewCreatePage.tsx, proposals/update/offerings/CallOfferingCreateDialog.tsx",
     "message": "Something went wrong"
   },
   "Source": {
@@ -10996,7 +11004,7 @@
     "message": "Start day of accounting"
   },
   "Start review": {
-    "description": "proposals/review/ReviewItemActions.tsx",
+    "description": "proposals/review/ReviewItemActions.tsx, proposals/review/utils.tsx",
     "message": "Start review"
   },
   "Start script": {
@@ -11107,10 +11115,6 @@
     "description": "slurm/details/SubmitJobAction.tsx, slurm/details/SubmitJobDialog.tsx",
     "message": "Submit job"
   },
-  "Submit proposal": {
-    "description": "proposals/proposal/create/ProposalTeamVerificationStep.tsx",
-    "message": "Submit proposal"
-  },
   "Submit report": {
     "description": "marketplace/resources/report/SubmitReportAction.tsx, marketplace/resources/report/SubmitReportDialog.tsx",
     "message": "Submit report"
@@ -11120,7 +11124,7 @@
     "message": "Submit resource report"
   },
   "Submit review": {
-    "description": "proposals/proposal/create-review/steps/FormSummaryStep.tsx",
+    "description": "proposals/proposal/create-review/CreatePageSidebar.tsx",
     "message": "Submit review"
   },
   "Submit usage report": {
@@ -11128,7 +11132,7 @@
     "message": "Submit usage report"
   },
   "Submit": {
-    "description": "customer/payment-profiles/PaymentProfileCreateDialog.tsx, customer/payments/PaymentCreateDialog.tsx, form/FloatingSubmitButton.tsx, form/WizardFormContainer.tsx, invitations/GroupinvitationButtons.tsx, invitations/PermissionRequestActionDialog.tsx, invoices/list/MarkAsPaidDialog.tsx, issues/feedback/SupportFeedback.tsx, marketplace/offerings/actions/PauseOfferingDialog.tsx, marketplace/offerings/details/permissions/OfferingPermissionCreateDialog.tsx, marketplace/offerings/images/CreateImageDialog.tsx, marketplace/resources/change-limits/ChangeLimitsBody.tsx, marketplace/resources/change-plan/ChangePlanDialog.tsx, marketplace/resources/lexis/CreateLexisLinkDialog.tsx, marketplace/resources/terminate/TerminateDialog.tsx, marketplace/service-providers/OfferingPermissionCreateDialog.tsx, marketplace-checklist/UserChecklist.tsx, marketplace-remote/ReviewDialog.tsx, openstack/openstack-tenant/actions/MigrateTenantDialog.tsx, openstack/openstack-volume/actions/ExtendDialog.tsx, proposals/update/offerings/CallOfferingCreateDialog.tsx, rancher/catalog/CatalogCreateDialog.tsx, rancher/cluster/ImportYAMLDialog.tsx, rancher/cluster/ViewYAMLDialog.tsx, rancher/cluster/hpas/HPACreateDialog.tsx, rancher/cluster/hpas/HPAUpdateDialog.tsx, resource/actions/AsyncActionDialog.tsx, resource/actions/ResourceActionDialog.tsx, user/support/EditFieldDialog.tsx",
+    "description": "customer/payment-profiles/PaymentProfileCreateDialog.tsx, customer/payments/PaymentCreateDialog.tsx, form/FloatingSubmitButton.tsx, form/WizardFormContainer.tsx, invitations/GroupinvitationButtons.tsx, invitations/PermissionRequestActionDialog.tsx, invoices/list/MarkAsPaidDialog.tsx, issues/feedback/SupportFeedback.tsx, marketplace/offerings/actions/PauseOfferingDialog.tsx, marketplace/offerings/details/permissions/OfferingPermissionCreateDialog.tsx, marketplace/offerings/images/CreateImageDialog.tsx, marketplace/resources/change-limits/ChangeLimitsBody.tsx, marketplace/resources/change-plan/ChangePlanDialog.tsx, marketplace/resources/lexis/CreateLexisLinkDialog.tsx, marketplace/resources/terminate/TerminateDialog.tsx, marketplace/service-providers/OfferingPermissionCreateDialog.tsx, marketplace-checklist/UserChecklist.tsx, marketplace-remote/ReviewDialog.tsx, openstack/openstack-tenant/actions/MigrateTenantDialog.tsx, openstack/openstack-volume/actions/ExtendDialog.tsx, proposals/proposal/create/ProposalSidebar.tsx, proposals/update/offerings/CallOfferingCreateDialog.tsx, rancher/catalog/CatalogCreateDialog.tsx, rancher/cluster/ImportYAMLDialog.tsx, rancher/cluster/ViewYAMLDialog.tsx, rancher/cluster/hpas/HPACreateDialog.tsx, rancher/cluster/hpas/HPAUpdateDialog.tsx, resource/actions/AsyncActionDialog.tsx, resource/actions/ResourceActionDialog.tsx, user/support/EditFieldDialog.tsx",
     "message": "Submit"
   },
   "Submitted": {
@@ -11184,7 +11188,7 @@
     "message": "Sum"
   },
   "Summary": {
-    "description": "azure/vm/AzureVirtualMachineSummary.tsx, marketplace/details/OrderSummaryDialog.tsx, openstack/openstack-tenant/TenantInstancesList.tsx, proposals/proposal/create/ProjectDetailsSummary.tsx, proposals/proposal/create-review/steps/steps.ts, rancher/cluster/apps/ApplicationDetailsDialog.tsx, rancher/template/TemplateDetail.tsx, resource/summary/VirtualMachineSummary.tsx, vmware/VMwareVirtualMachineSummary.tsx",
+    "description": "azure/vm/AzureVirtualMachineSummary.tsx, marketplace/details/OrderSummaryDialog.tsx, openstack/openstack-tenant/TenantInstancesList.tsx, proposals/proposal/create/ProjectDetailsStep.tsx, proposals/proposal/create/ProjectDetailsSummary.tsx, proposals/proposal/create-review/steps/steps.ts, rancher/cluster/apps/ApplicationDetailsDialog.tsx, rancher/template/TemplateDetail.tsx, resource/summary/VirtualMachineSummary.tsx, vmware/VMwareVirtualMachineSummary.tsx",
     "message": "Summary"
   },
   "Support request events": {
@@ -11202,10 +11206,6 @@
   "Support": {
     "description": "administration/dashboard/AdministrationProfile.tsx, issues/routes.ts, navigation/FooterLinks.tsx, navigation/sidebar/SupportMenu.tsx, user/support/UserList.tsx, user/support/utils.ts",
     "message": "Support"
-  },
-  "Supported formats": {
-    "description": "proposals/proposal/create/UploadDocumentationFiles.tsx",
-    "message": "Supported formats"
   },
   "Supporting documentation": {
     "description": "proposals/proposal/create/ProjectDetailsSummary.tsx",
@@ -11366,10 +11366,6 @@
   "Team members": {
     "description": "administration/roles/PermissionOptions.tsx, marketplace/service-providers/ProviderTeamPage.tsx, project/team/ProjectUsersList.tsx, proposals/call-management/CallManagementTeamPage.tsx, user/affiliations/SummaryTeamTable.tsx",
     "message": "Team members"
-  },
-  "Team verification": {
-    "description": "proposals/utils.ts",
-    "message": "Team verification"
   },
   "Team": {
     "description": "customer/routes.ts, customer/team/CustomerUsersList.tsx, dashboard/TeamWidget.tsx, dashboard/api.ts, invitations/GroupInvitationsList.tsx, invitations/InvitationsList.tsx, marketplace/routes.ts, project/ProjectUsersBadge.tsx, project/routes.ts, project/team/InvitationsList.tsx, project/team/ProjectUsersList.tsx, proposals/routes.ts, user/affiliations/OrganizationExpandableRow.tsx, user/affiliations/ProjectExpandableRow.tsx",
@@ -11935,10 +11931,6 @@
     "description": "user/support/UserRemovalMessageDialog.tsx",
     "message": "To remove account, please send a request to {support}."
   },
-  "To team verification": {
-    "description": "proposals/proposal/create/ProposalSidebar.tsx",
-    "message": "To team verification"
-  },
   "To": {
     "description": "booking/OfferingScheduler.tsx, booking/deploy/FormPeriodsStep.tsx",
     "message": "To"
@@ -12136,7 +12128,7 @@
     "message": "Unable to accept offering request."
   },
   "Unable to accept review.": {
-    "description": "proposals/review/ReviewItemActions.tsx",
+    "description": "proposals/review/utils.tsx",
     "message": "Unable to accept review."
   },
   "Unable to add endpoint.": {
@@ -12844,7 +12836,7 @@
     "message": "Unable to reject permission request."
   },
   "Unable to reject review.": {
-    "description": "proposals/review/ReviewItemActions.tsx",
+    "description": "proposals/review/utils.tsx",
     "message": "Unable to reject review."
   },
   "Unable to reject the proposal.": {
@@ -13639,10 +13631,6 @@
     "description": "administration/hooks/HookUpdateButton.tsx, administration/service-desk/AdministrationServiceDeskUpdateDialog.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, booking/EditSchedulesDialog.tsx, broadcasts/BroadcastUpdateButton.tsx, customer/details/AccessSubnetEditDialog.tsx, customer/payment-profiles/PaymentProfileUpdateDialog.tsx, customer/payments/PaymentUpdateDialog.tsx, marketplace/offerings/update/overview/EditGettingStartedDialog.tsx, marketplace/offerings/update/overview/EditOverviewDialog.tsx, marketplace/orders/list/OrderTypeCell.tsx, marketplace/orders/list/OrderTypeFilter.tsx, marketplace/resources/options/UpdateResourceOptionDialog.tsx, marketplace/service-providers/UpdateOfferingPermissionExpirationTimeDialog.tsx, openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx, openstack/openstack-tenant/SetRoutesDialog.tsx, table/SaveFilterDialog.tsx, table/TableFiltersMenu.tsx, user/hooks/HookDetailsDialog.tsx, user/hooks/HookUpdateButton.tsx",
     "message": "Update"
   },
-  "Updates": {
-    "description": "proposals/proposal/create/ProgressSteps.tsx",
-    "message": "Updates"
-  },
   "Updating floating IPs": {
     "description": "resource/state/constants.ts",
     "message": "Updating floating IPs"
@@ -13960,7 +13948,7 @@
     "message": "User's"
   },
   "User": {
-    "description": "customer/team/UserGroup.tsx, events/BaseEventsList.tsx, events/ExpandableEventDetailsTable.tsx, issues/feedback/SupportFeedbackList.tsx, issues/feedback/SupportFeedbackListFilter.tsx, marketplace/offerings/details/CreateOfferingUserDialog.tsx, marketplace/offerings/details/permissions/OfferingPermissionCreateDialog.tsx, marketplace/offerings/details/permissions/OfferingPermissionsList.tsx, marketplace/resources/users/AddUserDialog.tsx, marketplace/resources/users/ResourceUsersList.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx, marketplace/service-providers/OfferingPermissionCreateDialog.tsx, marketplace/service-providers/OfferingPermissionsList.tsx, marketplace/service-providers/ProviderOfferingUsersList.tsx, marketplace/service-providers/ProviderTeamPage.tsx, marketplace/service-providers/ProviderUsersList.tsx, project/team/AddUserDialog.tsx, project/team/UserGroup.tsx, proposals/call-management/CallManagementTeamPage.tsx, proposals/team/AddUserDialog.tsx, proposals/team/UsersList.tsx, slurm/details/AllocationJobsTable.tsx, support/SupportEventsFilter.tsx, user/UserManageContainer.tsx",
+    "description": "customer/team/UserGroup.tsx, events/BaseEventsList.tsx, events/ExpandableEventDetailsTable.tsx, issues/feedback/SupportFeedbackList.tsx, issues/feedback/SupportFeedbackListFilter.tsx, marketplace/offerings/details/CreateOfferingUserDialog.tsx, marketplace/offerings/details/permissions/OfferingPermissionCreateDialog.tsx, marketplace/offerings/details/permissions/OfferingPermissionsList.tsx, marketplace/resources/users/AddUserDialog.tsx, marketplace/resources/users/ResourceUsersList.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx, marketplace/service-providers/OfferingPermissionCreateDialog.tsx, marketplace/service-providers/OfferingPermissionsList.tsx, marketplace/service-providers/ProviderOfferingUsersList.tsx, marketplace/service-providers/ProviderTeamPage.tsx, marketplace/service-providers/ProviderUsersList.tsx, project/team/AddUserDialog.tsx, project/team/UserGroup.tsx, proposals/call-management/CallManagementTeamPage.tsx, proposals/team/AddUserDialog.tsx, slurm/details/AllocationJobsTable.tsx, support/SupportEventsFilter.tsx, user/UserManageContainer.tsx",
     "message": "User"
   },
   "Username anonymized prefix": {
@@ -14138,10 +14126,6 @@
   "Verify server certificate": {
     "description": "openstack/OpenStackForm.tsx",
     "message": "Verify server certificate"
-  },
-  "Verify team": {
-    "description": "proposals/proposal/create/ProgressSteps.tsx",
-    "message": "Verify team"
   },
   "Verifying email change": {
     "description": "user/support/UserEmailChangeCallback.tsx",
@@ -14519,6 +14503,14 @@
     "description": "invitations/utils.ts",
     "message": "Your permission request has been submitted."
   },
+  "Your proposal has been declined.": {
+    "description": "proposals/proposal/create/ProposalDecisionResult.tsx",
+    "message": "Your proposal has been declined."
+  },
+  "Your proposal has been successfully accepted.": {
+    "description": "proposals/proposal/create/ProposalDecisionResult.tsx",
+    "message": "Your proposal has been successfully accepted."
+  },
   "Your request is being processed.": {
     "description": "invitations/UserGroupInvitation.tsx",
     "message": "Your request is being processed."
@@ -14710,6 +14702,10 @@
   "last name": {
     "description": "user/support/UserEditRows.tsx",
     "message": "last name"
+  },
+  "max. {size}": {
+    "description": "proposals/proposal/create/UploadDocumentationFiles.tsx",
+    "message": "max. {size}"
   },
   "milli CPUs": {
     "description": "rancher/cluster/hpas/utils.ts",
@@ -15019,8 +15015,12 @@
     "description": "marketplace/service-providers/ResourcesColumn.tsx, marketplace/service-providers/ResourcesCountColumn.tsx",
     "message": "{count} resources"
   },
+  "{count} stars rate": {
+    "description": "proposals/proposal/create/ProposalDecisionResult.tsx",
+    "message": "{count} stars rate"
+  },
   "{count} stars": {
-    "description": "proposals/proposal/create-review/steps/FormSummaryStep.tsx",
+    "description": "proposals/proposal/create/ProposalReviewDialog.tsx, proposals/proposal/create-review/steps/FormSummaryStep.tsx",
     "message": "{count} stars"
   },
   "{count} users": {

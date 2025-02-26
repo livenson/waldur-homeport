@@ -9,7 +9,7 @@ import { getNoResultMessage, getNoResultTitle } from './utils';
 interface TablePlaceholderProps
   extends Pick<
     TableProps,
-    'query' | 'verboseName' | 'fetch' | 'filtersStorage'
+    'query' | 'verboseName' | 'fetch' | 'filtersStorage' | 'emptyMessage'
   > {
   clearSearch(): void;
   actions?: ReactNode;
@@ -19,13 +19,18 @@ interface TablePlaceholderProps
 export const TablePlaceholder: FunctionComponent<TablePlaceholderProps> = ({
   query,
   verboseName,
+  emptyMessage,
   clearSearch,
   hasRetry = true,
   actions,
   fetch,
   filtersStorage,
 }) => {
-  const message = getNoResultMessage({ query, verboseName });
+  const message = getNoResultMessage({
+    query,
+    verboseName,
+    customEmpty: emptyMessage,
+  });
   const title = getNoResultTitle({
     verboseName,
     hasFilter: filtersStorage?.length > 0,
@@ -43,7 +48,7 @@ export const TablePlaceholder: FunctionComponent<TablePlaceholderProps> = ({
             )}
           </p>
         ) : (
-          message
+          <span className="mw-350px">{message}</span>
         )
       }
       buttonTitle={

@@ -34,7 +34,6 @@ export const FloatingSubmitButton: FC<OwnProps> = ({
         className="w-100"
       >
         <Button
-          size="sm"
           variant={variant}
           type="submit"
           disabled={disabled || submitting || errorsExist}

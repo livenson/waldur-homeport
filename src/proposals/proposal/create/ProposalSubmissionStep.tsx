@@ -1,3 +1,4 @@
+import { useMutation } from '@tanstack/react-query';
 import { get } from 'lodash-es';
 import { createRef, FC, useCallback, useMemo, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -9,11 +10,10 @@ import { Form } from '@waldur/form/Form';
 import { SidebarLayout } from '@waldur/form/SidebarLayout';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
-import { attachDocument } from '@waldur/proposals/api';
+import { attachDocument, submitProposal } from '@waldur/proposals/api';
 import { PROPOSAL_UPDATE_SUBMISSION_FORM_ID } from '@waldur/proposals/constants';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
-import { ProposalHeader } from './ProposalHeader';
 import { ProposalSidebar } from './ProposalSidebar';
 import { createProposalSteps } from './steps';
 
@@ -29,6 +29,14 @@ const attachDocuments = async (proposal_uuid, supporting_documentation) => {
       );
     }
   }
+};
+
+const validate = (values) => {
+  const errors: Record<string, any> = {};
+  if (!values.users || values.users?.length === 0) {
+    errors.users = 'At least one user is required';
+  }
+  return errors;
 };
 
 export const ProposalSubmissionStep: FC<{ proposal; reviews?; refetch }> = ({
@@ -47,6 +55,7 @@ export const ProposalSubmissionStep: FC<{ proposal; reviews?; refetch }> = ({
       project_is_confidential: proposal.project_is_confidential,
       duration_in_days: proposal.duration_in_days,
       resources: [],
+      users: [],
     }),
     [proposal],
   );
@@ -59,69 +68,59 @@ export const ProposalSubmissionStep: FC<{ proposal; reviews?; refetch }> = ({
     (_, i) => stepRefs.current[i] ?? createRef(),
   );
 
-  const submitForm = useCallback(
-    async (formData) => {
-      try {
-        await proposalProposalsUpdateProjectDetails({
-          path: { uuid: proposal_uuid },
-          body: formData,
-        });
-        await attachDocuments(proposal_uuid, formData.supporting_documentation);
-        dispatch(showSuccess(translate('Proposal updated successfully')));
-        // clear formData.supporting_documentation from redux-form store to prevent file upload on next submit/switchToTeam
-        dispatch(
-          change(
-            PROPOSAL_UPDATE_SUBMISSION_FORM_ID,
-            'supporting_documentation',
-            {},
-          ),
-        );
-
-        refetch();
-      } catch (error) {
-        dispatch(showErrorResponse(error, translate('Something went wrong')));
-      }
-    },
-    [proposal_uuid, dispatch],
-  );
   const formData = useSelector(formDataSelector);
 
-  const switchToTeamCallback = async () => {
-    try {
-      await waitForConfirmation(
-        dispatch,
-        translate('Confirmation'),
-        <>
-          {translate(
-            'Are you sure you want to send the proposal to team verification step?',
-          )}
-          <br />{' '}
-          <small className="text-danger">
-            {translate(
-              'NB! After clicking Yes, you will not be able to edit the proposal!',
-            )}
-          </small>
-        </>,
-      );
-    } catch {
-      return;
-    }
+  const { mutate: saveAsDraft, isLoading: isSaving } = useMutation(async () => {
     try {
       await proposalProposalsUpdateProjectDetails({
         path: { uuid: proposal_uuid },
         body: formData,
       });
       await attachDocuments(proposal_uuid, formData.supporting_documentation);
-      await refetch();
+      dispatch(showSuccess(translate('Proposal updated successfully')));
+      // clear formData.supporting_documentation from redux-form store to prevent file upload on next submit/switchToTeam
       dispatch(
-        showSuccess(
-          translate('Proposal has been switched to team verification step.'),
+        change(
+          PROPOSAL_UPDATE_SUBMISSION_FORM_ID,
+          'supporting_documentation',
+          {},
         ),
       );
+      refetch && refetch();
     } catch (error) {
       dispatch(showErrorResponse(error, translate('Something went wrong')));
     }
-  };
+  });
+
+  const submitForm = useCallback(
+    async (formValues, dispatch) => {
+      try {
+        await waitForConfirmation(
+          dispatch,
+          translate('Confirmation'),
+          translate('Are you sure you want to submit the proposal?'),
+        );
+      } catch {
+        return;
+      }
+      try {
+        await proposalProposalsUpdateProjectDetails({
+          path: { uuid: proposal_uuid },
+          body: formValues,
+        });
+        await attachDocuments(
+          proposal_uuid,
+          formValues.supporting_documentation,
+        );
+        await submitProposal(proposal_uuid);
+        refetch && refetch();
+        dispatch(showSuccess(translate('Proposal submitted successfully')));
+      } catch (error) {
+        dispatch(showErrorResponse(error, translate('Something went wrong')));
+      }
+    },
+    [proposal, proposal_uuid],
+  );
 
   const completedSteps = useMemo(() => {
     const result = stepRefs.current.map(() => false);
@@ -145,12 +144,11 @@ export const ProposalSubmissionStep: FC<{ proposal; reviews?; refetch }> = ({
       form={PROPOSAL_UPDATE_SUBMISSION_FORM_ID}
       onSubmit={submitForm}
       initialValues={initialValues}
+      validate={validate}
     >
       {(formProps) => (
         <SidebarLayout.Container>
           <SidebarLayout.Body>
-            <ProposalHeader proposal={proposal} />
-
             {formSteps.map((step, i) => (
               <div ref={stepRefs.current[i]} key={step.id}>
                 <step.component
@@ -166,11 +164,13 @@ export const ProposalSubmissionStep: FC<{ proposal; reviews?; refetch }> = ({
               </div>
             ))}
           </SidebarLayout.Body>
-          <SidebarLayout.Sidebar>
+
+          <SidebarLayout.Sidebar transparent>
             <ProposalSidebar
               steps={formSteps}
-              switchToTeam={switchToTeamCallback}
-              canSwitchToTeam={proposal.state === 'draft'}
+              saveAsDraft={saveAsDraft}
+              isSaving={isSaving}
+              editable={proposal.state === 'draft'}
               submitting={formProps.submitting}
               completedSteps={completedSteps}
             />

@@ -42,6 +42,7 @@ export const TeamSection: FC<
     title: string;
     change?(field: string, value: any): void;
     reviews?: ProposalReview[];
+    id?: string;
   }
 > = (props) => {
   const queryClient = useQueryClient();
@@ -56,14 +57,14 @@ export const TeamSection: FC<
   );
   const usersTable = useTable({
     table: `UserList${props.title}`,
-    fetchData: createFetcher(`${props.scope.url}list_users`),
+    fetchData: createFetcher(`${props.scope.url}list_users/`),
     filter: usersFilter,
     onFetch(rows) {
       if (props.change) {
         props.change('users', rows);
       }
       // Update query data for the call reviewers
-      if (props.roles?.includes(RoleEnum.CALL_REVIEWER)) {
+      if (props.roles && props.roles.includes(RoleEnum.CALL_REVIEWER)) {
         const newReviewers = rows.filter(
           (row) => row.role_name === RoleEnum.CALL_REVIEWER,
         );
@@ -95,7 +96,7 @@ export const TeamSection: FC<
   );
 
   return (
-    <Card className="card-bordered">
+    <Card className="card-bordered" id={props.id}>
       <Card.Header className="pt-4 pb-2">
         <Card.Title>
           <h3>{props.title}</h3>
@@ -104,9 +105,8 @@ export const TeamSection: FC<
           <div className="col">
             <StepCardTabs tabs={tabs} tab={tab} setTab={setTab} />
           </div>
-          <div className="col d-flex justify-content-end text-nowrap">
+          <div className="col d-flex justify-content-end text-nowrap gap-3">
             <AddUserButton refetch={usersTable.fetch} {...props} />
-            &nbsp;
             <InvitationCreateButton
               {...props}
               refetch={invitationsTable.fetch}
@@ -121,6 +121,7 @@ export const TeamSection: FC<
             scope={props.scope}
             hideRole={hideRole}
             cardBordered={false}
+            hasActionBar={false}
           />
         )}
         {tab.key === 'invitations' && (
@@ -138,7 +139,11 @@ export const TeamSection: FC<
           />
         )}
 
-        <FieldReviewComments reviews={props.reviews} fieldName="comment_team" />
+        <FieldReviewComments
+          reviews={props.reviews}
+          fieldName="comment_team"
+          space={0}
+        />
       </Card.Body>
     </Card>
   );

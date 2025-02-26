@@ -74,7 +74,7 @@ export const FormGroup: FC<PropsWithChildren<FormGroupProps>> = (props) => {
     <Form.Label className={classNames({ required })}>
       {tooltip && !tooltipEnd && (
         <Tip id={'form-field-tooltip-' + input.name} label={tooltip}>
-          <Question weight="bold" size={18} className="text-muted" />{' '}
+          <Question weight="bold" size={20} className="text-muted" />{' '}
         </Tip>
       )}
       {label}
@@ -101,7 +101,7 @@ export const FormGroup: FC<PropsWithChildren<FormGroupProps>> = (props) => {
               className="align-self-center ms-2"
               label={tooltip}
             >
-              <Question weight="bold" size={18} className="text-muted" />
+              <Question weight="bold" size={20} className="text-muted" />
             </Tip>
           )}
         </div>

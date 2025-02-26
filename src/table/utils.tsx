@@ -34,7 +34,7 @@ export const transformRows = (rows: any[]) => {
 
 export const renderFieldOrDash = (field) => (field ? field : DASH_ESCAPE_CODE);
 
-export function getNoResultMessage({ query, verboseName }) {
+export function getNoResultMessage({ query, verboseName, customEmpty = null }) {
   const context = {
     verboseName: String(verboseName || translate('Items')).toLowerCase(),
     query: query,
@@ -45,7 +45,7 @@ export function getNoResultMessage({ query, verboseName }) {
       context,
     );
   } else {
-    return translate('There are no {verboseName} yet.', context);
+    return customEmpty || translate('There are no {verboseName} yet.', context);
   }
 }
 

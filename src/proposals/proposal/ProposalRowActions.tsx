@@ -1,4 +1,4 @@
-import { ChatText, Check, Eye, X } from '@phosphor-icons/react';
+import { ChatText, CheckCircle, Eye, XCircle } from '@phosphor-icons/react';
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -87,33 +87,33 @@ export const ProposalRowActions = ({ row, refetch }) => {
   };
   return (
     <ActionsDropdownComponent>
+      <ActionItem
+        title={translate('View')}
+        action={() => linkToProposalDetails(row.uuid, row.call_manager_uuid)}
+        iconNode={<Eye weight="bold" />}
+      />
       {isStaff && (
         <ActionItem
           title={translate('Create review')}
           action={() => openCreateReviewDialog(row)}
-          iconNode={<ChatText />}
+          iconNode={<ChatText weight="bold" />}
         />
       )}
-      <ActionItem
-        title={translate('View')}
-        action={() => linkToProposalDetails(row.uuid, row.call_manager_uuid)}
-        iconNode={<Eye />}
-      />
       {!isRejectButtonDisabled && (
         <>
           <ActionItem
-            title={translate('Reject')}
-            action={() => handleRejectProposal(row.uuid)}
-            iconNode={<X />}
-            disabled={isRejectButtonDisabled}
-            className="text-danger"
-          />
-          <ActionItem
             title={translate('Force approve')}
             action={() => handleForceApproveProposal(row.uuid)}
-            iconNode={<Check />}
+            iconNode={<CheckCircle weight="bold" />}
+            disabled={isRejectButtonDisabled}
+          />
+          <ActionItem
+            title={translate('Reject')}
+            action={() => handleRejectProposal(row.uuid)}
+            iconNode={<XCircle weight="bold" />}
             disabled={isRejectButtonDisabled}
             className="text-danger"
+            iconColor="danger"
           />
         </>
       )}

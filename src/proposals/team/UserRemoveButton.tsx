@@ -5,8 +5,8 @@ import { useDispatch } from 'react-redux';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { GenericPermission } from '@waldur/permissions/types';
+import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
-import { RowActionButton } from '@waldur/table/ActionButton';
 
 import { deleteScopeUser } from './api';
 
@@ -50,11 +50,12 @@ export const UserRemoveButton: React.FC<UserRemoveButtonProps> = ({
     }
   };
   return (
-    <RowActionButton
+    <ActionItem
       action={callback}
       title={translate('Remove')}
       iconNode={<Trash />}
-      size="sm"
+      iconColor="danger"
+      className="text-danger"
     />
   );
 };

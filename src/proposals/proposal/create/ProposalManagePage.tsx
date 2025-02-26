@@ -3,20 +3,19 @@ import { useCurrentStateAndParams } from '@uirouter/react';
 
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
+import { SidebarLayout } from '@waldur/form/SidebarLayout';
 import { translate } from '@waldur/i18n';
-import { useFullPage } from '@waldur/navigation/context';
+import { PageBarProvider } from '@waldur/marketplace/context';
 import { useTitle } from '@waldur/navigation/title';
 import { getAllProposalReviews, getProposal } from '@waldur/proposals/api';
 
 import { ProposalDetails } from '../ProposalDetails';
 
 import { ProgressSteps } from './ProgressSteps';
-import { ProposalRejectionStep } from './ProposalRejectionStep';
+import { ProposalHeader } from './ProposalHeader';
 import { ProposalSubmissionStep } from './ProposalSubmissionStep';
-import { ProposalTeamVerificationStep } from './ProposalTeamVerificationStep';
 
 export const ProposalManagePage = () => {
-  useFullPage();
   useTitle(translate('Update proposal'));
 
   const {
@@ -44,36 +43,23 @@ export const ProposalManagePage = () => {
     return <LoadingErred loadData={refetch} />;
   }
 
-  return !['team_verification', 'draft', 'rejected'].includes(
-    proposal.state,
-  ) ? (
-    <ProposalDetails proposal={proposal} reviews={reviews} />
-  ) : (
-    <>
-      <ProgressSteps
-        proposal={proposal}
-        bgClass="bg-body"
-        className="border-bottom mb-10 pt-8 pb-6"
-      />
-      {proposal.state === 'team_verification' ? (
-        <ProposalTeamVerificationStep
-          proposal={proposal}
-          refetch={refetch}
-          reviews={reviews}
-        />
-      ) : proposal.state === 'rejected' ? (
-        <ProposalRejectionStep
-          proposal={proposal}
-          refetch={refetch}
-          reviews={reviews}
-        />
-      ) : (
+  return (
+    <PageBarProvider scrollTrackSide="top" scrollOffset={200}>
+      <SidebarLayout.Header className="pb-5">
+        <div className="w-100">
+          <ProposalHeader proposal={proposal} className="mb-7" />
+          <ProgressSteps proposal={proposal} bgClass="bg-body" />
+        </div>
+      </SidebarLayout.Header>
+      {proposal.state === 'draft' ? (
         <ProposalSubmissionStep
           proposal={proposal}
           refetch={refetch}
           reviews={reviews}
         />
+      ) : (
+        <ProposalDetails proposal={proposal} reviews={reviews} />
       )}
-    </>
+    </PageBarProvider>
   );
 };

@@ -99,8 +99,8 @@ export const states: StateDeclaration[] = [
     name: 'call-management.proposal-details',
     url: 'proposals/:proposal_uuid/',
     component: lazyComponent(() =>
-      import('./proposal/ProposalDetailsContainer').then((module) => ({
-        default: module.ProposalDetailsContainer,
+      import('./proposal/create/ProposalManagePage').then((module) => ({
+        default: module.ProposalManagePage,
       })),
     ),
   },
@@ -323,6 +323,8 @@ export const states: StateDeclaration[] = [
         default: module.ProposalManagePage,
       })),
     ),
-    data: {},
+    data: {
+      hideHeaderMenu: true,
+    },
   },
 ];

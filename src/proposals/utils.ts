@@ -9,6 +9,7 @@ import {
   Call,
   CallOfferingState,
   CallState,
+  ProposalReview,
   ProposalState,
   ReviewState,
   Round,
@@ -87,10 +88,6 @@ export const getProposalStateOptions = () =>
       value: 'draft',
     },
     {
-      label: translate('Team verification'),
-      value: 'team_verification',
-    },
-    {
       label: translate('Submitted'),
       value: 'submitted',
     },
@@ -138,6 +135,9 @@ export const getReviewStateOptions = () =>
 export const formatReviewState = (value: ReviewState) =>
   getReviewStateOptions().find((option) => option.value === value)?.label ||
   value;
+
+export const isReviewInFinalState = (state: ProposalReview['state']) =>
+  !['in_review', 'created'].includes(state);
 
 export const getRoundStatus = (round: Round) => {
   if (!round) {

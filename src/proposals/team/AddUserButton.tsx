@@ -33,7 +33,7 @@ export const AddUserButton: React.FC<AddUserDialogProps> = (props) => {
             }),
           )
         }
-        title={translate('Add user')}
+        title={translate('Add member')}
         iconNode={<PlusCircle />}
       />
     )

@@ -8,7 +8,7 @@ $root-font-size-lg: 13px; // Root font size for tablet mode
 $root-font-size-md: 12px; // Root font size for mobile mode
 
 // Page bg
-$page-bg: if(isDarkMode(), $gray-50, $gray-100) !default;
+$page-bg: $gray-50 !default;
 
 // Content border radius
 $content-border-radius: 1.5rem !default;
