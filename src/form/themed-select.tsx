@@ -159,7 +159,7 @@ const REACT_MULTI_SELECT: Partial<SelectProps> = {
 };
 
 const DARK_COLORS = {
-  neutral0: '#1A261D',
+  neutral0: '#0c111d',
   neutral10: '#4C6351',
   neutral20: '#4C6351',
   neutral30: '#4C6351',
