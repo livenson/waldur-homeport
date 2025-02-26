@@ -29,7 +29,10 @@ export const Tip: React.FC<PropsWithChildren<TipProps>> = ({
       placement={placement}
       trigger={trigger}
       overlay={
-        <Tooltip id={id} className={autoWidth && 'tooltip-auto-width'}>
+        <Tooltip
+          id={id}
+          className={'tooltip-dark' + (autoWidth ? ' tooltip-auto-width' : '')}
+        >
           {label}
         </Tooltip>
       }

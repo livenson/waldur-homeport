@@ -165,6 +165,12 @@ const PureDetailsTable: FunctionComponent<PlanDetailsTableProps> = (props) => {
       >
         {/* TABS */}
         <Nav variant="tabs" className="nav-line-tabs">
+          {props.extraTabs &&
+            props.extraTabs.map((tab) => (
+              <Nav.Item key={tab.eventKey}>
+                <Nav.Link eventKey={tab.eventKey}>{tab.title}</Nav.Link>
+              </Nav.Item>
+            ))}
           {oneTime.hasOneTimeCost && (
             <Nav.Item>
               <Nav.Link eventKey="onetime">
@@ -202,6 +208,12 @@ const PureDetailsTable: FunctionComponent<PlanDetailsTableProps> = (props) => {
 
         {/* CONTENT */}
         <Tab.Content>
+          {props.extraTabs &&
+            props.extraTabs.map((tab) => (
+              <Tab.Pane key={tab.eventKey} eventKey={tab.eventKey}>
+                <tab.component />
+              </Tab.Pane>
+            ))}
           {oneTime.hasOneTimeCost && (
             <Tab.Pane eventKey="onetime">
               <section className="plan-details-section">

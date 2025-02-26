@@ -1,4 +1,4 @@
-import { X } from '@phosphor-icons/react';
+import { CalendarBlank, X } from '@phosphor-icons/react';
 import { DateTime } from 'luxon';
 import { FunctionComponent } from 'react';
 import Flatpickr from 'react-flatpickr';
@@ -37,7 +37,7 @@ export const DateField: FunctionComponent<any> = (props) => {
         }
         placeholder={props.placeholder}
       />
-      {props.input.value && typeof props.input.value === 'string' && (
+      {props.input.value && typeof props.input.value === 'string' ? (
         <button
           type="button"
           className="btn btn-icon btn-circle btn-color-muted btn-active-color-primary w-25px h-25px bg-body shadow end-button"
@@ -54,6 +54,18 @@ export const DateField: FunctionComponent<any> = (props) => {
             </span>
           </Tip>
         </button>
+      ) : (
+        <span
+          className="svg-icon svg-icon-2 svg-icon-grey-500"
+          style={{
+            position: 'absolute',
+            right: 12,
+            top: 13,
+            pointerEvents: 'none',
+          }}
+        >
+          <CalendarBlank weight="bold" />
+        </span>
       )}
     </div>
   );

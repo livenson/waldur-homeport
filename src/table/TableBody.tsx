@@ -70,6 +70,7 @@ const InlineFilterButton = ({ column, row }) => {
   return (
     <>
       <button
+        type="button"
         className="inline-filter text-btn"
         data-kt-menu-trigger="click"
         data-kt-menu-placement="bottom"

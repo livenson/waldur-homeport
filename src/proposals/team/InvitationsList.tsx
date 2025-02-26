@@ -55,13 +55,14 @@ export const InvitationsList: FunctionComponent<{
           render: ({ row }) => formatDate(row.expires),
         },
       ].filter(Boolean)}
-      rowActions={({ row }) => (
-        <InvitationActions invitation={row} refetch={table.fetch} />
+      rowActions={({ row, fetch }) => (
+        <InvitationActions invitation={row} refetch={fetch} />
       )}
       title={translate('Invitations')}
       verboseName={translate('invitations')}
       cardBordered={cardBordered}
       hasQuery={true}
+      minHeight="auto"
       expandableRow={InvitationExpandableRow}
     />
   );

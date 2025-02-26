@@ -188,6 +188,8 @@ export interface TableProps<RowType = any> extends TableState {
   placeholderComponent?: React.ReactNode;
   placeholderActions?: React.ReactNode;
   placeholderHasRetry?: boolean;
+  /** Prefered empty table message */
+  emptyMessage?: React.ReactNode;
   filters?: JSX.Element;
   title?: React.ReactNode;
   alterTitle?: React.ReactNode;

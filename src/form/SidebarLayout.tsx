@@ -8,7 +8,7 @@ import { useFullPage } from '@waldur/navigation/context';
 import './SidebarLayout.scss';
 
 const Container: FC<PropsWithChildren> = (props) => (
-  <div className="v-stepper-form container-xxl d-flex flex-column flex-xl-row gap-5 gap-lg-7 pb-10">
+  <div className="v-stepper-form container-xxl d-flex flex-column flex-xl-row gap-5 pb-10">
     {props.children}
   </div>
 );
@@ -16,7 +16,7 @@ const Container: FC<PropsWithChildren> = (props) => (
 const Body: FC<PropsWithChildren<{ className? }>> = (props) => (
   <div
     className={classNames(
-      'd-flex flex-column flex-lg-row-fluid gap-5 gap-lg-7',
+      'd-flex flex-column flex-lg-row-fluid gap-5',
       props.className,
     )}
   >
@@ -67,7 +67,7 @@ const Sidebar: FC<
           : 'v-stepper-form-sidebar transparent drawer drawer-end drawer-on'
       }
     >
-      <div>
+      <div className="w-100">
         {props.title ? <h4>{props.title}</h4> : null}
         {props.children}
       </div>
@@ -75,8 +75,15 @@ const Sidebar: FC<
   );
 };
 
-const Header: FC<PropsWithChildren> = (props) => (
-  <div className="container-xxl v-stepper-form-header">{props.children}</div>
+const Header: FC<PropsWithChildren<{ className?: string }>> = (props) => (
+  <div
+    className={classNames(
+      'container-xxl v-stepper-form-header',
+      props.className,
+    )}
+  >
+    {props.children}
+  </div>
 );
 
 export const SidebarLayout = { Container, Header, Body, Sidebar };

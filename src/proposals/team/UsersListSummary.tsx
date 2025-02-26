@@ -19,7 +19,11 @@ export const UsersListSummary: FC<{ scope; title; reviews? }> = (props) => {
       hideRole={false}
       readOnly
       tableFooter={
-        <FieldReviewComments reviews={props.reviews} fieldName="comment_team" />
+        <FieldReviewComments
+          reviews={props.reviews}
+          fieldName="comment_team"
+          space={0}
+        />
       }
     />
   );

@@ -1,3 +1,5 @@
+import { ComponentType, ReactNode } from 'react';
+
 import { Offering, OfferingComponent } from '@waldur/marketplace/types';
 
 export interface Component extends OfferingComponent {
@@ -20,6 +22,11 @@ export interface PlanDetailsTableProps extends PricesData {
   viewMode?: boolean;
   formGroupClassName?: string;
   columnClassName?: string;
+  extraTabs?: Array<{
+    title: ReactNode;
+    eventKey: string | number;
+    component: ComponentType;
+  }>;
 }
 
 export type PlanPeriod = 'monthly' | 'annual';

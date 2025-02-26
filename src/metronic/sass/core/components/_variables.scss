@@ -96,8 +96,10 @@ $primary-inverse: if(
 // Primary base
 $primary-50: if(isDarkMode(), #174000, #f1f7ef); // Custom variable
 $primary-100: if(isDarkMode(), #1f5000, #e6f0e3); // Custom variable
+$primary-200: if(isDarkMode(), #286100, #c3dabb); // Custom variable
 $primary-300: if(isDarkMode(), #307300, #97bf89); // Custom variable
 $primary-600: if(isDarkMode(), #97bf89, #307300); // Custom variable
+$primary-700: if(isDarkMode(), #c3dabb, #286100); // Custom variable
 
 // Secondary colors
 $secondary: $gray-300 !default; // Bootstrap variable
@@ -120,6 +122,8 @@ $light-inverse: if(
 $lighten: rgba($light, 0.5); // Custom variable
 
 // Success colors
+$success-600: #039855 !default; // Bootstrap variable
+$success-700: #027a48 !default; // Bootstrap variable
 $success: #1bc5bd !default; // Bootstrap variable
 $success-active: #0bb7af !default; // Custom variable
 $success-light: if(isDarkMode(), #1c3833, #c9f7f5) !default; // Custom variable
@@ -138,6 +142,7 @@ $warning-light: if(isDarkMode(), #392f28, #fff4de) !default; // Custom variable
 $warning-inverse: $white !default; // Custom variable
 
 // Danger colors
+$danger-600: #d92d20 !default; // Bootstrap variable
 $danger: #f64e60 !default; // Bootstrap variable
 $danger-active: #ee2d41 !default; // Custom variable
 $danger-light: if(isDarkMode(), #3a2434, #ffe2e5) !default; // Custom variable
@@ -197,13 +202,18 @@ $theme-colors: (
   'primary': $primary,
   'primary-50': $primary-50,
   'primary-100': $primary-100,
+  'primary-200': $primary-200,
   'primary-300': $primary-300,
   'primary-600': $primary-600,
+  'primary-700': $primary-700,
   'secondary': $secondary,
   'success': $success,
+  'success-600': $success-600,
+  'success-700': $success-700,
   'info': $info,
   'warning': $warning,
   'danger': $danger,
+  'danger-600': $danger-600,
   'dark': $dark,
   'dark-always': $dark-always,
   // temporary gray colors
@@ -276,8 +286,10 @@ $theme-text-colors: (
   'white': $white,
   'brand': var(--waldur-brand-color),
   'primary': $primary,
+  'primary-200': $primary-200,
   'primary-300': $primary-300,
   'primary-600': $primary-600,
+  'primary-700': $primary-700,
   'secondary': $secondary,
   'light': $light,
   'success': $success,

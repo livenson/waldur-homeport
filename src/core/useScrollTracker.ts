@@ -22,13 +22,24 @@ const useScrollTracker = (props: useScrollTrackerProps) => {
       }
       let newActiveSection = null;
 
-      sections.current.forEach((section) => {
+      sections.current.forEach((section, index) => {
         const sectionOffsetTop = section.offsetTop;
         const sectionHeight = section.offsetHeight;
 
         if (
           thresholdPoint >= sectionOffsetTop &&
           window.scrollY < sectionOffsetTop + sectionHeight
+        ) {
+          newActiveSection = section.id;
+        }
+        // If we are in the upper position of the first section
+        else if (index === 0 && thresholdPoint < sectionOffsetTop) {
+          newActiveSection = section.id;
+        }
+        // If we are in the bottom position of the last section
+        else if (
+          index === sections.current?.length - 1 &&
+          thresholdPoint > sectionOffsetTop
         ) {
           newActiveSection = section.id;
         }
@@ -43,6 +54,7 @@ const useScrollTracker = (props: useScrollTrackerProps) => {
     sections.current = props.sectionIds
       .map((id) => document.getElementById(id))
       .filter(Boolean);
+    handleScroll();
   }, [props.sectionIds]);
 
   useEffect(() => {

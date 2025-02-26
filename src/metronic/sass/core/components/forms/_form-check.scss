@@ -6,7 +6,8 @@
   // Label
   .form-check-label {
     cursor: pointer;
-    font-weight: 500;
+    font-size: 1.075rem; // fs-6
+    color: $gray-700;
   }
 
   // Input

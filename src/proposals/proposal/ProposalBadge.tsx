@@ -4,7 +4,6 @@ import { formatProposalState } from '../utils';
 
 const stateColorMapping = {
   draft: 'default',
-  team_verification: 'default',
   submitted: 'warning',
   in_review: 'warning',
   in_revision: 'default',

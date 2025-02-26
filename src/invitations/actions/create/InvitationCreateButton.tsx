@@ -1,6 +1,8 @@
+import { Share } from '@phosphor-icons/react';
 import { FunctionComponent } from 'react';
 
-import { AddButton } from '@waldur/core/AddButton';
+import { translate } from '@waldur/i18n';
+import { ActionButton } from '@waldur/table/ActionButton';
 
 import { InvitationContext } from '../types';
 import { useCreateInvitation } from '../useCreateInvitation';
@@ -10,5 +12,12 @@ export const InvitationCreateButton: FunctionComponent<
 > = (context) => {
   const { callback, canInvite } = useCreateInvitation(context);
 
-  return <AddButton action={callback} disabled={!canInvite} />;
+  return (
+    <ActionButton
+      action={callback}
+      title={translate('Invite member')}
+      iconNode={<Share />}
+      disabled={!canInvite}
+    />
+  );
 };
