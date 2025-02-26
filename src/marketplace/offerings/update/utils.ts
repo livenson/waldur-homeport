@@ -1,3 +1,4 @@
+import { useCurrentStateAndParams } from '@uirouter/react';
 import { useMemo } from 'react';
 
 import { translate } from '@waldur/i18n';
@@ -34,19 +35,20 @@ export const parseComponent = (component) => {
 };
 
 export const useOfferingAccountingTableTabs = (offering) => {
+  const { state } = useCurrentStateAndParams();
   return useMemo(
     () =>
       [
         showComponentsList(offering.type) && {
           key: 'components',
           title: translate('Components'),
-          state: 'marketplace-offering-update',
+          state: state.name,
           params: { tab: 'components' },
         },
         {
           key: 'plans',
           title: translate('Plans'),
-          state: 'marketplace-offering-update',
+          state: state.name,
           params: { tab: 'plans' },
         },
       ].filter(Boolean),
