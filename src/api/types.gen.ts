@@ -1666,6 +1666,12 @@ export type ContentTypeEnum = 'json' | 'form';
 
 export type CoreStates = 'Creation Scheduled' | 'Creating' | 'Update Scheduled' | 'Updating' | 'Deletion Scheduled' | 'Deleting' | 'OK' | 'Erred';
 
+export type CostsForPeriod = {
+    readonly total_price: string;
+    readonly start_date: string;
+    readonly end_date: string;
+};
+
 export type CountStats = {
     readonly name: string;
     readonly uuid: string;
@@ -1950,13 +1956,6 @@ export type CustomerUser = {
     readonly projects: Array<NestedProjectPermission>;
     readonly expiration_time: string;
     image?: string | null;
-};
-
-export type DailyHistoryQuota = {
-    scope: string;
-    quota_names?: Array<string>;
-    start?: string;
-    end?: string;
 };
 
 export type DataVolume = {
@@ -2643,22 +2642,6 @@ export type InvoiceItemCompensationRequest = {
     offering_component_name: string;
 };
 
-export type InvoiceItemCustomerCostsForPeriod = {
-    /**
-     * Period for which statistics should be calculated.
-     *
-     * * `1` - Total
-     * * `2` - 1 month
-     * * `3` - 3 month
-     * * `4` - 12 month
-     */
-    period?: PeriodEnum;
-    /**
-     * UUID of the customer for which statistics should be calculated.
-     */
-    customer_uuid: string;
-};
-
 export type InvoiceItemDetail = {
     invoice: string;
     resource?: string | null;
@@ -2718,22 +2701,6 @@ export type InvoiceItemMigrateTo = {
 
 export type InvoiceItemMigrateToRequest = {
     invoice: string;
-};
-
-export type InvoiceItemProjectCostsForPeriod = {
-    /**
-     * Period for which statistics should be calculated.
-     *
-     * * `1` - Total
-     * * `2` - 1 month
-     * * `3` - 3 month
-     * * `4` - 12 month
-     */
-    period?: PeriodEnum;
-    /**
-     * UUID of the project for which statistics should be calculated.
-     */
-    project_uuid: string;
 };
 
 export type InvoiceItemRequest = {
@@ -6007,8 +5974,6 @@ export type PaginatedCustomerPermissionReviewList = Array<CustomerPermissionRevi
 export type PaginatedCustomerQuotasList = Array<CustomerQuotas>;
 
 export type PaginatedCustomerUserList = Array<CustomerUser>;
-
-export type PaginatedDailyHistoryQuotaList = Array<DailyHistoryQuota>;
 
 export type PaginatedDetailedProviderUserList = Array<DetailedProviderUser>;
 
@@ -10416,6 +10381,17 @@ export type UserStats = {
 
 export type UsernameGenerationPolicyEnum = 'service_provider' | 'anonymized' | 'full_name' | 'waldur_username' | 'freeipa' | 'identity_claim';
 
+export type Version = {
+    /**
+     * Current installed version of the application
+     */
+    version: string;
+    /**
+     * Latest available version from GitHub, if available.
+     */
+    latest_version?: string;
+};
+
 export type VisibleInvitationDetails = {
     readonly scope_uuid: string;
     readonly scope_name: string;
@@ -13543,13 +13519,10 @@ export type CallManagingOrganisationsListUsersListData = {
         customer?: string;
         customer_keyword?: string;
         customer_uuid?: string;
-        /**
-         * Ordering
-         *
-         * * `customer_name` - Customer name
-         * * `-customer_name` - Customer name (descending)
-         */
-        o?: Array<'-customer_name' | 'customer_name'>;
+        field?: Array<'created' | 'created_by_full_name' | 'created_by_uuid' | 'expiration_time' | 'role_name' | 'role_uuid' | 'user_email' | 'user_full_name' | 'user_image' | 'user_username' | 'user_uuid' | 'uuid'>;
+        full_name?: string;
+        native_name?: string;
+        o?: Array<'created' | 'email' | 'expiration_time' | 'full_name' | 'native_name' | 'role' | 'username'>;
         /**
          * A page number within the paginated result set.
          */
@@ -13561,6 +13534,9 @@ export type CallManagingOrganisationsListUsersListData = {
         role?: string;
         search_string?: string;
         user?: string;
+        user_slug?: string;
+        user_url?: string;
+        username?: string;
     };
     url: '/api/call-managing-organisations/{uuid}/list_users/';
 };
@@ -14298,13 +14274,12 @@ export type CustomersListUsersListData = {
         archived?: boolean;
         backend_id?: string;
         contact_details?: string;
+        field?: Array<'created' | 'created_by_full_name' | 'created_by_uuid' | 'expiration_time' | 'role_name' | 'role_uuid' | 'user_email' | 'user_full_name' | 'user_image' | 'user_username' | 'user_uuid' | 'uuid'>;
+        full_name?: string;
         name?: string;
         name_exact?: string;
         native_name?: string;
-        /**
-         * Which field to use when ordering the results.
-         */
-        o?: string;
+        o?: Array<'created' | 'email' | 'expiration_time' | 'full_name' | 'native_name' | 'role' | 'username'>;
         organization_group_name?: string;
         /**
          * organization_group_uuid
@@ -14323,6 +14298,9 @@ export type CustomersListUsersListData = {
         role?: string;
         search_string?: string;
         user?: string;
+        user_slug?: string;
+        user_url?: string;
+        username?: string;
     };
     url: '/api/customers/{uuid}/list_users/';
 };
@@ -14388,6 +14366,7 @@ export type CustomersUsersListData = {
         civil_number?: string;
         description?: string;
         email?: string;
+        field?: Array<'email' | 'expiration_time' | 'full_name' | 'image' | 'projects' | 'role' | 'role_name' | 'url' | 'username' | 'uuid'>;
         full_name?: string;
         is_active?: string;
         job_title?: string;
@@ -14432,28 +14411,6 @@ export type CustomersCountriesRetrieveResponses = {
 };
 
 export type CustomersCountriesRetrieveResponse = CustomersCountriesRetrieveResponses[keyof CustomersCountriesRetrieveResponses];
-
-export type DailyQuotasListData = {
-    body?: never;
-    path?: never;
-    query?: {
-        /**
-         * A page number within the paginated result set.
-         */
-        page?: number;
-        /**
-         * Number of results to return per page.
-         */
-        page_size?: number;
-    };
-    url: '/api/daily-quotas/';
-};
-
-export type DailyQuotasListResponses = {
-    200: PaginatedDailyHistoryQuotaList;
-};
-
-export type DailyQuotasListResponse = DailyQuotasListResponses[keyof DailyQuotasListResponses];
 
 export type DatabaseStatsListData = {
     body?: never;
@@ -15310,7 +15267,7 @@ export type FreeipaProfilesUpdateResponses = {
 export type FreeipaProfilesUpdateResponse = FreeipaProfilesUpdateResponses[keyof FreeipaProfilesUpdateResponses];
 
 export type FreeipaProfilesUpdateSshKeysData = {
-    body: ProfileRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -15319,15 +15276,17 @@ export type FreeipaProfilesUpdateSshKeysData = {
 };
 
 export type FreeipaProfilesUpdateSshKeysResponses = {
-    200: Profile;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type FreeipaProfilesUpdateSshKeysResponse = FreeipaProfilesUpdateSshKeysResponses[keyof FreeipaProfilesUpdateSshKeysResponses];
 
 export type GoogleAuthListData = {
     body?: never;
     path?: never;
     query?: {
+        field?: Array<'calendar_refresh_token' | 'calendar_token' | 'created' | 'customer' | 'customer_abbreviation' | 'customer_country' | 'customer_image' | 'customer_name' | 'customer_native_name' | 'customer_slug' | 'customer_uuid' | 'description' | 'google_auth_url' | 'image' | 'offering_count' | 'organization_groups' | 'url' | 'uuid'>;
         /**
          * has_credentials
          */
@@ -15386,7 +15345,9 @@ export type GoogleAuthRetrieveData = {
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        field?: Array<'calendar_refresh_token' | 'calendar_token' | 'created' | 'customer' | 'customer_abbreviation' | 'customer_country' | 'customer_image' | 'customer_name' | 'customer_native_name' | 'customer_slug' | 'customer_uuid' | 'description' | 'google_auth_url' | 'image' | 'offering_count' | 'organization_groups' | 'url' | 'uuid'>;
+    };
     url: '/api/google-auth/{uuid}/';
 };
 
@@ -15431,7 +15392,9 @@ export type GoogleAuthAuthorizeRetrieveData = {
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        field?: Array<'calendar_refresh_token' | 'calendar_token' | 'created' | 'customer' | 'customer_abbreviation' | 'customer_country' | 'customer_image' | 'customer_name' | 'customer_native_name' | 'customer_slug' | 'customer_uuid' | 'description' | 'google_auth_url' | 'image' | 'offering_count' | 'organization_groups' | 'url' | 'uuid'>;
+    };
     url: '/api/google-auth/{uuid}/authorize/';
 };
 
@@ -15444,7 +15407,9 @@ export type GoogleAuthAuthorizeRetrieveResponse = GoogleAuthAuthorizeRetrieveRes
 export type GoogleAuthCallbackRetrieveData = {
     body?: never;
     path?: never;
-    query?: never;
+    query?: {
+        field?: Array<'calendar_refresh_token' | 'calendar_token' | 'created' | 'customer' | 'customer_abbreviation' | 'customer_country' | 'customer_image' | 'customer_name' | 'customer_native_name' | 'customer_slug' | 'customer_uuid' | 'description' | 'google_auth_url' | 'image' | 'offering_count' | 'organization_groups' | 'url' | 'uuid'>;
+    };
     url: '/api/google-auth/callback/';
 };
 
@@ -16167,12 +16132,21 @@ export type InvoiceItemsCostsListResponse = InvoiceItemsCostsListResponses[keyof
 export type InvoiceItemsCustomerCostsForPeriodRetrieveData = {
     body?: never;
     path?: never;
-    query?: never;
+    query?: {
+        /**
+         * UUID of the project for which statistics should be calculated.
+         */
+        customer_uuid?: string;
+        /**
+         * Period for which statistics should be calculated.
+         */
+        period?: number;
+    };
     url: '/api/invoice-items/customer_costs_for_period/';
 };
 
 export type InvoiceItemsCustomerCostsForPeriodRetrieveResponses = {
-    200: InvoiceItemCustomerCostsForPeriod;
+    200: CostsForPeriod;
 };
 
 export type InvoiceItemsCustomerCostsForPeriodRetrieveResponse = InvoiceItemsCustomerCostsForPeriodRetrieveResponses[keyof InvoiceItemsCustomerCostsForPeriodRetrieveResponses];
@@ -16180,12 +16154,21 @@ export type InvoiceItemsCustomerCostsForPeriodRetrieveResponse = InvoiceItemsCus
 export type InvoiceItemsProjectCostsForPeriodRetrieveData = {
     body?: never;
     path?: never;
-    query?: never;
+    query?: {
+        /**
+         * Period for which statistics should be calculated.
+         */
+        period?: number;
+        /**
+         * UUID of the project for which statistics should be calculated.
+         */
+        project_uuid?: string;
+    };
     url: '/api/invoice-items/project_costs_for_period/';
 };
 
 export type InvoiceItemsProjectCostsForPeriodRetrieveResponses = {
-    200: InvoiceItemProjectCostsForPeriod;
+    200: CostsForPeriod;
 };
 
 export type InvoiceItemsProjectCostsForPeriodRetrieveResponse = InvoiceItemsProjectCostsForPeriodRetrieveResponses[keyof InvoiceItemsProjectCostsForPeriodRetrieveResponses];
@@ -20284,31 +20267,16 @@ export type MarketplaceProviderOfferingsListUsersListData = {
         customer?: string;
         customer_uuid?: string;
         description?: string;
+        field?: Array<'created' | 'created_by_full_name' | 'created_by_uuid' | 'expiration_time' | 'role_name' | 'role_uuid' | 'user_email' | 'user_full_name' | 'user_image' | 'user_username' | 'user_uuid' | 'uuid'>;
+        full_name?: string;
         /**
          * Keyword
          */
         keyword?: string;
         name?: string;
         name_exact?: string;
-        /**
-         * Ordering
-         *
-         * * `name` - Name
-         * * `-name` - Name (descending)
-         * * `created` - Created
-         * * `-created` - Created (descending)
-         * * `type` - Type
-         * * `-type` - Type (descending)
-         * * `total_customers` - Total customers
-         * * `-total_customers` - Total customers (descending)
-         * * `total_cost` - Total cost
-         * * `-total_cost` - Total cost (descending)
-         * * `total_cost_estimated` - Total cost estimated
-         * * `-total_cost_estimated` - Total cost estimated (descending)
-         * * `state` - State
-         * * `-state` - State (descending)
-         */
-        o?: Array<'-created' | '-name' | '-state' | '-total_cost' | '-total_cost_estimated' | '-total_customers' | '-type' | 'created' | 'name' | 'state' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type'>;
+        native_name?: string;
+        o?: Array<'created' | 'email' | 'expiration_time' | 'full_name' | 'native_name' | 'role' | 'username'>;
         organization_group_uuid?: Array<string>;
         /**
          * A page number within the paginated result set.
@@ -20343,6 +20311,9 @@ export type MarketplaceProviderOfferingsListUsersListData = {
         state?: Array<'Active' | 'Archived' | 'Draft' | 'Paused'>;
         type?: Array<string>;
         user?: string;
+        user_slug?: string;
+        user_url?: string;
+        username?: string;
     };
     url: '/api/marketplace-provider-offerings/{uuid}/list_users/';
 };
@@ -20696,8 +20667,10 @@ export type MarketplaceProviderResourcesListData = {
          * * `-name` - Name (descending)
          * * `created` - Created
          * * `-created` - Created (descending)
+         * * `project_name` - Project name
+         * * `-project_name` - Project name (descending)
          */
-        o?: Array<'-created' | '-name' | 'created' | 'name'>;
+        o?: Array<'-created' | '-name' | '-project_name' | 'created' | 'name' | 'project_name'>;
         offering?: string;
         offering_billable?: string;
         offering_type?: string;
@@ -21435,6 +21408,8 @@ export type MarketplaceResourceOfferingsListData = {
         category_uuid: string;
     };
     query?: {
+        name?: string;
+        name_exact?: string;
         /**
          * A page number within the paginated result set.
          */
@@ -21590,8 +21565,10 @@ export type MarketplaceResourcesListData = {
          * * `-name` - Name (descending)
          * * `created` - Created
          * * `-created` - Created (descending)
+         * * `project_name` - Project name
+         * * `-project_name` - Project name (descending)
          */
-        o?: Array<'-created' | '-name' | 'created' | 'name'>;
+        o?: Array<'-created' | '-name' | '-project_name' | 'created' | 'name' | 'project_name'>;
         offering?: string;
         offering_billable?: string;
         offering_type?: string;
@@ -22565,6 +22542,7 @@ export type MarketplaceServiceProvidersListData = {
         customer?: string;
         customer_keyword?: string;
         customer_uuid?: string;
+        field?: Array<'created' | 'customer' | 'customer_abbreviation' | 'customer_country' | 'customer_image' | 'customer_name' | 'customer_native_name' | 'customer_slug' | 'customer_uuid' | 'description' | 'image' | 'offering_count' | 'organization_groups' | 'url' | 'uuid'>;
         /**
          * Ordering
          *
@@ -22626,7 +22604,9 @@ export type MarketplaceServiceProvidersRetrieveData = {
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        field?: Array<'created' | 'customer' | 'customer_abbreviation' | 'customer_country' | 'customer_image' | 'customer_name' | 'customer_native_name' | 'customer_slug' | 'customer_uuid' | 'description' | 'image' | 'offering_count' | 'organization_groups' | 'url' | 'uuid'>;
+    };
     url: '/api/marketplace-service-providers/{uuid}/';
 };
 
@@ -22687,7 +22667,9 @@ export type MarketplaceServiceProvidersApiSecretCodeRetrieveData = {
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        field?: Array<'created' | 'customer' | 'customer_abbreviation' | 'customer_country' | 'customer_image' | 'customer_name' | 'customer_native_name' | 'customer_slug' | 'customer_uuid' | 'description' | 'image' | 'offering_count' | 'organization_groups' | 'url' | 'uuid'>;
+    };
     url: '/api/marketplace-service-providers/{uuid}/api_secret_code/';
 };
 
@@ -22839,13 +22821,10 @@ export type MarketplaceServiceProvidersListUsersListData = {
         customer?: string;
         customer_keyword?: string;
         customer_uuid?: string;
-        /**
-         * Ordering
-         *
-         * * `customer_name` - Customer name
-         * * `-customer_name` - Customer name (descending)
-         */
-        o?: Array<'-customer_name' | 'customer_name'>;
+        field?: Array<'created' | 'created_by_full_name' | 'created_by_uuid' | 'expiration_time' | 'role_name' | 'role_uuid' | 'user_email' | 'user_full_name' | 'user_image' | 'user_username' | 'user_uuid' | 'uuid'>;
+        full_name?: string;
+        native_name?: string;
+        o?: Array<'created' | 'email' | 'expiration_time' | 'full_name' | 'native_name' | 'role' | 'username'>;
         /**
          * A page number within the paginated result set.
          */
@@ -22857,6 +22836,9 @@ export type MarketplaceServiceProvidersListUsersListData = {
         role?: string;
         search_string?: string;
         user?: string;
+        user_slug?: string;
+        user_url?: string;
+        username?: string;
     };
     url: '/api/marketplace-service-providers/{uuid}/list_users/';
 };
@@ -23011,6 +22993,7 @@ export type MarketplaceServiceProvidersRobotAccountCustomersListData = {
     query?: {
         customer?: string;
         customer_keyword?: string;
+        customer_name?: string;
         customer_uuid?: string;
         /**
          * Ordering
@@ -23061,6 +23044,7 @@ export type MarketplaceServiceProvidersRobotAccountProjectsListData = {
          * Number of results to return per page.
          */
         page_size?: number;
+        project_name?: string;
     };
     url: '/api/marketplace-service-providers/{uuid}/robot_account_projects/';
 };
@@ -27686,29 +27670,12 @@ export type ProjectsListUsersListData = {
         customer_name?: string;
         customer_native_name?: string;
         description?: string;
+        field?: Array<'created' | 'created_by_full_name' | 'created_by_uuid' | 'expiration_time' | 'role_name' | 'role_uuid' | 'user_email' | 'user_full_name' | 'user_image' | 'user_username' | 'user_uuid' | 'uuid'>;
+        full_name?: string;
         name?: string;
         name_exact?: string;
-        /**
-         * Ordering
-         *
-         * * `name` - Name
-         * * `-name` - Name (descending)
-         * * `created` - Created
-         * * `-created` - Created (descending)
-         * * `customer_name` - Customer name
-         * * `-customer_name` - Customer name (descending)
-         * * `customer_native_name` - Customer native name
-         * * `-customer_native_name` - Customer native name (descending)
-         * * `customer_abbreviation` - Customer abbreviation
-         * * `-customer_abbreviation` - Customer abbreviation (descending)
-         * * `estimated_cost` - Estimated cost
-         * * `-estimated_cost` - Estimated cost (descending)
-         * * `end_date` - End date
-         * * `-end_date` - End date (descending)
-         * * `start_date` - Start date
-         * * `-start_date` - Start date (descending)
-         */
-        o?: Array<'-created' | '-customer_abbreviation' | '-customer_name' | '-customer_native_name' | '-end_date' | '-estimated_cost' | '-name' | '-start_date' | 'created' | 'customer_abbreviation' | 'customer_name' | 'customer_native_name' | 'end_date' | 'estimated_cost' | 'name' | 'start_date'>;
+        native_name?: string;
+        o?: Array<'created' | 'email' | 'expiration_time' | 'full_name' | 'native_name' | 'role' | 'username'>;
         /**
          * A page number within the paginated result set.
          */
@@ -27721,6 +27688,9 @@ export type ProjectsListUsersListData = {
         role?: string;
         search_string?: string;
         user?: string;
+        user_slug?: string;
+        user_url?: string;
+        username?: string;
     };
     url: '/api/projects/{uuid}/list_users/';
 };
@@ -28258,22 +28228,11 @@ export type ProposalProposalsListUsersListData = {
     };
     query?: {
         call_uuid?: string;
+        field?: Array<'created' | 'created_by_full_name' | 'created_by_uuid' | 'expiration_time' | 'role_name' | 'role_uuid' | 'user_email' | 'user_full_name' | 'user_image' | 'user_username' | 'user_uuid' | 'uuid'>;
+        full_name?: string;
         name?: string;
-        /**
-         * Ordering
-         *
-         * * `round__call__name` - Round  call  name
-         * * `-round__call__name` - Round  call  name (descending)
-         * * `round__start_time` - Round  start time
-         * * `-round__start_time` - Round  start time (descending)
-         * * `round__cutoff_time` - Round  cutoff time
-         * * `-round__cutoff_time` - Round  cutoff time (descending)
-         * * `state` - State
-         * * `-state` - State (descending)
-         * * `created` - Created
-         * * `-created` - Created (descending)
-         */
-        o?: Array<'-created' | '-round__call__name' | '-round__cutoff_time' | '-round__start_time' | '-state' | 'created' | 'round__call__name' | 'round__cutoff_time' | 'round__start_time' | 'state'>;
+        native_name?: string;
+        o?: Array<'created' | 'email' | 'expiration_time' | 'full_name' | 'native_name' | 'role' | 'username'>;
         organization_uuid?: string;
         /**
          * A page number within the paginated result set.
@@ -28297,6 +28256,9 @@ export type ProposalProposalsListUsersListData = {
          */
         state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted'>;
         user?: string;
+        user_slug?: string;
+        user_url?: string;
+        username?: string;
     };
     url: '/api/proposal-proposals/{uuid}/list_users/';
 };
@@ -28511,6 +28473,7 @@ export type ProposalProtectedCallsListData = {
         customer?: string;
         customer_keyword?: string;
         customer_uuid?: string;
+        field?: Array<'backend_id' | 'created' | 'created_by' | 'customer_name' | 'customer_uuid' | 'default_project_role' | 'default_project_role_description' | 'default_project_role_name' | 'description' | 'documents' | 'end_date' | 'external_url' | 'manager' | 'name' | 'offerings' | 'reference_code' | 'rounds' | 'start_date' | 'state' | 'url' | 'uuid'>;
         has_active_round?: boolean;
         name?: string;
         /**
@@ -28586,7 +28549,9 @@ export type ProposalProtectedCallsRetrieveData = {
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        field?: Array<'backend_id' | 'created' | 'created_by' | 'customer_name' | 'customer_uuid' | 'default_project_role' | 'default_project_role_description' | 'default_project_role_name' | 'description' | 'documents' | 'end_date' | 'external_url' | 'manager' | 'name' | 'offerings' | 'reference_code' | 'rounds' | 'start_date' | 'state' | 'url' | 'uuid'>;
+    };
     url: '/api/proposal-protected-calls/{uuid}/';
 };
 
@@ -28728,19 +28693,12 @@ export type ProposalProtectedCallsListUsersListData = {
         customer?: string;
         customer_keyword?: string;
         customer_uuid?: string;
+        field?: Array<'created' | 'created_by_full_name' | 'created_by_uuid' | 'expiration_time' | 'role_name' | 'role_uuid' | 'user_email' | 'user_full_name' | 'user_image' | 'user_username' | 'user_uuid' | 'uuid'>;
+        full_name?: string;
         has_active_round?: boolean;
         name?: string;
-        /**
-         * Ordering
-         *
-         * * `manager__customer__name` - Manager  customer  name
-         * * `-manager__customer__name` - Manager  customer  name (descending)
-         * * `created` - Created
-         * * `-created` - Created (descending)
-         * * `name` - Name
-         * * `-name` - Name (descending)
-         */
-        o?: Array<'-created' | '-manager__customer__name' | '-name' | 'created' | 'manager__customer__name' | 'name'>;
+        native_name?: string;
+        o?: Array<'created' | 'email' | 'expiration_time' | 'full_name' | 'native_name' | 'role' | 'username'>;
         offering_uuid?: string;
         offerings_provider_uuid?: string;
         /**
@@ -28760,6 +28718,9 @@ export type ProposalProtectedCallsListUsersListData = {
          */
         state?: Array<'active' | 'archived' | 'draft'>;
         user?: string;
+        user_slug?: string;
+        user_url?: string;
+        username?: string;
     };
     url: '/api/proposal-protected-calls/{uuid}/list_users/';
 };
@@ -29069,6 +29030,7 @@ export type ProposalPublicCallsListData = {
         customer?: string;
         customer_keyword?: string;
         customer_uuid?: string;
+        field?: Array<'backend_id' | 'created' | 'customer_name' | 'customer_uuid' | 'description' | 'documents' | 'end_date' | 'external_url' | 'manager' | 'name' | 'offerings' | 'rounds' | 'start_date' | 'state' | 'url' | 'uuid'>;
         has_active_round?: boolean;
         name?: string;
         /**
@@ -29113,7 +29075,9 @@ export type ProposalPublicCallsRetrieveData = {
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        field?: Array<'backend_id' | 'created' | 'customer_name' | 'customer_uuid' | 'description' | 'documents' | 'end_date' | 'external_url' | 'manager' | 'name' | 'offerings' | 'rounds' | 'start_date' | 'state' | 'url' | 'uuid'>;
+    };
     url: '/api/proposal-public-calls/{uuid}/';
 };
 
@@ -31830,6 +31794,7 @@ export type RolesListData = {
     path?: never;
     query?: {
         description?: string;
+        field?: Array<'content_type' | 'description' | 'description_ar' | 'description_cs' | 'description_da' | 'description_de' | 'description_en' | 'description_es' | 'description_et' | 'description_fr' | 'description_it' | 'description_lt' | 'description_lv' | 'description_nb' | 'description_ru' | 'description_sv' | 'is_active' | 'is_system_role' | 'name' | 'permissions' | 'uuid'>;
         is_active?: boolean;
         name?: string;
         /**
@@ -31886,7 +31851,9 @@ export type RolesRetrieveData = {
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        field?: Array<'content_type' | 'description' | 'description_ar' | 'description_cs' | 'description_da' | 'description_de' | 'description_en' | 'description_es' | 'description_et' | 'description_fr' | 'description_it' | 'description_lt' | 'description_lv' | 'description_nb' | 'description_ru' | 'description_sv' | 'is_active' | 'is_system_role' | 'name' | 'permissions' | 'uuid'>;
+    };
     url: '/api/roles/{uuid}/';
 };
 
@@ -33524,7 +33491,7 @@ export type UserGroupInvitationsRetrieveResponses = {
 export type UserGroupInvitationsRetrieveResponse = UserGroupInvitationsRetrieveResponses[keyof UserGroupInvitationsRetrieveResponses];
 
 export type UserGroupInvitationsCancelData = {
-    body: GroupInvitationRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -33533,10 +33500,11 @@ export type UserGroupInvitationsCancelData = {
 };
 
 export type UserGroupInvitationsCancelResponses = {
-    200: GroupInvitation;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type UserGroupInvitationsCancelResponse = UserGroupInvitationsCancelResponses[keyof UserGroupInvitationsCancelResponses];
 
 export type UserGroupInvitationsProjectsRetrieveData = {
     body?: never;
@@ -33988,6 +33956,7 @@ export type UsersListData = {
     path?: never;
     query?: {
         civil_number?: string;
+        customer_uuid?: string;
         description?: string;
         email?: string;
         field?: Array<'affiliations' | 'agree_with_policy' | 'agreement_date' | 'civil_number' | 'date_joined' | 'description' | 'email' | 'first_name' | 'full_name' | 'identity_provider_fields' | 'identity_provider_label' | 'identity_provider_management_url' | 'identity_provider_name' | 'identity_source' | 'image' | 'is_active' | 'is_staff' | 'is_support' | 'job_title' | 'last_name' | 'native_name' | 'organization' | 'permissions' | 'phone_number' | 'preferred_language' | 'registration_method' | 'requested_email' | 'slug' | 'token' | 'token_lifetime' | 'url' | 'username' | 'uuid'>;
@@ -34047,6 +34016,7 @@ export type UsersListData = {
          * Project roles
          */
         project_roles?: string;
+        project_uuid?: string;
         query?: string;
         registration_method?: string;
         /**
@@ -34288,7 +34258,7 @@ export type VersionRetrieveData = {
 };
 
 export type VersionRetrieveResponses = {
-    200: {};
+    200: Version;
 };
 
 export type VersionRetrieveResponse = VersionRetrieveResponses[keyof VersionRetrieveResponses];
@@ -35194,6 +35164,38 @@ export type VmwareVirtualMachineWebConsoleRetrieveResponses = {
 };
 
 export type VmwareVirtualMachineWebConsoleRetrieveResponse = VmwareVirtualMachineWebConsoleRetrieveResponses[keyof VmwareVirtualMachineWebConsoleRetrieveResponses];
+
+export type DailyQuotasRetrieveData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * End date in format YYYY-MM-DD
+         */
+        end?: string;
+        /**
+         * List of quota names
+         */
+        quota_names?: Array<string>;
+        /**
+         * UUID of the scope object
+         */
+        scope?: string;
+        /**
+         * Start date in format YYYY-MM-DD
+         */
+        start?: string;
+    };
+    url: '/daily-quotas/';
+};
+
+export type DailyQuotasRetrieveResponses = {
+    200: {
+        [key: string]: Array<number>;
+    };
+};
+
+export type DailyQuotasRetrieveResponse = DailyQuotasRetrieveResponses[keyof DailyQuotasRetrieveResponses];
 
 export type ClientOptions = {
     baseUrl: `${string}://waldur-openapi-schema.yaml` | (string & {});
