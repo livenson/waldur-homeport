@@ -49,7 +49,10 @@ export const ProjectDashboard: FunctionComponent<{}> = () => {
     error: aggregateLimitError,
   } = useQuery(
     ['project-stats', project?.uuid],
-    () => projectsStatsRetrieve({ path: { uuid: project?.uuid } }),
+    () =>
+      projectsStatsRetrieve({ path: { uuid: project?.uuid } }).then(
+        (r) => r.data,
+      ),
     { refetchOnWindowFocus: false, staleTime: 60 * 1000 },
   );
 
@@ -75,7 +78,7 @@ export const ProjectDashboard: FunctionComponent<{}> = () => {
   );
 
   const shouldShowAggregateLimitWidget =
-    aggregateLimitData?.data.components?.length > 0;
+    aggregateLimitData?.components?.length > 0;
 
   if (!project || !user) {
     return null;
@@ -109,7 +112,7 @@ export const ProjectDashboard: FunctionComponent<{}> = () => {
           <Col md={6} sm={12} className="mb-5" style={COMMON_WIDGET_HEIGHT}>
             <AggregateLimitWidget
               project={project}
-              data={aggregateLimitData?.data}
+              data={aggregateLimitData}
               isLoading={isAggregateLimitLoading}
               error={aggregateLimitError}
             />
