@@ -1,7 +1,7 @@
 import Axios, { AxiosRequestConfig } from 'axios';
 
 import { ENV } from '@waldur/configs/default';
-import { get, getAll, parseResultCount, put, sendForm } from '@waldur/core/api';
+import { getAll, parseResultCount, put, sendForm } from '@waldur/core/api';
 
 import { OIDCConfig } from './types';
 
@@ -34,11 +34,6 @@ export const getProviderOfferingsCount = (configs?: AxiosRequestConfig<any>) =>
 export const getResourcesCount = (configs?: AxiosRequestConfig<any>) =>
   Axios.head(`${ENV.apiEndpoint}api/marketplace-resources/`, configs).then(
     (response) => parseResultCount(response),
-  );
-
-export const getVersion = () =>
-  get<{ version: string | number }>('/version/').then(
-    (response) => response.data,
   );
 
 export const getIdentityProviders = () =>

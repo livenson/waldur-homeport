@@ -1,4 +1,9 @@
-import { getAll, getSelectData, post } from '@waldur/core/api';
+import {
+  customersUsersList,
+  CustomersUsersListData,
+  projectsListUsersList,
+} from '@waldur/api';
+import { getAll, parseSelectData, post } from '@waldur/core/api';
 
 import { GenericPermission } from './types';
 
@@ -92,17 +97,26 @@ export const updateOfferingPermission = ({
     expiration_time,
   });
 
-export const fetchSelectCustomerUsers = (customerUuid: string, params = {}) =>
-  getSelectData<GenericPermission>(`/customers/${customerUuid}/users/`, {
-    field: ['user_uuid', 'user_full_name', 'user_email', 'role_name'],
-    ...params,
-  });
+export const getCustomerUsers = (
+  customerUuid: string,
+  params: CustomersUsersListData['query'] = {},
+) =>
+  customersUsersList({
+    path: { uuid: customerUuid },
+    query: {
+      field: ['uuid', 'full_name', 'email', 'role_name'],
+      ...params,
+    },
+  }).then(parseSelectData);
 
 export const fetchSelectProjectUsers = (projectUuid: string, params = {}) =>
-  getSelectData<GenericPermission>(`/projects/${projectUuid}/list_users/`, {
-    field: ['user_uuid', 'user_full_name', 'user_email', 'role_name'],
-    ...params,
-  });
+  projectsListUsersList({
+    path: { uuid: projectUuid },
+    query: {
+      field: ['user_uuid', 'user_full_name', 'user_email', 'role_name'],
+      ...params,
+    },
+  }).then(parseSelectData);
 
 export const fetchAllProjectUsers = (projectId: string) =>
   getAll<GenericPermission>(`/projects/${projectId}/list_users/`, {

@@ -1,7 +1,19 @@
 import { useAsync } from 'react-use';
 
+import {
+  keysRetrieve,
+  OpenStackFlavor,
+  openstackFlavorsRetrieve,
+  OpenStackImage,
+  openstackImagesRetrieve,
+  OpenStackInstanceAvailabilityZone,
+  openstackInstanceAvailabilityZonesRetrieve,
+  OpenStackVolumeType,
+  openstackVolumeTypesRetrieve,
+} from '@waldur/api';
 import { get } from '@waldur/core/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
+import { getUUID } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';
 import { OrderDetailsProps } from '@waldur/marketplace/types';
 import { FloatingIp } from '@waldur/openstack/openstack-instance/types';
@@ -11,7 +23,7 @@ import {
   getDefaultFloatingIps,
 } from '@waldur/openstack/openstack-instance/utils';
 import { Field } from '@waldur/resource/summary';
-import { formatFlavor, getData } from '@waldur/resource/utils';
+import { formatFlavor } from '@waldur/resource/utils';
 
 export const OpenstackInstanceDetails = (props: OrderDetailsProps) => {
   const {
@@ -21,31 +33,43 @@ export const OpenstackInstanceDetails = (props: OrderDetailsProps) => {
   if (!attributes) return null;
 
   const loadData = async (attributes) => {
-    let availabilityZone,
-      dataVolumeType,
-      flavor,
-      image,
+    let availabilityZone: OpenStackInstanceAvailabilityZone,
+      dataVolumeType: OpenStackVolumeType,
+      flavor: OpenStackFlavor,
+      image: OpenStackImage,
       publicKey,
-      systemVolumeType,
+      systemVolumeType: OpenStackVolumeType,
       networks,
       securityGroups;
     if (attributes.availability_zone) {
-      availabilityZone = await getData(attributes.availability_zone);
+      availabilityZone = await openstackInstanceAvailabilityZonesRetrieve({
+        path: { uuid: getUUID(attributes.availability_zone) },
+      }).then((r) => r.data);
     }
     if (attributes.data_volume_type) {
-      dataVolumeType = await getData(attributes.data_volume_type);
+      dataVolumeType = await openstackVolumeTypesRetrieve({
+        path: { uuid: getUUID(attributes.data_volume_type) },
+      }).then((r) => r.data);
     }
     if (attributes.flavor) {
-      flavor = await getData(attributes.flavor);
+      flavor = await openstackFlavorsRetrieve({
+        path: { uuid: getUUID(attributes.flavor) },
+      }).then((r) => r.data);
     }
     if (attributes.image) {
-      image = await getData(attributes.image);
+      image = await openstackImagesRetrieve({
+        path: { uuid: getUUID(attributes.image) },
+      }).then((r) => r.data);
     }
     if (attributes.ssh_public_key) {
-      publicKey = await getData(attributes.ssh_public_key);
+      publicKey = await keysRetrieve({
+        path: { uuid: getUUID(attributes.ssh_public_key) },
+      }).then((r) => r.data);
     }
     if (attributes.system_volume_type) {
-      systemVolumeType = await getData(attributes.system_volume_type);
+      systemVolumeType = await openstackVolumeTypesRetrieve({
+        path: { uuid: getUUID(attributes.system_volume_type) },
+      }).then((r) => r.data);
     }
     if (attributes.ports) {
       try {

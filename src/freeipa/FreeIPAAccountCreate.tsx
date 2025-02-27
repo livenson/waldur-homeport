@@ -4,6 +4,7 @@ import { FormGroup } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { reduxForm, change } from 'redux-form';
 
+import { freeipaProfilesCreate } from '@waldur/api';
 import { SubmitButton } from '@waldur/auth/SubmitButton';
 import { FormContainer } from '@waldur/form';
 import { translate } from '@waldur/i18n';
@@ -14,7 +15,6 @@ import {
 } from '@waldur/store/notify';
 import { getUser } from '@waldur/workspace/selectors';
 
-import { createProfile } from './api';
 import { UsernameGroup } from './UsernameGroup';
 
 const FORM_ID = 'FreeIPAAccountCreate';
@@ -51,7 +51,7 @@ export const FreeIPAAccountCreate = reduxForm<
   const callback = useCallback(
     async (formData) => {
       try {
-        await createProfile(formData.username);
+        await freeipaProfilesCreate({ body: { username: formData.username } });
         dispatch(showSuccess(translate('A profile has been created.')));
         onProfileAdded();
       } catch (response) {

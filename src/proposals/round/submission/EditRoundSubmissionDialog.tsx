@@ -2,24 +2,25 @@ import { DateTime } from 'luxon';
 import { FC, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { ProtectedRound, ProtectedRoundRequest } from '@waldur/api';
 import { parseDate } from '@waldur/core/dateUtils';
 import { WizardFormContainer } from '@waldur/form/WizardFormContainer';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { updateCallRound } from '@waldur/proposals/api';
-import { RoundFormData, Call, Round } from '@waldur/proposals/types';
+import { Call } from '@waldur/proposals/types';
 import { WizardFormFirstPage } from '@waldur/proposals/update/rounds/WizardFormFirstPage';
 import { getRoundInitialValues } from '@waldur/proposals/utils';
 
 interface EditRoundSubmissionDialogProps {
   resolve: {
-    round: Round;
+    round: ProtectedRound;
     call: Call;
     refetch(): void;
   };
 }
 
-const validate = (values: RoundFormData) => {
+const validate = (values: ProtectedRoundRequest) => {
   const errors: any = {};
   if (parseDate(values.start_time) > parseDate(values.cutoff_time)) {
     errors.cutoff_time = translate('Cutoff date must be after start date');
@@ -32,7 +33,7 @@ export const EditRoundSubmissionDialog: FC<EditRoundSubmissionDialogProps> = (
 ) => {
   const dispatch = useDispatch();
   const submit = useCallback(
-    (formData: RoundFormData, _dispatch, formProps) => {
+    (formData: ProtectedRoundRequest, _dispatch, formProps) => {
       const updatedRound = {
         ...getRoundInitialValues(props.resolve.round),
         ...formData,

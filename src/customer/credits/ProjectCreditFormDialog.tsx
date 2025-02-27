@@ -4,6 +4,7 @@ import { Accordion, Form } from 'react-bootstrap';
 import { useSelector, connect } from 'react-redux';
 import { formValueSelector, reduxForm } from 'redux-form';
 
+import { customerCreditsList } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { EChart } from '@waldur/core/EChart';
 import { LoadingErred } from '@waldur/core/LoadingErred';
@@ -23,7 +24,6 @@ import { getCustomer } from '@waldur/workspace/selectors';
 
 import { OrganizationProjectSelectField } from '../team/OrganizationProjectSelectField';
 
-import { getCustomerCredit } from './api';
 import { useMinimalConsumptionFields } from './constants';
 import { ProjectCreditFormData } from './types';
 
@@ -50,7 +50,10 @@ export const ProjectCreditFormDialog = connect(
       refetch,
     } = useQuery(
       ['organizationCredits', customer?.uuid],
-      () => getCustomerCredit(customer?.uuid),
+      () =>
+        customerCreditsList({
+          query: { customer_uuid: customer?.uuid },
+        }).then((r) => r.data[0]),
       { staleTime: 60 * 1000 },
     );
 

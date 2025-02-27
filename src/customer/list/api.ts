@@ -1,12 +1,7 @@
+import { organizationGroupsList } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
-import { get, sendForm } from '@waldur/core/api';
+import { parseSelectData, sendForm } from '@waldur/core/api';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
-import { getOrganizationGroupList } from '@waldur/marketplace/common/api';
-
-export const getInvoice = (invoiceUrl, date) =>
-  get('/invoices/', {
-    params: { customer: invoiceUrl, year: date.year, month: date.month },
-  }).then((response) => response.data[0]);
 
 export const updateOrganization = (formData) => {
   const data = { ...formData };
@@ -28,12 +23,17 @@ export const organizationGroupAutocomplete = async (
   prevOptions,
   { page },
 ) => {
-  const params = {
-    name: query,
-    page: page,
-    page_size: ENV.pageSize,
-    o: 'name',
-  };
-  const response = await getOrganizationGroupList(params);
-  return returnReactSelectAsyncPaginateObject(response, prevOptions, page);
+  const response = await organizationGroupsList({
+    query: {
+      name: query,
+      page: page,
+      page_size: ENV.pageSize,
+      o: 'name',
+    },
+  });
+  return returnReactSelectAsyncPaginateObject(
+    parseSelectData(response),
+    prevOptions,
+    page,
+  );
 };

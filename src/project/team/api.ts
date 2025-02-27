@@ -1,28 +1,27 @@
 import Axios from 'axios';
 
+import { customersUsersList, CustomersUsersListData } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
-import { fixURL, getSelectData, parseResultCount } from '@waldur/core/api';
+import { fixURL, parseResultCount, parseSelectData } from '@waldur/core/api';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
-import { User } from '@waldur/workspace/types';
 
 export const customerUsersAutocomplete = async (
   customerUuid: string,
-  query: object,
+  query: CustomersUsersListData['query'],
   prevOptions,
   currentPage: number,
 ) => {
-  const params = {
-    o: 'concatenated_name',
-    ...query,
-    page: currentPage,
-    page_size: ENV.pageSize,
-  };
-  const response = await getSelectData<User[]>(
-    `/customers/${customerUuid}/users/`,
-    params,
-  );
+  const response = await customersUsersList({
+    path: { uuid: customerUuid },
+    query: {
+      o: 'concatenated_name',
+      ...query,
+      page: currentPage,
+      page_size: ENV.pageSize,
+    },
+  });
   return returnReactSelectAsyncPaginateObject(
-    response,
+    parseSelectData(response),
     prevOptions,
     currentPage,
   );

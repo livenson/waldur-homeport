@@ -11,8 +11,8 @@ import { DateField } from '@waldur/form/DateField';
 import { WizardStepIndicator } from '@waldur/form/WizardStepIndicator';
 import { translate } from '@waldur/i18n';
 import {
-  offeringsAutocomplete,
   organizationAutocomplete,
+  providerOfferingsAutocomplete,
 } from '@waldur/marketplace/common/autocompletes';
 import { RootState } from '@waldur/store/reducers';
 
@@ -117,7 +117,7 @@ export const BroadcastForm = ({
                       label={translate('Offerings')}
                       placeholder={translate('Select offerings...')}
                       loadOptions={(query, prevOptions, page) =>
-                        offeringsAutocomplete(
+                        providerOfferingsAutocomplete(
                           { name: query, shared: true },
                           prevOptions,
                           page,

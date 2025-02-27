@@ -3,15 +3,15 @@ import { Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 
-import { marketplaceResourceUsersCreate } from '@waldur/api';
+import { marketplaceResourceUsersCreate, usersList } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
+import { parseSelectData } from '@waldur/core/api';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
 import { required } from '@waldur/core/validators';
 import { SubmitButton } from '@waldur/form';
 import { AsyncSelectField } from '@waldur/form/AsyncSelectField';
 import { Select } from '@waldur/form/themed-select';
 import { translate } from '@waldur/i18n';
-import { getUsers } from '@waldur/marketplace/common/api';
 import { FormGroup } from '@waldur/marketplace/offerings/FormGroup';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
@@ -49,15 +49,21 @@ export const AddUserDialog = reduxForm<
 
   const loadUsers = useCallback(
     (query, prevOptions, page) =>
-      getUsers({
-        full_name: query,
-        project_uuid: props.resolve.resource.project_uuid,
-        field: ['full_name', 'email', 'url', 'uuid'],
-        o: 'full_name',
-        page,
-        page_size: ENV.pageSize,
+      usersList({
+        query: {
+          full_name: query,
+          project_uuid: props.resolve.resource.project_uuid,
+          field: ['full_name', 'email', 'url', 'uuid'],
+          o: ['full_name'],
+          page,
+          page_size: ENV.pageSize,
+        },
       }).then((response) =>
-        returnReactSelectAsyncPaginateObject(response, prevOptions, page),
+        returnReactSelectAsyncPaginateObject(
+          parseSelectData(response),
+          prevOptions,
+          page,
+        ),
       ),
     [props.resolve.resource],
   );

@@ -1,6 +1,6 @@
-import { invoiceItemsCostsList } from '@waldur/api';
+import { customersRetrieve, invoiceItemsCostsList } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
-import { get, getById, sendForm } from '@waldur/core/api';
+import { get, sendForm } from '@waldur/core/api';
 import { formatDate } from '@waldur/core/dateUtils';
 import { Customer } from '@waldur/workspace/types';
 
@@ -17,7 +17,9 @@ export interface ProjectInput {
 }
 
 export const getCustomer = (customerId: string) =>
-  getById<Customer>('/customers/', customerId);
+  customersRetrieve({ path: { uuid: customerId } }).then(
+    (r) => r.data as any as Customer,
+  );
 
 export const createProject = (project: ProjectInput) => {
   const data = {

@@ -2,20 +2,20 @@ import { XCircle } from '@phosphor-icons/react';
 import { FunctionComponent } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { GroupInvitation, userGroupInvitationsCancel } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import { cancelGroupInvitation } from '@waldur/invitations/api';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
 interface GroupInvitationCancelButtonProps {
-  permissionRequest: any;
+  invitation: GroupInvitation;
   refetch;
 }
 
 export const GroupInvitationCancelButton: FunctionComponent<
   GroupInvitationCancelButtonProps
-> = ({ permissionRequest, refetch }) => {
+> = ({ invitation: permissionRequest, refetch }) => {
   const dispatch = useDispatch();
   const callback = async () => {
     try {
@@ -39,7 +39,9 @@ export const GroupInvitationCancelButton: FunctionComponent<
       return;
     }
     try {
-      await cancelGroupInvitation(permissionRequest.uuid);
+      await userGroupInvitationsCancel({
+        path: { uuid: permissionRequest.uuid },
+      });
       refetch();
       dispatch(showSuccess(translate('Group invitation has been cancelled.')));
     } catch (e) {

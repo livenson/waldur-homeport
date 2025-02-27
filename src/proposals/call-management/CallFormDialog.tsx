@@ -4,6 +4,7 @@ import React, { useEffect } from 'react';
 import { connect, useSelector } from 'react-redux';
 import { SubmissionError, reduxForm } from 'redux-form';
 
+import { callManagingOrganisationsList } from '@waldur/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { required } from '@waldur/core/validators';
@@ -19,7 +20,7 @@ import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { getCustomer } from '@waldur/workspace/selectors';
 
-import { createCall, getCallManagingOrganization, updateCall } from '../api';
+import { createCall, updateCall } from '../api';
 
 interface FormData {
   name: string;
@@ -43,7 +44,10 @@ export const CallFormDialog = connect<{}, {}, { resolve: { call?; refetch } }>(
       refetch,
     } = useQuery(
       ['CallManagingOrganizations', customer.uuid],
-      () => getCallManagingOrganization(customer.uuid),
+      () =>
+        callManagingOrganisationsList({
+          query: { customer_uuid: customer.uuid },
+        }).then((response) => response.data[0]),
       {
         staleTime: 60 * 1000,
       },

@@ -2,8 +2,9 @@ import { FunctionComponent } from 'react';
 import { Card, Form } from 'react-bootstrap';
 import { Field, reduxForm, formValueSelector } from 'redux-form';
 
+import { serviceSettingsList } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
-import { getSelectData } from '@waldur/core/api';
+import { parseSelectData } from '@waldur/core/api';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
 import { AsyncPaginate } from '@waldur/form/themed-select';
 import { translate } from '@waldur/i18n';
@@ -14,18 +15,19 @@ const providerAutocomplete = async (
   prevOptions,
   currentPage: number,
 ) => {
-  const params = {
-    name: query,
-    type: 'OpenStack',
-    shared: true,
-    field: ['name', 'uuid'],
-    o: 'name',
-    page: currentPage,
-    page_size: ENV.pageSize,
-  };
-  const response = await getSelectData('/service-settings/', params);
+  const response = await serviceSettingsList({
+    query: {
+      name: query,
+      type: 'OpenStack',
+      shared: true,
+      field: ['name', 'uuid'],
+      o: 'name',
+      page: currentPage,
+      page_size: ENV.pageSize,
+    },
+  });
   return returnReactSelectAsyncPaginateObject(
-    response,
+    parseSelectData(response),
     prevOptions,
     currentPage,
   );

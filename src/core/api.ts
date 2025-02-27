@@ -1,3 +1,4 @@
+import { RequestResult } from '@hey-api/client-fetch';
 import Axios, {
   AxiosPromise,
   AxiosRequestConfig,
@@ -20,29 +21,13 @@ export function get<T = {}>(
   return Axios.get(fixURL(endpoint), options);
 }
 
-export function getSelectData<T = {}>(endpoint: string, params?: {}) {
-  const options = params ? { params } : undefined;
-  return get<T>(endpoint, options).then((response) => ({
-    options: Array.isArray(response.data) ? (response.data as T[]) : [],
-    totalItems: parseResultCount(response),
-  }));
-}
-
-export async function getFirst<T = {}>(
-  endpoint,
-  params?,
-  options?: AxiosRequestConfig,
+export function parseSelectData<TData = {}>(
+  result: Awaited<RequestResult<TData>>,
 ) {
-  const response = await get<T>(endpoint, { ...options, params });
-  return (response.data[0] as T) ?? null;
-}
-
-export function getById<T = {}>(
-  endpoint: string,
-  id: string,
-  options?: AxiosRequestConfig,
-): Promise<T> {
-  return get<T>(`${endpoint}${id}/`, options).then((response) => response.data);
+  return {
+    options: Array.isArray(result.data) ? (result.data as TData) : [],
+    totalItems: parseInt(result.response.headers['x-result-count'], 10),
+  };
 }
 
 export function post<T = {}>(
@@ -51,10 +36,6 @@ export function post<T = {}>(
   options?: AxiosRequestConfig,
 ): AxiosPromise<T> {
   return Axios.post(fixURL(endpoint), data, options);
-}
-
-export function patch<T = {}>(endpoint: string, data?: any): AxiosPromise<T> {
-  return Axios.patch(fixURL(endpoint), data);
 }
 
 export function put<T = {}>(endpoint: string, data?: any): AxiosPromise<T> {

@@ -18,7 +18,7 @@ import {
 import { AsyncSelectField } from '@waldur/form/AsyncSelectField';
 import { translate } from '@waldur/i18n';
 import {
-  offeringsAutocomplete,
+  providerOfferingsAutocomplete,
   organizationAutocomplete,
 } from '@waldur/marketplace/common/autocompletes';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
@@ -129,7 +129,7 @@ export const CreditFormDialog = reduxForm<
             label={translate('Offering(s)')}
             placeholder={translate('All')}
             loadOptions={(query, prevOptions, { page }) =>
-              offeringsAutocomplete(
+              providerOfferingsAutocomplete(
                 { name: query, billable: true },
                 prevOptions,
                 page,

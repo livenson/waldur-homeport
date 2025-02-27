@@ -5,8 +5,6 @@ import { ENV } from '@waldur/configs/default';
 import {
   get,
   getAll,
-  getFirst,
-  getSelectData,
   parseResultCount,
   post,
   put,
@@ -19,7 +17,6 @@ import {
   OfferingPermission,
   ServiceProvider,
 } from '@waldur/marketplace/types';
-import { Customer, Project } from '@waldur/workspace/types';
 
 import { PlanUsageRow } from '../../reporting/plan-usage/types';
 import {
@@ -33,9 +30,6 @@ export const getCategoryGroups = (options?: AxiosRequestConfig) =>
 
 export const getCategories = (options?: AxiosRequestConfig) =>
   getAll<Category>('/marketplace-categories/', options);
-
-export const getCategoryOptions = (options?: {}) =>
-  getSelectData<Category>('/marketplace-categories/', options);
 
 export const getComponentUsages = (
   resource_uuid: string,
@@ -54,12 +48,6 @@ export const getComponentUserUsages = (
   getAll<ComponentUserUsage>('/marketplace-component-user-usages/', {
     params: { resource_uuid, date_after, ...params },
   });
-
-export const getProviderOfferingsOptions = (params?: {}) =>
-  getSelectData<Offering>('/marketplace-provider-offerings/', params);
-
-export const getPublicOfferingsOptions = (params?: {}) =>
-  getSelectData<Offering>('/marketplace-public-offerings/', params);
 
 const getAllProviderOfferings = (options?: {}) =>
   getAll<Offering>('/marketplace-provider-offerings/', options);
@@ -88,17 +76,6 @@ export const getSubResourcesOfferings = (resourceId: string) =>
     `/marketplace-resources/${resourceId}/offering_for_subresources/`,
   );
 
-export const createOrder = (payload) => post(`/marketplace-orders/`, payload);
-
-export const getCustomerList = (params?: {}) =>
-  getSelectData<Customer>('/customers/', params);
-
-export const getProjectList = (params?: {}) =>
-  getSelectData<Project>('/projects/', params);
-
-export const getOrganizationGroupList = (params?: {}) =>
-  getSelectData('/organization-groups/', params);
-
 export const getAllOrganizationGroups = (options?) =>
   getAll<OrganizationGroup>('/organization-groups/', options);
 
@@ -122,11 +99,6 @@ export const uploadOfferingImage = (formData, offering) => {
   );
 };
 
-export const getServiceProviderList = (params?: {}) =>
-  getSelectData<ServiceProvider>('/marketplace-service-providers/', params);
-
-export const getUsers = (params?: {}) => getSelectData('/users/', params);
-
 export const getRuntimeStates = (projectUuid?, categoryUuid?) => {
   let url = '/marketplace-runtime-states/';
 
@@ -139,8 +111,13 @@ export const getRuntimeStates = (projectUuid?, categoryUuid?) => {
   }).then((response) => response.data);
 };
 
-export const getServiceProviderByCustomer = (params, options?) =>
-  getFirst<ServiceProvider>('/marketplace-service-providers/', params, options);
+export const getServiceProviderByCustomer = async (params, options?) => {
+  const response = await get<ServiceProvider>(
+    '/marketplace-service-providers/',
+    { ...options, params },
+  );
+  return (response.data[0] as ServiceProvider) ?? null;
+};
 
 export const getServiceProviderSecretCode = (id) =>
   get<{ api_secret_code: string }>(

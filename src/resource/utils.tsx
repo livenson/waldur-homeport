@@ -1,4 +1,3 @@
-import { get } from '@waldur/core/api';
 import { detectOS, formatFilesize } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';
 import {
@@ -74,11 +73,3 @@ export const formatSummary = (resource) => {
 };
 
 export const formatDefault = (value) => value || <>&mdash;</>;
-
-export const getData = async (url) => {
-  try {
-    return await get(url).then((response) => response.data);
-  } catch {
-    return null;
-  }
-};

@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
 
+import { GroupInvitation } from '@waldur/api';
 import { Badge } from '@waldur/core/Badge';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { CustomerPermissionsLogButton } from '@waldur/customer/team/CustomerPermissionsLogButton';
@@ -41,7 +42,7 @@ export const GroupInvitationsList: FunctionComponent<{}> = () => {
   const tableTabs = useTeamTableTabs();
 
   return (
-    <Table
+    <Table<GroupInvitation>
       {...props}
       filters={<GroupInvitationsFilter />}
       columns={[

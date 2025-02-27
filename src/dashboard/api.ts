@@ -1,27 +1,17 @@
 import { DateTime } from 'luxon';
 
-import { InvoiceCost } from '@waldur/api';
+import { dailyQuotasRetrieve, InvoiceCost } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
-import { get } from '@waldur/core/api';
 import { parseDate } from '@waldur/core/dateUtils';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { translate } from '@waldur/i18n';
 
 import { Chart, ChartData, Scope } from './types';
 
-interface DailyQuota {
-  [key: string]: number[];
-}
-
 export interface DateValuePair {
   date: DateTime | string;
   value: number;
 }
-
-const getDailyQuotas = (params) =>
-  get<DailyQuota>('/daily-quotas/', { params }).then(
-    (response) => response.data,
-  );
 
 const formatTeamSizeChart = (values: number[]): Chart => {
   const data: ChartData = values.map((value, index) => {
@@ -58,11 +48,13 @@ const formatTeamSizeChart = (values: number[]): Chart => {
 export async function getTeamSizeChart(scope: Scope): Promise<Chart> {
   const quota = 'nc_user_count';
   const start = DateTime.now().minus({ days: 30 }).toISODate();
-  const values = await getDailyQuotas({
-    scope: scope.url,
-    quota_names: [quota],
-    start,
-  });
+  const values = await dailyQuotasRetrieve({
+    query: {
+      scope: scope.url,
+      quota_names: [quota],
+      start,
+    },
+  }).then((response) => response.data);
   return formatTeamSizeChart(values[quota]);
 }
 

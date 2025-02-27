@@ -8,7 +8,7 @@ import { FormContainer } from '@waldur/form';
 import { AsyncSelectField } from '@waldur/form/AsyncSelectField';
 import { DateTimeField } from '@waldur/form/DateTimeField';
 import { translate } from '@waldur/i18n';
-import { offeringsAutocomplete } from '@waldur/marketplace/common/autocompletes';
+import { providerOfferingsAutocomplete } from '@waldur/marketplace/common/autocompletes';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { addOfferingPermission } from '@waldur/permissions/api';
@@ -67,7 +67,7 @@ export const OfferingPermissionCreateDialog = reduxForm<
             label={translate('Offering')}
             placeholder={translate('Select offering...')}
             loadOptions={(query, prevOptions, page) =>
-              offeringsAutocomplete(
+              providerOfferingsAutocomplete(
                 { name: query, shared: true, customer: customer.url },
                 prevOptions,
                 page,

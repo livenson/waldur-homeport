@@ -2,12 +2,11 @@ import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Field, change } from 'redux-form';
 
-import { getFirst } from '@waldur/core/api';
+import { projectsList } from '@waldur/api';
 import { required } from '@waldur/core/validators';
 import { AsyncPaginate } from '@waldur/form/themed-select';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
-import { Project } from '@waldur/workspace/types';
 
 import { organizationAutocomplete } from '../common/autocompletes';
 import { FormGroup } from '../offerings/FormGroup';
@@ -32,9 +31,11 @@ export const CustomerField: FC<{ organizationGroups }> = ({
             onChange={async (value) => {
               if (!customer) {
                 fieldProps.input.onChange(value);
-                const project = await getFirst<Project>('/projects/', {
-                  customer: value.uuid,
-                });
+                const project = await projectsList({
+                  query: {
+                    customer: value.uuid,
+                  },
+                }).then((r) => r.data[0]);
                 dispatch(change(ORDER_FORM_ID, 'project', project));
                 return;
               }
@@ -54,9 +55,11 @@ export const CustomerField: FC<{ organizationGroups }> = ({
                   },
                 );
                 fieldProps.input.onChange(value);
-                const project = await getFirst<Project>('/projects/', {
-                  customer: value.uuid,
-                });
+                const project = await projectsList({
+                  query: {
+                    customer: value.uuid,
+                  },
+                }).then((r) => r.data[0]);
                 dispatch(change(ORDER_FORM_ID, 'project', project));
               } catch {
                 // Swallow

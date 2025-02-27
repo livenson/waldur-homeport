@@ -1,6 +1,7 @@
 import { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
 
+import { GroupInvitation } from '@waldur/api';
 import { GroupInvitationCancelButton } from '@waldur/invitations/GroupInvitationCancelButton';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';
@@ -9,7 +10,7 @@ import { getCustomer, getUser } from '@waldur/workspace/selectors';
 
 interface GroupInvitationRowActionsProps {
   refetch;
-  row;
+  row: GroupInvitation;
 }
 
 export const GroupInvitationRowActions: FunctionComponent<
@@ -23,7 +24,7 @@ export const GroupInvitationRowActions: FunctionComponent<
   });
   return canCancel ? (
     <ActionsDropdownComponent>
-      <GroupInvitationCancelButton permissionRequest={row} refetch={refetch} />
+      <GroupInvitationCancelButton invitation={row} refetch={refetch} />
     </ActionsDropdownComponent>
   ) : null;
 };

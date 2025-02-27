@@ -1,18 +1,23 @@
+import { broadcastMessageTemplatesList } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
+import { parseSelectData } from '@waldur/core/api';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
-
-import { getTemplateList } from './api';
 
 export const templateAutocomplete = async (
   query: string,
   prevOptions,
   page,
 ) => {
-  const params = {
-    name: query,
-    page: page,
-    page_size: ENV.pageSize,
-  };
-  const response = await getTemplateList(params);
-  return returnReactSelectAsyncPaginateObject(response, prevOptions, page);
+  const response = await broadcastMessageTemplatesList({
+    query: {
+      name: query,
+      page: page,
+      page_size: ENV.pageSize,
+    },
+  });
+  return returnReactSelectAsyncPaginateObject(
+    parseSelectData(response),
+    prevOptions,
+    page,
+  );
 };
