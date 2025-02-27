@@ -14790,8 +14790,10 @@ export type EmailLogsListData = {
          *
          * * `sent_at` - Sent at
          * * `-sent_at` - Sent at (descending)
+         * * `subject` - Subject
+         * * `-subject` - Subject (descending)
          */
-        o?: Array<'-sent_at' | 'sent_at'>;
+        o?: Array<'-sent_at' | '-subject' | 'sent_at' | 'subject'>;
         /**
          * A page number within the paginated result set.
          */
@@ -35198,5 +35200,5 @@ export type DailyQuotasRetrieveResponses = {
 export type DailyQuotasRetrieveResponse = DailyQuotasRetrieveResponses[keyof DailyQuotasRetrieveResponses];
 
 export type ClientOptions = {
-    baseUrl: `${string}://schema.yaml` | (string & {});
+    baseUrl: `${string}://waldur-openapi-schema.yaml` | (string & {});
 };
