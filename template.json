@@ -13851,6 +13851,10 @@
     "description": "marketplace/offerings/OfferingEditUIView.tsx, marketplace/offerings/update/integration/UserManagementSection.tsx",
     "message": "User management"
   },
+  "User permission requests": {
+    "description": "invitations/UserPermissionRequestsList.tsx",
+    "message": "User permission requests"
+  },
   "User profile": {
     "description": "user/UserManageContainer.tsx",
     "message": "User profile"

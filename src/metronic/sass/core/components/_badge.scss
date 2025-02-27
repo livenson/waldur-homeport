@@ -109,14 +109,14 @@
   }
 
   .badge-outline-#{$name} {
-    color: theme-active-color($name);
-    background-color: theme-light-color($name);
+    color: theme-700-color($name);
+    background-color: theme-50-color($name);
     border: 1px solid theme-200-color($name);
 
     &.has-bullet::before {
-      background-color: $value;
+      background-color: theme-500-color($name);
     }
-    @include svg-icon-color($value);
+    @include svg-icon-color(theme-500-color($name));
   }
 }
 

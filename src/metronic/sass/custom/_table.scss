@@ -73,6 +73,11 @@
       .table-pagination {
         padding-top: 0.5rem;
       }
+
+      .search-no-result,
+      .search-error {
+        margin-top: -1rem !important;
+      }
     }
   }
   thead > tr > th.header-actions {
@@ -271,11 +276,6 @@
     }
   }
 
-  .search-no-result,
-  .search-error {
-    margin-top: -2rem;
-  }
-
   // Full width for nested tables
   .table.table-expandable tr.expanded + tr,
   /* TABLE FULL IN CARD */
@@ -468,6 +468,29 @@ $mobile-spacing: get($content-spacing, tablet-and-mobile);
     td:last-child,
     th:last-child {
       padding-right: $mobile-spacing !important;
+    }
+  }
+}
+
+// Dark mode
+@if (isDarkMode()) {
+  // No result background
+  .search-no-result,
+  .search-error {
+    .search-icon,
+    .error-icon {
+      border: 1px solid $gray-200 !important;
+    }
+  }
+
+  // Another table inside expanded view
+  .table.table-expandable tr {
+    .expandable-container .card-table {
+      border-color: $gray-200 !important;
+
+      .card-header {
+        border-color: $gray-200 !important;
+      }
     }
   }
 }

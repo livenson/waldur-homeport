@@ -72,7 +72,7 @@ export const ModelCard1: FC<ModelCard1Props> = ({
             {props.titleNode || props.title}
           </Card.Title>
           {props.subtitle && (
-            <Card.Subtitle className="text-grey-600 fw-bold ellipsis">
+            <Card.Subtitle className="text-gray-600 fw-bold ellipsis">
               {props.subtitle}
             </Card.Subtitle>
           )}

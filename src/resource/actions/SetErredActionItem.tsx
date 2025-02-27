@@ -81,6 +81,7 @@ export const SetErredActionItem: FC<{
       action={callback}
       className="text-danger"
       iconNode={<CloudX />}
+      iconColor="danger"
     />
   );
 };

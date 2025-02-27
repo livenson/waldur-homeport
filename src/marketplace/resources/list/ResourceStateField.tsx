@@ -40,7 +40,7 @@ export const ResourceStateField = ({
             ? 'warning'
             : ['SHUTOFF', 'STOPPED', 'SUSPENDED'].includes(runtimeState)
               ? 'default'
-              : 'primary'
+              : 'success'
       }
       active={isActive}
       roundless={roundless}

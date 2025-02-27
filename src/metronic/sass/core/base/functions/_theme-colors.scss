@@ -22,6 +22,18 @@
   @return get($theme-dark-inverse-colors, $key);
 }
 
+@function theme-50-color($key: 'primary') {
+  @return get($theme-50-colors, $key);
+}
+
 @function theme-200-color($key: 'primary') {
   @return get($theme-200-colors, $key);
+}
+
+@function theme-500-color($key: 'primary') {
+  @return get($theme-500-colors, $key);
+}
+
+@function theme-700-color($key: 'primary') {
+  @return get($theme-700-colors, $key);
 }
