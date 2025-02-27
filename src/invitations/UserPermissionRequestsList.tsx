@@ -62,6 +62,7 @@ export const UserPermissionRequestsList: FC<OwnProps> = ({
     <Table
       {...props}
       columns={columns}
+      title={translate('User permission requests')}
       verboseName={translate('user permission requests')}
       showPageSizeSelector
       initialPageSize={5}

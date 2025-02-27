@@ -32,7 +32,7 @@ export const CategoryCard: FunctionComponent<CategoryCardProps> = (props) => (
             <Question
               size={16}
               weight="bold"
-              className="ms-2 text-muted mb-1 text-hover-grey-600"
+              className="ms-2 text-muted mb-1 text-hover-gray-600"
               data-testid="tooltip"
             />,
           )}

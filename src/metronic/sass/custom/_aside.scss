@@ -123,10 +123,10 @@
 }
 
 // Add resource button
-$dark-add-resource-border: $grey-600;
-$dark-add-resource-color: $grey-600;
+$dark-add-resource-border: $gray-600;
+$dark-add-resource-color: $gray-600;
 $dark-add-resource-state-color: $gray-700;
-$dark-show-more-color: $grey-600;
+$dark-show-more-color: $gray-600;
 $dark-show-more-active-icon: $gray-800;
 // Resources filter
 $dark-badge-color: $gray-800;
@@ -164,13 +164,13 @@ $custom-aside: (
     add-resource-state-color: if(
         isDarkMode(),
         $dark-add-resource-state-color,
-        $grey-600
+        $gray-600
       ),
     show-more-color: if(isDarkMode(), $dark-show-more-color, $grey-500),
     show-more-active-icon: if(
         isDarkMode(),
         $dark-show-more-active-icon,
-        $grey-600
+        $gray-600
       ),
     filter-label: if(isDarkMode(), $dark-show-more-color, $grey-500),
     filter-badge-color: if(isDarkMode(), $dark-badge-color, $gray-700),

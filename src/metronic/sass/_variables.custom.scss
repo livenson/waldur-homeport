@@ -36,6 +36,7 @@ $secondary-dark-inverse: $primary-800 !default;
 // Light/Gray
 $gray-50: if(isDarkMode(), #161b26, #f9fafb) !default; // Custom variable
 $gray-200: if(isDarkMode(), #333741, #e4e7ec) !default; // Custom variable
+$gray-500: if(isDarkMode(), #94969c, #667085) !default; // Custom variable
 $gray-700: if(isDarkMode(), #ececed, #344054) !default;
 
 // Transparent White
@@ -46,62 +47,88 @@ $white-6: #fff6;
 $white-8: #fff8;
 
 // Success
-$success-50: #ecfdf3;
-$success-200: #a6f4c5;
-$success-500: #12b76a;
-$success-600: #039855;
-$success-700: #027a48;
-$success: if(isDarkMode(), #53a642, $success-600);
+$success-50: if(isDarkMode(), #054f31, #ecfdf3);
+$success-200: if(isDarkMode(), #027a48, #a6f4c5);
+$success-300: if(isDarkMode(), #039855, #6ce9a6);
+$success-400: if(isDarkMode(), #12b76a, #32d583);
+$success-500: if(isDarkMode(), #32d583, #12b76a);
+$success-600: if(isDarkMode(), #6ce9a6, #039855);
+$success-700: if(isDarkMode(), #a6f4c5, #027a48);
+$success-900: if(isDarkMode(), #ecfdf3, #054f31);
+$success: $success-600;
 $success-active: if(isDarkMode(), #22c100, $success-700);
 $success-light: if(isDarkMode(), #1c3238, $success-50);
 $success-inverse: #ffffff;
 
 // Info
-$info-50: #f4f3ff;
-$info-200: #d9d6fe;
-$info-300: #bdb4fe;
-$info-500: #7a5af8;
-$info-600: #6938ef;
-$info-700: #5925dc;
-$info: if(isDarkMode(), $info-300, $info-600);
+$info-50: if(isDarkMode(), #3e1c96, #f4f3ff);
+$info-200: if(isDarkMode(), #5925dc, #d9d6fe);
+$info-300: if(isDarkMode(), #6938ef, #bdb4fe);
+$info-400: if(isDarkMode(), #7a5af8, #9b8afb);
+$info-500: if(isDarkMode(), #9b8afb, #7a5af8);
+$info-600: if(isDarkMode(), #bdb4fe, #6938ef);
+$info-700: if(isDarkMode(), #d9d6fe, #5925dc);
+$info-900: if(isDarkMode(), #f4f3ff, #3e1c96);
+$info: $info-600;
 $info-active: if(isDarkMode(), #7337ee, $info-700);
 $info-light: if(isDarkMode(), #2f264f, $info-50);
 $info-inverse: #ffffff;
 
 // Danger
-$danger-50: #fef3f2 !default;
-$danger-200: #fecdca !default;
-$danger-500: #f04438 !default;
-$danger-600: #d92d20 !default;
-$danger-700: #b42318 !default;
-$danger: if(isDarkMode(), #ff7e39, $danger-600);
+$danger-50: if(isDarkMode(), #7a271a, #fef3f2) !default;
+$danger-200: if(isDarkMode(), #b42318, #fecdca) !default;
+$danger-300: if(isDarkMode(), #d92d20, #fda29b) !default;
+$danger-400: if(isDarkMode(), #f04438, #f97066) !default;
+$danger-500: if(isDarkMode(), #f97066, #f04438) !default;
+$danger-600: if(isDarkMode(), #fda29b, #d92d20) !default;
+$danger-700: if(isDarkMode(), #fecdca, #b42318) !default;
+$danger-900: if(isDarkMode(), #fef3f2, #7a271a) !default;
+$danger: $danger-600;
 $danger-active: if(isDarkMode(), #f5641e, $danger-700);
 $danger-light: if(isDarkMode(), #3a2434, $danger-50);
 $danger-inverse: #ffffff;
 
 // Warning
-$warning-50: #fffaeb !default;
-$warning-200: #fedf89 !default;
-$warning-500: #f79009 !default;
-$warning-600: #dc6803 !default;
-$warning-700: #b54708 !default;
-$warning: if(isDarkMode(), #ffa800, $warning-600);
+$warning-50: if(isDarkMode(), #7a2e0e, #fffaeb) !default;
+$warning-200: if(isDarkMode(), #b54708, #fedf89) !default;
+$warning-300: if(isDarkMode(), #dc6803, #fec84b) !default;
+$warning-400: if(isDarkMode(), #f79009, #fdb022) !default;
+$warning-500: if(isDarkMode(), #fdb022, #f79009) !default;
+$warning-600: if(isDarkMode(), #fec84b, #dc6803) !default;
+$warning-700: if(isDarkMode(), #fedf89, #b54708) !default;
+$warning-900: if(isDarkMode(), #fffaeb, #7a2e0e) !default;
+$warning: $warning-600;
 $warning-active: if(isDarkMode(), #ee9d01, $warning-700);
 $warning-light: if(isDarkMode(), #392f28, $warning-50);
 $warning-inverse: #ffffff;
 
 // Custom colors
 // Pink
-$pink-200: #fcceee !default;
-$pink-800: #9e165f !default;
+$pink-50: if(isDarkMode(), #851651, #fdf2fa) !default;
+$pink-200: if(isDarkMode(), #c11574, #fcceee) !default;
+$pink-300: if(isDarkMode(), #dd2590, #faa7e0) !default;
+$pink-500: if(isDarkMode(), #f670c7, #ee46bc) !default;
+$pink-600: if(isDarkMode(), #faa7e0, #dd2590) !default;
+$pink-700: if(isDarkMode(), #fcceee, #c11574) !default;
+$pink-900: if(isDarkMode(), #fdf2fa, #851651) !default;
 
 // Blue
-$blue-200: #b2ddff !default;
-$blue-800: #1849a9 !default;
+$blue-50: if(isDarkMode(), #194185, #eff8ff) !default;
+$blue-200: if(isDarkMode(), #175cd3, #b2ddff) !default;
+$blue-300: if(isDarkMode(), #1570ef, #84caff) !default;
+$blue-500: if(isDarkMode(), #53b1fd, #2e90fa) !default;
+$blue-600: if(isDarkMode(), #84caff, #1570ef) !default;
+$blue-700: if(isDarkMode(), #b2ddff, #175cd3) !default;
+$blue-900: if(isDarkMode(), #eff8ff, #194185) !default;
 
 // Teal
-$teal-200: #99f6e0 !default;
-$teal-800: #125d56 !default;
+$teal-50: if(isDarkMode(), #134e48, #f0fdf9) !default;
+$teal-200: if(isDarkMode(), #107569, #99f6e0) !default;
+$teal-300: if(isDarkMode(), #0e9384, #5fe9d0) !default;
+$teal-500: if(isDarkMode(), #2ed3b7, #15b79e) !default;
+$teal-600: if(isDarkMode(), #5fe9d0, #0e9384) !default;
+$teal-700: if(isDarkMode(), #99f6e0, #107569) !default;
+$teal-900: if(isDarkMode(), #f0fdf9, #134e48) !default;
 
 $dropdown-item-padding-x: 16px;
 $dropdown-item-padding-y: 10px;
@@ -120,8 +147,25 @@ $theme-dark-inverse-colors: (
   'secondary': $secondary-dark-inverse,
 ) !default; // Custom variable
 
+// 50 colors
+$theme-50-colors: (
+  'gray': $gray-50,
+  'primary': $primary-50,
+  'secondary': $secondary-light,
+  'light': $gray-50,
+  'success': $success-50,
+  'info': $info-50,
+  'warning': $warning-50,
+  'danger': $danger-50,
+  // custom colors
+  'pink': $pink-50,
+  'blue': $blue-50,
+  'teal': $teal-50,
+) !default; // Custom variable
+
 // 200 colors
 $theme-200-colors: (
+  'gray': $gray-200,
   'primary': $primary-200,
   'secondary': $secondary-active,
   'light': $gray-200,
@@ -130,9 +174,41 @@ $theme-200-colors: (
   'warning': $warning-200,
   'danger': $danger-200,
   // custom colors
-  'pink': if(isDarkMode(), $pink-800, $pink-200),
-  'blue': if(isDarkMode(), $blue-800, $blue-200),
-  'teal': if(isDarkMode(), $teal-800, $teal-200),
+  'pink': $pink-200,
+  'blue': $blue-200,
+  'teal': $teal-200,
+) !default; // Custom variable
+
+// 500 colors
+$theme-500-colors: (
+  'gray': $gray-500,
+  'primary': $primary-500,
+  'secondary': $secondary-dark,
+  'light': $gray-500,
+  'success': $success-500,
+  'info': $info-500,
+  'warning': $warning-500,
+  'danger': $danger-500,
+  // custom colors
+  'pink': $pink-500,
+  'blue': $blue-500,
+  'teal': $teal-500,
+) !default; // Custom variable
+
+// 700 colors
+$theme-700-colors: (
+  'gray': $gray-700,
+  'primary': $primary-700,
+  'secondary': $secondary-dark,
+  'light': $gray-700,
+  'success': $success-700,
+  'info': $info-700,
+  'warning': $warning-700,
+  'danger': $danger-700,
+  // custom colors
+  'pink': $pink-700,
+  'blue': $blue-700,
+  'teal': $teal-700,
 ) !default; // Custom variable
 
 // Card

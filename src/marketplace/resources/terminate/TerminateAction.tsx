@@ -36,5 +36,5 @@ export const TerminateAction: FC<TerminateActionProps> = ({
     disabled,
     className: 'text-danger',
   };
-  return <ActionItem {...props} iconNode={<XCircle />} />;
+  return <ActionItem {...props} iconNode={<XCircle />} iconColor="danger" />;
 };

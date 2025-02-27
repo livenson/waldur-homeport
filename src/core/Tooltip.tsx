@@ -53,7 +53,7 @@ export const BackendIdTip = ({ backendId }) =>
     <>
       {' '}
       <Tip id="backend-id" label={backendId}>
-        <Question />
+        <Question weight="bold" />
       </Tip>
     </>
   ) : null;
