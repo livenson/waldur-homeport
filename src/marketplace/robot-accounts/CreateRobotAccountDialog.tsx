@@ -1,14 +1,14 @@
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { marketplaceRobotAccountsCreate } from '@waldur/api';
+import { marketplaceRobotAccountsCreate, usersList } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
+import { parseSelectData } from '@waldur/core/api';
 import {
   LATIN_NAME_PATTERN,
   returnReactSelectAsyncPaginateObject,
 } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';
-import { getUsers } from '@waldur/marketplace/common/api';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { ResourceActionDialog } from '@waldur/resource/actions/ResourceActionDialog';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
@@ -24,15 +24,21 @@ export interface RobotAccountFormData {
 export const useRobotAccountFields = (resource) => {
   const loadUsers = useCallback(
     (query, prevOptions, page) =>
-      getUsers({
-        full_name: query,
-        project_uuid: resource.project_uuid,
-        field: ['full_name', 'email', 'url', 'uuid'],
-        o: 'full_name',
-        page,
-        page_size: ENV.pageSize,
+      usersList({
+        query: {
+          full_name: query,
+          project_uuid: resource.project_uuid,
+          field: ['full_name', 'email', 'url', 'uuid'],
+          o: ['full_name'],
+          page,
+          page_size: ENV.pageSize,
+        },
       }).then((response) =>
-        returnReactSelectAsyncPaginateObject(response, prevOptions, page),
+        returnReactSelectAsyncPaginateObject(
+          parseSelectData(response),
+          prevOptions,
+          page,
+        ),
       ),
     [resource],
   );

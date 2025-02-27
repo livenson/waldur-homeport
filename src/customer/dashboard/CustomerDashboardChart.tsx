@@ -12,7 +12,7 @@ import { WidgetCard } from '@waldur/dashboard/WidgetCard';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { useCreateInvitation } from '@waldur/invitations/actions/useCreateInvitation';
 import { ChangesAmountBadge } from '@waldur/marketplace/service-providers/dashboard/ChangesAmountBadge';
-import { fetchSelectCustomerUsers } from '@waldur/permissions/api';
+import { getCustomerUsers } from '@waldur/permissions/api';
 import { Customer, User } from '@waldur/workspace/types';
 
 import { loadSummary } from './api';
@@ -82,9 +82,7 @@ export const CustomerDashboardChart: FunctionComponent<
         {Boolean(data.teamChart) && (
           <Col md={6} sm={12} className="mb-5" style={COMMON_WIDGET_HEIGHT}>
             <TeamWidget
-              api={() =>
-                fetchSelectCustomerUsers(customer.uuid, { page_size: 5 })
-              }
+              api={() => getCustomerUsers(customer.uuid, { page_size: 5 })}
               chartData={data.teamChart}
               showChart
               scope={customer}

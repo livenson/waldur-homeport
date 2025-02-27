@@ -5,13 +5,12 @@ import { FC } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
-import { Resource } from '@waldur/api';
+import { marketplaceOrdersCreate, Resource } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { ProgressSteps } from '@waldur/core/ProgressSteps';
 import { omit } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';
-import { createOrder } from '@waldur/marketplace/common/api';
 import { formatOrderForCreate } from '@waldur/marketplace/details/utils';
 import { OrderDetailsLink } from '@waldur/marketplace/orders/details/OrderDetailsLink';
 import { openModalDialog, waitForConfirmation } from '@waldur/modal/actions';
@@ -125,7 +124,9 @@ export const OrderErredView: FC<OrderErredViewProps> = ({ resource }) => {
       },
     };
     try {
-      const order: any = await createOrder(formatOrderForCreate(item));
+      const order = await marketplaceOrdersCreate({
+        body: formatOrderForCreate(item),
+      });
       dispatch(showSuccess(translate('Order has been submitted.')));
       router.stateService.go('marketplace-resource-details', {
         resource_uuid: order.data.marketplace_resource_uuid,

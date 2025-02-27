@@ -3,6 +3,7 @@ import { Form } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { change, Field, formValueSelector } from 'redux-form';
 
+import { MarketplaceResourcesListData } from '@waldur/api';
 import { Select as AsyncSelectField } from '@waldur/form/AsyncSelectField';
 import { Select } from '@waldur/form/themed-select';
 import { translate } from '@waldur/i18n';
@@ -45,7 +46,8 @@ export const ResourceGroup = ({ disabled }) => {
                 project_uuid: project.uuid,
                 name: query,
                 field: ['name', 'url', 'uuid', 'offering_name', 'project_uuid'],
-                state: NON_TERMINATED_STATES,
+                state:
+                  NON_TERMINATED_STATES as MarketplaceResourcesListData['query']['state'],
               },
               prevOptions,
               page,

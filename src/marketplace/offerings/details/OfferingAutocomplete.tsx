@@ -4,7 +4,10 @@ import { Field, Validator } from 'redux-form';
 
 import { FieldError } from '@waldur/form';
 import { translate } from '@waldur/i18n';
-import { offeringsAutocomplete } from '@waldur/marketplace/common/autocompletes';
+import {
+  providerOfferingsAutocomplete,
+  publicOfferingsAutocomplete,
+} from '@waldur/marketplace/common/autocompletes';
 import { AutocompleteField } from '@waldur/marketplace/landing/AutocompleteField';
 
 interface OfferingAutocompleteProps {
@@ -32,15 +35,23 @@ export const OfferingAutocomplete: FC<OfferingAutocompleteProps> = ({
         <AutocompleteField
           placeholder={translate('Select offering...')}
           loadOfferings={(query, prevOptions, { page }) =>
-            offeringsAutocomplete(
-              {
-                name: query,
-                ...props.offeringFilter,
-              },
-              prevOptions,
-              page,
-              providerOfferings,
-            )
+            providerOfferings
+              ? providerOfferingsAutocomplete(
+                  {
+                    name: query,
+                    ...props.offeringFilter,
+                  },
+                  prevOptions,
+                  page,
+                )
+              : publicOfferingsAutocomplete(
+                  {
+                    name: query,
+                    ...props.offeringFilter,
+                  },
+                  prevOptions,
+                  page,
+                )
           }
           value={fieldProps.input.value}
           onChange={(value) => fieldProps.input.onChange(value)}

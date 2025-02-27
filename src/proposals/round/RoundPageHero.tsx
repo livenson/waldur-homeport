@@ -1,20 +1,21 @@
 import { FC, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
+import { ProtectedRound } from '@waldur/api';
 import { Link } from '@waldur/core/Link';
 import { PublicDashboardHero } from '@waldur/dashboard/hero/PublicDashboardHero';
 import { translate } from '@waldur/i18n';
 import heroBg from '@waldur/proposals/proposal-calls.png';
 import { getCustomer } from '@waldur/workspace/selectors';
 
-import { Call, Round } from '../types';
+import { Call } from '../types';
 import { getRoundStatus } from '../utils';
 
 import { RoundPageHeaderBody } from './RoundPageHeaderBody';
 import { RoundQuotas } from './RoundQuotas';
 
 interface RoundPageHeroProps {
-  round: Round;
+  round: ProtectedRound;
   call: Call;
 }
 

@@ -14,7 +14,7 @@ import { AwesomeCheckboxField } from '@waldur/form/AwesomeCheckboxField';
 import { DateField } from '@waldur/form/DateField';
 import { WizardStepIndicator } from '@waldur/form/WizardStepIndicator';
 import { translate } from '@waldur/i18n';
-import { offeringsAutocomplete } from '@waldur/marketplace/common/autocompletes';
+import { providerOfferingsAutocomplete } from '@waldur/marketplace/common/autocompletes';
 import { CampaignFormData } from '@waldur/marketplace/service-providers/types';
 import { getCustomer } from '@waldur/workspace/selectors';
 
@@ -75,7 +75,7 @@ export const CampaignForm = ({
                   label={translate('Offerings')}
                   placeholder={translate('Select offerings...')}
                   loadOptions={(query, prevOptions, page) =>
-                    offeringsAutocomplete(
+                    providerOfferingsAutocomplete(
                       { name: query, shared: true, customer: customer.url },
                       prevOptions,
                       page,

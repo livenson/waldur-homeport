@@ -1,7 +1,8 @@
 import Axios from 'axios';
 
+import { apiAuthSaml2ProvidersList } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
-import { getSelectData } from '@waldur/core/api';
+import { parseSelectData } from '@waldur/core/api';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
 
 export const getSaml2IdentityProviders = async (
@@ -9,17 +10,15 @@ export const getSaml2IdentityProviders = async (
   prevOptions,
   currentPage: number,
 ) => {
-  const params = {
-    name,
-    page: currentPage,
-    page_size: ENV.pageSize,
-  };
-  const response = await getSelectData(
-    `${ENV.apiEndpoint}api-auth/saml2/providers`,
-    params,
-  );
+  const response = await apiAuthSaml2ProvidersList({
+    query: {
+      name,
+      page: currentPage,
+      page_size: ENV.pageSize,
+    },
+  });
   return returnReactSelectAsyncPaginateObject(
-    response,
+    parseSelectData(response),
     prevOptions,
     currentPage,
   );

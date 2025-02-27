@@ -14,7 +14,7 @@ import {
 import { useUser } from '@waldur/workspace/hooks';
 
 import {
-  offeringsAutocomplete,
+  providerOfferingsAutocomplete,
   userAutocomplete,
 } from '../common/autocompletes';
 
@@ -81,7 +81,7 @@ export const CreateProviderOfferingUserDialog = ({ resolve: { refetch } }) => {
       name: 'offering',
       label: translate('Offering'),
       type: 'async_select',
-      loadOptions: offeringsAutocomplete,
+      loadOptions: providerOfferingsAutocomplete,
       getOptionLabel: ({ name, customer_name }) => (
         <>
           {name} | {customer_name}

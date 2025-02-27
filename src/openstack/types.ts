@@ -11,8 +11,8 @@ export interface Quota {
 export interface VolumeType {
   url: string;
   name: string;
-  description: string;
-  is_default: boolean;
+  description?: string;
+  is_default?: boolean;
 }
 
 export interface ServerGroupType {

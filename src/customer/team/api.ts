@@ -1,10 +1,11 @@
 import Axios from 'axios';
 
+import { usersList, UsersListData } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import {
   fixURL,
-  getSelectData,
   parseResultCount,
+  parseSelectData,
   post,
 } from '@waldur/core/api';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
@@ -13,28 +14,29 @@ export const closeReview = (reviewId: string) =>
   post(`/customer-permissions-reviews/${reviewId}/close/`);
 
 export const usersAutocomplete = async (
-  query: object,
+  query: Partial<UsersListData['query']>,
   prevOptions,
   currentPage: number,
 ) => {
-  const params = {
-    field: [
-      'full_name',
-      'url',
-      'email',
-      'uuid',
-      'username',
-      'registration_method',
-      'is_active',
-    ],
-    o: 'full_name',
-    ...query,
-    page: currentPage,
-    page_size: ENV.pageSize,
-  };
-  const response = await getSelectData('/users/', params);
+  const response = await usersList({
+    query: {
+      field: [
+        'full_name',
+        'url',
+        'email',
+        'uuid',
+        'username',
+        'registration_method',
+        'is_active',
+      ],
+      o: ['full_name'],
+      ...query,
+      page: currentPage,
+      page_size: ENV.pageSize,
+    },
+  });
   return returnReactSelectAsyncPaginateObject(
-    response,
+    parseSelectData(response),
     prevOptions,
     currentPage,
   );

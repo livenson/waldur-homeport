@@ -1,5 +1,4 @@
-import { OrganizationGroup } from '@waldur/api';
-import { CustomerCredit } from '@waldur/customer/credits/types';
+import { CustomerCredit, OrganizationGroup } from '@waldur/api';
 import { BasePermission } from '@waldur/permissions/types';
 import { Quota } from '@waldur/quotas/types';
 
@@ -137,7 +136,7 @@ export interface Customer {
   accounting_start_date?: string;
   address?: string;
   agreement_number?: string;
-  sponsor_number?: string;
+  sponsor_number?: number;
   bank_account?: string;
   bank_name?: string;
   contact_details?: string;

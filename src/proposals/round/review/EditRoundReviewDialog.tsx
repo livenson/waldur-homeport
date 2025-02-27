@@ -1,17 +1,18 @@
 import { FC, useCallback, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { ProtectedRound, ProtectedRoundRequest } from '@waldur/api';
 import { WizardFormContainer } from '@waldur/form/WizardFormContainer';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { updateCallRound } from '@waldur/proposals/api';
-import { RoundFormData, Call, Round } from '@waldur/proposals/types';
+import { Call } from '@waldur/proposals/types';
 import { WizardFormSecondPage } from '@waldur/proposals/update/rounds/WizardFormSecondPage';
 import { getRoundInitialValues } from '@waldur/proposals/utils';
 
 interface EditRoundReviewDialogProps {
   resolve: {
-    round: Round;
+    round: ProtectedRound;
     call: Call;
     refetch(): void;
   };
@@ -26,7 +27,7 @@ export const EditRoundReviewDialog: FC<EditRoundReviewDialogProps> = (
   );
   const dispatch = useDispatch();
   const submit = useCallback(
-    (formData: RoundFormData, _dispatch, formProps) => {
+    (formData: ProtectedRoundRequest, _dispatch, formProps) => {
       const updatedRound = {
         ...initialValues,
         ...formData,

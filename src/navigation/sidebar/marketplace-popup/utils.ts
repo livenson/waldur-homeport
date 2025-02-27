@@ -1,9 +1,9 @@
-import { marketplacePublicOfferingsList } from '@waldur/api';
 import {
-  getCategories,
-  getProviderOfferingsOptions,
-  getPublicOfferingsOptions,
-} from '@waldur/marketplace/common/api';
+  marketplaceProviderOfferingsList,
+  marketplacePublicOfferingsList,
+} from '@waldur/api';
+import { parseSelectData } from '@waldur/core/api';
+import { getCategories } from '@waldur/marketplace/common/api';
 import { Category, Offering } from '@waldur/marketplace/types';
 import { Customer, Project } from '@waldur/workspace/types';
 
@@ -33,34 +33,38 @@ export const fetchOfferingsByPage = (
   importable: boolean = false,
 ) => {
   const api = importable
-    ? getProviderOfferingsOptions
-    : getPublicOfferingsOptions;
+    ? marketplaceProviderOfferingsList
+    : marketplacePublicOfferingsList;
   return api({
-    ...(customer ? { allowed_customer_uuid: customer.uuid } : {}),
-    ...(project ? { project_uuid: project.uuid } : {}),
-    ...(importable ? { importable: true } : {}),
-    category_uuid: category.uuid,
-    name: search,
-    field: [
-      'uuid',
-      'category_uuid',
-      'category_title',
-      'customer_uuid',
-      'customer_name',
-      'name',
-      'description',
-      'image',
-      'state',
-      'paused_reason',
-      'plans',
-    ],
-    state: ['Active', 'Paused'],
-    page,
-    page_size: pageSize,
-  }).then((res) => ({
-    pageElements: res.options,
-    itemCount: res.totalItems,
-  }));
+    query: {
+      ...(customer ? { allowed_customer_uuid: customer.uuid } : {}),
+      ...(project ? { project_uuid: project.uuid } : {}),
+      ...(importable ? { importable: true } : {}),
+      category_uuid: category.uuid,
+      name: search,
+      field: [
+        'uuid',
+        'category_uuid',
+        'category_title',
+        'customer_uuid',
+        'customer_name',
+        'name',
+        'description',
+        'image',
+        'state',
+        'paused_reason',
+        'plans',
+      ],
+      state: ['Active', 'Paused'],
+      page,
+      page_size: pageSize,
+    },
+  })
+    .then(parseSelectData)
+    .then((res) => ({
+      pageElements: res.options,
+      itemCount: res.totalItems,
+    }));
 };
 
 export const fetchLastNOfferings = async (

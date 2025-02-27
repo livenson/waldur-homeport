@@ -1,3 +1,4 @@
+import { ProtectedRound } from '@waldur/api';
 import { Limits } from '@waldur/marketplace/details/types';
 import { AttributesType, Offering, Plan } from '@waldur/marketplace/types';
 
@@ -22,32 +23,6 @@ export type CallOfferingState = 'requested' | 'accepted' | 'canceled';
 
 export type ReviewState = 'created' | 'in_review' | 'submitted' | 'rejected';
 
-export interface CallManagingOrganization {
-  uuid: string;
-  url: string;
-  customer_name: string;
-  customer_uuid: string;
-  description?: string;
-  image?: string;
-}
-
-export interface Round {
-  uuid: string;
-  name: string;
-  start_time: string;
-  cutoff_time: string;
-  review_strategy: RoundReviewStrategy;
-  deciding_entity: RoundAllocationStrategy;
-  allocation_time: RoundAllocationTime;
-  allocation_date: string;
-  minimal_average_scoring: string;
-  review_duration_in_days: number;
-  minimum_number_of_reviewers: number;
-  url: string;
-  proposals: Proposal[];
-  status: string;
-}
-
 export interface Call {
   default_project_role: string;
   default_project_role_name: string;
@@ -67,20 +42,7 @@ export interface Call {
   external_url?: string;
   backend_id?: string;
   offerings: CallOffering[];
-  rounds: Round[];
-}
-
-export interface RoundFormData {
-  start_time: string;
-  timezone: string;
-  cutoff_time: string;
-  review_strategy: RoundReviewStrategy;
-  review_duration_in_days: number;
-  minimum_number_of_reviewers: number;
-  deciding_entity: RoundAllocationStrategy;
-  minimal_average_scoring: string;
-  allocation_time: RoundAllocationTime;
-  allocation_date: string;
+  rounds: ProtectedRound[];
 }
 
 export interface EditCallProps {
@@ -107,7 +69,7 @@ export interface Proposal {
   created_by: string;
   duration_in_days: number;
   project: string;
-  round: Round;
+  round: ProtectedRound;
   resources: ProposalResource[];
   oecd_fos_2007_code: string;
   oecd_fos_2007_label: string;
@@ -177,12 +139,4 @@ export interface ProposalReview {
   round_name: string;
   call_name: string;
   call_uuid: string;
-}
-
-export interface Reviewer {
-  full_name: string;
-  email: string;
-  in_review_proposals: number;
-  accepted_proposals: number;
-  rejected_proposals: number;
 }

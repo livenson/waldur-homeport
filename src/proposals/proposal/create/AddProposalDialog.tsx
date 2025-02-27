@@ -2,7 +2,7 @@ import { useRouter } from '@uirouter/react';
 import { useCallback } from 'react';
 import { reduxForm } from 'redux-form';
 
-import { proposalProposalsCreate } from '@waldur/api';
+import { proposalProposalsCreate, ProtectedRound } from '@waldur/api';
 import { required } from '@waldur/core/validators';
 import { SubmitButton } from '@waldur/form';
 import { FormContainer } from '@waldur/form/FormContainer';
@@ -10,7 +10,7 @@ import { StringField } from '@waldur/form/StringField';
 import { translate } from '@waldur/i18n';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
-import { Call, Round } from '@waldur/proposals/types';
+import { Call } from '@waldur/proposals/types';
 import { useNotify } from '@waldur/store/hooks';
 import { UsersService } from '@waldur/user/UsersService';
 
@@ -20,7 +20,7 @@ interface FormData {
 
 export const AddProposalDialog = reduxForm<
   FormData,
-  { resolve: { round: Round; call: Call } }
+  { resolve: { round: ProtectedRound; call: Call } }
 >({
   form: 'AddProposalForm',
 })((props) => {

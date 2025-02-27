@@ -9,10 +9,6 @@ import { Field } from '@waldur/resource/summary';
 import { formatVolumeTypeLabel } from '../openstack-instance/utils';
 import { VolumeType } from '../types';
 
-const formatSize = (props) => {
-  return formatFilesize(props.order.attributes.size);
-};
-
 interface OpenstackVolumeDetailsProps {
   order: OrderResponse;
 }
@@ -26,7 +22,9 @@ export const OpenstackVolumeDetails = (props: OpenstackVolumeDetailsProps) => {
   );
   return (
     <>
-      <Field label={translate('Size')}>{formatSize(props)}</Field>
+      <Field label={translate('Size')}>
+        {formatFilesize(props.order.attributes.size)}
+      </Field>
       {order.attributes.availability_zone_name && (
         <Field label={translate('Availability zone')}>
           {order.attributes.availability_zone_name}

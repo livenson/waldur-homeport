@@ -1,13 +1,17 @@
-import Axios, { AxiosRequestConfig } from 'axios';
+import Axios, { AxiosPromise, AxiosRequestConfig } from 'axios';
 
+import {
+  proposalProtectedCallsList,
+  proposalPublicCallsList,
+  ProposalPublicCallsListData,
+  ProtectedRound,
+} from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import {
   fixURL,
+  get,
   getAll,
-  getById,
-  getFirst,
-  getSelectData,
-  patch,
+  parseSelectData,
   post,
   put,
   sendForm,
@@ -15,26 +19,26 @@ import {
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
 import { GenericPermission } from '@waldur/permissions/types';
 
-import {
-  Call,
-  CallManagingOrganization,
-  CallOffering,
-  Proposal,
-  ProposalReview,
-  Round,
-} from './types';
+import { Call, CallOffering, Proposal, ProposalReview } from './types';
 
-export const getCallManagingOrganization = (customerUuid) =>
-  getFirst<CallManagingOrganization>('/call-managing-organisations/', {
-    customer_uuid: customerUuid,
-  }).then((data) => (data ? data : null));
+function patch<T = {}>(endpoint: string, data?: any): AxiosPromise<T> {
+  return Axios.patch(fixURL(endpoint), data);
+}
+
+function getById<T = {}>(
+  endpoint: string,
+  id: string,
+  options?: AxiosRequestConfig,
+): Promise<T> {
+  return get<T>(`${endpoint}${id}/`, options).then((response) => response.data);
+}
 
 export const getProtectedCallRound = (
   callUuid: string,
   roundUuid: string,
   options?: AxiosRequestConfig,
 ) =>
-  getById<Round>(
+  getById<ProtectedRound>(
     `/proposal-protected-calls/${callUuid}/rounds/`,
     roundUuid,
     options,
@@ -50,11 +54,14 @@ export const updateCallState = (state: 'activate' | 'archive', uuid) =>
   post<Call>(`/proposal-protected-calls/${uuid}/${state}/`);
 
 export const createCallRound = (callUuid, data) => {
-  return post<Round>(`/proposal-protected-calls/${callUuid}/rounds/`, data);
+  return post<ProtectedRound>(
+    `/proposal-protected-calls/${callUuid}/rounds/`,
+    data,
+  );
 };
 
 export const updateCallRound = (callUuid, roundUuid, data) =>
-  put<Round>(
+  put<ProtectedRound>(
     `/proposal-protected-calls/${callUuid}/rounds/${roundUuid}/`,
     data,
   );
@@ -62,30 +69,26 @@ export const updateCallRound = (callUuid, roundUuid, data) =>
 export const createCallOffering = (callUuid, data) =>
   post<CallOffering>(`/proposal-protected-calls/${callUuid}/offerings/`, data);
 
-const getProtectedCallsOptions = (params?: {}) =>
-  getSelectData<Call>('/proposal-protected-calls/', params);
-
-const getPublicCallsOptions = (params?: {}) =>
-  getSelectData<Call>('/proposal-public-calls/', params);
-
 export const callAutocomplete = async (
-  query: any,
+  query: ProposalPublicCallsListData['query'],
   prevOptions,
   currentPage: number,
   protectedCalls = false,
-  field = ['name', 'uuid', 'url'],
 ) => {
-  const params = {
-    field,
-    o: 'name',
-    ...query,
-    page: currentPage,
-    page_size: ENV.pageSize,
-  };
-  const api = protectedCalls ? getProtectedCallsOptions : getPublicCallsOptions;
-  const response = await api(params);
+  const api = protectedCalls
+    ? proposalProtectedCallsList
+    : proposalPublicCallsList;
+  const response = await api({
+    query: {
+      field: ['name', 'uuid', 'url'],
+      o: ['name'],
+      ...query,
+      page: currentPage,
+      page_size: ENV.pageSize,
+    },
+  });
   return returnReactSelectAsyncPaginateObject(
-    response,
+    parseSelectData(response),
     prevOptions,
     currentPage,
   );

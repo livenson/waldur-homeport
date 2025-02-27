@@ -3,8 +3,8 @@ import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
 
+import { ProtectedRound } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import { Round } from '@waldur/proposals/types';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
@@ -19,7 +19,7 @@ import { OfferingRequestsListExpandableRow } from './OfferingRequestsListExpanda
 import { OfferingRequestsTableFilter } from './OfferingRequestsTableFilter';
 
 interface OfferingRequestsListProps {
-  round: Round;
+  round: ProtectedRound;
 }
 
 const filtersSelctor = createSelector(

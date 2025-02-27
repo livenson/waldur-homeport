@@ -7,6 +7,7 @@ import { useAsyncFn } from 'react-use';
 import {
   callManagingOrganisationsCreate,
   callManagingOrganisationsDestroy,
+  callManagingOrganisationsList,
 } from '@waldur/api';
 import { AwesomeCheckbox } from '@waldur/core/AwesomeCheckbox';
 import { LoadingErred } from '@waldur/core/LoadingErred';
@@ -14,7 +15,6 @@ import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { getCustomer as getCustomerApi } from '@waldur/project/api';
-import { getCallManagingOrganization } from '@waldur/proposals/api';
 import { showErrorResponse } from '@waldur/store/notify';
 import { setCurrentCustomer } from '@waldur/workspace/actions';
 import { getCustomer } from '@waldur/workspace/selectors';
@@ -27,11 +27,13 @@ export const CustomerCallManagerPanel: FunctionComponent = () => {
   const { error: errorInfo, refetch } = useQuery(
     ['callManagingOrganization', customer.uuid],
     () =>
-      getCallManagingOrganization(customer.uuid).then((data) => {
-        if (data) {
-          setInfoUuid(data.uuid);
+      callManagingOrganisationsList({
+        query: { customer_uuid: customer.uuid },
+      }).then((response) => {
+        if (response.data[0]) {
+          setInfoUuid(response.data[0].uuid);
         }
-        return data;
+        return response.data;
       }),
   );
 

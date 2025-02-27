@@ -35198,5 +35198,5 @@ export type DailyQuotasRetrieveResponses = {
 export type DailyQuotasRetrieveResponse = DailyQuotasRetrieveResponses[keyof DailyQuotasRetrieveResponses];
 
 export type ClientOptions = {
-    baseUrl: `${string}://waldur-openapi-schema.yaml` | (string & {});
+    baseUrl: `${string}://schema.yaml` | (string & {});
 };

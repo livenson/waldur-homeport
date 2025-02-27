@@ -165,7 +165,7 @@ export interface TableProps<RowType = any> extends TableState {
   headerClassName?: string;
   titleClassName?: string;
   id?: string;
-  rowClass?: (({ row }) => string) | string;
+  rowClass?: (({ row }: { row: RowType }) => string) | string;
   hoverable?: boolean;
   hoverShadow?: { table?: boolean; grid?: boolean } | boolean;
   fullWidth?: boolean;
@@ -178,9 +178,9 @@ export interface TableProps<RowType = any> extends TableState {
   hasPagination?: boolean;
   sortList?(sorting: Sorting): void;
   initialSorting?: Sorting;
-  expandableRow?: React.ComponentType<{ row: any }>;
+  expandableRow?: React.ComponentType<{ row: RowType }>;
   expandableRowClassName?: string;
-  rowActions?: React.ComponentType<{ row; fetch }>;
+  rowActions?: React.ComponentType<{ row: RowType; fetch }>;
   toggleRow?(row: any): void;
   toggled?: Record<string, boolean>;
   enableExport?: boolean;
@@ -198,9 +198,9 @@ export interface TableProps<RowType = any> extends TableState {
   hasHeaders?: boolean;
   tabs?: Array<{ key; title; state; params? }>;
   enableMultiSelect?: boolean;
-  multiSelectActions?: React.ComponentType<{ rows: any[]; refetch }>;
-  selectRow?(row: any): void;
-  selectAllRows?(rows: any[]): void;
+  multiSelectActions?: React.ComponentType<{ rows: RowType[]; refetch }>;
+  selectRow?(row: RowType): void;
+  selectAllRows?(rows: RowType[]): void;
   resetSelection?: () => void;
   filter?: Record<string, any>;
   fieldType?: 'checkbox' | 'radio';

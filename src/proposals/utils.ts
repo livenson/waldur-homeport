@@ -1,6 +1,7 @@
 import { DateTime } from 'luxon';
 import { useMemo } from 'react';
 
+import { ProtectedRound, ProtectedRoundRequest } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { usePresetBreadcrumbItems } from '@waldur/navigation/header/breadcrumb/utils';
 import { IBreadcrumbItem } from '@waldur/navigation/types';
@@ -12,10 +13,8 @@ import {
   ProposalReview,
   ProposalState,
   ReviewState,
-  Round,
   RoundAllocationStrategy,
   RoundAllocationTime,
-  RoundFormData,
   RoundReviewStrategy,
 } from '@waldur/proposals/types';
 import { User } from '@waldur/workspace/types';
@@ -139,7 +138,7 @@ export const formatReviewState = (value: ReviewState) =>
 export const isReviewInFinalState = (state: ProposalReview['state']) =>
   !['in_review', 'created'].includes(state);
 
-export const getRoundStatus = (round: Round) => {
+export const getRoundStatus = (round: ProtectedRound) => {
   if (!round) {
     return null;
   } else if (round.status === 'scheduled') {
@@ -155,7 +154,7 @@ export const getRoundStatus = (round: Round) => {
   }
 };
 
-export const getRoundsWithStatus = (rounds: Round[]) =>
+export const getRoundsWithStatus = (rounds: ProtectedRound[]) =>
   rounds.map((round) => ({
     ...round,
     status: getRoundStatus(round),
@@ -173,9 +172,12 @@ export const getCallStatus = (call: Call) => {
   }
 };
 
-export const getRoundInitialValues = (round: Round): RoundFormData => ({
+export const getRoundInitialValues = (
+  round: ProtectedRound,
+): ProtectedRoundRequest => ({
   ...round,
   // FIX: we don't have timezone in round object on the backend?
+  // @ts-ignore
   timezone: DateTime.local().zoneName,
 });
 

@@ -13,8 +13,4 @@ export interface CostPolicyFormData {
     | string;
 }
 
-export interface CostsForPeriod {
-  total_price: string;
-}
-
 export type CostPolicyType = 'project' | 'organization';

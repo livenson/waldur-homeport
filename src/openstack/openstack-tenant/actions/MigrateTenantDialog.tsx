@@ -11,7 +11,7 @@ import { AsyncSelectField } from '@waldur/form/AsyncSelectField';
 import { AwesomeCheckboxField } from '@waldur/form/AwesomeCheckboxField';
 import { InputField } from '@waldur/form/InputField';
 import { translate } from '@waldur/i18n';
-import { offeringsAutocomplete } from '@waldur/marketplace/common/autocompletes';
+import { publicOfferingsAutocomplete } from '@waldur/marketplace/common/autocompletes';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
@@ -133,15 +133,15 @@ export const MigrateTenantDialog = connect<
             >
               <AsyncSelectField
                 loadOptions={(query, prevOptions, currentPage) =>
-                  offeringsAutocomplete(
+                  publicOfferingsAutocomplete(
                     {
                       name: query,
-                      type: TENANT_TYPE,
+                      type: [TENANT_TYPE],
                       allowed_customer_uuid: resource.customer_uuid,
                     },
                     prevOptions,
                     currentPage,
-                    false,
+                    // @ts-ignore
                     ['name', 'uuid', 'customer_name', 'plans', 'scope_uuid'],
                   )
                 }

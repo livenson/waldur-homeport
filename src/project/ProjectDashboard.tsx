@@ -4,9 +4,8 @@ import { FunctionComponent } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
-import { projectsStatsRetrieve } from '@waldur/api';
+import { projectCreditsList, projectsStatsRetrieve } from '@waldur/api';
 import { Panel } from '@waldur/core/Panel';
-import { getProjectCredit } from '@waldur/customer/credits/api';
 import { CreditStatusWidget } from '@waldur/customer/dashboard/CreditStatusWidget';
 import { COMMON_WIDGET_HEIGHT } from '@waldur/dashboard/constants';
 import { TeamWidget } from '@waldur/dashboard/TeamWidget';
@@ -61,7 +60,10 @@ export const ProjectDashboard: FunctionComponent<{}> = () => {
     refetch: refetchCredit,
   } = useQuery(
     ['project-credit', project?.uuid],
-    () => getProjectCredit(project?.uuid),
+    () =>
+      projectCreditsList({
+        query: { project_uuid: project?.uuid },
+      }).then((r) => r.data[0]),
     { refetchOnWindowFocus: false, staleTime: 60 * 1000 },
   );
 
