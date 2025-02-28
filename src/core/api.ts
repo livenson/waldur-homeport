@@ -26,7 +26,7 @@ export function parseSelectData<TData = {}>(
 ) {
   return {
     options: Array.isArray(result.data) ? (result.data as TData) : [],
-    totalItems: parseInt(result.response.headers['x-result-count'], 10),
+    totalItems: parseInt(result.response.headers.get('x-result-count'), 10),
   };
 }
 
