@@ -171,6 +171,13 @@ export const getRingChartOptions = (
 ): EChartsOption => {
   const emptySpace = (props.max || 100) - props.value;
   return {
+    tooltip: {
+      trigger: 'item',
+      position: 'top',
+      formatter: function (params) {
+        return params.dataIndex === 0 ? props.tooltip : null;
+      },
+    },
     title: {
       text: props.title,
       left: 'center',

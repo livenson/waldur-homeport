@@ -116,7 +116,8 @@ export const CreditStatusWidget: FC<CreditStatusWidgetProps> = ({
               type === 'organization'
                 ? translate('Allocated\nto projects')
                 : translate('Estimate for the\ncurrent month'),
-            label: defaultCurrency(consumption),
+            label: defaultCurrency(consumption, true),
+            tooltip: consumption >= 1000 ? defaultCurrency(consumption) : null,
             value: consumption,
             max: Number(credit?.value),
           }}
