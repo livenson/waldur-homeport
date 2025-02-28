@@ -1,5 +1,6 @@
 import ipRegex from 'ip-regex';
 import { useMemo } from 'react';
+import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 
 import { isFeatureVisible } from '@waldur/features/connect';
@@ -11,6 +12,7 @@ import { useOfferingCategories } from '@waldur/navigation/sidebar/utils';
 import { Tab } from '@waldur/navigation/Tab';
 import { IBreadcrumbItem } from '@waldur/navigation/types';
 import { type RootState } from '@waldur/store/reducers';
+import { getUser } from '@waldur/workspace/selectors';
 
 import { getCategoryItems } from './category/utils';
 
@@ -43,6 +45,7 @@ export const validateIP = (value) => {
 };
 
 export const useMarketplacePublicTabs = () => {
+  const user = useSelector(getUser);
   const categories = useOfferingCategories();
 
   const tabs = useMemo(() => {
@@ -60,10 +63,11 @@ export const useMarketplacePublicTabs = () => {
         title: translate('Service providers'),
         to: 'public.marketplace-providers',
       },
-      !isFeatureVisible(MarketplaceFeatures.catalogue_only) && {
-        title: translate('Orders'),
-        to: 'public.marketplace-orders',
-      },
+      !isFeatureVisible(MarketplaceFeatures.catalogue_only) &&
+        user && {
+          title: translate('Orders'),
+          to: 'public.marketplace-orders',
+        },
     ].filter(Boolean);
 
     return _tabs.concat(categoryTabs, additionalTabs);
