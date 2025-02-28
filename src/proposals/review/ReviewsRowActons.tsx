@@ -13,7 +13,9 @@ export const ReviewsRowActions = ({ row, fetch }) => {
     <ActionsDropdown
       row={row}
       refetch={fetch}
-      actions={[ReviewViewAction, hasPermission && ReviewItemAction]}
+      actions={[ReviewViewAction, hasPermission && ReviewItemAction].filter(
+        Boolean,
+      )}
     />
   );
 };
