@@ -33,4 +33,5 @@ export interface RingChartOption {
   label: string;
   value: number;
   max?: number;
+  tooltip?: string;
 }
