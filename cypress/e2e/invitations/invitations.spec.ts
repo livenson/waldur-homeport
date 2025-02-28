@@ -170,10 +170,12 @@ describe('Invitations', () => {
   });
 
   it('Allows to invite to users with different roles', () => {
-    cy.get('.card-table button')
-      .contains('Invite member')
+    cy.contains('button', 'Add')
       .click()
-      .get('.invitation-create-dialog')
+      .get('.card-header .dropdown-menu .dropdown-item')
+      .contains('Invite by mail')
+      .click();
+    cy.get('.invitation-create-dialog')
       .contains('Invite by email')
       .should('be.visible');
 

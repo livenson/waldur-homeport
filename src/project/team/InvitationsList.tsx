@@ -8,7 +8,6 @@ import Avatar from '@waldur/core/Avatar';
 import { CopyToClipboardButton } from '@waldur/core/CopyToClipboardButton';
 import { formatDate } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
-import { InvitationCreateButton } from '@waldur/invitations/actions/create/InvitationCreateButton';
 import { InvitationPolicyService } from '@waldur/invitations/actions/InvitationPolicyService';
 import { InvitationActions } from '@waldur/invitations/InvitationActions';
 import { InvitationExpandableRow } from '@waldur/invitations/InvitationExpandableRow';
@@ -25,6 +24,7 @@ import { getCustomer, getProject } from '@waldur/workspace/selectors';
 import { PROJECT_TEAM_TABLE_TABS } from '../utils';
 
 import { ProjectPermissionsLogButton } from './ProjectPermissionsLogButton';
+import { TeamDropdownActions } from './TeamDropdownActions';
 
 const InvitationsListComponent: FunctionComponent = () => {
   const filter = useSelector(mapStateToFilter);
@@ -85,12 +85,7 @@ const InvitationsListComponent: FunctionComponent = () => {
       tableActions={
         <>
           <ProjectPermissionsLogButton />
-          <InvitationCreateButton
-            project={project}
-            roleTypes={['project']}
-            refetch={props.fetch}
-            enableBulkUpload={true}
-          />
+          <TeamDropdownActions project={project} refetch={props.fetch} />
         </>
       }
       hasQuery={true}
