@@ -13,7 +13,6 @@ async function getCustomerCostChart(customer: Scope): Promise<Chart> {
       query: {
         customer: customer.url,
         page_size: 12,
-        // @ts-ignore
         field: ['year', 'month', 'price'],
       },
     });

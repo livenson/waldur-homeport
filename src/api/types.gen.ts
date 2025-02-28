@@ -14414,6 +14414,38 @@ export type CustomersCountriesRetrieveResponses = {
 
 export type CustomersCountriesRetrieveResponse = CustomersCountriesRetrieveResponses[keyof CustomersCountriesRetrieveResponses];
 
+export type DailyQuotasRetrieveData = {
+    body?: never;
+    path?: never;
+    query?: {
+        /**
+         * End date in format YYYY-MM-DD
+         */
+        end?: string;
+        /**
+         * List of quota names
+         */
+        quota_names?: Array<string>;
+        /**
+         * UUID of the scope object
+         */
+        scope?: string;
+        /**
+         * Start date in format YYYY-MM-DD
+         */
+        start?: string;
+    };
+    url: '/api/daily-quotas/';
+};
+
+export type DailyQuotasRetrieveResponses = {
+    200: {
+        [key: string]: Array<number>;
+    };
+};
+
+export type DailyQuotasRetrieveResponse = DailyQuotasRetrieveResponses[keyof DailyQuotasRetrieveResponses];
+
 export type DatabaseStatsListData = {
     body?: never;
     path?: never;
@@ -35168,38 +35200,6 @@ export type VmwareVirtualMachineWebConsoleRetrieveResponses = {
 };
 
 export type VmwareVirtualMachineWebConsoleRetrieveResponse = VmwareVirtualMachineWebConsoleRetrieveResponses[keyof VmwareVirtualMachineWebConsoleRetrieveResponses];
-
-export type DailyQuotasRetrieveData = {
-    body?: never;
-    path?: never;
-    query?: {
-        /**
-         * End date in format YYYY-MM-DD
-         */
-        end?: string;
-        /**
-         * List of quota names
-         */
-        quota_names?: Array<string>;
-        /**
-         * UUID of the scope object
-         */
-        scope?: string;
-        /**
-         * Start date in format YYYY-MM-DD
-         */
-        start?: string;
-    };
-    url: '/daily-quotas/';
-};
-
-export type DailyQuotasRetrieveResponses = {
-    200: {
-        [key: string]: Array<number>;
-    };
-};
-
-export type DailyQuotasRetrieveResponse = DailyQuotasRetrieveResponses[keyof DailyQuotasRetrieveResponses];
 
 export type ClientOptions = {
     baseUrl: `${string}://schema.yaml` | (string & {});
