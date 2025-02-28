@@ -1,10 +1,12 @@
+import { UserPlus } from '@phosphor-icons/react';
 import React from 'react';
 
-import { AddButton } from '@waldur/core/AddButton';
 import { lazyComponent } from '@waldur/core/lazyComponent';
+import { translate } from '@waldur/i18n';
 import { useModal } from '@waldur/modal/hooks';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';
+import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { useUser } from '@waldur/workspace/hooks';
 import { Project } from '@waldur/workspace/types';
 
@@ -29,12 +31,20 @@ export const AddUserButton: React.FC<{ project: Project; refetch }> = ({
       permission: PermissionEnum.CREATE_PROJECT_PERMISSION,
       projectId: project.uuid,
     });
-  if (!canAddUser) {
-    return null;
-  }
+
   return (
-    <AddButton
+    <ActionItem
+      title={translate('Member')}
       action={() => openDialog(AddUserDialog, { refetch, level: 'project' })}
+      iconNode={<UserPlus weight="bold" />}
+      disabled={!canAddUser}
+      tooltip={
+        !canAddUser
+          ? translate(
+              "You don't have enough privileges to perform this operation.",
+            )
+          : null
+      }
     />
   );
 };

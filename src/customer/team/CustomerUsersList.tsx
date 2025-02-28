@@ -25,7 +25,7 @@ import { useTeamTableTabs } from '../utils';
 
 import { CustomerPermissionsLogButton } from './CustomerPermissionsLogButton';
 import { CustomerUserRowActions } from './CustomerUserRowActions';
-import { UserAddButton } from './UserAddButton';
+import { TeamDropdownActions } from './TeamDropdownActions';
 
 export const renderRoleExpirationDate = (row) => {
   return row.expiration_time
@@ -169,7 +169,7 @@ export const CustomerUsersList: FunctionComponent<{ filters? }> = ({
       tableActions={
         <>
           <CustomerPermissionsLogButton />
-          <UserAddButton refetch={props.fetch} />
+          <TeamDropdownActions refetch={props.fetch} />
         </>
       }
       hasOptionalColumns

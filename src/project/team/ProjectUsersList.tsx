@@ -15,10 +15,10 @@ import { getProject } from '@waldur/workspace/selectors';
 import { PROJECT_USERS_LIST_FILTER_FORM_ID } from '../constants';
 import { PROJECT_TEAM_TABLE_TABS } from '../utils';
 
-import { AddUserButton } from './AddUserButton';
 import { ProjectPermisionActions } from './ProjectPermisionActions';
 import { ProjectPermissionsLogButton } from './ProjectPermissionsLogButton';
 import { ProjectUsersListFilter } from './ProjectUsersListFilter';
+import { TeamDropdownActions } from './TeamDropdownActions';
 
 const mandatoryFields = [
   // Required for actions
@@ -115,7 +115,7 @@ export const ProjectUsersList = ({ hideTabs = false }) => {
       tableActions={
         <>
           <ProjectPermissionsLogButton />
-          <AddUserButton project={project} refetch={tableProps.fetch} />
+          <TeamDropdownActions project={project} refetch={tableProps.fetch} />
         </>
       }
       title={translate('Team')}

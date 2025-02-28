@@ -1,3 +1,11 @@
+const openAddDialog = () => {
+  cy.contains('button', 'Add')
+    .click()
+    .get('.card-header .dropdown-menu .dropdown-item')
+    .contains('Group invitation')
+    .click();
+};
+
 describe('Group invitations', () => {
   beforeEach(() => {
     cy.mockChecklists()
@@ -61,16 +69,13 @@ describe('Group invitations', () => {
   });
 
   it('Should open modal when Create group invitation button is clicked', () => {
-    cy.contains('button', 'Add')
-      .click()
-      .get('.modal .modal-header .modal-title')
-      .should('exist');
+    openAddDialog();
+    cy.get('.modal .modal-header .modal-title').should('exist');
   });
 
   it('Should close modal when cancel button is clicked', () => {
-    cy.contains('button', 'Add')
-      .click()
-      .get('.modal .modal-header .btn-close')
+    openAddDialog();
+    cy.get('.modal .modal-header .btn-close')
       .should('be.visible')
       .click()
       .get('.modal .modal-header .modal-title')
@@ -78,9 +83,8 @@ describe('Group invitations', () => {
   });
 
   it('Should invitation works correctly using role (Organization owner)', () => {
-    cy.contains('button', 'Add')
-      .click()
-      .get('label')
+    openAddDialog();
+    cy.get('label')
       .selectRole('Organization owner')
       .get('.modal .modal-body')
       .contains('button', 'Generate link')
@@ -90,9 +94,8 @@ describe('Group invitations', () => {
   });
 
   it('Should invitation works correctly using role (Project manager)', () => {
-    cy.contains('button', 'Add')
-      .click()
-      .selectRole('Project manager')
+    openAddDialog();
+    cy.selectRole('Project manager')
       .openDropdownByLabel('Project')
       .selectTheFirstOptionOfDropdown()
       .get('.modal .modal-body')
@@ -103,9 +106,8 @@ describe('Group invitations', () => {
   });
 
   it('Should invitation works correctly using role (System administrator)', () => {
-    cy.contains('button', 'Add')
-      .click()
-      .selectRole('System administrator')
+    openAddDialog();
+    cy.selectRole('System administrator')
       .openDropdownByLabel('Project')
       .selectTheFirstOptionOfDropdown()
       .get('.modal .modal-body')
@@ -116,9 +118,8 @@ describe('Group invitations', () => {
   });
 
   it('Should invitation works correctly using role (Project member)', () => {
-    cy.contains('button', 'Add')
-      .click()
-      .selectRole('Project member')
+    openAddDialog();
+    cy.selectRole('Project member')
       .openDropdownByLabel('Project')
       .selectTheFirstOptionOfDropdown()
       .get('.modal .modal-body')

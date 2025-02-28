@@ -106,8 +106,8 @@
     line-height: 0;
   }
   &.btn-icon-right {
-    .svg-icon,
-    i {
+    .svg-icon:last-child,
+    i:last-child {
       margin: 0;
       margin-left: 0.35rem;
     }

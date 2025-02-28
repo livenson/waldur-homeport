@@ -508,7 +508,7 @@
     "message": "Add {category}"
   },
   "Add": {
-    "description": "administration/providers/CreateProviderDialog.tsx, core/AddButton.tsx, customer/list/OrganizationCreateButton.tsx, customer/team/AddProjectUserButton.tsx, marketplace/deploy/DeployPage.tsx, marketplace/service-providers/UserAddButton.tsx, openstack/OpenStackExternalIpsField.tsx, openstack/openstack-backup/actions/NetworksList.tsx, openstack/openstack-instance/actions/update-floating-ips/FloatingIpsList.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, project/create/GlobalProjectCreateButton.tsx, project/create/ProjectCreateButton.tsx, rancher/cluster/create/FormNodesStep.tsx",
+    "description": "administration/providers/CreateProviderDialog.tsx, core/AddButton.tsx, customer/list/OrganizationCreateButton.tsx, customer/team/AddProjectUserButton.tsx, customer/team/TeamDropdownActions.tsx, marketplace/deploy/DeployPage.tsx, marketplace/service-providers/UserAddButton.tsx, openstack/OpenStackExternalIpsField.tsx, openstack/openstack-backup/actions/NetworksList.tsx, openstack/openstack-instance/actions/update-floating-ips/FloatingIpsList.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, project/create/GlobalProjectCreateButton.tsx, project/create/ProjectCreateButton.tsx, project/team/TeamDropdownActions.tsx, rancher/cluster/create/FormNodesStep.tsx",
     "message": "Add"
   },
   "Additional account description invisible to user": {
@@ -1450,6 +1450,10 @@
   "Availability:": {
     "description": "marketplace/offerings/details/PublicOfferingLocation.tsx",
     "message": "Availability:"
+  },
+  "Available for organization owner": {
+    "description": "customer/team/UserAddButton.tsx",
+    "message": "Available for organization owner"
   },
   "Available offerings": {
     "description": "marketplace/routes.ts, proposals/CallsAvailableOfferingsList.tsx, proposals/CallsAvailableOfferingsPage.tsx, proposals/CallsForProposals.tsx, proposals/routes.ts",
@@ -4615,6 +4619,10 @@
     "description": "invitations/GroupInvitationCancelButton.tsx",
     "message": "Group invitation has been cancelled."
   },
+  "Group invitation": {
+    "description": "invitations/actions/GroupInvitationCreateButton.tsx",
+    "message": "Group invitation"
+  },
   "Group invitations": {
     "description": "customer/routes.ts, customer/utils.ts, invitations/GroupInvitationsFilter.tsx",
     "message": "Group invitations"
@@ -5306,6 +5314,10 @@
   "Invite by email": {
     "description": "invitations/actions/create/InvitationCreateDialog.tsx",
     "message": "Invite by email"
+  },
+  "Invite by mail": {
+    "description": "invitations/actions/create/InvitationCreateButton.tsx",
+    "message": "Invite by mail"
   },
   "Invite member": {
     "description": "invitations/actions/create/InvitationCreateButton.tsx",
@@ -6100,7 +6112,7 @@
     "message": "Medical engineering"
   },
   "Member": {
-    "description": "customer/team/CustomerUsersList.tsx, project/team/ProjectUsersList.tsx, user/affiliations/SummaryTeamTable.tsx",
+    "description": "customer/team/CustomerUsersList.tsx, customer/team/UserAddButton.tsx, project/team/AddUserButton.tsx, project/team/ProjectUsersList.tsx, user/affiliations/SummaryTeamTable.tsx",
     "message": "Member"
   },
   "Members": {
@@ -14428,7 +14440,7 @@
     "message": "You do not have the permissions for accessing this page."
   },
   "You don't have enough privileges to perform this operation.": {
-    "description": "project/create/ProjectCreateButton.tsx",
+    "description": "customer/team/UserAddButton.tsx, invitations/actions/create/InvitationCreateButton.tsx, project/create/ProjectCreateButton.tsx, project/team/AddUserButton.tsx",
     "message": "You don't have enough privileges to perform this operation."
   },
   "You don't have permission to cancel these invitations.": {

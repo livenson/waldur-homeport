@@ -5,6 +5,7 @@ import { getFormValues } from 'redux-form';
 import { CopyToClipboardButton } from '@waldur/core/CopyToClipboardButton';
 import { formatDate } from '@waldur/core/dateUtils';
 import { CustomerPermissionsLogButton } from '@waldur/customer/team/CustomerPermissionsLogButton';
+import { TeamDropdownActions } from '@waldur/customer/team/TeamDropdownActions';
 import { useTeamTableTabs } from '@waldur/customer/utils';
 import { translate } from '@waldur/i18n';
 import { InvitationExpandableRow } from '@waldur/invitations/InvitationExpandableRow';
@@ -16,7 +17,6 @@ import { RoleField } from '@waldur/user/affiliations/RoleField';
 import { exportRoleField } from '@waldur/user/affiliations/RolePopover';
 import { getCustomer } from '@waldur/workspace/selectors';
 
-import { InvitationCreateButton } from './actions/create/InvitationCreateButton';
 import { InvitationActions } from './InvitationActions';
 import { InvitationsFilter } from './InvitationsFilter';
 import { InvitationsMultiSelectActions } from './InvitationsMultiSelectActions';
@@ -93,11 +93,7 @@ export const InvitationsList: FunctionComponent = () => {
       tableActions={
         <>
           <CustomerPermissionsLogButton />
-          <InvitationCreateButton
-            roleTypes={['customer', 'project']}
-            refetch={props.fetch}
-            enableBulkUpload={true}
-          />
+          <TeamDropdownActions refetch={props.fetch} />
         </>
       }
       hasQuery={true}

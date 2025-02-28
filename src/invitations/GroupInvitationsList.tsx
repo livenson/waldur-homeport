@@ -8,9 +8,9 @@ import { GroupInvitation } from '@waldur/api';
 import { Badge } from '@waldur/core/Badge';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { CustomerPermissionsLogButton } from '@waldur/customer/team/CustomerPermissionsLogButton';
+import { TeamDropdownActions } from '@waldur/customer/team/TeamDropdownActions';
 import { useTeamTableTabs } from '@waldur/customer/utils';
 import { translate } from '@waldur/i18n';
-import { GroupInvitationCreateButton } from '@waldur/invitations/actions/GroupInvitationCreateButton';
 import { GROUP_INVITATIONS_FILTER_FORM_ID } from '@waldur/invitations/constants';
 import { GroupInvitationRowActions } from '@waldur/invitations/GroupInvitationRowActions';
 import { GroupInvitationsFilter } from '@waldur/invitations/GroupInvitationsFilter';
@@ -89,7 +89,7 @@ export const GroupInvitationsList: FunctionComponent<{}> = () => {
       tableActions={
         <>
           <CustomerPermissionsLogButton />
-          <GroupInvitationCreateButton refetch={props.fetch} />
+          <TeamDropdownActions refetch={props.fetch} />
         </>
       }
       rowActions={({ row }) => (
