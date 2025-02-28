@@ -6440,7 +6440,7 @@
     "message": "Networking"
   },
   "Networks": {
-    "description": "openstack/openstack-backup/actions/BackupRestoreDialog.tsx, openstack/openstack-instance/OpenstackInstanceDetails.tsx, openstack/openstack-tenant/tabs.ts",
+    "description": "openstack/openstack-backup/actions/BackupRestoreDialog.tsx, openstack/openstack-instance/OpenstackInstanceDetails.tsx, openstack/openstack-tenant/actions/MigrateTenantDialog.tsx, openstack/openstack-tenant/tabs.ts",
     "message": "Networks"
   },
   "New announcement has been created.": {

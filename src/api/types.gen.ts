@@ -3001,12 +3001,14 @@ export type Mapping = {
     volume_types?: Array<VolumeTypeMapping>;
     subnets?: Array<SubNetMapping>;
     skip_connection_extnet?: boolean;
+    networks?: Array<string>;
 };
 
 export type MappingRequest = {
     volume_types?: Array<VolumeTypeMappingRequest>;
     subnets?: Array<SubNetMappingRequest>;
     skip_connection_extnet?: boolean;
+    networks?: Array<string>;
 };
 
 export type MarketplaceCategory = {
@@ -35200,5 +35202,5 @@ export type DailyQuotasRetrieveResponses = {
 export type DailyQuotasRetrieveResponse = DailyQuotasRetrieveResponses[keyof DailyQuotasRetrieveResponses];
 
 export type ClientOptions = {
-    baseUrl: `${string}://waldur-openapi-schema.yaml` | (string & {});
+    baseUrl: `${string}://schema.yaml` | (string & {});
 };

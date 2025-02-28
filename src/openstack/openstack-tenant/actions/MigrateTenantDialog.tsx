@@ -4,7 +4,7 @@ import { Form } from 'react-bootstrap';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { Field, FieldArray, formValueSelector, reduxForm } from 'redux-form';
 
-import { openstackMigrationsCreate } from '@waldur/api';
+import { openstackMigrationsCreate, openstackNetworksList } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { FormGroup, SelectField, SubmitButton } from '@waldur/form';
 import { AsyncSelectField } from '@waldur/form/AsyncSelectField';
@@ -18,7 +18,7 @@ import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { loadVolumeTypes } from '@waldur/openstack/api';
 import { TENANT_TYPE } from '@waldur/openstack/constants';
 import { RESOURCE_ACTION_FORM } from '@waldur/resource/actions/constants';
-import { showSuccess, showErrorResponse } from '@waldur/store/notify';
+import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { type RootState } from '@waldur/store/reducers';
 
 import { SubnetsTable } from './SubnetsTable';
@@ -65,6 +65,7 @@ export const MigrateTenantDialog = connect<
                   dst_cidr: type.destination,
                 })),
                 skip_connection_extnet: formData.skip_connection_extnet,
+                networks: formData.networks.map(({ value }) => value),
               },
             },
           });
@@ -102,7 +103,15 @@ export const MigrateTenantDialog = connect<
           const destinationVolumeTypes = await loadVolumeTypes({
             settings_uuid: offering.scope_uuid,
           });
-          return { sourceVolumeTypes, destinationVolumeTypes };
+          const networks = (
+            await openstackNetworksList({
+              query: {
+                tenant_uuid: resource.uuid,
+                field: ['name', 'uuid'],
+              },
+            })
+          ).data.map(({ uuid, name }) => ({ label: name, value: uuid }));
+          return { sourceVolumeTypes, destinationVolumeTypes, networks };
         },
       );
 
@@ -179,6 +188,16 @@ export const MigrateTenantDialog = connect<
                         options={queryResult.data}
                       />
                     </Form.Group>
+                    <Field
+                      name="networks"
+                      label={translate('Networks')}
+                      component={FormGroup}
+                    >
+                      <SelectField
+                        options={queryResult.data.networks}
+                        isMulti
+                      />
+                    </Field>
                     <Form.Group>
                       <Form.Label>{translate('Subnets')}</Form.Label>
                       <FieldArray name="subnets" component={SubnetsTable} />
