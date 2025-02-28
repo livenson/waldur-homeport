@@ -11,9 +11,12 @@ import { ENV } from '@waldur/configs/default';
 export const fixURL = (endpoint: string) =>
   endpoint.startsWith('http') ? endpoint : `${ENV.apiEndpoint}api${endpoint}`;
 
-export const parseResultCount = (response: AxiosResponse): number =>
-  parseInt(response.headers['x-result-count'], 10);
-
+export const parseResultCount = (response: AxiosResponse): number => {
+  const resultCount =
+    response.headers['x-result-count'] ||
+    (response.headers as any).get('x-result-count');
+  return parseInt(resultCount, 10);
+};
 export function get<T = {}>(
   endpoint: string,
   options?: AxiosRequestConfig,
@@ -75,7 +78,7 @@ export function sendForm<T = {}>(
 
 export const getNextPageUrl = (response) => {
   // Extract next page URL from header links
-  const link = response.headers['link'];
+  const link = response.headers['link'] || response.headers.get('link');
   if (!link) {
     return null;
   }

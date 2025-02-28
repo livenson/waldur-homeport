@@ -15,7 +15,7 @@ describe('createFetcher', () => {
   it('should merge options.params with request params and filter params', async () => {
     const axiosMock = vi.spyOn(Axios, 'request').mockResolvedValue({
       data: [],
-      headers: {},
+      headers: { get: vi.fn() },
     });
 
     vi.spyOn(queryClient, 'fetchQuery');
