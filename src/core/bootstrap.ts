@@ -33,14 +33,19 @@ class BadResponseFormatError extends Error {
 
 const fetchJSON = async (url) => {
   const response = await Axios.get(url);
-  const contentType =
+  const contentType = (
     response.headers['content-type'] ||
-    (response.headers as any).get('content-type');
+    (response.headers as any).get('content-type') ||
+    ''
+  )
+    .toLowerCase()
+    .split(';')[0]
+    .trim();
 
   if (contentType !== 'application/json') {
     throw new BadResponseFormatError(response);
   }
-  if (typeof response.data !== 'object') {
+  if (typeof response.data !== 'object' || response.data === null) {
     throw new BadResponseFormatError(response);
   }
   return response.data;
