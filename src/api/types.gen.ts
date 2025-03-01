@@ -1015,6 +1015,15 @@ export type BroadcastMessageRequest = {
 
 export type BroadcastMessageStateEnum = 'DRAFT' | 'SCHEDULED' | 'SENT';
 
+export type CallAttachDocumentsRequest = {
+    documents: Array<Blob | File>;
+    description?: string;
+};
+
+export type CallDetachDocumentsRequest = {
+    documents: Array<string>;
+};
+
 export type CallDocument = {
     readonly uuid: string;
     /**
@@ -28628,7 +28637,7 @@ export type ProposalProtectedCallsUpdateResponses = {
 export type ProposalProtectedCallsUpdateResponse = ProposalProtectedCallsUpdateResponses[keyof ProposalProtectedCallsUpdateResponses];
 
 export type ProposalProtectedCallsActivateData = {
-    body: ProtectedCallRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -28637,10 +28646,11 @@ export type ProposalProtectedCallsActivateData = {
 };
 
 export type ProposalProtectedCallsActivateResponses = {
-    200: ProtectedCall;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type ProposalProtectedCallsActivateResponse = ProposalProtectedCallsActivateResponses[keyof ProposalProtectedCallsActivateResponses];
 
 export type ProposalProtectedCallsAddUserData = {
     body: UserRoleCreateRequest;
@@ -28659,7 +28669,7 @@ export type ProposalProtectedCallsAddUserResponses = {
 };
 
 export type ProposalProtectedCallsArchiveData = {
-    body: ProtectedCallRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -28675,7 +28685,7 @@ export type ProposalProtectedCallsArchiveResponses = {
 };
 
 export type ProposalProtectedCallsAttachDocumentsData = {
-    body?: CallDocumentRequest;
+    body: CallAttachDocumentsRequest;
     path: {
         uuid: string;
     };
@@ -28684,10 +28694,11 @@ export type ProposalProtectedCallsAttachDocumentsData = {
 };
 
 export type ProposalProtectedCallsAttachDocumentsResponses = {
-    200: CallDocument;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type ProposalProtectedCallsAttachDocumentsResponse = ProposalProtectedCallsAttachDocumentsResponses[keyof ProposalProtectedCallsAttachDocumentsResponses];
 
 export type ProposalProtectedCallsDeleteUserData = {
     body: UserRoleDeleteRequest;
@@ -28706,7 +28717,7 @@ export type ProposalProtectedCallsDeleteUserResponses = {
 };
 
 export type ProposalProtectedCallsDetachDocumentsData = {
-    body: ProtectedCallRequest;
+    body: CallDetachDocumentsRequest;
     path: {
         uuid: string;
     };
@@ -28715,10 +28726,11 @@ export type ProposalProtectedCallsDetachDocumentsData = {
 };
 
 export type ProposalProtectedCallsDetachDocumentsResponses = {
-    200: ProtectedCall;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type ProposalProtectedCallsDetachDocumentsResponse = ProposalProtectedCallsDetachDocumentsResponses[keyof ProposalProtectedCallsDetachDocumentsResponses];
 
 export type ProposalProtectedCallsListUsersListData = {
     body?: never;
