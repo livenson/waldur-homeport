@@ -7836,7 +7836,7 @@ export type Proposal = {
      * Duration in days after provisioning of resources.
      */
     duration_in_days?: number | null;
-    readonly project: string;
+    readonly project: string | null;
     round: NestedRound;
     readonly call_uuid: string;
     readonly call_name: string;
@@ -7846,7 +7846,7 @@ export type Proposal = {
     readonly created: string;
 };
 
-export type ProposalAllocateRequest = {
+export type ProposalApproveRequest = {
     allocation_comment?: string;
 };
 
@@ -7880,7 +7880,7 @@ export type ProposalRequest = {
     oecd_fos_2007_code?: OecdFos2007CodeEnum | BlankEnum | NullEnum | null;
 };
 
-export type ProposalStates = 'draft' | 'submitted' | 'in_review' | 'in_revision' | 'accepted' | 'rejected' | 'canceled';
+export type ProposalStates = 'draft' | 'submitted' | 'in_review' | 'accepted' | 'rejected' | 'canceled';
 
 export type ProposalUpdateProjectDetails = {
     name: string;
@@ -28094,12 +28094,11 @@ export type ProposalProposalsListData = {
          * * `draft` - Draft
          * * `submitted` - Submitted
          * * `in_review` - In review
-         * * `in_revision` - In revision
          * * `accepted` - Accepted
          * * `rejected` - Rejected
          * * `canceled` - Canceled
          */
-        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted'>;
+        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'rejected' | 'submitted'>;
     };
     url: '/api/proposal-proposals/';
 };
@@ -28202,16 +28201,16 @@ export type ProposalProposalsAddUserResponses = {
     200: unknown;
 };
 
-export type ProposalProposalsAllocateData = {
-    body?: ProposalAllocateRequest;
+export type ProposalProposalsApproveData = {
+    body?: ProposalApproveRequest;
     path: {
         uuid: string;
     };
     query?: never;
-    url: '/api/proposal-proposals/{uuid}/allocate/';
+    url: '/api/proposal-proposals/{uuid}/approve/';
 };
 
-export type ProposalProposalsAllocateResponses = {
+export type ProposalProposalsApproveResponses = {
     /**
      * No response body
      */
@@ -28250,22 +28249,6 @@ export type ProposalProposalsDeleteUserResponses = {
     200: unknown;
 };
 
-export type ProposalProposalsForceApproveData = {
-    body?: ProposalAllocateRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/proposal-proposals/{uuid}/force_approve/';
-};
-
-export type ProposalProposalsForceApproveResponses = {
-    /**
-     * No response body
-     */
-    200: unknown;
-};
-
 export type ProposalProposalsListUsersListData = {
     body?: never;
     path: {
@@ -28294,12 +28277,11 @@ export type ProposalProposalsListUsersListData = {
          * * `draft` - Draft
          * * `submitted` - Submitted
          * * `in_review` - In review
-         * * `in_revision` - In revision
          * * `accepted` - Accepted
          * * `rejected` - Rejected
          * * `canceled` - Canceled
          */
-        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted'>;
+        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'rejected' | 'submitted'>;
         user?: string;
         user_slug?: string;
         user_url?: string;
@@ -28315,7 +28297,7 @@ export type ProposalProposalsListUsersListResponses = {
 export type ProposalProposalsListUsersListResponse = ProposalProposalsListUsersListResponses[keyof ProposalProposalsListUsersListResponses];
 
 export type ProposalProposalsRejectData = {
-    body?: ProposalAllocateRequest;
+    body?: ProposalApproveRequest;
     path: {
         uuid: string;
     };
@@ -28367,12 +28349,11 @@ export type ProposalProposalsResourcesListData = {
          * * `draft` - Draft
          * * `submitted` - Submitted
          * * `in_review` - In review
-         * * `in_revision` - In revision
          * * `accepted` - Accepted
          * * `rejected` - Rejected
          * * `canceled` - Canceled
          */
-        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'in_revision' | 'rejected' | 'submitted'>;
+        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'rejected' | 'submitted'>;
     };
     url: '/api/proposal-proposals/{uuid}/resources/';
 };
