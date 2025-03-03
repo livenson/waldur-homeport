@@ -1,8 +1,9 @@
+import { ProposalDocumentation } from '@waldur/api';
 import { AttachmentItemPending } from '@waldur/form/upload/AttachmentItemPending';
 import { AttachmentsList } from '@waldur/form/upload/AttachmentsList';
 
 interface DocumentationFilesProps {
-  files: Array<{ file: string; file_name: string; created?: string }>;
+  files: Array<ProposalDocumentation>;
   pending?: FileList;
   onChange?(value): void;
 }
