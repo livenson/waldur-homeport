@@ -3,8 +3,6 @@ import { useSelector } from 'react-redux';
 import { formValueSelector, Field } from 'redux-form';
 
 import { required } from '@waldur/core/validators';
-import { isFeatureVisible } from '@waldur/features/connect';
-import { InvitationsFeatures } from '@waldur/FeaturesEnums';
 import { FormGroup, SelectField } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { type RootState } from '@waldur/store/reducers';
@@ -18,10 +16,7 @@ export const ProjectGroup: FunctionComponent<{ customer; disabled }> = ({
   const role = useSelector((state: RootState) =>
     formValueSelector(GROUP_INVITATION_CREATE_FORM_ID)(state, 'role'),
   );
-  const roleDisabled = isFeatureVisible(
-    InvitationsFeatures.require_user_details,
-  );
-  const projectEnabled = role.content_type === 'project' && !roleDisabled;
+  const projectEnabled = role.content_type === 'project';
   if (!projectEnabled) {
     return null;
   }
