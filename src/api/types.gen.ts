@@ -2532,7 +2532,6 @@ export type Invitation = {
     readonly expires: string;
     full_name?: string;
     native_name?: string;
-    tax_number?: string;
     phone_number?: string;
     organization?: string;
     job_title?: string;
@@ -2560,7 +2559,6 @@ export type InvitationRequest = {
     scope: string;
     full_name?: string;
     native_name?: string;
-    tax_number?: string;
     phone_number?: string;
     organization?: string;
     job_title?: string;
@@ -3019,6 +3017,10 @@ export type LinkToInvoice = {
 
 export type LinkToInvoiceRequest = {
     invoice: string;
+};
+
+export type Logout = {
+    readonly logout_url: string;
 };
 
 export type Mapping = {
@@ -3927,8 +3929,6 @@ export type Offering = {
     plugin_options?: unknown;
     state: OfferingStates;
     state_code: StateCodeEnum;
-    native_name?: string;
-    native_description?: string;
     vendor_details?: string;
     getting_started?: string;
     integration_guide?: string;
@@ -4091,8 +4091,6 @@ export type OfferingCreate = {
     readonly service_attributes: {};
     state: OfferingStates;
     state_code: StateCodeEnum;
-    native_name?: string;
-    native_description?: string;
     vendor_details?: string;
     getting_started?: string;
     integration_guide?: string;
@@ -4156,8 +4154,6 @@ export type OfferingCreateRequest = {
      */
     plugin_options?: unknown;
     secret_options?: unknown;
-    native_name?: string;
-    native_description?: string;
     vendor_details?: string;
     getting_started?: string;
     integration_guide?: string;
@@ -4387,8 +4383,6 @@ export type OfferingRequest = {
      * Public data used by specific plugin, such as storage mode for OpenStack.
      */
     plugin_options?: unknown;
-    native_name?: string;
-    native_description?: string;
     vendor_details?: string;
     getting_started?: string;
     integration_guide?: string;
@@ -4713,19 +4707,8 @@ export type OpenStackFloatingIp = {
     readonly is_limit_based: boolean;
 };
 
-export type OpenStackFloatingIpAttach = {
-    port: string;
-};
-
 export type OpenStackFloatingIpAttachRequest = {
     port: string;
-};
-
-export type OpenStackFloatingIpDescriptionUpdate = {
-    /**
-     * New floating IP description.
-     */
-    description?: string;
 };
 
 export type OpenStackFloatingIpDescriptionUpdateRequest = {
@@ -4856,10 +4839,6 @@ export type OpenStackInstanceAvailabilityZone = {
 
 export type OpenStackInstanceConsole = {
     readonly url: string;
-};
-
-export type OpenStackInstanceFloatingIpsUpdate = {
-    floating_ips?: Array<OpenStackNestedFloatingIp>;
 };
 
 export type OpenStackInstanceFloatingIpsUpdateRequest = {
@@ -5296,14 +5275,6 @@ export type OpenStackSecurityGroupUpdateRequest = {
     description?: string;
 };
 
-export type OpenStackSharedSettingsCustomer = {
-    readonly name: string;
-    readonly uuid: string;
-    readonly created: string;
-    readonly abbreviation: string;
-    readonly vm_count: number;
-};
-
 export type OpenStackSnapshot = {
     readonly url: string;
     readonly uuid: string;
@@ -5519,13 +5490,6 @@ export type OpenStackTenant = {
     readonly is_limit_based: boolean;
 };
 
-export type OpenStackTenantChangePassword = {
-    /**
-     * New tenant user password.
-     */
-    user_password: string;
-};
-
 export type OpenStackTenantChangePasswordRequest = {
     /**
      * New tenant user password.
@@ -5642,10 +5606,6 @@ export type OpenStackVolumeAvailabilityZone = {
     available?: boolean;
 };
 
-export type OpenStackVolumeExtend = {
-    disk_size: number;
-};
-
 export type OpenStackVolumeExtendRequest = {
     disk_size: number;
 };
@@ -5663,10 +5623,6 @@ export type OpenStackVolumeRequest = {
     type?: string | null;
     availability_zone?: string | null;
     tenant: string;
-};
-
-export type OpenStackVolumeRetype = {
-    type: string;
 };
 
 export type OpenStackVolumeRetypeRequest = {
@@ -5753,6 +5709,7 @@ export type OrderCreate = {
     readonly marketplace_resource_uuid: string;
     readonly error_message: string;
     callback_url?: string | null;
+    readonly completed_at: string | null;
     readonly url: string;
     readonly created_by: string;
     /**
@@ -5840,6 +5797,7 @@ export type OrderDetails = {
     readonly marketplace_resource_uuid: string;
     readonly error_message: string;
     callback_url?: string | null;
+    readonly completed_at: string | null;
     /**
      * Required. 128 characters or fewer. Lowercase letters, numbers and @/./+/-/_ characters
      */
@@ -6109,6 +6067,8 @@ export type PaginatedOpenStackInstanceList = Array<OpenStackInstance>;
 
 export type PaginatedOpenStackNestedFloatingIpList = Array<OpenStackNestedFloatingIp>;
 
+export type PaginatedOpenStackNestedPortList = Array<OpenStackNestedPort>;
+
 export type PaginatedOpenStackNetworkList = Array<OpenStackNetwork>;
 
 export type PaginatedOpenStackPortList = Array<OpenStackPort>;
@@ -6120,6 +6080,8 @@ export type PaginatedOpenStackSecurityGroupList = Array<OpenStackSecurityGroup>;
 export type PaginatedOpenStackSecurityGroupRuleUpdateList = Array<OpenStackSecurityGroupRuleUpdate>;
 
 export type PaginatedOpenStackSnapshotList = Array<OpenStackSnapshot>;
+
+export type PaginatedOpenStackSnapshotRestorationList = Array<OpenStackSnapshotRestoration>;
 
 export type PaginatedOpenStackSubNetList = Array<OpenStackSubNet>;
 
@@ -6760,8 +6722,6 @@ export type PatchedOfferingRequest = {
      * Public data used by specific plugin, such as storage mode for OpenStack.
      */
     plugin_options?: unknown;
-    native_name?: string;
-    native_description?: string;
     vendor_details?: string;
     getting_started?: string;
     integration_guide?: string;
@@ -7040,8 +7000,6 @@ export type PatchedProviderOfferingDetailsRequest = {
      */
     plugin_options?: unknown;
     secret_options?: unknown;
-    native_name?: string;
-    native_description?: string;
     vendor_details?: string;
     getting_started?: string;
     integration_guide?: string;
@@ -7122,8 +7080,6 @@ export type PatchedPublicOfferingDetailsRequest = {
      * Public data used by specific plugin, such as storage mode for OpenStack.
      */
     plugin_options?: unknown;
-    native_name?: string;
-    native_description?: string;
     vendor_details?: string;
     getting_started?: string;
     integration_guide?: string;
@@ -8150,8 +8106,6 @@ export type ProviderOfferingDetails = {
     readonly service_attributes: {};
     state: OfferingStates;
     state_code: StateCodeEnum;
-    native_name?: string;
-    native_description?: string;
     vendor_details?: string;
     getting_started?: string;
     integration_guide?: string;
@@ -8223,8 +8177,6 @@ export type ProviderOfferingDetailsRequest = {
      */
     plugin_options?: unknown;
     secret_options?: unknown;
-    native_name?: string;
-    native_description?: string;
     vendor_details?: string;
     getting_started?: string;
     integration_guide?: string;
@@ -8428,8 +8380,6 @@ export type PublicOfferingDetails = {
     plugin_options?: unknown;
     state: OfferingStates;
     state_code: StateCodeEnum;
-    native_name?: string;
-    native_description?: string;
     vendor_details?: string;
     getting_started?: string;
     integration_guide?: string;
@@ -8501,8 +8451,6 @@ export type PublicOfferingDetailsRequest = {
      * Public data used by specific plugin, such as storage mode for OpenStack.
      */
     plugin_options?: unknown;
-    native_name?: string;
-    native_description?: string;
     vendor_details?: string;
     getting_started?: string;
     integration_guide?: string;
@@ -10302,13 +10250,6 @@ export type UserAuthToken = {
     readonly token: string;
 };
 
-export type UserDetails = {
-    readonly full_name: string;
-    readonly native_name: string;
-    readonly organization: string;
-    readonly job_title: string;
-};
-
 export type UserEmailChangeRequest = {
     email: string;
 };
@@ -10801,19 +10742,6 @@ export type WebHookRequest = {
 
 export type WebhookEventEnum = 'jira:issue_updated' | 'jira:issue_deleted' | 'comment_created' | 'comment_updated' | 'comment_deleted';
 
-export type ApiAuthBccUserDetailsRetrieveData = {
-    body?: never;
-    path?: never;
-    query?: never;
-    url: '/api-auth/bcc/user-details/';
-};
-
-export type ApiAuthBccUserDetailsRetrieveResponses = {
-    200: UserDetails;
-};
-
-export type ApiAuthBccUserDetailsRetrieveResponse = ApiAuthBccUserDetailsRetrieveResponses[keyof ApiAuthBccUserDetailsRetrieveResponses];
-
 export type ApiAuthEduteamsCompleteRetrieveData = {
     body?: never;
     path?: never;
@@ -10884,11 +10812,14 @@ export type ApiAuthLogoutData = {
 };
 
 export type ApiAuthLogoutResponses = {
+    200: Logout;
     /**
      * No response body
      */
-    200: unknown;
+    204: void;
 };
+
+export type ApiAuthLogoutResponse = ApiAuthLogoutResponses[keyof ApiAuthLogoutResponses];
 
 export type ApiAuthPasswordData = {
     body: ObtainAuthTokenRequest;
@@ -12783,7 +12714,7 @@ export type BookingOfferingsListData = {
     body?: never;
     path?: never;
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'googlecalendar' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'native_description' | 'native_name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'googlecalendar' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
         /**
          * A page number within the paginated result set.
          */
@@ -12839,7 +12770,7 @@ export type BookingOfferingsRetrieveData = {
         uuid: string;
     };
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'googlecalendar' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'native_description' | 'native_name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'googlecalendar' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
     };
     url: '/api/booking-offerings/{uuid}/';
 };
@@ -18871,7 +18802,7 @@ export type MarketplaceOrdersListData = {
          */
         created?: string;
         customer_uuid?: string;
-        field?: Array<'accepting_terms_of_service' | 'activation_price' | 'attributes' | 'backend_id' | 'callback_url' | 'can_terminate' | 'category_icon' | 'category_title' | 'category_uuid' | 'consumer_reviewed_at' | 'consumer_reviewed_by' | 'consumer_reviewed_by_full_name' | 'cost' | 'created' | 'created_by_civil_number' | 'created_by_full_name' | 'customer_name' | 'customer_slug' | 'customer_uuid' | 'error_message' | 'fixed_price' | 'issue' | 'limits' | 'marketplace_resource_uuid' | 'modified' | 'new_cost_estimate' | 'new_plan_name' | 'new_plan_uuid' | 'offering' | 'offering_billable' | 'offering_description' | 'offering_image' | 'offering_name' | 'offering_plugin_options' | 'offering_shared' | 'offering_terms_of_service' | 'offering_thumbnail' | 'offering_type' | 'offering_uuid' | 'old_cost_estimate' | 'old_plan_name' | 'old_plan_uuid' | 'output' | 'plan' | 'plan_description' | 'plan_name' | 'plan_unit' | 'plan_uuid' | 'project_description' | 'project_name' | 'project_slug' | 'project_uuid' | 'provider_name' | 'provider_reviewed_at' | 'provider_reviewed_by' | 'provider_reviewed_by_full_name' | 'provider_uuid' | 'resource_name' | 'resource_type' | 'resource_uuid' | 'state' | 'termination_comment' | 'type' | 'uuid'>;
+        field?: Array<'accepting_terms_of_service' | 'activation_price' | 'attributes' | 'backend_id' | 'callback_url' | 'can_terminate' | 'category_icon' | 'category_title' | 'category_uuid' | 'completed_at' | 'consumer_reviewed_at' | 'consumer_reviewed_by' | 'consumer_reviewed_by_full_name' | 'cost' | 'created' | 'created_by_civil_number' | 'created_by_full_name' | 'customer_name' | 'customer_slug' | 'customer_uuid' | 'error_message' | 'fixed_price' | 'issue' | 'limits' | 'marketplace_resource_uuid' | 'modified' | 'new_cost_estimate' | 'new_plan_name' | 'new_plan_uuid' | 'offering' | 'offering_billable' | 'offering_description' | 'offering_image' | 'offering_name' | 'offering_plugin_options' | 'offering_shared' | 'offering_terms_of_service' | 'offering_thumbnail' | 'offering_type' | 'offering_uuid' | 'old_cost_estimate' | 'old_plan_name' | 'old_plan_uuid' | 'output' | 'plan' | 'plan_description' | 'plan_name' | 'plan_unit' | 'plan_uuid' | 'project_description' | 'project_name' | 'project_slug' | 'project_uuid' | 'provider_name' | 'provider_reviewed_at' | 'provider_reviewed_by' | 'provider_reviewed_by_full_name' | 'provider_uuid' | 'resource_name' | 'resource_type' | 'resource_uuid' | 'state' | 'termination_comment' | 'type' | 'uuid'>;
         /**
          * Modified after
          */
@@ -18971,7 +18902,7 @@ export type MarketplaceOrdersRetrieveData = {
         uuid: string;
     };
     query?: {
-        field?: Array<'accepting_terms_of_service' | 'activation_price' | 'attributes' | 'backend_id' | 'callback_url' | 'can_terminate' | 'category_icon' | 'category_title' | 'category_uuid' | 'consumer_reviewed_at' | 'consumer_reviewed_by' | 'consumer_reviewed_by_full_name' | 'cost' | 'created' | 'created_by_civil_number' | 'created_by_full_name' | 'customer_name' | 'customer_slug' | 'customer_uuid' | 'error_message' | 'fixed_price' | 'issue' | 'limits' | 'marketplace_resource_uuid' | 'modified' | 'new_cost_estimate' | 'new_plan_name' | 'new_plan_uuid' | 'offering' | 'offering_billable' | 'offering_description' | 'offering_image' | 'offering_name' | 'offering_plugin_options' | 'offering_shared' | 'offering_terms_of_service' | 'offering_thumbnail' | 'offering_type' | 'offering_uuid' | 'old_cost_estimate' | 'old_plan_name' | 'old_plan_uuid' | 'output' | 'plan' | 'plan_description' | 'plan_name' | 'plan_unit' | 'plan_uuid' | 'project_description' | 'project_name' | 'project_slug' | 'project_uuid' | 'provider_name' | 'provider_reviewed_at' | 'provider_reviewed_by' | 'provider_reviewed_by_full_name' | 'provider_uuid' | 'resource_name' | 'resource_type' | 'resource_uuid' | 'state' | 'termination_comment' | 'type' | 'uuid'>;
+        field?: Array<'accepting_terms_of_service' | 'activation_price' | 'attributes' | 'backend_id' | 'callback_url' | 'can_terminate' | 'category_icon' | 'category_title' | 'category_uuid' | 'completed_at' | 'consumer_reviewed_at' | 'consumer_reviewed_by' | 'consumer_reviewed_by_full_name' | 'cost' | 'created' | 'created_by_civil_number' | 'created_by_full_name' | 'customer_name' | 'customer_slug' | 'customer_uuid' | 'error_message' | 'fixed_price' | 'issue' | 'limits' | 'marketplace_resource_uuid' | 'modified' | 'new_cost_estimate' | 'new_plan_name' | 'new_plan_uuid' | 'offering' | 'offering_billable' | 'offering_description' | 'offering_image' | 'offering_name' | 'offering_plugin_options' | 'offering_shared' | 'offering_terms_of_service' | 'offering_thumbnail' | 'offering_type' | 'offering_uuid' | 'old_cost_estimate' | 'old_plan_name' | 'old_plan_uuid' | 'output' | 'plan' | 'plan_description' | 'plan_name' | 'plan_unit' | 'plan_uuid' | 'project_description' | 'project_name' | 'project_slug' | 'project_uuid' | 'provider_name' | 'provider_reviewed_at' | 'provider_reviewed_by' | 'provider_reviewed_by_full_name' | 'provider_uuid' | 'resource_name' | 'resource_type' | 'resource_uuid' | 'state' | 'termination_comment' | 'type' | 'uuid'>;
     };
     url: '/api/marketplace-orders/{uuid}/';
 };
@@ -19719,7 +19650,7 @@ export type MarketplaceProviderOfferingsListData = {
         customer?: string;
         customer_uuid?: string;
         description?: string;
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'native_description' | 'native_name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
         /**
          * Keyword
          */
@@ -19823,7 +19754,7 @@ export type MarketplaceProviderOfferingsRetrieveData = {
         uuid: string;
     };
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'native_description' | 'native_name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
     };
     url: '/api/marketplace-provider-offerings/{uuid}/';
 };
@@ -19931,7 +19862,7 @@ export type MarketplaceProviderOfferingsComponentStatsRetrieveData = {
         uuid: string;
     };
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'native_description' | 'native_name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
     };
     url: '/api/marketplace-provider-offerings/{uuid}/component_stats/';
 };
@@ -19948,7 +19879,7 @@ export type MarketplaceProviderOfferingsCostsRetrieveData = {
         uuid: string;
     };
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'native_description' | 'native_name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
     };
     url: '/api/marketplace-provider-offerings/{uuid}/costs/';
 };
@@ -19981,7 +19912,7 @@ export type MarketplaceProviderOfferingsCustomersRetrieveData = {
         uuid: string;
     };
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'native_description' | 'native_name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
     };
     url: '/api/marketplace-provider-offerings/{uuid}/customers/';
 };
@@ -20106,7 +20037,7 @@ export type MarketplaceProviderOfferingsImportableResourcesRetrieveData = {
         uuid: string;
     };
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'native_description' | 'native_name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
     };
     url: '/api/marketplace-provider-offerings/{uuid}/importable_resources/';
 };
@@ -20437,7 +20368,7 @@ export type MarketplaceProviderOfferingsStatsRetrieveData = {
         uuid: string;
     };
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'native_description' | 'native_name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
     };
     url: '/api/marketplace-provider-offerings/{uuid}/stats/';
 };
@@ -20652,7 +20583,7 @@ export type MarketplaceProviderOfferingsUserHasResourceAccessRetrieveData = {
         uuid: string;
     };
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'native_description' | 'native_name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
     };
     url: '/api/marketplace-provider-offerings/{uuid}/user_has_resource_access/';
 };
@@ -20667,7 +20598,7 @@ export type MarketplaceProviderOfferingsGroupsRetrieveData = {
     body?: never;
     path?: never;
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'native_description' | 'native_name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
     };
     url: '/api/marketplace-provider-offerings/groups/';
 };
@@ -21193,7 +21124,7 @@ export type MarketplacePublicOfferingsListData = {
         customer?: string;
         customer_uuid?: string;
         description?: string;
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'native_description' | 'native_name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'promotion_campaigns' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'promotion_campaigns' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
         /**
          * Keyword
          */
@@ -21266,7 +21197,7 @@ export type MarketplacePublicOfferingsRetrieveData = {
         uuid: string;
     };
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'native_description' | 'native_name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'promotion_campaigns' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'promotion_campaigns' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
     };
     url: '/api/marketplace-public-offerings/{uuid}/';
 };
@@ -22322,7 +22253,7 @@ export type MarketplaceScriptDryRunListData = {
     body?: never;
     path?: never;
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'native_description' | 'native_name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'promotion_campaigns' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'promotion_campaigns' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
         /**
          * A page number within the paginated result set.
          */
@@ -22378,7 +22309,7 @@ export type MarketplaceScriptDryRunRetrieveData = {
         uuid: string;
     };
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'native_description' | 'native_name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'promotion_campaigns' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'promotion_campaigns' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
     };
     url: '/api/marketplace-script-dry-run/{uuid}/';
 };
@@ -24263,10 +24194,11 @@ export type OpenstackFloatingIpsAttachToPortData = {
 };
 
 export type OpenstackFloatingIpsAttachToPortResponses = {
-    200: OpenStackFloatingIpAttach;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackFloatingIpsAttachToPortResponse = OpenstackFloatingIpsAttachToPortResponses[keyof OpenstackFloatingIpsAttachToPortResponses];
 
 export type OpenstackFloatingIpsDetachFromPortData = {
     body?: never;
@@ -24278,10 +24210,11 @@ export type OpenstackFloatingIpsDetachFromPortData = {
 };
 
 export type OpenstackFloatingIpsDetachFromPortResponses = {
-    200: OpenStackFloatingIp;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackFloatingIpsDetachFromPortResponse = OpenstackFloatingIpsDetachFromPortResponses[keyof OpenstackFloatingIpsDetachFromPortResponses];
 
 export type OpenstackFloatingIpsPullData = {
     body?: never;
@@ -24325,10 +24258,11 @@ export type OpenstackFloatingIpsUpdateDescriptionData = {
 };
 
 export type OpenstackFloatingIpsUpdateDescriptionResponses = {
-    200: OpenStackFloatingIpDescriptionUpdate;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackFloatingIpsUpdateDescriptionResponse = OpenstackFloatingIpsUpdateDescriptionResponses[keyof OpenstackFloatingIpsUpdateDescriptionResponses];
 
 export type OpenstackImagesListData = {
     body?: never;
@@ -24649,20 +24583,61 @@ export type OpenstackInstancesFloatingIpsListResponses = {
 
 export type OpenstackInstancesFloatingIpsListResponse = OpenstackInstancesFloatingIpsListResponses[keyof OpenstackInstancesFloatingIpsListResponses];
 
-export type OpenstackInstancesPortsRetrieveData = {
+export type OpenstackInstancesPortsListData = {
     body?: never;
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        attach_volume_uuid?: string;
+        availability_zone_name?: string;
+        backend_id?: string;
+        customer?: string;
+        customer_abbreviation?: string;
+        customer_name?: string;
+        customer_native_name?: string;
+        customer_uuid?: string;
+        description?: string;
+        external_ip?: string;
+        name?: string;
+        name_exact?: string;
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+        project?: string;
+        project_name?: string;
+        project_uuid?: string;
+        runtime_state?: string;
+        service_settings_name?: string;
+        service_settings_uuid?: string;
+        /**
+         * * `Creation Scheduled` - Creation Scheduled
+         * * `Creating` - Creating
+         * * `Update Scheduled` - Update Scheduled
+         * * `Updating` - Updating
+         * * `Deletion Scheduled` - Deletion Scheduled
+         * * `Deleting` - Deleting
+         * * `OK` - OK
+         * * `Erred` - Erred
+         */
+        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        tenant?: string;
+        tenant_uuid?: string;
+        uuid?: string;
+    };
     url: '/api/openstack-instances/{uuid}/ports/';
 };
 
-export type OpenstackInstancesPortsRetrieveResponses = {
-    200: OpenStackNestedPort;
+export type OpenstackInstancesPortsListResponses = {
+    200: PaginatedOpenStackNestedPortList;
 };
 
-export type OpenstackInstancesPortsRetrieveResponse = OpenstackInstancesPortsRetrieveResponses[keyof OpenstackInstancesPortsRetrieveResponses];
+export type OpenstackInstancesPortsListResponse = OpenstackInstancesPortsListResponses[keyof OpenstackInstancesPortsListResponses];
 
 export type OpenstackInstancesPullData = {
     body?: never;
@@ -24770,10 +24745,11 @@ export type OpenstackInstancesUpdateFloatingIpsData = {
 };
 
 export type OpenstackInstancesUpdateFloatingIpsResponses = {
-    200: OpenStackInstanceFloatingIpsUpdate;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackInstancesUpdateFloatingIpsResponse = OpenstackInstancesUpdateFloatingIpsResponses[keyof OpenstackInstancesUpdateFloatingIpsResponses];
 
 export type OpenstackInstancesUpdatePortsData = {
     body: OpenStackInstancePortsUpdateRequest;
@@ -25774,34 +25750,6 @@ export type OpenstackServerGroupsUnlinkResponses = {
     200: unknown;
 };
 
-export type OpenstackSharedSettingsCustomersRetrieveData = {
-    body?: never;
-    path?: never;
-    query?: never;
-    url: '/api/openstack-shared-settings-customers/';
-};
-
-export type OpenstackSharedSettingsCustomersRetrieveResponses = {
-    200: OpenStackSharedSettingsCustomer;
-};
-
-export type OpenstackSharedSettingsCustomersRetrieveResponse = OpenstackSharedSettingsCustomersRetrieveResponses[keyof OpenstackSharedSettingsCustomersRetrieveResponses];
-
-export type OpenstackSharedSettingsInstancesRetrieveData = {
-    body?: never;
-    path?: never;
-    query?: {
-        field?: Array<'access_url' | 'action' | 'action_details' | 'availability_zone' | 'availability_zone_name' | 'backend_id' | 'connect_directly_to_external_network' | 'cores' | 'created' | 'customer' | 'customer_abbreviation' | 'customer_name' | 'customer_native_name' | 'data_volume_size' | 'data_volume_type' | 'data_volumes' | 'description' | 'disk' | 'error_message' | 'error_traceback' | 'external_address' | 'external_ips' | 'flavor' | 'flavor_disk' | 'flavor_name' | 'floating_ips' | 'hypervisor_hostname' | 'image' | 'image_name' | 'internal_ips' | 'is_limit_based' | 'is_usage_based' | 'key_fingerprint' | 'key_name' | 'latitude' | 'longitude' | 'marketplace_category_name' | 'marketplace_category_uuid' | 'marketplace_offering_name' | 'marketplace_offering_plugin_options' | 'marketplace_offering_uuid' | 'marketplace_plan_uuid' | 'marketplace_resource_state' | 'marketplace_resource_uuid' | 'min_disk' | 'min_ram' | 'modified' | 'name' | 'ports' | 'project' | 'project_name' | 'project_uuid' | 'ram' | 'rancher_cluster' | 'resource_type' | 'runtime_state' | 'security_groups' | 'server_group' | 'service_name' | 'service_settings' | 'service_settings_error_message' | 'service_settings_state' | 'service_settings_uuid' | 'ssh_public_key' | 'start_time' | 'state' | 'system_volume_size' | 'system_volume_type' | 'tenant' | 'tenant_uuid' | 'url' | 'user_data' | 'uuid' | 'volumes'>;
-    };
-    url: '/api/openstack-shared-settings-instances/';
-};
-
-export type OpenstackSharedSettingsInstancesRetrieveResponses = {
-    200: OpenStackInstance;
-};
-
-export type OpenstackSharedSettingsInstancesRetrieveResponse = OpenstackSharedSettingsInstancesRetrieveResponses[keyof OpenstackSharedSettingsInstancesRetrieveResponses];
-
 export type OpenstackSnapshotsListData = {
     body?: never;
     path?: never;
@@ -25953,20 +25901,63 @@ export type OpenstackSnapshotsPullResponses = {
     200: unknown;
 };
 
-export type OpenstackSnapshotsRestorationsRetrieveData = {
+export type OpenstackSnapshotsRestorationsListData = {
     body?: never;
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        backend_id?: string;
+        backup?: string;
+        backup_uuid?: string;
+        customer?: string;
+        customer_abbreviation?: string;
+        customer_name?: string;
+        customer_native_name?: string;
+        customer_uuid?: string;
+        description?: string;
+        external_ip?: string;
+        name?: string;
+        name_exact?: string;
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+        project?: string;
+        project_name?: string;
+        project_uuid?: string;
+        runtime_state?: string;
+        service_settings_name?: string;
+        service_settings_uuid?: string;
+        source_volume?: string;
+        source_volume_uuid?: string;
+        /**
+         * * `Creation Scheduled` - Creation Scheduled
+         * * `Creating` - Creating
+         * * `Update Scheduled` - Update Scheduled
+         * * `Updating` - Updating
+         * * `Deletion Scheduled` - Deletion Scheduled
+         * * `Deleting` - Deleting
+         * * `OK` - OK
+         * * `Erred` - Erred
+         */
+        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        tenant?: string;
+        tenant_uuid?: string;
+        uuid?: string;
+    };
     url: '/api/openstack-snapshots/{uuid}/restorations/';
 };
 
-export type OpenstackSnapshotsRestorationsRetrieveResponses = {
-    200: OpenStackSnapshotRestoration;
+export type OpenstackSnapshotsRestorationsListResponses = {
+    200: PaginatedOpenStackSnapshotRestorationList;
 };
 
-export type OpenstackSnapshotsRestorationsRetrieveResponse = OpenstackSnapshotsRestorationsRetrieveResponses[keyof OpenstackSnapshotsRestorationsRetrieveResponses];
+export type OpenstackSnapshotsRestorationsListResponse = OpenstackSnapshotsRestorationsListResponses[keyof OpenstackSnapshotsRestorationsListResponses];
 
 export type OpenstackSnapshotsRestoreData = {
     body: OpenStackSnapshotRestorationRequest;
@@ -25978,7 +25969,7 @@ export type OpenstackSnapshotsRestoreData = {
 };
 
 export type OpenstackSnapshotsRestoreResponses = {
-    200: OpenStackSnapshotRestoration;
+    200: OpenStackVolume;
 };
 
 export type OpenstackSnapshotsRestoreResponse = OpenstackSnapshotsRestoreResponses[keyof OpenstackSnapshotsRestoreResponses];
@@ -26437,10 +26428,11 @@ export type OpenstackTenantsChangePasswordData = {
 };
 
 export type OpenstackTenantsChangePasswordResponses = {
-    200: OpenStackTenantChangePassword;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackTenantsChangePasswordResponse = OpenstackTenantsChangePasswordResponses[keyof OpenstackTenantsChangePasswordResponses];
 
 export type OpenstackTenantsCreateFloatingIpData = {
     body?: never;
@@ -26531,11 +26523,11 @@ export type OpenstackTenantsPullFloatingIpsResponses = {
     /**
      * No response body
      */
-    200: unknown;
+    202: unknown;
 };
 
 export type OpenstackTenantsPullQuotasData = {
-    body: OpenStackTenantRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -26544,13 +26536,14 @@ export type OpenstackTenantsPullQuotasData = {
 };
 
 export type OpenstackTenantsPullQuotasResponses = {
-    200: OpenStackTenant;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
 
-export type OpenstackTenantsPullQuotasResponse = OpenstackTenantsPullQuotasResponses[keyof OpenstackTenantsPullQuotasResponses];
-
 export type OpenstackTenantsPullSecurityGroupsData = {
-    body: OpenStackTenantRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -26565,7 +26558,7 @@ export type OpenstackTenantsPullSecurityGroupsResponses = {
 export type OpenstackTenantsPullSecurityGroupsResponse = OpenstackTenantsPullSecurityGroupsResponses[keyof OpenstackTenantsPullSecurityGroupsResponses];
 
 export type OpenstackTenantsPullServerGroupsData = {
-    body: OpenStackTenantRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -26850,7 +26843,7 @@ export type OpenstackVolumesAttachResponses = {
 };
 
 export type OpenstackVolumesDetachData = {
-    body: OpenStackVolumeRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -26859,10 +26852,11 @@ export type OpenstackVolumesDetachData = {
 };
 
 export type OpenstackVolumesDetachResponses = {
-    200: OpenStackVolume;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackVolumesDetachResponse = OpenstackVolumesDetachResponses[keyof OpenstackVolumesDetachResponses];
 
 export type OpenstackVolumesExtendData = {
     body: OpenStackVolumeExtendRequest;
@@ -26874,10 +26868,11 @@ export type OpenstackVolumesExtendData = {
 };
 
 export type OpenstackVolumesExtendResponses = {
-    200: OpenStackVolumeExtend;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackVolumesExtendResponse = OpenstackVolumesExtendResponses[keyof OpenstackVolumesExtendResponses];
 
 export type OpenstackVolumesPullData = {
     body?: never;
@@ -26905,10 +26900,11 @@ export type OpenstackVolumesRetypeData = {
 };
 
 export type OpenstackVolumesRetypeResponses = {
-    200: OpenStackVolumeRetype;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackVolumesRetypeResponse = OpenstackVolumesRetypeResponses[keyof OpenstackVolumesRetypeResponses];
 
 export type OpenstackVolumesSnapshotData = {
     body: OpenStackSnapshotRequest;
@@ -35195,5 +35191,5 @@ export type VmwareVirtualMachineWebConsoleRetrieveResponses = {
 export type VmwareVirtualMachineWebConsoleRetrieveResponse = VmwareVirtualMachineWebConsoleRetrieveResponses[keyof VmwareVirtualMachineWebConsoleRetrieveResponses];
 
 export type ClientOptions = {
-    baseUrl: `${string}://schema.yaml` | (string & {});
+    baseUrl: `${string}://waldur-openapi-schema.yaml` | (string & {});
 };
