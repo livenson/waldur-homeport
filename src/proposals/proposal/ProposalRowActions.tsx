@@ -2,10 +2,7 @@ import { ChatText, CheckCircle, Eye, XCircle } from '@phosphor-icons/react';
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import {
-  proposalProposalsForceApprove,
-  proposalProposalsReject,
-} from '@waldur/api';
+import { proposalProposalsApprove, proposalProposalsReject } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { openModalDialog, waitForConfirmation } from '@waldur/modal/actions';
@@ -67,16 +64,20 @@ export const ProposalRowActions = ({ row, refetch }) => {
       );
     }
   };
-  const handleForceApproveProposal = async (proposalUuid: string) => {
+  const handleApproveProposal = async (proposalUuid: string) => {
     await waitForConfirmation(
       dispatch,
       translate('Confirmation'),
-      translate('Are you sure you want to approve the proposal: {name}?', {
-        name: row.name,
-      }),
+      translate(
+        'Are you sure you want to approve the proposal {name} in state {state}?',
+        {
+          name: row.name,
+          state: row.state,
+        },
+      ),
     );
     try {
-      await proposalProposalsForceApprove({ path: { uuid: proposalUuid } });
+      await proposalProposalsApprove({ path: { uuid: proposalUuid } });
       dispatch(showSuccess(translate('Proposal has been approved.')));
       refetch();
     } catch (error) {
@@ -102,8 +103,8 @@ export const ProposalRowActions = ({ row, refetch }) => {
       {!isRejectButtonDisabled && (
         <>
           <ActionItem
-            title={translate('Force approve')}
-            action={() => handleForceApproveProposal(row.uuid)}
+            title={translate('Approve')}
+            action={() => handleApproveProposal(row.uuid)}
             iconNode={<CheckCircle weight="bold" />}
             disabled={isRejectButtonDisabled}
           />

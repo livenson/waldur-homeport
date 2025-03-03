@@ -1,4 +1,4 @@
-import { RequestResult } from '@hey-api/client-fetch';
+import { formDataBodySerializer, RequestResult } from '@hey-api/client-fetch';
 import Axios, {
   AxiosPromise,
   AxiosRequestConfig,
@@ -113,3 +113,20 @@ export async function getAll<T = {}>(
   }
   return result;
 }
+
+export const formDataOptions = {
+  ...formDataBodySerializer,
+  headers: {
+    'Content-Type': null,
+  },
+};
+
+export const fileSerializer = (image) => {
+  if (image === null) {
+    return '' as null;
+  } else if (image instanceof File) {
+    return image;
+  } else {
+    return undefined;
+  }
+};

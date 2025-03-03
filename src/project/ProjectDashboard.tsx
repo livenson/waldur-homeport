@@ -34,7 +34,7 @@ export const ProjectDashboard: FunctionComponent<{}> = () => {
 
   const { data: teamData } = useQuery(
     ['projectTeamData', project?.uuid],
-    async () => await getProjectTeamChart(project),
+    () => getProjectTeamChart(project),
     { staleTime: 5 * 60 * 1000 },
   );
 

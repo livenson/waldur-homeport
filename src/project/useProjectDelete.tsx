@@ -2,11 +2,11 @@ import { useRouter } from '@uirouter/react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { projectsDestroy } from '@waldur/api';
+import { getCustomer as getCustomerApi } from '@waldur/customer/api';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';
-import { getCustomer as getCustomerApi } from '@waldur/project/api';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import {
   setCurrentCustomer,

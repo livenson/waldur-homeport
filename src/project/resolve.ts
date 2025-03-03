@@ -9,7 +9,7 @@ import {
 } from '@waldur/workspace/actions';
 import { Project } from '@waldur/workspace/types';
 
-import { getCustomer } from './api';
+import { getCustomer } from '../customer/api';
 
 export function loadProject(transition: Transition) {
   if (!transition.params().uuid) {

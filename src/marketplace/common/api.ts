@@ -2,14 +2,7 @@ import Axios, { AxiosRequestConfig } from 'axios';
 
 import { OrganizationGroup } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
-import {
-  get,
-  getAll,
-  parseResultCount,
-  post,
-  put,
-  sendForm,
-} from '@waldur/core/api';
+import { get, getAll, parseResultCount, post, put } from '@waldur/core/api';
 import {
   Category,
   CategoryGroup,
@@ -85,20 +78,6 @@ export const updateOfferingState = (offeringUuid, action, reason) =>
     reason && { paused_reason: reason },
   ).then((response) => response.data);
 
-export const uploadOfferingImage = (formData, offering) => {
-  const reqData = {
-    image: formData.image,
-    name: formData.name,
-    description: formData.description,
-    offering: offering.url,
-  };
-  return sendForm(
-    'POST',
-    `${ENV.apiEndpoint}api/marketplace-screenshots/`,
-    reqData,
-  );
-};
-
 export const getRuntimeStates = (projectUuid?, categoryUuid?) => {
   let url = '/marketplace-runtime-states/';
 
@@ -143,15 +122,6 @@ export const moveResource = (resourceUuid: string, projectUrl: string) =>
 
 export const getAsyncDryRun = (uuid) =>
   get(`/marketplace-script-async-dry-run/${uuid}/`);
-
-export const updateOfferingLogo = (offeringUuid: string, formData) =>
-  sendForm(
-    'POST',
-    `${ENV.apiEndpoint}api/marketplace-provider-offerings/${offeringUuid}/update_thumbnail/`,
-    {
-      thumbnail: formData.images,
-    },
-  );
 
 export const countOrders = (params) =>
   Axios.request({

@@ -2,9 +2,9 @@ import { Trash } from '@phosphor-icons/react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { paymentProfilesDestroy } from '@waldur/api';
+import { getCustomer as getCustomerApi } from '@waldur/customer/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog, waitForConfirmation } from '@waldur/modal/actions';
-import { getCustomer as getCustomerApi } from '@waldur/project/api';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
 import { setCurrentCustomer } from '@waldur/workspace/actions';

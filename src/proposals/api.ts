@@ -14,7 +14,6 @@ import {
   parseSelectData,
   post,
   put,
-  sendForm,
 } from '@waldur/core/api';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
 import { GenericPermission } from '@waldur/permissions/types';
@@ -122,13 +121,6 @@ export const getAllProposalReviews = (proposalUuid) =>
 
 export const updateProposalReview = (data, uuid) =>
   patch<ProposalReview>(`/proposal-reviews/${uuid}/`, data);
-
-export const attachDocument = (proposal_uuid, file) =>
-  sendForm(
-    'POST',
-    fixURL(`/proposal-proposals/${proposal_uuid}/attach_document/`),
-    { file },
-  );
 
 export const deleteRequestedOffering = (requestedOfferingURL: string) =>
   Axios.delete(requestedOfferingURL);

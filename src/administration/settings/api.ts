@@ -1,7 +1,3 @@
-import { ENV } from '@waldur/configs/default';
-import { get, sendForm } from '@waldur/core/api';
-
-export const saveConfig = (values) =>
-  sendForm('POST', `${ENV.apiEndpoint}api/override-settings/`, values);
+import { get } from '@waldur/core/api';
 
 export const getDBSettings = () => get('/override-settings/');

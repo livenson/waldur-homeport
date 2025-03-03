@@ -12,9 +12,9 @@ import {
 import { AwesomeCheckbox } from '@waldur/core/AwesomeCheckbox';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
+import { getCustomer as getCustomerApi } from '@waldur/customer/api';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
-import { getCustomer as getCustomerApi } from '@waldur/project/api';
 import { showErrorResponse } from '@waldur/store/notify';
 import { setCurrentCustomer } from '@waldur/workspace/actions';
 import { getCustomer } from '@waldur/workspace/selectors';

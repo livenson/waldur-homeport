@@ -1,6 +1,7 @@
 import { FunctionComponent, useState } from 'react';
 import { Button, Card } from 'react-bootstrap';
 
+import { overrideSettings } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { AwesomeCheckboxField } from '@waldur/form/AwesomeCheckboxField';
 import { translate } from '@waldur/i18n';
@@ -8,8 +9,6 @@ import { useLanguageSelector } from '@waldur/i18n/useLanguageSelector';
 import { CountryFlag } from '@waldur/marketplace/common/CountryFlag';
 import { LanguageCountry } from '@waldur/navigation/header/LanguageSelectorDropdown';
 import { useNotify } from '@waldur/store/hooks';
-
-import { saveConfig } from '../settings/api';
 
 export const AdministrationLanguages: FunctionComponent = () => {
   const [selectedLanguages, setSelectedLanguages] = useState<string[]>(
@@ -55,8 +54,10 @@ export const AdministrationLanguages: FunctionComponent = () => {
     } else {
       try {
         const selectedLanguageCodes = selectedLanguages.join(',');
-        await saveConfig({
-          LANGUAGE_CHOICES: selectedLanguageCodes,
+        await overrideSettings({
+          body: {
+            LANGUAGE_CHOICES: selectedLanguageCodes,
+          },
         });
         showSuccess(
           translate(

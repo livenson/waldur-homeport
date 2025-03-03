@@ -1,4 +1,7 @@
-import { marketplaceProjectEstimatedCostPoliciesList } from '@waldur/api';
+import {
+  invoiceItemsCostsList,
+  marketplaceProjectEstimatedCostPoliciesList,
+} from '@waldur/api';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { getCostPolicyActionOptions } from '@waldur/customer/cost-policies/utils';
 import { formatCostChart, getTeamSizeChart } from '@waldur/dashboard/api';
@@ -12,12 +15,17 @@ import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';
 import { Project, User } from '@waldur/workspace/types';
 
-import { fetchLast12MonthProjectCosts } from './api';
 import { ProjectCounterResourceItem } from './types';
 
 export async function loadChart(project: Project, withAxis = false) {
   const [invoices, costPolicies] = await Promise.all([
-    fetchLast12MonthProjectCosts(project.uuid),
+    invoiceItemsCostsList({
+      query: {
+        project_uuid: project.uuid,
+        page: 1,
+        page_size: 12,
+      },
+    }).then((response) => response.data),
     marketplaceProjectEstimatedCostPoliciesList({
       query: {
         scope_uuid: project.uuid,

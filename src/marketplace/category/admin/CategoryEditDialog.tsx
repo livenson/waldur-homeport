@@ -1,8 +1,14 @@
 import { useQuery } from '@tanstack/react-query';
 import { FC } from 'react';
-import { Form, Field } from 'react-final-form';
+import { Field, Form } from 'react-final-form';
 import { useDispatch } from 'react-redux';
 
+import {
+  marketplaceCategoriesCreate,
+  marketplaceCategoriesUpdate,
+  MarketplaceCategoryRequest,
+} from '@waldur/api';
+import { formDataOptions, fileSerializer } from '@waldur/core/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { required } from '@waldur/core/validators';
 import {
@@ -19,18 +25,6 @@ import { FormGroup } from '@waldur/marketplace/offerings/FormGroup';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
-
-import { createCategory, updateCategory } from './api';
-
-interface FormData {
-  title: string;
-  description: string;
-  icon: any;
-  default_volume_category: boolean;
-  default_vm_category: boolean;
-  default_tenant_category: boolean;
-  group?: string;
-}
 
 interface CategoryEditDialogProps {
   resolve: {
@@ -55,12 +49,25 @@ export const CategoryEditDialog: FC<CategoryEditDialogProps> = ({
 
   const isEdit = Boolean(category?.uuid);
 
-  const onSubmit = async (values: FormData) => {
+  const onSubmit = async (formData: MarketplaceCategoryRequest) => {
     try {
       if (isEdit) {
-        await updateCategory(values, category.uuid);
+        await marketplaceCategoriesUpdate({
+          path: { uuid: category.uuid },
+          body: {
+            ...formData,
+            icon: fileSerializer(formData.icon),
+          },
+          ...formDataOptions,
+        });
       } else {
-        await createCategory(values);
+        await marketplaceCategoriesCreate({
+          body: {
+            ...formData,
+            icon: fileSerializer(formData.icon),
+          },
+          ...formDataOptions,
+        });
       }
 
       refetch();
@@ -133,6 +140,7 @@ export const CategoryEditDialog: FC<CategoryEditDialogProps> = ({
                   options={categoryGroups}
                   isLoading={loadingGroups}
                   isClearable
+                  simpleValue
                 />
               </FormGroup>
             )}
