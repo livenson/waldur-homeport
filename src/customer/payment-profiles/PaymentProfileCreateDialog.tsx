@@ -5,6 +5,7 @@ import { Field, reduxForm } from 'redux-form';
 import { paymentProfilesCreate, paymentProfilesEnable } from '@waldur/api';
 import { AwesomeCheckbox } from '@waldur/core/AwesomeCheckbox';
 import { required } from '@waldur/core/validators';
+import { getCustomer as getCustomerApi } from '@waldur/customer/api';
 import { ADD_PAYMENT_PROFILE_FORM_ID } from '@waldur/customer/payment-profiles/constants';
 import { getPaymentProfileTypeOptions } from '@waldur/customer/payment-profiles/utils';
 import {
@@ -20,7 +21,6 @@ import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
-import { getCustomer as getCustomerApi } from '@waldur/project/api';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { setCurrentCustomer } from '@waldur/workspace/actions';
 import { getCustomer } from '@waldur/workspace/selectors';

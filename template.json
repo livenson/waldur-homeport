@@ -920,7 +920,7 @@
     "message": "Approve private order"
   },
   "Approve": {
-    "description": "invitations/UserPermissionRequestApproveButton.tsx, marketplace/orders/actions/ApproveByConsumerButton.tsx, marketplace/orders/actions/ApproveByProviderButton.tsx, marketplace-remote/ReviewApproveAction.tsx",
+    "description": "invitations/UserPermissionRequestApproveButton.tsx, marketplace/orders/actions/ApproveByConsumerButton.tsx, marketplace/orders/actions/ApproveByProviderButton.tsx, marketplace-remote/ReviewApproveAction.tsx, proposals/proposal/ProposalRowActions.tsx",
     "message": "Approve"
   },
   "Approved at": {
@@ -967,9 +967,9 @@
     "description": "customer/details/CustomerCallManagerPanel.tsx",
     "message": "Are you sure you want to allow this organization to manage calls?"
   },
-  "Are you sure you want to approve the proposal: {name}?": {
+  "Are you sure you want to approve the proposal {name} in state {state}?": {
     "description": "proposals/proposal/ProposalRowActions.tsx",
-    "message": "Are you sure you want to approve the proposal: {name}?"
+    "message": "Are you sure you want to approve the proposal {name} in state {state}?"
   },
   "Are you sure you want to archive plan {name}?": {
     "description": "marketplace/offerings/update/plans/ArchivePlanButton.tsx",
@@ -4398,10 +4398,6 @@
   "Folder": {
     "description": "vmware/deploy/FormAdvancedOptionsStep.tsx",
     "message": "Folder"
-  },
-  "Force approve": {
-    "description": "proposals/proposal/ProposalRowActions.tsx",
-    "message": "Force approve"
   },
   "Force destroy {name} instance": {
     "description": "openstack/openstack-instance/actions/ForceDestroyDialog.tsx",

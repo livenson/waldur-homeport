@@ -4,32 +4,35 @@ import { Button, Card } from 'react-bootstrap';
 import { Field, Form } from 'react-final-form';
 import { useDispatch } from 'react-redux';
 
+import { projectsPartialUpdate } from '@waldur/api';
+import { fileSerializer, formDataOptions } from '@waldur/core/api';
 import { WideImageField } from '@waldur/form/WideImageField';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { getItemAbbreviation } from '@waldur/navigation/workspace/context-selector/utils';
-import { showErrorResponse, showSuccess } from '@waldur/store/notify';
+import { useNotify } from '@waldur/store/hooks';
 import { setCurrentProject } from '@waldur/workspace/actions';
 import { Project } from '@waldur/workspace/types';
-
-import { updateProject } from '../api';
-
-interface ProjectAvatarProps {
-  project: Project;
-}
 
 interface FormData {
   image;
 }
 
-export const ProjectAvatar = ({ project }: ProjectAvatarProps) => {
+export const ProjectAvatar = ({ project }: { project: Project }) => {
   const abbreviation = useMemo(() => getItemAbbreviation(project), [project]);
   const dispatch = useDispatch();
+  const { showErrorResponse, showSuccess } = useNotify();
 
   const processRequest = async (data: FormData) => {
     try {
-      const newProject = await updateProject(project.uuid, data);
-      dispatch(setCurrentProject(newProject.data as Project));
+      const newProject = (
+        await projectsPartialUpdate({
+          path: { uuid: project.uuid },
+          body: { image: fileSerializer(data.image) },
+          ...formDataOptions,
+        })
+      ).data;
+      dispatch(setCurrentProject({ ...project, image: newProject.image }));
       showSuccess(translate('Project has been updated.'));
       dispatch(closeModalDialog());
     } catch (e) {
