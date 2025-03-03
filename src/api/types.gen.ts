@@ -1075,6 +1075,21 @@ export type CallManagingOrganisationStat = {
     readonly offering_requests_pending: number;
 };
 
+export type CallRound = {
+    readonly url: string;
+    readonly uuid: string;
+    start_time: string;
+    cutoff_time: string;
+    readonly call_uuid: string;
+    readonly call_name: string;
+    status: StatusEnum;
+};
+
+export type CallRoundRequest = {
+    start_time: string;
+    cutoff_time: string;
+};
+
 export type CallStates = 'draft' | 'active' | 'archived';
 
 export type Campaign = {
@@ -5940,6 +5955,8 @@ export type PaginatedBroadcastMessageList = Array<BroadcastMessage>;
 
 export type PaginatedCallManagingOrganisationList = Array<CallManagingOrganisation>;
 
+export type PaginatedCallRoundList = Array<CallRound>;
+
 export type PaginatedCampaignList = Array<Campaign>;
 
 export type PaginatedCategoryColumnList = Array<CategoryColumn>;
@@ -6146,6 +6163,8 @@ export type PaginatedProjectTypeList = Array<ProjectType>;
 
 export type PaginatedProposalList = Array<Proposal>;
 
+export type PaginatedProposalReviewList = Array<ProposalReview>;
+
 export type PaginatedProtectedCallList = Array<ProtectedCall>;
 
 export type PaginatedProtectedRoundList = Array<ProtectedRound>;
@@ -6212,17 +6231,13 @@ export type PaginatedResourcePlanPeriodList = Array<ResourcePlanPeriod>;
 
 export type PaginatedResourceUserList = Array<ResourceUser>;
 
-export type PaginatedReviewList = Array<Review>;
-
-export type PaginatedReviewerList = Array<Reviewer>;
-
 export type PaginatedRmqUserStatsItemList = Array<RmqUserStatsItem>;
 
 export type PaginatedRobotAccountDetailsList = Array<RobotAccountDetails>;
 
 export type PaginatedRoleDetailsList = Array<RoleDetails>;
 
-export type PaginatedRoundList = Array<Round>;
+export type PaginatedRoundReviewerList = Array<RoundReviewer>;
 
 export type PaginatedSaml2ProviderList = Array<Saml2Provider>;
 
@@ -6363,6 +6378,11 @@ export type PatchedBroadcastMessageRequest = {
 export type PatchedCallManagingOrganisationRequest = {
     description?: string;
     image?: (Blob | File) | null;
+};
+
+export type PatchedCallRoundRequest = {
+    start_time?: string;
+    cutoff_time?: string;
 };
 
 export type PatchedCampaignRequest = {
@@ -6956,6 +6976,21 @@ export type PatchedProposalRequest = {
     oecd_fos_2007_code?: OecdFos2007CodeEnum | BlankEnum | NullEnum | null;
 };
 
+export type PatchedProposalReviewRequest = {
+    summary_score?: number;
+    summary_public_comment?: string;
+    summary_private_comment?: string;
+    comment_project_title?: string | null;
+    comment_project_summary?: string | null;
+    comment_project_is_confidential?: string | null;
+    comment_project_has_civilian_purpose?: string | null;
+    comment_project_description?: string | null;
+    comment_project_duration?: string | null;
+    comment_project_supporting_documentation?: string | null;
+    comment_resource_requests?: string | null;
+    comment_team?: string | null;
+};
+
 export type PatchedProtectedCallRequest = {
     name?: string;
     description?: string;
@@ -7251,21 +7286,6 @@ export type PatchedResourceUserRequest = {
     user?: string;
 };
 
-export type PatchedReviewRequest = {
-    summary_score?: number;
-    summary_public_comment?: string;
-    summary_private_comment?: string;
-    comment_project_title?: string | null;
-    comment_project_summary?: string | null;
-    comment_project_is_confidential?: string | null;
-    comment_project_has_civilian_purpose?: string | null;
-    comment_project_description?: string | null;
-    comment_project_duration?: string | null;
-    comment_project_supporting_documentation?: string | null;
-    comment_resource_requests?: string | null;
-    comment_team?: string | null;
-};
-
 export type PatchedRobotAccountRequest = {
     type?: string;
     username?: string;
@@ -7292,11 +7312,6 @@ export type PatchedRoleDetailsRequest = {
     description_ar?: string | null;
     description_cs?: string | null;
     is_active?: boolean;
-};
-
-export type PatchedRoundRequest = {
-    start_time?: string;
-    cutoff_time?: string;
 };
 
 export type PatchedScreenshotRequest = {
@@ -7880,6 +7895,55 @@ export type ProposalRequest = {
     oecd_fos_2007_code?: OecdFos2007CodeEnum | BlankEnum | NullEnum | null;
 };
 
+export type ProposalReview = {
+    readonly url: string;
+    readonly uuid: string;
+    proposal: string;
+    reviewer: string;
+    readonly reviewer_full_name: string;
+    readonly reviewer_uuid: string;
+    state: ProposalReviewStateEnum;
+    readonly review_end_date: string;
+    summary_score?: number;
+    summary_public_comment?: string;
+    summary_private_comment?: string;
+    readonly proposal_name: string;
+    readonly round_uuid: string;
+    readonly round_name: string;
+    readonly round_cutoff_time: string;
+    readonly round_start_time: string;
+    readonly call_name: string;
+    readonly call_uuid: string;
+    comment_project_title?: string | null;
+    comment_project_summary?: string | null;
+    comment_project_is_confidential?: string | null;
+    comment_project_has_civilian_purpose?: string | null;
+    comment_project_description?: string | null;
+    comment_project_duration?: string | null;
+    comment_project_supporting_documentation?: string | null;
+    comment_resource_requests?: string | null;
+    comment_team?: string | null;
+};
+
+export type ProposalReviewRequest = {
+    proposal: string;
+    reviewer: string;
+    summary_score?: number;
+    summary_public_comment?: string;
+    summary_private_comment?: string;
+    comment_project_title?: string | null;
+    comment_project_summary?: string | null;
+    comment_project_is_confidential?: string | null;
+    comment_project_has_civilian_purpose?: string | null;
+    comment_project_description?: string | null;
+    comment_project_duration?: string | null;
+    comment_project_supporting_documentation?: string | null;
+    comment_resource_requests?: string | null;
+    comment_team?: string | null;
+};
+
+export type ProposalReviewStateEnum = 'created' | 'in_review' | 'submitted' | 'rejected';
+
 export type ProposalStates = 'draft' | 'submitted' | 'in_review' | 'accepted' | 'rejected' | 'canceled';
 
 export type ProposalUpdateProjectDetails = {
@@ -7947,7 +8011,7 @@ export type ProtectedProposalList = {
     readonly uuid: string;
     name: string;
     state: ProposalStates;
-    readonly reviews: Array<Review>;
+    readonly reviews: Array<ProposalReview>;
     readonly approved_by_name: string;
     readonly created_by_name: string;
     readonly created: string;
@@ -9533,36 +9597,6 @@ export type ResourceUserRequest = {
     user: string;
 };
 
-export type Review = {
-    readonly url: string;
-    readonly uuid: string;
-    proposal: string;
-    reviewer: string;
-    readonly reviewer_full_name: string;
-    readonly reviewer_uuid: string;
-    state: ReviewStateEnum;
-    readonly review_end_date: string;
-    summary_score?: number;
-    summary_public_comment?: string;
-    summary_private_comment?: string;
-    readonly proposal_name: string;
-    readonly round_uuid: string;
-    readonly round_name: string;
-    readonly round_cutoff_time: string;
-    readonly round_start_time: string;
-    readonly call_name: string;
-    readonly call_uuid: string;
-    comment_project_title?: string | null;
-    comment_project_summary?: string | null;
-    comment_project_is_confidential?: string | null;
-    comment_project_has_civilian_purpose?: string | null;
-    comment_project_description?: string | null;
-    comment_project_duration?: string | null;
-    comment_project_supporting_documentation?: string | null;
-    comment_resource_requests?: string | null;
-    comment_team?: string | null;
-};
-
 export type ReviewComment = {
     comment?: string;
 };
@@ -9571,34 +9605,7 @@ export type ReviewCommentRequest = {
     comment?: string;
 };
 
-export type ReviewRequest = {
-    proposal: string;
-    reviewer: string;
-    summary_score?: number;
-    summary_public_comment?: string;
-    summary_private_comment?: string;
-    comment_project_title?: string | null;
-    comment_project_summary?: string | null;
-    comment_project_is_confidential?: string | null;
-    comment_project_has_civilian_purpose?: string | null;
-    comment_project_description?: string | null;
-    comment_project_duration?: string | null;
-    comment_project_supporting_documentation?: string | null;
-    comment_resource_requests?: string | null;
-    comment_team?: string | null;
-};
-
-export type ReviewStateEnum = 'created' | 'in_review' | 'submitted' | 'rejected';
-
 export type ReviewStrategyEnum = 'after_round' | 'after_proposal';
-
-export type Reviewer = {
-    readonly full_name: string;
-    email: string;
-    accepted_proposals: number;
-    rejected_proposals: number;
-    in_review_proposals: number;
-};
 
 export type RmqConnection = {
     readonly source_ip: string;
@@ -9762,19 +9769,12 @@ export type RoleModifyRequest = {
 
 export type RolesEnum = 'controlplane' | 'etcd' | 'worker';
 
-export type Round = {
-    readonly url: string;
-    readonly uuid: string;
-    start_time: string;
-    cutoff_time: string;
-    readonly call_uuid: string;
-    readonly call_name: string;
-    status: StatusEnum;
-};
-
-export type RoundRequest = {
-    start_time: string;
-    cutoff_time: string;
+export type RoundReviewer = {
+    readonly full_name: string;
+    email: string;
+    accepted_proposals: number;
+    rejected_proposals: number;
+    in_review_proposals: number;
 };
 
 export type RuntimeStates = {
@@ -13606,20 +13606,20 @@ export type CallRoundsListData = {
 };
 
 export type CallRoundsListResponses = {
-    200: PaginatedRoundList;
+    200: PaginatedCallRoundList;
 };
 
 export type CallRoundsListResponse = CallRoundsListResponses[keyof CallRoundsListResponses];
 
 export type CallRoundsCreateData = {
-    body: RoundRequest;
+    body: CallRoundRequest;
     path?: never;
     query?: never;
     url: '/api/call-rounds/';
 };
 
 export type CallRoundsCreateResponses = {
-    201: Round;
+    201: CallRound;
 };
 
 export type CallRoundsCreateResponse = CallRoundsCreateResponses[keyof CallRoundsCreateResponses];
@@ -13652,13 +13652,13 @@ export type CallRoundsRetrieveData = {
 };
 
 export type CallRoundsRetrieveResponses = {
-    200: Round;
+    200: CallRound;
 };
 
 export type CallRoundsRetrieveResponse = CallRoundsRetrieveResponses[keyof CallRoundsRetrieveResponses];
 
 export type CallRoundsPartialUpdateData = {
-    body?: PatchedRoundRequest;
+    body?: PatchedCallRoundRequest;
     path: {
         uuid: string;
     };
@@ -13667,13 +13667,13 @@ export type CallRoundsPartialUpdateData = {
 };
 
 export type CallRoundsPartialUpdateResponses = {
-    200: Round;
+    200: CallRound;
 };
 
 export type CallRoundsPartialUpdateResponse = CallRoundsPartialUpdateResponses[keyof CallRoundsPartialUpdateResponses];
 
 export type CallRoundsUpdateData = {
-    body: RoundRequest;
+    body: CallRoundRequest;
     path: {
         uuid: string;
     };
@@ -13682,7 +13682,7 @@ export type CallRoundsUpdateData = {
 };
 
 export type CallRoundsUpdateResponses = {
-    200: Round;
+    200: CallRound;
 };
 
 export type CallRoundsUpdateResponse = CallRoundsUpdateResponses[keyof CallRoundsUpdateResponses];
@@ -13706,7 +13706,7 @@ export type CallRoundsReviewersListData = {
 };
 
 export type CallRoundsReviewersListResponses = {
-    200: PaginatedReviewerList;
+    200: PaginatedRoundReviewerList;
 };
 
 export type CallRoundsReviewersListResponse = CallRoundsReviewersListResponses[keyof CallRoundsReviewersListResponses];
@@ -29445,20 +29445,20 @@ export type ProposalReviewsListData = {
 };
 
 export type ProposalReviewsListResponses = {
-    200: PaginatedReviewList;
+    200: PaginatedProposalReviewList;
 };
 
 export type ProposalReviewsListResponse = ProposalReviewsListResponses[keyof ProposalReviewsListResponses];
 
 export type ProposalReviewsCreateData = {
-    body: ReviewRequest;
+    body: ProposalReviewRequest;
     path?: never;
     query?: never;
     url: '/api/proposal-reviews/';
 };
 
 export type ProposalReviewsCreateResponses = {
-    201: Review;
+    201: ProposalReview;
 };
 
 export type ProposalReviewsCreateResponse = ProposalReviewsCreateResponses[keyof ProposalReviewsCreateResponses];
@@ -29491,13 +29491,13 @@ export type ProposalReviewsRetrieveData = {
 };
 
 export type ProposalReviewsRetrieveResponses = {
-    200: Review;
+    200: ProposalReview;
 };
 
 export type ProposalReviewsRetrieveResponse = ProposalReviewsRetrieveResponses[keyof ProposalReviewsRetrieveResponses];
 
 export type ProposalReviewsPartialUpdateData = {
-    body?: PatchedReviewRequest;
+    body?: PatchedProposalReviewRequest;
     path: {
         uuid: string;
     };
@@ -29506,13 +29506,13 @@ export type ProposalReviewsPartialUpdateData = {
 };
 
 export type ProposalReviewsPartialUpdateResponses = {
-    200: Review;
+    200: ProposalReview;
 };
 
 export type ProposalReviewsPartialUpdateResponse = ProposalReviewsPartialUpdateResponses[keyof ProposalReviewsPartialUpdateResponses];
 
 export type ProposalReviewsUpdateData = {
-    body: ReviewRequest;
+    body: ProposalReviewRequest;
     path: {
         uuid: string;
     };
@@ -29521,7 +29521,7 @@ export type ProposalReviewsUpdateData = {
 };
 
 export type ProposalReviewsUpdateResponses = {
-    200: Review;
+    200: ProposalReview;
 };
 
 export type ProposalReviewsUpdateResponse = ProposalReviewsUpdateResponses[keyof ProposalReviewsUpdateResponses];
