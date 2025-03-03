@@ -2,7 +2,10 @@ import { useQuery } from '@tanstack/react-query';
 import { UIView, useCurrentStateAndParams } from '@uirouter/react';
 import { useMemo } from 'react';
 
-import { proposalProtectedCallsRetrieve } from '@waldur/api';
+import {
+  proposalProtectedCallsRetrieve,
+  proposalProtectedCallsRoundsRetrieve,
+} from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { useBreadcrumbs, usePageHero } from '@waldur/navigation/context';
@@ -11,7 +14,6 @@ import { useTitle } from '@waldur/navigation/title';
 import { IBreadcrumbItem, PageBarTab } from '@waldur/navigation/types';
 import { usePageTabsTransmitter } from '@waldur/navigation/usePageTabsTransmitter';
 
-import { getProtectedCallRound } from '../api';
 import { Call } from '../types';
 
 import { RoundPageHero } from './RoundPageHero';
@@ -83,7 +85,10 @@ export const RoundUIView = () => {
     isRefetching,
   } = useQuery(
     ['CallRound', call_uuid, round_uuid],
-    () => getProtectedCallRound(call_uuid, round_uuid),
+    () =>
+      proposalProtectedCallsRoundsRetrieve({
+        path: { uuid: call_uuid, obj_uuid: round_uuid },
+      }).then((response) => response.data),
     {
       refetchOnWindowFocus: false,
     },

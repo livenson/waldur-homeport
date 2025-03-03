@@ -1,4 +1,4 @@
-import Axios, { AxiosPromise, AxiosRequestConfig } from 'axios';
+import Axios, { AxiosPromise } from 'axios';
 
 import {
   proposalProtectedCallsList,
@@ -7,14 +7,7 @@ import {
   ProtectedRound,
 } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
-import {
-  fixURL,
-  get,
-  getAll,
-  parseSelectData,
-  post,
-  put,
-} from '@waldur/core/api';
+import { fixURL, getAll, parseSelectData, post, put } from '@waldur/core/api';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
 import { GenericPermission } from '@waldur/permissions/types';
 
@@ -23,25 +16,6 @@ import { Call, CallOffering, Proposal, ProposalReview } from './types';
 function patch<T = {}>(endpoint: string, data?: any): AxiosPromise<T> {
   return Axios.patch(fixURL(endpoint), data);
 }
-
-function getById<T = {}>(
-  endpoint: string,
-  id: string,
-  options?: AxiosRequestConfig,
-): Promise<T> {
-  return get<T>(`${endpoint}${id}/`, options).then((response) => response.data);
-}
-
-export const getProtectedCallRound = (
-  callUuid: string,
-  roundUuid: string,
-  options?: AxiosRequestConfig,
-) =>
-  getById<ProtectedRound>(
-    `/proposal-protected-calls/${callUuid}/rounds/`,
-    roundUuid,
-    options,
-  );
 
 export const createCall = (data) =>
   post<Call>('/proposal-protected-calls/', data);
@@ -98,9 +72,6 @@ export const getAllCallUsers = (callUuid, role = null) =>
     `/proposal-protected-calls/${callUuid}/list_users/`,
     role ? { params: { role } } : null,
   );
-
-export const getProposal = (uuid) =>
-  getById<Proposal>(`/proposal-proposals/`, uuid);
 
 export const submitProposal = (uuid) =>
   post<Proposal>(`/proposal-proposals/${uuid}/submit/`);

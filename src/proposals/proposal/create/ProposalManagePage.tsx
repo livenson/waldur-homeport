@@ -1,13 +1,15 @@
 import { useQuery } from '@tanstack/react-query';
 import { useCurrentStateAndParams } from '@uirouter/react';
 
+import { proposalProposalsRetrieve } from '@waldur/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { SidebarLayout } from '@waldur/form/SidebarLayout';
 import { translate } from '@waldur/i18n';
 import { PageBarProvider } from '@waldur/marketplace/context';
 import { useTitle } from '@waldur/navigation/title';
-import { getAllProposalReviews, getProposal } from '@waldur/proposals/api';
+import { getAllProposalReviews } from '@waldur/proposals/api';
+import { Proposal } from '@waldur/proposals/types';
 
 import { ProposalDetails } from '../ProposalDetails';
 
@@ -27,9 +29,16 @@ export const ProposalManagePage = () => {
     isLoading,
     error,
     refetch,
-  } = useQuery(['Proposal', proposal_uuid], () => getProposal(proposal_uuid), {
-    refetchOnWindowFocus: false,
-  });
+  } = useQuery(
+    ['Proposal', proposal_uuid],
+    () =>
+      proposalProposalsRetrieve({
+        path: { uuid: proposal_uuid },
+      }).then((response) => response.data as any as Proposal),
+    {
+      refetchOnWindowFocus: false,
+    },
+  );
 
   const { data: reviews, isLoading: isLoadingReviews } = useQuery(
     ['ProposalReviews', proposal_uuid],
