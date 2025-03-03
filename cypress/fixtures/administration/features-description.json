@@ -136,10 +136,6 @@
         "description": "Render list of users in support workspace."
       },
       {
-        "key": "shared_providers",
-        "description": "Render overview of shared marketplace service providers in support workspace."
-      },
-      {
         "key": "resource_usage",
         "description": "Enable resource usage overview charts in support workspace."
       },

@@ -37,7 +37,6 @@
       "pricelist": true,
       "customers_requests": true,
       "users": true,
-      "shared_providers": true,
       "resource_usage": false,
       "vm_type_overview": false,
       "offering_comments": false,
