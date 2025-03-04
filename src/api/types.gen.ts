@@ -5245,20 +5245,6 @@ export type OpenStackSecurityGroupRuleCreateRequest = {
     remote_group?: string | null;
 };
 
-export type OpenStackSecurityGroupRuleUpdate = {
-    ethertype?: EthertypeEnum;
-    direction?: DirectionEnum;
-    protocol?: ProtocolEnum | BlankEnum;
-    from_port?: number | null;
-    to_port?: number | null;
-    cidr?: string | null;
-    description?: string;
-    readonly remote_group_name: string;
-    readonly remote_group_uuid: string;
-    readonly id: number;
-    remote_group?: string | null;
-};
-
 export type OpenStackSecurityGroupRuleUpdateRequest = {
     ethertype?: EthertypeEnum;
     direction?: DirectionEnum;
@@ -6085,8 +6071,6 @@ export type PaginatedOpenStackPortList = Array<OpenStackPort>;
 export type PaginatedOpenStackRouterList = Array<OpenStackRouter>;
 
 export type PaginatedOpenStackSecurityGroupList = Array<OpenStackSecurityGroup>;
-
-export type PaginatedOpenStackSecurityGroupRuleUpdateList = Array<OpenStackSecurityGroupRuleUpdate>;
 
 export type PaginatedOpenStackSnapshotList = Array<OpenStackSnapshot>;
 
@@ -9873,6 +9857,10 @@ export type ServiceProvider = {
     image?: string | null;
     readonly organization_groups: Array<OrganizationGroup>;
     readonly offering_count: number;
+};
+
+export type ServiceProviderApiSecretCode = {
+    readonly api_secret_code: string;
 };
 
 export type ServiceProviderRequest = {
@@ -22696,25 +22684,8 @@ export type MarketplaceServiceProvidersAddUserResponses = {
     200: unknown;
 };
 
-export type MarketplaceServiceProvidersApiSecretCodeRetrieveData = {
+export type ServiceProviderApiSecretCodeRetrieveData = {
     body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: {
-        field?: Array<'created' | 'customer' | 'customer_abbreviation' | 'customer_country' | 'customer_image' | 'customer_name' | 'customer_native_name' | 'customer_slug' | 'customer_uuid' | 'description' | 'image' | 'offering_count' | 'organization_groups' | 'url' | 'uuid'>;
-    };
-    url: '/api/marketplace-service-providers/{uuid}/api_secret_code/';
-};
-
-export type MarketplaceServiceProvidersApiSecretCodeRetrieveResponses = {
-    200: ServiceProvider;
-};
-
-export type MarketplaceServiceProvidersApiSecretCodeRetrieveResponse = MarketplaceServiceProvidersApiSecretCodeRetrieveResponses[keyof MarketplaceServiceProvidersApiSecretCodeRetrieveResponses];
-
-export type MarketplaceServiceProvidersApiSecretCodeData = {
-    body: ServiceProviderRequest;
     path: {
         uuid: string;
     };
@@ -22722,11 +22693,26 @@ export type MarketplaceServiceProvidersApiSecretCodeData = {
     url: '/api/marketplace-service-providers/{uuid}/api_secret_code/';
 };
 
-export type MarketplaceServiceProvidersApiSecretCodeResponses = {
-    200: ServiceProvider;
+export type ServiceProviderApiSecretCodeRetrieveResponses = {
+    200: ServiceProviderApiSecretCode;
 };
 
-export type MarketplaceServiceProvidersApiSecretCodeResponse = MarketplaceServiceProvidersApiSecretCodeResponses[keyof MarketplaceServiceProvidersApiSecretCodeResponses];
+export type ServiceProviderApiSecretCodeRetrieveResponse = ServiceProviderApiSecretCodeRetrieveResponses[keyof ServiceProviderApiSecretCodeRetrieveResponses];
+
+export type ServiceProviderApiSecretCodeGenerateData = {
+    body?: never;
+    path: {
+        uuid: string;
+    };
+    query?: never;
+    url: '/api/marketplace-service-providers/{uuid}/api_secret_code/';
+};
+
+export type ServiceProviderApiSecretCodeGenerateResponses = {
+    200: ServiceProviderApiSecretCode;
+};
+
+export type ServiceProviderApiSecretCodeGenerateResponse = ServiceProviderApiSecretCodeGenerateResponses[keyof ServiceProviderApiSecretCodeGenerateResponses];
 
 export type MarketplaceServiceProvidersCustomerProjectsListData = {
     body?: never;
@@ -25581,54 +25567,16 @@ export type OpenstackSecurityGroupsSetRulesData = {
     path: {
         uuid: string;
     };
-    query?: {
-        backend_id?: string;
-        customer?: string;
-        customer_abbreviation?: string;
-        customer_name?: string;
-        customer_native_name?: string;
-        customer_uuid?: string;
-        description?: string;
-        external_ip?: string;
-        name?: string;
-        name_exact?: string;
-        /**
-         * A page number within the paginated result set.
-         */
-        page?: number;
-        /**
-         * Number of results to return per page.
-         */
-        page_size?: number;
-        project?: string;
-        project_name?: string;
-        project_uuid?: string;
-        query?: string;
-        service_settings_name?: string;
-        service_settings_uuid?: string;
-        /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
-         * * `OK` - OK
-         * * `Erred` - Erred
-         */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
-        tenant?: string;
-        tenant_uuid?: string;
-        uuid?: string;
-    };
+    query?: never;
     url: '/api/openstack-security-groups/{uuid}/set_rules/';
 };
 
 export type OpenstackSecurityGroupsSetRulesResponses = {
-    200: PaginatedOpenStackSecurityGroupRuleUpdateList;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackSecurityGroupsSetRulesResponse = OpenstackSecurityGroupsSetRulesResponses[keyof OpenstackSecurityGroupsSetRulesResponses];
 
 export type OpenstackSecurityGroupsUnlinkData = {
     body?: never;

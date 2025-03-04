@@ -94,16 +94,6 @@ export const getServiceProviderByCustomer = async (params, options?) => {
   return (response.data[0] as ServiceProvider) ?? null;
 };
 
-export const getServiceProviderSecretCode = (id) =>
-  get<{ api_secret_code: string }>(
-    `/marketplace-service-providers/${id}/api_secret_code/`,
-  ).then((response) => response.data);
-
-export const generateServiceProviderSecretCode = (id) =>
-  post<{ api_secret_code: string }>(
-    `/marketplace-service-providers/${id}/api_secret_code/`,
-  ).then((response) => response.data);
-
 export const terminateResource = (resource_uuid: string, data?) =>
   post(`/marketplace-resources/${resource_uuid}/terminate/`, data).then(
     (response) => response.data,

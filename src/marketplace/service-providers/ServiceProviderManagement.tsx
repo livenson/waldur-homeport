@@ -3,12 +3,15 @@ import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SubmissionError } from 'redux-form';
 
-import { marketplaceServiceProvidersPartialUpdate } from '@waldur/api';
+import {
+  marketplaceServiceProvidersPartialUpdate,
+  serviceProviderApiSecretCodeGenerate,
+  serviceProviderApiSecretCodeRetrieve,
+} from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { FieldEditButton } from '@waldur/customer/details/FieldEditButton';
 import FormTable from '@waldur/form/FormTable';
 import { translate } from '@waldur/i18n';
-import * as api from '@waldur/marketplace/common/api';
 import { ServiceProvider } from '@waldur/marketplace/types';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
@@ -34,7 +37,9 @@ export const ServiceProviderManagement: FC<OwnProps> = ({
     ['ServiceProviderSecretCode', serviceProvider?.uuid],
     () =>
       serviceProvider?.uuid
-        ? api.getServiceProviderSecretCode(serviceProvider.uuid)
+        ? serviceProviderApiSecretCodeRetrieve({
+            path: { uuid: serviceProvider.uuid },
+          }).then((r) => r.data)
         : null,
     {
       refetchOnWindowFocus: false,
@@ -69,9 +74,9 @@ export const ServiceProviderManagement: FC<OwnProps> = ({
       }
 
       try {
-        const data = await api.generateServiceProviderSecretCode(
-          serviceProvider.uuid,
-        );
+        const data = await serviceProviderApiSecretCodeGenerate({
+          path: { uuid: serviceProvider.uuid },
+        }).then((r) => r.data);
         queryClient.setQueryData(
           ['ServiceProviderSecretCode', serviceProvider?.uuid],
           data,
