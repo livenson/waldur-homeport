@@ -17,6 +17,7 @@ import { useTitle } from '@waldur/navigation/title';
 import { IBreadcrumbItem } from '@waldur/navigation/types';
 import { usePageTabsTransmitter } from '@waldur/navigation/usePageTabsTransmitter';
 import { ProjectUsersBadge } from '@waldur/project/ProjectUsersBadge';
+import { router } from '@waldur/router';
 import { setCurrentResource } from '@waldur/workspace/actions';
 
 import { fetchData, getResourceTabs } from './fetchData';
@@ -119,7 +120,7 @@ export const ResourceDetailsContainer: FunctionComponent<{}> = () => {
   }, [data?.resource, dispatch]);
 
   usePageHero(
-    !data && isLoading ? null : (
+    !data || isLoading ? null : (
       <ResourceDetailsHero
         resource={data.resource}
         scope={data.scope}
@@ -147,6 +148,10 @@ export const ResourceDetailsContainer: FunctionComponent<{}> = () => {
   );
 
   const { tabSpec } = usePageTabsTransmitter(tabs);
+
+  if (error) {
+    router.stateService.go('errorPage.notFound');
+  }
 
   if (!data) return null;
 
