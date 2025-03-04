@@ -3,6 +3,10 @@ import { useCallback } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 
+import {
+  promotionsCampaignsCreate,
+  promotionsCampaignsUpdate,
+} from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import * as api from '@waldur/marketplace/common/api';
 import { serializeCampaign } from '@waldur/marketplace/service-providers/utils';
@@ -10,7 +14,6 @@ import { closeModalDialog } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { getCustomer } from '@waldur/workspace/selectors';
 
-import { createCampaign, updateCampaign } from './api';
 import { CampaignFormData } from './types';
 
 export const CampaignFooter = ({
@@ -46,7 +49,7 @@ export const CampaignFooter = ({
     async (formData: CampaignFormData) => {
       try {
         formData.service_provider = await getServiceProvider();
-        await createCampaign(serializeCampaign(formData));
+        await promotionsCampaignsCreate({ body: serializeCampaign(formData) });
         refetch();
         dispatch(showSuccess(translate('Campaign has been created.')));
         dispatch(closeModalDialog());
@@ -63,7 +66,10 @@ export const CampaignFooter = ({
     async (formData: CampaignFormData) => {
       try {
         formData.service_provider = await getServiceProvider();
-        await updateCampaign(formData.uuid, serializeCampaign(formData));
+        await promotionsCampaignsUpdate({
+          path: { uuid: formData.uuid },
+          body: serializeCampaign(formData),
+        });
         refetch();
         dispatch(showSuccess(translate('Campaign has been updated.')));
         dispatch(closeModalDialog());

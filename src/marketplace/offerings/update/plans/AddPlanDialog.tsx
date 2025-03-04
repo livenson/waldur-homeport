@@ -3,10 +3,7 @@ import { Modal } from 'react-bootstrap';
 import { connect, useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
 
-import {
-  marketplacePlansCreate,
-  ProviderPlanDetailsRequest,
-} from '@waldur/api';
+import { marketplacePlansCreate } from '@waldur/api';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
@@ -41,7 +38,7 @@ export const AddPlanDialog = connect<{}, {}, { resolve: { plan? } }>(
             body: {
               offering: props.resolve.offering.url,
               ...formatPlan(formData),
-            } as any as ProviderPlanDetailsRequest,
+            },
           });
           dispatch(
             showSuccess(translate('Plan has been created successfully.')),

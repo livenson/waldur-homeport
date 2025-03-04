@@ -6,14 +6,13 @@ import { useMemo, useState } from 'react';
 import { Badge } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
+import { marketplaceGlobalCategoriesRetrieve } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { getGroupedCategories } from '@waldur/marketplace/category/utils';
 import { getCategoryGroups } from '@waldur/marketplace/common/api';
 import { ALL_RESOURCES_TABLE_ID } from '@waldur/marketplace/resources/list/constants';
 import { selectFiltersStorage } from '@waldur/table/selectors';
 import { getResource } from '@waldur/workspace/selectors';
-
-import { getGlobalCounters } from '../workspace/api';
 
 import { MenuAccordion } from './MenuAccordion';
 import { MenuItem } from './MenuItem';
@@ -137,7 +136,10 @@ export const ResourcesMenu = ({ anonymous = false, user }) => {
       filtersObj?.customer_uuid,
       filtersObj?.project_uuid,
     ],
-    () => getGlobalCounters(filtersObj),
+    () =>
+      marketplaceGlobalCategoriesRetrieve({ query: filtersObj }).then(
+        (response) => response.data,
+      ),
     { refetchOnWindowFocus: false },
   );
   const [expanded, setExpanded] = useState(false);

@@ -1,4 +1,4 @@
-import { getAll, post, put } from '@waldur/core/api';
+import { getAll, post } from '@waldur/core/api';
 import { terminateResource } from '@waldur/marketplace/common/api';
 import {
   Flavor,
@@ -101,9 +101,6 @@ export const loadSecurityGroupsResources = (params?) =>
 export const loadServerGroupsResources = (params?) =>
   getAll<ServerGroupType>('/openstack-server-groups/', { params });
 
-export const updateSecurityGroup = (id: string, data) =>
-  put(`/openstack-security-groups/${id}/`, data);
-
 export const loadVolumeTypes = (params) =>
   getAll<VolumeType>('/openstack-volume-types/', {
     params,
@@ -122,26 +119,8 @@ export const getInstances = (params) =>
     params,
   });
 
-export const updateTenant = (id: string, data) =>
-  put(`/openstack-tenants/${id}/`, data);
-
-export const pullTenantSecurityGroups = (id: string) =>
-  post(`/openstack-tenants/${id}/pull_security_groups/`);
-
-export const pullTenantServerGroups = (id: string) =>
-  post(`/openstack-tenants/${id}/pull_server_groups/`);
-
 export const pullTenantFloatingIps = (id: string) =>
   post(`/openstack-tenants/${id}/pull_floating_ips/`);
-
-export const updateNetwork = (id: string, data) =>
-  put(`/openstack-networks/${id}/`, data);
-
-export const updateSubnet = (id: string, data) =>
-  put(`/openstack-subnets/${id}/`, data);
-
-export const updateInstance = (id: string, data) =>
-  put(`/openstack-instances/${id}/`, data);
 
 export const destroyInstance = (
   id: string,
@@ -156,28 +135,10 @@ export const forceDestroyInstance = (
     attributes: { action: 'force_destroy', ...attributes },
   });
 
-export const updateVolume = (id: string, data) =>
-  put(`/openstack-volumes/${id}/`, data);
-
-export const retypeVolume = (id: string, data) =>
-  post(`/openstack-volumes/${id}/retype/`, data);
-
-export const updateSnapshot = (id: string, data) =>
-  put(`/openstack-snapshots/${id}/`, data);
-
-export const restoreSnapshot = (id: string, data) =>
-  post(`/openstack-snapshots/${id}/restore/`, data);
-
-export const updateBackup = (id: string, data) =>
-  put(`/openstack-backups/${id}/`, data);
-
 export const createBackup = (id: string, data) =>
   post(`/openstack-instances/${id}/backup/`, data);
 
 export const pullVolume = (id: string) =>
   post(`/openstack-volumes/${id}/pull/`);
-
-export const detachVolume = (id: string) =>
-  post(`/openstack-volumes/${id}/detach/`);
 
 export const runMigration = (id) => post(`/openstack-migrations/${id}/run/`);

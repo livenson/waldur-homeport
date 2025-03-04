@@ -3,12 +3,12 @@ import { useState, FunctionComponent } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
+import { customerPermissionsReviewsClose } from '@waldur/api';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
-import { closeReview } from './api';
 import { CustomerUsersList } from './CustomerUsersList';
 
 export const PendingReviewDialog: FunctionComponent<{
@@ -24,7 +24,7 @@ export const PendingReviewDialog: FunctionComponent<{
   const closeReviewCallback = async () => {
     setSubmitting(true);
     try {
-      await closeReview(reviewId);
+      await customerPermissionsReviewsClose({ path: { uuid: reviewId } });
       dispatch(showSuccess(translate('Review has been closed.')));
       dispatch(closeModalDialog());
     } catch (e) {

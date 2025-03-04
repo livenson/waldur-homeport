@@ -7,7 +7,7 @@ import {
   ProtectedRound,
 } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
-import { fixURL, getAll, parseSelectData, post, put } from '@waldur/core/api';
+import { fixURL, getAll, parseSelectData, post } from '@waldur/core/api';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
 import { GenericPermission } from '@waldur/permissions/types';
 
@@ -32,12 +32,6 @@ export const createCallRound = (callUuid, data) => {
     data,
   );
 };
-
-export const updateCallRound = (callUuid, roundUuid, data) =>
-  put<ProtectedRound>(
-    `/proposal-protected-calls/${callUuid}/rounds/${roundUuid}/`,
-    data,
-  );
 
 export const createCallOffering = (callUuid, data) =>
   post<CallOffering>(`/proposal-protected-calls/${callUuid}/offerings/`, data);

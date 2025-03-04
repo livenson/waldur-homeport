@@ -1,10 +1,11 @@
+import { DiscountTypeEnum } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { CampaignFormData } from '@waldur/marketplace/service-providers/types';
 import { IBreadcrumbItem } from '@waldur/navigation/types';
 
 export const serializeCampaign = (formData: CampaignFormData) => ({
   name: formData.name,
-  discount_type: formData.discount_type,
+  discount_type: formData.discount_type as DiscountTypeEnum,
   discount: formData.discount,
   start_date: formData.start_date,
   end_date: formData.end_date,

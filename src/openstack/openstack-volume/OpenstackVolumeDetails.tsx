@@ -1,13 +1,12 @@
 import { useAsync } from 'react-use';
 
-import { get } from '@waldur/core/api';
-import { formatFilesize } from '@waldur/core/utils';
+import { openstackVolumeTypesRetrieve } from '@waldur/api';
+import { formatFilesize, getUUID } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';
 import { OrderResponse } from '@waldur/marketplace/orders/types';
 import { Field } from '@waldur/resource/summary';
 
 import { formatVolumeTypeLabel } from '../openstack-instance/utils';
-import { VolumeType } from '../types';
 
 interface OpenstackVolumeDetailsProps {
   order: OrderResponse;
@@ -17,7 +16,9 @@ export const OpenstackVolumeDetails = (props: OpenstackVolumeDetailsProps) => {
   const { order } = props;
   const { value: volumeType } = useAsync(() =>
     order.attributes.type
-      ? get<VolumeType>(order.attributes.type).then((response) => response.data)
+      ? openstackVolumeTypesRetrieve(getUUID(order.attributes.type)).then(
+          (response) => response.data,
+        )
       : Promise.resolve(null),
   );
   return (

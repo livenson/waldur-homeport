@@ -196,23 +196,6 @@ export interface ImportableResource {
   description: string;
 }
 
-export interface OfferingPermission {
-  url: string;
-  pk: number;
-  created: string;
-  expiration_time: string;
-  created_by: string;
-  offering: string;
-  offering_uuid: string;
-  offering_name: string;
-  user: string;
-  user_full_name: string;
-  user_native_name: string;
-  user_username: string;
-  user_uuid: string;
-  user_email: string;
-}
-
 export interface PlanComponent {
   amount: number;
   billing_type: BillingTypeEnum;

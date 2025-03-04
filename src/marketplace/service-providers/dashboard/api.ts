@@ -4,7 +4,6 @@ import {
   marketplaceServiceProvidersRevenueList,
   ServiceProviderRevenues,
 } from '@waldur/api';
-import { get } from '@waldur/core/api';
 import { parseDate } from '@waldur/core/dateUtils';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import {
@@ -16,8 +15,6 @@ import { getScopeChartOptions } from '@waldur/dashboard/chart';
 import { Chart } from '@waldur/dashboard/types';
 import { translate } from '@waldur/i18n';
 import { ServiceProvider } from '@waldur/marketplace/types';
-
-import { ProviderStatistics } from './types';
 
 const formatCostChart = (records: ServiceProviderRevenues[]): Chart => {
   let items: DateValuePair[] = records.map((record) => ({
@@ -90,8 +87,3 @@ export const loadProviderCharts = async (provider) => {
     ),
   }));
 };
-
-export const getServiceProviderStatistics = (providerUuid: string) =>
-  get<ProviderStatistics>(
-    `/marketplace-service-providers/${providerUuid}/stat/`,
-  );

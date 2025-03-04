@@ -1702,6 +1702,11 @@ export type CountStats = {
     readonly count: number;
 };
 
+export type Country = {
+    readonly label: string;
+    readonly value: string;
+};
+
 export type CountryEnum = 'AL' | 'AT' | 'BE' | 'BG' | 'BA' | 'CH' | 'CY' | 'CZ' | 'DE' | 'DK' | 'ES' | 'EE' | 'FI' | 'FR' | 'GB' | 'GE' | 'GR' | 'HR' | 'HU' | 'IE' | 'IS' | 'IT' | 'LT' | 'LU' | 'LV' | 'MC' | 'MK' | 'MT' | 'NL' | 'NO' | 'PL' | 'PT' | 'RO' | 'RS' | 'SK' | 'SI' | 'SE' | 'UA' | 'EU';
 
 export type CreateCustomerCredit = {
@@ -5873,6 +5878,8 @@ export type PaginatedAdminAnnouncementList = Array<AdminAnnouncement>;
 
 export type PaginatedAnswerListList = Array<AnswerList>;
 
+export type PaginatedAnswerSubmitList = Array<AnswerSubmit>;
+
 export type PaginatedAttachmentList = Array<Attachment>;
 
 export type PaginatedAuthTokenList = Array<AuthToken>;
@@ -5942,6 +5949,8 @@ export type PaginatedComponentUserUsageLimitList = Array<ComponentUserUsageLimit
 export type PaginatedComponentUserUsageList = Array<ComponentUserUsage>;
 
 export type PaginatedCountStatsList = Array<CountStats>;
+
+export type PaginatedCountryList = Array<Country>;
 
 export type PaginatedCustomerCreditList = Array<CustomerCredit>;
 
@@ -14278,10 +14287,11 @@ export type CustomersUpdateOrganizationGroupsData = {
 };
 
 export type CustomersUpdateOrganizationGroupsResponses = {
-    200: Customer;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type CustomersUpdateOrganizationGroupsResponse = CustomersUpdateOrganizationGroupsResponses[keyof CustomersUpdateOrganizationGroupsResponses];
 
 export type CustomersUpdateUserData = {
     body: UserRoleUpdateRequest;
@@ -14339,20 +14349,46 @@ export type CustomersUsersListResponses = {
 
 export type CustomersUsersListResponse = CustomersUsersListResponses[keyof CustomersUsersListResponses];
 
-export type CustomersCountriesRetrieveData = {
+export type CustomersCountriesListData = {
     body?: never;
     path?: never;
     query?: {
-        field?: Array<'abbreviation' | 'access_subnets' | 'accounting_start_date' | 'address' | 'agreement_number' | 'archived' | 'backend_id' | 'bank_account' | 'bank_name' | 'billing_price_estimate' | 'blocked' | 'call_managing_organization_uuid' | 'contact_details' | 'country' | 'country_name' | 'created' | 'customer_credit' | 'default_tax_percent' | 'display_name' | 'domain' | 'email' | 'homepage' | 'image' | 'is_service_provider' | 'latitude' | 'longitude' | 'name' | 'native_name' | 'organization_groups' | 'payment_profiles' | 'phone_number' | 'postal' | 'projects' | 'projects_count' | 'registration_code' | 'service_provider' | 'service_provider_uuid' | 'slug' | 'sponsor_number' | 'url' | 'users_count' | 'uuid' | 'vat_code'>;
+        abbreviation?: string;
+        agreement_number?: string;
+        archived?: boolean;
+        backend_id?: string;
+        contact_details?: string;
+        name?: string;
+        name_exact?: string;
+        native_name?: string;
+        /**
+         * Which field to use when ordering the results.
+         */
+        o?: string;
+        organization_group_name?: string;
+        /**
+         * organization_group_uuid
+         */
+        organization_group_uuid?: Array<string>;
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+        query?: string;
+        registration_code?: string;
     };
     url: '/api/customers/countries/';
 };
 
-export type CustomersCountriesRetrieveResponses = {
-    200: Customer;
+export type CustomersCountriesListResponses = {
+    200: PaginatedCountryList;
 };
 
-export type CustomersCountriesRetrieveResponse = CustomersCountriesRetrieveResponses[keyof CustomersCountriesRetrieveResponses];
+export type CustomersCountriesListResponse = CustomersCountriesListResponses[keyof CustomersCountriesListResponses];
 
 export type DailyQuotasRetrieveData = {
     body?: never;
@@ -17438,16 +17474,29 @@ export type MarketplaceChecklistsAnswersListResponses = {
 export type MarketplaceChecklistsAnswersListResponse = MarketplaceChecklistsAnswersListResponses[keyof MarketplaceChecklistsAnswersListResponses];
 
 export type MarketplaceChecklistsAnswersSubmitCreateData = {
-    body: AnswerSubmitRequest;
+    body: Array<AnswerSubmitRequest>;
     path: {
         checklist_uuid: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * User UUID to submit answer on behalf of. Required staff permission.
+         */
+        on_behalf_user_uuid?: string;
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+    };
     url: '/api/marketplace-checklists/{checklist_uuid}/answers/submit/';
 };
 
 export type MarketplaceChecklistsAnswersSubmitCreateResponses = {
-    201: AnswerSubmit;
+    201: PaginatedAnswerSubmitList;
 };
 
 export type MarketplaceChecklistsAnswersSubmitCreateResponse = MarketplaceChecklistsAnswersSubmitCreateResponses[keyof MarketplaceChecklistsAnswersSubmitCreateResponses];
@@ -17879,7 +17928,16 @@ export type MarketplaceCustomerEstimatedCostPoliciesActionsRetrieveResponse = Ma
 export type MarketplaceGlobalCategoriesRetrieveData = {
     body?: never;
     path?: never;
-    query?: never;
+    query?: {
+        /**
+         * UUID of the customer to filter resources by.
+         */
+        customer_uuid?: string;
+        /**
+         * UUID of the project to filter resources by.
+         */
+        project_uuid?: string;
+    };
     url: '/api/marketplace-global-categories/';
 };
 
@@ -35191,5 +35249,5 @@ export type VmwareVirtualMachineWebConsoleRetrieveResponses = {
 export type VmwareVirtualMachineWebConsoleRetrieveResponse = VmwareVirtualMachineWebConsoleRetrieveResponses[keyof VmwareVirtualMachineWebConsoleRetrieveResponses];
 
 export type ClientOptions = {
-    baseUrl: `${string}://waldur-openapi-schema.yaml` | (string & {});
+    baseUrl: `${string}://schema.yaml` | (string & {});
 };

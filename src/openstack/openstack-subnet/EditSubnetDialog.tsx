@@ -1,7 +1,7 @@
 import { FC } from 'react';
 
+import { openstackSubnetsUpdate } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import { updateSubnet } from '@waldur/openstack/api';
 import { ActionDialogProps } from '@waldur/resource/actions/types';
 import { UpdateResourceDialog } from '@waldur/resource/actions/UpdateResourceDialog';
 
@@ -21,7 +21,9 @@ export const EditSubnetDialog: FC<ActionDialogProps> = ({
       host_routes: resource.host_routes,
       dns_nameservers: resource.dns_nameservers,
     }}
-    updateResource={updateSubnet}
+    updateResource={(uuid, body) =>
+      openstackSubnetsUpdate({ path: { uuid }, body })
+    }
     verboseName={translate('OpenStack subnet')}
     refetch={refetch}
   />
