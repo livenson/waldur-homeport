@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux';
 import { proposalReviewsAccept, proposalReviewsReject } from '@waldur/api';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
+import { router } from '@waldur/router';
 import { useNotify } from '@waldur/store/hooks';
 
 import { ProposalReview } from '../types';
@@ -32,6 +33,19 @@ export const useReviewActions = (review: ProposalReview, refetch = null) => {
       await proposalReviewsAccept({ path: { uuid: review.uuid } });
       refetch && refetch();
       showSuccess(translate('Review has been accepted.'));
+
+      try {
+        router.stateService.go('proposal-review-view', {
+          review_uuid: review.uuid,
+        });
+      } catch (e) {
+        showErrorResponse(
+          e,
+          translate(
+            'Review accepted, error while redirecting to review view page.',
+          ),
+        );
+      }
     } catch (response) {
       showErrorResponse(response, translate('Unable to accept review.'));
     }

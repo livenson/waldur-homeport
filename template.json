@@ -3987,6 +3987,10 @@
     "description": "marketplace/offerings/list/DeleteOfferingButton.tsx",
     "message": "Error while deleting offering."
   },
+  "Error while redirecting to review view page.": {
+    "description": "proposals/review/utils.tsx",
+    "message": "Error while redirecting to review view page."
+  },
   "Error": {
     "description": "administration/dashboard/AdministrationProfile.tsx, core/InfiniteList.tsx, marketplace/deploy/steps/FormCloudStep.tsx, marketplace/resources/details/UsageCard.tsx",
     "message": "Error"
