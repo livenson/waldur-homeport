@@ -1,13 +1,12 @@
 import Axios, { AxiosRequestConfig } from 'axios';
 
-import { OrganizationGroup } from '@waldur/api';
+import { OfferingPermission, OrganizationGroup } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
-import { get, getAll, parseResultCount, post, put } from '@waldur/core/api';
+import { get, getAll, parseResultCount, post } from '@waldur/core/api';
 import {
   Category,
   CategoryGroup,
   Offering,
-  OfferingPermission,
   ServiceProvider,
 } from '@waldur/marketplace/types';
 
@@ -50,9 +49,6 @@ export const getAllOfferingPermissions = (options?: AxiosRequestConfig) =>
 
 export const getProviderOfferings = (customerUuid: string) =>
   getAllProviderOfferings({ params: { customer_uuid: customerUuid } });
-
-export const updatePlan = (planId, data) =>
-  put(`/marketplace-plans/${planId}/`, data);
 
 export const getOfferingPlansUsage = (offeringUuid: string) =>
   getAll<PlanUsageRow>('/marketplace-plans/usage_stats/', {

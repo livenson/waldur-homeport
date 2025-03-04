@@ -1,11 +1,14 @@
 import { FC, useCallback, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { ProtectedRound, ProtectedRoundRequest } from '@waldur/api';
+import {
+  proposalProtectedCallsRoundsUpdate,
+  ProtectedRound,
+  ProtectedRoundRequest,
+} from '@waldur/api';
 import { WizardFormContainer } from '@waldur/form/WizardFormContainer';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
-import { updateCallRound } from '@waldur/proposals/api';
 import { Call } from '@waldur/proposals/types';
 import { WizardFormThirdPage } from '@waldur/proposals/update/rounds/WizardFormThirdPage';
 import { getRoundInitialValues } from '@waldur/proposals/utils';
@@ -28,15 +31,16 @@ export const EditRoundAllocationDialog: FC<EditRoundAllocationDialogProps> = (
   const dispatch = useDispatch();
   const submit = useCallback(
     (formData: ProtectedRoundRequest, _dispatch, formProps) => {
-      const updatedRound = {
-        ...initialValues,
-        ...formData,
-      };
-      return updateCallRound(
-        props.resolve.call.uuid,
-        props.resolve.round.uuid,
-        updatedRound,
-      ).then(() => {
+      return proposalProtectedCallsRoundsUpdate({
+        path: {
+          uuid: props.resolve.call.uuid,
+          obj_uuid: props.resolve.round.uuid,
+        },
+        body: {
+          ...initialValues,
+          ...formData,
+        },
+      }).then(() => {
         formProps.destroy();
         dispatch(closeModalDialog());
         props.resolve.refetch();

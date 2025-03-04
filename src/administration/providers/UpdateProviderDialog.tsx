@@ -3,15 +3,13 @@ import { Modal } from 'react-bootstrap';
 import { Form } from 'react-final-form';
 import { useDispatch } from 'react-redux';
 
-import { overrideSettings } from '@waldur/api';
+import { identityProvidersUpdate, overrideSettings } from '@waldur/api';
 import { FREEIPA_IDP } from '@waldur/auth/providers/constants';
 import { ENV } from '@waldur/configs/default';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
-
-import { updateIdentityProvider } from '../api';
 
 import { ProviderForm } from './ProviderForm';
 import { ProviderFreeIPAForm } from './ProviderFreeIPAForm';
@@ -40,7 +38,10 @@ export const UpdateProviderDialog = ({
             ENV.plugins.WALDUR_CORE[key] = newSettings[key];
           });
         } else {
-          await updateIdentityProvider(resolve.provider.provider, formData);
+          await identityProvidersUpdate({
+            path: { provider: resolve.provider.provider },
+            body: formData,
+          });
         }
         dispatch(
           showSuccess(

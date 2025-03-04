@@ -2,16 +2,8 @@ import Axios from 'axios';
 
 import { usersList, UsersListData } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
-import {
-  fixURL,
-  parseResultCount,
-  parseSelectData,
-  post,
-} from '@waldur/core/api';
+import { fixURL, parseResultCount, parseSelectData } from '@waldur/core/api';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
-
-export const closeReview = (reviewId: string) =>
-  post(`/customer-permissions-reviews/${reviewId}/close/`);
 
 export const usersAutocomplete = async (
   query: Partial<UsersListData['query']>,

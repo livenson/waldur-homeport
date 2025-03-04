@@ -4,6 +4,7 @@ import { Button, Card, Col, Row, Table } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
 import { ServiceDeskProviderLogo } from '@waldur/administration/service-desk/ServiceDeskProviderLogo';
+import { overrideSettingsRetrieve } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
@@ -12,7 +13,6 @@ import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { openModalDialog } from '@waldur/modal/actions';
 import { SettingsDescription } from '@waldur/SettingsDescription';
 
-import { getDBSettings } from '../settings/api';
 import { FieldRow } from '../settings/FieldRow';
 
 const AdministrationServiceDeskUpdateDialog = lazyComponent(() =>
@@ -80,7 +80,7 @@ export const AdministrationServiceDesk = () => {
   const serviceDeskProviders = ['atlassian', 'zammad', 'smax'];
   const { data, error, isLoading, refetch } = useQuery(
     ['AdministrationServiceDesk'],
-    () => getDBSettings().then((response) => response.data),
+    () => overrideSettingsRetrieve().then((response) => response.data),
   );
 
   return isLoading ? (

@@ -1,4 +1,6 @@
-import { get, getAll, post, put } from '@waldur/core/api';
+import Axios from 'axios';
+
+import { get, getAll, post } from '@waldur/core/api';
 
 import {
   RancherProject,
@@ -64,11 +66,6 @@ export const listNamespaces = (params) =>
 export const createHPA = (payload: HPACreateType) =>
   post<HPA>('/rancher-hpas/', payload);
 
-export const updateHPA = (
-  hpaId: string,
-  payload: Omit<HPACreateType, 'workload'>,
-) => put<HPA>(`/rancher-hpas/${hpaId}/`, payload);
-
 export const listClusterTemplates = (options?) =>
   getAll<ClusterTemplate>('/rancher-cluster-templates/', options);
 
@@ -76,7 +73,7 @@ export const getYAML = (url: string) =>
   get<{ yaml: string }>(`${url}yaml/`).then((response) => response.data);
 
 export const putYAML = (url: string, yaml: string) =>
-  put(`${url}yaml/`, { yaml });
+  Axios.put(`${url}yaml/`, { yaml });
 
 export const importYAML = (clusterId: string, yaml: string) =>
   post(`/rancher-clusters/${clusterId}/import_yaml/`, { yaml });
