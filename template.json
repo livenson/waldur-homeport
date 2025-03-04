@@ -3987,10 +3987,6 @@
     "description": "marketplace/offerings/list/DeleteOfferingButton.tsx",
     "message": "Error while deleting offering."
   },
-  "Error while redirecting to review view page.": {
-    "description": "proposals/review/utils.tsx",
-    "message": "Error while redirecting to review view page."
-  },
   "Error": {
     "description": "administration/dashboard/AdministrationProfile.tsx, core/InfiniteList.tsx, marketplace/deploy/steps/FormCloudStep.tsx, marketplace/resources/details/UsageCard.tsx",
     "message": "Error"
@@ -9599,6 +9595,10 @@
     "description": "openstack/openstack-volume/actions/RetypeAction.tsx",
     "message": "Retype"
   },
+  "Review accepted, error while redirecting to review view page.": {
+    "description": "proposals/review/utils.tsx",
+    "message": "Review accepted, error while redirecting to review view page."
+  },
   "Review and confirm": {
     "description": "marketplace/offerings/import/tabs.ts",
     "message": "Review and confirm"
@@ -12219,6 +12219,10 @@
     "description": "openstack/openstack-instance/actions/ChangeFlavorDialog.tsx",
     "message": "Unable to change flavor."
   },
+  "Unable to check version update: {error}": {
+    "description": "navigation/AppFooter.tsx",
+    "message": "Unable to check version update: {error}"
+  },
   "Unable to close review.": {
     "description": "customer/team/PendingReviewDialog.tsx",
     "message": "Unable to close review."
@@ -13431,6 +13435,10 @@
     "description": "marketplace/offerings/update/plans/UpdateAccessPoliciesAction.tsx",
     "message": "Update access policies"
   },
+  "Update available": {
+    "description": "navigation/AppFooter.tsx",
+    "message": "Update available"
+  },
   "Update call permission": {
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Update call permission"
@@ -14118,6 +14126,10 @@
   "Verifying email change": {
     "description": "user/support/UserEmailChangeCallback.tsx",
     "message": "Verifying email change"
+  },
+  "Version check endpoint is not available.": {
+    "description": "navigation/AppFooter.tsx",
+    "message": "Version check endpoint is not available."
   },
   "Version": {
     "description": "administration/TelemetryExampleDialog.tsx, administration/dashboard/AdministrationProfile.tsx, navigation/AppFooter.tsx, rancher/cluster/apps/ApplicationDetailsDialog.tsx, rancher/template/ApplicationConfiguration.tsx",
@@ -14902,10 +14914,6 @@
   "tokens": {
     "description": "administration/TokensList.tsx",
     "message": "tokens"
-  },
-  "update available": {
-    "description": "navigation/AppFooter.tsx",
-    "message": "update available"
   },
   "user agreements": {
     "description": "administration/agreements/UserAgreementsList.tsx",
