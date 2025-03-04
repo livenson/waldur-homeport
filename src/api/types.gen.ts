@@ -7927,6 +7927,7 @@ export type ProtectedCall = {
     readonly created: string;
     readonly start_date: string;
     readonly end_date: string;
+    readonly slug: string;
     name: string;
     description?: string;
     state: CallStates;
@@ -8318,6 +8319,7 @@ export type PublicCall = {
     readonly created: string;
     readonly start_date: string;
     readonly end_date: string;
+    readonly slug: string;
     name: string;
     description?: string;
     state: CallStates;
@@ -28501,7 +28503,7 @@ export type ProposalProtectedCallsListData = {
         customer?: string;
         customer_keyword?: string;
         customer_uuid?: string;
-        field?: Array<'backend_id' | 'created' | 'created_by' | 'customer_name' | 'customer_uuid' | 'default_project_role' | 'default_project_role_description' | 'default_project_role_name' | 'description' | 'documents' | 'end_date' | 'external_url' | 'manager' | 'name' | 'offerings' | 'reference_code' | 'rounds' | 'start_date' | 'state' | 'url' | 'uuid'>;
+        field?: Array<'backend_id' | 'created' | 'created_by' | 'customer_name' | 'customer_uuid' | 'default_project_role' | 'default_project_role_description' | 'default_project_role_name' | 'description' | 'documents' | 'end_date' | 'external_url' | 'manager' | 'name' | 'offerings' | 'reference_code' | 'rounds' | 'slug' | 'start_date' | 'state' | 'url' | 'uuid'>;
         has_active_round?: boolean;
         name?: string;
         /**
@@ -28578,7 +28580,7 @@ export type ProposalProtectedCallsRetrieveData = {
         uuid: string;
     };
     query?: {
-        field?: Array<'backend_id' | 'created' | 'created_by' | 'customer_name' | 'customer_uuid' | 'default_project_role' | 'default_project_role_description' | 'default_project_role_name' | 'description' | 'documents' | 'end_date' | 'external_url' | 'manager' | 'name' | 'offerings' | 'reference_code' | 'rounds' | 'start_date' | 'state' | 'url' | 'uuid'>;
+        field?: Array<'backend_id' | 'created' | 'created_by' | 'customer_name' | 'customer_uuid' | 'default_project_role' | 'default_project_role_description' | 'default_project_role_name' | 'description' | 'documents' | 'end_date' | 'external_url' | 'manager' | 'name' | 'offerings' | 'reference_code' | 'rounds' | 'slug' | 'start_date' | 'state' | 'url' | 'uuid'>;
     };
     url: '/api/proposal-protected-calls/{uuid}/';
 };
@@ -29061,7 +29063,7 @@ export type ProposalPublicCallsListData = {
         customer?: string;
         customer_keyword?: string;
         customer_uuid?: string;
-        field?: Array<'backend_id' | 'created' | 'customer_name' | 'customer_uuid' | 'description' | 'documents' | 'end_date' | 'external_url' | 'manager' | 'name' | 'offerings' | 'rounds' | 'start_date' | 'state' | 'url' | 'uuid'>;
+        field?: Array<'backend_id' | 'created' | 'customer_name' | 'customer_uuid' | 'description' | 'documents' | 'end_date' | 'external_url' | 'manager' | 'name' | 'offerings' | 'rounds' | 'slug' | 'start_date' | 'state' | 'url' | 'uuid'>;
         has_active_round?: boolean;
         name?: string;
         /**
@@ -29107,7 +29109,7 @@ export type ProposalPublicCallsRetrieveData = {
         uuid: string;
     };
     query?: {
-        field?: Array<'backend_id' | 'created' | 'customer_name' | 'customer_uuid' | 'description' | 'documents' | 'end_date' | 'external_url' | 'manager' | 'name' | 'offerings' | 'rounds' | 'start_date' | 'state' | 'url' | 'uuid'>;
+        field?: Array<'backend_id' | 'created' | 'customer_name' | 'customer_uuid' | 'description' | 'documents' | 'end_date' | 'external_url' | 'manager' | 'name' | 'offerings' | 'rounds' | 'slug' | 'start_date' | 'state' | 'url' | 'uuid'>;
     };
     url: '/api/proposal-public-calls/{uuid}/';
 };
@@ -35197,5 +35199,5 @@ export type VmwareVirtualMachineWebConsoleRetrieveResponses = {
 export type VmwareVirtualMachineWebConsoleRetrieveResponse = VmwareVirtualMachineWebConsoleRetrieveResponses[keyof VmwareVirtualMachineWebConsoleRetrieveResponses];
 
 export type ClientOptions = {
-    baseUrl: `${string}://schema.yaml` | (string & {});
+    baseUrl: `${string}://waldur-openapi-schema.yaml` | (string & {});
 };
