@@ -270,7 +270,7 @@ export const BaseDeployPage = ({
 
   return (
     <DeployForm handleSubmit={props.handleSubmit} offering={selectedOffering}>
-      <PageBarProvider scrollTrackSide="top" scrollOffset={200}>
+      <PageBarProvider scrollOffset={100}>
         <SidebarLayout.Header>
           <div className="d-flex justify-content-between align-items-center w-100">
             <h1 className="mb-0 flex-grow-1">

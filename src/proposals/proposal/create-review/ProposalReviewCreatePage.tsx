@@ -145,7 +145,7 @@ export const ProposalReviewCreatePage = (props) => {
   }
 
   return (
-    <PageBarProvider scrollTrackSide="top" scrollOffset={200}>
+    <PageBarProvider scrollOffset={100}>
       <Form form={PROPOSAL_UPDATE_REVIEW_FORM_ID} onSubmit={submit}>
         {({ submitting }) => (
           <>

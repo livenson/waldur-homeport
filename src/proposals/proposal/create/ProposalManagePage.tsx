@@ -53,7 +53,7 @@ export const ProposalManagePage = () => {
   }
 
   return (
-    <PageBarProvider scrollTrackSide="top" scrollOffset={200}>
+    <PageBarProvider scrollOffset={100}>
       <SidebarLayout.Header className="pb-5">
         <div className="w-100">
           <ProposalHeader proposal={proposal} className="mb-7" />
