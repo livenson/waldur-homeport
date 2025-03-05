@@ -14693,7 +14693,11 @@ export const proposalReviewsSubmit = <ThrowOnError extends boolean = false>(opti
             }
         ],
         url: '/api/proposal-reviews/{uuid}/submit/',
-        ...options
+        ...options,
+        headers: {
+            'Content-Type': 'application/json',
+            ...options?.headers
+        }
     });
 };
 
