@@ -4967,6 +4967,10 @@
     "description": "user/support/UserImpersonateButton.tsx",
     "message": "Impersonate"
   },
+  "Impersonation is not available for users without active session.": {
+    "description": "user/support/UserImpersonateButton.tsx",
+    "message": "Impersonation is not available for users without active session."
+  },
   "Import YAML": {
     "description": "rancher/cluster/ImportYAMLButton.tsx, rancher/cluster/ImportYAMLDialog.tsx",
     "message": "Import YAML"

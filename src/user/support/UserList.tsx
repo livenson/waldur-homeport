@@ -180,6 +180,7 @@ const mandatoryFields = [
   'is_active',
   'url',
   'permissions',
+  'has_active_session',
 ];
 
 export const UserList: FunctionComponent = () => {
