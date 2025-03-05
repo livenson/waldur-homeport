@@ -3703,8 +3703,12 @@
     "description": "marketplace/service-providers/CustomerContactColumn.tsx",
     "message": "Email: {email}"
   },
+  "Emails contains": {
+    "description": "support/SupportEmailLogsFilter.tsx",
+    "message": "Emails contains"
+  },
   "Emails": {
-    "description": "customer/list/ExportAsEmailDialog.tsx",
+    "description": "customer/list/ExportAsEmailDialog.tsx, support/SupportEmailLogsFilter.tsx, support/SupportEmailLogsList.tsx",
     "message": "Emails"
   },
   "Enable DHCP": {
@@ -5887,6 +5891,10 @@
     "description": "auth/callbacks/AuthLogoutFailed.tsx",
     "message": "Logout failed"
   },
+  "Logs": {
+    "description": "issues/routes.ts",
+    "message": "Logs"
+  },
   "Longhorn is a lightweight, reliable, and powerful distributed block storage system for Kubernetes.": {
     "description": "rancher/cluster/create/FormOptionalServicesStep.tsx",
     "message": "Longhorn is a lightweight, reliable, and powerful distributed block storage system for Kubernetes."
@@ -7490,6 +7498,10 @@
   "Others": {
     "description": "reporting/invoices/utils.ts",
     "message": "Others"
+  },
+  "Outgoing emails": {
+    "description": "issues/routes.ts, support/SupportEmailLogsList.tsx",
+    "message": "Outgoing emails"
   },
   "Output": {
     "description": "marketplace/orders/details/OrderDetails.tsx, marketplace/orders/details/OutputTab.tsx",
@@ -10447,6 +10459,10 @@
     "description": "broadcasts/BroadcastSendButton.tsx, customer/list/FinancialReportSendButton.tsx",
     "message": "Send"
   },
+  "Sent at": {
+    "description": "support/SupportEmailLogsFilter.tsx, support/SupportEmailLogsList.tsx",
+    "message": "Sent at"
+  },
   "Server group creation has been scheduled.": {
     "description": "openstack/openstack-tenant/actions/utils.ts",
     "message": "Server group creation has been scheduled."
@@ -11091,8 +11107,12 @@
     "description": "SettingsDescription.ts",
     "message": "Style of sidebar. Possible values: dark, light, accent."
   },
+  "Subject contains": {
+    "description": "support/SupportEmailLogsFilter.tsx",
+    "message": "Subject contains"
+  },
   "Subject": {
-    "description": "broadcasts/BroadcastForm.tsx, broadcasts/BroadcastList.tsx, broadcasts/BroadcastTemplateForm.tsx, broadcasts/BroadcastTemplateList.tsx",
+    "description": "broadcasts/BroadcastForm.tsx, broadcasts/BroadcastList.tsx, broadcasts/BroadcastTemplateForm.tsx, broadcasts/BroadcastTemplateList.tsx, support/SupportEmailLogsFilter.tsx, support/SupportEmailLogsList.tsx",
     "message": "Subject"
   },
   "Submission strategy": {
