@@ -22,8 +22,8 @@ const handleSubmit =
   ({ formData, dispatch, curretUser, refetch }) =>
   async () => {
     if (
-      !formData.offering.secret_options
-        .service_provider_can_create_offering_user
+      !formData.offering.options?.options
+        ?.service_provider_can_create_offering_user
     ) {
       dispatch(
         showError(

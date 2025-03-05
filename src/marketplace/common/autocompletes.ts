@@ -141,6 +141,7 @@ export const providerOfferingsAutocomplete = async (
     'thumbnail',
     'customer_name',
     'secret_options',
+    'options',
     'customer_uuid',
   ],
 ) => {
