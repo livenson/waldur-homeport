@@ -2211,6 +2211,10 @@
     "description": "invoices/details/InvoiceItemCompensationDialog.tsx",
     "message": "Compensation has been created."
   },
+  "Complete all required sections: {sections} and {lastSection} to proceed.": {
+    "description": "proposals/proposal/create/ProposalSidebar.tsx",
+    "message": "Complete all required sections: {sections} and {lastSection} to proceed."
+  },
   "Complete your profile.": {
     "description": "user/CompleteYourProfileBanner.tsx",
     "message": "Complete your profile."
@@ -8288,7 +8292,7 @@
     "message": "Project details for {name}"
   },
   "Project details": {
-    "description": "proposals/proposal/create/ProjectDetailsSummary.tsx, proposals/proposal/create/steps.ts, proposals/proposal/create-review/steps/steps.ts",
+    "description": "proposals/proposal/create/ProjectDetailsSummary.tsx, proposals/proposal/create/ProposalSidebar.tsx, proposals/proposal/create/steps.ts, proposals/proposal/create-review/steps/steps.ts",
     "message": "Project details"
   },
   "Project duration in days": {
@@ -8372,7 +8376,7 @@
     "message": "Project slug"
   },
   "Project team": {
-    "description": "proposals/proposal/create/ProposalTeamStep.tsx, proposals/proposal/create/steps.ts",
+    "description": "proposals/proposal/create/ProposalSidebar.tsx, proposals/proposal/create/ProposalTeamStep.tsx, proposals/proposal/create/steps.ts",
     "message": "Project team"
   },
   "Project type": {
@@ -9460,7 +9464,7 @@
     "message": "Resource request has been updated."
   },
   "Resource requests": {
-    "description": "proposals/proposal/create/ResourceRequestsSummary.tsx, proposals/proposal/create/steps.ts, proposals/proposal/create-review/steps/steps.ts",
+    "description": "proposals/proposal/create/ProposalSidebar.tsx, proposals/proposal/create/ResourceRequestsSummary.tsx, proposals/proposal/create/steps.ts, proposals/proposal/create-review/steps/steps.ts",
     "message": "Resource requests"
   },
   "Resource successfully created": {

@@ -38,6 +38,10 @@ body:not(.toolbar-fixed) {
         border-bottom: none;
         border-left: 2px solid transparent;
       }
+
+      &:not(.active) .has-error {
+        color: var(--bs-warning);
+      }
     }
   }
 }
