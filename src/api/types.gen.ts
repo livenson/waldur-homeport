@@ -1570,6 +1570,10 @@ export type ConfirmEmailRequestRequest = {
     code: string;
 };
 
+export type ConsoleUrl = {
+    readonly url: string;
+};
+
 export type ConstanceSettingsRequest = {
     SITE_NAME?: string;
     SITE_DESCRIPTION?: string;
@@ -3683,6 +3687,11 @@ export type NestedPriceEstimate = {
     readonly tax_current: number;
 };
 
+export type NestedProject = {
+    readonly uuid: string;
+    readonly url: string;
+};
+
 export type NestedProjectPermission = {
     readonly url: string;
     readonly uuid: string;
@@ -4846,10 +4855,6 @@ export type OpenStackInstanceAvailabilityZone = {
     name: string;
     settings?: string | null;
     available?: boolean;
-};
-
-export type OpenStackInstanceConsole = {
-    readonly url: string;
 };
 
 export type OpenStackInstanceFloatingIpsUpdateRequest = {
@@ -6023,6 +6028,8 @@ export type PaginatedMessageTemplateList = Array<MessageTemplate>;
 export type PaginatedMigrationDetailsList = Array<MigrationDetails>;
 
 export type PaginatedNameUuidList = Array<NameUuid>;
+
+export type PaginatedNestedProjectList = Array<NestedProject>;
 
 export type PaginatedNotificationList = Array<Notification>;
 
@@ -8740,10 +8747,6 @@ export type RancherClusterTemplateRequest = {
     name: string;
     description?: string;
     nodes: Array<RancherClusterTemplateNodeRequest>;
-};
-
-export type RancherConsoleLog = {
-    length?: number;
 };
 
 export type RancherCreateNode = {
@@ -13470,12 +13473,21 @@ export type CallManagingOrganisationsListUsersListData = {
         uuid: string;
     };
     query?: {
-        customer?: string;
-        customer_keyword?: string;
-        customer_uuid?: string;
+        /**
+         * Fields to include in response
+         */
         field?: Array<'created' | 'created_by_full_name' | 'created_by_uuid' | 'expiration_time' | 'role_name' | 'role_uuid' | 'user_email' | 'user_full_name' | 'user_image' | 'user_username' | 'user_uuid' | 'uuid'>;
+        /**
+         * User full name
+         */
         full_name?: string;
+        /**
+         * User native name
+         */
         native_name?: string;
+        /**
+         * Ordering fields
+         */
         o?: Array<'created' | 'email' | 'expiration_time' | 'full_name' | 'native_name' | 'role' | 'username'>;
         /**
          * A page number within the paginated result set.
@@ -13485,11 +13497,29 @@ export type CallManagingOrganisationsListUsersListData = {
          * Number of results to return per page.
          */
         page_size?: number;
+        /**
+         * Role UUID or name
+         */
         role?: string;
+        /**
+         * Search string for user
+         */
         search_string?: string;
+        /**
+         * User UUID
+         */
         user?: string;
+        /**
+         * User slug
+         */
         user_slug?: string;
+        /**
+         * User URL
+         */
         user_url?: string;
+        /**
+         * User username
+         */
         username?: string;
     };
     url: '/api/call-managing-organisations/{uuid}/list_users/';
@@ -14223,22 +14253,22 @@ export type CustomersListUsersListData = {
         uuid: string;
     };
     query?: {
-        abbreviation?: string;
-        agreement_number?: string;
-        archived?: boolean;
-        backend_id?: string;
-        contact_details?: string;
-        field?: Array<'created' | 'created_by_full_name' | 'created_by_uuid' | 'expiration_time' | 'role_name' | 'role_uuid' | 'user_email' | 'user_full_name' | 'user_image' | 'user_username' | 'user_uuid' | 'uuid'>;
-        full_name?: string;
-        name?: string;
-        name_exact?: string;
-        native_name?: string;
-        o?: Array<'created' | 'email' | 'expiration_time' | 'full_name' | 'native_name' | 'role' | 'username'>;
-        organization_group_name?: string;
         /**
-         * organization_group_uuid
+         * Fields to include in response
          */
-        organization_group_uuid?: Array<string>;
+        field?: Array<'created' | 'created_by_full_name' | 'created_by_uuid' | 'expiration_time' | 'role_name' | 'role_uuid' | 'user_email' | 'user_full_name' | 'user_image' | 'user_username' | 'user_uuid' | 'uuid'>;
+        /**
+         * User full name
+         */
+        full_name?: string;
+        /**
+         * User native name
+         */
+        native_name?: string;
+        /**
+         * Ordering fields
+         */
+        o?: Array<'created' | 'email' | 'expiration_time' | 'full_name' | 'native_name' | 'role' | 'username'>;
         /**
          * A page number within the paginated result set.
          */
@@ -14247,13 +14277,29 @@ export type CustomersListUsersListData = {
          * Number of results to return per page.
          */
         page_size?: number;
-        query?: string;
-        registration_code?: string;
+        /**
+         * Role UUID or name
+         */
         role?: string;
+        /**
+         * Search string for user
+         */
         search_string?: string;
+        /**
+         * User UUID
+         */
         user?: string;
+        /**
+         * User slug
+         */
         user_slug?: string;
+        /**
+         * User URL
+         */
         user_url?: string;
+        /**
+         * User username
+         */
         username?: string;
     };
     url: '/api/customers/{uuid}/list_users/';
@@ -15422,17 +15468,25 @@ export type GoogleAuthAuthorizeRetrieveResponse = GoogleAuthAuthorizeRetrieveRes
 export type GoogleAuthCallbackRetrieveData = {
     body?: never;
     path?: never;
-    query?: {
-        field?: Array<'calendar_refresh_token' | 'calendar_token' | 'created' | 'customer' | 'customer_abbreviation' | 'customer_country' | 'customer_image' | 'customer_name' | 'customer_native_name' | 'customer_slug' | 'customer_uuid' | 'description' | 'google_auth_url' | 'image' | 'offering_count' | 'organization_groups' | 'url' | 'uuid'>;
+    query: {
+        /**
+         * Authorization code
+         */
+        code: string;
+        /**
+         * Service provider UUID
+         */
+        state: string;
     };
     url: '/api/google-auth/callback/';
 };
 
 export type GoogleAuthCallbackRetrieveResponses = {
-    200: GoogleCredentials;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type GoogleAuthCallbackRetrieveResponse = GoogleAuthCallbackRetrieveResponses[keyof GoogleAuthCallbackRetrieveResponses];
 
 export type HooksListData = {
     body?: never;
@@ -20116,47 +20170,6 @@ export type MarketplaceProviderOfferingsListCustomerProjectsListData = {
     };
     query?: {
         /**
-         * Accessible via calls
-         */
-        accessible_via_calls?: boolean;
-        /**
-         * Allowed customer UUID
-         */
-        allowed_customer_uuid?: string;
-        attributes?: string;
-        billable?: boolean;
-        category_group_uuid?: string;
-        category_uuid?: string;
-        customer?: string;
-        customer_uuid?: string;
-        description?: string;
-        /**
-         * Keyword
-         */
-        keyword?: string;
-        name?: string;
-        name_exact?: string;
-        /**
-         * Ordering
-         *
-         * * `name` - Name
-         * * `-name` - Name (descending)
-         * * `created` - Created
-         * * `-created` - Created (descending)
-         * * `type` - Type
-         * * `-type` - Type (descending)
-         * * `total_customers` - Total customers
-         * * `-total_customers` - Total customers (descending)
-         * * `total_cost` - Total cost
-         * * `-total_cost` - Total cost (descending)
-         * * `total_cost_estimated` - Total cost estimated
-         * * `-total_cost_estimated` - Total cost estimated (descending)
-         * * `state` - State
-         * * `-state` - State (descending)
-         */
-        o?: Array<'-created' | '-name' | '-state' | '-total_cost' | '-total_cost_estimated' | '-total_customers' | '-type' | 'created' | 'name' | 'state' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type'>;
-        organization_group_uuid?: Array<string>;
-        /**
          * A page number within the paginated result set.
          */
         page?: number;
@@ -20164,28 +20177,6 @@ export type MarketplaceProviderOfferingsListCustomerProjectsListData = {
          * Number of results to return per page.
          */
         page_size?: number;
-        parent_uuid?: string;
-        /**
-         * Project UUID
-         */
-        project_uuid?: string;
-        /**
-         * Scope UUID
-         */
-        scope_uuid?: string;
-        /**
-         * Service manager UUID
-         */
-        service_manager_uuid?: string;
-        shared?: boolean;
-        /**
-         * * `Draft` - Draft
-         * * `Active` - Active
-         * * `Paused` - Paused
-         * * `Archived` - Archived
-         */
-        state?: Array<'Active' | 'Archived' | 'Draft' | 'Paused'>;
-        type?: Array<string>;
     };
     url: '/api/marketplace-provider-offerings/{uuid}/list_customer_projects/';
 };
@@ -20203,47 +20194,6 @@ export type MarketplaceProviderOfferingsListCustomerUsersListData = {
     };
     query?: {
         /**
-         * Accessible via calls
-         */
-        accessible_via_calls?: boolean;
-        /**
-         * Allowed customer UUID
-         */
-        allowed_customer_uuid?: string;
-        attributes?: string;
-        billable?: boolean;
-        category_group_uuid?: string;
-        category_uuid?: string;
-        customer?: string;
-        customer_uuid?: string;
-        description?: string;
-        /**
-         * Keyword
-         */
-        keyword?: string;
-        name?: string;
-        name_exact?: string;
-        /**
-         * Ordering
-         *
-         * * `name` - Name
-         * * `-name` - Name (descending)
-         * * `created` - Created
-         * * `-created` - Created (descending)
-         * * `type` - Type
-         * * `-type` - Type (descending)
-         * * `total_customers` - Total customers
-         * * `-total_customers` - Total customers (descending)
-         * * `total_cost` - Total cost
-         * * `-total_cost` - Total cost (descending)
-         * * `total_cost_estimated` - Total cost estimated
-         * * `-total_cost_estimated` - Total cost estimated (descending)
-         * * `state` - State
-         * * `-state` - State (descending)
-         */
-        o?: Array<'-created' | '-name' | '-state' | '-total_cost' | '-total_cost_estimated' | '-total_customers' | '-type' | 'created' | 'name' | 'state' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type'>;
-        organization_group_uuid?: Array<string>;
-        /**
          * A page number within the paginated result set.
          */
         page?: number;
@@ -20251,28 +20201,6 @@ export type MarketplaceProviderOfferingsListCustomerUsersListData = {
          * Number of results to return per page.
          */
         page_size?: number;
-        parent_uuid?: string;
-        /**
-         * Project UUID
-         */
-        project_uuid?: string;
-        /**
-         * Scope UUID
-         */
-        scope_uuid?: string;
-        /**
-         * Service manager UUID
-         */
-        service_manager_uuid?: string;
-        shared?: boolean;
-        /**
-         * * `Draft` - Draft
-         * * `Active` - Active
-         * * `Paused` - Paused
-         * * `Archived` - Archived
-         */
-        state?: Array<'Active' | 'Archived' | 'Draft' | 'Paused'>;
-        type?: Array<string>;
     };
     url: '/api/marketplace-provider-offerings/{uuid}/list_customer_users/';
 };
@@ -20290,31 +20218,21 @@ export type MarketplaceProviderOfferingsListUsersListData = {
     };
     query?: {
         /**
-         * Accessible via calls
+         * Fields to include in response
          */
-        accessible_via_calls?: boolean;
-        /**
-         * Allowed customer UUID
-         */
-        allowed_customer_uuid?: string;
-        attributes?: string;
-        billable?: boolean;
-        category_group_uuid?: string;
-        category_uuid?: string;
-        customer?: string;
-        customer_uuid?: string;
-        description?: string;
         field?: Array<'created' | 'created_by_full_name' | 'created_by_uuid' | 'expiration_time' | 'role_name' | 'role_uuid' | 'user_email' | 'user_full_name' | 'user_image' | 'user_username' | 'user_uuid' | 'uuid'>;
+        /**
+         * User full name
+         */
         full_name?: string;
         /**
-         * Keyword
+         * User native name
          */
-        keyword?: string;
-        name?: string;
-        name_exact?: string;
         native_name?: string;
+        /**
+         * Ordering fields
+         */
         o?: Array<'created' | 'email' | 'expiration_time' | 'full_name' | 'native_name' | 'role' | 'username'>;
-        organization_group_uuid?: Array<string>;
         /**
          * A page number within the paginated result set.
          */
@@ -20323,33 +20241,29 @@ export type MarketplaceProviderOfferingsListUsersListData = {
          * Number of results to return per page.
          */
         page_size?: number;
-        parent_uuid?: string;
         /**
-         * Project UUID
+         * Role UUID or name
          */
-        project_uuid?: string;
         role?: string;
         /**
-         * Scope UUID
+         * Search string for user
          */
-        scope_uuid?: string;
         search_string?: string;
         /**
-         * Service manager UUID
+         * User UUID
          */
-        service_manager_uuid?: string;
-        shared?: boolean;
-        /**
-         * * `Draft` - Draft
-         * * `Active` - Active
-         * * `Paused` - Paused
-         * * `Archived` - Archived
-         */
-        state?: Array<'Active' | 'Archived' | 'Draft' | 'Paused'>;
-        type?: Array<string>;
         user?: string;
+        /**
+         * User slug
+         */
         user_slug?: string;
+        /**
+         * User URL
+         */
         user_url?: string;
+        /**
+         * User username
+         */
         username?: string;
     };
     url: '/api/marketplace-provider-offerings/{uuid}/list_users/';
@@ -20643,8 +20557,12 @@ export type MarketplaceProviderOfferingsUserHasResourceAccessRetrieveData = {
     path: {
         uuid: string;
     };
-    query?: {
+    query: {
         field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        /**
+         * Username of the user to check.
+         */
+        username: string;
     };
     url: '/api/marketplace-provider-offerings/{uuid}/user_has_resource_access/';
 };
@@ -22735,16 +22653,6 @@ export type MarketplaceServiceProvidersCustomerProjectsListData = {
         uuid: string;
     };
     query?: {
-        customer?: string;
-        customer_keyword?: string;
-        customer_uuid?: string;
-        /**
-         * Ordering
-         *
-         * * `customer_name` - Customer name
-         * * `-customer_name` - Customer name (descending)
-         */
-        o?: Array<'-customer_name' | 'customer_name'>;
         /**
          * A page number within the paginated result set.
          */
@@ -22769,16 +22677,6 @@ export type MarketplaceServiceProvidersCustomersListData = {
         uuid: string;
     };
     query?: {
-        customer?: string;
-        customer_keyword?: string;
-        customer_uuid?: string;
-        /**
-         * Ordering
-         *
-         * * `customer_name` - Customer name
-         * * `-customer_name` - Customer name (descending)
-         */
-        o?: Array<'-customer_name' | 'customer_name'>;
         /**
          * A page number within the paginated result set.
          */
@@ -22819,16 +22717,6 @@ export type MarketplaceServiceProvidersKeysListData = {
         uuid: string;
     };
     query?: {
-        customer?: string;
-        customer_keyword?: string;
-        customer_uuid?: string;
-        /**
-         * Ordering
-         *
-         * * `customer_name` - Customer name
-         * * `-customer_name` - Customer name (descending)
-         */
-        o?: Array<'-customer_name' | 'customer_name'>;
         /**
          * A page number within the paginated result set.
          */
@@ -22853,12 +22741,21 @@ export type MarketplaceServiceProvidersListUsersListData = {
         uuid: string;
     };
     query?: {
-        customer?: string;
-        customer_keyword?: string;
-        customer_uuid?: string;
+        /**
+         * Fields to include in response
+         */
         field?: Array<'created' | 'created_by_full_name' | 'created_by_uuid' | 'expiration_time' | 'role_name' | 'role_uuid' | 'user_email' | 'user_full_name' | 'user_image' | 'user_username' | 'user_uuid' | 'uuid'>;
+        /**
+         * User full name
+         */
         full_name?: string;
+        /**
+         * User native name
+         */
         native_name?: string;
+        /**
+         * Ordering fields
+         */
         o?: Array<'created' | 'email' | 'expiration_time' | 'full_name' | 'native_name' | 'role' | 'username'>;
         /**
          * A page number within the paginated result set.
@@ -22868,11 +22765,29 @@ export type MarketplaceServiceProvidersListUsersListData = {
          * Number of results to return per page.
          */
         page_size?: number;
+        /**
+         * Role UUID or name
+         */
         role?: string;
+        /**
+         * Search string for user
+         */
         search_string?: string;
+        /**
+         * User UUID
+         */
         user?: string;
+        /**
+         * User slug
+         */
         user_slug?: string;
+        /**
+         * User URL
+         */
         user_url?: string;
+        /**
+         * User username
+         */
         username?: string;
     };
     url: '/api/marketplace-service-providers/{uuid}/list_users/';
@@ -22890,16 +22805,6 @@ export type MarketplaceServiceProvidersOfferingsListData = {
         uuid: string;
     };
     query?: {
-        customer?: string;
-        customer_keyword?: string;
-        customer_uuid?: string;
-        /**
-         * Ordering
-         *
-         * * `customer_name` - Customer name
-         * * `-customer_name` - Customer name (descending)
-         */
-        o?: Array<'-customer_name' | 'customer_name'>;
         /**
          * A page number within the paginated result set.
          */
@@ -22924,16 +22829,6 @@ export type MarketplaceServiceProvidersProjectPermissionsListData = {
         uuid: string;
     };
     query?: {
-        customer?: string;
-        customer_keyword?: string;
-        customer_uuid?: string;
-        /**
-         * Ordering
-         *
-         * * `customer_name` - Customer name
-         * * `-customer_name` - Customer name (descending)
-         */
-        o?: Array<'-customer_name' | 'customer_name'>;
         /**
          * A page number within the paginated result set.
          */
@@ -22958,16 +22853,6 @@ export type MarketplaceServiceProvidersProjectsListData = {
         uuid: string;
     };
     query?: {
-        customer?: string;
-        customer_keyword?: string;
-        customer_uuid?: string;
-        /**
-         * Ordering
-         *
-         * * `customer_name` - Customer name
-         * * `-customer_name` - Customer name (descending)
-         */
-        o?: Array<'-customer_name' | 'customer_name'>;
         /**
          * A page number within the paginated result set.
          */
@@ -22992,16 +22877,6 @@ export type MarketplaceServiceProvidersRevenueListData = {
         uuid: string;
     };
     query?: {
-        customer?: string;
-        customer_keyword?: string;
-        customer_uuid?: string;
-        /**
-         * Ordering
-         *
-         * * `customer_name` - Customer name
-         * * `-customer_name` - Customer name (descending)
-         */
-        o?: Array<'-customer_name' | 'customer_name'>;
         /**
          * A page number within the paginated result set.
          */
@@ -23026,17 +22901,7 @@ export type MarketplaceServiceProvidersRobotAccountCustomersListData = {
         uuid: string;
     };
     query?: {
-        customer?: string;
-        customer_keyword?: string;
         customer_name?: string;
-        customer_uuid?: string;
-        /**
-         * Ordering
-         *
-         * * `customer_name` - Customer name
-         * * `-customer_name` - Customer name (descending)
-         */
-        o?: Array<'-customer_name' | 'customer_name'>;
         /**
          * A page number within the paginated result set.
          */
@@ -23061,16 +22926,6 @@ export type MarketplaceServiceProvidersRobotAccountProjectsListData = {
         uuid: string;
     };
     query?: {
-        customer?: string;
-        customer_keyword?: string;
-        customer_uuid?: string;
-        /**
-         * Ordering
-         *
-         * * `customer_name` - Customer name
-         * * `-customer_name` - Customer name (descending)
-         */
-        o?: Array<'-customer_name' | 'customer_name'>;
         /**
          * A page number within the paginated result set.
          */
@@ -23142,16 +22997,6 @@ export type MarketplaceServiceProvidersUserCustomersListData = {
         uuid: string;
     };
     query?: {
-        customer?: string;
-        customer_keyword?: string;
-        customer_uuid?: string;
-        /**
-         * Ordering
-         *
-         * * `customer_name` - Customer name
-         * * `-customer_name` - Customer name (descending)
-         */
-        o?: Array<'-customer_name' | 'customer_name'>;
         /**
          * A page number within the paginated result set.
          */
@@ -23176,16 +23021,6 @@ export type MarketplaceServiceProvidersUsersListData = {
         uuid: string;
     };
     query?: {
-        customer?: string;
-        customer_keyword?: string;
-        customer_uuid?: string;
-        /**
-         * Ordering
-         *
-         * * `customer_name` - Customer name
-         * * `-customer_name` - Customer name (descending)
-         */
-        o?: Array<'-customer_name' | 'customer_name'>;
         /**
          * A page number within the paginated result set.
          */
@@ -24596,7 +24431,7 @@ export type OpenstackInstancesConsoleRetrieveData = {
 };
 
 export type OpenstackInstancesConsoleRetrieveResponses = {
-    200: OpenStackInstanceConsole;
+    200: ConsoleUrl;
 };
 
 export type OpenstackInstancesConsoleRetrieveResponse = OpenstackInstancesConsoleRetrieveResponses[keyof OpenstackInstancesConsoleRetrieveResponses];
@@ -24648,18 +24483,6 @@ export type OpenstackInstancesPortsListData = {
         uuid: string;
     };
     query?: {
-        attach_volume_uuid?: string;
-        availability_zone_name?: string;
-        backend_id?: string;
-        customer?: string;
-        customer_abbreviation?: string;
-        customer_name?: string;
-        customer_native_name?: string;
-        customer_uuid?: string;
-        description?: string;
-        external_ip?: string;
-        name?: string;
-        name_exact?: string;
         /**
          * A page number within the paginated result set.
          */
@@ -24668,26 +24491,6 @@ export type OpenstackInstancesPortsListData = {
          * Number of results to return per page.
          */
         page_size?: number;
-        project?: string;
-        project_name?: string;
-        project_uuid?: string;
-        runtime_state?: string;
-        service_settings_name?: string;
-        service_settings_uuid?: string;
-        /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
-         * * `OK` - OK
-         * * `Erred` - Erred
-         */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
-        tenant?: string;
-        tenant_uuid?: string;
-        uuid?: string;
     };
     url: '/api/openstack-instances/{uuid}/ports/';
 };
@@ -25928,18 +25731,6 @@ export type OpenstackSnapshotsRestorationsListData = {
         uuid: string;
     };
     query?: {
-        backend_id?: string;
-        backup?: string;
-        backup_uuid?: string;
-        customer?: string;
-        customer_abbreviation?: string;
-        customer_name?: string;
-        customer_native_name?: string;
-        customer_uuid?: string;
-        description?: string;
-        external_ip?: string;
-        name?: string;
-        name_exact?: string;
         /**
          * A page number within the paginated result set.
          */
@@ -25948,28 +25739,6 @@ export type OpenstackSnapshotsRestorationsListData = {
          * Number of results to return per page.
          */
         page_size?: number;
-        project?: string;
-        project_name?: string;
-        project_uuid?: string;
-        runtime_state?: string;
-        service_settings_name?: string;
-        service_settings_uuid?: string;
-        source_volume?: string;
-        source_volume_uuid?: string;
-        /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
-         * * `OK` - OK
-         * * `Erred` - Erred
-         */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
-        tenant?: string;
-        tenant_uuid?: string;
-        uuid?: string;
     };
     url: '/api/openstack-snapshots/{uuid}/restorations/';
 };
@@ -27722,21 +27491,21 @@ export type ProjectsListUsersListData = {
         uuid: string;
     };
     query?: {
-        backend_id?: string;
-        created?: string;
         /**
-         * Multiple values may be separated by commas.
+         * Fields to include in response
          */
-        customer?: Array<string>;
-        customer_abbreviation?: string;
-        customer_name?: string;
-        customer_native_name?: string;
-        description?: string;
         field?: Array<'created' | 'created_by_full_name' | 'created_by_uuid' | 'expiration_time' | 'role_name' | 'role_uuid' | 'user_email' | 'user_full_name' | 'user_image' | 'user_username' | 'user_uuid' | 'uuid'>;
+        /**
+         * User full name
+         */
         full_name?: string;
-        name?: string;
-        name_exact?: string;
+        /**
+         * User native name
+         */
         native_name?: string;
+        /**
+         * Ordering fields
+         */
         o?: Array<'created' | 'email' | 'expiration_time' | 'full_name' | 'native_name' | 'role' | 'username'>;
         /**
          * A page number within the paginated result set.
@@ -27746,12 +27515,29 @@ export type ProjectsListUsersListData = {
          * Number of results to return per page.
          */
         page_size?: number;
-        query?: string;
+        /**
+         * Role UUID or name
+         */
         role?: string;
+        /**
+         * Search string for user
+         */
         search_string?: string;
+        /**
+         * User UUID
+         */
         user?: string;
+        /**
+         * User slug
+         */
         user_slug?: string;
+        /**
+         * User URL
+         */
         user_url?: string;
+        /**
+         * User username
+         */
         username?: string;
     };
     url: '/api/projects/{uuid}/list_users/';
@@ -27961,22 +27747,6 @@ export type PromotionsCampaignsOrdersListData = {
         uuid: string;
     };
     query?: {
-        discount_type?: string;
-        end_date?: string;
-        /**
-         * Ordering
-         *
-         * * `start_date` - Start date
-         * * `-start_date` - Start date (descending)
-         * * `end_date` - End date
-         * * `-end_date` - End date (descending)
-         */
-        o?: Array<'-end_date' | '-start_date' | 'end_date' | 'start_date'>;
-        /**
-         * Offering
-         */
-        offering?: string;
-        offering_uuid?: string;
         /**
          * A page number within the paginated result set.
          */
@@ -27985,15 +27755,6 @@ export type PromotionsCampaignsOrdersListData = {
          * Number of results to return per page.
          */
         page_size?: number;
-        query?: string;
-        service_provider_uuid?: string;
-        start_date?: string;
-        /**
-         * * `1` - Draft
-         * * `2` - Active
-         * * `3` - Terminated
-         */
-        state?: Array<1 | 2 | 3>;
     };
     url: '/api/promotions-campaigns/{uuid}/orders/';
 };
@@ -28010,22 +27771,6 @@ export type PromotionsCampaignsResourcesListData = {
         uuid: string;
     };
     query?: {
-        discount_type?: string;
-        end_date?: string;
-        /**
-         * Ordering
-         *
-         * * `start_date` - Start date
-         * * `-start_date` - Start date (descending)
-         * * `end_date` - End date
-         * * `-end_date` - End date (descending)
-         */
-        o?: Array<'-end_date' | '-start_date' | 'end_date' | 'start_date'>;
-        /**
-         * Offering
-         */
-        offering?: string;
-        offering_uuid?: string;
         /**
          * A page number within the paginated result set.
          */
@@ -28034,15 +27779,6 @@ export type PromotionsCampaignsResourcesListData = {
          * Number of results to return per page.
          */
         page_size?: number;
-        query?: string;
-        service_provider_uuid?: string;
-        start_date?: string;
-        /**
-         * * `1` - Draft
-         * * `2` - Active
-         * * `3` - Terminated
-         */
-        state?: Array<1 | 2 | 3>;
     };
     url: '/api/promotions-campaigns/{uuid}/resources/';
 };
@@ -28272,13 +28008,22 @@ export type ProposalProposalsListUsersListData = {
         uuid: string;
     };
     query?: {
-        call_uuid?: string;
+        /**
+         * Fields to include in response
+         */
         field?: Array<'created' | 'created_by_full_name' | 'created_by_uuid' | 'expiration_time' | 'role_name' | 'role_uuid' | 'user_email' | 'user_full_name' | 'user_image' | 'user_username' | 'user_uuid' | 'uuid'>;
+        /**
+         * User full name
+         */
         full_name?: string;
-        name?: string;
+        /**
+         * User native name
+         */
         native_name?: string;
+        /**
+         * Ordering fields
+         */
         o?: Array<'created' | 'email' | 'expiration_time' | 'full_name' | 'native_name' | 'role' | 'username'>;
-        organization_uuid?: string;
         /**
          * A page number within the paginated result set.
          */
@@ -28287,21 +28032,29 @@ export type ProposalProposalsListUsersListData = {
          * Number of results to return per page.
          */
         page_size?: number;
+        /**
+         * Role UUID or name
+         */
         role?: string;
-        round?: string;
+        /**
+         * Search string for user
+         */
         search_string?: string;
         /**
-         * * `draft` - Draft
-         * * `submitted` - Submitted
-         * * `in_review` - In review
-         * * `accepted` - Accepted
-         * * `rejected` - Rejected
-         * * `canceled` - Canceled
+         * User UUID
          */
-        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'rejected' | 'submitted'>;
         user?: string;
+        /**
+         * User slug
+         */
         user_slug?: string;
+        /**
+         * User URL
+         */
         user_url?: string;
+        /**
+         * User username
+         */
         username?: string;
     };
     url: '/api/proposal-proposals/{uuid}/list_users/';
@@ -28335,24 +28088,6 @@ export type ProposalProposalsResourcesListData = {
         uuid: string;
     };
     query?: {
-        call_uuid?: string;
-        name?: string;
-        /**
-         * Ordering
-         *
-         * * `round__call__name` - Round  call  name
-         * * `-round__call__name` - Round  call  name (descending)
-         * * `round__start_time` - Round  start time
-         * * `-round__start_time` - Round  start time (descending)
-         * * `round__cutoff_time` - Round  cutoff time
-         * * `-round__cutoff_time` - Round  cutoff time (descending)
-         * * `state` - State
-         * * `-state` - State (descending)
-         * * `created` - Created
-         * * `-created` - Created (descending)
-         */
-        o?: Array<'-created' | '-round__call__name' | '-round__cutoff_time' | '-round__start_time' | '-state' | 'created' | 'round__call__name' | 'round__cutoff_time' | 'round__start_time' | 'state'>;
-        organization_uuid?: string;
         /**
          * A page number within the paginated result set.
          */
@@ -28361,16 +28096,6 @@ export type ProposalProposalsResourcesListData = {
          * Number of results to return per page.
          */
         page_size?: number;
-        round?: string;
-        /**
-         * * `draft` - Draft
-         * * `submitted` - Submitted
-         * * `in_review` - In review
-         * * `accepted` - Accepted
-         * * `rejected` - Rejected
-         * * `canceled` - Canceled
-         */
-        state?: Array<'accepted' | 'canceled' | 'draft' | 'in_review' | 'rejected' | 'submitted'>;
     };
     url: '/api/proposal-proposals/{uuid}/resources/';
 };
@@ -28736,17 +28461,22 @@ export type ProposalProtectedCallsListUsersListData = {
         uuid: string;
     };
     query?: {
-        customer?: string;
-        customer_keyword?: string;
-        customer_uuid?: string;
+        /**
+         * Fields to include in response
+         */
         field?: Array<'created' | 'created_by_full_name' | 'created_by_uuid' | 'expiration_time' | 'role_name' | 'role_uuid' | 'user_email' | 'user_full_name' | 'user_image' | 'user_username' | 'user_uuid' | 'uuid'>;
+        /**
+         * User full name
+         */
         full_name?: string;
-        has_active_round?: boolean;
-        name?: string;
+        /**
+         * User native name
+         */
         native_name?: string;
+        /**
+         * Ordering fields
+         */
         o?: Array<'created' | 'email' | 'expiration_time' | 'full_name' | 'native_name' | 'role' | 'username'>;
-        offering_uuid?: string;
-        offerings_provider_uuid?: string;
         /**
          * A page number within the paginated result set.
          */
@@ -28755,17 +28485,29 @@ export type ProposalProtectedCallsListUsersListData = {
          * Number of results to return per page.
          */
         page_size?: number;
+        /**
+         * Role UUID or name
+         */
         role?: string;
+        /**
+         * Search string for user
+         */
         search_string?: string;
         /**
-         * * `draft` - Draft
-         * * `active` - Active
-         * * `archived` - Archived
+         * User UUID
          */
-        state?: Array<'active' | 'archived' | 'draft'>;
         user?: string;
+        /**
+         * User slug
+         */
         user_slug?: string;
+        /**
+         * User URL
+         */
         user_url?: string;
+        /**
+         * User username
+         */
         username?: string;
     };
     url: '/api/proposal-protected-calls/{uuid}/list_users/';
@@ -28913,24 +28655,6 @@ export type ProposalProtectedCallsRoundsListData = {
         uuid: string;
     };
     query?: {
-        customer?: string;
-        customer_keyword?: string;
-        customer_uuid?: string;
-        has_active_round?: boolean;
-        name?: string;
-        /**
-         * Ordering
-         *
-         * * `manager__customer__name` - Manager  customer  name
-         * * `-manager__customer__name` - Manager  customer  name (descending)
-         * * `created` - Created
-         * * `-created` - Created (descending)
-         * * `name` - Name
-         * * `-name` - Name (descending)
-         */
-        o?: Array<'-created' | '-manager__customer__name' | '-name' | 'created' | 'manager__customer__name' | 'name'>;
-        offering_uuid?: string;
-        offerings_provider_uuid?: string;
         /**
          * A page number within the paginated result set.
          */
@@ -28939,12 +28663,6 @@ export type ProposalProtectedCallsRoundsListData = {
          * Number of results to return per page.
          */
         page_size?: number;
-        /**
-         * * `draft` - Draft
-         * * `active` - Active
-         * * `archived` - Archived
-         */
-        state?: Array<'active' | 'archived' | 'draft'>;
     };
     url: '/api/proposal-protected-calls/{uuid}/rounds/';
 };
@@ -30874,7 +30592,7 @@ export type RancherNodesConsoleRetrieveData = {
 };
 
 export type RancherNodesConsoleRetrieveResponses = {
-    200: RancherNode;
+    200: ConsoleUrl;
 };
 
 export type RancherNodesConsoleRetrieveResponse = RancherNodesConsoleRetrieveResponses[keyof RancherNodesConsoleRetrieveResponses];
@@ -30888,8 +30606,15 @@ export type RancherNodesConsoleLogRetrieveData = {
     url: '/api/rancher-nodes/{uuid}/console_log/';
 };
 
+export type RancherNodesConsoleLogRetrieveErrors = {
+    /**
+     * No response body
+     */
+    404: unknown;
+};
+
 export type RancherNodesConsoleLogRetrieveResponses = {
-    200: RancherConsoleLog;
+    200: string;
 };
 
 export type RancherNodesConsoleLogRetrieveResponse = RancherNodesConsoleLogRetrieveResponses[keyof RancherNodesConsoleLogRetrieveResponses];
@@ -33552,20 +33277,29 @@ export type UserGroupInvitationsCancelResponses = {
     200: unknown;
 };
 
-export type UserGroupInvitationsProjectsRetrieveData = {
+export type UserGroupInvitationsProjectsListData = {
     body?: never;
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+    };
     url: '/api/user-group-invitations/{uuid}/projects/';
 };
 
-export type UserGroupInvitationsProjectsRetrieveResponses = {
-    200: GroupInvitation;
+export type UserGroupInvitationsProjectsListResponses = {
+    200: PaginatedNestedProjectList;
 };
 
-export type UserGroupInvitationsProjectsRetrieveResponse = UserGroupInvitationsProjectsRetrieveResponses[keyof UserGroupInvitationsProjectsRetrieveResponses];
+export type UserGroupInvitationsProjectsListResponse = UserGroupInvitationsProjectsListResponses[keyof UserGroupInvitationsProjectsListResponses];
 
 export type UserGroupInvitationsSubmitRequestData = {
     body?: never;
@@ -35024,14 +34758,12 @@ export type VmwareVirtualMachineConsoleRetrieveData = {
     path: {
         uuid: string;
     };
-    query?: {
-        field?: Array<'access_url' | 'backend_id' | 'cluster' | 'cluster_name' | 'cores' | 'cores_per_socket' | 'created' | 'customer' | 'customer_abbreviation' | 'customer_name' | 'customer_native_name' | 'datastore' | 'datastore_name' | 'description' | 'disk' | 'disks' | 'error_message' | 'error_traceback' | 'folder' | 'folder_name' | 'guest_os' | 'guest_os_name' | 'guest_power_state' | 'is_limit_based' | 'is_usage_based' | 'marketplace_category_name' | 'marketplace_category_uuid' | 'marketplace_offering_name' | 'marketplace_offering_plugin_options' | 'marketplace_offering_uuid' | 'marketplace_plan_uuid' | 'marketplace_resource_state' | 'marketplace_resource_uuid' | 'modified' | 'name' | 'networks' | 'ports' | 'project' | 'project_name' | 'project_uuid' | 'ram' | 'resource_type' | 'runtime_state' | 'service_name' | 'service_settings' | 'service_settings_error_message' | 'service_settings_state' | 'service_settings_uuid' | 'state' | 'template' | 'template_name' | 'tools_installed' | 'tools_state' | 'url' | 'uuid'>;
-    };
+    query?: never;
     url: '/api/vmware-virtual-machine/{uuid}/console/';
 };
 
 export type VmwareVirtualMachineConsoleRetrieveResponses = {
-    200: VmwareVirtualMachine;
+    200: ConsoleUrl;
 };
 
 export type VmwareVirtualMachineConsoleRetrieveResponse = VmwareVirtualMachineConsoleRetrieveResponses[keyof VmwareVirtualMachineConsoleRetrieveResponses];
@@ -35199,14 +34931,12 @@ export type VmwareVirtualMachineWebConsoleRetrieveData = {
     path: {
         uuid: string;
     };
-    query?: {
-        field?: Array<'access_url' | 'backend_id' | 'cluster' | 'cluster_name' | 'cores' | 'cores_per_socket' | 'created' | 'customer' | 'customer_abbreviation' | 'customer_name' | 'customer_native_name' | 'datastore' | 'datastore_name' | 'description' | 'disk' | 'disks' | 'error_message' | 'error_traceback' | 'folder' | 'folder_name' | 'guest_os' | 'guest_os_name' | 'guest_power_state' | 'is_limit_based' | 'is_usage_based' | 'marketplace_category_name' | 'marketplace_category_uuid' | 'marketplace_offering_name' | 'marketplace_offering_plugin_options' | 'marketplace_offering_uuid' | 'marketplace_plan_uuid' | 'marketplace_resource_state' | 'marketplace_resource_uuid' | 'modified' | 'name' | 'networks' | 'ports' | 'project' | 'project_name' | 'project_uuid' | 'ram' | 'resource_type' | 'runtime_state' | 'service_name' | 'service_settings' | 'service_settings_error_message' | 'service_settings_state' | 'service_settings_uuid' | 'state' | 'template' | 'template_name' | 'tools_installed' | 'tools_state' | 'url' | 'uuid'>;
-    };
+    query?: never;
     url: '/api/vmware-virtual-machine/{uuid}/web_console/';
 };
 
 export type VmwareVirtualMachineWebConsoleRetrieveResponses = {
-    200: VmwareVirtualMachine;
+    200: ConsoleUrl;
 };
 
 export type VmwareVirtualMachineWebConsoleRetrieveResponse = VmwareVirtualMachineWebConsoleRetrieveResponses[keyof VmwareVirtualMachineWebConsoleRetrieveResponses];
