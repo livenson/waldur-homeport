@@ -1,6 +1,7 @@
 $bg-height: 232px;
 
 .landing-hero__background {
+  position: relative;
   height: $bg-height;
   width: 100%;
   background-color: $primary-900;
@@ -9,7 +10,11 @@ $bg-height: 232px;
   background-repeat: no-repeat;
   background-size: cover;
 
-  &.marketplace-landing::before {
+  &.calls-landing {
+    background-image: url('/src/proposals/proposal-calls-dark.png');
+  }
+
+  &.has-overlay::before {
     content: ' ';
     background-color: rgba($primary-900, 0.4);
     position: absolute;
@@ -27,8 +32,14 @@ $bg-height: 232px;
   } @else {
     &.bg-mode-light,
     &.bg-mode-accent {
-      background-image: url('/src/dashboard/hero/servers-room-light.png');
       background-position: 50% 40%;
+
+      &.marketplace-landing {
+        background-image: url('/src/dashboard/hero/servers-room-light.png');
+      }
+      &.calls-landing {
+        background-image: url('/src/proposals/proposal-calls.png');
+      }
     }
 
     &.bg-mode-light {
@@ -71,6 +82,8 @@ $bg-height: 232px;
       font-weight: 500;
       text-align: center;
 
+      .calls-landing.bg-mode-accent &,
+      .calls-landing.bg-mode-light &,
       .marketplace-landing.bg-mode-accent &,
       .marketplace-landing.bg-mode-light & {
         color: if(isDarkMode(), #fff, $dark);
