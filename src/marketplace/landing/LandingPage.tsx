@@ -23,8 +23,6 @@ import { MarketplaceLandingFilter } from './MarketplaceLandingFilter';
 import { OfferingsGroup } from './OfferingsGroup';
 import { OfferingsSearchBox } from './OfferingsSearchBox';
 
-import './LandingPage.scss';
-
 export const LandingPage: FC<{}> = () => {
   useTitle(
     ENV.plugins.WALDUR_CORE.MARKETPLACE_LANDING_PAGE ||
@@ -56,7 +54,7 @@ export const LandingPage: FC<{}> = () => {
           ENV.plugins.WALDUR_CORE.MARKETPLACE_LANDING_PAGE ||
           translate('Marketplace')
         }
-        marketplaceLanding
+        context="marketplace"
       >
         <div className="d-flex justify-content-center">
           <OfferingsSearchBox />

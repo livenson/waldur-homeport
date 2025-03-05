@@ -18,8 +18,6 @@ import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
 import { renderFieldOrDash } from '@waldur/table/utils';
 
-import background from './proposal-calls.png';
-
 const mapStateToFilter = createSelector(
   getFormValues(PUBLIC_OFFERINGS_FILTER_FORM_ID),
   (filters: any) => {
@@ -51,7 +49,7 @@ export const CallsAvailableOfferingsPage: FunctionComponent = () => {
       <LandingHeroSection
         header={ENV.plugins.WALDUR_CORE.SHORT_PAGE_TITLE}
         title={translate('Available offerings')}
-        backgroundImage={background}
+        context="calls"
       />
       <div className="container-fluid mt-20 mb-10">
         <Table

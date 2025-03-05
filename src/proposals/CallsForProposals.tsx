@@ -9,12 +9,17 @@ import { isExperimentalUiComponentsVisible } from '@waldur/marketplace/utils';
 import { useFullPage } from '@waldur/navigation/context';
 import { CallsAvailableOfferingsList } from '@waldur/proposals/CallsAvailableOfferingsList';
 import { CallsForProposalsList } from '@waldur/proposals/CallsForProposalsList';
-
-import background from './proposal-calls.png';
+import { useTheme } from '@waldur/theme/useTheme';
 
 export const CallsForProposals: FunctionComponent = () => {
   useFullPage();
   const showExperimentalUiComponents = isExperimentalUiComponentsVisible();
+
+  const { theme } = useTheme();
+  const sidebarTheme = ENV.plugins.WALDUR_CORE.SIDEBAR_STYLE || 'dark';
+
+  const darkButtons =
+    theme === 'light' && ['accent', 'light'].includes(sidebarTheme);
 
   return (
     <>
@@ -29,18 +34,24 @@ export const CallsForProposals: FunctionComponent = () => {
       <LandingHeroSection
         header={ENV.plugins.WALDUR_CORE.SHORT_PAGE_TITLE}
         title={translate('Calls for proposals')}
-        backgroundImage={background}
+        context="calls"
       >
         <div className="d-flex justify-content-center gap-5">
           <Link
             state="calls-for-proposals-all-available-offerings"
-            className="btn btn-outline btn-outline-white w-200px"
+            className={
+              'btn btn-outline w-200px ' +
+              ('btn-outline-' + (darkButtons ? 'dark' : 'white'))
+            }
           >
             {translate('Available offerings')}
           </Link>
           <Link
             state="calls-for-proposals-all-calls"
-            className="btn btn-white btn-text-dark-always w-200px"
+            className={
+              'btn w-200px ' +
+              (darkButtons ? 'btn-dark' : 'btn-white btn-active-text-dark')
+            }
           >
             {translate('See all calls')}
           </Link>
