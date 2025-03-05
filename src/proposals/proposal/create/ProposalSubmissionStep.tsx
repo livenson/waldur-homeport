@@ -46,6 +46,9 @@ const validate = (values) => {
   if (!values.users || values.users?.length === 0) {
     errors.users = 'At least one user is required';
   }
+  if (!values.resources || values.resources?.length === 0) {
+    errors.resources = 'At least one resource is required';
+  }
   return errors;
 };
 

@@ -5,7 +5,7 @@ import { Button } from 'react-bootstrap';
 import { parseDate } from '@waldur/core/dateUtils';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
 import { Tip } from '@waldur/core/Tooltip';
-import { FieldError } from '@waldur/form';
+import { FieldErrorMessage } from '@waldur/form/FieldError';
 import { FloatingButton } from '@waldur/form/FloatingButton';
 import { translate } from '@waldur/i18n';
 
@@ -48,7 +48,7 @@ export const OrderSubmitButton = (props: OrderSummaryProps) => {
     <FloatingButton>
       {errorsExist ? (
         <Tip
-          label={<FieldError error={projectError || props.errors} />}
+          label={<FieldErrorMessage error={projectError || props.errors} />}
           id="offering-button-errors"
           autoWidth
           className="w-100"

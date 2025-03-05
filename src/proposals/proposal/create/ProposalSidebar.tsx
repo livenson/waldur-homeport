@@ -30,6 +30,7 @@ export const ProposalSidebar = (props: CompletionPageSidebarProps) => {
           steps={props.steps}
           completedSteps={props.completedSteps}
           errors={errors}
+          showRequiredErrors
         />
       </Panel>
       {props.editable && (
@@ -38,7 +39,22 @@ export const ProposalSidebar = (props: CompletionPageSidebarProps) => {
             submitting={props.submitting}
             label={translate('Submit')}
             variant="primary"
-            errors={errors}
+            errors={
+              Object.keys(errors).length
+                ? [
+                    translate(
+                      'Complete all required sections: {sections} and {lastSection} to proceed.',
+                      {
+                        sections: [
+                          translate('Project details'),
+                          translate('Resource requests'),
+                        ].join(', '),
+                        lastSection: translate('Project team'),
+                      },
+                    ),
+                  ]
+                : undefined
+            }
           />
           <Button
             variant="secondary"
