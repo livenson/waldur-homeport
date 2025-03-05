@@ -5865,6 +5865,9 @@ export const marketplaceOfferingEstimatedCostPoliciesUpdate = <ThrowOnError exte
     });
 };
 
+/**
+ * List available actions for OfferingEstimatedCostPolicy
+ */
 export const marketplaceOfferingEstimatedCostPoliciesActionsRetrieve = <ThrowOnError extends boolean = false>(options?: Options<MarketplaceOfferingEstimatedCostPoliciesActionsRetrieveData, ThrowOnError>) => {
     return (options?.client ?? _heyApiClient).get<MarketplaceOfferingEstimatedCostPoliciesActionsRetrieveResponse, unknown, ThrowOnError>({
         security: [
@@ -9659,6 +9662,9 @@ export const marketplaceServiceProvidersUsersList = <ThrowOnError extends boolea
     });
 };
 
+/**
+ * Return component usages for current month.
+ */
 export const marketplaceStatsComponentUsagesRetrieve = <ThrowOnError extends boolean = false>(options?: Options<MarketplaceStatsComponentUsagesRetrieveData, ThrowOnError>) => {
     return (options?.client ?? _heyApiClient).get<unknown, unknown, ThrowOnError>({
         security: [
@@ -9672,6 +9678,9 @@ export const marketplaceStatsComponentUsagesRetrieve = <ThrowOnError extends boo
     });
 };
 
+/**
+ * Return component usages per month.
+ */
 export const marketplaceStatsComponentUsagesPerMonthRetrieve = <ThrowOnError extends boolean = false>(options?: Options<MarketplaceStatsComponentUsagesPerMonthRetrieveData, ThrowOnError>) => {
     return (options?.client ?? _heyApiClient).get<unknown, unknown, ThrowOnError>({
         security: [
@@ -9685,6 +9694,9 @@ export const marketplaceStatsComponentUsagesPerMonthRetrieve = <ThrowOnError ext
     });
 };
 
+/**
+ * Return component usages per project.
+ */
 export const marketplaceStatsComponentUsagesPerProjectRetrieve = <ThrowOnError extends boolean = false>(options?: Options<MarketplaceStatsComponentUsagesPerProjectRetrieveData, ThrowOnError>) => {
     return (options?.client ?? _heyApiClient).get<unknown, unknown, ThrowOnError>({
         security: [
@@ -9698,6 +9710,9 @@ export const marketplaceStatsComponentUsagesPerProjectRetrieve = <ThrowOnError e
     });
 };
 
+/**
+ * Count active resources grouped by offering.
+ */
 export const marketplaceStatsCountActiveResourcesGroupedByOfferingList = <ThrowOnError extends boolean = false>(options?: Options<MarketplaceStatsCountActiveResourcesGroupedByOfferingListData, ThrowOnError>) => {
     return (options?.client ?? _heyApiClient).get<MarketplaceStatsCountActiveResourcesGroupedByOfferingListResponse, unknown, ThrowOnError>({
         security: [
@@ -9711,6 +9726,9 @@ export const marketplaceStatsCountActiveResourcesGroupedByOfferingList = <ThrowO
     });
 };
 
+/**
+ * Count active resources grouped by offering country.
+ */
 export const marketplaceStatsCountActiveResourcesGroupedByOfferingCountryList = <ThrowOnError extends boolean = false>(options?: Options<MarketplaceStatsCountActiveResourcesGroupedByOfferingCountryListData, ThrowOnError>) => {
     return (options?.client ?? _heyApiClient).get<MarketplaceStatsCountActiveResourcesGroupedByOfferingCountryListResponse, unknown, ThrowOnError>({
         security: [
@@ -9724,6 +9742,9 @@ export const marketplaceStatsCountActiveResourcesGroupedByOfferingCountryList = 
     });
 };
 
+/**
+ * Count active resources grouped by organization group.
+ */
 export const marketplaceStatsCountActiveResourcesGroupedByOrganizationGroupList = <ThrowOnError extends boolean = false>(options?: Options<MarketplaceStatsCountActiveResourcesGroupedByOrganizationGroupListData, ThrowOnError>) => {
     return (options?.client ?? _heyApiClient).get<MarketplaceStatsCountActiveResourcesGroupedByOrganizationGroupListResponse, unknown, ThrowOnError>({
         security: [
@@ -9737,6 +9758,9 @@ export const marketplaceStatsCountActiveResourcesGroupedByOrganizationGroupList 
     });
 };
 
+/**
+ * Count projects grouped by provider and industry flag
+ */
 export const marketplaceStatsCountProjectsGroupedByProviderAndIndustryFlagList = <ThrowOnError extends boolean = false>(options?: Options<MarketplaceStatsCountProjectsGroupedByProviderAndIndustryFlagListData, ThrowOnError>) => {
     return (options?.client ?? _heyApiClient).get<MarketplaceStatsCountProjectsGroupedByProviderAndIndustryFlagListResponse, unknown, ThrowOnError>({
         security: [
@@ -9750,6 +9774,9 @@ export const marketplaceStatsCountProjectsGroupedByProviderAndIndustryFlagList =
     });
 };
 
+/**
+ * Count projects grouped by provider and OECD code
+ */
 export const marketplaceStatsCountProjectsGroupedByProviderAndOecdList = <ThrowOnError extends boolean = false>(options?: Options<MarketplaceStatsCountProjectsGroupedByProviderAndOecdListData, ThrowOnError>) => {
     return (options?.client ?? _heyApiClient).get<MarketplaceStatsCountProjectsGroupedByProviderAndOecdListResponse, unknown, ThrowOnError>({
         security: [
@@ -9763,6 +9790,9 @@ export const marketplaceStatsCountProjectsGroupedByProviderAndOecdList = <ThrowO
     });
 };
 
+/**
+ * Count projects of service providers.
+ */
 export const marketplaceStatsCountProjectsOfServiceProvidersRetrieve = <ThrowOnError extends boolean = false>(options?: Options<MarketplaceStatsCountProjectsOfServiceProvidersRetrieveData, ThrowOnError>) => {
     return (options?.client ?? _heyApiClient).get<unknown, unknown, ThrowOnError>({
         security: [
@@ -9776,6 +9806,9 @@ export const marketplaceStatsCountProjectsOfServiceProvidersRetrieve = <ThrowOnE
     });
 };
 
+/**
+ * Count projects of service providers grouped by OECD.
+ */
 export const marketplaceStatsCountProjectsOfServiceProvidersGroupedByOecdRetrieve = <ThrowOnError extends boolean = false>(options?: Options<MarketplaceStatsCountProjectsOfServiceProvidersGroupedByOecdRetrieveData, ThrowOnError>) => {
     return (options?.client ?? _heyApiClient).get<unknown, unknown, ThrowOnError>({
         security: [
@@ -9789,6 +9822,9 @@ export const marketplaceStatsCountProjectsOfServiceProvidersGroupedByOecdRetriev
     });
 };
 
+/**
+ * Count unique users connected with active resources of service provider.
+ */
 export const marketplaceStatsCountUniqueUsersConnectedWithActiveResourcesOfServiceProviderRetrieve = <ThrowOnError extends boolean = false>(options?: Options<MarketplaceStatsCountUniqueUsersConnectedWithActiveResourcesOfServiceProviderRetrieveData, ThrowOnError>) => {
     return (options?.client ?? _heyApiClient).get<unknown, unknown, ThrowOnError>({
         security: [
@@ -9802,6 +9838,9 @@ export const marketplaceStatsCountUniqueUsersConnectedWithActiveResourcesOfServi
     });
 };
 
+/**
+ * Count users of service providers.
+ */
 export const marketplaceStatsCountUsersOfServiceProvidersRetrieve = <ThrowOnError extends boolean = false>(options?: Options<MarketplaceStatsCountUsersOfServiceProvidersRetrieveData, ThrowOnError>) => {
     return (options?.client ?? _heyApiClient).get<unknown, unknown, ThrowOnError>({
         security: [
@@ -9879,6 +9918,9 @@ export const marketplaceStatsOrganizationResourceCountList = <ThrowOnError exten
     });
 };
 
+/**
+ * Group project limits by industry flag.
+ */
 export const marketplaceStatsProjectsLimitsGroupedByIndustryFlagRetrieve = <ThrowOnError extends boolean = false>(options?: Options<MarketplaceStatsProjectsLimitsGroupedByIndustryFlagRetrieveData, ThrowOnError>) => {
     return (options?.client ?? _heyApiClient).get<unknown, unknown, ThrowOnError>({
         security: [
@@ -9892,6 +9934,9 @@ export const marketplaceStatsProjectsLimitsGroupedByIndustryFlagRetrieve = <Thro
     });
 };
 
+/**
+ * Group project limits by OECD code.
+ */
 export const marketplaceStatsProjectsLimitsGroupedByOecdRetrieve = <ThrowOnError extends boolean = false>(options?: Options<MarketplaceStatsProjectsLimitsGroupedByOecdRetrieveData, ThrowOnError>) => {
     return (options?.client ?? _heyApiClient).get<unknown, unknown, ThrowOnError>({
         security: [
@@ -9905,6 +9950,9 @@ export const marketplaceStatsProjectsLimitsGroupedByOecdRetrieve = <ThrowOnError
     });
 };
 
+/**
+ * Group project usages by industry flag.
+ */
 export const marketplaceStatsProjectsUsagesGroupedByIndustryFlagRetrieve = <ThrowOnError extends boolean = false>(options?: Options<MarketplaceStatsProjectsUsagesGroupedByIndustryFlagRetrieveData, ThrowOnError>) => {
     return (options?.client ?? _heyApiClient).get<unknown, unknown, ThrowOnError>({
         security: [
@@ -9918,6 +9966,9 @@ export const marketplaceStatsProjectsUsagesGroupedByIndustryFlagRetrieve = <Thro
     });
 };
 
+/**
+ * Group project usages by OECD code.
+ */
 export const marketplaceStatsProjectsUsagesGroupedByOecdRetrieve = <ThrowOnError extends boolean = false>(options?: Options<MarketplaceStatsProjectsUsagesGroupedByOecdRetrieveData, ThrowOnError>) => {
     return (options?.client ?? _heyApiClient).get<unknown, unknown, ThrowOnError>({
         security: [
@@ -9931,6 +9982,9 @@ export const marketplaceStatsProjectsUsagesGroupedByOecdRetrieve = <ThrowOnError
     });
 };
 
+/**
+ * Return resources limits per offering.
+ */
 export const marketplaceStatsResourcesLimitsRetrieve = <ThrowOnError extends boolean = false>(options?: Options<MarketplaceStatsResourcesLimitsRetrieveData, ThrowOnError>) => {
     return (options?.client ?? _heyApiClient).get<unknown, unknown, ThrowOnError>({
         security: [
@@ -9944,6 +9998,9 @@ export const marketplaceStatsResourcesLimitsRetrieve = <ThrowOnError extends boo
     });
 };
 
+/**
+ * Total cost of active resources per offering.
+ */
 export const marketplaceStatsTotalCostOfActiveResourcesPerOfferingRetrieve = <ThrowOnError extends boolean = false>(options?: Options<MarketplaceStatsTotalCostOfActiveResourcesPerOfferingRetrieveData, ThrowOnError>) => {
     return (options?.client ?? _heyApiClient).get<unknown, unknown, ThrowOnError>({
         security: [
@@ -15215,6 +15272,9 @@ export const rancherClustersImportYaml = <ThrowOnError extends boolean = false>(
     });
 };
 
+/**
+ * Returns kubeconfig file for the cluster.
+ */
 export const rancherClustersKubeconfigFileRetrieve = <ThrowOnError extends boolean = false>(options: Options<RancherClustersKubeconfigFileRetrieveData, ThrowOnError>) => {
     return (options.client ?? _heyApiClient).get<RancherClustersKubeconfigFileRetrieveResponse, unknown, ThrowOnError>({
         security: [
