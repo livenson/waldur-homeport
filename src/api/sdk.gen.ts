@@ -438,21 +438,6 @@ export const authTokensUpdate = <ThrowOnError extends boolean = false>(options: 
     });
 };
 
-/**
- * To start PKI login process - issue post request with users phone.
- * Example of a valid request:
- *
- * .. code-block:: http
- *
- * POST /api/auth-valimo/ HTTP/1.1
- * Content-Type: application/json
- * Accept: application/json
- * Host: example.com
- *
- * {
- * "phone": "1234567890",
- * }
- */
 export const authValimoCreate = <ThrowOnError extends boolean = false>(options: Options<AuthValimoCreateData, ThrowOnError>) => {
     return (options.client ?? _heyApiClient).post<AuthValimoCreateResponse, unknown, ThrowOnError>({
         security: [
@@ -471,6 +456,7 @@ export const authValimoCreate = <ThrowOnError extends boolean = false>(options: 
 };
 
 /**
+ *
  * To get PKI login status and details - issue post request against /api/auth-valimo/result/
  * with uuid in parameters.
  *
@@ -480,18 +466,7 @@ export const authValimoCreate = <ThrowOnError extends boolean = false>(options: 
  * - OK - login was successful. Response will contain token.
  * - Canceled - login was canceled by user or timed out. Field details will contain additional info.
  * - Erred - unexpected exception happened during login process.
- * Example of response:
  *
- * .. code-block:: javascript
- *
- * {
- * "uuid": "e42473f39c844333a80107e139a4dd06",
- * "token": null,
- * "message": "1234",
- * "state": "Canceled",
- * "error_message": "",
- * "details": "User cancel."
- * }
  */
 export const authValimoResult = <ThrowOnError extends boolean = false>(options: Options<AuthValimoResultData, ThrowOnError>) => {
     return (options.client ?? _heyApiClient).post<AuthValimoResultResponse, unknown, ThrowOnError>({

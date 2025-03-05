@@ -94,6 +94,13 @@ export type AuthResultRequest = {
 
 export type AuthResultStateEnum = 'Scheduled' | 'Processing' | 'OK' | 'Canceled' | 'Erred';
 
+export type AuthResultUuidRequest = {
+    /**
+     * UUID of the authentication result.
+     */
+    uuid: string;
+};
+
 export type AuthToken = {
     readonly url: string;
     readonly created: string;
@@ -1687,6 +1694,10 @@ export type ConstanceSettingsRequest = {
 };
 
 export type ContentTypeEnum = 'json' | 'form';
+
+export type CoreAuthToken = {
+    readonly token: string;
+};
 
 export type CoreStates = 'Creation Scheduled' | 'Creating' | 'Update Scheduled' | 'Updating' | 'Deletion Scheduled' | 'Deleting' | 'OK' | 'Erred';
 
@@ -3879,11 +3890,6 @@ export type NotificationTemplateUpdateSerializersRequest = {
 };
 
 export type NullEnum = unknown;
-
-export type ObtainAuthToken = {
-    username: string;
-    password: string;
-};
 
 export type ObtainAuthTokenRequest = {
     username: string;
@@ -10827,8 +10833,15 @@ export type ApiAuthPasswordData = {
     url: '/api-auth/password/';
 };
 
+export type ApiAuthPasswordErrors = {
+    /**
+     * No response body
+     */
+    401: unknown;
+};
+
 export type ApiAuthPasswordResponses = {
-    200: ObtainAuthToken;
+    200: CoreAuthToken;
 };
 
 export type ApiAuthPasswordResponse = ApiAuthPasswordResponses[keyof ApiAuthPasswordResponses];
@@ -11290,7 +11303,7 @@ export type AuthValimoCreateResponses = {
 export type AuthValimoCreateResponse = AuthValimoCreateResponses[keyof AuthValimoCreateResponses];
 
 export type AuthValimoResultData = {
-    body: AuthResultRequest;
+    body: AuthResultUuidRequest;
     path?: never;
     query?: never;
     url: '/api/auth-valimo/result/';
@@ -35199,5 +35212,5 @@ export type VmwareVirtualMachineWebConsoleRetrieveResponses = {
 export type VmwareVirtualMachineWebConsoleRetrieveResponse = VmwareVirtualMachineWebConsoleRetrieveResponses[keyof VmwareVirtualMachineWebConsoleRetrieveResponses];
 
 export type ClientOptions = {
-    baseUrl: `${string}://waldur-openapi-schema.yaml` | (string & {});
+    baseUrl: `${string}://schema.yaml` | (string & {});
 };
