@@ -4,6 +4,7 @@ import { reduxForm } from 'redux-form';
 
 import { paymentProfilesPartialUpdate } from '@waldur/api';
 import { required } from '@waldur/core/validators';
+import { getCustomer as getCustomerApi } from '@waldur/customer/api';
 import { EDIT_PAYMENT_PROFILE_FORM_ID } from '@waldur/customer/payment-profiles/constants';
 import {
   getInitialValues,
@@ -22,7 +23,6 @@ import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
-import { getCustomer as getCustomerApi } from '@waldur/project/api';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
 import { setCurrentCustomer } from '@waldur/workspace/actions';
 import { getCustomer } from '@waldur/workspace/selectors';

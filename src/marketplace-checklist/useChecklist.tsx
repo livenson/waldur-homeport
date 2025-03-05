@@ -3,18 +3,13 @@ import { useDispatch } from 'react-redux';
 
 import {
   ChecklistCategory,
+  marketplaceChecklistsAnswersSubmitCreate,
   marketplaceChecklistsCategoriesRetrieve,
 } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
 
-import {
-  getChecklists,
-  getQuestions,
-  getAnswers,
-  postAnswers,
-  getStats,
-} from './api';
+import { getChecklists, getQuestions, getAnswers, getStats } from './api';
 import { Checklist, Answer, ChecklistStats, Question } from './types';
 
 const useChecklistSelector = (categoryId?: string) => {
@@ -129,7 +124,10 @@ export const useUserChecklist = (userId, categoryId?) => {
         question_uuid,
         value: answersTable[question_uuid],
       }));
-      await postAnswers(checklist.uuid, payload);
+      await marketplaceChecklistsAnswersSubmitCreate({
+        path: { checklist_uuid: checklist.uuid },
+        body: payload,
+      });
       setAnswers(answersTable);
     } catch (error) {
       setSubmitting(false);

@@ -1,5 +1,4 @@
-import { ENV } from '@waldur/configs/default';
-import { getAll, sendForm } from '@waldur/core/api';
+import { getAll } from '@waldur/core/api';
 import { Payment } from '@waldur/workspace/types';
 
 export const getTotalOfSumPaid = (profileUuid: string) => {
@@ -12,9 +11,3 @@ export const getTotalOfSumPaid = (profileUuid: string) => {
       : '0',
   );
 };
-
-export const createPayment = (data) =>
-  sendForm('POST', `${ENV.apiEndpoint}api/payments/`, data);
-
-export const updatePayment = (uuid, data) =>
-  sendForm('PATCH', `${ENV.apiEndpoint}api/payments/${uuid}/`, data);

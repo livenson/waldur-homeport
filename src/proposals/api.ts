@@ -1,4 +1,4 @@
-import Axios, { AxiosPromise, AxiosRequestConfig } from 'axios';
+import Axios, { AxiosPromise } from 'axios';
 
 import {
   proposalProtectedCallsList,
@@ -7,15 +7,7 @@ import {
   ProtectedRound,
 } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
-import {
-  fixURL,
-  get,
-  getAll,
-  parseSelectData,
-  post,
-  put,
-  sendForm,
-} from '@waldur/core/api';
+import { fixURL, getAll, parseSelectData, post } from '@waldur/core/api';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
 import { GenericPermission } from '@waldur/permissions/types';
 
@@ -24,25 +16,6 @@ import { Call, CallOffering, Proposal, ProposalReview } from './types';
 function patch<T = {}>(endpoint: string, data?: any): AxiosPromise<T> {
   return Axios.patch(fixURL(endpoint), data);
 }
-
-function getById<T = {}>(
-  endpoint: string,
-  id: string,
-  options?: AxiosRequestConfig,
-): Promise<T> {
-  return get<T>(`${endpoint}${id}/`, options).then((response) => response.data);
-}
-
-export const getProtectedCallRound = (
-  callUuid: string,
-  roundUuid: string,
-  options?: AxiosRequestConfig,
-) =>
-  getById<ProtectedRound>(
-    `/proposal-protected-calls/${callUuid}/rounds/`,
-    roundUuid,
-    options,
-  );
 
 export const createCall = (data) =>
   post<Call>('/proposal-protected-calls/', data);
@@ -59,12 +32,6 @@ export const createCallRound = (callUuid, data) => {
     data,
   );
 };
-
-export const updateCallRound = (callUuid, roundUuid, data) =>
-  put<ProtectedRound>(
-    `/proposal-protected-calls/${callUuid}/rounds/${roundUuid}/`,
-    data,
-  );
 
 export const createCallOffering = (callUuid, data) =>
   post<CallOffering>(`/proposal-protected-calls/${callUuid}/offerings/`, data);
@@ -100,9 +67,6 @@ export const getAllCallUsers = (callUuid, role = null) =>
     role ? { params: { role } } : null,
   );
 
-export const getProposal = (uuid) =>
-  getById<Proposal>(`/proposal-proposals/`, uuid);
-
 export const submitProposal = (uuid) =>
   post<Proposal>(`/proposal-proposals/${uuid}/submit/`);
 
@@ -122,13 +86,6 @@ export const getAllProposalReviews = (proposalUuid) =>
 
 export const updateProposalReview = (data, uuid) =>
   patch<ProposalReview>(`/proposal-reviews/${uuid}/`, data);
-
-export const attachDocument = (proposal_uuid, file) =>
-  sendForm(
-    'POST',
-    fixURL(`/proposal-proposals/${proposal_uuid}/attach_document/`),
-    { file },
-  );
 
 export const deleteRequestedOffering = (requestedOfferingURL: string) =>
   Axios.delete(requestedOfferingURL);

@@ -1,4 +1,4 @@
-import { RequestResult } from '@hey-api/client-fetch';
+import { formDataBodySerializer, RequestResult } from '@hey-api/client-fetch';
 import Axios, {
   AxiosPromise,
   AxiosRequestConfig,
@@ -17,6 +17,10 @@ export const parseResultCount = (response: AxiosResponse): number => {
     (response.headers as any).get('x-result-count');
   return parseInt(resultCount, 10);
 };
+
+export const fetchResultCount = (result): number =>
+  parseInt(result.response.headers.get('x-result-count'), 10);
+
 export function get<T = {}>(
   endpoint: string,
   options?: AxiosRequestConfig,
@@ -29,7 +33,7 @@ export function parseSelectData<TData = {}>(
 ) {
   return {
     options: Array.isArray(result.data) ? (result.data as TData) : [],
-    totalItems: parseInt(result.response.headers.get('x-result-count'), 10),
+    totalItems: fetchResultCount(result),
   };
 }
 
@@ -39,10 +43,6 @@ export function post<T = {}>(
   options?: AxiosRequestConfig,
 ): AxiosPromise<T> {
   return Axios.post(fixURL(endpoint), data, options);
-}
-
-export function put<T = {}>(endpoint: string, data?: any): AxiosPromise<T> {
-  return Axios.put(fixURL(endpoint), data);
 }
 
 export function sendForm<T = {}>(
@@ -113,3 +113,20 @@ export async function getAll<T = {}>(
   }
   return result;
 }
+
+export const formDataOptions = {
+  ...formDataBodySerializer,
+  headers: {
+    'Content-Type': null,
+  },
+};
+
+export const fileSerializer = (image) => {
+  if (image === null) {
+    return '' as null;
+  } else if (image instanceof File) {
+    return image;
+  } else {
+    return undefined;
+  }
+};

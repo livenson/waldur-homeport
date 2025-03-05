@@ -9,13 +9,13 @@ import { translate } from '@waldur/i18n';
 import { FieldEditButton } from './offerings/update/integration/FieldEditButton';
 import { OfferingEditPanelFormProps } from './offerings/update/integration/types';
 
-const FIELD_PREFIX = 'secret_options.';
+const FIELD_PREFIX = 'options.';
 
 export const UserSecretOptionsForm: FunctionComponent<
   OfferingEditPanelFormProps
 > = (props) => {
   const canCreateUser =
-    props.offering.secret_options?.service_provider_can_create_offering_user;
+    props.offering.options?.options?.service_provider_can_create_offering_user;
 
   return (
     <>
@@ -25,7 +25,7 @@ export const UserSecretOptionsForm: FunctionComponent<
           'If true, offering users are created automatically when a user is added to the project with active offering resources or when a new offering resource is created.',
         )}
         value={formatYesNo(
-          props.offering.secret_options
+          props.offering.options?.options
             ?.service_provider_can_create_offering_user,
         )}
         actions={

@@ -1,7 +1,7 @@
 import { Transition } from '@uirouter/react';
 
 import { customerCreditsList } from '@waldur/api';
-import { getCustomer } from '@waldur/project/api';
+import { getCustomer } from '@waldur/customer/api';
 import { router } from '@waldur/router';
 import store from '@waldur/store/store';
 import { setCurrentCustomer } from '@waldur/workspace/actions';

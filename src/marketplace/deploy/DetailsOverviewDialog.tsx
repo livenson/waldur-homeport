@@ -8,10 +8,10 @@ import { formatDate } from '@waldur/core/dateUtils';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { formatPhoneNumber } from '@waldur/core/utils';
+import { getCustomer } from '@waldur/customer/api';
 import FormTable from '@waldur/form/FormTable';
 import { translate } from '@waldur/i18n';
 import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
-import { getCustomer } from '@waldur/project/api';
 import { renderFieldOrDash } from '@waldur/table/utils';
 import { Customer, Project } from '@waldur/workspace/types';
 

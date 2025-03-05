@@ -2,16 +2,14 @@ import { Button } from 'react-bootstrap';
 import { Field, Form } from 'react-final-form';
 
 import { TelemetryExampleButton } from '@waldur/administration/TelemetryExampleButton';
+import { featureValues } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
-import { post } from '@waldur/core/api';
 import { FeaturesDescription } from '@waldur/features/FeaturesDescription';
 import { TelemetryFeatures } from '@waldur/FeaturesEnums';
 import { AwesomeCheckboxField } from '@waldur/form/AwesomeCheckboxField';
 import FormTable from '@waldur/form/FormTable';
 import { translate } from '@waldur/i18n';
 import { useNotify } from '@waldur/store/hooks';
-
-const saveFeatures = (payload) => post('/feature-values/', payload);
 
 const FeatureSection = ({ section }) => (
   <FormTable.Card title={section.description} className="card-bordered mb-5">
@@ -44,7 +42,7 @@ export const FeaturesList = () => {
 
   const saveFeaturesCallback = async (formData) => {
     try {
-      await saveFeatures(formData);
+      await featureValues({ body: formData });
       showSuccess(translate('Features have been updated.'));
       location.reload();
     } catch (e) {

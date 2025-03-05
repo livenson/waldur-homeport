@@ -1,6 +1,5 @@
-import { useCallback, useMemo, useState } from 'react';
+import { useCallback, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
-import { useAsyncFn } from 'react-use';
 
 import { userInvitationsCreate } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
@@ -8,47 +7,11 @@ import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
-import { fetchUserDetails } from './api';
 import { InvitationPolicyService } from './InvitationPolicyService';
-import {
-  GroupInvitationFormData,
-  GroupInviteRow,
-  InvitationContext,
-  StoredUserDetails,
-} from './types';
+import { GroupInvitationFormData, InvitationContext } from './types';
 
 export const useInvitationCreateDialog = (context: InvitationContext) => {
   const dispatch = useDispatch();
-
-  const [usersDetails, setUsersDetails] = useState<StoredUserDetails[]>([]);
-  const [{ loading: fetchingUserDetails }, fetchUserDetailsCallback] =
-    useAsyncFn(
-      (user: GroupInviteRow) => {
-        if (!user.civil_number || !user.tax_number) return;
-        return fetchUserDetails(user.civil_number, user.tax_number).then(
-          (value) => {
-            const index = usersDetails.findIndex(
-              (u) => u.civil_number === user.civil_number,
-            );
-            if (index > -1) {
-              setUsersDetails((prev) => {
-                prev.find((u) => u.civil_number === user.civil_number).details =
-                  value;
-                return prev;
-              });
-            } else {
-              setUsersDetails((prev) =>
-                prev.concat({
-                  civil_number: user.civil_number,
-                  details: value,
-                }),
-              );
-            }
-          },
-        );
-      },
-      [usersDetails, setUsersDetails],
-    );
 
   const defaultProject = useMemo(
     () =>
@@ -141,8 +104,5 @@ export const useInvitationCreateDialog = (context: InvitationContext) => {
     roles,
     defaultRole,
     defaultProject,
-    fetchUserDetailsCallback,
-    fetchingUserDetails,
-    usersDetails,
   };
 };

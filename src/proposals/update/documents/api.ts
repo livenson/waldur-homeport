@@ -12,6 +12,3 @@ export const attachDocuments = (
     { documents: file, description },
     onUploadProgress,
   );
-
-export const detachDocuments = (call, file) =>
-  sendForm('POST', `${call.url}detach_documents/`, { documents: file });

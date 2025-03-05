@@ -1,7 +1,7 @@
 import Axios, { AxiosRequestConfig } from 'axios';
 
 import { ENV } from '@waldur/configs/default';
-import { getAll, parseResultCount, put, sendForm } from '@waldur/core/api';
+import { getAll, parseResultCount, sendForm } from '@waldur/core/api';
 
 import { OIDCConfig } from './types';
 
@@ -38,9 +38,6 @@ export const getResourcesCount = (configs?: AxiosRequestConfig<any>) =>
 
 export const getIdentityProviders = () =>
   getAll<OIDCConfig>('/identity-providers/');
-
-export const updateIdentityProvider = (provider, formData) =>
-  put(`/identity-providers/${provider}/`, formData);
 
 export const deleteToken = (tokenURL: string) => Axios.delete(tokenURL);
 

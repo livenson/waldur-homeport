@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { ProtectedRound, Reviewer } from '@waldur/api';
+import { ProtectedRound, RoundReviewer } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
@@ -17,7 +17,7 @@ export const RoundReviewersList: FC<RoundReviewersListProps> = (props) => {
   });
 
   return (
-    <Table<Reviewer>
+    <Table<RoundReviewer>
       {...tableProps}
       id="reviewers"
       columns={[

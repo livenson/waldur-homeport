@@ -4,13 +4,17 @@ import { createRef, FC, useCallback, useMemo, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { change, getFormValues } from 'redux-form';
 
-import { proposalProposalsUpdateProjectDetails } from '@waldur/api';
+import {
+  proposalProposalsAttachDocument,
+  proposalProposalsUpdateProjectDetails,
+} from '@waldur/api';
+import { formDataOptions } from '@waldur/core/api';
 import { isEmpty } from '@waldur/core/utils';
 import { Form } from '@waldur/form/Form';
 import { SidebarLayout } from '@waldur/form/SidebarLayout';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
-import { attachDocument, submitProposal } from '@waldur/proposals/api';
+import { submitProposal } from '@waldur/proposals/api';
 import { PROPOSAL_UPDATE_SUBMISSION_FORM_ID } from '@waldur/proposals/constants';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
@@ -22,10 +26,16 @@ const formDataSelector = (state) =>
 
 const attachDocuments = async (proposal_uuid, supporting_documentation) => {
   if (supporting_documentation) {
-    const files = Object.values(supporting_documentation);
+    const files: File[] = Object.values(supporting_documentation);
     if (files && files.length > 0) {
       await Promise.all(
-        Array.from(files).map((file) => attachDocument(proposal_uuid, file)),
+        Array.from(files).map((file) =>
+          proposalProposalsAttachDocument({
+            path: { uuid: proposal_uuid },
+            body: { file },
+            ...formDataOptions,
+          }),
+        ),
       );
     }
   }
@@ -35,6 +45,9 @@ const validate = (values) => {
   const errors: Record<string, any> = {};
   if (!values.users || values.users?.length === 0) {
     errors.users = 'At least one user is required';
+  }
+  if (!values.resources || values.resources?.length === 0) {
+    errors.resources = 'At least one resource is required';
   }
   return errors;
 };

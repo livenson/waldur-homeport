@@ -55,7 +55,7 @@ export const UserPluginOptionsForm: FunctionComponent<
 > = (props) => {
   const pluginOptions = props.offering.plugin_options;
   const canCreateUser =
-    props.offering.secret_options?.service_provider_can_create_offering_user;
+    props.offering.options?.options?.service_provider_can_create_offering_user;
 
   const fields = useMemo(
     () =>

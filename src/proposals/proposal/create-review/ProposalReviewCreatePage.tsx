@@ -3,7 +3,11 @@ import { useCurrentStateAndParams, useRouter } from '@uirouter/react';
 import { createRef, useCallback, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { proposalReviewsRetrieve, proposalReviewsSubmit } from '@waldur/api';
+import {
+  proposalProposalsRetrieve,
+  proposalReviewsRetrieve,
+  proposalReviewsSubmit,
+} from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
@@ -18,7 +22,7 @@ import {
   waitForConfirmation,
 } from '@waldur/modal/actions';
 import { useTitle } from '@waldur/navigation/title';
-import { getProposal, updateProposalReview } from '@waldur/proposals/api';
+import { updateProposalReview } from '@waldur/proposals/api';
 import { PROPOSAL_UPDATE_REVIEW_FORM_ID } from '@waldur/proposals/constants';
 import { ProposalReview } from '@waldur/proposals/types';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
@@ -38,7 +42,9 @@ const loadData = async (reviewUuid: string) => {
   const review = (await proposalReviewsRetrieve({
     path: { uuid: reviewUuid },
   }).then((response) => response.data)) as ProposalReview;
-  const proposal = await getProposal(getUUID(review.proposal));
+  const proposal = await proposalProposalsRetrieve({
+    path: { uuid: getUUID(review.proposal) },
+  }).then((response) => response.data);
   return { review, proposal };
 };
 
@@ -139,7 +145,7 @@ export const ProposalReviewCreatePage = (props) => {
   }
 
   return (
-    <PageBarProvider scrollTrackSide="top" scrollOffset={200}>
+    <PageBarProvider scrollOffset={100}>
       <Form form={PROPOSAL_UPDATE_REVIEW_FORM_ID} onSubmit={submit}>
         {({ submitting }) => (
           <>

@@ -1,13 +1,13 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { usersPartialUpdate } from '@waldur/api';
+import { fileSerializer, formDataOptions } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';
 import { useNotify } from '@waldur/store/hooks';
 import { setCurrentUser } from '@waldur/workspace/actions';
 import { getUser } from '@waldur/workspace/selectors';
 import { UserDetails } from '@waldur/workspace/types';
-
-import { updateUser } from './api';
 
 export const useUpdateUser = (user: UserDetails) => {
   const dispatch = useDispatch();
@@ -20,9 +20,18 @@ export const useUpdateUser = (user: UserDetails) => {
   const callback = async (data) => {
     setIsLoading(true);
     try {
-      const { data: newUser } = await updateUser(user.uuid, {
-        ...data,
-        agree_with_policy: true,
+      const { data: newUser } = await usersPartialUpdate({
+        path: { uuid: user.uuid },
+        body: {
+          ...data,
+          agree_with_policy: true,
+          image: fileSerializer(data.image),
+          token_lifetime:
+            'token_lifetime' in data && data.token_lifetime
+              ? data.token_lifetime.value
+              : undefined,
+        },
+        ...formDataOptions,
       });
       if (newUser.uuid === currentUser.uuid) {
         dispatch(setCurrentUser(newUser));

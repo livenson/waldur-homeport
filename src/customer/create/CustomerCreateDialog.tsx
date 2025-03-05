@@ -5,8 +5,7 @@ import { Form } from 'react-final-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { reset, SubmissionError } from 'redux-form';
 
-import { ENV } from '@waldur/configs/default';
-import { sendForm } from '@waldur/core/api';
+import { customersCreate } from '@waldur/api';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
@@ -17,14 +16,14 @@ import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { getCurrentUser } from '@waldur/user/UsersService';
 import { setCurrentUser } from '@waldur/workspace/actions';
 import { getUser } from '@waldur/workspace/selectors';
-import { Customer } from '@waldur/workspace/types';
 
 import * as constants from './constants';
 import { CustomerCreateForm } from './CustomerCreateForm';
-import { CustomerCreateFormData } from './types';
 
-const CUSTOMER_FIELDS = ['name', 'email'];
-
+interface CustomerCreateFormData {
+  name: string;
+  email: string;
+}
 interface OwnProps {
   resolve: { role: string };
 }
@@ -36,18 +35,10 @@ export const CustomerCreateDialog: FC<OwnProps> = ({ resolve }) => {
 
   const createOrganization = useCallback(
     async (formData: CustomerCreateFormData) => {
-      const payload: Record<string, string | boolean> = {};
-      CUSTOMER_FIELDS.forEach((field) => {
-        if (formData[field]) {
-          payload[field] = formData[field];
-        }
-      });
       try {
-        const response = await sendForm<Customer>(
-          'POST',
-          `${ENV.apiEndpoint}api/customers/`,
-          payload,
-        );
+        const response = await customersCreate({
+          body: formData,
+        });
         const customer = response.data;
         if (resolve.role === constants.ROLES.provider) {
           await addCustomerUser({

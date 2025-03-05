@@ -2,17 +2,21 @@ import { useMemo } from 'react';
 import { Modal, Stack } from 'react-bootstrap';
 import { Field, Form } from 'react-final-form';
 
+import { rolesUpdateDescriptionsUpdate } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { CancelButton, StringField, SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { useModal } from '@waldur/modal/hooks';
 
-import { updateRoleDescriptions, getRoles } from './api';
+import { getRoles } from './api';
 
 export const RoleDescriptionEditDialog = ({ resolve: { row, refetch } }) => {
   const { closeDialog } = useModal();
   const onSubmit = async (formData) => {
-    await updateRoleDescriptions(row.uuid, formData);
+    await rolesUpdateDescriptionsUpdate({
+      path: { uuid: row.uuid },
+      body: formData,
+    });
     ENV.roles = await getRoles();
     closeDialog();
     refetch();

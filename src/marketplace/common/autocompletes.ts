@@ -93,7 +93,7 @@ export const providerAutocomplete = async (
   const response = await marketplaceServiceProvidersList({
     query: {
       customer_keyword: query,
-      field: ['customer_name', 'customer_uuid', 'url'],
+      field: ['customer_name', 'customer_uuid', 'url', 'uuid'],
       o: ['customer_name'],
       page: page,
       page_size: ENV.pageSize,
@@ -141,6 +141,7 @@ export const providerOfferingsAutocomplete = async (
     'thumbnail',
     'customer_name',
     'secret_options',
+    'options',
     'customer_uuid',
   ],
 ) => {

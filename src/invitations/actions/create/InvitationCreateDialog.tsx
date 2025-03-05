@@ -24,16 +24,8 @@ export const InvitationCreateDialog = reduxForm<{}, OwnProps>({
   enableReinitialize: false,
   initialValues: { rows: [{}] },
 })(({ resolve, submitting, handleSubmit, change, valid }) => {
-  const {
-    createInvitations,
-    finish,
-    roles,
-    defaultRole,
-    defaultProject,
-    fetchUserDetailsCallback,
-    fetchingUserDetails,
-    usersDetails,
-  } = useInvitationCreateDialog(resolve);
+  const { createInvitations, finish, roles, defaultRole, defaultProject } =
+    useInvitationCreateDialog(resolve);
 
   const [step, setStep] = useState<1 | 2>(1);
 
@@ -81,7 +73,7 @@ export const InvitationCreateDialog = reduxForm<{}, OwnProps>({
     [createInvitations, setStep],
   );
 
-  const disabled = submitting || fetchingUserDetails;
+  const disabled = submitting;
 
   return (
     <form onSubmit={handleSubmit(submit)} className="invitation-create-dialog">
@@ -108,8 +100,6 @@ export const InvitationCreateDialog = reduxForm<{}, OwnProps>({
               roles={roles}
               customer={resolve.customer}
               project={resolve.project}
-              fetchUserDetails={fetchUserDetailsCallback}
-              usersDetails={usersDetails}
               disabled={disabled}
             />
           ) : step === 2 ? (

@@ -1,6 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { Card, Col, Row } from 'react-bootstrap';
 
+import { overrideSettingsRetrieve } from '@waldur/api';
 import {
   EDUTEAMS_IDP,
   FREEIPA_IDP,
@@ -17,7 +18,6 @@ import { translate } from '@waldur/i18n';
 import { SettingsDescription } from '@waldur/SettingsDescription';
 
 import { getIdentityProviders } from '../api';
-import { getDBSettings } from '../settings/api';
 import { SettingsCard } from '../settings/SettingsCard';
 
 import { ProviderCard } from './ProviderCard';
@@ -44,7 +44,7 @@ export const IdentityProvidersList = () => {
     error: settingsError,
     refetch: refetchSettings,
   } = useQuery(['AdministrationUserSettings'], () =>
-    getDBSettings().then((response) => response.data),
+    overrideSettingsRetrieve().then((response) => response.data),
   );
   if (isProvidersLoading || isSettingsLoading) return <LoadingSpinner />;
   if (providersError || settingsError) {

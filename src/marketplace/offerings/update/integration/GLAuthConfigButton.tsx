@@ -20,7 +20,7 @@ export const GLAuthConfigButton: FC<{
   offering;
 }> = ({ offering }) => {
   const enabled =
-    offering.secret_options?.service_provider_can_create_offering_user;
+    offering.options?.options?.service_provider_can_create_offering_user;
   const { data, error, isLoading, refetch } = useQuery(
     ['OfferingGLAuthConfig', offering.uuid, enabled],
     () =>

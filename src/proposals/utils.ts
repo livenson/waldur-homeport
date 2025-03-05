@@ -1,7 +1,12 @@
 import { DateTime } from 'luxon';
 import { useMemo } from 'react';
 
-import { ProtectedRound, ProtectedRoundRequest } from '@waldur/api';
+import {
+  NestedRound,
+  ProposalReviewStateEnum,
+  ProtectedRound,
+  ProtectedRoundRequest,
+} from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { usePresetBreadcrumbItems } from '@waldur/navigation/header/breadcrumb/utils';
 import { IBreadcrumbItem } from '@waldur/navigation/types';
@@ -10,9 +15,7 @@ import {
   Call,
   CallOfferingState,
   CallState,
-  ProposalReview,
   ProposalState,
-  ReviewState,
   RoundAllocationStrategy,
   RoundAllocationTime,
   RoundReviewStrategy,
@@ -129,16 +132,16 @@ export const getReviewStateOptions = () =>
     { value: 'in_review', label: translate('In review') },
     { value: 'submitted', label: translate('Submitted') },
     { value: 'rejected', label: translate('Rejected') },
-  ] as { value: ReviewState; label: string }[];
+  ] as { value: ProposalReviewStateEnum; label: string }[];
 
-export const formatReviewState = (value: ReviewState) =>
+export const formatReviewState = (value: ProposalReviewStateEnum) =>
   getReviewStateOptions().find((option) => option.value === value)?.label ||
   value;
 
-export const isReviewInFinalState = (state: ProposalReview['state']) =>
+export const isReviewInFinalState = (state: ProposalReviewStateEnum) =>
   !['in_review', 'created'].includes(state);
 
-export const getRoundStatus = (round: ProtectedRound) => {
+export const getRoundStatus = (round: NestedRound) => {
   if (!round) {
     return null;
   } else if (round.status === 'scheduled') {
@@ -154,7 +157,7 @@ export const getRoundStatus = (round: ProtectedRound) => {
   }
 };
 
-export const getRoundsWithStatus = (rounds: ProtectedRound[]) =>
+export const getRoundsWithStatus = (rounds: NestedRound[]) =>
   rounds.map((round) => ({
     ...round,
     status: getRoundStatus(round),
