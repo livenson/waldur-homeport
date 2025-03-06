@@ -161,6 +161,7 @@ export const TableColumnButton: FC<TableProps> = ({
   swapColumns,
   columnPositions,
   rowActions,
+  mode,
 }) => (
   <OverlayTrigger
     trigger="click"
@@ -179,7 +180,11 @@ export const TableColumnButton: FC<TableProps> = ({
     }
     rootClose
   >
-    <Button variant="outline-default" className="btn-outline btn-icon">
+    <Button
+      disabled={mode !== 'table'}
+      variant="outline-default"
+      className="btn-outline btn-icon"
+    >
       <span className="svg-icon svg-icon-1">
         <Gear weight="bold" />
       </span>
