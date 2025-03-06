@@ -1,6 +1,7 @@
 import { useQueries } from '@tanstack/react-query';
 import { FC } from 'react';
 import { Nav, Tab } from 'react-bootstrap';
+import { useSelector } from 'react-redux';
 
 import {
   getProjectsCount,
@@ -10,7 +11,10 @@ import { Badge } from '@waldur/core/Badge';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { getStates } from '@waldur/marketplace/resources/list/ResourceStateFilter';
+import { PermissionEnum } from '@waldur/permissions/enums';
+import { hasPermission } from '@waldur/permissions/hasPermission';
 import { ExpandableContainer } from '@waldur/table/ExpandableContainer';
+import { getUser } from '@waldur/workspace/selectors';
 import { Customer } from '@waldur/workspace/types';
 
 import { TableTabsContainer } from '../../customer/list/TableTabsContainer';
@@ -36,6 +40,12 @@ interface OwnProps {
 }
 
 export const OrganizationExpandableRow: FC<OwnProps> = (props) => {
+  const user = useSelector(getUser);
+  const canListUsers =
+    hasPermission(user, {
+      permission: PermissionEnum.LIST_CUSTOMER_USERS,
+      customerId: props.row.uuid,
+    }) || user.is_support;
   const [projectsCount, resourcesCount, teamCount] = useQueries({
     queries: [
       {
@@ -53,10 +63,14 @@ export const OrganizationExpandableRow: FC<OwnProps> = (props) => {
             },
           }),
       },
-      {
-        queryKey: ['teamCount', props.row.uuid],
-        queryFn: () => getCustomerUsersCount(props.row.uuid),
-      },
+      ...(canListUsers
+        ? [
+            {
+              queryKey: ['teamCount', props.row.uuid],
+              queryFn: () => getCustomerUsersCount(props.row.uuid),
+            },
+          ]
+        : []),
     ],
   });
   return (
@@ -80,12 +94,14 @@ export const OrganizationExpandableRow: FC<OwnProps> = (props) => {
               count={resourcesCount.data}
               countLoading={resourcesCount.isLoading}
             />
-            <NavItem
-              title={translate('Team')}
-              eventKey="team"
-              count={teamCount.data}
-              countLoading={teamCount.isLoading}
-            />
+            {canListUsers && (
+              <NavItem
+                title={translate('Team')}
+                eventKey="team"
+                count={teamCount.data}
+                countLoading={teamCount.isLoading}
+              />
+            )}
           </Nav>
         </div>
         <Tab.Content className="overflow-auto">
