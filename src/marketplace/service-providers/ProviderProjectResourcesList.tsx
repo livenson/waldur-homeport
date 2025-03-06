@@ -58,6 +58,7 @@ export const ProviderProjectResourcesList: FunctionComponent<{
           render: ({ row }) => (
             <ResourceStateField resource={row} outline pill />
           ),
+          orderField: 'state',
         },
       ]}
       verboseName={translate('Resources')}
