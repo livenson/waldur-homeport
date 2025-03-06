@@ -42,14 +42,6 @@ const mapStateToFilter = createSelector(
   },
 );
 
-const mandatoryFields = [
-  // Expandable view
-  'uuid',
-  'marketplace_resource_count',
-  'description',
-  'project_credit',
-];
-
 export const ProjectsList = () => {
   useTitle(translate('Projects'), '', 'browser');
   const filter = useSelector(mapStateToFilter);
@@ -58,7 +50,6 @@ export const ProjectsList = () => {
     fetchData: createFetcher('projects'),
     queryField: 'name',
     filter,
-    mandatoryFields,
   });
 
   const { syncResourceFilters } =
