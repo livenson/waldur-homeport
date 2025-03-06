@@ -166,6 +166,7 @@ export const getResourceAllListColumns = (
         title: translate('State'),
         render: ({ row }) => <ResourceStateField resource={row} outline pill />,
         filter: 'state',
+        orderField: 'state',
         inlineFilter: (row) =>
           getStates().filter((op) => op.value === row.state),
         id: 'state',
