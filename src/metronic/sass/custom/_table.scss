@@ -160,6 +160,32 @@
       opacity: 1;
     }
   }
+
+  // Pinned columns + Shadow
+  th.pinned,
+  td.pinned {
+    position: sticky;
+    right: 0;
+    z-index: 2;
+    background-color: if(isDarkMode(), $primary-50, $gray-50);
+  }
+  td.pinned {
+    background-color: $card-bg;
+  }
+  th.is-floating,
+  td.is-floating {
+    &.pinned::before {
+      content: ' ';
+      position: absolute;
+      left: 0;
+      top: 0;
+      display: block;
+      width: 5px;
+      height: 100%;
+      background: linear-gradient(-90deg, rgba(0, 0, 0, 0.1), transparent);
+      margin-left: -5px;
+    }
+  }
 }
 
 // Shadow hover
