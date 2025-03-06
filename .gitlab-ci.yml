@@ -257,6 +257,7 @@ Upload translatable strings:
     - if: '$SKIP_I18N_UPLOAD == "true" || $SKIP_I18N_UPLOAD == "yes"'
       when: never
     - if: '$CI_COMMIT_BRANCH == "develop"'
+      allow_failure: true
   image:
     name: registry.hpc.ut.ee/mirror/localazy/cli:latest
   script:

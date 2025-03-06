@@ -21,6 +21,7 @@ export interface InvoiceItem {
   resource?: string;
   resource_name?: string;
   resource_uuid?: string;
+  credit: boolean;
 }
 
 export interface Invoice {

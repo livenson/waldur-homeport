@@ -48,6 +48,7 @@ export const InvoiceItemExpandableRow: FC<OwnProps> = (props) => {
               {props.row.items.map((item, i) => (
                 <tr key={i}>
                   <td>
+                    {item.credit && translate('Credit compensation.')}{' '}
                     {item.details.offering_component_name}
                     {item.article_code && (
                       <small className="d-block">
