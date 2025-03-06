@@ -140,8 +140,6 @@ export const providerOfferingsAutocomplete = async (
     'category_title',
     'thumbnail',
     'customer_name',
-    'secret_options',
-    'options',
     'customer_uuid',
   ],
 ) => {

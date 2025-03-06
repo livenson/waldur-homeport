@@ -21,17 +21,6 @@ import {
 const handleSubmit =
   ({ formData, dispatch, curretUser, refetch }) =>
   async () => {
-    if (
-      !formData.offering.options?.options
-        ?.service_provider_can_create_offering_user
-    ) {
-      dispatch(
-        showError(
-          translate('It is not allowed to create users for current offering.'),
-        ),
-      );
-      return;
-    }
     const canCreateOfferingUser = hasPermission(curretUser, {
       permission: PermissionEnum.CREATE_OFFERING_USER,
       customerId: formData.offering.customer_uuid,
