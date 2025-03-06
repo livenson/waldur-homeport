@@ -78,6 +78,8 @@ export type DisplayMode = 'table' | 'grid';
 
 export type FilterPosition = 'menu' | 'sidebar' | 'header';
 
+export type PinnedColumns = Record<string, boolean>;
+
 export interface Pagination {
   resultCount: number;
   currentPage: number;
