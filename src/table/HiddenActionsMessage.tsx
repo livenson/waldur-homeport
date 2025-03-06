@@ -4,7 +4,7 @@ import { FunctionComponent } from 'react';
 import { RadarIcon } from '@waldur/core/RadarIcon';
 import { translate } from '@waldur/i18n';
 
-import { OPTIONAL_COLUMN_ACTIONS_KEY } from './constants';
+import { COLUMN_ACTIONS_KEY } from './constants';
 import { TableProps } from './types';
 
 interface HiddenActionsMessageProps {
@@ -30,9 +30,7 @@ export const HiddenActionsMessage: FunctionComponent<
         <button
           type="button"
           className="text-anchor fw-bold"
-          onClick={() =>
-            toggleColumn(OPTIONAL_COLUMN_ACTIONS_KEY, { keys: [] }, true)
-          }
+          onClick={() => toggleColumn(COLUMN_ACTIONS_KEY, { keys: [] }, true)}
         >
           {translate('Restore column')}
         </button>

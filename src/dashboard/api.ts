@@ -13,7 +13,7 @@ export interface DateValuePair {
   value: number;
 }
 
-const formatTeamSizeChart = (values: number[]): Chart => {
+const formatTeamSizeChart = (values: number[] = []): Chart => {
   const data: ChartData = values.map((value, index) => {
     const date = DateTime.now()
       .minus({ days: 30 })

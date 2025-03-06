@@ -10,12 +10,9 @@ import {
   getLineChartOptionsWithAxis,
 } from '@waldur/dashboard/chart';
 import { translate } from '@waldur/i18n';
-import { Category } from '@waldur/marketplace/types';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';
 import { Project, User } from '@waldur/workspace/types';
-
-import { ProjectCounterResourceItem } from './types';
 
 export async function loadChart(project: Project, withAxis = false) {
   const [invoices, costPolicies] = await Promise.all([
@@ -65,25 +62,6 @@ export async function loadChart(project: Project, withAxis = false) {
       : getLineChartOptionsWithAxis(chart),
   };
 }
-
-export const parseProjectCounters = (
-  categories: Category[],
-  counters: object,
-): ProjectCounterResourceItem[] => {
-  return categories
-    .map((category) => ({
-      label: category.title,
-      value: counters[category.uuid],
-    }))
-    .filter((row) => row.value);
-};
-
-export const combineProjectCounterRows = (
-  rows: ProjectCounterResourceItem[],
-): ProjectCounterResourceItem[] =>
-  rows
-    .filter((item) => item.value)
-    .sort((a, b) => a.label.localeCompare(b.label));
 
 export const getProjectTeamChart = async (project: Project) => {
   const chart = await getTeamSizeChart(project);

@@ -8,7 +8,7 @@ interface LandingHeroSectionProps {
   header: string;
   backgroundImage?: string;
   className?: string;
-  marketplaceLanding?: boolean;
+  context?: 'marketplace' | 'calls';
 }
 
 export const LandingHeroSection: FC<
@@ -25,7 +25,8 @@ export const LandingHeroSection: FC<
     <div
       className={classNames(
         'landing-hero__background',
-        props.marketplaceLanding && 'marketplace-landing',
+        props.context && `${props.context}-landing`,
+        props.context && `has-overlay`,
         bgClassNames,
         props.className,
       )}

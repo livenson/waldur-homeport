@@ -19,31 +19,35 @@ import { Tip } from '@waldur/core/Tooltip';
 import { translate } from '@waldur/i18n';
 import { MenuComponent } from '@waldur/metronic/components';
 
+import { COLUMN_ACTIONS_KEY } from './constants';
 import { TableFilterContext } from './FilterContextProvider';
-import { TableProps } from './types';
+import { PinnedColumns, TableProps } from './types';
 import { getId } from './utils';
 
-type TableBodyProps = Pick<
-  TableProps,
-  | 'rows'
-  | 'columns'
-  | 'rowClass'
-  | 'rowKey'
-  | 'expandableRow'
-  | 'expandableRowClassName'
-  | 'rowActions'
-  | 'enableMultiSelect'
-  | 'selectRow'
-  | 'selectedRows'
-  | 'toggleRow'
-  | 'toggled'
-  | 'fetch'
-  | 'fieldType'
-  | 'fieldName'
-  | 'validate'
-  | 'columnPositions'
-  | 'hasOptionalColumns'
->;
+interface TableBodyProps
+  extends Pick<
+    TableProps,
+    | 'rows'
+    | 'columns'
+    | 'rowClass'
+    | 'rowKey'
+    | 'expandableRow'
+    | 'expandableRowClassName'
+    | 'rowActions'
+    | 'enableMultiSelect'
+    | 'selectRow'
+    | 'selectedRows'
+    | 'toggleRow'
+    | 'toggled'
+    | 'fetch'
+    | 'fieldType'
+    | 'fieldName'
+    | 'validate'
+    | 'columnPositions'
+    | 'hasOptionalColumns'
+  > {
+  pinnedColumns?: PinnedColumns;
+}
 
 interface TableCellsProps {
   row;
@@ -217,6 +221,7 @@ export const TableBody: FunctionComponent<TableBodyProps> = ({
   validate,
   columnPositions,
   hasOptionalColumns,
+  pinnedColumns = {},
 }) => {
   const columnsMap = useMemo(
     () =>
@@ -356,7 +361,13 @@ export const TableBody: FunctionComponent<TableBodyProps> = ({
           hasOptionalColumns={hasOptionalColumns}
         />
         {rowActions && (
-          <td className="row-actions">
+          <td
+            className={classNames(
+              'row-actions',
+              COLUMN_ACTIONS_KEY in pinnedColumns && 'pinned',
+              pinnedColumns[COLUMN_ACTIONS_KEY] && 'is-floating',
+            )}
+          >
             <div aria-hidden="true">
               {React.createElement(rowActions, { row, fetch })}
             </div>

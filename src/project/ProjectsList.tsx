@@ -13,12 +13,12 @@ import Table from '@waldur/table/Table';
 import { Column, TableProps } from '@waldur/table/types';
 import { useTable } from '@waldur/table/useTable';
 import { formatLongText } from '@waldur/table/utils';
+import { ProjectExpandableRow } from '@waldur/user/affiliations/ProjectExpandableRow';
 import { getCustomer } from '@waldur/workspace/selectors';
 import { Customer } from '@waldur/workspace/types';
 
 import { ProjectCreateButton } from './create/ProjectCreateButton';
 import { ProjectCostField } from './ProjectCostField';
-import { ProjectExpandableRowContainer } from './ProjectExpandableRowContainer';
 import { ProjectLink } from './ProjectLink';
 
 const mandatoryFields = [
@@ -26,8 +26,6 @@ const mandatoryFields = [
   'name', // Actions
   'customer_name', // DeleteAction
   'customer_uuid', // DeleteAction
-  'marketplace_resource_count', // Expandable view
-  'backend_id', // Expandable view
 ];
 
 interface ProjectsListProps extends Partial<TableProps> {
@@ -130,7 +128,7 @@ export const ProjectsList: FC<ProjectsListProps> = ({
       rowActions={({ row }) => (
         <ProjectsListActions project={row} refetch={tableProps.fetch} />
       )}
-      expandableRow={ProjectExpandableRowContainer}
+      expandableRow={ProjectExpandableRow}
       enableExport={true}
       hasOptionalColumns
       {...props}
