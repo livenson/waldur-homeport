@@ -2695,6 +2695,10 @@
     "description": "marketplace/offerings/OfferingEditUIView.tsx, marketplace/offerings/update/integration/CredentialsSection.tsx, user/routes.ts",
     "message": "Credentials"
   },
+  "Credit compensation.": {
+    "description": "invoices/details/InvoiceItemExpandableRow.tsx",
+    "message": "Credit compensation."
+  },
   "Credit deleted successfully.": {
     "description": "customer/credits/DeleteCreditButton.tsx, customer/credits/ProjectDeleteCreditButton.tsx",
     "message": "Credit deleted successfully."
