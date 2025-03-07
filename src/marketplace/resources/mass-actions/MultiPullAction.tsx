@@ -2,9 +2,13 @@ import { GitPullRequest } from '@phosphor-icons/react';
 import { useCallback, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 
+import {
+  openstackInstancesPull,
+  openstackTenantsPull,
+  openstackVolumesPull,
+} from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
-import { pullInstance, pullTenant, pullVolume } from '@waldur/openstack/api';
 import {
   INSTANCE_TYPE,
   TENANT_TYPE,
@@ -13,9 +17,9 @@ import {
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 
 const apiMethods = {
-  [INSTANCE_TYPE]: pullInstance,
-  [VOLUME_TYPE]: pullVolume,
-  [TENANT_TYPE]: pullTenant,
+  [INSTANCE_TYPE]: (uuid: string) => openstackInstancesPull({ path: { uuid } }),
+  [VOLUME_TYPE]: (uuid: string) => openstackVolumesPull({ path: { uuid } }),
+  [TENANT_TYPE]: (uuid: string) => openstackTenantsPull({ path: { uuid } }),
 };
 
 export const MultiPullAction = ({ rows, refetch }) => {

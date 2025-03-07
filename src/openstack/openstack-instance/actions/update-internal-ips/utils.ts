@@ -4,16 +4,17 @@ import { useAsync } from 'react-use';
 import { reduxForm } from 'redux-form';
 
 import { openstackInstancesUpdatePorts } from '@waldur/api';
+import { OpenStackInstance } from '@waldur/api';
 import { translate } from '@waldur/i18n';
+import { Option } from '@waldur/marketplace/common/registry';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { loadSubnets } from '@waldur/openstack/api';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
-import { OpenStackInstance } from '../../types';
 import { formatSubnet } from '../../utils';
 
 interface UpdatePortsFormData {
-  ports: { value: string; label: string }[];
+  ports: Option[];
 }
 
 export const useUpdatePortsForm = (resource: OpenStackInstance, refetch) => {

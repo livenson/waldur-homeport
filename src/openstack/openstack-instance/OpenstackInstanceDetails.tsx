@@ -11,12 +11,12 @@ import {
   OpenStackVolumeType,
   openstackVolumeTypesRetrieve,
 } from '@waldur/api';
+import { OpenStackFloatingIp } from '@waldur/api';
 import { get } from '@waldur/core/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { getUUID } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';
 import { OrderDetailsProps } from '@waldur/marketplace/types';
-import { FloatingIp } from '@waldur/openstack/openstack-instance/types';
 import {
   formatSubnet,
   formatVolumeTypeLabel,
@@ -89,7 +89,7 @@ export const OpenstackInstanceDetails = (props: OrderDetailsProps) => {
             const value = networksMap[key];
             let floatingIp = defaults.find((s) => s.url === value);
             if (value !== 'true' && value !== 'false')
-              floatingIp = await get<FloatingIp>(value).then(
+              floatingIp = await get<OpenStackFloatingIp>(value).then(
                 (response) => response.data,
               );
             return {

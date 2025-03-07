@@ -1,5 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
 
+import { RancherCluster } from '@waldur/api';
 import { formatDate } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 import { createFetcher } from '@waldur/table/api';
@@ -9,9 +10,9 @@ import { useTable } from '@waldur/table/useTable';
 import { ImportYAMLButton } from './ImportYAMLButton';
 import { ServiceActions } from './ServiceActions';
 
-export const ClusterServicesList: FunctionComponent<{ resourceScope }> = ({
-  resourceScope,
-}) => {
+export const ClusterServicesList: FunctionComponent<{
+  resourceScope: RancherCluster;
+}> = ({ resourceScope }) => {
   const filter = useMemo(
     () => ({
       cluster_uuid: resourceScope.uuid,

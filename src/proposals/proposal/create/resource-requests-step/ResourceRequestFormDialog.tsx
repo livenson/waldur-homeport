@@ -2,14 +2,14 @@ import { FC, useCallback, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { formValueSelector } from 'redux-form';
 
+import {
+  proposalProposalsResourcesPartialUpdate,
+  proposalProposalsResourcesSet,
+} from '@waldur/api';
 import { WizardFormContainer } from '@waldur/form/WizardFormContainer';
 import { translate } from '@waldur/i18n';
 import { Offering } from '@waldur/marketplace/types';
 import { closeModalDialog } from '@waldur/modal/actions';
-import {
-  createProposalResource,
-  updateProposalResource,
-} from '@waldur/proposals/api';
 import {
   Proposal,
   ProposalResource,
@@ -43,7 +43,7 @@ const steps = [
 
 export const ResourceRequestFormDialog: FC<OwnProps> = (props) => {
   const callback = useCallback(
-    (formData: ProposalResourceFormData, dispatch, formProps) => {
+    async (formData: ProposalResourceFormData, dispatch, formProps) => {
       const attributes = {};
       if (formData.attributes) {
         Object.assign(attributes, formData.attributes);
@@ -57,40 +57,39 @@ export const ResourceRequestFormDialog: FC<OwnProps> = (props) => {
       };
       if (props.resolve.resourceRequest) {
         // Edit
-        return updateProposalResource(
-          payload,
-          props.resolve.proposal.uuid,
-          props.resolve.resourceRequest.uuid,
-        )
-          .then(() => {
-            dispatch(
-              showSuccess(translate('Resource request has been updated.')),
-            );
-            formProps.destroy();
-            dispatch(closeModalDialog());
-            props.resolve.refetch();
-          })
-          .catch((error) => {
-            dispatch(
-              showErrorResponse(error, translate('Something went wrong')),
-            );
+        try {
+          await proposalProposalsResourcesPartialUpdate({
+            path: {
+              uuid: props.resolve.proposal.uuid,
+              obj_uuid: props.resolve.resourceRequest.uuid,
+            },
+            body: payload,
           });
+          dispatch(
+            showSuccess(translate('Resource request has been updated.')),
+          );
+          formProps.destroy();
+          dispatch(closeModalDialog());
+          props.resolve.refetch();
+        } catch (error) {
+          dispatch(showErrorResponse(error, translate('Something went wrong')));
+        }
       } else {
         // Create new
-        return createProposalResource(payload, props.resolve.proposal.uuid)
-          .then(() => {
-            dispatch(
-              showSuccess(translate('Resource request has been submitted.')),
-            );
-            formProps.destroy();
-            dispatch(closeModalDialog());
-            props.resolve.refetch();
-          })
-          .catch((error) => {
-            dispatch(
-              showErrorResponse(error, translate('Something went wrong')),
-            );
+        try {
+          await proposalProposalsResourcesSet({
+            path: { uuid: props.resolve.proposal.uuid },
+            body: payload,
           });
+          dispatch(
+            showSuccess(translate('Resource request has been submitted.')),
+          );
+          formProps.destroy();
+          dispatch(closeModalDialog());
+          props.resolve.refetch();
+        } catch (error) {
+          dispatch(showErrorResponse(error, translate('Something went wrong')));
+        }
       }
     },
     [props.resolve],

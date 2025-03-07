@@ -1,4 +1,5 @@
 import { Quota } from '@waldur/quotas/types';
+export { OpenStackPort as Port } from '@waldur/api';
 
 export type ResourceState =
   | 'OK'
@@ -13,7 +14,7 @@ export type ResourceState =
 export interface BaseResource {
   name: string;
   state: ResourceState;
-  runtime_state: string;
+  runtime_state?: string;
   uuid: string;
   url?: string;
   backend_id?: string;
@@ -24,7 +25,7 @@ export interface BaseResource {
   created?: string;
   end_date?: string;
   modified?: string;
-  marketplace_offering_uuid?: boolean;
+  marketplace_offering_uuid?: string;
   marketplace_offering_thumbnail?: string;
   marketplace_resource_uuid?: string;
   marketplace_category_uuid?: string;
@@ -41,45 +42,5 @@ export interface Resource extends BaseResource {
   service_settings_error_message?: string;
   error_message?: string;
   action?: string;
-  action_details?: {
-    message: string;
-  };
-}
-
-export interface Volume extends Resource {
-  type_name?: string;
-  size: number;
-  bootable: boolean;
-  instance?: string;
-  source_snapshot?: string;
-  service_uuid?: string;
-  device?: string;
-}
-
-export interface FixedIP {
-  ip_address: string;
-  subnet_id: string;
-}
-
-interface SubnetReference {
-  subnet: string;
-  subnet_uuid: string;
-  subnet_name: string;
-  subnet_description: string;
-  subnet_cidr: string;
-}
-
-export interface Port extends Partial<SubnetReference> {
-  fixed_ips?: FixedIP[];
-  allowed_address_pairs?: any;
-  mac_address?: string;
-}
-
-export interface VirtualMachine extends Resource {
-  ports?: Port[];
-  floating_ips?: any[];
-  external_address?: any[];
-  cores: number;
-  disk: number;
-  ram: number;
+  action_details?: any;
 }

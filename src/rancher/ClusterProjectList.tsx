@@ -1,5 +1,10 @@
 import { FunctionComponent, useMemo } from 'react';
 
+import {
+  RancherCluster,
+  RancherProject,
+  RancherProjectsListData,
+} from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
@@ -7,10 +12,10 @@ import { useTable } from '@waldur/table/useTable';
 
 import { ProjectExpandableRow } from './ProjectExpandableRow';
 
-export const ClusterProjectList: FunctionComponent<{ resourceScope }> = ({
-  resourceScope,
-}) => {
-  const filter = useMemo(
+export const ClusterProjectList: FunctionComponent<{
+  resourceScope: RancherCluster;
+}> = ({ resourceScope }) => {
+  const filter = useMemo<RancherProjectsListData['query']>(
     () => ({
       cluster_uuid: resourceScope.uuid,
     }),
@@ -22,7 +27,7 @@ export const ClusterProjectList: FunctionComponent<{ resourceScope }> = ({
     filter,
   });
   return (
-    <Table
+    <Table<RancherProject>
       {...props}
       columns={[
         {

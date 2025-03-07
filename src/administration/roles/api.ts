@@ -1,4 +1,5 @@
-import { getAll } from '@waldur/core/api';
-import { Role } from '@waldur/permissions/types';
+import { rolesList } from '@waldur/api';
+import { getAllPages } from '@waldur/core/api';
 
-export const getRoles = () => getAll<Role>('/roles/');
+export const getRoles = () =>
+  getAllPages((page) => rolesList({ query: { page } }));

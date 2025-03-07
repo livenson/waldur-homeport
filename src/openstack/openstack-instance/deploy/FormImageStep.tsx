@@ -5,6 +5,8 @@ import { FormLabel } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { Field } from 'redux-form';
 
+import { openstackImagesList } from '@waldur/api';
+import { getAllPages } from '@waldur/core/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { required } from '@waldur/core/validators';
@@ -14,7 +16,6 @@ import { translate } from '@waldur/i18n';
 import { BoxRadioField } from '@waldur/marketplace/deploy/steps/BoxRadioField';
 import { FormStepProps } from '@waldur/marketplace/deploy/types';
 import { generateSystemImageChoices } from '@waldur/marketplace/deploy/utils';
-import { loadImages } from '@waldur/openstack/api';
 import { flavorValidator } from '@waldur/openstack/openstack-instance/utils';
 
 import { formFlavorSelector } from './utils';
@@ -33,7 +34,15 @@ export const FormImageStep = (props: FormStepProps) => {
     ['deployImages', props.offering?.scope_uuid, query],
     () =>
       props.offering.scope_uuid
-        ? loadImages({ tenant_uuid: props.offering.scope_uuid, name: query })
+        ? getAllPages((page) =>
+            openstackImagesList({
+              query: {
+                page,
+                tenant_uuid: props.offering.scope_uuid,
+                name: query,
+              },
+            }),
+          )
         : Promise.resolve([]),
     { staleTime: 3 * 60 * 1000 },
   );

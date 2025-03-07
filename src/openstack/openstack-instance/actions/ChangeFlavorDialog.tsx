@@ -24,7 +24,7 @@ export const ChangeFlavorDialog: FC<ActionDialogProps> = ({
   const asyncState = useAsync(async () => {
     const flavors = await loadFlavors({
       tenant_uuid: resource.tenant_uuid,
-      fields: ['url', 'name', 'cores', 'ram'],
+      field: ['url', 'name', 'cores', 'ram'],
     });
     return {
       flavors: flavors

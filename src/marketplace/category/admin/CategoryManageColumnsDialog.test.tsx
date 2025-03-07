@@ -7,12 +7,12 @@ import {
   marketplaceCategoryColumnsCreate,
   marketplaceCategoryColumnsDestroy,
 } from '@waldur/api';
+import { marketplaceCategoryColumnsList } from '@waldur/api';
 import { Category } from '@waldur/marketplace/types';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { createActionStore } from '@waldur/resource/actions/testUtils';
 import { useNotify } from '@waldur/store/hooks';
 
-import { getCategoryColumns } from './api';
 import { CategoryManageColumnsDialog } from './CategoryManageColumnsDialog';
 
 const category = {
@@ -21,7 +21,6 @@ const category = {
   columns: [],
 } as Category;
 
-vi.mock('@waldur/marketplace/category/admin/api');
 vi.mock('@waldur/api');
 vi.mock('@waldur/store/hooks');
 vi.mock('@waldur/modal/actions');
@@ -46,7 +45,9 @@ describe('CategoryManageColumnsDialog', () => {
   });
 
   it('renders dialog with title and form', async () => {
-    vi.mocked(getCategoryColumns).mockResolvedValue([]);
+    vi.mocked(marketplaceCategoryColumnsList).mockResolvedValue({
+      data: [],
+    } as any);
 
     renderDialog();
     await screen.findByText('Set columns in Test Category category');
@@ -58,7 +59,9 @@ describe('CategoryManageColumnsDialog', () => {
   });
 
   it('allows adding a new column', async () => {
-    vi.mocked(getCategoryColumns).mockResolvedValue([]);
+    vi.mocked(marketplaceCategoryColumnsList).mockResolvedValue({
+      data: [],
+    } as any);
 
     renderDialog();
     await screen.findByText('Set columns in Test Category category');
@@ -101,7 +104,9 @@ describe('CategoryManageColumnsDialog', () => {
       index: 1,
     };
 
-    vi.mocked(getCategoryColumns).mockResolvedValue([existingColumn]);
+    vi.mocked(marketplaceCategoryColumnsList).mockResolvedValue({
+      data: [existingColumn],
+    } as any);
 
     const { container } = renderDialog();
     await screen.findByText('Set columns in Test Category category');

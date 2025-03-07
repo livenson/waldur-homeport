@@ -4,32 +4,6 @@ import { ResourceTabsConfiguration } from '@waldur/resource/tabs/types';
 
 import { INSTANCE_TYPE } from '../constants';
 
-const BackupsList = lazyComponent(() =>
-  import('../openstack-backup/BackupsList').then((module) => ({
-    default: module.BackupsList,
-  })),
-);
-const InstanceVolumesList = lazyComponent(() =>
-  import('../openstack-volume/InstanceVolumesList').then((module) => ({
-    default: module.InstanceVolumesList,
-  })),
-);
-const InternalIpsList = lazyComponent(() =>
-  import('./InternalIpsList').then((module) => ({
-    default: module.InternalIpsList,
-  })),
-);
-const FloatingIpsList = lazyComponent(() =>
-  import('./FloatingIpsList').then((module) => ({
-    default: module.FloatingIpsList,
-  })),
-);
-const OpenStackSecurityGroupsList = lazyComponent(() =>
-  import('./OpenStackSecurityGroupsList').then((module) => ({
-    default: module.OpenStackSecurityGroupsList,
-  })),
-);
-
 export const OpenStackInstanceTabConfiguration: ResourceTabsConfiguration = {
   type: INSTANCE_TYPE,
   tabs: [
@@ -40,17 +14,29 @@ export const OpenStackInstanceTabConfiguration: ResourceTabsConfiguration = {
         {
           key: 'ports',
           title: translate('Internal IPs'),
-          component: InternalIpsList,
+          component: lazyComponent(() =>
+            import('./InternalIpsList').then((module) => ({
+              default: module.InternalIpsList,
+            })),
+          ),
         },
         {
           key: 'floating_ips',
           title: translate('Floating IPs'),
-          component: FloatingIpsList,
+          component: lazyComponent(() =>
+            import('./FloatingIpsList').then((module) => ({
+              default: module.FloatingIpsList,
+            })),
+          ),
         },
         {
           key: 'security_groups',
           title: translate('Security groups'),
-          component: OpenStackSecurityGroupsList,
+          component: lazyComponent(() =>
+            import('./OpenStackSecurityGroupsList').then((module) => ({
+              default: module.OpenStackSecurityGroupsList,
+            })),
+          ),
         },
       ],
     },
@@ -61,12 +47,22 @@ export const OpenStackInstanceTabConfiguration: ResourceTabsConfiguration = {
         {
           key: 'volumes',
           title: translate('Volumes'),
-          component: InstanceVolumesList,
+          component: lazyComponent(() =>
+            import('../openstack-volume/InstanceVolumesList').then(
+              (module) => ({
+                default: module.InstanceVolumesList,
+              }),
+            ),
+          ),
         },
         {
           key: 'backups',
           title: translate('Snapshots'),
-          component: BackupsList,
+          component: lazyComponent(() =>
+            import('../openstack-backup/BackupsList').then((module) => ({
+              default: module.BackupsList,
+            })),
+          ),
         },
       ],
     },

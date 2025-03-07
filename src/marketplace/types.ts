@@ -195,14 +195,3 @@ export interface ImportableResource {
   type: string;
   description: string;
 }
-
-export interface PlanComponent {
-  amount: number;
-  billing_type: BillingTypeEnum;
-  component_name: string;
-  measured_unit?: string;
-  offering_name: string;
-  plan_name: string;
-  plan_unit: string;
-  price?: string;
-}

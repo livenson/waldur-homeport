@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import {
   proposalProposalsRetrieve,
+  proposalReviewsPartialUpdate,
   proposalReviewsRetrieve,
   proposalReviewsSubmit,
 } from '@waldur/api';
@@ -22,7 +23,6 @@ import {
   waitForConfirmation,
 } from '@waldur/modal/actions';
 import { useTitle } from '@waldur/navigation/title';
-import { updateProposalReview } from '@waldur/proposals/api';
 import { PROPOSAL_UPDATE_REVIEW_FORM_ID } from '@waldur/proposals/constants';
 import { ProposalReview } from '@waldur/proposals/types';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
@@ -119,10 +119,10 @@ export const ProposalReviewCreatePage = (props) => {
             value: reviewObject[commentField],
             onSubmit: async (formData) => {
               try {
-                const res = await updateProposalReview(
-                  { [commentField]: formData.comment },
-                  data.review.uuid,
-                );
+                const res = await proposalReviewsPartialUpdate({
+                  path: { uuid: data.review.uuid },
+                  body: { [commentField]: formData.comment },
+                });
                 setReviewObject(res.data);
                 dispatch(closeModalDialog());
               } catch (error) {

@@ -1,11 +1,23 @@
 import {
+  projectsAddUser,
+  projectsDeleteUser,
+  projectsUpdateUser,
+  customersAddUser,
+  customersDeleteUser,
+  customersUpdateUser,
+  marketplaceProviderOfferingsAddUser,
+  marketplaceProviderOfferingsDeleteUser,
+  marketplaceProviderOfferingsUpdateUser,
+  callManagingOrganisationsAddUser,
+  marketplaceServiceProvidersAddUser,
+  ProjectsListUsersListData,
+} from '@waldur/api';
+import {
   customersUsersList,
   CustomersUsersListData,
   projectsListUsersList,
 } from '@waldur/api';
-import { getAll, parseSelectData, post } from '@waldur/core/api';
-
-import { GenericPermission } from './types';
+import { getAllPages, parseSelectData } from '@waldur/core/api';
 
 export const addProjectUser = ({
   project,
@@ -18,23 +30,32 @@ export const addProjectUser = ({
   role;
   expiration_time?;
 }) =>
-  post(`/projects/${project}/add_user/`, {
-    user,
-    role,
-    expiration_time,
+  projectsAddUser({
+    path: { uuid: project },
+    body: {
+      user,
+      role,
+      expiration_time,
+    },
   });
 
 export const deleteProjectUser = ({ project, user, role }) =>
-  post(`/projects/${project}/delete_user/`, {
-    user,
-    role,
+  projectsDeleteUser({
+    path: { uuid: project },
+    body: {
+      user,
+      role,
+    },
   });
 
 export const updateProjectUser = ({ project, user, role, expiration_time }) =>
-  post(`/projects/${project}/update_user/`, {
-    user,
-    role,
-    expiration_time,
+  projectsUpdateUser({
+    path: { uuid: project },
+    body: {
+      user,
+      role,
+      expiration_time,
+    },
   });
 
 export const addCustomerUser = ({
@@ -48,23 +69,32 @@ export const addCustomerUser = ({
   role;
   expiration_time?;
 }) =>
-  post(`/customers/${customer}/add_user/`, {
-    user,
-    role,
-    expiration_time,
+  customersAddUser({
+    path: { uuid: customer },
+    body: {
+      user,
+      role,
+      expiration_time,
+    },
   });
 
 export const deleteCustomerUser = ({ customer, user, role }) =>
-  post(`/customers/${customer}/delete_user/`, {
-    user,
-    role,
+  customersDeleteUser({
+    path: { uuid: customer },
+    body: {
+      user,
+      role,
+    },
   });
 
 export const updateCustomerUser = ({ customer, user, role, expiration_time }) =>
-  post(`/customers/${customer}/update_user/`, {
-    user,
-    role,
-    expiration_time,
+  customersUpdateUser({
+    path: { uuid: customer },
+    body: {
+      user,
+      role,
+      expiration_time,
+    },
   });
 
 export const addOfferingPermission = ({
@@ -73,16 +103,22 @@ export const addOfferingPermission = ({
   role,
   expiration_time,
 }) =>
-  post(`/marketplace-provider-offerings/${offering}/add_user/`, {
-    user,
-    role,
-    expiration_time,
+  marketplaceProviderOfferingsAddUser({
+    path: { uuid: offering },
+    body: {
+      user,
+      role,
+      expiration_time,
+    },
   });
 
 export const deleteOfferingPermission = ({ offering, user, role }) =>
-  post(`/marketplace-provider-offerings/${offering}/delete_user/`, {
-    user,
-    role,
+  marketplaceProviderOfferingsDeleteUser({
+    path: { uuid: offering },
+    body: {
+      user,
+      role,
+    },
   });
 
 export const updateOfferingPermission = ({
@@ -91,10 +127,13 @@ export const updateOfferingPermission = ({
   role,
   expiration_time,
 }) =>
-  post(`/marketplace-provider-offerings/${offering}/update_user/`, {
-    user,
-    role,
-    expiration_time,
+  marketplaceProviderOfferingsUpdateUser({
+    path: { uuid: offering },
+    body: {
+      user,
+      role,
+      expiration_time,
+    },
   });
 
 export const getCustomerUsers = (
@@ -109,7 +148,10 @@ export const getCustomerUsers = (
     },
   }).then(parseSelectData);
 
-export const fetchSelectProjectUsers = (projectUuid: string, params = {}) =>
+export const fetchSelectProjectUsers = (
+  projectUuid: string,
+  params: ProjectsListUsersListData['query'] = {},
+) =>
   projectsListUsersList({
     path: { uuid: projectUuid },
     query: {
@@ -119,11 +161,15 @@ export const fetchSelectProjectUsers = (projectUuid: string, params = {}) =>
   }).then(parseSelectData);
 
 export const fetchAllProjectUsers = (projectId: string) =>
-  getAll<GenericPermission>(`/projects/${projectId}/list_users/`, {
-    params: {
-      field: ['user_uuid', 'user_full_name', 'user_email', 'role_name'],
-    },
-  });
+  getAllPages((page) =>
+    projectsListUsersList({
+      path: { uuid: projectId },
+      query: {
+        page,
+        field: ['user_uuid', 'user_full_name', 'user_email', 'role_name'],
+      },
+    }),
+  );
 
 export const addCallOrganizationUser = ({
   uuid,
@@ -136,10 +182,13 @@ export const addCallOrganizationUser = ({
   role;
   expiration_time?;
 }) =>
-  post(`/call-managing-organisations/${uuid}/add_user/`, {
-    user,
-    role,
-    expiration_time,
+  callManagingOrganisationsAddUser({
+    path: { uuid },
+    body: {
+      user,
+      role,
+      expiration_time,
+    },
   });
 
 export const addServiceProviderUser = ({
@@ -153,8 +202,11 @@ export const addServiceProviderUser = ({
   role;
   expiration_time?;
 }) =>
-  post(`/marketplace-service-providers/${uuid}/add_user/`, {
-    user,
-    role,
-    expiration_time,
+  marketplaceServiceProvidersAddUser({
+    path: { uuid },
+    body: {
+      user,
+      role,
+      expiration_time,
+    },
   });

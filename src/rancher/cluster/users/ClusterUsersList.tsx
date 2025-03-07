@@ -1,5 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
 
+import { RancherCluster } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { createFetcher } from '@waldur/table/api';
 import { DASH_ESCAPE_CODE } from '@waldur/table/constants';
@@ -8,9 +9,9 @@ import { useTable } from '@waldur/table/useTable';
 
 import { RolesRenderer } from './RolesRenderer';
 
-export const ClusterUsersList: FunctionComponent<{ resourceScope }> = ({
-  resourceScope,
-}) => {
+export const ClusterUsersList: FunctionComponent<{
+  resourceScope: RancherCluster;
+}> = ({ resourceScope }) => {
   const filter = useMemo(
     () => ({
       cluster_uuid: resourceScope.uuid,

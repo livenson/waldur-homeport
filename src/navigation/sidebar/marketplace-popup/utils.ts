@@ -1,27 +1,28 @@
 import {
+  marketplaceCategoriesList,
   marketplaceProviderOfferingsList,
   marketplacePublicOfferingsList,
 } from '@waldur/api';
-import { parseSelectData } from '@waldur/core/api';
-import { getCategories } from '@waldur/marketplace/common/api';
+import { getAllPages, parseSelectData } from '@waldur/core/api';
 import { Category, Offering } from '@waldur/marketplace/types';
 import { Customer, Project } from '@waldur/workspace/types';
 
-export const fetchCategories = async (
+export const fetchCategories = (
   customer: Customer,
   project: Project,
   offering_name = '',
-) => {
-  return await getCategories({
-    params: {
-      ...(customer ? { allowed_customer_uuid: customer.uuid } : {}),
-      ...(project ? { project_uuid: project.uuid } : {}),
-      field: ['uuid', 'title', 'offering_count', 'icon', 'group'],
-      has_offerings: true,
-      offering_name,
-    },
-  });
-};
+) =>
+  getAllPages((page) =>
+    marketplaceCategoriesList({
+      query: {
+        page,
+        ...(customer ? { allowed_customer_uuid: customer.uuid } : {}),
+        ...(project ? { project_uuid: project.uuid } : {}),
+        field: ['uuid', 'title', 'offering_count', 'icon', 'group'],
+        offering_name,
+      },
+    }),
+  );
 
 export const fetchOfferingsByPage = (
   customer: Customer,

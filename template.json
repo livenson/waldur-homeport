@@ -3491,10 +3491,6 @@
     "description": "project/OECD_FOS_2007_CODES.ts",
     "message": "Economics and business"
   },
-  "Edit Access Subnet": {
-    "description": "customer/details/AccessSubnetEditDialog.tsx",
-    "message": "Edit Access Subnet"
-  },
   "Edit LEXIS link integration options": {
     "description": "marketplace/offerings/update/integration/EditLexisLinkIntegrationButton.tsx",
     "message": "Edit LEXIS link integration options"
@@ -3502,6 +3498,10 @@
   "Edit YAML": {
     "description": "rancher/cluster/ViewYAMLDialog.tsx",
     "message": "Edit YAML"
+  },
+  "Edit access subnet": {
+    "description": "customer/details/AccessSubnetEditDialog.tsx",
+    "message": "Edit access subnet"
   },
   "Edit as YAML": {
     "description": "marketplace/deploy/DeployPageActions.tsx",
@@ -5458,10 +5458,6 @@
   "Issues": {
     "description": "navigation/IssuesLink.tsx, user/routes.ts",
     "message": "Issues"
-  },
-  "It is not allowed to create users for current offering.": {
-    "description": "marketplace/service-providers/CreateProviderOfferingUserDialog.tsx",
-    "message": "It is not allowed to create users for current offering."
   },
   "It is used as default page title if it's not specified explicitly.": {
     "description": "SettingsDescription.ts",

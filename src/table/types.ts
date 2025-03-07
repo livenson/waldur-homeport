@@ -62,12 +62,12 @@ export interface Column<RowType = any> {
   visible?: boolean;
   copyField?: (row: RowType) => string | number;
   /** The keys that are required for optional columns to be fetched. */
-  keys?: string[];
+  keys?: Array<keyof RowType>;
   optional?: boolean;
   filter?: string;
   /** Enable it so that a filter icon appears on the row when hovering. By clicking on it, the filter defined here will be added. */
   inlineFilter?: (row: RowType) => any;
-  export?: string | boolean | ((row: RowType) => string | number);
+  export?: keyof RowType | boolean | ((row: RowType) => string | number);
   exportTitle?: string;
   exportKeys?: string[];
   disabledClick?: boolean;

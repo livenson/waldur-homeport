@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
 
+import { UserRoleDetails } from '@waldur/api';
 import Avatar from '@waldur/core/Avatar';
 import { renderRoleExpirationDate } from '@waldur/customer/team/CustomerUsersList';
 import { translate } from '@waldur/i18n';
@@ -55,7 +56,7 @@ export const ProjectUsersList = ({ hideTabs = false }) => {
   });
 
   return (
-    <Table
+    <Table<UserRoleDetails>
       {...tableProps}
       columns={[
         {

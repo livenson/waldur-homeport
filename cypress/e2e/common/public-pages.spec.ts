@@ -5,7 +5,7 @@ describe('Public marketplace pages', () => {
     cy.intercept('GET', '/api/users/me/', {
       statusCode: 401,
     })
-      .intercept('GET', '/api/customers/', [])
+      .intercept('GET', '/api/customers/**', [])
       .intercept('GET', '/api/marketplace-categories/**', {
         fixture: 'marketplace/categories.json',
       })
@@ -33,7 +33,9 @@ describe('Public marketplace pages', () => {
           fixture: 'offerings/hpcCategory.json',
         },
       )
-      .intercept('GET', '/api/marketplace-category-groups/', [])
+      .intercept('GET', '/api/marketplace-category-groups/**', [])
+      .intercept('GET', '/api/marketplace-global-categories/**', [])
+      .intercept('GET', '/api/admin-announcements/**', [])
       .visit('/marketplace/');
   });
 
@@ -66,7 +68,7 @@ describe('Public calls for proposals pages', () => {
     cy.intercept('GET', '/api/users/me/', {
       statusCode: 401,
     })
-      .intercept('GET', '/api/customers/', [])
+      .intercept('GET', '/api/customers/**', [])
       .intercept('GET', '/api/marketplace-categories/**', {
         fixture: 'marketplace/categories.json',
       })
@@ -76,6 +78,9 @@ describe('Public calls for proposals pages', () => {
       .intercept('GET', '/api/proposal-public-calls/**', {
         fixture: 'calls/public-calls.json',
       })
+      .intercept('GET', '/api/marketplace-category-groups/**', [])
+      .intercept('GET', '/api/marketplace-global-categories/**', [])
+      .intercept('GET', '/api/admin-announcements/**', [])
       .intercept(
         'GET',
         '/api/proposal-public-calls/3b8fc588d37f434eabc68d2a0b4a4bbe/',
@@ -144,10 +149,13 @@ describe('TOS and PP pages', () => {
     cy.intercept('GET', '/api/users/me/', {
       statusCode: 401,
     })
-      .intercept('GET', '/api/customers/', [])
-      .intercept('GET', '/api/marketplace-categories/', {
+      .intercept('GET', '/api/customers/**', [])
+      .intercept('GET', '/api/marketplace-categories/**', {
         fixture: 'marketplace/categories.json',
       })
+      .intercept('GET', '/api/marketplace-category-groups/**', [])
+      .intercept('GET', '/api/marketplace-global-categories/**', [])
+      .intercept('GET', '/api/admin-announcements/**', [])
       .intercept('GET', '/api/user-agreements/?agreement_type=TOS', {
         fixture: 'marketplace/user-agreement-tos.json',
       })

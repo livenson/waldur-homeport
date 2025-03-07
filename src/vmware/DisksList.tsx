@@ -1,5 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
 
+import { VmwareDisk } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { formatFilesize } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';
@@ -28,7 +29,7 @@ export const DisksList: FunctionComponent<{ resourceScope }> = ({
   });
 
   return (
-    <Table
+    <Table<VmwareDisk>
       {...tableProps}
       columns={[
         {

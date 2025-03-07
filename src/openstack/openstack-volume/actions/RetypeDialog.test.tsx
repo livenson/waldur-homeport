@@ -2,11 +2,10 @@ import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { openstackVolumesRetype } from '@waldur/api';
+import { openstackVolumesRetype, OpenStackVolumeType } from '@waldur/api';
+import { OpenStackVolume } from '@waldur/api';
 import { useModal } from '@waldur/modal/hooks';
 import * as api from '@waldur/openstack/api';
-import { VolumeType } from '@waldur/openstack/types';
-import { Volume } from '@waldur/resource/types';
 import { useNotify } from '@waldur/store/hooks';
 
 import { RetypeDialog } from './RetypeDialog';
@@ -23,7 +22,7 @@ const resource = {
   tenant_uuid: 'tenant_uuid',
   type_name: 'Fast SSD',
   type: 'ssd',
-} as unknown as Volume;
+} as Partial<OpenStackVolume>;
 
 const fakeVolumeTypes = [
   {
@@ -40,7 +39,7 @@ const fakeVolumeTypes = [
     name: 'Fast SSD',
     url: 'ssd',
   },
-] as unknown as VolumeType[];
+] as unknown as OpenStackVolumeType[];
 
 const renderDialog = () =>
   render(<RetypeDialog resolve={{ resource, refetch: vi.fn() }} />);

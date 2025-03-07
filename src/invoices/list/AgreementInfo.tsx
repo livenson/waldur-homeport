@@ -19,7 +19,7 @@ export const AgreementInfo: FunctionComponent<AgreementInfoProps> = (props) => {
   const activeFixedPricePaymentProfile = getActiveFixedPricePaymentProfile(
     customer ? customer.payment_profiles : props.paymentProfiles,
   );
-  const [totalOfSumPaid, setTotalOfSumPaid] = useState();
+  const [totalOfSumPaid, setTotalOfSumPaid] = useState<number>();
   useEffectOnce(() => {
     if (activeFixedPricePaymentProfile) {
       (async () => {

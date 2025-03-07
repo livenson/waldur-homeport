@@ -3,13 +3,11 @@ import { FunctionComponent } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAsyncFn } from 'react-use';
 
-import { rancherWorkloadsDestroy } from '@waldur/api';
+import { rancherWorkloadsDestroy, rancherWorkloadsRedeploy } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
 import { RowActionButton } from '@waldur/table/ActionButton';
 import { deleteEntity } from '@waldur/table/actions';
-
-import { redeployWorkload } from '../api';
 
 import { ViewYAMLButton } from './ViewYAMLButton';
 
@@ -19,7 +17,7 @@ export const WorkloadActions: FunctionComponent<{ workload }> = ({
   const dispatch = useDispatch();
   const [redeployResult, redeployCallback] = useAsyncFn(async () => {
     try {
-      await redeployWorkload(workload.uuid);
+      await rancherWorkloadsRedeploy({ path: { uuid: workload.uuid } });
       dispatch(showSuccess('Workload has been redeployed.'));
     } catch (e) {
       dispatch(showErrorResponse(e, 'Unable to redeploy workload.'));

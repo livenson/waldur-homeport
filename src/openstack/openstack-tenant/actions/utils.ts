@@ -4,17 +4,16 @@ import { reduxForm } from 'redux-form';
 
 import {
   OpenStackCreateServerGroupRequest,
+  openstackSecurityGroupsList,
+  openstackServerGroupsList,
   openstackTenantsCreateSecurityGroup,
   openstackTenantsCreateServerGroup,
 } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
+import { getAllPages } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
-import {
-  loadSecurityGroupsResources,
-  loadServerGroupsResources,
-  CreateSecurityGroupRequestBody,
-} from '@waldur/openstack/api';
+import { CreateSecurityGroupFormData } from '@waldur/openstack/api';
 import { ActionContext } from '@waldur/resource/actions/types';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
@@ -35,15 +34,15 @@ export const useCreateSecurityGroupForm = (
 ) => {
   const asyncState = useAsync(
     () =>
-      loadSecurityGroupsResources({
-        tenant: resource.url,
-        field: ['name', 'url'],
-        o: 'name',
-      }),
+      getAllPages((page) =>
+        openstackSecurityGroupsList({
+          query: { page, tenant: resource.url, field: ['name', 'url'] },
+        }),
+      ),
     [resource.url],
   );
   const dispatch = useDispatch();
-  const submitRequest = async (formData: CreateSecurityGroupRequestBody) => {
+  const submitRequest = async (formData: CreateSecurityGroupFormData) => {
     try {
       await openstackTenantsCreateSecurityGroup({
         path: { uuid: resource.uuid },
@@ -81,7 +80,7 @@ const FORM_NAME = 'CreateSecurityGroupForm';
 
 type OwnProps = ReturnType<typeof useCreateSecurityGroupForm>;
 
-export const connectForm = reduxForm<CreateSecurityGroupRequestBody, OwnProps>({
+export const connectForm = reduxForm<CreateSecurityGroupFormData, OwnProps>({
   form: FORM_NAME,
 });
 
@@ -89,11 +88,15 @@ export const connectForm = reduxForm<CreateSecurityGroupRequestBody, OwnProps>({
 export const useCreateServerGroupForm = (resource: OpenStackTenant) => {
   const asyncState = useAsync(
     () =>
-      loadServerGroupsResources({
-        tenant: resource.url,
-        field: ['name', 'url'],
-        o: 'name',
-      }),
+      getAllPages((page) =>
+        openstackServerGroupsList({
+          query: {
+            page,
+            tenant: resource.url,
+            field: ['name', 'url'],
+          },
+        }),
+      ),
     [resource.url],
   );
   const dispatch = useDispatch();

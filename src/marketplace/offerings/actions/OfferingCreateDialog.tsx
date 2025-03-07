@@ -16,7 +16,6 @@ import {
 import { translate } from '@waldur/i18n';
 import { getCategories } from '@waldur/marketplace/common/api';
 import { getCreatableOfferings } from '@waldur/marketplace/common/registry';
-import { Category } from '@waldur/marketplace/types';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
@@ -34,7 +33,7 @@ export const OfferingCreateDialog = reduxForm<
   const { data, isLoading, error, refetch } = useQuery(
     ['OfferingCreateDialog'],
     async () => {
-      const categories: Category[] = await getCategories();
+      const categories = await getCategories();
       const offeringTypes = getCreatableOfferings();
       return { categories, offeringTypes };
     },

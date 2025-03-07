@@ -1,14 +1,13 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useAsync } from 'react-use';
 
-import { invoiceItemsMigrateTo } from '@waldur/api';
+import { invoiceItemsMigrateTo, invoicesList } from '@waldur/api';
+import { getAllPages } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { ResourceActionDialog } from '@waldur/resource/actions/ResourceActionDialog';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
 import { getCustomer } from '@waldur/workspace/selectors';
-
-import { loadInvoices } from '../api';
 
 const formatDate = (invoice) => `${invoice.year}-${invoice.month}`;
 
@@ -19,12 +18,15 @@ export const InvoiceItemMoveDialog = ({
   const customer = useSelector(getCustomer);
 
   const asyncState = useAsync(async () => {
-    const invoices = await loadInvoices({
-      params: {
-        customer: customer.url,
-        field: ['url', 'number', 'year', 'month'],
-      },
-    });
+    const invoices = await getAllPages((page) =>
+      invoicesList({
+        query: {
+          page,
+          customer: customer.url,
+          field: ['url', 'number', 'year', 'month'],
+        },
+      }),
+    );
     return {
       invoices: invoices
         .filter((currentInvoice) => currentInvoice.url !== invoice.url)

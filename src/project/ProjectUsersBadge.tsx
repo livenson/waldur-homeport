@@ -46,8 +46,8 @@ export const ProjectUsersBadge = (props: OwnProps) => {
     refetch,
   } = useQuery(
     ['ProjectTeam', project?.uuid],
-    () => (project?.uuid ? fetchAllProjectUsers(project.uuid) : []),
-    { staleTime: 3 * 60 * 1000 },
+    () => fetchAllProjectUsers(project.uuid),
+    { staleTime: 3 * 60 * 1000, enabled: Boolean(project?.uuid) },
   );
 
   return isLoading ? (

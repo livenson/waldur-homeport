@@ -2,12 +2,15 @@ import { FC, useCallback } from 'react';
 import { DropdownButton, Dropdown, Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
+import {
+  proposalProtectedCallsActivate,
+  proposalProtectedCallsArchive,
+} from '@waldur/api';
 import { Tip } from '@waldur/core/Tooltip';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
-import { updateCallState } from '../api';
 import { Call } from '../types';
 import { getCallStateActions } from '../utils';
 
@@ -35,7 +38,11 @@ export const CallActions: FC<CallActionsProps> = ({
             action: label.toLowerCase(),
           }),
         );
-        await updateCallState(state, call.uuid);
+        if (state === 'activate') {
+          proposalProtectedCallsActivate({ path: { uuid: call.uuid } });
+        } else if (state === 'archive') {
+          proposalProtectedCallsArchive({ path: { uuid: call.uuid } });
+        }
         dispatch(showSuccess(translate('Call state updated.')));
         refetch();
       } catch (er) {

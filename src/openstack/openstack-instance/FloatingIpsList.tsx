@@ -1,15 +1,19 @@
 import { FunctionComponent, useCallback } from 'react';
 
-import { openstackInstancesRetrieve } from '@waldur/api';
+import {
+  OpenStackInstance,
+  openstackInstancesRetrieve,
+  OpenStackNestedFloatingIp,
+} from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { UpdateFloatingIpsActionButton } from '@waldur/openstack/openstack-instance/actions/update-floating-ips/UpdateFloatingIpsActionButton';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
 
-export const FloatingIpsList: FunctionComponent<{ resourceScope; refetch }> = ({
-  resourceScope,
-  refetch,
-}) => {
+export const FloatingIpsList: FunctionComponent<{
+  resourceScope: OpenStackInstance;
+  refetch;
+}> = ({ resourceScope, refetch }) => {
   const fetchData = useCallback(
     () =>
       openstackInstancesRetrieve({ path: { uuid: resourceScope.uuid } }).then(
@@ -25,7 +29,7 @@ export const FloatingIpsList: FunctionComponent<{ resourceScope; refetch }> = ({
     fetchData,
   });
   return (
-    <Table
+    <Table<OpenStackNestedFloatingIp>
       {...props}
       columns={[
         {

@@ -8,6 +8,7 @@ import {
   StorageModeEnum,
 } from '@waldur/api';
 import { translate } from '@waldur/i18n';
+import { Option } from '@waldur/marketplace/common/registry';
 import { useModal } from '@waldur/modal/hooks';
 import { useNotify } from '@waldur/store/hooks';
 
@@ -16,7 +17,7 @@ interface ChangeStorageModeDialogProps {
     offering: { plugin_options: MergedPluginOptionsRequest; uuid: string };
     refetch(): void;
     currentMode: StorageModeEnum;
-    modes: Array<{ value: string; label: string }>;
+    modes: Option[];
   };
 }
 

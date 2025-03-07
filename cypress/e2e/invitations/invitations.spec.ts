@@ -108,11 +108,11 @@ describe('Invitations', () => {
 
       .intercept(
         'GET',
-        '/api/marketplace-categories/?field=uuid&field=title&has_offerings=true',
+        '/api/marketplace-categories/**',
         { fixture: 'marketplace/categories.json' },
       )
 
-      .intercept('GET', '/api/marketplace-orders/', [])
+      .intercept('GET', '/api/marketplace-orders/**', [])
       .intercept(
         'GET',
         '/api/customers/bf6d515c9e6e445f9c339021b30fc96b/counters/?fields=projects',
