@@ -44,6 +44,7 @@ export const getProviderUsageComponents = async (
   const options =
     periods.length > 0
       ? periods.map((period) => ({
+          // @ts-ignore
           label: getPeriodLabel(period),
           value: period,
         }))
@@ -93,10 +94,10 @@ export const getComponentsAndUsages = async (
   let userUsages;
   try {
     usages = await getComponentUsages(resource_uuid, date_after, {
-      fields: ['type', 'usage', 'billing_period'],
+      field: ['type', 'usage', 'billing_period'],
     });
     userUsages = await getComponentUserUsages(resource_uuid, date_after, {
-      fields: ['component_type', 'usage', 'billing_period'],
+      field: ['component_type', 'usage', 'billing_period'],
     });
   } catch (error) {
     throw new Error(

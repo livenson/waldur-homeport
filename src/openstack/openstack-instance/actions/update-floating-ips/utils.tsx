@@ -4,13 +4,13 @@ import { useAsync } from 'react-use';
 import { formValueSelector, reduxForm } from 'redux-form';
 
 import { openstackInstancesUpdateFloatingIps } from '@waldur/api';
+import { OpenStackInstance } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { loadFloatingIps } from '@waldur/openstack/api';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { type RootState } from '@waldur/store/reducers';
 
-import { OpenStackInstance } from '../../types';
 import { formatSubnet } from '../../utils';
 
 interface FloatingIpPair {
@@ -29,8 +29,8 @@ export const useFloatingIpsEditor = (resource: OpenStackInstance, refetch?) => {
     () =>
       loadFloatingIps({
         tenant_uuid: resource.tenant_uuid,
-        free: 'True',
-        fields: ['url', 'address'],
+        free: true,
+        field: ['url', 'address'],
       }).then((floatingIps) => [
         {
           value: true,

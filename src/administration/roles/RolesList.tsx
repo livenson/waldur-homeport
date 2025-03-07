@@ -1,3 +1,4 @@
+import { RoleDetails } from '@waldur/api';
 import { Badge } from '@waldur/core/Badge';
 import { translate } from '@waldur/i18n';
 import { formatRoleType } from '@waldur/permissions/utils';
@@ -16,7 +17,7 @@ export const RolesList = () => {
   });
 
   return (
-    <Table
+    <Table<RoleDetails>
       {...tableProps}
       columns={[
         {
@@ -43,6 +44,7 @@ export const RolesList = () => {
         },
         {
           title: translate('Assigned users count'),
+          // @ts-ignore
           render: ({ row }) => row.users_count,
         },
         {

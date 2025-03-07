@@ -5,12 +5,13 @@ import { formValueSelector, reduxForm } from 'redux-form';
 import {
   DirectionEnum,
   EthertypeEnum,
+  openstackSecurityGroupsList,
   openstackSecurityGroupsSetRules,
   ProtocolEnum,
 } from '@waldur/api';
+import { getAllPages } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
-import { loadSecurityGroupsResources } from '@waldur/openstack/api';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { type RootState } from '@waldur/store/reducers';
 
@@ -45,11 +46,11 @@ export const useRulesEditor = (resource: SecurityGroup) => {
       : resource.tenant;
   const asyncState = useAsync(
     () =>
-      loadSecurityGroupsResources({
-        tenant,
-        field: ['name', 'url'],
-        o: 'name',
-      }),
+      getAllPages((page) =>
+        openstackSecurityGroupsList({
+          query: { page, tenant, field: ['name', 'url'] },
+        }),
+      ),
     [tenant],
   );
   const dispatch = useDispatch();

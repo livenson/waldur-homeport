@@ -2,6 +2,7 @@ import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
 
+import { Project } from '@waldur/api';
 import { formatDate, formatDateTime } from '@waldur/core/dateUtils';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { OrganizationLink } from '@waldur/customer/list/OrganizationLink';
@@ -64,11 +65,12 @@ export const ProjectsList = () => {
       project: row,
     });
 
-  const columns: Column[] = [
+  const columns: Column<Project>[] = [
     {
       title: translate('Name'),
       orderField: 'name',
       render: ({ row }) => (
+        // @ts-ignore
         <ProjectLink row={row} onClick={() => onClickDetails(row)} />
       ),
       copyField: (row) => row.name,
@@ -126,7 +128,7 @@ export const ProjectsList = () => {
       keys: ['start_date'],
       id: 'start_date',
       export: (row) =>
-        row.start_date ? formatDate(row.start__date) : DASH_ESCAPE_CODE,
+        row.start_date ? formatDate(row.start_date) : DASH_ESCAPE_CODE,
       optional: true,
     },
 
@@ -165,7 +167,7 @@ export const ProjectsList = () => {
       keys: ['uuid'],
       id: 'uuid',
     },
-    SLUG_COLUMN,
+    SLUG_COLUMN as Column<Project>,
   ];
 
   if (isFeatureVisible(ProjectFeatures.estimated_cost)) {

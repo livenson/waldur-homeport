@@ -5,6 +5,9 @@ import { Button, Form, FormCheck } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { arrayPush, arrayRemoveAll, Field, FieldArray } from 'redux-form';
 
+import { rancherClusterTemplatesList } from '@waldur/api';
+import { OpenStackFlavor } from '@waldur/api';
+import { getAllPages } from '@waldur/core/api';
 import { required } from '@waldur/core/validators';
 import { FormGroup, SelectField, StringField } from '@waldur/form';
 import { BoxNumberField } from '@waldur/form/BoxNumberField';
@@ -14,14 +17,12 @@ import { StepCardPlaceholder } from '@waldur/marketplace/deploy/steps/StepCardPl
 import { FormStepProps } from '@waldur/marketplace/deploy/types';
 import { ORDER_FORM_ID } from '@waldur/marketplace/details/constants';
 import { waitForConfirmation } from '@waldur/modal/actions';
-import { Flavor } from '@waldur/openstack/openstack-instance/types';
-import { listClusterTemplates } from '@waldur/rancher/api';
 
 import { NODES_FIELD_ARRAY } from './constants';
 import { LonghornWorkerWarning } from './LonghornWorkerWarning';
 import {
-  formTenantSelector,
   filterFlavors,
+  formTenantSelector,
   useVolumeDataLoader,
 } from './utils';
 
@@ -189,10 +190,11 @@ export const FormNodesStep = (props: FormStepProps) => {
   const { data: volumeData } = useVolumeDataLoader(tenant);
   const { data: templates, isLoading: templateLoading } = useQuery(
     ['nodes-step-templates'],
-    () => listClusterTemplates(),
+    () =>
+      getAllPages((page) => rancherClusterTemplatesList({ query: { page } })),
     { staleTime: 3 * 60 * 1000 },
   );
-  const { data: flavors, isLoading } = useQuery<{}, {}, Flavor[]>(
+  const { data: flavors, isLoading } = useQuery<{}, {}, OpenStackFlavor[]>(
     ['nodes-step-flavors', tenant?.url, props.offering.uuid],
     () =>
       tenant && props.offering

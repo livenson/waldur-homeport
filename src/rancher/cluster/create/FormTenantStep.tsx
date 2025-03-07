@@ -3,7 +3,8 @@ import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Field } from 'redux-form';
 
-import { getAll } from '@waldur/core/api';
+import { openstackTenantsList } from '@waldur/api';
+import { getAllPages } from '@waldur/core/api';
 import { required } from '@waldur/core/validators';
 import { FormGroup, SelectField } from '@waldur/form';
 import { VStepperFormStepCard } from '@waldur/form/VStepperFormStep';
@@ -17,12 +18,15 @@ export const FormTenantStep = (props: FormStepProps) => {
     ['tenant-step', customer?.uuid],
     () =>
       customer
-        ? getAll<any>('/openstack-tenants/', {
-            params: {
-              customer_uuid: customer.uuid,
-              field: ['name', 'url', 'uuid'],
-            },
-          })
+        ? getAllPages((page) =>
+            openstackTenantsList({
+              query: {
+                page,
+                customer_uuid: customer.uuid,
+                field: ['name', 'url', 'uuid'],
+              },
+            }),
+          )
         : null,
     { staleTime: 3 * 60 * 1000 },
   );

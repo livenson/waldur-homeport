@@ -1,13 +1,13 @@
 import { FC, useMemo } from 'react';
 
+import { RobotAccountDetails, SshKey } from '@waldur/api';
 import { CopyToClipboardContainer } from '@waldur/core/CopyToClipboardContainer';
 import { translate } from '@waldur/i18n';
 import { ExpandableContainer } from '@waldur/table/ExpandableContainer';
-import { SshKey } from '@waldur/user/types';
 
-import { RobotAccount } from './types';
-
-export const RobotAccountExpandable: FC<{ row: RobotAccount }> = ({ row }) => {
+export const RobotAccountExpandable: FC<{ row: RobotAccountDetails }> = ({
+  row,
+}) => {
   const groupedKeys = useMemo<Record<string, SshKey[]>>(
     () =>
       row.user_keys.reduce((result, item) => {

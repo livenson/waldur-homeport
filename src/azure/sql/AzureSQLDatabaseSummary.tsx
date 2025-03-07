@@ -1,4 +1,4 @@
-import { AzureSQLDatabase } from '@waldur/azure/common/types';
+import { AzureSqlDatabase } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { ResourceLink } from '@waldur/resource/ResourceLink';
 import { Field, ResourceSummaryProps } from '@waldur/resource/summary';
@@ -6,7 +6,7 @@ import { Field, ResourceSummaryProps } from '@waldur/resource/summary';
 import { PureAzureResourceSummary } from '../AzureResourceSummary';
 
 export const AzureSQLDatabaseSummary = (
-  props: ResourceSummaryProps<AzureSQLDatabase>,
+  props: ResourceSummaryProps<AzureSqlDatabase>,
 ) => {
   const { resource } = props;
   return (

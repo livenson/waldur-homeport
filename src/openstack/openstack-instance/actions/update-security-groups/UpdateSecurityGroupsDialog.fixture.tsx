@@ -3,7 +3,7 @@ import { mount, ReactWrapper } from 'enzyme';
 import { Provider } from 'react-redux';
 import { Store } from 'redux';
 
-import { OpenStackInstance } from '@waldur/openstack/openstack-instance/types';
+import { OpenStackInstance } from '@waldur/api';
 import { SecurityGroup } from '@waldur/openstack/openstack-security-groups/types';
 
 import { UpdateSecurityGroupsDialog } from './UpdateSecurityGroupsDialog';

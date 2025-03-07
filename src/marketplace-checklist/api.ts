@@ -1,40 +1,27 @@
 import Axios from 'axios';
 
+import {
+  marketplaceChecklistsCategoriesList,
+  marketplaceChecklistsCategoriesChecklistsList,
+  marketplaceChecklistsList,
+} from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
-import { getAll, parseResultCount, post } from '@waldur/core/api';
-
-import { Category, Checklist, Question, Answer, ChecklistStats } from './types';
+import { getAllPages, parseResultCount } from '@waldur/core/api';
 
 export const getCategories = () =>
-  getAll<Category>('/marketplace-checklists-categories/');
-
-export const getChecklists = (categoryId?: string) =>
-  getAll<Checklist>(
-    categoryId
-      ? `/marketplace-checklists-categories/${categoryId}/checklists/`
-      : '/marketplace-checklists/',
+  getAllPages((page) =>
+    marketplaceChecklistsCategoriesList({ query: { page } }),
   );
 
-export const getQuestions = (checklistId: string) =>
-  getAll<Question>(`/marketplace-checklists/${checklistId}/questions/`);
-
-export const getAnswers = (userId: string, checklistId: string) =>
-  getAll<Answer>(
-    `/marketplace-checklists/${checklistId}/user/${userId}/answers/`,
+export const getChecklists = (category_uuid?: string) =>
+  getAllPages((page) =>
+    category_uuid
+      ? marketplaceChecklistsCategoriesChecklistsList({
+          path: { category_uuid },
+          query: { page },
+        })
+      : marketplaceChecklistsList({ query: { page } }),
   );
-
-export const getStats = (checklistId: string) =>
-  getAll<ChecklistStats>(`/marketplace-checklists/${checklistId}/stats/`);
-
-export const getCustomerStats = (customerId: string, checklistId: string) =>
-  getAll<ChecklistStats>(
-    `/customers/${customerId}/marketplace-checklists/${checklistId}/`,
-  );
-
-export const updateCustomerChecklists = (
-  customerId: string,
-  checkliststs: string[],
-) => post(`/customers/${customerId}/marketplace-checklists/`, checkliststs);
 
 export const countChecklists = () =>
   Axios.request({

@@ -2,6 +2,7 @@ import { PencilSimple } from '@phosphor-icons/react';
 import { FunctionComponent } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { OpenStackInstance } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { openModalDialog } from '@waldur/modal/actions';
@@ -14,7 +15,7 @@ const SetAllowedAddressPairsDialog = lazyComponent(() =>
 );
 
 export const SetAllowedAddressPairsButton: FunctionComponent<{
-  instance;
+  instance: OpenStackInstance;
   port;
 }> = ({ instance, port }) => {
   const dispatch = useDispatch();

@@ -1,5 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
 
+import { OpenStackInstance, OpenstackInstancesListData } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { AddResourceButton } from '@waldur/marketplace/resources/actions/AddResourceButton';
 import { ModalActionsRouter } from '@waldur/marketplace/resources/actions/ModalActionsRouter';
@@ -17,7 +18,7 @@ import { INSTANCE_TYPE } from '../constants';
 export const TenantInstancesList: FunctionComponent<{ resourceScope }> = ({
   resourceScope,
 }) => {
-  const filter = useMemo(
+  const filter = useMemo<OpenstackInstancesListData['query']>(
     () => ({
       tenant_uuid: resourceScope.uuid,
       field: [
@@ -39,7 +40,6 @@ export const TenantInstancesList: FunctionComponent<{ resourceScope }> = ({
         'cores',
         'ram',
         'start_time',
-        'resource_state',
         'volumes',
         'security_groups',
         'backend_id',
@@ -57,7 +57,7 @@ export const TenantInstancesList: FunctionComponent<{ resourceScope }> = ({
     filter,
   });
   return (
-    <Table
+    <Table<OpenStackInstance>
       {...props}
       columns={[
         {

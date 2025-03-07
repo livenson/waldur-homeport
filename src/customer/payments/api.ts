@@ -1,13 +1,11 @@
-import { getAll } from '@waldur/core/api';
-import { Payment } from '@waldur/workspace/types';
+import { paymentsList } from '@waldur/api';
+import { getAllPages } from '@waldur/core/api';
 
-export const getTotalOfSumPaid = (profileUuid: string) => {
-  const params = {
-    profile_uuid: profileUuid,
-  };
-  return getAll<Payment>('/payments/', { params }).then((response: any) =>
+export const getTotalOfSumPaid = (profileUuid: string): Promise<number> =>
+  getAllPages((page) =>
+    paymentsList({ query: { page, profile_uuid: profileUuid } }),
+  ).then((response) =>
     response.length
-      ? response.reduce((a, b) => parseInt(a.sum) + parseInt(b.sum))
-      : '0',
+      ? response.map((payment) => parseInt(payment.sum)).reduce((a, b) => a + b)
+      : 0,
   );
-};

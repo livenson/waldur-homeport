@@ -93,25 +93,24 @@ export const getNextPageUrl = (response) => {
   return nextLink.split(';')[0].slice(1, -1);
 };
 
-export async function getAll<T = {}>(
-  endpoint: string,
-  options?: AxiosRequestConfig,
+export async function getAllPages<T>(
+  fetchPage: (page: number) => Promise<{ data: T[]; response }>,
 ): Promise<T[]> {
-  let response = await get(endpoint, options);
-  let result = [];
+  let results: T[] = [];
+  let nextUrl: string | undefined;
+  let page = 1;
 
-  while (true) {
-    if (Array.isArray(response.data)) {
-      result = result.concat(response.data);
+  do {
+    const result = await fetchPage(page);
+    results = results.concat(result.data);
+
+    page += 1;
+    if (result.response) {
+      nextUrl = getNextPageUrl(result.response);
     }
-    const url = getNextPageUrl(response);
-    if (url) {
-      response = await Axios.get(url, { signal: options?.signal });
-    } else {
-      break;
-    }
-  }
-  return result;
+  } while (nextUrl);
+
+  return results;
 }
 
 export const formDataOptions = {

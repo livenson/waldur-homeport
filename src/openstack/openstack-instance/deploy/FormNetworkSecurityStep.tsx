@@ -146,15 +146,13 @@ export const FormNetworkSecurityStep = (props: FormStepProps) => {
         loadSubnets({ tenant_uuid: props.offering.scope_uuid }),
         loadFloatingIps({
           tenant_uuid: props.offering.scope_uuid,
-          free: 'True',
-          fields: ['url', 'address'],
+          free: true,
+          field: ['url', 'address'],
         }),
-      ]).then((res) => {
-        return {
-          subnets: res[0],
-          floatingIps: res[1],
-        };
-      });
+      ]).then(([subnets, floatingIps]) => ({
+        subnets,
+        floatingIps,
+      }));
     },
     { staleTime: 3 * 60 * 1000 },
   );

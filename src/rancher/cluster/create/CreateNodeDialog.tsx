@@ -3,14 +3,14 @@ import { useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
 import { reduxForm } from 'redux-form';
 
+import { RancherCluster, rancherNodesCreate } from '@waldur/api';
+import { OpenStackFlavor } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
-import { Flavor } from '@waldur/openstack/openstack-instance/types';
-import { createNode } from '@waldur/rancher/api';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
 import { NodeFlavorGroup } from './NodeFlavorGroup';
@@ -20,13 +20,13 @@ import { SubnetGroup } from './SubnetGroup';
 import { loadNodeCreateData } from './utils';
 
 interface OwnProps {
-  resolve: { resource: any };
+  resolve: { resource: RancherCluster };
   flavors: any[];
   subnets: any[];
 }
 
 interface FormData {
-  flavor: Flavor;
+  flavor: OpenStackFlavor;
   system_volume_size: number;
   system_volume_type: string;
   roles: string[];
@@ -40,7 +40,7 @@ const serializeDataVolume = ({ size, ...volumeRest }) => ({
   size: size * 1024,
 });
 
-const serializeNode = (cluster, formData) => ({
+const serializeNode = (cluster: RancherCluster, formData) => ({
   cluster: cluster.url,
   roles: formData.roles.filter((role) => role),
   subnet: formData.attributes.subnet,
@@ -61,7 +61,7 @@ export const CreateNodeDialog = reduxForm<FormData, OwnProps>({
   const callback = useCallback(
     async (formData: FormData) => {
       try {
-        await createNode(serializeNode(cluster, formData));
+        await rancherNodesCreate({ body: serializeNode(cluster, formData) });
       } catch (error) {
         dispatch(showErrorResponse(error, translate('Unable to create node.')));
         return;

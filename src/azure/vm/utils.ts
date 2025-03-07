@@ -1,15 +1,16 @@
 import {
+  AzureImage,
   azureImagesList,
   azureLocationsList,
+  AzureSize,
   azureSizesList,
 } from '@waldur/api';
-import { Size, Image } from '@waldur/azure/common/types';
 import { ENV } from '@waldur/configs/default';
 import { parseSelectData } from '@waldur/core/api';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
 import { formatFlavor } from '@waldur/resource/utils';
 
-export const getSizeLabel = (size: Size): string => {
+export const getSizeLabel = (size: AzureSize): string => {
   const summary = formatFlavor({
     disk: size.os_disk_size_in_mb + size.resource_disk_size_in_mb,
     cores: size.number_of_cores,
@@ -19,7 +20,7 @@ export const getSizeLabel = (size: Size): string => {
   return `${name} (${summary})`;
 };
 
-export const getImageLabel = (image: Image): string =>
+export const getImageLabel = (image: AzureImage): string =>
   `${image.publisher} ${image.name} ${image.sku}`;
 
 export const loadLocationOptions = async (

@@ -1,11 +1,11 @@
 import { FC, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { proposalProtectedCallsOfferingsSet } from '@waldur/api';
 import { fixURL } from '@waldur/core/api';
 import { WizardFormContainer } from '@waldur/form/WizardFormContainer';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
-import { createCallOffering } from '@waldur/proposals/api';
 import { CallOfferingFormData, Call } from '@waldur/proposals/types';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
@@ -37,32 +37,33 @@ export const CallOfferingCreateDialog: FC<CallOfferingCreateDialogProps> = (
 ) => {
   const dispatch = useDispatch();
   const createRound = useCallback(
-    (formData: CallOfferingFormData, _dispatch, formProps) => {
-      const updated_plan_url = fixURL(
-        `/marketplace-plans/${formData.plan.uuid}/`,
-      );
-      const payload = {
-        offering: formData.offering.url,
-        description: formData.description,
-        plan: updated_plan_url,
-        attributes: formData.limits
-          ? {
-              limits: formData.limits,
-            }
-          : {},
-      };
-      return createCallOffering(props.resolve.call.uuid, payload)
-        .then(() => {
-          dispatch(
-            showSuccess(translate('Offering request has been submitted.')),
-          );
-          formProps.destroy();
-          dispatch(closeModalDialog());
-          props.resolve.refetch();
-        })
-        .catch((error) => {
-          dispatch(showErrorResponse(error, translate('Something went wrong')));
+    async (formData: CallOfferingFormData, _dispatch, formProps) => {
+      try {
+        const updated_plan_url = fixURL(
+          `/marketplace-plans/${formData.plan.uuid}/`,
+        );
+        await proposalProtectedCallsOfferingsSet({
+          path: { uuid: props.resolve.call.uuid },
+          body: {
+            offering: formData.offering.url,
+            description: formData.description,
+            plan: updated_plan_url,
+            attributes: formData.limits
+              ? {
+                  limits: formData.limits,
+                }
+              : {},
+          },
         });
+        dispatch(
+          showSuccess(translate('Offering request has been submitted.')),
+        );
+        formProps.destroy();
+        dispatch(closeModalDialog());
+        props.resolve.refetch();
+      } catch (error) {
+        dispatch(showErrorResponse(error, translate('Something went wrong')));
+      }
     },
     [dispatch, props.resolve],
   );

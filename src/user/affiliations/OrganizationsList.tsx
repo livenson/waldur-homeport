@@ -270,7 +270,7 @@ export const OrganizationsList: FunctionComponent = () => {
       filter: 'is_service_provider',
       id: 'is_service_provider',
     },
-    SLUG_COLUMN,
+    SLUG_COLUMN as Column<Customer>,
   ];
 
   if (

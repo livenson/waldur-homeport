@@ -31,10 +31,7 @@ export const FormTemplateStep = (props: FormStepProps) => {
     ['VMwareImages', props.offering?.scope_uuid, props.offering?.customer_uuid],
     () =>
       props.offering.scope_uuid && props.offering.customer_uuid
-        ? getVMwareTemplates(
-            props.offering.scope_uuid,
-            props.offering.customer_uuid,
-          )
+        ? getVMwareTemplates(props.offering.scope_uuid)
         : Promise.resolve([]),
     { staleTime: 3 * 60 * 1000 },
   );

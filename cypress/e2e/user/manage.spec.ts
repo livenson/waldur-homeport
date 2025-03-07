@@ -18,14 +18,14 @@ describe('User manage', () => {
   beforeEach(() => {
     cy.mockUser()
       .mockChecklists()
-      .intercept('GET', '/api/support-templates/', [])
+      .intercept('GET', '/api/support-templates/**', [])
       .intercept('PATCH', '/api/users/3a836bc76e1b40349ec1a0d8220f374f/', {
         fixture: 'users/alice.json',
       })
-      .intercept('HEAD', '/api/customers/', [])
+      .intercept('HEAD', '/api/customers/**', [])
       .intercept(
         'GET',
-        '/api/marketplace-categories/?field=uuid&field=title&has_offerings=true',
+        '/api/marketplace-categories/**',
         [],
       )
       .intercept('GET', '/api/customers/**', [])

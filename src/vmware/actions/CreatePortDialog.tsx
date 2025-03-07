@@ -2,8 +2,11 @@ import { FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
 
-import { vmwareVirtualMachineCreatePort } from '@waldur/api';
-import { getAll } from '@waldur/core/api';
+import {
+  vmwareNetworksList,
+  vmwareVirtualMachineCreatePort,
+} from '@waldur/api';
+import { getAllPages } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { createNameField } from '@waldur/resource/actions/base';
@@ -17,11 +20,15 @@ export const CreatePortDialog: FC<ActionDialogProps> = ({
   const dispatch = useDispatch();
 
   const asyncState = useAsync(async () => {
-    const params = {
-      customer_pair_uuid: resource.customer_uuid,
-      settings_uuid: resource.settings_uuid,
-    };
-    const networks = await getAll<any>('/vmware-networks/', { params });
+    const networks = await getAllPages((page) =>
+      vmwareNetworksList({
+        query: {
+          page,
+          customer_pair_uuid: resource.customer_uuid,
+          settings_uuid: resource.settings_uuid,
+        },
+      }),
+    );
     return {
       networks: networks.map((network) => ({
         value: network.url,

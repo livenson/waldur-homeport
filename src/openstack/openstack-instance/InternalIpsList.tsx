@@ -1,8 +1,8 @@
 import { FunctionComponent, useCallback } from 'react';
 
-import { openstackInstancesRetrieve } from '@waldur/api';
+import { OpenStackInstance, openstackInstancesRetrieve } from '@waldur/api';
+import { OpenStackNestedPort } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import { Port } from '@waldur/resource/types';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
 
@@ -10,10 +10,10 @@ import { UpdateInternalIpsAction } from './actions/update-internal-ips/UpdateInt
 import { SetAllowedAddressPairsButton } from './SetAllowedAddressPairsButton';
 import { formatAddressList } from './utils';
 
-export const InternalIpsList: FunctionComponent<{ resourceScope; refetch }> = ({
-  resourceScope,
-  refetch,
-}) => {
+export const InternalIpsList: FunctionComponent<{
+  resourceScope: OpenStackInstance;
+  refetch;
+}> = ({ resourceScope, refetch }) => {
   const fetchData = useCallback(
     () =>
       openstackInstancesRetrieve({ path: { uuid: resourceScope.uuid } }).then(
@@ -29,7 +29,7 @@ export const InternalIpsList: FunctionComponent<{ resourceScope; refetch }> = ({
     fetchData,
   });
   return (
-    <Table<Port>
+    <Table<OpenStackNestedPort>
       {...props}
       columns={[
         {

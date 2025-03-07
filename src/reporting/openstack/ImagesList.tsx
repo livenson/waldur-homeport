@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
 
+import { OpenStackImage } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
@@ -33,7 +34,7 @@ export const ImagesList: FunctionComponent<{}> = () => {
   });
 
   return (
-    <Table
+    <Table<OpenStackImage>
       {...props}
       columns={[
         {

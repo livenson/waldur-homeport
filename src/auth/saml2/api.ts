@@ -1,5 +1,3 @@
-import Axios from 'axios';
-
 import { apiAuthSaml2ProvidersList } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { parseSelectData } from '@waldur/core/api';
@@ -23,6 +21,3 @@ export const getSaml2IdentityProviders = async (
     currentPage,
   );
 };
-
-export const loginSaml2 = (provider: string) =>
-  Axios.post(`${ENV.apiEndpoint}api-auth/saml2/login/`, { idp: provider });

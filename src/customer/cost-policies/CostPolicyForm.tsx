@@ -23,6 +23,7 @@ import {
   organizationAutocomplete,
   projectAutocomplete,
 } from '@waldur/marketplace/common/autocompletes';
+import { Option } from '@waldur/marketplace/common/registry';
 import { ProjectCostField } from '@waldur/project/ProjectCostField';
 import { getCustomer } from '@waldur/workspace/selectors';
 
@@ -50,10 +51,7 @@ export const CostPolicyForm: FC<CostPolicyFormProps> = (props) => {
       : null,
   );
 
-  const [selectedAction, setSelectedAction] = useState<{
-    value: string;
-    label: string;
-  } | null>(
+  const [selectedAction, setSelectedAction] = useState<Option | null>(
     typeof props.initialValues?.actions === 'string'
       ? {
           value: props.initialValues.actions,

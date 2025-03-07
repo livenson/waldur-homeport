@@ -1,6 +1,7 @@
 import { debounce } from 'lodash-es';
 import { useCallback, useMemo } from 'react';
 
+import { OpenStackFlavor } from '@waldur/api';
 import { formatFilesize } from '@waldur/core/utils';
 import { required } from '@waldur/core/validators';
 import { FilterBox } from '@waldur/form/FilterBox';
@@ -11,8 +12,6 @@ import { QuotaUsageBarChart } from '@waldur/quotas/QuotaUsageBarChart';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
-
-import { Flavor } from '../types';
 
 import { FormAbstractVolumeFields } from './FormAbstractVolumeFields';
 import { getOfferingLimit, useQuotasData } from './utils';
@@ -50,7 +49,7 @@ export const FormHardwareConfigurationStep = (props: FormStepProps) => {
   );
 
   const exceeds = useCallback(
-    (value: Flavor) => {
+    (value: OpenStackFlavor) => {
       if (!value || !limit) return undefined;
       const errors = [];
 

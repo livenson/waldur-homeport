@@ -42,7 +42,7 @@ describe('Offerings list actions in Provider dashboard page', () => {
       },
     );
     cy.intercept('GET', '/api/marketplace-service-providers/**/revenue/**', [])
-      .intercept('GET', '/api/marketplace-categories/', {
+      .intercept('GET', '/api/marketplace-categories/**', {
         fixture: 'marketplace/categories.json',
       })
       .intercept(

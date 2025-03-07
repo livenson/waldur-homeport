@@ -2,13 +2,20 @@ import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { openstackBackupsRestore } from '@waldur/api';
+import {
+  openstackBackupsRestore,
+  OpenStackSubNet,
+  OpenStackFlavor,
+  OpenStackBackup,
+} from '@waldur/api';
+import {
+  openstackFlavorsList,
+  openstackFloatingIpsList,
+  openstackSecurityGroupsList,
+  openstackSubnetsList,
+} from '@waldur/api';
 import { useModal } from '@waldur/modal/hooks';
-import * as api from '@waldur/openstack/api';
-import { Flavor, Subnet } from '@waldur/openstack/openstack-instance/types';
 import { useNotify } from '@waldur/store/hooks';
-
-import { OpenStackBackup } from '../types';
 
 import { BackupRestoreDialog } from './BackupRestoreDialog';
 
@@ -16,13 +23,13 @@ const fakeSubnet = {
   url: '/api/openstack-subnets/51e584157094493ca121f71642c0a409/',
   name: 'p60347-sub-net',
   cidr: '192.168.42.0/24',
-} as unknown as Subnet;
+} as unknown as OpenStackSubNet;
 
 const freeSubnet = {
   url: '/api/openstack-subnets/62f584157094493ca121f71642c0a410/',
   name: 'free-subnet',
   cidr: '192.168.43.0/24',
-} as unknown as Subnet;
+} as unknown as OpenStackSubNet;
 
 const fakeBackup = {
   url: '/api/openstack-backups/21693289bd78400db79fb2a0ef2ba177/',
@@ -49,7 +56,7 @@ const fakeBackup = {
       subnet_cidr: fakeSubnet.cidr,
     },
   ],
-} as unknown as OpenStackBackup;
+} as OpenStackBackup;
 
 const fakeFlavors = [
   {
@@ -70,10 +77,9 @@ const fakeFlavors = [
     ram: 2048,
     disk: 20480,
   },
-] as unknown as Flavor[];
+] as unknown as OpenStackFlavor[];
 
 vi.mock('@waldur/api');
-vi.mock('@waldur/openstack/api');
 vi.mock('@waldur/modal/hooks');
 
 vi.mock('@waldur/store/hooks', () => ({
@@ -83,8 +89,6 @@ vi.mock('@waldur/store/hooks', () => ({
   }),
   useTheme: () => 'light',
 }));
-
-const apiMock = vi.mocked(api);
 
 const renderDialog = async () => {
   const result = render(
@@ -111,11 +115,12 @@ describe('BackupRestoreDialog', () => {
     vi.mocked(useModal).mockReturnValue({
       closeDialog: vi.fn(),
     } as any);
-
-    apiMock.loadFlavors.mockResolvedValue([]);
-    apiMock.loadSecurityGroups.mockResolvedValue([]);
-    apiMock.loadFloatingIps.mockResolvedValue([]);
-    apiMock.loadSubnets.mockResolvedValue([]);
+    vi.mocked(openstackFlavorsList).mockResolvedValue({ data: [] } as any);
+    vi.mocked(openstackFloatingIpsList).mockResolvedValue({ data: [] } as any);
+    vi.mocked(openstackSecurityGroupsList).mockResolvedValue({
+      data: [],
+    } as any);
+    vi.mocked(openstackSubnetsList).mockResolvedValue({ data: [] } as any);
   });
 
   it('renders current instance name in modal dialog title', async () => {
@@ -141,29 +146,41 @@ describe('BackupRestoreDialog', () => {
 
   it('filters related resources by tenant', async () => {
     await renderDialog();
-    expect(apiMock.loadFlavors).toHaveBeenCalledWith({
-      tenant_uuid: fakeBackup.tenant_uuid,
-      fields: ['url', 'name', 'cores', 'ram'],
+    expect(vi.mocked(openstackFlavorsList)).toHaveBeenCalledWith({
+      query: {
+        page: 1,
+        tenant_uuid: fakeBackup.tenant_uuid,
+        field: ['url', 'name', 'cores', 'ram'],
+      },
     });
-    expect(apiMock.loadSecurityGroups).toHaveBeenCalledWith({
-      tenant_uuid: fakeBackup.tenant_uuid,
-      fields: ['url', 'name'],
+    expect(vi.mocked(openstackSecurityGroupsList)).toHaveBeenCalledWith({
+      query: {
+        page: 1,
+        tenant_uuid: fakeBackup.tenant_uuid,
+        field: ['url', 'name'],
+      },
     });
-    expect(apiMock.loadFloatingIps).toHaveBeenCalledWith({
-      tenant_uuid: fakeBackup.tenant_uuid,
-      free: 'True',
-      fields: ['url', 'address'],
+    expect(vi.mocked(openstackFloatingIpsList)).toHaveBeenCalledWith({
+      query: {
+        page: 1,
+        tenant_uuid: fakeBackup.tenant_uuid,
+        free: true,
+        field: ['url', 'address'],
+      },
     });
-    expect(apiMock.loadSubnets).toHaveBeenCalledWith({
-      tenant_uuid: fakeBackup.tenant_uuid,
-      fields: ['url', 'name', 'cidr'],
+    expect(vi.mocked(openstackSubnetsList)).toHaveBeenCalledWith({
+      query: {
+        page: 1,
+        tenant_uuid: fakeBackup.tenant_uuid,
+        field: ['url', 'name', 'cidr'],
+      },
     });
   });
 
   it('renders security groups correctly', async () => {
-    apiMock.loadSecurityGroups.mockResolvedValue(
-      fakeBackup.instance_security_groups as any,
-    );
+    vi.mocked(openstackSecurityGroupsList).mockResolvedValue({
+      data: fakeBackup.instance_security_groups,
+    } as any);
     await renderDialog();
 
     const securityGroupsSelect = screen.getByLabelText('Security groups');
@@ -181,7 +198,9 @@ describe('BackupRestoreDialog', () => {
   });
 
   it('renders networks section correctly', async () => {
-    apiMock.loadSubnets.mockResolvedValue([fakeSubnet]);
+    vi.mocked(openstackSubnetsList).mockResolvedValue({
+      data: [fakeSubnet],
+    } as any);
     const { container } = await renderDialog();
 
     expect(screen.getByText(/Networks/i)).toBeInTheDocument();
@@ -190,7 +209,9 @@ describe('BackupRestoreDialog', () => {
   });
 
   it('disabled add network button when subnets are not available', async () => {
-    apiMock.loadSubnets.mockResolvedValue([fakeSubnet]);
+    vi.mocked(openstackSubnetsList).mockResolvedValue({
+      data: [fakeSubnet],
+    } as any);
     await renderDialog();
 
     const addButton = screen.getByRole('button', { name: /Add/i });
@@ -198,7 +219,9 @@ describe('BackupRestoreDialog', () => {
   });
 
   it('enables add network button when subnets are available', async () => {
-    apiMock.loadSubnets.mockResolvedValue([fakeSubnet, freeSubnet]);
+    vi.mocked(openstackSubnetsList).mockResolvedValue({
+      data: [fakeSubnet, freeSubnet],
+    } as any);
     await renderDialog();
 
     const addButton = screen.getByRole('button', { name: /Add/i });
@@ -206,7 +229,9 @@ describe('BackupRestoreDialog', () => {
   });
 
   it('allows adding and removing network rows', async () => {
-    apiMock.loadSubnets.mockResolvedValue([fakeSubnet, freeSubnet]);
+    vi.mocked(openstackSubnetsList).mockResolvedValue({
+      data: [fakeSubnet, freeSubnet],
+    } as any);
     const { container } = await renderDialog();
 
     const addButton = screen.getByRole('button', { name: /Add/i });
@@ -223,8 +248,10 @@ describe('BackupRestoreDialog', () => {
   });
 
   it('shows success notification with correct message on successful submit', async () => {
-    apiMock.loadFlavors.mockResolvedValue(fakeFlavors);
-    vi.mocked(openstackBackupsRestore).mockResolvedValue(null);
+    vi.mocked(openstackFlavorsList).mockResolvedValue({
+      data: fakeFlavors,
+    } as any);
+    vi.mocked(openstackBackupsRestore).mockResolvedValue({ data: null } as any);
     await renderDialog();
 
     // Select flavor and submit
@@ -239,7 +266,9 @@ describe('BackupRestoreDialog', () => {
 
   it('shows error notification with correct message on failed submit', async () => {
     const error = new Error('API Error');
-    apiMock.loadFlavors.mockResolvedValue(fakeFlavors);
+    vi.mocked(openstackFlavorsList).mockResolvedValue({
+      data: fakeFlavors,
+    } as any);
     vi.mocked(openstackBackupsRestore).mockRejectedValue(error);
     await renderDialog();
 
@@ -255,8 +284,10 @@ describe('BackupRestoreDialog', () => {
   });
 
   it('submits form with correct data', async () => {
-    apiMock.loadFlavors.mockResolvedValue(fakeFlavors);
-    vi.mocked(openstackBackupsRestore).mockResolvedValue(null);
+    vi.mocked(openstackFlavorsList).mockResolvedValue({
+      data: fakeFlavors,
+    } as any);
+    vi.mocked(openstackBackupsRestore).mockResolvedValue({ data: null } as any);
     await renderDialog();
 
     // Select flavor
@@ -291,8 +322,12 @@ describe('BackupRestoreDialog', () => {
       { address: '2.2.2.2', url: 'url2' },
     ];
 
-    apiMock.loadFloatingIps.mockResolvedValue(floatingIps as any);
-    apiMock.loadSubnets.mockResolvedValue([fakeSubnet]);
+    vi.mocked(openstackFloatingIpsList).mockResolvedValue({
+      data: floatingIps,
+    } as any);
+    vi.mocked(openstackSubnetsList).mockResolvedValue({
+      data: [fakeSubnet],
+    } as any);
 
     const { container } = await renderDialog();
 
@@ -310,11 +345,13 @@ describe('BackupRestoreDialog', () => {
   });
 
   it('submits form with floating IP when selected', async () => {
-    apiMock.loadFlavors.mockResolvedValue(fakeFlavors);
-    apiMock.loadFloatingIps.mockResolvedValue([
-      { address: '1.1.1.1', url: 'floating_ip_url' },
-    ] as any);
-    vi.mocked(openstackBackupsRestore).mockResolvedValue(null);
+    vi.mocked(openstackFlavorsList).mockResolvedValue({
+      data: fakeFlavors,
+    } as any);
+    vi.mocked(openstackFloatingIpsList).mockResolvedValue({
+      data: [{ address: '1.1.1.1', url: 'floating_ip_url' }],
+    } as any);
+    vi.mocked(openstackBackupsRestore).mockResolvedValue({ data: null } as any);
 
     const { container } = await renderDialog();
 
@@ -346,8 +383,10 @@ describe('BackupRestoreDialog', () => {
 
   it('handles refetch callback after successful submit', async () => {
     const refetch = vi.fn();
-    apiMock.loadFlavors.mockResolvedValue(fakeFlavors);
-    vi.mocked(openstackBackupsRestore).mockResolvedValue(null);
+    vi.mocked(openstackFlavorsList).mockResolvedValue({
+      data: fakeFlavors,
+    } as any);
+    vi.mocked(openstackBackupsRestore).mockResolvedValue({ data: null } as any);
 
     render(<BackupRestoreDialog resolve={{ resource: fakeBackup, refetch }} />);
 

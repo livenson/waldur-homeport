@@ -103,12 +103,12 @@ const RenderMenuItems = ({ items }) => {
   );
 };
 
-export const ResourcesMenu = ({ anonymous = false, user }) => {
-  const categories = useOfferingCategories(anonymous);
+export const ResourcesMenu = ({ user }) => {
+  const categories = useOfferingCategories();
 
   const { data: categoryGroups } = useQuery(
     ['MarketplaceCategoryGroups'],
-    () => getCategoryGroups({ params: { field: ['uuid', 'title', 'url'] } }),
+    () => getCategoryGroups({ field: ['uuid', 'title', 'url'] }),
     { staleTime: 1 * 60 * 1000 },
   );
 
@@ -147,7 +147,7 @@ export const ResourcesMenu = ({ anonymous = false, user }) => {
   const sortedCategoryGroups = useMemo(() => {
     if (!categories) return [];
     const _categories = categories.map((category) => {
-      category.resource_count = counters[category.uuid] || 0;
+      category['resource_count'] = counters[category.uuid] || 0;
       return category;
     });
 

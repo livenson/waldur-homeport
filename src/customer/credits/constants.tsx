@@ -12,11 +12,12 @@ import { NumberField } from '@waldur/form';
 import { AwesomeCheckboxField } from '@waldur/form/AwesomeCheckboxField';
 import { DateField } from '@waldur/form/DateField';
 import { translate } from '@waldur/i18n';
+import { Column } from '@waldur/table/types';
 import { renderFieldOrDash } from '@waldur/table/utils';
 
 import { BaseCreditFormData } from './types';
 
-export const COMMON_CREDIT_COLUMNS = [
+export const COMMON_CREDIT_COLUMNS: Column[] = [
   {
     title: translate('Eligible offerings'),
     render: ({ row }) => (

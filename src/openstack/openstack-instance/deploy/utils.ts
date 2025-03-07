@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
+import { OpenStackFlavor } from '@waldur/api';
 import { Offering } from '@waldur/marketplace/types';
 import { orderFormAttributesSelector } from '@waldur/marketplace/utils';
 import { loadVolumeTypes } from '@waldur/openstack/api';
@@ -13,11 +14,9 @@ import {
 import { parseQuotas, parseQuotasUsage } from '@waldur/openstack/utils';
 import { type RootState } from '@waldur/store/reducers';
 
-import { Flavor } from '../types';
-
 export const formFlavorSelector = (state: RootState) => {
   const formAttrs = orderFormAttributesSelector(state);
-  return formAttrs.flavor as Flavor;
+  return formAttrs.flavor as OpenStackFlavor;
 };
 
 export const getOfferingLimit = (

@@ -1,19 +1,18 @@
 import { FunctionComponent, useMemo } from 'react';
 
+import { OpenStackPort, OpenstackPortsListData } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { ResourceRowActions } from '@waldur/resource/actions/ResourceRowActions';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
 
-import { Port } from '../types';
-
 import { ExpandablePortRow } from './ExpandablePortRow';
 
 export const TenantPortsList: FunctionComponent<{ resourceScope }> = ({
   resourceScope,
 }) => {
-  const filter = useMemo(
+  const filter = useMemo<OpenstackPortsListData['query']>(
     () => ({
       tenant_uuid: resourceScope.uuid,
       field: [
@@ -41,7 +40,7 @@ export const TenantPortsList: FunctionComponent<{ resourceScope }> = ({
         'security_groups',
         'project_uuid',
       ],
-      o: 'network_name',
+      o: ['network_name'],
     }),
     [resourceScope],
   );
@@ -51,7 +50,7 @@ export const TenantPortsList: FunctionComponent<{ resourceScope }> = ({
     filter,
   });
   return (
-    <Table<Port>
+    <Table<OpenStackPort>
       {...props}
       columns={[
         {

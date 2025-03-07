@@ -1,9 +1,8 @@
 import Axios, { AxiosRequestConfig } from 'axios';
 
+import { identityProvidersList } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
-import { getAll, parseResultCount, sendForm } from '@waldur/core/api';
-
-import { OIDCConfig } from './types';
+import { getAllPages, parseResultCount, sendForm } from '@waldur/core/api';
 
 export const getCustomersCount = () =>
   Axios.head(`${ENV.apiEndpoint}api/customers/`).then((response) =>
@@ -37,12 +36,9 @@ export const getResourcesCount = (configs?: AxiosRequestConfig<any>) =>
   );
 
 export const getIdentityProviders = () =>
-  getAll<OIDCConfig>('/identity-providers/');
+  getAllPages((page) => identityProvidersList({ query: { page } }));
 
 export const deleteToken = (tokenURL: string) => Axios.delete(tokenURL);
-
-export const getAdminAnnouncements = (configs?: AxiosRequestConfig<any>) =>
-  getAll<any>('/admin-announcements/', configs);
 
 export const attachDocumentsToIssueTemplate = (
   issue_template_uuid: string,

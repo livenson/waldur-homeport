@@ -5,10 +5,9 @@ import { translate } from '@waldur/i18n';
 import { User } from '@waldur/workspace/types';
 
 import { formatInvitation } from './formatInvitation';
-import { Invitation } from './types';
 
 export const InvitationMessage: FunctionComponent<{
-  invitation: Invitation | VisibleInvitationDetails;
+  invitation: VisibleInvitationDetails;
   user: User;
 }> = ({ invitation, user }) => (
   <>

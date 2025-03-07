@@ -1,9 +1,9 @@
 import { FunctionComponent, useMemo } from 'react';
 import { ButtonGroup } from 'react-bootstrap';
 
+import { RancherCluster, RancherHpa } from '@waldur/api';
 import { formatDate } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
-import { HPA } from '@waldur/rancher/types';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
@@ -14,9 +14,9 @@ import { HPACreateButton } from './HPACreateButton';
 import { HPADeleteButton } from './HPADeleteButton';
 import { HPAUpdateButton } from './HPAUpdateButton';
 
-export const ClusterHPAList: FunctionComponent<{ resourceScope }> = ({
-  resourceScope,
-}) => {
+export const ClusterHPAList: FunctionComponent<{
+  resourceScope: RancherCluster;
+}> = ({ resourceScope }) => {
   const filter = useMemo(
     () => ({
       cluster_uuid: resourceScope.uuid,
@@ -31,7 +31,7 @@ export const ClusterHPAList: FunctionComponent<{ resourceScope }> = ({
   });
 
   return (
-    <Table<HPA>
+    <Table<RancherHpa>
       {...props}
       columns={[
         {

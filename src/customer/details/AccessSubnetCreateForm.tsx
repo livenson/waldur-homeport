@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
-import { accessSubnetsCreate } from '@waldur/api';
+import { AccessSubnetRequest, accessSubnetsCreate } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
@@ -10,7 +10,7 @@ import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
 export const AccessSubnetCreateForm = ({ refetch, customer_url }) => {
   const dispatch = useDispatch();
-  const [formData, setFormData] = useState({
+  const [formData, setFormData] = useState<AccessSubnetRequest>({
     inet: '',
     description: '',
     customer: customer_url,
