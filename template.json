@@ -408,7 +408,7 @@
     "message": "Add key"
   },
   "Add member": {
-    "description": "customer/team/UserAddButton.tsx, marketplace/service-providers/UserAddButton.tsx, proposals/call-management/UserAddButton.tsx, proposals/team/AddUserButton.tsx, proposals/team/AddUserDialog.tsx",
+    "description": "customer/team/UserAddButton.tsx, marketplace/service-providers/UserAddButton.tsx, proposals/call-management/UserAddButton.tsx, proposals/team/AddUserDialog.tsx",
     "message": "Add member"
   },
   "Add new": {
@@ -508,7 +508,7 @@
     "message": "Add {category}"
   },
   "Add": {
-    "description": "administration/providers/CreateProviderDialog.tsx, core/AddButton.tsx, customer/list/OrganizationCreateButton.tsx, customer/team/AddProjectUserButton.tsx, customer/team/TeamDropdownActions.tsx, marketplace/deploy/DeployPage.tsx, marketplace/service-providers/UserAddButton.tsx, openstack/OpenStackExternalIpsField.tsx, openstack/openstack-backup/actions/NetworksList.tsx, openstack/openstack-instance/actions/update-floating-ips/FloatingIpsList.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, project/create/GlobalProjectCreateButton.tsx, project/create/ProjectCreateButton.tsx, project/team/TeamDropdownActions.tsx, rancher/cluster/create/FormNodesStep.tsx",
+    "description": "administration/providers/CreateProviderDialog.tsx, core/AddButton.tsx, customer/list/OrganizationCreateButton.tsx, customer/team/AddProjectUserButton.tsx, customer/team/TeamDropdownActions.tsx, marketplace/deploy/DeployPage.tsx, marketplace/service-providers/UserAddButton.tsx, openstack/OpenStackExternalIpsField.tsx, openstack/openstack-backup/actions/NetworksList.tsx, openstack/openstack-instance/actions/update-floating-ips/FloatingIpsList.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, project/create/GlobalProjectCreateButton.tsx, project/create/ProjectCreateButton.tsx, project/team/TeamDropdownActions.tsx, proposals/team/TeamDropdownActions.tsx, rancher/cluster/create/FormNodesStep.tsx",
     "message": "Add"
   },
   "Additional account description invisible to user": {
@@ -5331,10 +5331,6 @@
     "description": "invitations/actions/create/InvitationCreateButton.tsx",
     "message": "Invite by mail"
   },
-  "Invite member": {
-    "description": "invitations/actions/create/InvitationCreateButton.tsx",
-    "message": "Invite member"
-  },
   "Invoice date": {
     "description": "invoices/details/InvoiceDetails.tsx, invoices/list/InvoicesList.tsx",
     "message": "Invoice date"
@@ -5960,7 +5956,7 @@
     "message": "Management offering"
   },
   "Managers": {
-    "description": "proposals/update/CallUpdateContainer.tsx",
+    "description": "proposals/team/TeamSection.tsx, proposals/update/CallUpdateContainer.tsx",
     "message": "Managers"
   },
   "Map categories": {
@@ -6120,7 +6116,7 @@
     "message": "Medical engineering"
   },
   "Member": {
-    "description": "customer/team/CustomerUsersList.tsx, customer/team/UserAddButton.tsx, project/team/AddUserButton.tsx, project/team/ProjectUsersList.tsx, user/affiliations/SummaryTeamTable.tsx",
+    "description": "customer/team/CustomerUsersList.tsx, customer/team/UserAddButton.tsx, project/team/AddUserButton.tsx, project/team/ProjectUsersList.tsx, proposals/team/AddUserButton.tsx, user/affiliations/SummaryTeamTable.tsx",
     "message": "Member"
   },
   "Members": {
@@ -9728,7 +9724,7 @@
     "message": "Reviewer"
   },
   "Reviewers": {
-    "description": "proposals/round/RoundUIView.tsx, proposals/round/reviewers/RoundReviewersList.tsx, proposals/update/CallUpdateContainer.tsx",
+    "description": "proposals/round/RoundUIView.tsx, proposals/round/reviewers/RoundReviewersList.tsx, proposals/team/TeamSection.tsx, proposals/update/CallUpdateContainer.tsx",
     "message": "Reviewers"
   },
   "Reviews in final states are not editable": {
@@ -11380,7 +11376,7 @@
     "message": "Team members"
   },
   "Team": {
-    "description": "customer/routes.ts, customer/team/CustomerUsersList.tsx, dashboard/TeamWidget.tsx, dashboard/api.ts, invitations/GroupInvitationsList.tsx, invitations/InvitationsList.tsx, marketplace/routes.ts, project/ProjectUsersBadge.tsx, project/routes.ts, project/team/InvitationsList.tsx, project/team/ProjectUsersList.tsx, proposals/routes.ts, user/affiliations/OrganizationExpandableRow.tsx, user/affiliations/ProjectExpandableRow.tsx",
+    "description": "customer/routes.ts, customer/team/CustomerUsersList.tsx, dashboard/TeamWidget.tsx, dashboard/api.ts, invitations/GroupInvitationsList.tsx, invitations/InvitationsList.tsx, marketplace/routes.ts, project/ProjectUsersBadge.tsx, project/routes.ts, project/team/InvitationsList.tsx, project/team/ProjectUsersList.tsx, proposals/routes.ts, proposals/update/CallUpdateContainer.tsx, user/affiliations/OrganizationExpandableRow.tsx, user/affiliations/ProjectExpandableRow.tsx",
     "message": "Team"
   },
   "Technical code used by accounting software.": {
