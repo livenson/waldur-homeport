@@ -4,37 +4,23 @@ import {
   CategoryGroup as WaldurCategoryGroup,
   MarketplaceCategory as WaldurCategory,
   BillingUnit,
-  BillingTypeEnum,
   OrganizationGroup,
   OfferingOptions,
   GoogleCalendar,
   NestedScreenshot,
   NestedAttribute,
+  OrderDetails,
+  OfferingComponent,
 } from '@waldur/api';
-import { OrderDetailsType } from '@waldur/marketplace/orders/types';
 import { Quota } from '@waldur/quotas/types';
 import { ResourceState } from '@waldur/resource/types';
 import { Customer, Project } from '@waldur/workspace/types';
 
-interface BaseComponent {
-  type: string;
-  name: string;
-  measured_unit?: string;
-  description?: string;
-}
-
-export interface OfferingComponent extends BaseComponent {
-  billing_type: BillingTypeEnum;
-  limit_period?: 'month' | 'annual' | 'total' | unknown;
-  limit_amount?: number;
-  max_value?: number;
-  min_value?: number;
-  factor?: number;
-  is_boolean?: boolean;
-  default_limit?: number;
-  article_code?: string;
-  uuid: string;
-}
+export {
+  OfferingComponent,
+  ServiceProvider,
+  CategoryColumn,
+} from '@waldur/api';
 
 export interface Plan {
   url: string;
@@ -125,14 +111,6 @@ export interface Section {
   is_standalone?: boolean;
 }
 
-export interface CategoryColumn {
-  uuid?: string;
-  index: number;
-  title: string;
-  attribute?: string;
-  widget?: 'csv' | 'filesize' | 'attached_instance';
-}
-
 export interface CategoryGroup extends WaldurCategoryGroup {
   /** generated on frontend side */
   categories?: Category[];
@@ -143,30 +121,6 @@ export interface CategoryGroup extends WaldurCategoryGroup {
 export interface Category extends WaldurCategory {
   /** generated on frontend side */
   resource_count?: number;
-}
-
-export interface OfferingsListType {
-  items: Offering[];
-  loaded: boolean;
-  loading: boolean;
-}
-
-export interface ServiceProvider {
-  customer_uuid: string;
-  customer_name: string;
-  name?: string;
-  uuid: string;
-  image?: string;
-  customer_image?: string;
-  description?: string;
-  service_offerings?: Offering[];
-  created: string;
-  customer_abbreviation?: string;
-  customer_country?: string;
-  country?: string;
-  country_name?: string;
-  organizationGroup?: string;
-  url?: string;
 }
 
 export interface OfferingConfigurationFormProps extends InjectedFormProps {
@@ -180,7 +134,7 @@ export interface OfferingConfigurationFormProps extends InjectedFormProps {
 }
 
 export interface OrderDetailsProps {
-  order: OrderDetailsType;
+  order: OrderDetails;
   offering: Offering;
   limits?: string[];
 }

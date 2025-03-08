@@ -30,7 +30,9 @@ export const ProviderDetails: FunctionComponent = () => {
     [customer_uuid],
   );
 
-  useTitle(value ? value.provider.name : translate('Provider details'));
+  useTitle(
+    value ? value.provider.customer_name : translate('Provider details'),
+  );
 
   if (loading) {
     return <LoadingSpinner />;

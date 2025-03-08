@@ -18,6 +18,7 @@ export const setImpersonationData = (userUuid) => {
   Axios.defaults.headers['X-IMPERSONATED-USER-UUID'] = userUuid;
   setImpersonatedUserUuid(userUuid);
 };
+
 export const clearImpersonationData = () => {
   delete Axios.defaults.headers['X-IMPERSONATED-USER-UUID'];
   clearImpersonatedUserUuid();

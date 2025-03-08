@@ -106,7 +106,7 @@ describe('OrderSummary', () => {
       user: 'Alice Lebowski',
       components: COMPONENTS,
     };
-    expect(getUpdateSummary(ctx)).toMatchSnapshot();
+    expect(getUpdateSummary(ctx as any)).toMatchSnapshot();
   });
 
   it('formats update summary without components', () => {
