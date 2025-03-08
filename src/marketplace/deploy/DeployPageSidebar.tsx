@@ -1,6 +1,7 @@
 import { Card } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
+import { OrderDetails as OrderResponse } from '@waldur/api';
 import { FormSteps } from '@waldur/form/FormSteps';
 import { SidebarProps } from '@waldur/form/SidebarProps';
 import { translate } from '@waldur/i18n';
@@ -8,7 +9,6 @@ import { OrderSummary } from '@waldur/marketplace/details/OrderSummary';
 import { Offering } from '@waldur/marketplace/types';
 
 import { getCheckoutSummaryComponent } from '../common/registry';
-import { OrderResponse } from '../orders/types';
 
 import { formErrorsSelector, formSubmitErrorsSelector } from './utils';
 

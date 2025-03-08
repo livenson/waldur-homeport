@@ -1,4 +1,4 @@
-import { OrderResponse } from '@waldur/marketplace/orders/types';
+import { OrderDetails as OrderResponse } from '@waldur/api';
 
 import { ApproveAllButton } from './ApproveAllButton';
 import { RejectAllButton } from './RejectAllButton';
