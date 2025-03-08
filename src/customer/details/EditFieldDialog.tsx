@@ -34,9 +34,12 @@ export const EditFieldDialog = connect<{}, {}, { resolve: EditCustomerProps }>(
     initialValues: {
       ...(ownProps.resolve.name === 'country'
         ? {
+            // @ts-ignore
             country: ownProps.resolve.customer.country
               ? {
+                  // @ts-ignore
                   value: ownProps.resolve.customer.country,
+                  // @ts-ignore
                   label: ownProps.resolve.customer.country_name,
                 }
               : null,

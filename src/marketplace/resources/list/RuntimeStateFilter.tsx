@@ -4,22 +4,25 @@ import React from 'react';
 import { useSelector } from 'react-redux';
 import { Field } from 'redux-form';
 
+import { marketplaceRuntimeStatesList } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { REACT_SELECT_TABLE_FILTER, Select } from '@waldur/form/themed-select';
 import { translate } from '@waldur/i18n';
-import { getRuntimeStates } from '@waldur/marketplace/common/api';
 import { getProject } from '@waldur/workspace/selectors';
 
 export const RuntimeStateFilter: React.FC<{}> = () => {
   const { params } = useCurrentStateAndParams();
   const project = useSelector(getProject);
 
-  const { data, isLoading } = useQuery<any>(
+  const { data, isLoading } = useQuery(
     ['runtime-states', project?.uuid, params.category_uuid],
     () =>
-      project
-        ? getRuntimeStates(project.uuid, params.category_uuid)
-        : getRuntimeStates(),
+      marketplaceRuntimeStatesList({
+        query: {
+          project_uuid: project?.uuid,
+          category_uuid: params.category_uuid,
+        },
+      }).then((r) => r.data),
   );
 
   if (isLoading) {

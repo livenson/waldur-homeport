@@ -1,15 +1,7 @@
+import { CoreStates as ResourceState } from '@waldur/api';
 import { Quota } from '@waldur/quotas/types';
 export { OpenStackPort as Port } from '@waldur/api';
-
-export type ResourceState =
-  | 'OK'
-  | 'Erred'
-  | 'Creation Scheduled'
-  | 'Creating'
-  | 'Update Scheduled'
-  | 'Updating'
-  | 'Deletion Scheduled'
-  | 'Deleting';
+export { CoreStates as ResourceState } from '@waldur/api';
 
 export interface BaseResource {
   name: string;

@@ -15,8 +15,8 @@ interface OpenstackVolumeDetailsProps {
 export const OpenstackVolumeDetails = (props: OpenstackVolumeDetailsProps) => {
   const { order } = props;
   const { value: volumeType } = useAsync(() =>
-    order.attributes.type
-      ? openstackVolumeTypesRetrieve(getUUID(order.attributes.type)).then(
+    order.attributes['type']
+      ? openstackVolumeTypesRetrieve(getUUID(order.attributes['type'])).then(
           (response) => response.data,
         )
       : Promise.resolve(null),
@@ -24,11 +24,11 @@ export const OpenstackVolumeDetails = (props: OpenstackVolumeDetailsProps) => {
   return (
     <>
       <Field label={translate('Size')}>
-        {formatFilesize(props.order.attributes.size)}
+        {formatFilesize(props.order.attributes['size'])}
       </Field>
-      {order.attributes.availability_zone_name && (
+      {order.attributes['availability_zone_name'] && (
         <Field label={translate('Availability zone')}>
-          {order.attributes.availability_zone_name}
+          {order.attributes['availability_zone_name']}
         </Field>
       )}
       {volumeType && (

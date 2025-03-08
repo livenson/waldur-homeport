@@ -17,7 +17,7 @@ import {
   organizationGroupsList,
 } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
-import { get, getAllPages, parseResultCount, post } from '@waldur/core/api';
+import { getAllPages, parseResultCount, post } from '@waldur/core/api';
 import { ServiceProvider } from '@waldur/marketplace/types';
 
 export const getCategoryGroups = (
@@ -93,18 +93,6 @@ export const updateOfferingState = (offeringUuid, action, reason) =>
     reason && { paused_reason: reason },
   ).then((response) => response.data);
 
-export const getRuntimeStates = (projectUuid?, categoryUuid?) => {
-  let url = '/marketplace-runtime-states/';
-
-  if (projectUuid) {
-    url += projectUuid + '/';
-  }
-
-  return get(url, {
-    params: { category_uuid: categoryUuid },
-  }).then((response) => response.data);
-};
-
 export const getServiceProviderByCustomer = async (
   query: MarketplaceServiceProvidersListData['query'],
 ) => {
@@ -118,9 +106,6 @@ export const moveResource = (resourceUuid: string, projectUrl: string) =>
       url: projectUrl,
     },
   });
-
-export const getAsyncDryRun = (uuid) =>
-  get(`/marketplace-script-async-dry-run/${uuid}/`);
 
 export const countOrders = (params) =>
   Axios.request({

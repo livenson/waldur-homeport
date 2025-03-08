@@ -23670,16 +23670,55 @@ export type MarketplaceServiceProvidersOfferingsListData = {
         uuid: string;
     };
     query?: {
+        /**
+         * Filter by accessibility via calls
+         */
+        accessible_via_calls?: boolean;
+        /**
+         * Allowed customer UUID
+         */
+        allowed_customer_uuid?: string;
+        /**
+         * Filter by attributes
+         */
+        attributes?: string;
+        /**
+         * Filter by billable status
+         */
+        billable?: boolean;
+        /**
+         * Filter by category group UUID
+         */
+        category_group_uuid?: string;
+        /**
+         * Filter by category UUID
+         */
+        category_uuid?: string;
+        /**
+         * Filter by customer URL
+         */
         customer?: string;
         customer_keyword?: string;
+        /**
+         * Filter by customer UUID
+         */
         customer_uuid?: string;
         /**
-         * Ordering
-         *
-         * * `customer_name` - Customer name
-         * * `-customer_name` - Customer name (descending)
+         * Filter by description (case-insensitive contains)
          */
-        o?: Array<'-customer_name' | 'customer_name'>;
+        description?: string;
+        /**
+         * Filter by keyword
+         */
+        keyword?: string;
+        /**
+         * Ordering field
+         */
+        o?: '-created' | '-name' | '-state' | '-total_cost' | '-total_cost_estimated' | '-total_customers' | '-type' | 'created' | 'name' | 'state' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type';
+        /**
+         * Filter by organization group UUID
+         */
+        organization_group_uuid?: Array<string>;
         /**
          * A page number within the paginated result set.
          */
@@ -23688,6 +23727,34 @@ export type MarketplaceServiceProvidersOfferingsListData = {
          * Number of results to return per page.
          */
         page_size?: number;
+        /**
+         * Filter by parent UUID
+         */
+        parent_uuid?: string;
+        /**
+         * Project UUID
+         */
+        project_uuid?: string;
+        /**
+         * Scope UUID
+         */
+        scope_uuid?: string;
+        /**
+         * Service manager UUID
+         */
+        service_manager_uuid?: string;
+        /**
+         * Filter by shared status
+         */
+        shared?: boolean;
+        /**
+         * Filter by state
+         */
+        state?: Array<'Active' | 'Archived' | 'Draft' | 'Paused'>;
+        /**
+         * Filter by type
+         */
+        type?: Array<string>;
     };
     url: '/api/marketplace-service-providers/{uuid}/offerings/';
 };
