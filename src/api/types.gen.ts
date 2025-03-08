@@ -2457,6 +2457,13 @@ export type ImportResourceRequest = {
     plan?: string;
 };
 
+export type ImportableResource = {
+    backend_id: string;
+    name: string;
+    type: string;
+    description: string;
+};
+
 export type InstanceFlavorChangeRequest = {
     flavor: string;
 };
@@ -6068,6 +6075,8 @@ export type PaginatedGoogleCredentialsList = Array<GoogleCredentials>;
 export type PaginatedGroupInvitationList = Array<GroupInvitation>;
 
 export type PaginatedIdentityProviderList = Array<IdentityProvider>;
+
+export type PaginatedImportableResourceList = Array<ImportableResource>;
 
 export type PaginatedIntegrationStatusDetailsList = Array<IntegrationStatusDetails>;
 
@@ -20548,22 +20557,92 @@ export type MarketplaceProviderOfferingsImportResourceResponses = {
 
 export type MarketplaceProviderOfferingsImportResourceResponse = MarketplaceProviderOfferingsImportResourceResponses[keyof MarketplaceProviderOfferingsImportResourceResponses];
 
-export type MarketplaceProviderOfferingsImportableResourcesRetrieveData = {
+export type MarketplaceProviderOfferingsImportableResourcesListData = {
     body?: never;
     path: {
         uuid: string;
     };
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        /**
+         * Accessible via calls
+         */
+        accessible_via_calls?: boolean;
+        /**
+         * Allowed customer UUID
+         */
+        allowed_customer_uuid?: string;
+        attributes?: string;
+        billable?: boolean;
+        category_group_uuid?: string;
+        category_uuid?: string;
+        customer?: string;
+        customer_uuid?: string;
+        description?: string;
+        /**
+         * Keyword
+         */
+        keyword?: string;
+        name?: string;
+        name_exact?: string;
+        /**
+         * Ordering
+         *
+         * * `name` - Name
+         * * `-name` - Name (descending)
+         * * `created` - Created
+         * * `-created` - Created (descending)
+         * * `type` - Type
+         * * `-type` - Type (descending)
+         * * `total_customers` - Total customers
+         * * `-total_customers` - Total customers (descending)
+         * * `total_cost` - Total cost
+         * * `-total_cost` - Total cost (descending)
+         * * `total_cost_estimated` - Total cost estimated
+         * * `-total_cost_estimated` - Total cost estimated (descending)
+         * * `state` - State
+         * * `-state` - State (descending)
+         */
+        o?: Array<'-created' | '-name' | '-state' | '-total_cost' | '-total_cost_estimated' | '-total_customers' | '-type' | 'created' | 'name' | 'state' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type'>;
+        organization_group_uuid?: Array<string>;
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+        parent_uuid?: string;
+        /**
+         * Project UUID
+         */
+        project_uuid?: string;
+        /**
+         * Scope UUID
+         */
+        scope_uuid?: string;
+        /**
+         * Service manager UUID
+         */
+        service_manager_uuid?: string;
+        shared?: boolean;
+        /**
+         * * `Draft` - Draft
+         * * `Active` - Active
+         * * `Paused` - Paused
+         * * `Archived` - Archived
+         */
+        state?: Array<'Active' | 'Archived' | 'Draft' | 'Paused'>;
+        type?: Array<string>;
     };
     url: '/api/marketplace-provider-offerings/{uuid}/importable_resources/';
 };
 
-export type MarketplaceProviderOfferingsImportableResourcesRetrieveResponses = {
-    200: ProviderOfferingDetails;
+export type MarketplaceProviderOfferingsImportableResourcesListResponses = {
+    200: PaginatedImportableResourceList;
 };
 
-export type MarketplaceProviderOfferingsImportableResourcesRetrieveResponse = MarketplaceProviderOfferingsImportableResourcesRetrieveResponses[keyof MarketplaceProviderOfferingsImportableResourcesRetrieveResponses];
+export type MarketplaceProviderOfferingsImportableResourcesListResponse = MarketplaceProviderOfferingsImportableResourcesListResponses[keyof MarketplaceProviderOfferingsImportableResourcesListResponses];
 
 export type MarketplaceProviderOfferingsListCustomerProjectsListData = {
     body?: never;
@@ -36211,5 +36290,5 @@ export type VmwareVirtualMachineWebConsoleRetrieveResponses = {
 export type VmwareVirtualMachineWebConsoleRetrieveResponse = VmwareVirtualMachineWebConsoleRetrieveResponses[keyof VmwareVirtualMachineWebConsoleRetrieveResponses];
 
 export type ClientOptions = {
-    baseUrl: `${string}://schema.yaml` | (string & {});
+    baseUrl: `${string}://waldur-openapi-schema.yaml` | (string & {});
 };
