@@ -246,7 +246,7 @@ describe('Invitations', () => {
   });
 
   it('Resend invitation', () => {
-    cy.get('td .dropdown')
+    cy.get('td .dropstart')
       .first()
       .find('button.dropdown-toggle')
       .click()
@@ -258,7 +258,7 @@ describe('Invitations', () => {
   });
 
   it('Cancel invitation', () => {
-    cy.get('td .dropdown')
+    cy.get('td .dropstart')
       .first()
       .find('button.dropdown-toggle')
       .click()

@@ -27,6 +27,7 @@ export const UpgradeNotificationDialog: FunctionComponent<
         <a
           href="https://docs.waldur.com/latest/about/CHANGELOG/"
           target="_blank"
+          rel="noreferrer"
         >
           docs.waldur.com
         </a>{' '}

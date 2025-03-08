@@ -130,7 +130,7 @@ describe('Group invitations', () => {
   });
 
   it('Should cancel invitation works properly', () => {
-    cy.get('td .dropdown')
+    cy.get('td .dropstart')
       .first()
       .find('button.dropdown-toggle')
       .click()
