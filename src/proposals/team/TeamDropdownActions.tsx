@@ -3,15 +3,20 @@ import { Dropdown } from 'react-bootstrap';
 
 import { translate } from '@waldur/i18n';
 import { InvitationCreateButton } from '@waldur/invitations/actions/create/InvitationCreateButton';
-import { GroupInvitationCreateButton } from '@waldur/invitations/actions/GroupInvitationCreateButton';
+import { GenericInvitationContext } from '@waldur/invitations/types';
 
-import { UserAddButton } from './UserAddButton';
+import { AddUserButton } from './AddUserButton';
 
-interface TeamDropdownActionsProps {
-  refetch?(): void;
+interface TeamDropdownActionsProps extends GenericInvitationContext {
+  refetchUsers?(): void;
+  refetchInvitations?(): void;
 }
 
-export const TeamDropdownActions = ({ refetch }: TeamDropdownActionsProps) => {
+export const TeamDropdownActions = ({
+  refetchUsers,
+  refetchInvitations,
+  ...rest
+}: TeamDropdownActionsProps) => {
   return (
     <Dropdown placement="bottom-end">
       <Dropdown.Toggle variant="primary" className="no-arrow btn-icon-right">
@@ -24,13 +29,8 @@ export const TeamDropdownActions = ({ refetch }: TeamDropdownActionsProps) => {
         </span>
       </Dropdown.Toggle>
       <Dropdown.Menu flip>
-        <InvitationCreateButton
-          roleTypes={['customer', 'project']}
-          refetch={refetch}
-          enableBulkUpload={true}
-        />
-        <GroupInvitationCreateButton refetch={refetch} />
-        <UserAddButton refetch={refetch} />
+        <InvitationCreateButton refetch={refetchInvitations} {...rest} />
+        <AddUserButton refetch={refetchUsers} {...rest} />
       </Dropdown.Menu>
     </Dropdown>
   );

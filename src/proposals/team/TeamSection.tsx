@@ -3,8 +3,9 @@ import { FC, useMemo, useState } from 'react';
 import { Card } from 'react-bootstrap';
 
 import { BaseEventsList } from '@waldur/events/BaseEventsList';
+import { isFeatureVisible } from '@waldur/features/connect';
+import { MarketplaceFeatures } from '@waldur/FeaturesEnums';
 import { translate } from '@waldur/i18n';
-import { InvitationCreateButton } from '@waldur/invitations/actions/create/InvitationCreateButton';
 import { GenericInvitationContext } from '@waldur/invitations/types';
 import {
   StepCardTabs,
@@ -12,14 +13,15 @@ import {
 } from '@waldur/marketplace/deploy/steps/StepCardTabs';
 import { RoleEnum } from '@waldur/permissions/enums';
 import { createFetcher } from '@waldur/table/api';
+import { TableTabs } from '@waldur/table/TableTabs';
 import { useTable } from '@waldur/table/useTable';
 
 import { CALL_REVIEWERS_QUERY_KEY } from '../constants';
 import { FieldReviewComments } from '../proposal/create-review/FieldReviewComments';
 import { ProposalReview } from '../types';
 
-import { AddUserButton } from './AddUserButton';
 import { InvitationsList } from './InvitationsList';
+import { TeamDropdownActions } from './TeamDropdownActions';
 import { UsersList } from './UsersList';
 
 const tabs: TabSpec<GenericInvitationContext>[] = [
@@ -43,6 +45,7 @@ export const TeamSection: FC<
     change?(field: string, value: any): void;
     reviews?: ProposalReview[];
     id?: string;
+    hasTeamTabs?: boolean;
   }
 > = (props) => {
   const queryClient = useQueryClient();
@@ -106,14 +109,35 @@ export const TeamSection: FC<
             <StepCardTabs tabs={tabs} tab={tab} setTab={setTab} />
           </div>
           <div className="col d-flex justify-content-end text-nowrap gap-3">
-            <AddUserButton refetch={usersTable.fetch} {...props} />
-            <InvitationCreateButton
+            <TeamDropdownActions
+              refetchUsers={usersTable.fetch}
+              refetchInvitations={invitationsTable.fetch}
               {...props}
-              refetch={invitationsTable.fetch}
             />
           </div>
         </div>
       </Card.Header>
+      {props.hasTeamTabs &&
+        !isFeatureVisible(MarketplaceFeatures.call_only) && (
+          <Card.Header className="table-tabs border-bottom align-items-stretch py-0 min-h-auto">
+            <TableTabs
+              tabs={[
+                {
+                  key: 'reviewers',
+                  title: translate('Reviewers'),
+                  state: 'protected-call.main',
+                  params: { tab: 'reviewers' },
+                },
+                {
+                  key: 'managers',
+                  title: translate('Managers'),
+                  state: 'protected-call.main',
+                  params: { tab: 'managers' },
+                },
+              ]}
+            />
+          </Card.Header>
+        )}
       <Card.Body className="p-0 min-h-550px">
         {tab.key === 'users' && (
           <UsersList

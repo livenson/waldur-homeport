@@ -23,6 +23,7 @@ export const FieldReviewComments = ({
   space = 7,
   className,
 }: FieldReviewCommentsProps) => {
+  if (!reviews) return null;
   const items = reviews
     .filter(Boolean)
     .map((review, i) => ({

@@ -33,7 +33,6 @@ export const TeamDropdownActions = ({
           roleTypes={['project']}
           refetch={refetch}
           enableBulkUpload={true}
-          asDropdownItem
         />
         <AddUserButton project={project} refetch={refetch} />
       </Dropdown.Menu>
