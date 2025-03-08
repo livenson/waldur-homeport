@@ -13,11 +13,33 @@ import { ENV } from '@waldur/configs/default';
 import { getAllPages } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
-import { CreateSecurityGroupFormData } from '@waldur/openstack/api';
+import {
+  EthernetType,
+  SecurityGroupDirection,
+  SecurityGroupProtocol,
+} from '@waldur/openstack/types';
 import { ActionContext } from '@waldur/resource/actions/types';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
 import { OpenStackTenant } from '../types';
+
+interface CreateSecurityGroupRuleRequestBody {
+  ethertype: EthernetType;
+  direction: SecurityGroupDirection;
+  protocol: SecurityGroupProtocol;
+  from_port: number;
+  to_port: number;
+  port_range?: { min: number; max: number };
+  cidr: string;
+  remote_group?: string;
+  description?: string;
+}
+
+interface CreateSecurityGroupFormData {
+  name: string;
+  description?: string;
+  rules: CreateSecurityGroupRuleRequestBody[];
+}
 
 export function userCanModifyTenant(ctx: ActionContext): string {
   if (

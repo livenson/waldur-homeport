@@ -8,12 +8,12 @@ import {
   OfferingOptions,
   GoogleCalendar,
   NestedScreenshot,
-  NestedAttribute,
-  OrderDetails,
   OfferingComponent,
+  OfferingState,
+  OrderDetails,
 } from '@waldur/api';
+import { CoreStates as ResourceState } from '@waldur/api';
 import { Quota } from '@waldur/quotas/types';
-import { ResourceState } from '@waldur/resource/types';
 import { Customer, Project } from '@waldur/workspace/types';
 
 export {
@@ -41,8 +41,6 @@ export interface Plan {
   plan_type: string;
   organization_groups: OrganizationGroup[];
 }
-
-type OfferingState = 'Draft' | 'Active' | 'Paused' | 'Archived';
 
 export interface Offering {
   latitude: number;
@@ -102,13 +100,6 @@ export interface Offering {
   parent_uuid?: string;
   getting_started?: string;
   integration_status: any;
-}
-
-export interface Section {
-  key: string;
-  title: string;
-  attributes: NestedAttribute[];
-  is_standalone?: boolean;
 }
 
 export interface CategoryGroup extends WaldurCategoryGroup {

@@ -1,9 +1,9 @@
 import { useAsync } from 'react-use';
 
 import { openstackVolumeTypesRetrieve } from '@waldur/api';
+import { OrderDetails as OrderResponse } from '@waldur/api';
 import { formatFilesize, getUUID } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';
-import { OrderResponse } from '@waldur/marketplace/orders/types';
 import { Field } from '@waldur/resource/summary';
 
 import { formatVolumeTypeLabel } from '../openstack-instance/utils';

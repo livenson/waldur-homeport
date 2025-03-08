@@ -11,6 +11,7 @@ import { useSelector } from 'react-redux';
 import { useEffectOnce } from 'react-use';
 import { reduxForm } from 'redux-form';
 
+import { OrderDetails as OrderResponse } from '@waldur/api';
 import { parseDate } from '@waldur/core/dateUtils';
 import { SidebarLayout } from '@waldur/form/SidebarLayout';
 import { translate } from '@waldur/i18n';
@@ -23,7 +24,6 @@ import { PageBarProvider } from '../context';
 import { ORDER_FORM_ID } from '../details/constants';
 import { getMarketplaceFilters } from '../landing/filter/store/selectors';
 import { getDefaultLimits } from '../offerings/utils';
-import { OrderResponse } from '../orders/types';
 import {
   isExperimentalUiComponentsVisible,
   orderFormDataSelector,

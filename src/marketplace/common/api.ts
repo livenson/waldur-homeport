@@ -6,10 +6,8 @@ import {
   MarketplaceCategoryGroupsListData,
   marketplaceComponentUsagesList,
   MarketplaceComponentUsagesListData,
-  marketplaceComponentUserUsagesList,
   marketplaceOfferingPermissionsList,
   marketplacePlansUsageStatsList,
-  marketplaceProviderOfferingsList,
   marketplaceProviderResourcesOfferingForSubresourcesList,
   marketplaceProviderResourcesPlanPeriodsList,
   marketplaceServiceProvidersList,
@@ -41,29 +39,10 @@ export const getComponentUsages = (
     }),
   );
 
-export const getComponentUserUsages = (
-  resource_uuid: string,
-  date_after?: string,
-  params?: {},
-) =>
-  getAllPages((page) =>
-    marketplaceComponentUserUsagesList({
-      query: { page, resource_uuid, date_after, ...params },
-    }),
-  );
-
-const getAllProviderOfferings = (options?: {}) =>
-  getAllPages((page) =>
-    marketplaceProviderOfferingsList({ query: { page, ...options } }),
-  );
-
 export const getAllOfferingPermissions = (options?: AxiosRequestConfig) =>
   getAllPages((page) =>
     marketplaceOfferingPermissionsList({ query: { page, ...options } }),
   );
-
-export const getProviderOfferings = (customerUuid: string) =>
-  getAllProviderOfferings({ params: { customer_uuid: customerUuid } });
 
 export const getOfferingPlansUsage = (offeringUuid: string) =>
   getAllPages((page) =>

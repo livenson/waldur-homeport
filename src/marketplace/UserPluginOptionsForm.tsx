@@ -1,6 +1,7 @@
 import { get } from 'lodash-es';
 import { FunctionComponent, useMemo } from 'react';
 
+import { UsernameGenerationPolicyEnum } from '@waldur/api';
 import { required } from '@waldur/core/validators';
 import { SelectField, NumberField, StringField } from '@waldur/form';
 import FormTable from '@waldur/form/FormTable';
@@ -10,7 +11,12 @@ import { SLURM_REMOTE_PLUGIN } from '@waldur/slurm/constants';
 import { FieldEditButton } from './offerings/update/integration/FieldEditButton';
 import { OfferingEditPanelFormProps } from './offerings/update/integration/types';
 
-const USERNAME_GENERATION_POLICY_OPTIONS = [
+type UsernameGenerationPolicyOption = {
+  label: string;
+  value: UsernameGenerationPolicyEnum;
+};
+
+const USERNAME_GENERATION_POLICY_OPTIONS: UsernameGenerationPolicyOption[] = [
   {
     label: translate('Service provider'),
     value: 'service_provider',
@@ -36,6 +42,7 @@ const USERNAME_GENERATION_POLICY_OPTIONS = [
     value: 'identity_claim',
   },
 ];
+
 const ACCOUNT_NAME_GENERATION_POLICY_OPTIONS = [
   {
     label: translate('Project slug'),

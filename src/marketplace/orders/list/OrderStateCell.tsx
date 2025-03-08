@@ -1,7 +1,5 @@
-import { OrderDetails } from '@waldur/api';
+import { OrderDetails, OrderState } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-
-import { OrderState } from '../types';
 
 export const OrderStateCell = ({ row }: { row: OrderDetails }) => (
   <>

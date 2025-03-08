@@ -1,13 +1,14 @@
 import { DateTime } from 'luxon';
 
 import {
+  marketplaceComponentUserUsagesList,
   marketplaceProviderOfferingsRetrieve,
   marketplaceResourcesOfferingRetrieve,
 } from '@waldur/api';
+import { getAllPages } from '@waldur/core/api';
 import { formatDateTime, parseDate } from '@waldur/core/dateUtils';
 import {
   getComponentUsages,
-  getComponentUserUsages,
   getProviderResourcePlanPeriods,
 } from '@waldur/marketplace/common/api';
 import { Offering } from '@waldur/marketplace/types';
@@ -96,9 +97,16 @@ export const getComponentsAndUsages = async (
     usages = await getComponentUsages(resource_uuid, date_after, {
       field: ['type', 'usage', 'billing_period'],
     });
-    userUsages = await getComponentUserUsages(resource_uuid, date_after, {
-      field: ['component_type', 'usage', 'billing_period'],
-    });
+    userUsages = await getAllPages((page) =>
+      marketplaceComponentUserUsagesList({
+        query: {
+          page,
+          resource_uuid,
+          date_after,
+          field: ['component_type', 'usage', 'billing_period'],
+        },
+      }),
+    );
   } catch (error) {
     throw new Error(
       `Error while getting usages for resource: ${resource_uuid}, ${error.message}`,

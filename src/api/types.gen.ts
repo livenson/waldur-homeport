@@ -860,7 +860,7 @@ export type BookingResource = {
     readonly url: string;
     readonly scope: string;
     readonly description: string;
-    readonly state: string;
+    state: ResourceState;
     readonly resource_uuid: string;
     readonly backend_id: string;
     readonly effective_id: string;
@@ -3921,7 +3921,7 @@ export type Offering = {
      * Public data used by specific plugin, such as storage mode for OpenStack.
      */
     plugin_options?: unknown;
-    state: OfferingStates;
+    state: OfferingState;
     state_code: StateCodeEnum;
     vendor_details?: string;
     getting_started?: string;
@@ -4094,7 +4094,7 @@ export type OfferingCreate = {
     plugin_options?: unknown;
     secret_options?: unknown;
     readonly service_attributes: {};
-    state: OfferingStates;
+    state: OfferingState;
     state_code: StateCodeEnum;
     vendor_details?: string;
     getting_started?: string;
@@ -4420,7 +4420,7 @@ export type OfferingResourceOptionsUpdateRequest = {
     resource_options: OfferingOptionsRequest;
 };
 
-export type OfferingStates = 'Draft' | 'Active' | 'Paused' | 'Archived';
+export type OfferingState = 'Draft' | 'Active' | 'Paused' | 'Archived';
 
 export type OfferingStats = {
     count: number;
@@ -5764,7 +5764,7 @@ export type OrderCreate = {
     readonly resource_type: string;
     readonly resource_name: string;
     readonly cost: string | null;
-    readonly state: string;
+    state: OrderState;
     output?: string;
     readonly marketplace_resource_uuid: string;
     readonly error_message: string;
@@ -5852,7 +5852,7 @@ export type OrderDetails = {
     readonly resource_type: string;
     readonly resource_name: string;
     readonly cost: string | null;
-    readonly state: string;
+    state: OrderState;
     readonly output: string;
     readonly marketplace_resource_uuid: string;
     readonly error_message: string;
@@ -5919,6 +5919,8 @@ export type OrderSetStateErredRequest = {
     error_message?: string;
     error_traceback?: string;
 };
+
+export type OrderState = 'pending-consumer' | 'pending-provider' | 'pending-project' | 'executing' | 'done' | 'erred' | 'canceled' | 'rejected';
 
 export type OrganizationGroup = {
     readonly uuid: string;
@@ -6251,6 +6253,8 @@ export type PaginatedRancherNodeList = Array<RancherNode>;
 
 export type PaginatedRancherProjectList = Array<RancherProject>;
 
+export type PaginatedRancherServiceList = Array<RancherService>;
+
 export type PaginatedRancherTemplateList = Array<RancherTemplate>;
 
 export type PaginatedRancherUserList = Array<RancherUser>;
@@ -6288,8 +6292,6 @@ export type PaginatedSaml2ProviderList = Array<Saml2Provider>;
 export type PaginatedScreenshotList = Array<Screenshot>;
 
 export type PaginatedSectionList = Array<Section>;
-
-export type PaginatedServiceList = Array<Service>;
 
 export type PaginatedServiceProviderList = Array<ServiceProvider>;
 
@@ -7261,6 +7263,21 @@ export type PatchedRancherNodeRequest = {
     worker_role?: boolean;
 };
 
+export type PatchedRancherServiceRequest = {
+    name?: string;
+    description?: string;
+    service_settings?: string;
+    project?: string;
+    error_message?: string;
+    error_traceback?: string;
+    backend_id?: string;
+    runtime_state?: string;
+    namespace?: string;
+    cluster_ip?: string | null;
+    selector?: unknown;
+    target_workloads?: Array<RancherNestedWorkloadRequest>;
+};
+
 export type PatchedRancherUserRequest = {
     user?: string;
     settings?: string;
@@ -7374,21 +7391,6 @@ export type PatchedSectionRequest = {
 export type PatchedServiceProviderRequest = {
     description?: string;
     image?: (Blob | File) | null;
-};
-
-export type PatchedServiceRequest = {
-    name?: string;
-    description?: string;
-    service_settings?: string;
-    project?: string;
-    error_message?: string;
-    error_traceback?: string;
-    backend_id?: string;
-    runtime_state?: string;
-    namespace?: string;
-    cluster_ip?: string | null;
-    selector?: unknown;
-    target_workloads?: Array<RancherNestedWorkloadRequest>;
 };
 
 export type PatchedServiceSettingsRequest = {
@@ -8117,7 +8119,7 @@ export type ProviderOffering = {
     readonly slug: string;
     readonly category_title: string;
     type: string;
-    state: OfferingStates;
+    state: OfferingState;
     readonly resources_count: number;
     billing_price_estimate: NestedPriceEstimate;
     components?: Array<OfferingComponent>;
@@ -8194,7 +8196,7 @@ export type ProviderOfferingDetails = {
     plugin_options?: unknown;
     secret_options?: unknown;
     readonly service_attributes: {};
-    state: OfferingStates;
+    state: OfferingState;
     state_code: StateCodeEnum;
     vendor_details?: string;
     getting_started?: string;
@@ -8469,7 +8471,7 @@ export type PublicOfferingDetails = {
      * Public data used by specific plugin, such as storage mode for OpenStack.
      */
     plugin_options?: unknown;
-    state: OfferingStates;
+    state: OfferingState;
     state_code: StateCodeEnum;
     vendor_details?: string;
     getting_started?: string;
@@ -9100,6 +9102,64 @@ export type RancherProject = {
     namespaces: Array<RancherNestedNamespace>;
 };
 
+export type RancherService = {
+    readonly url: string;
+    readonly uuid: string;
+    name: string;
+    description?: string;
+    readonly service_name: string;
+    service_settings: string;
+    readonly service_settings_uuid: string;
+    readonly service_settings_state: string;
+    readonly service_settings_error_message: string;
+    project: string;
+    readonly project_name: string;
+    readonly project_uuid: string;
+    readonly customer: string;
+    readonly customer_name: string;
+    readonly customer_native_name: string;
+    readonly customer_abbreviation: string;
+    error_message?: string;
+    error_traceback?: string;
+    readonly resource_type: string;
+    state: CoreStates;
+    readonly created: string;
+    readonly modified: string;
+    backend_id?: string;
+    readonly access_url: string | null;
+    runtime_state?: string;
+    namespace?: string;
+    readonly namespace_name: string;
+    cluster_ip?: string | null;
+    selector?: unknown;
+    target_workloads?: Array<RancherNestedWorkload>;
+    readonly marketplace_offering_uuid: string;
+    readonly marketplace_offering_name: string;
+    readonly marketplace_offering_plugin_options: {};
+    readonly marketplace_category_uuid: string;
+    readonly marketplace_category_name: string;
+    readonly marketplace_resource_uuid: string;
+    readonly marketplace_plan_uuid: string;
+    readonly marketplace_resource_state: string;
+    readonly is_usage_based: boolean;
+    readonly is_limit_based: boolean;
+};
+
+export type RancherServiceRequest = {
+    name: string;
+    description?: string;
+    service_settings: string;
+    project: string;
+    error_message?: string;
+    error_traceback?: string;
+    backend_id?: string;
+    runtime_state?: string;
+    namespace?: string;
+    cluster_ip?: string | null;
+    selector?: unknown;
+    target_workloads?: Array<RancherNestedWorkloadRequest>;
+};
+
 export type RancherTemplate = {
     readonly url: string;
     readonly uuid: string;
@@ -9444,7 +9504,7 @@ export type Resource = {
     readonly url: string;
     readonly scope: string;
     readonly description: string;
-    readonly state: string;
+    state: ResourceState;
     readonly resource_uuid: string;
     readonly backend_id: string;
     readonly effective_id: string;
@@ -9581,6 +9641,8 @@ export type ResourceSetStateErredRequest = {
 export type ResourceSlugRequest = {
     slug: string;
 };
+
+export type ResourceState = 'Creating' | 'OK' | 'Erred' | 'Updating' | 'Terminating' | 'Terminated';
 
 export type ResourceSuggestName = {
     project: string;
@@ -9929,49 +9991,6 @@ export type SectionRequest = {
     is_standalone?: boolean;
 };
 
-export type Service = {
-    readonly url: string;
-    readonly uuid: string;
-    name: string;
-    description?: string;
-    readonly service_name: string;
-    service_settings: string;
-    readonly service_settings_uuid: string;
-    readonly service_settings_state: string;
-    readonly service_settings_error_message: string;
-    project: string;
-    readonly project_name: string;
-    readonly project_uuid: string;
-    readonly customer: string;
-    readonly customer_name: string;
-    readonly customer_native_name: string;
-    readonly customer_abbreviation: string;
-    error_message?: string;
-    error_traceback?: string;
-    readonly resource_type: string;
-    state: CoreStates;
-    readonly created: string;
-    readonly modified: string;
-    backend_id?: string;
-    readonly access_url: string | null;
-    runtime_state?: string;
-    namespace?: string;
-    readonly namespace_name: string;
-    cluster_ip?: string | null;
-    selector?: unknown;
-    target_workloads?: Array<RancherNestedWorkload>;
-    readonly marketplace_offering_uuid: string;
-    readonly marketplace_offering_name: string;
-    readonly marketplace_offering_plugin_options: {};
-    readonly marketplace_category_uuid: string;
-    readonly marketplace_category_name: string;
-    readonly marketplace_resource_uuid: string;
-    readonly marketplace_plan_uuid: string;
-    readonly marketplace_resource_state: string;
-    readonly is_usage_based: boolean;
-    readonly is_limit_based: boolean;
-};
-
 export type ServiceProvider = {
     readonly url: string;
     readonly uuid: string;
@@ -10028,21 +10047,6 @@ export type ServiceProviderStatistics = {
     readonly unresolved_tickets: number;
     readonly pending_orders: number;
     readonly erred_resources: number;
-};
-
-export type ServiceRequest = {
-    name: string;
-    description?: string;
-    service_settings: string;
-    project: string;
-    error_message?: string;
-    error_traceback?: string;
-    backend_id?: string;
-    runtime_state?: string;
-    namespace?: string;
-    cluster_ip?: string | null;
-    selector?: unknown;
-    target_workloads?: Array<RancherNestedWorkloadRequest>;
 };
 
 export type ServiceSettings = {
@@ -17920,6 +17924,7 @@ export type MarketplaceComponentUserUsagesListData = {
         customer_uuid?: string;
         date_after?: string;
         date_before?: string;
+        field?: Array<'backend_id' | 'billing_period' | 'component_type' | 'component_usage' | 'created' | 'customer_name' | 'customer_uuid' | 'date' | 'description' | 'measured_unit' | 'modified' | 'offering_name' | 'offering_uuid' | 'project_name' | 'project_uuid' | 'resource_name' | 'resource_uuid' | 'usage' | 'user' | 'username' | 'uuid'>;
         offering_uuid?: string;
         /**
          * A page number within the paginated result set.
@@ -17982,7 +17987,9 @@ export type MarketplaceComponentUserUsagesRetrieveData = {
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        field?: Array<'backend_id' | 'billing_period' | 'component_type' | 'component_usage' | 'created' | 'customer_name' | 'customer_uuid' | 'date' | 'description' | 'measured_unit' | 'modified' | 'offering_name' | 'offering_uuid' | 'project_name' | 'project_uuid' | 'resource_name' | 'resource_uuid' | 'usage' | 'user' | 'username' | 'uuid'>;
+    };
     url: '/api/marketplace-component-user-usages/{uuid}/';
 };
 
@@ -32049,20 +32056,20 @@ export type RancherServicesListData = {
 };
 
 export type RancherServicesListResponses = {
-    200: PaginatedServiceList;
+    200: PaginatedRancherServiceList;
 };
 
 export type RancherServicesListResponse = RancherServicesListResponses[keyof RancherServicesListResponses];
 
 export type RancherServicesCreateData = {
-    body: ServiceRequest;
+    body: RancherServiceRequest;
     path?: never;
     query?: never;
     url: '/api/rancher-services/';
 };
 
 export type RancherServicesCreateResponses = {
-    201: Service;
+    201: RancherService;
 };
 
 export type RancherServicesCreateResponse = RancherServicesCreateResponses[keyof RancherServicesCreateResponses];
@@ -32097,13 +32104,13 @@ export type RancherServicesRetrieveData = {
 };
 
 export type RancherServicesRetrieveResponses = {
-    200: Service;
+    200: RancherService;
 };
 
 export type RancherServicesRetrieveResponse = RancherServicesRetrieveResponses[keyof RancherServicesRetrieveResponses];
 
 export type RancherServicesPartialUpdateData = {
-    body?: PatchedServiceRequest;
+    body?: PatchedRancherServiceRequest;
     path: {
         uuid: string;
     };
@@ -32112,13 +32119,13 @@ export type RancherServicesPartialUpdateData = {
 };
 
 export type RancherServicesPartialUpdateResponses = {
-    200: Service;
+    200: RancherService;
 };
 
 export type RancherServicesPartialUpdateResponse = RancherServicesPartialUpdateResponses[keyof RancherServicesPartialUpdateResponses];
 
 export type RancherServicesUpdateData = {
-    body: ServiceRequest;
+    body: RancherServiceRequest;
     path: {
         uuid: string;
     };
@@ -32127,7 +32134,7 @@ export type RancherServicesUpdateData = {
 };
 
 export type RancherServicesUpdateResponses = {
-    200: Service;
+    200: RancherService;
 };
 
 export type RancherServicesUpdateResponse = RancherServicesUpdateResponses[keyof RancherServicesUpdateResponses];
@@ -32176,13 +32183,13 @@ export type RancherServicesYamlRetrieveData = {
 };
 
 export type RancherServicesYamlRetrieveResponses = {
-    200: Service;
+    200: RancherService;
 };
 
 export type RancherServicesYamlRetrieveResponse = RancherServicesYamlRetrieveResponses[keyof RancherServicesYamlRetrieveResponses];
 
 export type RancherServicesYamlUpdateData = {
-    body: ServiceRequest;
+    body: RancherServiceRequest;
     path: {
         uuid: string;
     };
@@ -32191,7 +32198,7 @@ export type RancherServicesYamlUpdateData = {
 };
 
 export type RancherServicesYamlUpdateResponses = {
-    200: Service;
+    200: RancherService;
 };
 
 export type RancherServicesYamlUpdateResponse = RancherServicesYamlUpdateResponses[keyof RancherServicesYamlUpdateResponses];
@@ -36204,5 +36211,5 @@ export type VmwareVirtualMachineWebConsoleRetrieveResponses = {
 export type VmwareVirtualMachineWebConsoleRetrieveResponse = VmwareVirtualMachineWebConsoleRetrieveResponses[keyof VmwareVirtualMachineWebConsoleRetrieveResponses];
 
 export type ClientOptions = {
-    baseUrl: `${string}://waldur-openapi-schema.yaml` | (string & {});
+    baseUrl: `${string}://schema.yaml` | (string & {});
 };

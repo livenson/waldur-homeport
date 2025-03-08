@@ -12,30 +12,6 @@ import {
 } from '@waldur/api';
 import { getAllPages } from '@waldur/core/api';
 
-import {
-  EthernetType,
-  SecurityGroupDirection,
-  SecurityGroupProtocol,
-} from './types';
-
-interface CreateSecurityGroupRuleRequestBody {
-  ethertype: EthernetType;
-  direction: SecurityGroupDirection;
-  protocol: SecurityGroupProtocol;
-  from_port: number;
-  to_port: number;
-  port_range?: { min: number; max: number };
-  cidr: string;
-  remote_group?: string;
-  description?: string;
-}
-
-export interface CreateSecurityGroupFormData {
-  name: string;
-  description?: string;
-  rules: CreateSecurityGroupRuleRequestBody[];
-}
-
 export interface DestroyInstanceParams {
   delete_volumes?: boolean;
   release_floating_ips?: boolean;
