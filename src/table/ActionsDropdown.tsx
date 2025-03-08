@@ -72,7 +72,7 @@ export const ActionsDropdownComponent: FunctionComponent<
   className,
   ...rest
 }) => (
-  <Dropdown onToggle={onToggle} {...rest}>
+  <Dropdown onToggle={onToggle} drop="start" align="start" {...rest}>
     <TableDropdownToggle
       label={label}
       labeled={labeled}

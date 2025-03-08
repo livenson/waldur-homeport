@@ -60,7 +60,7 @@ describe('Offerings list actions in Provider dashboard page', () => {
   });
 
   it("edit action should redirect to provider's offering update page", () => {
-    cy.get('td .dropdown')
+    cy.get('td .dropstart')
       .first()
       .find('button.dropdown-toggle')
       .click()
@@ -77,7 +77,7 @@ describe('Offerings list actions in Provider dashboard page', () => {
   });
 
   it('preview order form action should open the preview offering modal', () => {
-    cy.get('td .dropdown')
+    cy.get('td .dropstart')
       .first()
       .find('button.dropdown-toggle')
       .click()
@@ -102,7 +102,7 @@ describe('Offerings list actions in Provider dashboard page', () => {
   });
 
   it('open public page action should redirect to public-offering', () => {
-    cy.get('td .dropdown')
+    cy.get('td .dropstart')
       .first()
       .find('button.dropdown-toggle')
       .click()
