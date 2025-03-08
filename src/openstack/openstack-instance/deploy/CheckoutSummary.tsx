@@ -1,5 +1,6 @@
 import { useSelector } from 'react-redux';
 
+import { PublicOfferingDetails } from '@waldur/api';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { DeployPageTotalCard } from '@waldur/marketplace/deploy/DeployPageTotalCard';
 import {
@@ -7,11 +8,10 @@ import {
   formIsValidSelector,
 } from '@waldur/marketplace/deploy/utils';
 import { OrderSubmitButton } from '@waldur/marketplace/details/OrderSubmitButton';
-import { Offering } from '@waldur/marketplace/types';
 import { orderFormDataSelector } from '@waldur/marketplace/utils';
 
 interface CheckoutSummaryProps {
-  offering: Offering;
+  offering: PublicOfferingDetails;
   updateMode?: boolean;
 }
 

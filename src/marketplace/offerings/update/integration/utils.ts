@@ -5,10 +5,10 @@ import { useDispatch } from 'react-redux';
 import {
   marketplaceProviderOfferingsUpdateIntegration,
   OfferingIntegrationUpdateRequest,
+  ProviderOfferingDetails,
 } from '@waldur/api';
 import { flattenObject } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';
-import { Offering } from '@waldur/marketplace/types';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
@@ -38,7 +38,10 @@ export const SCRIPT_ROWS = [
   },
 ];
 
-export const useUpdateOfferingIntegration = (offering: Offering, refetch?) => {
+export const useUpdateOfferingIntegration = (
+  offering: ProviderOfferingDetails,
+  refetch?,
+) => {
   const dispatch = useDispatch();
   const update = useCallback(
     async (formData: OfferingIntegrationUpdateRequest) => {

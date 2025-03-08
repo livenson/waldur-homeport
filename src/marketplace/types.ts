@@ -5,21 +5,17 @@ import {
   MarketplaceCategory as WaldurCategory,
   BillingUnit,
   OrganizationGroup,
-  OfferingOptions,
-  GoogleCalendar,
-  NestedScreenshot,
-  OfferingComponent,
-  OfferingState,
   OrderDetails,
+  PublicOfferingDetails as Offering,
+  PublicOfferingDetails,
 } from '@waldur/api';
-import { CoreStates as ResourceState } from '@waldur/api';
-import { Quota } from '@waldur/quotas/types';
 import { Customer, Project } from '@waldur/workspace/types';
 
 export {
   OfferingComponent,
   ServiceProvider,
   CategoryColumn,
+  ProviderOfferingDetails as Offering,
 } from '@waldur/api';
 
 export interface Plan {
@@ -40,66 +36,6 @@ export interface Plan {
   price?: number;
   plan_type: string;
   organization_groups: OrganizationGroup[];
-}
-
-export interface Offering {
-  latitude: number;
-  longitude: number;
-  scope_state?: ResourceState;
-  quotas?: Quota[];
-  uuid?: string;
-  url?: string;
-  thumbnail?: string;
-  name: string;
-  backend_id?: string;
-  terms_of_service?: string;
-  terms_of_service_link?: string;
-  privacy_policy_link?: string;
-  access_url?: string;
-  roles?: any[];
-  order_count: number;
-  category?: string;
-  category_title?: string;
-  category_uuid?: string;
-  vendor_details?: string;
-  screenshots?: NestedScreenshot[];
-  description?: string;
-  full_description?: string;
-  customer_uuid?: string;
-  customer_name?: string;
-  customer_image?: string;
-  project?: string;
-  project_name?: string;
-  project_uuid?: string;
-  attributes: AttributesType;
-  components: OfferingComponent[];
-  options?: OfferingOptions;
-  resource_options?: OfferingOptions;
-  plugin_options?: Record<string, any>;
-  secret_options?: Record<string, any>;
-  service_attributes?: Record<string, any>;
-  plans?: Plan[];
-  type: string;
-  state: OfferingState;
-  scope?: string;
-  scope_uuid?: string;
-  scope_name?: string;
-  created?: string;
-  shared?: boolean;
-  billable?: boolean;
-  paused_reason?: string;
-  datacite_doi?: string;
-  citation_count?: number;
-  google_calendar_is_public: boolean;
-  google_calendar_link?: string;
-  image?: string;
-  googlecalendar?: GoogleCalendar;
-  organization_groups: OrganizationGroup[];
-  parent_description?: string;
-  parent_name?: string;
-  parent_uuid?: string;
-  getting_started?: string;
-  integration_status: any;
 }
 
 export interface CategoryGroup extends WaldurCategoryGroup {
@@ -126,7 +62,7 @@ export interface OfferingConfigurationFormProps extends InjectedFormProps {
 
 export interface OrderDetailsProps {
   order: OrderDetails;
-  offering: Offering;
+  offering: PublicOfferingDetails;
   limits?: string[];
 }
 

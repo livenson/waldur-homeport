@@ -1,3 +1,4 @@
+import { PublicOfferingDetails } from '@waldur/api';
 import { Offering, Plan } from '@waldur/marketplace/types';
 import { Project } from '@waldur/workspace/types';
 
@@ -16,7 +17,7 @@ export interface OfferingFormData {
 }
 
 export interface OrderSummaryProps {
-  offering: Offering;
+  offering: PublicOfferingDetails;
   prices?: PricesData;
   formData: OfferingFormData;
   formValid?: boolean;

@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { isValid } from 'redux-form';
 
+import { PublicOfferingDetails } from '@waldur/api';
 import { isFeatureVisible } from '@waldur/features/connect';
 import { MarketplaceFeatures } from '@waldur/FeaturesEnums';
 import { ORDER_FORM_ID } from '@waldur/marketplace/details/constants';
@@ -11,7 +12,6 @@ import {
   OfferingFormData,
   OrderSummaryProps,
 } from '@waldur/marketplace/details/types';
-import { Offering } from '@waldur/marketplace/types';
 import { orderFormDataSelector } from '@waldur/marketplace/utils';
 import { getCustomer, getProject } from '@waldur/workspace/selectors';
 import { Customer, Project } from '@waldur/workspace/types';
@@ -40,5 +40,5 @@ const mapStateToProps = (state, ownProps) => ({
 export const OrderDetailsSummary = connect<
   OrderDetailsSummary,
   {},
-  { offering: Offering }
+  { offering: PublicOfferingDetails }
 >(mapStateToProps)(PureOrderDetailsSummary);
