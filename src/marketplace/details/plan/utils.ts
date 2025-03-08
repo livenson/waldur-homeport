@@ -1,5 +1,6 @@
 import { useMemo } from 'react';
 
+import { PublicOfferingDetails } from '@waldur/api';
 import {
   filterOfferingComponents,
   getFormLimitParser,
@@ -8,7 +9,7 @@ import { getBillingPeriods } from '@waldur/marketplace/common/utils';
 import { offeringSelector } from '@waldur/marketplace/details/selectors';
 import { Limits } from '@waldur/marketplace/details/types';
 import { parseOfferingLimits } from '@waldur/marketplace/offerings/store/limits';
-import { Offering, Plan } from '@waldur/marketplace/types';
+import { Plan } from '@waldur/marketplace/types';
 
 import { Component, PricesData } from './types';
 
@@ -16,7 +17,7 @@ export const combinePrices = (
   plan: Plan,
   limits: Limits,
   usages: Limits,
-  offering: Offering,
+  offering: PublicOfferingDetails,
 ): PricesData => {
   if (plan && offering) {
     const { periods, multipliers, periodKeys } = getBillingPeriods(plan.unit);

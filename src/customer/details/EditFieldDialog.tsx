@@ -4,6 +4,8 @@ import { useCallback } from 'react';
 import { connect } from 'react-redux';
 import { SubmissionError, reduxForm } from 'redux-form';
 
+import { organizationGroupsList } from '@waldur/api';
+import { getAllPages } from '@waldur/core/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import {
@@ -17,7 +19,6 @@ import { EmailField } from '@waldur/form/EmailField';
 import { FormContainer } from '@waldur/form/FormContainer';
 import { StringField } from '@waldur/form/StringField';
 import { translate } from '@waldur/i18n';
-import { getAllOrganizationGroups } from '@waldur/marketplace/common/api';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
@@ -75,12 +76,13 @@ export const EditFieldDialog = connect<{}, {}, { resolve: EditCustomerProps }>(
     } = useQuery(
       ['organizationGroups'],
       () =>
-        getAllOrganizationGroups().then((items) => {
-          return items.map((item) => ({
-            name: [item.parent_name, item.name].filter(Boolean).join(' ➔ '),
-            value: item.url,
-          }));
-        }),
+        getAllPages((page) => organizationGroupsList({ query: { page } })).then(
+          (items) =>
+            items.map((item) => ({
+              name: [item.parent_name, item.name].filter(Boolean).join(' ➔ '),
+              value: item.url,
+            })),
+        ),
       { staleTime: 5 * 60 * 1000 },
     );
 

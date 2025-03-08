@@ -1,10 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import { useSelector } from 'react-redux';
 
+import { organizationGroupsList } from '@waldur/api';
+import { getAllPages } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';
 import { getUser } from '@waldur/workspace/selectors';
-
-import { getAllOrganizationGroups } from './api';
 
 // See also: https://github.com/erikras/redux-form/issues/1852
 export const parseIntField = (value) => parseInt(value, 10) || 0;
@@ -86,12 +86,13 @@ export const useOrganizationGroups = () => {
   const query = useQuery(
     ['organizationGroups'],
     () =>
-      getAllOrganizationGroups().then((items) => {
-        return items.map((item) => ({
-          ...item,
-          value: item.url,
-        }));
-      }),
+      getAllPages((page) => organizationGroupsList({ query: { page } })).then(
+        (items) =>
+          items.map((item) => ({
+            ...item,
+            value: item.url,
+          })),
+      ),
     { staleTime: 5 * 60 * 1000 },
   );
 

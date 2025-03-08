@@ -5,6 +5,7 @@ import {
   marketplacePublicOfferingsRetrieve,
   OpenStackFlavor,
   OpenStackSubNet,
+  PublicOfferingDetails,
   RancherCluster,
   rancherClusterTemplatesList,
 } from '@waldur/api';
@@ -12,7 +13,6 @@ import { ENV } from '@waldur/configs/default';
 import { getAllPages } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';
 import { ORDER_FORM_ID } from '@waldur/marketplace/details/constants';
-import { Offering } from '@waldur/marketplace/types';
 import {
   loadFlavors,
   loadSecurityGroups,
@@ -45,10 +45,13 @@ const formatFlavorOption = (flavor: OpenStackFlavor) => ({
   value: flavor.url,
 });
 
-export const filterFlavors = (tenant_uuid: string, offering: Offering) => {
+export const filterFlavors = (
+  tenant_uuid: string,
+  offering: PublicOfferingDetails,
+) => {
   return loadFlavors({
     tenant_uuid,
-    name_iregex: offering.plugin_options?.flavors_regex,
+    name_iregex: offering.plugin_options['flavors_regex'],
   }).then((data) => data.map(formatFlavorOption));
 };
 
@@ -64,9 +67,9 @@ export const getRancherMountPointChoices = () => {
 };
 
 export const loadNodeCreateData = async (cluster: RancherCluster) => {
-  const offering = (await marketplacePublicOfferingsRetrieve({
+  const offering = await marketplacePublicOfferingsRetrieve({
     path: { uuid: cluster.marketplace_offering_uuid },
-  }).then((response) => response.data)) as Offering;
+  }).then((response) => response.data);
   const flavors = await filterFlavors(cluster.tenant_uuid, offering);
   const subnets = await formatSubnets(cluster.tenant_uuid);
   const volumeTypes = await loadVolumeTypes({

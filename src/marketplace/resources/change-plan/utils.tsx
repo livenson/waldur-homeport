@@ -1,6 +1,7 @@
 import {
   marketplacePublicOfferingsRetrieve,
   marketplaceResourcesRetrieve,
+  PublicOfferingDetails,
   Resource,
 } from '@waldur/api';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
@@ -10,7 +11,7 @@ import {
 } from '@waldur/form/types';
 import { translate } from '@waldur/i18n';
 import { filterOfferingComponents } from '@waldur/marketplace/common/registry';
-import { Offering, Plan } from '@waldur/marketplace/types';
+import { Plan } from '@waldur/marketplace/types';
 
 export interface FetchedData {
   resource: Resource;
@@ -21,7 +22,9 @@ export interface FetchedData {
   };
 }
 
-const getColumns = (offering: Offering): SelectDialogFieldColumn[] => [
+const getColumns = (
+  offering: PublicOfferingDetails,
+): SelectDialogFieldColumn[] => [
   {
     name: 'name',
     label: translate('Name'),
@@ -62,7 +65,7 @@ const getPlanSwitchPrice = (plan: Plan) => {
 };
 
 const getChoices = (
-  offering: Offering,
+  offering: PublicOfferingDetails,
   resource: Resource,
 ): SelectDialogFieldChoice[] =>
   sortPlans(offering.plans).map((plan) => ({
@@ -84,9 +87,9 @@ export async function loadData(resource_uuid): Promise<FetchedData> {
   const resource = await marketplaceResourcesRetrieve({
     path: { uuid: resource_uuid },
   }).then((r) => r.data);
-  const offering = (await marketplacePublicOfferingsRetrieve({
+  const offering = await marketplacePublicOfferingsRetrieve({
     path: { uuid: resource.offering_uuid },
-  }).then((response) => response.data)) as Offering;
+  }).then((response) => response.data);
   const columns = getColumns(offering);
   const choices = getChoices(offering, resource);
   const validPlan = choices.find((choice) => !choice.disabled);

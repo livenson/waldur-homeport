@@ -2,17 +2,19 @@ import { DownloadSimple } from '@phosphor-icons/react';
 import { FunctionComponent } from 'react';
 import { useAsync } from 'react-use';
 
-import { marketplacePlanComponentsList } from '@waldur/api';
+import {
+  marketplacePlanComponentsList,
+  PublicOfferingDetails,
+} from '@waldur/api';
 import { getAllPages } from '@waldur/core/api';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
-import { Offering } from '@waldur/marketplace/types';
 import exportExcel from '@waldur/table/exporters/excel';
 
 import './ExportFullPriceList.scss';
 
 interface ExportFullPriceListProps {
-  offering: Offering;
+  offering: PublicOfferingDetails;
 }
 
 const onExport = (offeringName, rows) => {

@@ -8,7 +8,7 @@ import {
   proposalReviewsCreate,
 } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
-import { fixURL, getAllPages } from '@waldur/core/api';
+import { getAllPages } from '@waldur/core/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { required } from '@waldur/core/validators';
@@ -60,12 +60,9 @@ export const CreateReviewDialog = reduxForm<
   const processRequest = useCallback(
     async (values: FormData, dispatch) => {
       if (!values.reviewer) return;
-      const proposalUrl =
-        props.resolve.proposal.url ||
-        fixURL(`/proposal-proposals/${props.resolve.proposal.uuid}/`);
       try {
         await proposalReviewsCreate({
-          body: { proposal: proposalUrl, ...values },
+          body: { proposal: props.resolve.proposal.url, ...values },
         });
         dispatch(
           showSuccess(translate('Proposal review created successfully')),
