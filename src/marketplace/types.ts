@@ -133,10 +133,3 @@ export interface OrderDetailsProps {
 export interface AttributesType {
   [key: string]: any;
 }
-
-export interface ImportableResource {
-  backend_id: string;
-  name: string;
-  type: string;
-  description: string;
-}

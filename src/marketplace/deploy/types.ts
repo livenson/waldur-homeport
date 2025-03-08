@@ -1,3 +1,4 @@
+import { PublicOfferingDetails } from '@waldur/api';
 import {
   VStepperFormStep,
   VStepperFormStepProps,
@@ -6,7 +7,7 @@ import {
 import { Offering } from '../types';
 
 export interface FormStepProps extends VStepperFormStepProps {
-  offering: Offering;
+  offering: PublicOfferingDetails;
   previewMode?: boolean;
 }
 

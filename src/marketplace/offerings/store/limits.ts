@@ -1,12 +1,13 @@
 import { useMemo } from 'react';
 
+import { PublicOfferingDetails } from '@waldur/api';
 import {
   filterOfferingComponents,
   getFormLimitParser,
 } from '@waldur/marketplace/common/registry';
 import { Limits } from '@waldur/marketplace/common/types';
 import { maxAmount, minAmount } from '@waldur/marketplace/common/utils';
-import { Offering, OfferingComponent } from '@waldur/marketplace/types';
+import { OfferingComponent } from '@waldur/marketplace/types';
 
 import { OfferingLimits } from './types';
 
@@ -63,7 +64,9 @@ const parseComponentLimits = (components: OfferingComponent[]) =>
     {},
   );
 
-export const parseOfferingLimits = (offering: Offering): OfferingLimits => {
+export const parseOfferingLimits = (
+  offering: PublicOfferingDetails,
+): OfferingLimits => {
   const components = filterOfferingComponents(offering);
   const rawLimits = parseComponentLimits(components);
   return parseLimitValues(offering.type, rawLimits);

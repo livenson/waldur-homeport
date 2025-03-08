@@ -3,6 +3,7 @@ import { FunctionComponent, useMemo, useState } from 'react';
 import { Nav, Tab } from 'react-bootstrap';
 import { connect, useSelector } from 'react-redux';
 
+import { PublicOfferingDetails } from '@waldur/api';
 import { AwesomeCheckbox } from '@waldur/core/AwesomeCheckbox';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { Tip } from '@waldur/core/Tooltip';
@@ -15,7 +16,7 @@ import {
   formSubmitErrorsSelector,
 } from '@waldur/marketplace/deploy/utils';
 import { Limits } from '@waldur/marketplace/details/types';
-import { Offering, Plan } from '@waldur/marketplace/types';
+import { Plan } from '@waldur/marketplace/types';
 import { PriceTooltip } from '@waldur/price/PriceTooltip';
 import { getCustomer } from '@waldur/workspace/selectors';
 
@@ -310,7 +311,7 @@ const PureDetailsTable: FunctionComponent<PlanDetailsTableProps> = (props) => {
 };
 
 interface PlanDetailsTable2 {
-  offering: Offering;
+  offering: PublicOfferingDetails;
   plan?: Plan;
   limits?: Limits;
   viewMode?: boolean;

@@ -3,8 +3,9 @@ import { useSelector, useDispatch } from 'react-redux';
 import { change, getFormValues } from 'redux-form';
 
 import { marketplaceProviderOfferingsImportResource } from '@waldur/api';
+import { ImportableResource } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import { ImportableResource, Offering, Plan } from '@waldur/marketplace/types';
+import { Offering, Plan } from '@waldur/marketplace/types';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { createEntity } from '@waldur/table/actions';

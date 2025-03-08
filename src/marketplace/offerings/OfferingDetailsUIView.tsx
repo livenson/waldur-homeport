@@ -4,14 +4,15 @@ import { useCallback, useMemo } from 'react';
 
 import {
   marketplaceCategoriesRetrieve,
+  marketplacePlansUsageStatsList,
   marketplaceProviderOfferingsRetrieve,
 } from '@waldur/api';
 import { OFFERING_TYPE_BOOKING } from '@waldur/booking/constants';
+import { getAllPages } from '@waldur/core/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { isFeatureVisible } from '@waldur/features/connect';
 import { MarketplaceFeatures } from '@waldur/FeaturesEnums';
 import { translate } from '@waldur/i18n';
-import { getOfferingPlansUsage } from '@waldur/marketplace/common/api';
 import { Offering, ServiceProvider } from '@waldur/marketplace/types';
 import { useBreadcrumbs, usePageHero } from '@waldur/navigation/context';
 import { PageBarTab } from '@waldur/navigation/types';
@@ -100,11 +101,6 @@ async function loadOfferingData(offering_uuid: string) {
   }).then((response) => response.data);
 
   return { offering, category };
-}
-
-async function loadPlansUsage(offering_uuid: string) {
-  const plansUsage = await getOfferingPlansUsage(offering_uuid);
-  return plansUsage;
 }
 
 const getTabs = (offering: Offering): PageBarTab[] => {
@@ -216,7 +212,12 @@ export const OfferingDetailsUIView = ({
     isRefetching: isRefetchingPlansUsage,
   } = useQuery(
     ['offeringPlansUsage', offering_uuid],
-    () => loadPlansUsage(offering_uuid),
+    () =>
+      getAllPages((page) =>
+        marketplacePlansUsageStatsList({
+          query: { page, offering_uuid },
+        }),
+      ),
     { refetchOnWindowFocus: false, staleTime: 3 * 60 * 1000 },
   );
 

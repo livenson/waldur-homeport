@@ -10,7 +10,6 @@ import { translate } from '@waldur/i18n';
 import { PlanDescriptionButton } from '@waldur/marketplace/details/plan/PlanDescriptionButton';
 import { PlanDetailsTable2 } from '@waldur/marketplace/details/plan/PlanDetailsTable2';
 import { PlanSelectField } from '@waldur/marketplace/details/plan/PlanSelectField';
-import { Offering } from '@waldur/marketplace/types';
 
 export const WizardFormSecondPage: FunctionComponent<WizardFormStepProps> = (
   props,
@@ -25,7 +24,7 @@ export const WizardFormSecondPage: FunctionComponent<WizardFormStepProps> = (
           () =>
             marketplacePublicOfferingsRetrieve({
               path: { uuid: offering.uuid },
-            }).then((response) => response.data as unknown as Offering),
+            }).then((response) => response.data),
           {
             staleTime: 3 * 60 * 1000,
           },

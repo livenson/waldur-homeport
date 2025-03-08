@@ -1,4 +1,4 @@
-import Axios, { AxiosRequestConfig } from 'axios';
+import Axios from 'axios';
 
 import {
   marketplaceCategoriesList,
@@ -6,13 +6,10 @@ import {
   MarketplaceCategoryGroupsListData,
   marketplaceComponentUsagesList,
   MarketplaceComponentUsagesListData,
-  marketplaceOfferingPermissionsList,
-  marketplacePlansUsageStatsList,
   marketplaceProviderResourcesOfferingForSubresourcesList,
   marketplaceProviderResourcesPlanPeriodsList,
   marketplaceServiceProvidersList,
   MarketplaceServiceProvidersListData,
-  organizationGroupsList,
 } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { getAllPages, parseResultCount, post } from '@waldur/core/api';
@@ -39,18 +36,6 @@ export const getComponentUsages = (
     }),
   );
 
-export const getAllOfferingPermissions = (options?: AxiosRequestConfig) =>
-  getAllPages((page) =>
-    marketplaceOfferingPermissionsList({ query: { page, ...options } }),
-  );
-
-export const getOfferingPlansUsage = (offeringUuid: string) =>
-  getAllPages((page) =>
-    marketplacePlansUsageStatsList({
-      query: { page, offering_uuid: offeringUuid },
-    }),
-  );
-
 export const getProviderResourcePlanPeriods = (uuid: string) =>
   marketplaceProviderResourcesPlanPeriodsList({
     path: { uuid },
@@ -60,11 +45,6 @@ export const getSubResourcesOfferings = (uuid: string) =>
   marketplaceProviderResourcesOfferingForSubresourcesList({
     path: { uuid },
   }).then((r) => r.data);
-
-export const getAllOrganizationGroups = (options?) =>
-  getAllPages((page) =>
-    organizationGroupsList({ query: { page, ...options } }),
-  );
 
 export const updateOfferingState = (offeringUuid, action, reason) =>
   post(
