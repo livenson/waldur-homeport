@@ -3918,10 +3918,7 @@ export type Offering = {
     options: OfferingOptions;
     resource_options: OfferingOptions;
     readonly components: Array<OfferingComponent>;
-    /**
-     * Public data used by specific plugin, such as storage mode for OpenStack.
-     */
-    plugin_options?: unknown;
+    plugin_options: MergedPluginOptions;
     state: OfferingState;
     state_code: StateCodeEnum;
     vendor_details?: string;
@@ -4091,11 +4088,8 @@ export type OfferingCreate = {
     options?: OfferingOptions;
     resource_options?: OfferingOptions;
     components?: Array<OfferingComponent>;
-    /**
-     * Public data used by specific plugin, such as storage mode for OpenStack.
-     */
-    plugin_options?: unknown;
-    secret_options?: unknown;
+    plugin_options: MergedPluginOptions;
+    secret_options: MergedSecretOptions;
     readonly service_attributes: {};
     state: OfferingState;
     state_code: StateCodeEnum;
@@ -4159,11 +4153,6 @@ export type OfferingCreateRequest = {
     options?: OfferingOptionsRequest;
     resource_options?: OfferingOptionsRequest;
     components?: Array<OfferingComponentRequest>;
-    /**
-     * Public data used by specific plugin, such as storage mode for OpenStack.
-     */
-    plugin_options?: unknown;
-    secret_options?: unknown;
     vendor_details?: string;
     getting_started?: string;
     integration_guide?: string;
@@ -4381,10 +4370,6 @@ export type OfferingRequest = {
     category: string;
     attributes?: unknown;
     components?: Array<OfferingComponentRequest>;
-    /**
-     * Public data used by specific plugin, such as storage mode for OpenStack.
-     */
-    plugin_options?: unknown;
     vendor_details?: string;
     getting_started?: string;
     integration_guide?: string;
@@ -6788,10 +6773,6 @@ export type PatchedOfferingRequest = {
     category?: string;
     attributes?: unknown;
     components?: Array<OfferingComponentRequest>;
-    /**
-     * Public data used by specific plugin, such as storage mode for OpenStack.
-     */
-    plugin_options?: unknown;
     vendor_details?: string;
     getting_started?: string;
     integration_guide?: string;
@@ -7066,11 +7047,6 @@ export type PatchedProviderOfferingDetailsRequest = {
     category?: string;
     attributes?: unknown;
     components?: Array<OfferingComponentRequest>;
-    /**
-     * Public data used by specific plugin, such as storage mode for OpenStack.
-     */
-    plugin_options?: unknown;
-    secret_options?: unknown;
     vendor_details?: string;
     getting_started?: string;
     integration_guide?: string;
@@ -7139,10 +7115,6 @@ export type PatchedPublicOfferingDetailsRequest = {
     category?: string;
     attributes?: unknown;
     components?: Array<OfferingComponentRequest>;
-    /**
-     * Public data used by specific plugin, such as storage mode for OpenStack.
-     */
-    plugin_options?: unknown;
     vendor_details?: string;
     getting_started?: string;
     integration_guide?: string;
@@ -8107,10 +8079,7 @@ export type ProviderOffering = {
      * Fields describing resource report form.
      */
     resource_options?: unknown;
-    /**
-     * Private data used by specific plugin, such as credentials and hooks.
-     */
-    secret_options?: unknown;
+    secret_options: MergedSecretOptions;
 };
 
 export type ProviderOfferingCosts = {
@@ -8159,11 +8128,8 @@ export type ProviderOfferingDetails = {
     options: OfferingOptions;
     resource_options: OfferingOptions;
     readonly components: Array<OfferingComponent>;
-    /**
-     * Public data used by specific plugin, such as storage mode for OpenStack.
-     */
-    plugin_options?: unknown;
-    secret_options?: unknown;
+    plugin_options: MergedPluginOptions;
+    secret_options: MergedSecretOptions;
     readonly service_attributes: {};
     state: OfferingState;
     state_code: StateCodeEnum;
@@ -8227,11 +8193,6 @@ export type ProviderOfferingDetailsRequest = {
     category: string;
     attributes?: unknown;
     components?: Array<OfferingComponentRequest>;
-    /**
-     * Public data used by specific plugin, such as storage mode for OpenStack.
-     */
-    plugin_options?: unknown;
-    secret_options?: unknown;
     vendor_details?: string;
     getting_started?: string;
     integration_guide?: string;
@@ -8424,10 +8385,7 @@ export type PublicOfferingDetails = {
     options: OfferingOptions;
     resource_options: OfferingOptions;
     readonly components: Array<OfferingComponent>;
-    /**
-     * Public data used by specific plugin, such as storage mode for OpenStack.
-     */
-    plugin_options?: unknown;
+    plugin_options: MergedPluginOptions;
     state: OfferingState;
     state_code: StateCodeEnum;
     vendor_details?: string;
@@ -8491,10 +8449,6 @@ export type PublicOfferingDetailsRequest = {
     category: string;
     attributes?: unknown;
     components?: Array<OfferingComponentRequest>;
-    /**
-     * Public data used by specific plugin, such as storage mode for OpenStack.
-     */
-    plugin_options?: unknown;
     vendor_details?: string;
     getting_started?: string;
     integration_guide?: string;
@@ -9754,7 +9708,7 @@ export type RobotAccountDetails = {
     readonly customer_uuid: string;
     readonly customer_name: string;
     readonly offering_customer_uuid: string;
-    readonly offering_plugin_options: string;
+    offering_plugin_options: MergedPluginOptions;
 };
 
 export type RobotAccountRequest = {
@@ -36232,5 +36186,5 @@ export type VmwareVirtualMachineWebConsoleRetrieveResponses = {
 export type VmwareVirtualMachineWebConsoleRetrieveResponse = VmwareVirtualMachineWebConsoleRetrieveResponses[keyof VmwareVirtualMachineWebConsoleRetrieveResponses];
 
 export type ClientOptions = {
-    baseUrl: `${string}://waldur-openapi-schema.yaml` | (string & {});
+    baseUrl: `${string}://schema.yaml` | (string & {});
 };

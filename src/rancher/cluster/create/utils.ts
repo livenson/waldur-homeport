@@ -51,7 +51,7 @@ export const filterFlavors = (
 ) => {
   return loadFlavors({
     tenant_uuid,
-    name_iregex: offering.plugin_options['flavors_regex'],
+    name_iregex: offering.plugin_options.flavors_regex,
   }).then((data) => data.map(formatFlavorOption));
 };
 

@@ -4,8 +4,6 @@ import {
   VStepperFormStepProps,
 } from '@waldur/form/VStepperFormStep';
 
-import { Offering } from '../types';
-
 export interface FormStepProps extends VStepperFormStepProps {
   offering: PublicOfferingDetails;
   previewMode?: boolean;
@@ -14,6 +12,6 @@ export interface FormStepProps extends VStepperFormStepProps {
 export type OfferingConfigurationFormStep = VStepperFormStep<FormStepProps>;
 
 export interface CheckoutSummaryProps {
-  offering: Offering;
+  offering: PublicOfferingDetails;
   updateMode?: boolean;
 }

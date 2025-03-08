@@ -2,9 +2,8 @@ import React from 'react';
 import { useAsync } from 'react-use';
 
 import {
-  marketplaceProviderOfferingsRetrieve,
+  marketplacePublicOfferingsRetrieve,
   marketplaceResourcesRetrieve,
-  PublicOfferingDetails,
 } from '@waldur/api';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
@@ -25,9 +24,9 @@ async function loadData(resourceId: string) {
   const resource = await marketplaceResourcesRetrieve({
     path: { uuid: resourceId },
   }).then((r) => r.data);
-  const offering = (await marketplaceProviderOfferingsRetrieve({
+  const offering = await marketplacePublicOfferingsRetrieve({
     path: { uuid: resource.offering_uuid },
-  }).then((response) => response.data)) as PublicOfferingDetails;
+  }).then((response) => response.data);
   const plan =
     resource.plan &&
     offering.plans.find((item) => item.uuid === resource.plan_uuid);

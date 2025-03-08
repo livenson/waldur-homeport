@@ -4,6 +4,7 @@ import { useAsync } from 'react-use';
 
 import {
   marketplacePlanComponentsList,
+  PlanComponent,
   PublicOfferingDetails,
 } from '@waldur/api';
 import { getAllPages } from '@waldur/core/api';
@@ -17,7 +18,7 @@ interface ExportFullPriceListProps {
   offering: PublicOfferingDetails;
 }
 
-const onExport = (offeringName, rows) => {
+const onExport = (offeringName: string, rows: PlanComponent[]) => {
   const filename = translate('Full price list of {offeringName} offering', {
     offeringName,
   });
@@ -30,7 +31,7 @@ const onExport = (offeringName, rows) => {
     'Amount',
     'Component price',
   ];
-  const exportRow = (row) => [
+  const exportRow = (row: PlanComponent) => [
     row.plan_name,
     row.component_name,
     row.measured_unit || 'N/A',

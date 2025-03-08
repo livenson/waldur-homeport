@@ -2,11 +2,11 @@ import { createElement, FC, useMemo } from 'react';
 import { connect } from 'react-redux';
 import { isSubmitting, isValid } from 'redux-form';
 
+import { PublicOfferingDetails } from '@waldur/api';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { isFeatureVisible } from '@waldur/features/connect';
 import { MarketplaceFeatures } from '@waldur/FeaturesEnums';
 import { ORDER_FORM_ID } from '@waldur/marketplace/details/constants';
-import { Offering } from '@waldur/marketplace/types';
 import { Customer } from '@waldur/workspace/types';
 
 import { DeployPageTotalCard } from '../deploy/DeployPageTotalCard';
@@ -87,5 +87,5 @@ const mapStateToProps = (state, ownProps) => ({
 export const OrderSummary = connect<
   OrderSummaryStateProps,
   {},
-  { offering: Offering; onlyDetails?: boolean }
+  { offering: PublicOfferingDetails; onlyDetails?: boolean }
 >(mapStateToProps)(PureOrderSummary);
