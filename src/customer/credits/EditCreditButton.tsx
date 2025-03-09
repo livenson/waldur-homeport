@@ -2,7 +2,7 @@ import { PencilSimple } from '@phosphor-icons/react';
 import { Dropdown } from 'react-bootstrap';
 import { SubmissionError } from 'redux-form';
 
-import { customerCreditsUpdate } from '@waldur/api';
+import { CustomerCredit, customerCreditsUpdate } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { useModal } from '@waldur/modal/hooks';
@@ -18,7 +18,13 @@ const CreditFormDialog = lazyComponent(() =>
 
 const FORM_ID = 'CustomerCreditEditForm';
 
-export const EditCreditButton = ({ row, refetch }) => {
+export const EditCreditButton = ({
+  row,
+  refetch,
+}: {
+  row: CustomerCredit;
+  refetch;
+}) => {
   const { closeDialog, openDialog } = useModal();
   const { showErrorResponse, showSuccess } = useNotify();
 
