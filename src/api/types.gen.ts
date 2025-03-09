@@ -36186,5 +36186,5 @@ export type VmwareVirtualMachineWebConsoleRetrieveResponses = {
 export type VmwareVirtualMachineWebConsoleRetrieveResponse = VmwareVirtualMachineWebConsoleRetrieveResponses[keyof VmwareVirtualMachineWebConsoleRetrieveResponses];
 
 export type ClientOptions = {
-    baseUrl: `${string}://schema.yaml` | (string & {});
+    baseUrl: `${string}://waldur-openapi-schema.yaml` | (string & {});
 };
