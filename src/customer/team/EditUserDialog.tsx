@@ -3,6 +3,7 @@ import { Modal } from 'react-bootstrap';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { reduxForm } from 'redux-form';
 
+import { CustomerUser } from '@waldur/api';
 import { SubmitButton } from '@waldur/auth/SubmitButton';
 import { FormContainer } from '@waldur/form';
 import { translate } from '@waldur/i18n';
@@ -21,7 +22,6 @@ import { showErrorResponse } from '@waldur/store/notify';
 import { getCustomer } from '@waldur/workspace/selectors';
 import { Customer } from '@waldur/workspace/types';
 
-import { NestedCustomerPermission } from './types';
 import { UserGroup } from './UserGroup';
 
 const FORM_ID = 'EditUserDialog';
@@ -32,7 +32,7 @@ interface EditUserDialogFormData {
 }
 
 interface EditUserDialogResolve {
-  customer: NestedCustomerPermission;
+  customer: CustomerUser;
   refetch;
 }
 

@@ -2,6 +2,7 @@ import { Trash } from '@phosphor-icons/react';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { CustomerUser } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { deleteCustomerUser, deleteProjectUser } from '@waldur/permissions/api';
@@ -11,10 +12,8 @@ import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { getCustomer, getUser } from '@waldur/workspace/selectors';
 
-import { NestedCustomerPermission } from './types';
-
 interface UserRemoveButtonProps {
-  customer: NestedCustomerPermission;
+  customer: CustomerUser;
   refetch;
 }
 

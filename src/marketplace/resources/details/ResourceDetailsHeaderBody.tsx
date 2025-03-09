@@ -1,13 +1,13 @@
 import { FunctionComponent } from 'react';
 
-import { Resource } from '@waldur/api';
+import { PublicOfferingDetails, Resource } from '@waldur/api';
 
 import { EndDateField } from './EndDateField';
 import { OfferingDetailsField } from './OfferingDetailsField';
 
 interface ResourceDetailsHeaderBodyProps {
   resource: Resource;
-  offering;
+  offering: PublicOfferingDetails;
 }
 
 export const ResourceDetailsHeaderBody: FunctionComponent<

@@ -2,16 +2,16 @@ import classNames from 'classnames';
 import { FC } from 'react';
 import { Card } from 'react-bootstrap';
 
+import { PlanUsageResponse } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import { PlanUsageRow } from '@waldur/reporting/plan-usage/types';
 
 interface OwnProps {
-  plansUsage: PlanUsageRow[];
+  plansUsage: PlanUsageResponse[];
   className?: string;
   id?: string;
 }
 
-const PlanGroup = ({ plan }: { plan: PlanUsageRow }) => (
+const PlanGroup = ({ plan }: { plan: PlanUsageResponse }) => (
   <div className="plan">
     <h4 className="fw-bold mb-4">{plan.plan_name}:</h4>
     <table className="text-gray-600 w-100 mb-10">

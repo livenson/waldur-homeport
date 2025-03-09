@@ -3,6 +3,7 @@ import { Modal } from 'react-bootstrap';
 import { connect, useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
 
+import { CustomerUser, NestedProjectPermission } from '@waldur/api';
 import { SubmitButton } from '@waldur/auth/SubmitButton';
 import { FormContainer } from '@waldur/form';
 import { translate } from '@waldur/i18n';
@@ -20,7 +21,6 @@ import { RoleGroup } from '@waldur/project/team/RoleGroup';
 import { showErrorResponse } from '@waldur/store/notify';
 
 import { ProjectGroup } from './ProjectGroup';
-import { NestedCustomerPermission, NestedProjectPermission } from './types';
 import { UserGroup } from './UserGroup';
 
 const FORM_ID = 'EditProjectUserDialog';
@@ -32,7 +32,7 @@ interface EditProjectUserDialogFormData {
 
 interface EditProjectUserDialogResolve {
   project: NestedProjectPermission;
-  customer: NestedCustomerPermission;
+  customer: CustomerUser;
   refetch;
 }
 

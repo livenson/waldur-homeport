@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { PublicOfferingDetails } from '@waldur/api';
+import { BasePublicPlan, PublicOfferingDetails } from '@waldur/api';
 import {
   filterOfferingComponents,
   getFormLimitParser,
@@ -14,7 +14,7 @@ import { Plan } from '@waldur/marketplace/types';
 import { Component, PricesData } from './types';
 
 export const combinePrices = (
-  plan: Plan,
+  plan: BasePublicPlan,
   limits: Limits,
   usages: Limits,
   offering: PublicOfferingDetails,

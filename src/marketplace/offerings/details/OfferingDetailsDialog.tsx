@@ -1,7 +1,10 @@
 import React from 'react';
 import { useAsync } from 'react-use';
 
-import { marketplaceCategoriesRetrieve } from '@waldur/api';
+import {
+  marketplaceCategoriesRetrieve,
+  PublicOfferingDetails,
+} from '@waldur/api';
 import { FormattedHtml } from '@waldur/core/FormattedHtml';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
@@ -11,10 +14,10 @@ import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
 
 interface OfferingDetailsDialogProps {
-  resolve: { offering: any };
+  resolve: { offering: PublicOfferingDetails };
 }
 
-async function loadData(offering: any) {
+async function loadData(offering: PublicOfferingDetails) {
   const category = await marketplaceCategoriesRetrieve({
     path: { uuid: offering.category_uuid },
   }).then((response) => response.data);

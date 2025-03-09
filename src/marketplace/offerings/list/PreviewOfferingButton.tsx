@@ -2,6 +2,7 @@ import { Eye } from '@phosphor-icons/react';
 import { Dropdown } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
+import { ProviderOfferingDetails } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { isFeatureVisible } from '@waldur/features/connect';
 import { MarketplaceFeatures } from '@waldur/FeaturesEnums';
@@ -15,7 +16,11 @@ const PreviewOfferingDialog = lazyComponent(() =>
     default: module.PreviewOfferingDialog,
   })),
 );
-export const PreviewOfferingButton = ({ row }) => {
+export const PreviewOfferingButton = ({
+  row,
+}: {
+  row: ProviderOfferingDetails;
+}) => {
   const dispatch = useDispatch();
 
   if (![ACTIVE, PAUSED].includes(row.state)) {

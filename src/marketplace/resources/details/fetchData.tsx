@@ -2,6 +2,8 @@ import {
   marketplaceResourcesDetailsRetrieve,
   marketplaceResourcesOfferingRetrieve,
   marketplaceResourcesRetrieve,
+  PublicOfferingDetails,
+  Resource,
 } from '@waldur/api';
 import { OFFERING_TYPE_BOOKING } from '@waldur/booking/constants';
 import { lazyComponent } from '@waldur/core/lazyComponent';
@@ -29,9 +31,19 @@ export const getResourceTabs = ({
   scope,
   lexisLinksCount,
   robotAccountsCount,
+}: {
+  resource: Resource;
+  offering: PublicOfferingDetails;
+  scope;
+  lexisLinksCount;
+  robotAccountsCount;
 }) => {
   // Generate tabs
-  const tabs: PageBarTab[] = [];
+  const tabs: PageBarTab<{
+    resource: Resource;
+    resourceScope;
+    offering: PublicOfferingDetails;
+  }>[] = [];
 
   const endpoints = getResourceAccessEndpoints(resource, offering);
   if (offering.getting_started || endpoints.length > 0) {
@@ -103,7 +115,7 @@ export const getResourceTabs = ({
   }
 
   if (scope) {
-    tabs.push(...getTabs(scope.resource_type));
+    tabs.push(...(getTabs(scope.resource_type) as any));
   }
 
   if (lexisLinksCount) {
@@ -228,6 +240,7 @@ export const getResourceTabs = ({
       ),
     });
   }
+  // @ts-ignore
   if (resource.report?.length > 0) {
     tabs.push({
       key: 'report',
