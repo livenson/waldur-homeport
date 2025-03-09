@@ -1,4 +1,4 @@
-import { Project } from '@waldur/workspace/types';
+import { Project } from '@waldur/api';
 
 export interface EditProjectProps {
   project: Project;

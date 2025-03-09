@@ -2,14 +2,14 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { usersPartialUpdate } from '@waldur/api';
+import { User } from '@waldur/api';
 import { fileSerializer, formDataOptions } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';
 import { useNotify } from '@waldur/store/hooks';
 import { setCurrentUser } from '@waldur/workspace/actions';
 import { getUser } from '@waldur/workspace/selectors';
-import { UserDetails } from '@waldur/workspace/types';
 
-export const useUpdateUser = (user: UserDetails) => {
+export const useUpdateUser = (user: User) => {
   const dispatch = useDispatch();
   const [isLoading, setIsLoading] = useState(false);
 

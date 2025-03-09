@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { isValid } from 'redux-form';
 
 import { PublicOfferingDetails } from '@waldur/api';
+import { Project } from '@waldur/api';
 import { isFeatureVisible } from '@waldur/features/connect';
 import { MarketplaceFeatures } from '@waldur/FeaturesEnums';
 import { ORDER_FORM_ID } from '@waldur/marketplace/details/constants';
@@ -14,7 +15,7 @@ import {
 } from '@waldur/marketplace/details/types';
 import { orderFormDataSelector } from '@waldur/marketplace/utils';
 import { getCustomer, getProject } from '@waldur/workspace/selectors';
-import { Customer, Project } from '@waldur/workspace/types';
+import { Customer } from '@waldur/workspace/types';
 
 const PureOrderDetailsSummary: React.FC<OrderSummaryProps> = (
   props: OrderSummaryProps,

@@ -20,8 +20,8 @@ export const states: StateDeclaration[] = [
       title: () => UsersService.getCachedUser()?.full_name,
     },
     component: lazyComponent(() =>
-      import('./UserDetails').then((module) => ({
-        default: module.UserDetails,
+      import('./UserDetailsPage').then((module) => ({
+        default: module.UserDetailsPage,
       })),
     ),
   },

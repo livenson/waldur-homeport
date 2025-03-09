@@ -6,11 +6,12 @@ import {
   marketplaceCustomerEstimatedCostPoliciesUpdate,
   marketplaceProjectEstimatedCostPoliciesUpdate,
 } from '@waldur/api';
+import { Project } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog, openModalDialog } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
-import { Customer, Project } from '@waldur/workspace/types';
+import { Customer } from '@waldur/workspace/types';
 
 import { CostPolicyFormData, CostPolicyType, PolicyPeriod } from './types';
 import { getCostPolicyActionOptions } from './utils';

@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { Col, Stack } from 'react-bootstrap';
 
 import { CustomerCredit, ProjectCredit } from '@waldur/api';
+import { Project } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { Badge } from '@waldur/core/Badge';
 import { formatDate } from '@waldur/core/dateUtils';
@@ -14,7 +15,6 @@ import { WidgetCard } from '@waldur/dashboard/WidgetCard';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { ChangesAmountBadge } from '@waldur/marketplace/service-providers/dashboard/ChangesAmountBadge';
 import { DASH_ESCAPE_CODE } from '@waldur/table/constants';
-import { Project } from '@waldur/workspace/types';
 
 interface CreditStatusWidgetProps {
   credit: Partial<CustomerCredit & ProjectCredit>;

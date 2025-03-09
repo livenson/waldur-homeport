@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { ProviderOfferingDetails } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { EditButton } from '@waldur/form/EditButton';
 import { openModalDialog } from '@waldur/modal/actions';
@@ -8,7 +9,6 @@ import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';
 import { useUser } from '@waldur/workspace/hooks';
 import { getCustomer } from '@waldur/workspace/selectors';
-import { User } from '@waldur/workspace/types';
 
 import { ACTIVE, DRAFT, PAUSED } from '../../store/constants';
 
@@ -18,8 +18,11 @@ const UpdateOfferingLogoDialog = lazyComponent(() =>
   })),
 );
 
-export const OfferingLogoButton: FC<{ offering; refetch }> = (props) => {
-  const user = useUser() as User;
+export const OfferingLogoButton: FC<{
+  offering: ProviderOfferingDetails;
+  refetch;
+}> = (props) => {
+  const user = useUser();
   const customer = useSelector(getCustomer);
 
   const dispatch = useDispatch();

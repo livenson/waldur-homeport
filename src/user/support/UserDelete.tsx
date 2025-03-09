@@ -6,16 +6,16 @@ import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
 import { usersDestroy } from '@waldur/api';
+import { User } from '@waldur/api';
 import { Panel } from '@waldur/core/Panel';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { isDescendantOf } from '@waldur/navigation/useTabs';
 import { useNotify } from '@waldur/store/hooks';
-import { UserDetails } from '@waldur/workspace/types';
 
 import { TermsOfService } from './TermsOfService';
 
-export const UserDelete = ({ user }: { user: UserDetails }) => {
+export const UserDelete = ({ user }: { user: User }) => {
   const queryClient = useQueryClient();
   const router = useRouter();
   const { showErrorResponse, showSuccess } = useNotify();
@@ -41,7 +41,7 @@ export const UserDelete = ({ user }: { user: UserDetails }) => {
     try {
       setLoading(true);
       await usersDestroy({ path: { uuid: user.uuid } });
-      queryClient.setQueryData(['UserDetails', user.uuid], undefined);
+      queryClient.setQueryData(['User', user.uuid], undefined);
       showSuccess(translate('User has been deleted.'));
       if (isDescendantOf('marketplace-provider', router.globals.current)) {
         router.stateService.go('marketplace-provider-users');

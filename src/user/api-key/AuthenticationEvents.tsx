@@ -1,5 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
 
+import { Event } from '@waldur/api';
 import { formatRelative } from '@waldur/core/dateUtils';
 import eventsRegistry from '@waldur/events/registry';
 import { translate } from '@waldur/i18n';
@@ -23,7 +24,7 @@ export const AuthenticationEvents: FunctionComponent<{ user }> = ({ user }) => {
     filter,
   });
   return (
-    <Table
+    <Table<Event>
       {...props}
       title={translate('Authentication events')}
       columns={[
@@ -33,7 +34,7 @@ export const AuthenticationEvents: FunctionComponent<{ user }> = ({ user }) => {
         },
         {
           title: translate('IP address'),
-          render: ({ row }) => row.context.ip_address || 'N/A',
+          render: ({ row }) => row.context['ip_address'] || 'N/A',
         },
         {
           title: translate('Time'),

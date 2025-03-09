@@ -1,4 +1,6 @@
-export const serializeCustomerCredit = (formData) => ({
+import { CustomerCreditRequest } from '@waldur/api';
+
+export const serializeCustomerCredit = (formData): CustomerCreditRequest => ({
   ...formData,
   customer: formData.customer.url,
   offerings: formData.offerings

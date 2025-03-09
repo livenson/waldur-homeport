@@ -2,13 +2,14 @@ import React from 'react';
 import { Props as SelectProps } from 'react-select';
 import { Field } from 'redux-form';
 
+import { Project } from '@waldur/api';
 import {
   AsyncPaginate,
   REACT_SELECT_TABLE_FILTER,
 } from '@waldur/form/themed-select';
 import { translate } from '@waldur/i18n';
 import { categoryAutocomplete } from '@waldur/marketplace/common/autocompletes';
-import { Customer, Project } from '@waldur/workspace/types';
+import { Customer } from '@waldur/workspace/types';
 
 export const CategoryFilter: React.FC<{
   reactSelectProps?: Partial<SelectProps>;

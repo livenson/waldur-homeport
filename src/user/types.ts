@@ -1,9 +1,9 @@
 import { ReactNode } from 'react';
 
-import { UserDetails } from '@waldur/workspace/types';
+import { User } from '@waldur/api';
 
 export interface EditUserProps {
-  user: UserDetails;
+  user: User;
   name: string;
   label?: ReactNode;
   description?: ReactNode;

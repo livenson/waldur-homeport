@@ -2,13 +2,13 @@ import { FunctionComponent, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useEffectOnce } from 'react-use';
 
+import { PaymentProfile } from '@waldur/api';
 import { formatDate } from '@waldur/core/dateUtils';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { getTotalOfSumPaid } from '@waldur/customer/payments/api';
 import { translate } from '@waldur/i18n';
 import { getActiveFixedPricePaymentProfile } from '@waldur/invoices/details/utils';
 import { getCustomer } from '@waldur/workspace/selectors';
-import { PaymentProfile } from '@waldur/workspace/types';
 
 interface AgreementInfoProps {
   paymentProfiles?: PaymentProfile[];

@@ -2,6 +2,8 @@ import { Eye } from '@phosphor-icons/react';
 import { FC, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { MarketplaceResourcesListData, Resource } from '@waldur/api';
+import { Project } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
@@ -14,9 +16,9 @@ import { ActionsDropdown } from '@waldur/table/ActionsDropdown';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
-import { Customer, Project } from '@waldur/workspace/types';
+import { Customer } from '@waldur/workspace/types';
 
-const mandatoryFields = [
+const mandatoryFields: MarketplaceResourcesListData['query']['field'] = [
   'uuid',
   'name',
   'category_title',
@@ -86,7 +88,7 @@ export const SummaryResourcesTable: FC<OwnProps> = ({ scope, context }) => {
   });
 
   return (
-    <Table
+    <Table<Resource>
       {...tableProps}
       columns={[
         {

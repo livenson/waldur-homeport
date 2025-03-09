@@ -3,11 +3,11 @@ import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
 
+import { Project } from '@waldur/api';
 import { PROJECT_RESOURCES_ALL_FILTER_FORM_ID } from '@waldur/marketplace/resources/list/constants';
 import { createFetcher } from '@waldur/table/api';
 import { TableProps } from '@waldur/table/types';
 import { useTable } from '@waldur/table/useTable';
-import { Project } from '@waldur/workspace/types';
 
 import { NON_TERMINATED_STATES } from './constants';
 import { ResourcesAllListTable } from './ResourcesAllListTable';

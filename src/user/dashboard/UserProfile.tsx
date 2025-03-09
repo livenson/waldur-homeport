@@ -3,11 +3,11 @@ import { useMemo } from 'react';
 import { Stack } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
+import { User } from '@waldur/api';
 import { StateIndicator } from '@waldur/core/StateIndicator';
 import { PublicDashboardHero2 } from '@waldur/dashboard/hero/PublicDashboardHero2';
 import { getItemAbbreviation } from '@waldur/navigation/workspace/context-selector/utils';
 import { isStaffOrSupport } from '@waldur/workspace/selectors';
-import { UserDetails } from '@waldur/workspace/types';
 
 import { formatUserIsActive } from '../support/utils';
 
@@ -15,7 +15,7 @@ export const UserProfile = ({
   user,
   className,
 }: {
-  user: UserDetails;
+  user: User;
   className?: string;
 }) => {
   const showStatus = useSelector(isStaffOrSupport);

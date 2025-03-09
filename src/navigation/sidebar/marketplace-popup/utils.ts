@@ -3,9 +3,10 @@ import {
   marketplaceProviderOfferingsList,
   marketplacePublicOfferingsList,
 } from '@waldur/api';
+import { Project } from '@waldur/api';
 import { getAllPages, parseSelectData } from '@waldur/core/api';
 import { Category, Offering } from '@waldur/marketplace/types';
-import { Customer, Project } from '@waldur/workspace/types';
+import { Customer } from '@waldur/workspace/types';
 
 export const fetchCategories = (
   customer: Customer,

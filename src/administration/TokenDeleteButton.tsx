@@ -1,13 +1,20 @@
 import { Trash } from '@phosphor-icons/react';
 import { useDispatch } from 'react-redux';
 
+import { AuthToken } from '@waldur/api';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 
 import { deleteToken } from './api';
 
-export const TokenDeleteButton = ({ row, refetch }) => {
+export const TokenDeleteButton = ({
+  row,
+  refetch,
+}: {
+  row: AuthToken;
+  refetch;
+}) => {
   const dispatch = useDispatch();
   const openDialog = async () => {
     try {

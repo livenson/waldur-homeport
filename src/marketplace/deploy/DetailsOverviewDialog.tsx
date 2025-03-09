@@ -3,6 +3,7 @@ import { FC } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
 
 import { projectsRetrieve } from '@waldur/api';
+import { Project } from '@waldur/api';
 import { CopyToClipboardButton } from '@waldur/core/CopyToClipboardButton';
 import { formatDate } from '@waldur/core/dateUtils';
 import { LoadingErred } from '@waldur/core/LoadingErred';
@@ -13,7 +14,7 @@ import FormTable from '@waldur/form/FormTable';
 import { translate } from '@waldur/i18n';
 import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
 import { renderFieldOrDash } from '@waldur/table/utils';
-import { Customer, Project } from '@waldur/workspace/types';
+import { Customer } from '@waldur/workspace/types';
 
 import { getServiceProviderByCustomer } from '../common/api';
 import { getLabel } from '../common/registry';

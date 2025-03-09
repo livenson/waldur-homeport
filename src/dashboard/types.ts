@@ -1,4 +1,4 @@
-import { PaymentProfile } from '@waldur/workspace/types';
+import { PaymentProfile } from '@waldur/api';
 
 export type ChartData = Array<{
   label: string;

@@ -3,6 +3,7 @@ import { Button } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { getFormValues, reduxForm } from 'redux-form';
 
+import { Project } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { SIDEBAR_RESOURCES_FILTER_FORM } from '@waldur/marketplace/constants';
 import { OrganizationAutocomplete } from '@waldur/marketplace/orders/OrganizationAutocomplete';
@@ -10,7 +11,7 @@ import { ProjectFilter } from '@waldur/marketplace/resources/list/ProjectFilter'
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
-import { Customer, Project } from '@waldur/workspace/types';
+import { Customer } from '@waldur/workspace/types';
 
 import { useOrganizationAndProjectFiltersForResources } from './utils';
 

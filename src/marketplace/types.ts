@@ -8,7 +8,8 @@ import {
   PublicOfferingDetails,
   ProviderPlanDetails as Plan,
 } from '@waldur/api';
-import { Customer, Project } from '@waldur/workspace/types';
+import { Project } from '@waldur/api';
+import { Customer } from '@waldur/workspace/types';
 
 export {
   OfferingComponent,

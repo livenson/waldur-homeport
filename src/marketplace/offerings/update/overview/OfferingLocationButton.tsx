@@ -1,6 +1,9 @@
 import { useDispatch } from 'react-redux';
 
-import { marketplaceProviderOfferingsUpdateLocation } from '@waldur/api';
+import {
+  marketplaceProviderOfferingsUpdateLocation,
+  Offering,
+} from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { EditButton } from '@waldur/form/EditButton';
 import { translate } from '@waldur/i18n';
@@ -8,7 +11,6 @@ import { GeolocationPoint } from '@waldur/map/types';
 import { closeModalDialog, openModalDialog } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { useUser } from '@waldur/workspace/hooks';
-import { User } from '@waldur/workspace/types';
 
 import { ARCHIVED } from '../../store/constants';
 
@@ -18,8 +20,14 @@ const SetLocationDialog = lazyComponent(() =>
   })),
 );
 
-export const OfferingLocationButton = ({ offering, refetch }) => {
-  const user = useUser() as User;
+export const OfferingLocationButton = ({
+  offering,
+  refetch,
+}: {
+  offering: Offering;
+  refetch;
+}) => {
+  const user = useUser();
   const dispatch = useDispatch();
   const callback = () =>
     dispatch(

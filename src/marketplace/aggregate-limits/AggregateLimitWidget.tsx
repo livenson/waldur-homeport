@@ -4,6 +4,7 @@ import { Col, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
 import { ComponentsUsageStats } from '@waldur/api';
+import { Project } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { WidgetCard } from '@waldur/dashboard/WidgetCard';
@@ -11,7 +12,7 @@ import { translate } from '@waldur/i18n';
 import { AggregateLimitsShowMoreButton } from '@waldur/marketplace/aggregate-limits/AggregateLimitsShowMoreButton';
 import { QuotaCell } from '@waldur/marketplace/resources/details/QuotaCell';
 import { openModalDialog } from '@waldur/modal/actions';
-import { Customer, Project } from '@waldur/workspace/types';
+import { Customer } from '@waldur/workspace/types';
 
 import { getBillingTypeLabel } from '../resources/usage/utils';
 

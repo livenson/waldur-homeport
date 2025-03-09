@@ -73,7 +73,7 @@ describe('UserDelete', () => {
         path: { uuid: 'test-uuid' },
       });
       expect(queryClient.setQueryData).toHaveBeenCalledWith(
-        ['UserDetails', 'test-uuid'],
+        ['User', 'test-uuid'],
         undefined,
       );
       expect(notify.showSuccess).toHaveBeenCalledWith('User has been deleted.');

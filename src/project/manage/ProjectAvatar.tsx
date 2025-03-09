@@ -5,6 +5,7 @@ import { Field, Form } from 'react-final-form';
 import { useDispatch } from 'react-redux';
 
 import { projectsPartialUpdate } from '@waldur/api';
+import { Project } from '@waldur/api';
 import { fileSerializer, formDataOptions } from '@waldur/core/api';
 import { WideImageField } from '@waldur/form/WideImageField';
 import { translate } from '@waldur/i18n';
@@ -12,7 +13,6 @@ import { closeModalDialog } from '@waldur/modal/actions';
 import { getItemAbbreviation } from '@waldur/navigation/workspace/context-selector/utils';
 import { useNotify } from '@waldur/store/hooks';
 import { setCurrentProject } from '@waldur/workspace/actions';
-import { Project } from '@waldur/workspace/types';
 
 interface FormData {
   image;

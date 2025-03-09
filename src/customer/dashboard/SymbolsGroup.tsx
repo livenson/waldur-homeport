@@ -1,8 +1,8 @@
 import { FC } from 'react';
 
+import { User } from '@waldur/api';
 import Avatar from '@waldur/core/Avatar';
 import { Tip } from '@waldur/core/Tooltip';
-import { User } from '@waldur/workspace/types';
 
 interface SymbolsGroupProps {
   items: object[];
