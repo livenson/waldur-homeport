@@ -3,7 +3,7 @@ import { Form, InputGroup, Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { Field, reduxForm, change } from 'redux-form';
 
-import { openstackVolumesExtend } from '@waldur/api';
+import { OpenStackVolume, openstackVolumesExtend } from '@waldur/api';
 import { SubmitButton } from '@waldur/auth/SubmitButton';
 import { formatFilesize } from '@waldur/core/utils';
 import { InputField } from '@waldur/form/InputField';
@@ -14,15 +14,10 @@ import {
 } from '@waldur/marketplace/common/utils';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
-import { BaseResource } from '@waldur/resource/types';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
 
-interface Volume extends BaseResource {
-  size: number;
-}
-
 interface VolumeExtendDialogOwnProps {
-  resolve: { resource: Volume; refetch };
+  resolve: { resource: OpenStackVolume; refetch };
 }
 
 interface VolumeExtendDialogFormData {
