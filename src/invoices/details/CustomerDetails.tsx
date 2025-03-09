@@ -5,8 +5,21 @@ import { Customer } from '@waldur/workspace/types';
 
 import { formatPhone } from './utils';
 
+type CustomerDetailsType = Pick<
+  Customer,
+  | 'name'
+  | 'address'
+  | 'country'
+  | 'postal'
+  | 'phone_number'
+  | 'bank_name'
+  | 'bank_account'
+  | 'vat_code'
+  | 'email'
+>;
+
 interface CustomerDetailsProps {
-  customer: Customer;
+  customer: CustomerDetailsType;
 }
 
 export const CustomerDetails: React.FC<CustomerDetailsProps> = ({

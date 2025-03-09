@@ -20,7 +20,7 @@ import { Customer, Project } from '@waldur/workspace/types';
 interface RoleAndProjectSelectPopupProps {
   roles: (Role & { tooltip? })[];
   customer: Customer;
-  currentProject: Project;
+  currentProject: Pick<Project, 'uuid'>;
   selectedRole: Role;
   selectedProject;
   select;
@@ -59,7 +59,7 @@ const RoleAndProjectSelectPopup: React.FC<RoleAndProjectSelectPopupProps> = ({
   );
 
   const onClickProject = useCallback(
-    (project: Project) => {
+    (project: Pick<Project, 'uuid' | 'url'>) => {
       if (project.uuid !== selectedProject?.uuid) {
         select(selectedRole, project);
       }

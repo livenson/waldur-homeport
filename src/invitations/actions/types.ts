@@ -13,7 +13,7 @@ export interface InvitationContext extends GenericInvitationContext {
 
 export interface GroupInviteRow {
   email: string;
-  role_project: { role: Role; project?: Project };
+  role_project: { role: Role; project?: Pick<Project, 'uuid' | 'url'> };
   civil_number?: string;
 }
 

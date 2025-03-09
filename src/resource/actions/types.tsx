@@ -44,7 +44,7 @@ export type ActionValidator<Resource> = (
 
 export interface ActionContext<Resource = BaseResource> {
   resource: Resource;
-  user: User;
+  user: Pick<User, 'is_staff' | 'is_support'>;
 }
 
 export type ActionItemType = ComponentType<{
