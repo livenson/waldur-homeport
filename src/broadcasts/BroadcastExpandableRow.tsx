@@ -1,6 +1,7 @@
 import { FunctionComponent } from 'react';
 import { Col, Row } from 'react-bootstrap';
 
+import { BroadcastMessage } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
@@ -8,10 +9,9 @@ import { ExpandableContainer } from '@waldur/table/ExpandableContainer';
 
 import { OptionsList } from './OptionsList';
 import { RecipientsField } from './RecipientsField';
-import { BroadcastResponseData } from './types';
 
 export const BroadcastExpandableRow: FunctionComponent<{
-  row: BroadcastResponseData;
+  row: BroadcastMessage;
 }> = ({ row }) => (
   <ExpandableContainer>
     <Row>
@@ -22,11 +22,11 @@ export const BroadcastExpandableRow: FunctionComponent<{
       <Col sm={4}>
         <OptionsList
           label={translate('Organizations')}
-          list={row.query.customers}
+          list={row.query['customers']}
         />
         <OptionsList
           label={translate('Offerings')}
-          list={row.query.offerings}
+          list={row.query['offerings']}
         />
 
         <RecipientsField row={row} />
