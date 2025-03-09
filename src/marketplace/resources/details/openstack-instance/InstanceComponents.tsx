@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useMediaQuery } from 'react-responsive';
 
+import { OpenStackInstance } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 
 import { QuotaCell } from '../QuotaCell';
@@ -14,7 +15,11 @@ const ResourceComponentItem = ({ title, usage, units, isSmallScreen }) => {
   );
 };
 
-export const InstanceComponents = ({ resource }) => {
+export const InstanceComponents = ({
+  resource,
+}: {
+  resource: OpenStackInstance;
+}) => {
   const { volumes } = resource;
   const volumeTypes = useMemo<Record<string, number>>(
     () =>

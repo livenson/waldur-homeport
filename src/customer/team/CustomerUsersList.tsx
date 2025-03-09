@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
 
+import { CustomersUsersListData, CustomerUser } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import Avatar from '@waldur/core/Avatar';
 import { formatDate } from '@waldur/core/dateUtils';
@@ -36,7 +37,7 @@ export const renderRoleExpirationDate = (row) => {
 const mapStateToFilter = createSelector(
   getFormValues(CUSTOMER_USERS_LIST_FILTER_FORM_ID),
   (filterValues: any) => {
-    const filter: Record<string, string | boolean> = {
+    const filter: CustomersUsersListData['query'] = {
       o: 'concatenated_name',
     };
     if (filterValues) {
@@ -53,7 +54,7 @@ const mapStateToFilter = createSelector(
   },
 );
 
-const mandatoryFields = [
+const mandatoryFields: CustomersUsersListData['query']['field'] = [
   // Required for actions and expandable view
   'uuid',
   'email',
@@ -89,7 +90,7 @@ export const CustomerUsersList: FunctionComponent<{ filters? }> = ({
   const tableTabs = useTeamTableTabs();
 
   return (
-    <Table
+    <Table<CustomerUser>
       title={translate('Team')}
       {...props}
       filters={filters}

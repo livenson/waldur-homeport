@@ -25,7 +25,10 @@ const abbreviateNumber = (value: string | number) => {
   return `${value.toFixed(value % 1 === 0 ? 0 : 1)}${suffixes[magnitude]}`;
 };
 
-export const defaultCurrency = (value, shorten = false) => {
+export const defaultCurrency = (
+  value,
+  shorten = false,
+): string | null | undefined => {
   if (value === undefined || value === null) {
     return value;
   }

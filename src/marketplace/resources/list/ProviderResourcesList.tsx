@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
 
+import { MarketplaceProviderResourcesListData, Resource } from '@waldur/api';
 import { Badge } from '@waldur/core/Badge';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { lazyComponent } from '@waldur/core/lazyComponent';
@@ -16,6 +17,7 @@ import { Category, Offering } from '@waldur/marketplace/types';
 import { openModalDialog } from '@waldur/modal/actions';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
+import { Column } from '@waldur/table/types';
 import { useTable } from '@waldur/table/useTable';
 import { getCustomer } from '@waldur/workspace/selectors';
 import { Customer, Project } from '@waldur/workspace/types';
@@ -76,7 +78,7 @@ const TableComponent: FunctionComponent<any> = (props) => {
   React.useEffect(() => {
     props.resetPagination();
   }, [props.filter]);
-  const columns = [
+  const columns: Column<Resource>[] = [
     {
       title: translate('Name'),
       render: ResourceField,
@@ -285,9 +287,10 @@ const mapStateToFilter = createSelector(
   getCustomer,
   (state, formId) => getFormValues(formId)(state),
   (customer, filters: ResourceFilter) => {
-    const filter: Record<string, string | string[] | boolean> = {};
+    const filter: MarketplaceProviderResourcesListData['query'] = {};
 
     // Public resources should only contain resources from billable offerings.
+    // @ts-ignore
     filter.billable = true;
 
     if (customer) {
@@ -300,7 +303,7 @@ const mapStateToFilter = createSelector(
       filter.parent_offering_uuid = filters.parent_offering.uuid;
     }
     if (filters?.state) {
-      filter.state = filters.state.map((option) => option.value) as string[];
+      filter.state = filters.state.map((option) => option.value);
       if (filters?.include_terminated) {
         filter.state = [...filter.state, 'Terminated'];
       }
@@ -322,28 +325,29 @@ const mapStateToFilter = createSelector(
   },
 );
 
-const mandatoryFields = [
-  'uuid', // Almost all actions
-  'name', // Almost all actions
-  'url', // CreateRobotAccountAction
-  'customer_uuid', // ReportUsageAction, SetBackendIdAction
-  'customer_name', // ShowUsageAction, ReportUsageAction
-  'project_uuid', // CreateRobotAccountAction
-  'project_name', // ShowUsageAction, ReportUsageAction
-  'offering_uuid', // ShowUsageAction, ReportUsageAction
-  'offering_customer_uuid', // CreateRobotAccountAction
-  'offering_plugin_options', // CreateRobotAccountAction
-  'backend_id', // ShowUsageAction, ReportUsageAction, SetBackendIdAction
-  'is_usage_based', // Expandable view, ShowUsageAction, ReportUsageAction
-  'is_limit_based', // Expandable view, ShowUsageAction, ReportUsageAction
-  'limits', // Expandable view
-  'limit_usage', // Expandable view
-  'current_usages', // Expandable view
-  'state', // Almost all actions
-  'slug', // SetSlugAction
-  'end_date', // EditResourceEndDateByProviderAction, EditResourceEndDateByStaffAction
-  'resource_type', // TerminateAction
-];
+const mandatoryFields: MarketplaceProviderResourcesListData['query']['field'] =
+  [
+    'uuid', // Almost all actions
+    'name', // Almost all actions
+    'url', // CreateRobotAccountAction
+    'customer_uuid', // ReportUsageAction, SetBackendIdAction
+    'customer_name', // ShowUsageAction, ReportUsageAction
+    'project_uuid', // CreateRobotAccountAction
+    'project_name', // ShowUsageAction, ReportUsageAction
+    'offering_uuid', // ShowUsageAction, ReportUsageAction
+    'offering_customer_uuid', // CreateRobotAccountAction
+    'offering_plugin_options', // CreateRobotAccountAction
+    'backend_id', // ShowUsageAction, ReportUsageAction, SetBackendIdAction
+    'is_usage_based', // Expandable view, ShowUsageAction, ReportUsageAction
+    'is_limit_based', // Expandable view, ShowUsageAction, ReportUsageAction
+    'limits', // Expandable view
+    'limit_usage', // Expandable view
+    'current_usages', // Expandable view
+    'state', // Almost all actions
+    'slug', // SetSlugAction
+    'end_date', // EditResourceEndDateByProviderAction, EditResourceEndDateByStaffAction
+    'resource_type', // TerminateAction
+  ];
 
 export const ProviderResourcesList: React.ComponentType<any> = () => {
   const filter = useSelector((state) =>

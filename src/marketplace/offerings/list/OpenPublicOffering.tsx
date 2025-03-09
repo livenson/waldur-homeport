@@ -1,11 +1,16 @@
 import { ShoppingCart } from '@phosphor-icons/react';
 import { Dropdown } from 'react-bootstrap';
 
+import { ProviderOfferingDetails } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 
 import { DropdownLink } from './DropdownLink';
 
-export const OpenPublicOffering = ({ row }) => (
+export const OpenPublicOffering = ({
+  row,
+}: {
+  row: ProviderOfferingDetails;
+}) => (
   <Dropdown.Item
     as={DropdownLink}
     state="public-offering.marketplace-public-offering"

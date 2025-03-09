@@ -21,6 +21,7 @@ import { getOrderTypeOptions } from './OrderTypeFilter';
 interface OrdersTableComponentProps extends Partial<TableProps<OrderDetails>> {
   table: string;
   hideColumns?: 'organization'[];
+  filter: MarketplaceOrdersListData['query'];
 }
 
 const mandatoryFields: MarketplaceOrdersListData['query']['field'] = [

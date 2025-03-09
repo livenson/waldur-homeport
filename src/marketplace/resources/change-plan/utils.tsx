@@ -1,4 +1,5 @@
 import {
+  BasePublicPlan,
   marketplacePublicOfferingsRetrieve,
   marketplaceResourcesRetrieve,
   PublicOfferingDetails,
@@ -11,7 +12,6 @@ import {
 } from '@waldur/form/types';
 import { translate } from '@waldur/i18n';
 import { filterOfferingComponents } from '@waldur/marketplace/common/registry';
-import { Plan } from '@waldur/marketplace/types';
 
 export interface FetchedData {
   resource: Resource;
@@ -41,7 +41,7 @@ const getColumns = (
   },
 ];
 
-const sortPlans = (plans: Plan[]) =>
+const sortPlans = (plans: BasePublicPlan[]) =>
   plans
     .map((plan) => ({
       ...plan,
@@ -52,7 +52,7 @@ const sortPlans = (plans: Plan[]) =>
     }))
     .sort((a, b) => a.unit_price - b.unit_price);
 
-const getPlanSwitchPrice = (plan: Plan) => {
+const getPlanSwitchPrice = (plan: BasePublicPlan) => {
   const fixedPart =
     typeof plan.unit_price === 'string'
       ? parseFloat(plan.unit_price)
@@ -74,6 +74,7 @@ const getChoices = (
     name: plan.name,
     ...plan.quotas,
     archived: plan.archived,
+    // @ts-ignore
     price: getPlanSwitchPrice(plan),
     disabled: plan.url === resource.plan || !plan.is_active,
     disabledReason: !plan.is_active

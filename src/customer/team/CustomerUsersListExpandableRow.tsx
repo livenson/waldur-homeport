@@ -1,5 +1,6 @@
 import { FunctionComponent } from 'react';
 
+import { CustomerUser } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { Link } from '@waldur/core/Link';
 import { translate } from '@waldur/i18n';
@@ -9,7 +10,6 @@ import { RoleField } from '@waldur/user/affiliations/RoleField';
 import { AddProjectUserButton } from './AddProjectUserButton';
 import { DeleteProjectUserButton } from './DeleteProjectUserButton';
 import { EditProjectUserButton } from './EditProjectUserButton';
-import { NestedCustomerPermission } from './types';
 
 const RowActions = ({ row, refetch, project }) => {
   return (
@@ -29,7 +29,7 @@ const RowActions = ({ row, refetch, project }) => {
 };
 
 export const CustomerUsersListExpandableRow: FunctionComponent<{
-  row: NestedCustomerPermission;
+  row: CustomerUser;
   refetch;
 }> = ({ row, refetch }) => {
   return row.projects.length === 0 ? (

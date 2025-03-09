@@ -1,4 +1,5 @@
 import {
+  BasePublicPlan,
   marketplacePublicOfferingsPlansRetrieve,
   marketplacePublicOfferingsRetrieve,
   marketplaceResourcesRetrieve,
@@ -15,12 +16,11 @@ import { getBillingPeriods } from '@waldur/marketplace/common/utils';
 import { parseOfferingLimits } from '@waldur/marketplace/offerings/store/limits';
 import { OfferingLimits } from '@waldur/marketplace/offerings/store/types';
 import { StateProps } from '@waldur/marketplace/resources/change-limits/connector';
-import { Plan } from '@waldur/marketplace/types';
 
 export interface FetchedData {
   resource: Resource;
   offering: PublicOfferingDetails;
-  plan: Plan;
+  plan: BasePublicPlan;
   limitSerializer: LimitParser;
   usages: Limits;
   limits: Limits;

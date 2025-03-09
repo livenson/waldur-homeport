@@ -7,7 +7,6 @@ import {
   marketplaceComponentUsagesList,
   MarketplaceComponentUsagesListData,
   marketplaceProviderResourcesOfferingForSubresourcesList,
-  marketplaceProviderResourcesPlanPeriodsList,
   marketplaceServiceProvidersList,
   MarketplaceServiceProvidersListData,
 } from '@waldur/api';
@@ -35,11 +34,6 @@ export const getComponentUsages = (
       query: { page, resource_uuid, date_after, ...query },
     }),
   );
-
-export const getProviderResourcePlanPeriods = (uuid: string) =>
-  marketplaceProviderResourcesPlanPeriodsList({
-    path: { uuid },
-  }).then((r) => r.data);
 
 export const getSubResourcesOfferings = (uuid: string) =>
   marketplaceProviderResourcesOfferingForSubresourcesList({
