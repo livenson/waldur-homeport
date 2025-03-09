@@ -1,15 +1,19 @@
 import { render } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
 
-import { CountryEnum } from '@waldur/api';
+import {
+  CountryEnum,
+  CustomerDetails as CustomerDetailsType,
+} from '@waldur/api';
 import { Customer } from '@waldur/workspace/types';
 
 import { CustomerDetails } from './CustomerDetails';
 
-const Customer = {
+const Customer: CustomerDetailsType = {
   name: 'OpenNode',
   address: 'Lille 4-205',
   country: 'EE' as CountryEnum,
+  country_name: 'Estonia',
   email: 'info@opennodecloud.com',
   postal: '80041',
   phone_number: '3725555555',

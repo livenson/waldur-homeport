@@ -1,4 +1,4 @@
-import { OIDCConfig } from '@waldur/administration/types';
+import { IdentityProvider } from '@waldur/api';
 import { IdentityProviderLogo } from '@waldur/auth/providers/IdentityProviderLogo';
 
 import { LoginButton } from './LoginButton';
@@ -7,7 +7,7 @@ import { getOauthURL } from './utils';
 export const OauthLoginButton = ({
   provider,
 }: {
-  provider: Pick<OIDCConfig, 'label' | 'provider'>;
+  provider: Pick<IdentityProvider, 'label' | 'provider'>;
 }) => (
   <LoginButton
     image={<IdentityProviderLogo name={provider.provider} />}

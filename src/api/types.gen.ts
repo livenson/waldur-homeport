@@ -1817,6 +1817,10 @@ export type CustomerDetails = {
     phone_number?: string;
     bank_name?: string;
     bank_account?: string;
+    /**
+     * VAT number
+     */
+    vat_code?: string;
 };
 
 export type CustomerDetailsRequest = {
@@ -1828,6 +1832,10 @@ export type CustomerDetailsRequest = {
     phone_number?: string;
     bank_name?: string;
     bank_account?: string;
+    /**
+     * VAT number
+     */
+    vat_code?: string;
 };
 
 export type CustomerEstimatedCostPolicy = {
@@ -2606,7 +2614,7 @@ export type Invoice = {
     state?: InvoiceStateEnum;
     year?: number;
     month?: number;
-    readonly issuer_details: {};
+    issuer_details: CustomerDetails;
     /**
      * Date then invoice moved from state pending to created.
      */
@@ -2749,6 +2757,7 @@ export type InvoiceItemDetails = {
     plan_component_id: number;
     offering_component_type: string;
     offering_component_name: string;
+    resource_limit_periods: Array<ResourceLimitPeriod>;
 };
 
 export type InvoiceItemDetailsRequest = {
@@ -2764,6 +2773,7 @@ export type InvoiceItemDetailsRequest = {
     plan_component_id: number;
     offering_component_type: string;
     offering_component_name: string;
+    resource_limit_periods: Array<ResourceLimitPeriodRequest>;
 };
 
 export type InvoiceItemMigrateTo = {
@@ -9493,6 +9503,22 @@ export type ResourceEndDateByProviderRequest = {
      * The date is inclusive. Once reached, a resource will be scheduled for termination.
      */
     end_date?: string | null;
+};
+
+export type ResourceLimitPeriod = {
+    start: string;
+    end: string;
+    quantity: number;
+    billing_periods: number;
+    total: string;
+};
+
+export type ResourceLimitPeriodRequest = {
+    start: string;
+    end: string;
+    quantity: number;
+    billing_periods: number;
+    total: string;
 };
 
 export type ResourceOffering = {
