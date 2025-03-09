@@ -3662,10 +3662,10 @@ export type NestedOfferingFileRequest = {
 };
 
 export type NestedPriceEstimate = {
-    readonly total: number;
-    readonly current: number;
-    readonly tax: number;
-    readonly tax_current: number;
+    readonly total: string;
+    readonly current: string;
+    readonly tax: string;
+    readonly tax_current: string;
 };
 
 export type NestedProject = {
@@ -6929,7 +6929,7 @@ export type PatchedOrganizationGroupRequest = {
 export type PatchedPaymentProfileRequest = {
     name?: string;
     organization?: string;
-    attributes?: unknown;
+    attributes?: PaymentProfileAttributesRequest;
     payment_type?: PaymentTypeEnum;
     is_active?: boolean | null;
 };
@@ -7456,16 +7456,28 @@ export type PaymentProfile = {
     name: string;
     readonly organization_uuid: string;
     organization: string;
-    attributes?: unknown;
+    attributes?: PaymentProfileAttributes;
     payment_type: PaymentTypeEnum;
     readonly payment_type_display: string;
     is_active?: boolean | null;
 };
 
+export type PaymentProfileAttributes = {
+    end_date?: string;
+    agreement_number?: string;
+    contract_sum?: number;
+};
+
+export type PaymentProfileAttributesRequest = {
+    end_date?: string;
+    agreement_number?: string;
+    contract_sum?: number;
+};
+
 export type PaymentProfileRequest = {
     name: string;
     organization: string;
-    attributes?: unknown;
+    attributes?: PaymentProfileAttributesRequest;
     payment_type: PaymentTypeEnum;
     is_active?: boolean | null;
 };
@@ -36186,5 +36198,5 @@ export type VmwareVirtualMachineWebConsoleRetrieveResponses = {
 export type VmwareVirtualMachineWebConsoleRetrieveResponse = VmwareVirtualMachineWebConsoleRetrieveResponses[keyof VmwareVirtualMachineWebConsoleRetrieveResponses];
 
 export type ClientOptions = {
-    baseUrl: `${string}://waldur-openapi-schema.yaml` | (string & {});
+    baseUrl: `${string}://schema.yaml` | (string & {});
 };

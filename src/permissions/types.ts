@@ -4,7 +4,7 @@ export type RoleType = keyof typeof PermissionMap;
 
 export { RoleDetails as Role } from '@waldur/api';
 
-export interface BasePermission {
+interface BasePermission {
   customer_uuid: string;
   customer_name: string;
   scope_type: RoleType;

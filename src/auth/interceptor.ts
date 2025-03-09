@@ -98,5 +98,5 @@ client.interceptors.response.use((response) => {
     }
     AuthService.localLogout();
   }
-  return Promise.reject(response);
+  return response;
 });
