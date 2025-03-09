@@ -4,13 +4,13 @@ import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { formValueSelector } from 'redux-form';
 
+import { OpenStackSecurityGroup } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { Tip } from '@waldur/core/Tooltip';
 import { translate } from '@waldur/i18n';
 import { FormStepProps } from '@waldur/marketplace/deploy/types';
 import { ORDER_FORM_ID } from '@waldur/marketplace/details/constants';
 import { openModalDialog } from '@waldur/modal/actions';
-import { SecurityGroup } from '@waldur/openstack/openstack-security-groups/types';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { ActionsDropdownComponent } from '@waldur/table/ActionsDropdown';
 import { createFetcher } from '@waldur/table/api';
@@ -25,7 +25,7 @@ const OpenStackSecurityGroupsDialog = lazyComponent(() =>
 );
 
 interface ShowSecurityGroupsButtonProps {
-  row: SecurityGroup;
+  row: OpenStackSecurityGroup;
 }
 
 const ShowSecurityGroupsButton = (props: ShowSecurityGroupsButtonProps) => {
@@ -108,7 +108,7 @@ export const FormSecurityGroupsField = ({
   });
 
   return (
-    <Table
+    <Table<OpenStackSecurityGroup>
       {...tableProps}
       columns={[
         {

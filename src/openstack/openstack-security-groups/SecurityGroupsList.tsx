@@ -15,7 +15,7 @@ import { useTable } from '@waldur/table/useTable';
 import { CreateSecurityGroupAction } from '../openstack-tenant/actions/CreateSecurityGroupAction';
 import { PullSecurityGroupsAction } from '../openstack-tenant/actions/PullSecurityGroupsAction';
 
-import { SecurityGroupExpandableRow } from './SecurityGroupExpandableRow';
+import { SecurityGroupRulesList } from './SecurityGroupRulesList';
 
 export const SecurityGroupsList: FunctionComponent<{ resourceScope }> = ({
   resourceScope,
@@ -78,7 +78,7 @@ export const SecurityGroupsList: FunctionComponent<{ resourceScope }> = ({
           export: false,
         },
       ]}
-      expandableRow={SecurityGroupExpandableRow}
+      expandableRow={SecurityGroupRulesList}
       enableExport={true}
       rowActions={({ row }) => (
         <ActionButtonResource url={row.url} refetch={props.fetch} />

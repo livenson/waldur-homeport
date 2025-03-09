@@ -5,6 +5,7 @@ import { formValueSelector, reduxForm } from 'redux-form';
 import {
   DirectionEnum,
   EthertypeEnum,
+  OpenStackSecurityGroup,
   openstackSecurityGroupsList,
   openstackSecurityGroupsSetRules,
   ProtocolEnum,
@@ -14,8 +15,6 @@ import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { type RootState } from '@waldur/store/reducers';
-
-import { SecurityGroup } from '../types';
 
 import { FormData, Rule } from './types';
 
@@ -39,7 +38,7 @@ type OwnProps = ReturnType<typeof useRulesEditor>;
 
 export const connectForm = reduxForm<FormData, OwnProps>({ form: FORM_NAME });
 
-export const useRulesEditor = (resource: SecurityGroup) => {
+export const useRulesEditor = (resource: OpenStackSecurityGroup) => {
   const tenant =
     resource.resource_type === 'OpenStack.Tenant'
       ? resource.url

@@ -3,7 +3,7 @@ import { useAsync } from 'react-use';
 import { reduxForm } from 'redux-form';
 
 import {
-  OpenStackCreateServerGroupRequest,
+  OpenStackServerGroupRequest,
   openstackSecurityGroupsList,
   openstackServerGroupsList,
   openstackTenantsCreateSecurityGroup,
@@ -122,7 +122,7 @@ export const useCreateServerGroupForm = (resource: OpenStackTenant) => {
     [resource.url],
   );
   const dispatch = useDispatch();
-  const submitRequest = async (formData: OpenStackCreateServerGroupRequest) => {
+  const submitRequest = async (formData: OpenStackServerGroupRequest) => {
     try {
       await openstackTenantsCreateServerGroup({
         path: { uuid: resource.uuid },
@@ -149,7 +149,7 @@ const SERVER_GROUP_FORM_NAME = 'CreateServerGroupForm';
 type ServerGroupOwnProps = ReturnType<typeof useCreateServerGroupForm>;
 
 export const connectServerGroupForm = reduxForm<
-  OpenStackCreateServerGroupRequest,
+  OpenStackServerGroupRequest,
   ServerGroupOwnProps
 >({
   form: SERVER_GROUP_FORM_NAME,
