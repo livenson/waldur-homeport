@@ -2298,6 +2298,54 @@ export type Fingerprint = {
     readonly sha512: string;
 };
 
+export type FirecrestJob = {
+    readonly url: string;
+    readonly uuid: string;
+    name: string;
+    description?: string;
+    readonly service_name: string;
+    service_settings: string;
+    readonly service_settings_uuid: string;
+    readonly service_settings_state: string;
+    readonly service_settings_error_message: string;
+    project: string;
+    readonly project_name: string;
+    readonly project_uuid: string;
+    readonly customer: string;
+    readonly customer_name: string;
+    readonly customer_native_name: string;
+    readonly customer_abbreviation: string;
+    readonly error_message: string;
+    readonly error_traceback: string;
+    readonly resource_type: string;
+    state: CoreStates;
+    readonly created: string;
+    readonly modified: string;
+    readonly backend_id: string;
+    readonly access_url: string | null;
+    runtime_state?: string;
+    file: string;
+    /**
+     * Reference to user which submitted job
+     */
+    readonly user: string | null;
+    readonly user_uuid: string;
+    /**
+     * Required. 128 characters or fewer. Lowercase letters, numbers and @/./+/-/_ characters
+     */
+    readonly user_username: string;
+    readonly report: unknown;
+};
+
+export type FirecrestJobRequest = {
+    name: string;
+    description?: string;
+    service_settings: string;
+    project: string;
+    runtime_state?: string;
+    file: Blob | File;
+};
+
 export type GoogleCalendar = {
     backend_id?: string | null;
     public?: boolean;
@@ -2927,54 +2975,6 @@ export type JiraIssueProjectRequest = {
 export type JiraIssueRequest = {
     key: string;
     fields: JiraIssueFieldsRequest;
-};
-
-export type Job = {
-    readonly url: string;
-    readonly uuid: string;
-    name: string;
-    description?: string;
-    readonly service_name: string;
-    service_settings: string;
-    readonly service_settings_uuid: string;
-    readonly service_settings_state: string;
-    readonly service_settings_error_message: string;
-    project: string;
-    readonly project_name: string;
-    readonly project_uuid: string;
-    readonly customer: string;
-    readonly customer_name: string;
-    readonly customer_native_name: string;
-    readonly customer_abbreviation: string;
-    readonly error_message: string;
-    readonly error_traceback: string;
-    readonly resource_type: string;
-    state: CoreStates;
-    readonly created: string;
-    readonly modified: string;
-    readonly backend_id: string;
-    readonly access_url: string | null;
-    runtime_state?: string;
-    file: string;
-    /**
-     * Reference to user which submitted job
-     */
-    readonly user: string | null;
-    readonly user_uuid: string;
-    /**
-     * Required. 128 characters or fewer. Lowercase letters, numbers and @/./+/-/_ characters
-     */
-    readonly user_username: string;
-    readonly report: unknown;
-};
-
-export type JobRequest = {
-    name: string;
-    description?: string;
-    service_settings: string;
-    project: string;
-    runtime_state?: string;
-    file: Blob | File;
 };
 
 export type LexisLink = {
@@ -4626,55 +4626,6 @@ export type OpenStackBackupRestorationRequest = {
     ports?: Array<OpenStackNestedPortRequest>;
 };
 
-export type OpenStackCreateServerGroup = {
-    readonly url: string;
-    readonly uuid: string;
-    name: string;
-    description?: string;
-    readonly service_name: string;
-    readonly service_settings: string;
-    readonly service_settings_uuid: string;
-    readonly service_settings_state: string;
-    readonly service_settings_error_message: string;
-    readonly project: string;
-    readonly project_name: string;
-    readonly project_uuid: string;
-    readonly customer: string;
-    readonly customer_name: string;
-    readonly customer_native_name: string;
-    readonly customer_abbreviation: string;
-    readonly error_message: string;
-    readonly error_traceback: string;
-    readonly resource_type: string;
-    state: CoreStates;
-    readonly created: string;
-    readonly modified: string;
-    readonly backend_id: string;
-    readonly access_url: string | null;
-    readonly tenant: string;
-    readonly tenant_name: string;
-    readonly tenant_uuid: string;
-    policy?: PolicyEnum | BlankEnum;
-    readonly display_name: string;
-    readonly instances: Array<OpenStackNestedInstance>;
-    readonly marketplace_offering_uuid: string;
-    readonly marketplace_offering_name: string;
-    readonly marketplace_offering_plugin_options: {};
-    readonly marketplace_category_uuid: string;
-    readonly marketplace_category_name: string;
-    readonly marketplace_resource_uuid: string;
-    readonly marketplace_plan_uuid: string;
-    readonly marketplace_resource_state: string;
-    readonly is_usage_based: boolean;
-    readonly is_limit_based: boolean;
-};
-
-export type OpenStackCreateServerGroupRequest = {
-    name: string;
-    description?: string;
-    policy?: PolicyEnum | BlankEnum;
-};
-
 export type OpenStackDataVolume = {
     size: number;
     volume_type?: string | null;
@@ -5315,6 +5266,55 @@ export type OpenStackSecurityGroupUpdate = {
 export type OpenStackSecurityGroupUpdateRequest = {
     name: string;
     description?: string;
+};
+
+export type OpenStackServerGroup = {
+    readonly url: string;
+    readonly uuid: string;
+    name: string;
+    description?: string;
+    readonly service_name: string;
+    readonly service_settings: string;
+    readonly service_settings_uuid: string;
+    readonly service_settings_state: string;
+    readonly service_settings_error_message: string;
+    readonly project: string;
+    readonly project_name: string;
+    readonly project_uuid: string;
+    readonly customer: string;
+    readonly customer_name: string;
+    readonly customer_native_name: string;
+    readonly customer_abbreviation: string;
+    readonly error_message: string;
+    readonly error_traceback: string;
+    readonly resource_type: string;
+    state: CoreStates;
+    readonly created: string;
+    readonly modified: string;
+    readonly backend_id: string;
+    readonly access_url: string | null;
+    readonly tenant: string;
+    readonly tenant_name: string;
+    readonly tenant_uuid: string;
+    policy?: PolicyEnum | BlankEnum;
+    readonly display_name: string;
+    readonly instances: Array<OpenStackNestedInstance>;
+    readonly marketplace_offering_uuid: string;
+    readonly marketplace_offering_name: string;
+    readonly marketplace_offering_plugin_options: {};
+    readonly marketplace_category_uuid: string;
+    readonly marketplace_category_name: string;
+    readonly marketplace_resource_uuid: string;
+    readonly marketplace_plan_uuid: string;
+    readonly marketplace_resource_state: string;
+    readonly is_usage_based: boolean;
+    readonly is_limit_based: boolean;
+};
+
+export type OpenStackServerGroupRequest = {
+    name: string;
+    description?: string;
+    policy?: PolicyEnum | BlankEnum;
 };
 
 export type OpenStackSnapshot = {
@@ -6045,6 +6045,8 @@ export type PaginatedFeedbackList = Array<Feedback>;
 
 export type PaginatedFinancialReportList = Array<FinancialReport>;
 
+export type PaginatedFirecrestJobList = Array<FirecrestJob>;
+
 export type PaginatedGoogleCredentialsList = Array<GoogleCredentials>;
 
 export type PaginatedGroupInvitationList = Array<GroupInvitation>;
@@ -6068,8 +6070,6 @@ export type PaginatedInvoiceList = Array<Invoice>;
 export type PaginatedInvoiceStatsOfferingList = Array<InvoiceStatsOffering>;
 
 export type PaginatedIssueList = Array<Issue>;
-
-export type PaginatedJobList = Array<Job>;
 
 export type PaginatedLexisLinkList = Array<LexisLink>;
 
@@ -6119,8 +6119,6 @@ export type PaginatedOpenStackBackendVolumesList = Array<OpenStackBackendVolumes
 
 export type PaginatedOpenStackBackupList = Array<OpenStackBackup>;
 
-export type PaginatedOpenStackCreateServerGroupList = Array<OpenStackCreateServerGroup>;
-
 export type PaginatedOpenStackFlavorList = Array<OpenStackFlavor>;
 
 export type PaginatedOpenStackFloatingIpList = Array<OpenStackFloatingIp>;
@@ -6142,6 +6140,8 @@ export type PaginatedOpenStackPortList = Array<OpenStackPort>;
 export type PaginatedOpenStackRouterList = Array<OpenStackRouter>;
 
 export type PaginatedOpenStackSecurityGroupList = Array<OpenStackSecurityGroup>;
+
+export type PaginatedOpenStackServerGroupList = Array<OpenStackServerGroup>;
 
 export type PaginatedOpenStackSnapshotList = Array<OpenStackSnapshot>;
 
@@ -6587,6 +6587,12 @@ export type PatchedFinancialReportRequest = {
     agreement_number?: string;
 };
 
+export type PatchedFirecrestJobRequest = {
+    name?: string;
+    description?: string;
+    runtime_state?: string;
+};
+
 export type PatchedGoogleCredentialsRequest = {
     description?: string;
     image?: (Blob | File) | null;
@@ -6687,12 +6693,6 @@ export type PatchedIssueRequest = {
      * Set true if issue is created by regular user via portal.
      */
     is_reported_manually?: boolean;
-};
-
-export type PatchedJobRequest = {
-    name?: string;
-    description?: string;
-    runtime_state?: string;
 };
 
 export type PatchedLexisLinkRequest = {
@@ -6829,12 +6829,6 @@ export type PatchedOpenStackBackupRequest = {
     kept_until?: string | null;
 };
 
-export type PatchedOpenStackCreateServerGroupRequest = {
-    name?: string;
-    description?: string;
-    policy?: PolicyEnum | BlankEnum;
-};
-
 export type PatchedOpenStackInstanceRequest = {
     name?: string;
     description?: string;
@@ -6871,6 +6865,12 @@ export type PatchedOpenStackRouterRequest = {
 export type PatchedOpenStackSecurityGroupUpdateRequest = {
     name?: string;
     description?: string;
+};
+
+export type PatchedOpenStackServerGroupRequest = {
+    name?: string;
+    description?: string;
+    policy?: PolicyEnum | BlankEnum;
 };
 
 export type PatchedOpenStackSnapshotRequest = {
@@ -26535,20 +26535,20 @@ export type OpenstackServerGroupsListData = {
 };
 
 export type OpenstackServerGroupsListResponses = {
-    200: PaginatedOpenStackCreateServerGroupList;
+    200: PaginatedOpenStackServerGroupList;
 };
 
 export type OpenstackServerGroupsListResponse = OpenstackServerGroupsListResponses[keyof OpenstackServerGroupsListResponses];
 
 export type OpenstackServerGroupsCreateData = {
-    body: OpenStackCreateServerGroupRequest;
+    body: OpenStackServerGroupRequest;
     path?: never;
     query?: never;
     url: '/api/openstack-server-groups/';
 };
 
 export type OpenstackServerGroupsCreateResponses = {
-    201: OpenStackCreateServerGroup;
+    201: OpenStackServerGroup;
 };
 
 export type OpenstackServerGroupsCreateResponse = OpenstackServerGroupsCreateResponses[keyof OpenstackServerGroupsCreateResponses];
@@ -26583,13 +26583,13 @@ export type OpenstackServerGroupsRetrieveData = {
 };
 
 export type OpenstackServerGroupsRetrieveResponses = {
-    200: OpenStackCreateServerGroup;
+    200: OpenStackServerGroup;
 };
 
 export type OpenstackServerGroupsRetrieveResponse = OpenstackServerGroupsRetrieveResponses[keyof OpenstackServerGroupsRetrieveResponses];
 
 export type OpenstackServerGroupsPartialUpdateData = {
-    body?: PatchedOpenStackCreateServerGroupRequest;
+    body?: PatchedOpenStackServerGroupRequest;
     path: {
         uuid: string;
     };
@@ -26598,13 +26598,13 @@ export type OpenstackServerGroupsPartialUpdateData = {
 };
 
 export type OpenstackServerGroupsPartialUpdateResponses = {
-    200: OpenStackCreateServerGroup;
+    200: OpenStackServerGroup;
 };
 
 export type OpenstackServerGroupsPartialUpdateResponse = OpenstackServerGroupsPartialUpdateResponses[keyof OpenstackServerGroupsPartialUpdateResponses];
 
 export type OpenstackServerGroupsUpdateData = {
-    body: OpenStackCreateServerGroupRequest;
+    body: OpenStackServerGroupRequest;
     path: {
         uuid: string;
     };
@@ -26613,7 +26613,7 @@ export type OpenstackServerGroupsUpdateData = {
 };
 
 export type OpenstackServerGroupsUpdateResponses = {
-    200: OpenStackCreateServerGroup;
+    200: OpenStackServerGroup;
 };
 
 export type OpenstackServerGroupsUpdateResponse = OpenstackServerGroupsUpdateResponses[keyof OpenstackServerGroupsUpdateResponses];
@@ -27380,7 +27380,7 @@ export type OpenstackTenantsCreateSecurityGroupResponses = {
 export type OpenstackTenantsCreateSecurityGroupResponse = OpenstackTenantsCreateSecurityGroupResponses[keyof OpenstackTenantsCreateSecurityGroupResponses];
 
 export type OpenstackTenantsCreateServerGroupData = {
-    body: OpenStackCreateServerGroupRequest;
+    body: OpenStackServerGroupRequest;
     path: {
         uuid: string;
     };
@@ -27389,7 +27389,7 @@ export type OpenstackTenantsCreateServerGroupData = {
 };
 
 export type OpenstackTenantsCreateServerGroupResponses = {
-    200: OpenStackCreateServerGroup;
+    200: OpenStackServerGroup;
 };
 
 export type OpenstackTenantsCreateServerGroupResponse = OpenstackTenantsCreateServerGroupResponses[keyof OpenstackTenantsCreateServerGroupResponses];
@@ -33372,20 +33372,20 @@ export type SlurmJobsListData = {
 };
 
 export type SlurmJobsListResponses = {
-    200: PaginatedJobList;
+    200: PaginatedFirecrestJobList;
 };
 
 export type SlurmJobsListResponse = SlurmJobsListResponses[keyof SlurmJobsListResponses];
 
 export type SlurmJobsCreateData = {
-    body: JobRequest;
+    body: FirecrestJobRequest;
     path?: never;
     query?: never;
     url: '/api/slurm-jobs/';
 };
 
 export type SlurmJobsCreateResponses = {
-    201: Job;
+    201: FirecrestJob;
 };
 
 export type SlurmJobsCreateResponse = SlurmJobsCreateResponses[keyof SlurmJobsCreateResponses];
@@ -33420,13 +33420,13 @@ export type SlurmJobsRetrieveData = {
 };
 
 export type SlurmJobsRetrieveResponses = {
-    200: Job;
+    200: FirecrestJob;
 };
 
 export type SlurmJobsRetrieveResponse = SlurmJobsRetrieveResponses[keyof SlurmJobsRetrieveResponses];
 
 export type SlurmJobsPartialUpdateData = {
-    body?: PatchedJobRequest;
+    body?: PatchedFirecrestJobRequest;
     path: {
         uuid: string;
     };
@@ -33435,13 +33435,13 @@ export type SlurmJobsPartialUpdateData = {
 };
 
 export type SlurmJobsPartialUpdateResponses = {
-    200: Job;
+    200: FirecrestJob;
 };
 
 export type SlurmJobsPartialUpdateResponse = SlurmJobsPartialUpdateResponses[keyof SlurmJobsPartialUpdateResponses];
 
 export type SlurmJobsUpdateData = {
-    body: JobRequest;
+    body: FirecrestJobRequest;
     path: {
         uuid: string;
     };
@@ -33450,7 +33450,7 @@ export type SlurmJobsUpdateData = {
 };
 
 export type SlurmJobsUpdateResponses = {
-    200: Job;
+    200: FirecrestJob;
 };
 
 export type SlurmJobsUpdateResponse = SlurmJobsUpdateResponses[keyof SlurmJobsUpdateResponses];

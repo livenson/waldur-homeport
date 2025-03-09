@@ -1,16 +1,15 @@
 import React from 'react';
 
+import { OpenStackSecurityGroupRuleCreate } from '@waldur/api';
 import {
   formatSecurityGroupProtocol,
   formatSecurityGroupRuleDirection,
   formatSecurityGroupRulePortRange,
 } from '@waldur/openstack/openstack-security-groups/utils';
 
-import { SecurityGroupRule } from '../types';
-
-export const SecurityGroupRuleCell: React.FC<{ rule: SecurityGroupRule }> = ({
-  rule,
-}) => (
+export const SecurityGroupRuleCell: React.FC<{
+  rule: OpenStackSecurityGroupRuleCreate;
+}> = ({ rule }) => (
   <>
     <td>{rule.ethertype}</td>
     <td>{formatSecurityGroupRuleDirection(rule)}</td>
