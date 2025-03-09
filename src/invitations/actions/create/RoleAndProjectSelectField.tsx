@@ -9,13 +9,14 @@ import React, {
 import { FormControl, FormGroup } from 'react-bootstrap';
 import { Field } from 'redux-form';
 
+import { Project } from '@waldur/api';
 import { Tip } from '@waldur/core/Tooltip';
 import { required } from '@waldur/core/validators';
 import { FormField } from '@waldur/form/types';
 import { translate } from '@waldur/i18n';
 import { MenuComponent } from '@waldur/metronic/components';
 import { Role } from '@waldur/permissions/types';
-import { Customer, Project } from '@waldur/workspace/types';
+import { Customer } from '@waldur/workspace/types';
 
 interface RoleAndProjectSelectPopupProps {
   roles: (Role & { tooltip? })[];

@@ -2,6 +2,7 @@ import { DateTime } from 'luxon';
 
 import {
   ComponentUsage,
+  ComponentUserUsage,
   marketplaceComponentUserUsagesList,
   marketplaceProviderOfferingsRetrieve,
   marketplaceProviderResourcesPlanPeriodsList,
@@ -95,7 +96,7 @@ export const getComponentsAndUsages = async (
     : undefined;
 
   let usages: ComponentUsage[];
-  let userUsages;
+  let userUsages: ComponentUserUsage[];
   try {
     usages = await getComponentUsages(resource_uuid, date_after, {
       field: ['type', 'usage', 'billing_period'],

@@ -5,10 +5,11 @@ import {
   marketplaceCustomerEstimatedCostPoliciesCreate,
   marketplaceProjectEstimatedCostPoliciesCreate,
 } from '@waldur/api';
+import { Project } from '@waldur/api';
 import { AddButton } from '@waldur/core/AddButton';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { closeModalDialog, openModalDialog } from '@waldur/modal/actions';
-import { Customer, Project } from '@waldur/workspace/types';
+import { Customer } from '@waldur/workspace/types';
 
 import { CostPolicyFormData, CostPolicyType, PolicyPeriod } from './types';
 

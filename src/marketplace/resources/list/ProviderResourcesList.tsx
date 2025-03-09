@@ -6,6 +6,7 @@ import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
 
 import { MarketplaceProviderResourcesListData, Resource } from '@waldur/api';
+import { Project } from '@waldur/api';
 import { Badge } from '@waldur/core/Badge';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { lazyComponent } from '@waldur/core/lazyComponent';
@@ -20,7 +21,7 @@ import Table from '@waldur/table/Table';
 import { Column } from '@waldur/table/types';
 import { useTable } from '@waldur/table/useTable';
 import { getCustomer } from '@waldur/workspace/selectors';
-import { Customer, Project } from '@waldur/workspace/types';
+import { Customer } from '@waldur/workspace/types';
 
 import {
   PROVIDER_RESOURCES_LIST_FILTER_FORM_ID,

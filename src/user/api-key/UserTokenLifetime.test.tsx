@@ -3,8 +3,8 @@ import userEvent from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { usersPartialUpdate } from '@waldur/api';
+import { User } from '@waldur/api';
 import { useNotify } from '@waldur/store/hooks';
-import { UserDetails } from '@waldur/workspace/types';
 
 import { UserTokenLifetime } from './UserTokenLifetime';
 
@@ -13,7 +13,7 @@ vi.mock('@waldur/store/hooks');
 vi.mock('@waldur/api');
 
 describe('UserTokenLifetime component', () => {
-  const mockUser: UserDetails = {
+  const mockUser: User = {
     uuid: 'test-uuid',
     token_lifetime: 3600,
     token: 'test-token',

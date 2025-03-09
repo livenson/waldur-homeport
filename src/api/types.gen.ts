@@ -2354,6 +2354,37 @@ export type FirecrestJobRequest = {
     file: Blob | File;
 };
 
+export type FreeipaProfile = {
+    readonly uuid: string;
+    /**
+     * Letters, numbers and ./+/-/_ characters
+     */
+    username: string;
+    /**
+     * Indicates when the user has agreed with the policy.
+     */
+    agreement_date?: string;
+    readonly is_active: boolean;
+    readonly user: string;
+    readonly user_uuid: string;
+    /**
+     * Required. 128 characters or fewer. Lowercase letters, numbers and @/./+/-/_ characters
+     */
+    readonly user_username: string;
+    readonly user_full_name: string;
+};
+
+export type FreeipaProfileRequest = {
+    /**
+     * Letters, numbers and ./+/-/_ characters
+     */
+    username: string;
+    /**
+     * Indicates when the user has agreed with the policy.
+     */
+    agreement_date?: string;
+};
+
 export type GoogleCalendar = {
     backend_id?: string | null;
     public?: boolean;
@@ -6057,6 +6088,8 @@ export type PaginatedFinancialReportList = Array<FinancialReport>;
 
 export type PaginatedFirecrestJobList = Array<FirecrestJob>;
 
+export type PaginatedFreeipaProfileList = Array<FreeipaProfile>;
+
 export type PaginatedGoogleCredentialsList = Array<GoogleCredentials>;
 
 export type PaginatedGroupInvitationList = Array<GroupInvitation>;
@@ -6184,8 +6217,6 @@ export type PaginatedPlanComponentList = Array<PlanComponent>;
 export type PaginatedPlanUsageResponseList = Array<PlanUsageResponse>;
 
 export type PaginatedPriorityList = Array<Priority>;
-
-export type PaginatedProfileList = Array<Profile>;
 
 export type PaginatedProjectCreditList = Array<ProjectCredit>;
 
@@ -7629,37 +7660,6 @@ export type Priority = {
     name: string;
     description?: string;
     icon_url?: string;
-};
-
-export type Profile = {
-    readonly uuid: string;
-    /**
-     * Letters, numbers and ./+/-/_ characters
-     */
-    username: string;
-    /**
-     * Indicates when the user has agreed with the policy.
-     */
-    agreement_date?: string;
-    readonly is_active: boolean;
-    readonly user: string;
-    readonly user_uuid: string;
-    /**
-     * Required. 128 characters or fewer. Lowercase letters, numbers and @/./+/-/_ characters
-     */
-    readonly user_username: string;
-    readonly user_full_name: string;
-};
-
-export type ProfileRequest = {
-    /**
-     * Letters, numbers and ./+/-/_ characters
-     */
-    username: string;
-    /**
-     * Indicates when the user has agreed with the policy.
-     */
-    agreement_date?: string;
 };
 
 export type Project = {
@@ -15345,20 +15345,20 @@ export type FreeipaProfilesListData = {
 };
 
 export type FreeipaProfilesListResponses = {
-    200: PaginatedProfileList;
+    200: PaginatedFreeipaProfileList;
 };
 
 export type FreeipaProfilesListResponse = FreeipaProfilesListResponses[keyof FreeipaProfilesListResponses];
 
 export type FreeipaProfilesCreateData = {
-    body: ProfileRequest;
+    body: FreeipaProfileRequest;
     path?: never;
     query?: never;
     url: '/api/freeipa-profiles/';
 };
 
 export type FreeipaProfilesCreateResponses = {
-    201: Profile;
+    201: FreeipaProfile;
 };
 
 export type FreeipaProfilesCreateResponse = FreeipaProfilesCreateResponses[keyof FreeipaProfilesCreateResponses];
@@ -15391,7 +15391,7 @@ export type FreeipaProfilesRetrieveData = {
 };
 
 export type FreeipaProfilesRetrieveResponses = {
-    200: Profile;
+    200: FreeipaProfile;
 };
 
 export type FreeipaProfilesRetrieveResponse = FreeipaProfilesRetrieveResponses[keyof FreeipaProfilesRetrieveResponses];
@@ -15406,13 +15406,13 @@ export type FreeipaProfilesPartialUpdateData = {
 };
 
 export type FreeipaProfilesPartialUpdateResponses = {
-    200: Profile;
+    200: FreeipaProfile;
 };
 
 export type FreeipaProfilesPartialUpdateResponse = FreeipaProfilesPartialUpdateResponses[keyof FreeipaProfilesPartialUpdateResponses];
 
 export type FreeipaProfilesUpdateData = {
-    body: ProfileRequest;
+    body: FreeipaProfileRequest;
     path: {
         uuid: string;
     };
@@ -15421,7 +15421,7 @@ export type FreeipaProfilesUpdateData = {
 };
 
 export type FreeipaProfilesUpdateResponses = {
-    200: Profile;
+    200: FreeipaProfile;
 };
 
 export type FreeipaProfilesUpdateResponse = FreeipaProfilesUpdateResponses[keyof FreeipaProfilesUpdateResponses];

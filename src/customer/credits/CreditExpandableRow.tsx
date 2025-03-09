@@ -1,12 +1,17 @@
 import { startCase } from 'lodash';
 
+import { CustomerCredit, ProjectCredit } from '@waldur/api';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { translate } from '@waldur/i18n';
 import { Field } from '@waldur/resource/summary';
 import { BooleanField } from '@waldur/table/BooleanField';
 import { ExpandableContainer } from '@waldur/table/ExpandableContainer';
 
-export const CreditExpandableRow = ({ row }) => (
+export const CreditExpandableRow = ({
+  row,
+}: {
+  row: CustomerCredit | ProjectCredit;
+}) => (
   <ExpandableContainer asTable>
     <Field
       label={translate('Minimal consumption logic')}

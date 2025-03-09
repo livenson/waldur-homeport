@@ -3,12 +3,12 @@ import { useState } from 'react';
 import { useDispatch } from 'react-redux';
 
 import { usersPartialUpdate } from '@waldur/api';
+import { User } from '@waldur/api';
 import { AwesomeCheckbox } from '@waldur/core/AwesomeCheckbox';
 import { Panel } from '@waldur/core/Panel';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { useNotify } from '@waldur/store/hooks';
-import { UserDetails } from '@waldur/workspace/types';
 
 const getConfirmationText = (isActive, name) => {
   return isActive
@@ -24,7 +24,7 @@ const getConfirmationText = (isActive, name) => {
       );
 };
 
-export const UserStatus = ({ user }: { user: UserDetails }) => {
+export const UserStatus = ({ user }: { user: User }) => {
   const queryClient = useQueryClient();
   const dispatch = useDispatch();
   const { showErrorResponse, showSuccess } = useNotify();
@@ -56,7 +56,7 @@ export const UserStatus = ({ user }: { user: UserDetails }) => {
           is_active: !isActive,
         },
       });
-      queryClient.setQueryData(['UserDetails', user.uuid], {
+      queryClient.setQueryData(['User', user.uuid], {
         ...user,
         is_active: !isActive,
       });

@@ -3,7 +3,11 @@ import { useSelector } from 'react-redux';
 import { useAsyncFn, useEffectOnce } from 'react-use';
 import { createSelector } from 'reselect';
 
-import { freeipaProfilesList, Profile, usersRetrieve } from '@waldur/api';
+import {
+  freeipaProfilesList,
+  FreeipaProfile,
+  usersRetrieve,
+} from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { countChecklists } from '@waldur/marketplace-checklist/api';
 import { isSupport, isStaff, isOwner } from '@waldur/workspace/selectors';
@@ -26,7 +30,7 @@ export const UserPopover: FunctionComponent<{ resolve }> = ({ resolve }) => {
       user = resolve.user;
     }
     const checklistCount = await countChecklists();
-    let profile: Profile = null;
+    let profile: FreeipaProfile = null;
     if (ENV.plugins.WALDUR_CORE.FREEIPA_ENABLED) {
       profile = await freeipaProfilesList({ query: { user: user.uuid } }).then(
         (r) => r.data[0],

@@ -1,5 +1,6 @@
 import { FC } from 'react';
 
+import { Project } from '@waldur/api';
 import Avatar from '@waldur/core/Avatar';
 import { renderRoleExpirationDate } from '@waldur/customer/team/CustomerUsersList';
 import { translate } from '@waldur/i18n';
@@ -10,7 +11,7 @@ import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
 import { RoleField } from '@waldur/user/affiliations/RoleField';
 import { UserDetailsButton } from '@waldur/user/UserDetailsButton';
-import { Customer, Project } from '@waldur/workspace/types';
+import { Customer } from '@waldur/workspace/types';
 
 const organizationUserMandatoryFields = [
   'uuid',

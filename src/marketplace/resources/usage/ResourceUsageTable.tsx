@@ -1,8 +1,8 @@
 import { FunctionComponent, useMemo } from 'react';
 import { Table } from 'react-bootstrap';
 
+import { OfferingComponent } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import { OfferingComponent } from '@waldur/marketplace/types';
 
 import { ComponentUsage } from './types';
 import { getTableData } from './utils';

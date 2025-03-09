@@ -1,6 +1,7 @@
 import { UserPlus } from '@phosphor-icons/react';
 import React from 'react';
 
+import { Project } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { useModal } from '@waldur/modal/hooks';
@@ -8,7 +9,6 @@ import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { useUser } from '@waldur/workspace/hooks';
-import { Project } from '@waldur/workspace/types';
 
 const AddUserDialog = lazyComponent(() =>
   import('./AddUserDialog').then((module) => ({

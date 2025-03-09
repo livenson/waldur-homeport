@@ -4,13 +4,7 @@ import {
   Customer as SdkCustomer,
   CustomerCredit,
 } from '@waldur/api';
-export {
-  User,
-  User as UserDetails,
-  Project,
-  PaymentProfile,
-  Payment,
-} from '@waldur/api';
+export { User, Project, PaymentProfile, Payment } from '@waldur/api';
 
 export interface Customer extends SdkCustomer {
   credit?: CustomerCredit;

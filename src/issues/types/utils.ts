@@ -1,7 +1,7 @@
+import { User } from '@waldur/api';
 import { isFeatureVisible } from '@waldur/features/connect';
 import { SupportFeatures } from '@waldur/FeaturesEnums';
 import { ISSUE_IDS, getIssueTypeChoices } from '@waldur/issues/types/constants';
-import { User } from '@waldur/workspace/types';
 
 export function getShowAllTypes(user: User) {
   return (

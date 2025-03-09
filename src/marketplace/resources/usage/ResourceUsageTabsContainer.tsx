@@ -1,5 +1,10 @@
 import { FunctionComponent, useMemo } from 'react';
 
+import {
+  ComponentUsage,
+  ComponentUserUsage,
+  OfferingComponent,
+} from '@waldur/api';
 import { generateColors } from '@waldur/core/generateColors';
 import { ResourceMetaInfo } from '@waldur/marketplace/resources/usage/ResourceMetaInfo';
 import { ResourceUsageTabs } from '@waldur/marketplace/resources/usage/ResourceUsageTabs';
@@ -14,9 +19,9 @@ interface ResourceUsageTabsContainerProps {
     backend_id?: string;
   };
   data: {
-    components: any;
-    usages: any;
-    userUsages: any;
+    components: OfferingComponent[];
+    usages: ComponentUsage[];
+    userUsages: ComponentUserUsage[];
   };
   months?: number;
   hideHeader?: boolean;

@@ -4,10 +4,11 @@ import { Button, Card, OverlayTrigger, Popover, Stack } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { getFormValues, reduxForm } from 'redux-form';
 
+import { Project } from '@waldur/api';
 import { getInitialValues, syncFiltersToURL } from '@waldur/core/filters';
 import { translate } from '@waldur/i18n';
 import { getUser } from '@waldur/workspace/selectors';
-import { Customer, Project } from '@waldur/workspace/types';
+import { Customer } from '@waldur/workspace/types';
 
 import { MARKETPLACE_LANDING_FILTER_FORM } from '../constants';
 import { OrganizationAutocomplete } from '../orders/OrganizationAutocomplete';

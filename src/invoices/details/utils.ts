@@ -1,7 +1,7 @@
 import { createSelector } from 'reselect';
 
+import { PaymentProfile } from '@waldur/api';
 import { getCustomer } from '@waldur/workspace/selectors';
-import { PaymentProfile } from '@waldur/workspace/types';
 
 import { InvoiceItem, InvoiceTableItem } from '../types';
 

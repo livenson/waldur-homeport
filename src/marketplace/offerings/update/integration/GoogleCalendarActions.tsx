@@ -14,7 +14,6 @@ import { closeModalDialog } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { useUser } from '@waldur/workspace/hooks';
 import { isOwner as isOwnerSelector } from '@waldur/workspace/selectors';
-import { User } from '@waldur/workspace/types';
 
 import { ActionsDropdown } from '../../actions/ActionsDropdown';
 
@@ -97,7 +96,7 @@ const useGoogleCalendarUnpublish = () => {
 };
 
 export const GoogleCalendarActions = ({ offering }) => {
-  const user = useUser() as User;
+  const user = useUser();
   const isOwner = useSelector(isOwnerSelector);
   const isVisible =
     offering.type === OFFERING_TYPE_BOOKING &&

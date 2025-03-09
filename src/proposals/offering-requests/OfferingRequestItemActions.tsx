@@ -4,15 +4,15 @@ import { useDispatch } from 'react-redux';
 import {
   proposalRequestedOfferingsAccept,
   proposalRequestedOfferingsCancel,
+  ProviderRequestedOffering,
 } from '@waldur/api';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
-import { CallOffering } from '@waldur/proposals/types';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { RowActionButton } from '@waldur/table/ActionButton';
 
 interface OfferingRequestItemActionsProps {
-  row: CallOffering;
+  row: ProviderRequestedOffering;
   fetch;
 }
 

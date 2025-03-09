@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button } from 'react-bootstrap';
 
+import { OrderDetails } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { OrderConsumerActions } from '@waldur/marketplace/orders/actions/OrderConsumerActions';
 import { TABLE_PENDING_PUBLIC_ORDERS } from '@waldur/marketplace/orders/list/constants';
@@ -23,7 +24,7 @@ export const PendingConsumerOrders: React.FC<{}> = () => {
   });
 
   return (
-    <Table
+    <Table<OrderDetails>
       {...tableProps}
       columns={[
         {

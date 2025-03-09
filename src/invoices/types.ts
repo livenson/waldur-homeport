@@ -1,7 +1,7 @@
 export { Invoice, InvoiceItem } from '@waldur/api';
 import { InvoiceItem } from '@waldur/api';
+import { Project } from '@waldur/api';
 import { Offering, ServiceProvider } from '@waldur/marketplace/types';
-import { Project } from '@waldur/workspace/types';
 
 export interface InvoiceTableItem {
   resource_name: string;

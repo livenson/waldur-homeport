@@ -1,18 +1,18 @@
 import Axios from 'axios';
 
+import { User } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { get } from '@waldur/core/api';
 import store from '@waldur/store/store';
 import { setCurrentUser } from '@waldur/workspace/actions';
 import { getUser } from '@waldur/workspace/selectors';
-import { UserDetails } from '@waldur/workspace/types';
 import {
   setImpersonatedUserUuid,
   clearImpersonatedUserUuid,
 } from '@waldur/workspace/WorkspaceStorage';
 
 export const getCurrentUser = (config?) =>
-  get<UserDetails>('/users/me/', config).then((response) => response.data);
+  get<User>('/users/me/', config).then((response) => response.data);
 
 export const setImpersonationData = (userUuid) => {
   Axios.defaults.headers['X-IMPERSONATED-USER-UUID'] = userUuid;
@@ -47,8 +47,7 @@ class UsersServiceClass {
     return this.getCurrentUser().then((user) => {
       return (
         user.is_staff ||
-        (!this.mandatoryFieldsMissing(user) &&
-          (user as UserDetails).agreement_date)
+        (!this.mandatoryFieldsMissing(user) && (user as User).agreement_date)
       );
     });
   }

@@ -3,11 +3,11 @@ import { FC } from 'react';
 import { Nav, Tab } from 'react-bootstrap';
 
 import { getResourcesCount } from '@waldur/administration/api';
+import { Project } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { getStates } from '@waldur/marketplace/resources/list/ResourceStateFilter';
 import { getProjectUsersCount } from '@waldur/project/team/api';
 import { ExpandableContainer } from '@waldur/table/ExpandableContainer';
-import { Project } from '@waldur/workspace/types';
 
 import { TableTabsContainer } from '../../customer/list/TableTabsContainer';
 

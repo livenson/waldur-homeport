@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { reduxForm } from 'redux-form';
 
 import { userGroupInvitationsCreate } from '@waldur/api';
+import { Project } from '@waldur/api';
 import { SubmitButton } from '@waldur/auth/SubmitButton';
 import { translate } from '@waldur/i18n';
 import { GROUP_INVITATION_CREATE_FORM_ID } from '@waldur/invitations/actions/constants';
@@ -11,7 +12,6 @@ import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
 import { Role } from '@waldur/permissions/types';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { getCustomer } from '@waldur/workspace/selectors';
-import { Project } from '@waldur/workspace/types';
 
 import { InvitationLinkField } from './InvitationLinkField';
 import { ProjectGroup } from './ProjectGroup';

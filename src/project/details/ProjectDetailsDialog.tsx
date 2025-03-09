@@ -1,12 +1,12 @@
 import { ClipboardText } from '@phosphor-icons/react';
 import { FC } from 'react';
 
+import { Project } from '@waldur/api';
 import { formatDate } from '@waldur/core/dateUtils';
 import { FieldWithCopy } from '@waldur/core/FieldWithCopy';
 import FormTable from '@waldur/form/FormTable';
 import { translate } from '@waldur/i18n';
 import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
-import { Project } from '@waldur/workspace/types';
 
 import { ProjectCostField } from '../ProjectCostField';
 

@@ -2,6 +2,7 @@ import { useRouter } from '@uirouter/react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { projectsDestroy } from '@waldur/api';
+import { Project } from '@waldur/api';
 import { getCustomer as getCustomerApi } from '@waldur/customer/api';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
@@ -13,7 +14,6 @@ import {
   setCurrentProject,
 } from '@waldur/workspace/actions';
 import { getProject, getUser } from '@waldur/workspace/selectors';
-import { Project } from '@waldur/workspace/types';
 
 export const useProjectDelete = ({
   project,

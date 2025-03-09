@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { useMountedState } from 'react-use';
 import { reduxForm, Field } from 'redux-form';
 
+import { AuthResult, authValimoCreate, authValimoResult } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { wait } from '@waldur/core/utils';
 import { InputField } from '@waldur/form/InputField';
@@ -16,8 +17,6 @@ import { UsersService } from '@waldur/user/UsersService';
 
 import * as AuthService from '../AuthService';
 import { SubmitButton } from '../SubmitButton';
-
-import { getAuthResult, login } from './api';
 
 export const AuthValimoDialog = reduxForm({ form: 'AuthValimoDialog' })(({
   submitting,
@@ -30,9 +29,11 @@ export const AuthValimoDialog = reduxForm({ form: 'AuthValimoDialog' })(({
   const isMounted = useMountedState();
 
   const pollAuthResult = async (authResultId: string) => {
-    let result;
+    let result: AuthResult;
     do {
-      result = await getAuthResult(authResultId);
+      result = await authValimoResult({ body: { uuid: authResultId } }).then(
+        (r) => r.data,
+      );
       await wait(2000);
     } while (
       isMounted() &&
@@ -41,7 +42,7 @@ export const AuthValimoDialog = reduxForm({ form: 'AuthValimoDialog' })(({
     return result;
   };
 
-  const parseAuthResult = (result) => {
+  const parseAuthResult = (result: AuthResult) => {
     if (!isMounted()) {
       return;
     }
@@ -73,11 +74,13 @@ export const AuthValimoDialog = reduxForm({ form: 'AuthValimoDialog' })(({
 
   const authenticateValimo = async (formData) => {
     try {
-      const { message, uuid } = await login(
-        ENV.plugins.WALDUR_AUTH_VALIMO.MOBILE_PREFIX.concat(
-          formData.phoneNumber,
-        ),
-      );
+      const { message, uuid } = await authValimoCreate({
+        body: {
+          phone: ENV.plugins.WALDUR_AUTH_VALIMO.MOBILE_PREFIX.concat(
+            formData.phoneNumber,
+          ),
+        },
+      }).then((r) => r.data);
       setChallengeCode(message);
       const authResult = await pollAuthResult(uuid);
       parseAuthResult(authResult);

@@ -1,10 +1,10 @@
 import { FunctionComponent } from 'react';
 
-import { UserDetails } from '@waldur/workspace/types';
+import { User } from '@waldur/api';
 
 interface OwnProps {
   tabSpec;
-  user: UserDetails;
+  user: User;
   isPersonal?: boolean;
 }
 

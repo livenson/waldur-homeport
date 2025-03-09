@@ -1,6 +1,7 @@
 import { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
 
+import { Project } from '@waldur/api';
 import { formatDate } from '@waldur/core/dateUtils';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { Link } from '@waldur/core/Link';
@@ -10,7 +11,6 @@ import { Field } from '@waldur/resource/summary';
 import { DASH_ESCAPE_CODE } from '@waldur/table/constants';
 import { renderFieldOrDash } from '@waldur/table/utils';
 import { getUser } from '@waldur/workspace/selectors';
-import { Project } from '@waldur/workspace/types';
 
 import { ProjectLink } from './ProjectLink';
 import { canEditProject } from './utils';

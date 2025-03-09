@@ -3,6 +3,10 @@ import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
 
+import {
+  CustomerEstimatedCostPolicy,
+  MarketplaceCustomerEstimatedCostPoliciesListData,
+} from '@waldur/api';
 import { BooleanBadge } from '@waldur/core/BooleanBadge';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { CostPolicyActions } from '@waldur/customer/cost-policies/CostPolicyActions';
@@ -19,7 +23,8 @@ import { OrganizationCostPoliciesFilter } from './OrganizationCostPoliciesFilter
 const filtersSelector = createSelector(
   getFormValues('OrgCostPoliciesFilter'),
   (filterValues: any) => {
-    const result: Record<string, any> = {};
+    const result: MarketplaceCustomerEstimatedCostPoliciesListData['query'] =
+      {};
     if (filterValues?.organization) {
       result.customer_uuid = filterValues.organization.uuid;
     }
@@ -38,7 +43,7 @@ export const OrganizationCostPoliciesList: FC = () => {
   });
 
   return (
-    <Table
+    <Table<CustomerEstimatedCostPolicy>
       {...tableProps}
       columns={[
         {

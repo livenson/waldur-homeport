@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
 
+import { Project } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import {
   ALL_RESOURCES_TABLE_ID,
@@ -13,7 +14,6 @@ import { useTitle } from '@waldur/navigation/title';
 import { createFetcher } from '@waldur/table/api';
 import { TableProps } from '@waldur/table/types';
 import { useTable } from '@waldur/table/useTable';
-import { Project } from '@waldur/workspace/types';
 
 import { NON_TERMINATED_STATES } from './constants';
 import { ResourcesAllListTable } from './ResourcesAllListTable';

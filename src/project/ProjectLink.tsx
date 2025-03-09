@@ -1,11 +1,11 @@
 import { Factory } from '@phosphor-icons/react';
 import { FC, PropsWithChildren } from 'react';
 
+import { Project } from '@waldur/api';
 import { Link } from '@waldur/core/Link';
 import { AtLeast } from '@waldur/core/types';
 import { isFeatureVisible } from '@waldur/features/connect';
 import { ProjectFeatures } from '@waldur/FeaturesEnums';
-import { Project } from '@waldur/workspace/types';
 
 interface OwnProps {
   row: AtLeast<Project, 'uuid' | 'name'>;

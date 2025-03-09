@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 
-import { Customer, Project } from '@waldur/workspace/types';
+import { Project } from '@waldur/api';
+import { Customer } from '@waldur/workspace/types';
 
 export interface IssueFormData {
   type: any;

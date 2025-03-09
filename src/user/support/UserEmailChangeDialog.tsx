@@ -1,16 +1,16 @@
 import { FunctionComponent } from 'react';
 import { Form } from 'react-bootstrap';
 
+import { User } from '@waldur/api';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
-import { UserDetails } from '@waldur/workspace/types';
 
 import { useEmailChange } from './useEmailChange';
 
 export const UserEmailChangeDialog: FunctionComponent<{
-  resolve: { user: UserDetails; isProtected };
+  resolve: { user: User; isProtected };
 }> = ({ resolve: { user, isProtected } }) => {
   const { handleSubmit, cancelRequest, submitting, email, setEmail } =
     useEmailChange(user);

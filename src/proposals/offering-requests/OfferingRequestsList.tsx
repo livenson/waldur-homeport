@@ -3,7 +3,11 @@ import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
 
-import { ProtectedRound } from '@waldur/api';
+import {
+  ProposalRequestedOfferingsListData,
+  ProtectedRound,
+  ProviderRequestedOffering,
+} from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
@@ -26,7 +30,7 @@ const filtersSelctor = createSelector(
   getCustomer,
   getFormValues(OFFERING_REQUESTS_FILTER_FORM_ID),
   (customer, filters: any) => {
-    const result: Record<string, any> = {};
+    const result: ProposalRequestedOfferingsListData['query'] = {};
     if (customer) {
       result.provider_uuid = customer.uuid;
     }
@@ -57,7 +61,7 @@ export const OfferingRequestsList: FC<OfferingRequestsListProps> = () => {
   });
 
   return (
-    <Table
+    <Table<ProviderRequestedOffering>
       {...tableProps}
       columns={[
         {

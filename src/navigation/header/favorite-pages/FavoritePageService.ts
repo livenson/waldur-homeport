@@ -13,19 +13,19 @@ import {
   marketplaceProviderOfferingsRetrieve,
   marketplacePublicOfferingsRetrieve,
   Offering,
+  Resource,
 } from '@waldur/api';
-import { Resource } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { getTitle } from '@waldur/navigation/title';
 import { isDescendantOf } from '@waldur/navigation/useTabs';
 import store from '@waldur/store/store';
+import { useUser } from '@waldur/workspace/hooks';
 import {
   getCustomer,
   getProject,
   getResource,
-  getUser,
 } from '@waldur/workspace/selectors';
-import { Customer, Project, UserDetails } from '@waldur/workspace/types';
+import { Customer, Project, User } from '@waldur/workspace/types';
 
 const FAVORITE_PAGES_KEY = 'waldur/favorite/pages';
 
@@ -40,7 +40,7 @@ interface FavoritePage {
 
 interface FavoritePageContext {
   customer?: Customer;
-  user?: UserDetails;
+  user?: User;
   project?: Project;
   resource?: Resource;
 }
@@ -181,7 +181,7 @@ export const useFavoritePages = () => {
   const { state, params } = useCurrentStateAndParams();
   const pageTitle = useSelector(getTitle);
 
-  const user = useSelector(getUser) as UserDetails;
+  const user = useUser();
   const customer = useSelector(getCustomer);
   const project = useSelector(getProject);
   const resource = useSelector(getResource);
