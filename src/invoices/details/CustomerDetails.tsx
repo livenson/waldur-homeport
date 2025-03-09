@@ -1,22 +1,9 @@
 import React from 'react';
 
+import { CustomerDetails as CustomerDetailsType } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import { Customer } from '@waldur/workspace/types';
 
 import { formatPhone } from './utils';
-
-type CustomerDetailsType = Pick<
-  Customer,
-  | 'name'
-  | 'address'
-  | 'country'
-  | 'postal'
-  | 'phone_number'
-  | 'bank_name'
-  | 'bank_account'
-  | 'vat_code'
-  | 'email'
->;
 
 interface CustomerDetailsProps {
   customer: CustomerDetailsType;

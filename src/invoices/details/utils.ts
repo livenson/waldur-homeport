@@ -6,7 +6,7 @@ import { PaymentProfile } from '@waldur/workspace/types';
 import { InvoiceItem, InvoiceTableItem } from '../types';
 
 const getResourceKey = (item: InvoiceItem) =>
-  item.resource_uuid || item.details?.scope_uuid || item.details.resource_uuid;
+  item.resource_uuid || item.details.resource_uuid;
 
 export const groupInvoiceItems = (items: InvoiceItem[]): InvoiceTableItem[] => {
   const groupedByProjectAndResource = items.reduce<
