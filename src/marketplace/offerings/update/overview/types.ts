@@ -13,3 +13,5 @@ export interface EditOfferingProps {
   attribute: Attribute;
   disabled?: boolean;
 }
+
+export type MediaType = 'thumbnail' | 'image';

@@ -12,26 +12,34 @@ import { getCustomer } from '@waldur/workspace/selectors';
 
 import { ACTIVE, DRAFT, PAUSED } from '../../store/constants';
 
-const UpdateOfferingLogoDialog = lazyComponent(() =>
-  import('../../actions/UpdateOfferingLogoDialog').then((module) => ({
-    default: module.UpdateOfferingLogoDialog,
+import { MediaType } from './types';
+
+const UpdateOfferingMediaDialog = lazyComponent(() =>
+  import('../../actions/UpdateOfferingMediaDialog').then((module) => ({
+    default: module.UpdateOfferingMediaDialog,
   })),
 );
 
-export const OfferingLogoButton: FC<{
+export const OfferingMediaButton: FC<{
   offering: ProviderOfferingDetails;
-  refetch;
+  refetch: () => void;
+  mediaType: MediaType;
 }> = (props) => {
   const user = useUser();
   const customer = useSelector(getCustomer);
-
   const dispatch = useDispatch();
+
   const callback = () =>
     dispatch(
-      openModalDialog(UpdateOfferingLogoDialog, {
-        resolve: props,
+      openModalDialog(UpdateOfferingMediaDialog, {
+        resolve: {
+          offering: props.offering,
+          refetch: props.refetch,
+          mediaType: props.mediaType,
+        },
       }),
     );
+
   if (
     user.is_staff ||
     ([DRAFT, ACTIVE, PAUSED].includes(props.offering.state) &&
