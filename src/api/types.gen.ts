@@ -1643,6 +1643,7 @@ export type ConstanceSettingsRequest = {
     FREEIPA_BLACKLISTED_USERNAMES?: Array<string>;
     FREEIPA_GROUP_SYNCHRONIZATION_ENABLED?: boolean;
     KEYCLOAK_ICON?: (Blob | File) | null;
+    COUNTRIES?: Array<string>;
 };
 
 export type CoreAuthToken = {
@@ -9231,6 +9232,10 @@ export type RemoteCustomer = {
 
 export type RemoteEduteamsRequestRequest = {
     cuid: string;
+};
+
+export type RemoteEduteamsResponse = {
+    uuid: string;
 };
 
 export type RemoteOffering = {
@@ -28478,6 +28483,14 @@ export type ProjectsListData = {
     path?: never;
     query?: {
         backend_id?: string;
+        /**
+         * Return a list of projects where current user is admin.
+         */
+        can_admin?: boolean;
+        /**
+         * Return a list of projects where current user is manager or a customer owner.
+         */
+        can_manage?: boolean;
         created?: string;
         /**
          * Multiple values may be separated by commas.
@@ -28662,6 +28675,14 @@ export type ProjectsListUsersListData = {
     };
     query?: {
         backend_id?: string;
+        /**
+         * Return a list of projects where current user is admin.
+         */
+        can_admin?: boolean;
+        /**
+         * Return a list of projects where current user is manager or a customer owner.
+         */
+        can_manage?: boolean;
         created?: string;
         /**
          * Multiple values may be separated by commas.
@@ -32601,8 +32622,10 @@ export type RemoteEduteamsData = {
 };
 
 export type RemoteEduteamsResponses = {
-    200: unknown;
+    200: RemoteEduteamsResponse;
 };
+
+export type RemoteEduteamsResponse2 = RemoteEduteamsResponses[keyof RemoteEduteamsResponses];
 
 export type RemoteWaldurApiCancelTerminationData = {
     body?: never;
