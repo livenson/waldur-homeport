@@ -18,6 +18,7 @@ interface UsersListProps {
   tableFooter?;
   cardBordered?: boolean;
   hasActionBar?: boolean;
+  fullWidth?: boolean;
 }
 
 export const UsersList: FC<UsersListProps> = ({
@@ -28,6 +29,7 @@ export const UsersList: FC<UsersListProps> = ({
   tableFooter,
   cardBordered,
   hasActionBar,
+  fullWidth,
 }) => {
   const columns = [
     {
@@ -58,12 +60,12 @@ export const UsersList: FC<UsersListProps> = ({
   return (
     <Table<GenericPermission>
       {...table}
-      className="mb-7"
       columns={columns}
       title={translate('Users')}
       verboseName={translate('users')}
       cardBordered={cardBordered}
       hasActionBar={hasActionBar}
+      fullWidth={fullWidth}
       minHeight="auto"
       rowActions={
         readOnly

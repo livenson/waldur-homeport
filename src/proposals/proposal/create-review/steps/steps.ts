@@ -6,6 +6,7 @@ import { FormResourceRequestsStep } from '../../create/resource-requests-step/Fo
 
 import { FormProjectDetailsStep } from './FormProjectDetailsStep';
 import FormSummaryStep from './FormSummaryStep';
+import { ReviewTeamStep } from './ReviewTeamStep';
 
 export const createReviewSteps: VStepperFormStep[] = [
   {
@@ -22,6 +23,11 @@ export const createReviewSteps: VStepperFormStep[] = [
     label: translate('Resource requests'),
     id: 'step-resource-requests',
     component: FormResourceRequestsStep,
+  },
+  {
+    label: translate('Project team'),
+    id: 'step-team',
+    component: ReviewTeamStep,
   },
   {
     label: translate('Summary'),

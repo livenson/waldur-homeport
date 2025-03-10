@@ -7803,10 +7803,6 @@
     "description": "marketplace/service-providers/UpdateOfferingPermissionExpirationTimeDialog.tsx",
     "message": "Permission has been updated successfully."
   },
-  "Permission log": {
-    "description": "proposals/team/TeamSection.tsx",
-    "message": "Permission log"
-  },
   "Permission request has been approved.": {
     "description": "invitations/UserPermissionRequestApproveButton.tsx",
     "message": "Permission request has been approved."
@@ -7820,7 +7816,7 @@
     "message": "Permission requests"
   },
   "Permissions": {
-    "description": "administration/roles/RoleForm.tsx, marketplace/offerings/OfferingDetailsUIView.tsx",
+    "description": "administration/roles/RoleForm.tsx, marketplace/offerings/OfferingDetailsUIView.tsx, proposals/team/TeamSection.tsx",
     "message": "Permissions"
   },
   "Person": {
@@ -8388,7 +8384,7 @@
     "message": "Project slug"
   },
   "Project team": {
-    "description": "proposals/proposal/create/ProposalSidebar.tsx, proposals/proposal/create/ProposalTeamStep.tsx, proposals/proposal/create/steps.ts",
+    "description": "proposals/proposal/create/ProposalSidebar.tsx, proposals/proposal/create/ProposalTeamStep.tsx, proposals/proposal/create/steps.ts, proposals/proposal/create-review/steps/ReviewTeamStep.tsx, proposals/proposal/create-review/steps/steps.ts",
     "message": "Project team"
   },
   "Project type": {
