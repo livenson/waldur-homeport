@@ -4277,6 +4277,10 @@ export type OfferingFileRequest = {
     file: Blob | File;
 };
 
+export type OfferingImageRequest = {
+    image: Blob | File;
+};
+
 export type OfferingIntegrationUpdate = {
     secret_options?: MergedSecretOptions;
     plugin_options?: MergedPluginOptions;
@@ -20398,6 +20402,22 @@ export type MarketplaceProviderOfferingsDeleteEndpointResponses = {
 
 export type MarketplaceProviderOfferingsDeleteEndpointResponse = MarketplaceProviderOfferingsDeleteEndpointResponses[keyof MarketplaceProviderOfferingsDeleteEndpointResponses];
 
+export type MarketplaceProviderOfferingsDeleteImageData = {
+    body?: never;
+    path: {
+        uuid: string;
+    };
+    query?: never;
+    url: '/api/marketplace-provider-offerings/{uuid}/delete_image/';
+};
+
+export type MarketplaceProviderOfferingsDeleteImageResponses = {
+    /**
+     * No response body
+     */
+    200: unknown;
+};
+
 export type MarketplaceProviderOfferingsDeleteOrganizationGroupsData = {
     body?: never;
     path: {
@@ -21000,6 +21020,21 @@ export type MarketplaceProviderOfferingsUpdateDescriptionResponses = {
 };
 
 export type MarketplaceProviderOfferingsUpdateDescriptionResponse = MarketplaceProviderOfferingsUpdateDescriptionResponses[keyof MarketplaceProviderOfferingsUpdateDescriptionResponses];
+
+export type MarketplaceProviderOfferingsUpdateImageData = {
+    body: OfferingImageRequest;
+    path: {
+        uuid: string;
+    };
+    query?: never;
+    url: '/api/marketplace-provider-offerings/{uuid}/update_image/';
+};
+
+export type MarketplaceProviderOfferingsUpdateImageResponses = {
+    200: ProviderOfferingDetails;
+};
+
+export type MarketplaceProviderOfferingsUpdateImageResponse = MarketplaceProviderOfferingsUpdateImageResponses[keyof MarketplaceProviderOfferingsUpdateImageResponses];
 
 export type MarketplaceProviderOfferingsUpdateIntegrationData = {
     body?: OfferingIntegrationUpdateRequest;
