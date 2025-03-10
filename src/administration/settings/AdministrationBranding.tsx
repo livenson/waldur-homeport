@@ -1,5 +1,3 @@
-import { Table } from 'react-bootstrap';
-
 import { ENV } from '@waldur/configs/default';
 import FormTable from '@waldur/form/FormTable';
 import { translate } from '@waldur/i18n';
@@ -27,7 +25,7 @@ export const AdministrationBranding = () => {
           key={group.description}
           className="card-bordered mb-5"
         >
-          <Table bordered={true} responsive={true} className="form-table">
+          <FormTable>
             {group.items.map((item) => (
               <FieldRow
                 item={item}
@@ -35,7 +33,7 @@ export const AdministrationBranding = () => {
                 value={ENV.plugins.WALDUR_CORE[item.key]}
               />
             ))}
-          </Table>
+          </FormTable>
         </FormTable.Card>
       ))}
     </>
