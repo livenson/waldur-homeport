@@ -63,7 +63,7 @@ const FormSummaryStep: React.FC<FormSummaryStepProps> = (props) => {
   );
 
   return (
-    <Panel title={props.title} id={props.id}>
+    <Panel title={props.title} id={props.id} cardBordered>
       <Field
         name="summary_score"
         component={(fieldProps) => (

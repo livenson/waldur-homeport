@@ -13,7 +13,9 @@ export const InvitationsList: FunctionComponent<{
   table;
   hideRole;
   cardBordered?;
-}> = ({ table, hideRole, cardBordered }) => {
+  hasActionBar?;
+  fullWidth?;
+}> = ({ table, hideRole, cardBordered, hasActionBar, fullWidth }) => {
   return (
     <Table
       {...table}
@@ -61,7 +63,9 @@ export const InvitationsList: FunctionComponent<{
       title={translate('Invitations')}
       verboseName={translate('invitations')}
       cardBordered={cardBordered}
+      hasActionBar={hasActionBar}
       hasQuery={true}
+      fullWidth={fullWidth}
       minHeight="auto"
       expandableRow={InvitationExpandableRow}
     />
