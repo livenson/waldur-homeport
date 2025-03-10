@@ -159,7 +159,7 @@ const FormTable: FC<PropsWithChildren<FormTableProps>> & {
         props.hideActions && 'hide-actions',
         props.detailsMode && 'details-mode',
         props.alignTop && 'align-top',
-        !TABLE_GY_SPACE_REGEX.test(props.className) && 'gy-6',
+        !TABLE_GY_SPACE_REGEX.test(props.className) && 'gy-base',
         props.className,
       )}
     >
