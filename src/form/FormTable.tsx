@@ -17,7 +17,7 @@ import './FormTable.scss';
 export interface FormTableItemProps {
   label?: ReactNode;
   description?: ReactNode;
-  value: ReactNode;
+  value?: ReactNode;
   group?: boolean;
   tooltip?: ReactNode;
   warnTooltip?: string;
@@ -36,7 +36,10 @@ const FormTableItem: FC<FormTableItemProps> = ({ actions, ...props }) => {
         className={classNames(props.disabled && 'opacity-50', props.className)}
       >
         {i === 0 && props.description ? (
-          <th className="col-md-4" rowSpan={titleRowSpan}>
+          <th
+            className={row ? 'col-md-4' : 'col-md-auto'}
+            rowSpan={titleRowSpan}
+          >
             <div className="title fw-bolder">
               {props.label}
               {Boolean(props.tooltip) &&
@@ -86,9 +89,11 @@ const FormTableItem: FC<FormTableItemProps> = ({ actions, ...props }) => {
               )}
           </th>
         ) : null}
-        <td className="value col-md" colSpan={props.label ? undefined : 2}>
-          {row}
-        </td>
+        {row ? (
+          <td className="value col-md" colSpan={props.label ? undefined : 2}>
+            {row}
+          </td>
+        ) : null}
         <td className="col-md-auto col-actions">
           {actions ? cloneElement(actions as ReactElement, props) : actions}
         </td>

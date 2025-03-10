@@ -15,23 +15,27 @@ const FeatureSection = ({ section }) => (
   <FormTable.Card title={section.description} className="card-bordered mb-5">
     <FormTable>
       {section.items.map((item) => (
-        <tr key={item.key}>
-          <td>
-            {item.description}
-            {`${section.key}.${item.key}` === TelemetryFeatures.send_metrics ? (
-              <div>
-                <TelemetryExampleButton />
-              </div>
-            ) : null}
-          </td>
-          <td className="col-md-1">
+        <FormTable.Item
+          key={item.key}
+          description={
+            <>
+              {item.description}
+              {`${section.key}.${item.key}` ===
+              TelemetryFeatures.send_metrics ? (
+                <div>
+                  <TelemetryExampleButton />
+                </div>
+              ) : null}
+            </>
+          }
+          actions={
             <Field
               name={`${section.key}.${item.key}`}
               component={AwesomeCheckboxField as any}
               data-testid={`${section.key}.${item.key}`}
             />
-          </td>
-        </tr>
+          }
+        />
       ))}
     </FormTable>
   </FormTable.Card>
