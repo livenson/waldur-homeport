@@ -1559,7 +1559,6 @@ export type ConstanceSettingsRequest = {
     SHORT_PAGE_TITLE?: string;
     FULL_PAGE_TITLE?: string;
     BRAND_COLOR?: string;
-    BRAND_LABEL_COLOR?: string;
     HERO_LINK_LABEL?: string;
     HERO_LINK_URL?: string;
     SUPPORT_PORTAL_URL?: string;

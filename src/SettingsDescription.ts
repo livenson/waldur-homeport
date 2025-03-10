@@ -270,12 +270,6 @@ export const SettingsDescription = [
         type: 'color_field',
       },
       {
-        key: 'BRAND_LABEL_COLOR',
-        description: translate('Hex color definition is used in HomePort landing page for font color of login button.'),
-        default: '#000000',
-        type: 'color_field',
-      },
-      {
         key: 'DISABLE_DARK_THEME',
         description: translate('Toggler for dark theme.'),
         default: false,
