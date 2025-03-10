@@ -24,6 +24,7 @@ export interface FormTableItemProps {
   actions?: ReactNode;
   disabled?: boolean;
   className?: string;
+  descriptionClassName?: string;
 }
 
 const FormTableItem: FC<FormTableItemProps> = ({ actions, ...props }) => {
@@ -60,7 +61,14 @@ const FormTableItem: FC<FormTableItemProps> = ({ actions, ...props }) => {
                   />,
                 )}
             </div>
-            <div className="description fw-normal">{props.description}</div>
+            <div
+              className={classNames(
+                'description fw-normal',
+                props.descriptionClassName,
+              )}
+            >
+              {props.description}
+            </div>
           </th>
         ) : i === 0 && props.label ? (
           <th className="title col-md-3" rowSpan={titleRowSpan}>
@@ -151,7 +159,7 @@ const FormTable: FC<PropsWithChildren<FormTableProps>> & {
         props.hideActions && 'hide-actions',
         props.detailsMode && 'details-mode',
         props.alignTop && 'align-top',
-        !TABLE_GY_SPACE_REGEX.test(props.className) && 'gy-6',
+        !TABLE_GY_SPACE_REGEX.test(props.className) && 'gy-base',
         props.className,
       )}
     >

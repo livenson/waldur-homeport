@@ -39,6 +39,14 @@
     }
   }
 
+  &.gy-base {
+    td,
+    th {
+      padding-bottom: 24px;
+      padding-top: 24px;
+    }
+  }
+
   .col-actions {
     text-align: right;
     padding-top: 1rem;
