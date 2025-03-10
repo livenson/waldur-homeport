@@ -1,3 +1,4 @@
+import FormTable from '@waldur/form/FormTable';
 import { translate } from '@waldur/i18n';
 
 import { ConfigurationEditButton } from './ConfigurationEditButton';
@@ -23,17 +24,16 @@ const ImageField = ({ value }) => (
     />
   </div>
 );
+
 export const FieldRow = ({ item, value }) => {
   return (
-    <tr>
-      <td className="col-md-4">
-        <p className="py-0">
-          <strong>{getKeyTitle(item.key)}</strong>
-        </p>
-        <p className="text-muted py-0 mb-0">{item.description}</p>
-      </td>
-      <td className="col-md">
-        {item.type === 'image_field' ? (
+    <FormTable.Item
+      key={item.key}
+      label={getKeyTitle(item.key)}
+      description={item.description}
+      descriptionClassName="text-gray-600"
+      value={
+        item.type === 'image_field' ? (
           <ImageField value={value} />
         ) : item.type === 'color_field' ? (
           <ColorField value={value} />
@@ -47,11 +47,9 @@ export const FieldRow = ({ item, value }) => {
           <pre>{JSON.stringify(value, null, 2)}</pre>
         ) : (
           value
-        )}
-      </td>
-      <td className="col-md-auto col-actions">
-        <ConfigurationEditButton item={item} value={value} />
-      </td>
-    </tr>
+        )
+      }
+      actions={<ConfigurationEditButton item={item} value={value} />}
+    />
   );
 };
