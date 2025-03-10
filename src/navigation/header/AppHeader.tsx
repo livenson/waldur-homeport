@@ -3,6 +3,7 @@ import { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
 
 import { fixURL } from '@waldur/core/api';
+import { Link } from '@waldur/core/Link';
 import DefaultLogo from '@waldur/images/logo.svg';
 import { hasSupport as hasSupportSelector } from '@waldur/issues/hooks';
 import { useUser } from '@waldur/workspace/hooks';
@@ -46,13 +47,16 @@ export const AppHeader: FunctionComponent<AppHeaderProps> = ({
           {Boolean(user) && <AsideMobileToggle />}
 
           <div className="d-flex align-items-center flex-grow-1 flex-lg-grow-0">
-            <div className="d-lg-none">
+            <Link
+              state={user ? 'profile.details' : null}
+              className="d-lg-none text-dark"
+            >
               {imageUrl ? (
                 <img src={imageUrl} alt="Logo" className="h-30px" />
               ) : (
                 <DefaultLogo className="h-30px" />
               )}
-            </div>
+            </Link>
           </div>
         </div>
         <div className="d-flex align-items-stretch justify-content-between flex-grow-1">
