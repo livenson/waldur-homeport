@@ -1688,7 +1688,7 @@
     "message": "Broadcasts"
   },
   "Browse": {
-    "description": "customer/payments/PaymentCreateDialog.tsx, customer/payments/PaymentUpdateDialog.tsx, invoices/list/MarkAsPaidDialog.tsx, marketplace/offerings/actions/UpdateOfferingLogoDialog.tsx",
+    "description": "customer/payments/PaymentCreateDialog.tsx, customer/payments/PaymentUpdateDialog.tsx, invoices/list/MarkAsPaidDialog.tsx, marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx",
     "message": "Browse"
   },
   "Bulk import contacts": {
@@ -4943,8 +4943,12 @@
     "description": "marketplace/offerings/images/DeleteImageButton.tsx",
     "message": "Image has been removed."
   },
+  "Image has been updated successfully.": {
+    "description": "marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx",
+    "message": "Image has been updated successfully."
+  },
   "Image here": {
-    "description": "marketplace/offerings/images/ImageDetailsDialog.tsx, marketplace/offerings/images/ImageThumbnail.tsx, marketplace/offerings/update/ImageUploadField.tsx",
+    "description": "marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx, marketplace/offerings/images/ImageDetailsDialog.tsx, marketplace/offerings/images/ImageThumbnail.tsx, marketplace/offerings/update/ImageUploadField.tsx",
     "message": "Image here"
   },
   "Image is too large": {
@@ -4956,11 +4960,11 @@
     "message": "Image name"
   },
   "Image": {
-    "description": "azure/vm/AzureVirtualMachineForm.tsx, marketplace/offerings/images/CreateImageDialog.tsx, marketplace/resources/details/openstack-instance/InstanceMainComponent.tsx, openstack/openstack-instance/OpenstackInstanceDetails.tsx, openstack/openstack-instance/deploy/FormImageStep.tsx, openstack/openstack-instance/deploy/steps.ts",
+    "description": "azure/vm/AzureVirtualMachineForm.tsx, marketplace/offerings/images/CreateImageDialog.tsx, marketplace/offerings/update/overview/OverviewSection.tsx, marketplace/resources/details/openstack-instance/InstanceMainComponent.tsx, openstack/openstack-instance/OpenstackInstanceDetails.tsx, openstack/openstack-instance/deploy/FormImageStep.tsx, openstack/openstack-instance/deploy/steps.ts",
     "message": "Image"
   },
   "Image: ": {
-    "description": "marketplace/offerings/actions/UpdateOfferingLogoDialog.tsx",
+    "description": "marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx",
     "message": "Image: "
   },
   "Images": {
@@ -5872,11 +5876,11 @@
     "message": "Login"
   },
   "Logo has been updated successfully.": {
-    "description": "marketplace/offerings/actions/UpdateOfferingLogoDialog.tsx",
+    "description": "marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx",
     "message": "Logo has been updated successfully."
   },
   "Logo here": {
-    "description": "marketplace/offerings/actions/UpdateOfferingLogoDialog.tsx",
+    "description": "marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx",
     "message": "Logo here"
   },
   "Logo": {
@@ -9960,7 +9964,7 @@
     "message": "Save summary"
   },
   "Save": {
-    "description": "administration/FeaturesList.tsx, administration/agreements/UserAgreementCreateDialog.tsx, administration/agreements/UserAgreementsEditDialog.tsx, administration/languages/AdministrationLanguages.tsx, administration/notifications/NotificationForm.tsx, administration/providers/UpdateProviderDialog.tsx, administration/remote-offering-sync/RemoteSyncFormDialog.tsx, administration/roles/RoleDescriptionEditDialog.tsx, administration/roles/RoleForm.tsx, broadcasts/BroadcastSaveAsTemplateDialog.tsx, broadcasts/BroadcastTemplateForm.tsx, customer/details/CustomerMediaPanel.tsx, customer/team/AddProjectUserDialog.tsx, customer/team/EditProjectUserDialog.tsx, customer/team/EditUserDialog.tsx, form/InsertLinkPopover.tsx, map/SetLocationDialog.tsx, marketplace/offerings/actions/SetAccessPolicyDialogForm.tsx, marketplace/offerings/actions/UpdateOfferingLogoDialog.tsx, marketplace/offerings/expandable/utils.ts, marketplace/offerings/update/attributes/EditAttributeDialog.tsx, marketplace/offerings/update/attributes/EditCategoryDialog.tsx, marketplace/offerings/update/components/ChangeStorageModeDialog.tsx, marketplace/offerings/update/components/EditComponentDialog.tsx, marketplace/offerings/update/integration/EditLexisLinkIntegrationDialog.tsx, marketplace/offerings/update/integration/EditScriptDialog.tsx, marketplace/offerings/update/integration/EditVarsDialog.tsx, marketplace/offerings/update/options/EditOptionDialog.tsx, marketplace/offerings/update/plans/EditPlanDescriptionDialog.tsx, marketplace/offerings/update/plans/EditPlanPricesDialog.tsx, marketplace/offerings/update/plans/EditPlanQuotasDialog.tsx, marketplace/resources/actions/EditResourceEndDateDialog.tsx, marketplace/resources/actions/MoveResourceDialog.tsx, marketplace/resources/mass-actions/MultiMoveDialog.tsx, marketplace/resources/usage/utils.ts, marketplace-checklist/ChecklistCustomer.tsx, project/MoveProjectDialog.tsx, project/manage/ProjectAvatar.tsx, project/team/EditUserDialog.tsx, proposals/update/documents/AttachDocumentsDialog.tsx, proposals/update/general/EditGeneralInfoDialog.tsx, reporting/invoices/utils.ts, table/SaveFilterDialog.tsx, user/support/UserEditAvatarFormItem.tsx",
+    "description": "administration/FeaturesList.tsx, administration/agreements/UserAgreementCreateDialog.tsx, administration/agreements/UserAgreementsEditDialog.tsx, administration/languages/AdministrationLanguages.tsx, administration/notifications/NotificationForm.tsx, administration/providers/UpdateProviderDialog.tsx, administration/remote-offering-sync/RemoteSyncFormDialog.tsx, administration/roles/RoleDescriptionEditDialog.tsx, administration/roles/RoleForm.tsx, broadcasts/BroadcastSaveAsTemplateDialog.tsx, broadcasts/BroadcastTemplateForm.tsx, customer/details/CustomerMediaPanel.tsx, customer/team/AddProjectUserDialog.tsx, customer/team/EditProjectUserDialog.tsx, customer/team/EditUserDialog.tsx, form/InsertLinkPopover.tsx, map/SetLocationDialog.tsx, marketplace/offerings/actions/SetAccessPolicyDialogForm.tsx, marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx, marketplace/offerings/expandable/utils.ts, marketplace/offerings/update/attributes/EditAttributeDialog.tsx, marketplace/offerings/update/attributes/EditCategoryDialog.tsx, marketplace/offerings/update/components/ChangeStorageModeDialog.tsx, marketplace/offerings/update/components/EditComponentDialog.tsx, marketplace/offerings/update/integration/EditLexisLinkIntegrationDialog.tsx, marketplace/offerings/update/integration/EditScriptDialog.tsx, marketplace/offerings/update/integration/EditVarsDialog.tsx, marketplace/offerings/update/options/EditOptionDialog.tsx, marketplace/offerings/update/plans/EditPlanDescriptionDialog.tsx, marketplace/offerings/update/plans/EditPlanPricesDialog.tsx, marketplace/offerings/update/plans/EditPlanQuotasDialog.tsx, marketplace/resources/actions/EditResourceEndDateDialog.tsx, marketplace/resources/actions/MoveResourceDialog.tsx, marketplace/resources/mass-actions/MultiMoveDialog.tsx, marketplace/resources/usage/utils.ts, marketplace-checklist/ChecklistCustomer.tsx, project/MoveProjectDialog.tsx, project/manage/ProjectAvatar.tsx, project/team/EditUserDialog.tsx, proposals/update/documents/AttachDocumentsDialog.tsx, proposals/update/general/EditGeneralInfoDialog.tsx, reporting/invoices/utils.ts, table/SaveFilterDialog.tsx, user/support/UserEditAvatarFormItem.tsx",
     "message": "Save"
   },
   "Saved filters": {
@@ -13207,6 +13211,10 @@
     "description": "administration/providers/UpdateProviderDialog.tsx",
     "message": "Unable to update identity provider."
   },
+  "Unable to update image.": {
+    "description": "marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx",
+    "message": "Unable to update image."
+  },
   "Unable to update internal IPs of OpenStack instance.": {
     "description": "openstack/openstack-instance/actions/update-internal-ips/utils.ts",
     "message": "Unable to update internal IPs of OpenStack instance."
@@ -13224,7 +13232,7 @@
     "message": "Unable to update languages available for selection"
   },
   "Unable to update logo.": {
-    "description": "marketplace/offerings/actions/UpdateOfferingLogoDialog.tsx",
+    "description": "marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx",
     "message": "Unable to update logo."
   },
   "Unable to update network MTU.": {
@@ -13484,7 +13492,7 @@
     "message": "Update identity provider: {provider}"
   },
   "Update image": {
-    "description": "marketplace/offerings/actions/UpdateOfferingLogoDialog.tsx",
+    "description": "marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx",
     "message": "Update image"
   },
   "Update internal IPs for OpenStack instance {name}": {
@@ -13502,6 +13510,10 @@
   "Update location": {
     "description": "map/SetLocationDialog.tsx",
     "message": "Update location"
+  },
+  "Update logo": {
+    "description": "marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx",
+    "message": "Update logo"
   },
   "Update notification": {
     "description": "user/hooks/HookDetailsDialog.tsx",
@@ -13666,6 +13678,10 @@
   "Upgrade available": {
     "description": "navigation/UpgradeNotificationDialog.tsx",
     "message": "Upgrade available"
+  },
+  "Upload a background image for the offering.": {
+    "description": "marketplace/offerings/update/overview/OverviewSection.tsx",
+    "message": "Upload a background image for the offering."
   },
   "Upload additional documents, which support the proposal and help to review it.": {
     "description": "proposals/proposal/create/ProjectDetailsStep.tsx, proposals/proposal/create/ProjectDetailsSummary.tsx",
