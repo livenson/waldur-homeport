@@ -15856,11 +15856,10 @@ export type IconsFaviconRetrieveErrors = {
 };
 
 export type IconsFaviconRetrieveResponses = {
-    /**
-     * Logo image
-     */
-    200: unknown;
+    200: Blob | File;
 };
+
+export type IconsFaviconRetrieveResponse = IconsFaviconRetrieveResponses[keyof IconsFaviconRetrieveResponses];
 
 export type IconsHeroImageRetrieveData = {
     body?: never;
@@ -15877,11 +15876,10 @@ export type IconsHeroImageRetrieveErrors = {
 };
 
 export type IconsHeroImageRetrieveResponses = {
-    /**
-     * Logo image
-     */
-    200: unknown;
+    200: Blob | File;
 };
+
+export type IconsHeroImageRetrieveResponse = IconsHeroImageRetrieveResponses[keyof IconsHeroImageRetrieveResponses];
 
 export type IconsKeycloakIconRetrieveData = {
     body?: never;
@@ -15898,11 +15896,10 @@ export type IconsKeycloakIconRetrieveErrors = {
 };
 
 export type IconsKeycloakIconRetrieveResponses = {
-    /**
-     * Logo image
-     */
-    200: unknown;
+    200: Blob | File;
 };
+
+export type IconsKeycloakIconRetrieveResponse = IconsKeycloakIconRetrieveResponses[keyof IconsKeycloakIconRetrieveResponses];
 
 export type IconsLoginLogoRetrieveData = {
     body?: never;
@@ -15919,11 +15916,10 @@ export type IconsLoginLogoRetrieveErrors = {
 };
 
 export type IconsLoginLogoRetrieveResponses = {
-    /**
-     * Logo image
-     */
-    200: unknown;
+    200: Blob | File;
 };
+
+export type IconsLoginLogoRetrieveResponse = IconsLoginLogoRetrieveResponses[keyof IconsLoginLogoRetrieveResponses];
 
 export type IconsOfferingLogoPlaceholderRetrieveData = {
     body?: never;
@@ -15940,11 +15936,10 @@ export type IconsOfferingLogoPlaceholderRetrieveErrors = {
 };
 
 export type IconsOfferingLogoPlaceholderRetrieveResponses = {
-    /**
-     * Logo image
-     */
-    200: unknown;
+    200: Blob | File;
 };
+
+export type IconsOfferingLogoPlaceholderRetrieveResponse = IconsOfferingLogoPlaceholderRetrieveResponses[keyof IconsOfferingLogoPlaceholderRetrieveResponses];
 
 export type IconsPoweredByLogoRetrieveData = {
     body?: never;
@@ -15961,11 +15956,10 @@ export type IconsPoweredByLogoRetrieveErrors = {
 };
 
 export type IconsPoweredByLogoRetrieveResponses = {
-    /**
-     * Logo image
-     */
-    200: unknown;
+    200: Blob | File;
 };
+
+export type IconsPoweredByLogoRetrieveResponse = IconsPoweredByLogoRetrieveResponses[keyof IconsPoweredByLogoRetrieveResponses];
 
 export type IconsSidebarLogoRetrieveData = {
     body?: never;
@@ -15982,11 +15976,10 @@ export type IconsSidebarLogoRetrieveErrors = {
 };
 
 export type IconsSidebarLogoRetrieveResponses = {
-    /**
-     * Logo image
-     */
-    200: unknown;
+    200: Blob | File;
 };
+
+export type IconsSidebarLogoRetrieveResponse = IconsSidebarLogoRetrieveResponses[keyof IconsSidebarLogoRetrieveResponses];
 
 export type IconsSidebarLogoDarkRetrieveData = {
     body?: never;
@@ -16003,11 +15996,10 @@ export type IconsSidebarLogoDarkRetrieveErrors = {
 };
 
 export type IconsSidebarLogoDarkRetrieveResponses = {
-    /**
-     * Logo image
-     */
-    200: unknown;
+    200: Blob | File;
 };
+
+export type IconsSidebarLogoDarkRetrieveResponse = IconsSidebarLogoDarkRetrieveResponses[keyof IconsSidebarLogoDarkRetrieveResponses];
 
 export type IconsSidebarLogoMobileRetrieveData = {
     body?: never;
@@ -16024,11 +16016,10 @@ export type IconsSidebarLogoMobileRetrieveErrors = {
 };
 
 export type IconsSidebarLogoMobileRetrieveResponses = {
-    /**
-     * Logo image
-     */
-    200: unknown;
+    200: Blob | File;
 };
+
+export type IconsSidebarLogoMobileRetrieveResponse = IconsSidebarLogoMobileRetrieveResponses[keyof IconsSidebarLogoMobileRetrieveResponses];
 
 export type IconsSiteLogoRetrieveData = {
     body?: never;
@@ -16045,11 +16036,10 @@ export type IconsSiteLogoRetrieveErrors = {
 };
 
 export type IconsSiteLogoRetrieveResponses = {
-    /**
-     * Logo image
-     */
-    200: unknown;
+    200: Blob | File;
 };
+
+export type IconsSiteLogoRetrieveResponse = IconsSiteLogoRetrieveResponses[keyof IconsSiteLogoRetrieveResponses];
 
 export type IdentityProvidersListData = {
     body?: never;
