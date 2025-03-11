@@ -1,7 +1,10 @@
+import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
+import { EditButton } from '@waldur/form/EditButton';
 import FormTable from '@waldur/form/FormTable';
 import { translate } from '@waldur/i18n';
 
 import { ConfigurationEditButton } from './ConfigurationEditButton';
+import { CountryListField } from './CountryListField';
 import { getKeyTitle } from './utils';
 
 const ColorField = ({ value }) => (
@@ -25,7 +28,18 @@ const ImageField = ({ value }) => (
   </div>
 );
 
-export const FieldRow = ({ item, value }) => {
+const CountryListEditButton = ({ onEdit }) => (
+  <EditButton onClick={onEdit} size="sm" />
+);
+
+interface FieldRowProps {
+  item: any;
+  value: any;
+  onEdit?: any;
+  isLoading?: boolean;
+}
+
+export const FieldRow = ({ item, value, onEdit, isLoading }: FieldRowProps) => {
   return (
     <FormTable.Item
       key={item.key}
@@ -43,13 +57,25 @@ export const FieldRow = ({ item, value }) => {
           ) : (
             translate('No')
           )
+        ) : item.type === 'country_list_field' ? (
+          isLoading ? (
+            <LoadingSpinner />
+          ) : (
+            <CountryListField value={value} />
+          )
         ) : typeof value === 'object' ? (
           <pre>{JSON.stringify(value, null, 2)}</pre>
         ) : (
           value
         )
       }
-      actions={<ConfigurationEditButton item={item} value={value} />}
+      actions={
+        item.type === 'country_list_field' ? (
+          <CountryListEditButton onEdit={onEdit} />
+        ) : (
+          <ConfigurationEditButton item={item} value={value} />
+        )
+      }
     />
   );
 };

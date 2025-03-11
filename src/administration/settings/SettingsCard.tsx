@@ -26,13 +26,15 @@ export const SettingsCard: FC<SettingsCardProps> = ({
           className="card-bordered mb-5"
         >
           <Table bordered={true} responsive={true} className="form-table">
-            {group.items.map((item) => (
-              <FieldRow
-                item={item}
-                key={item.key}
-                value={settingsSource?.[item.key]}
-              />
-            ))}
+            <tbody>
+              {group.items.map((item) => (
+                <FieldRow
+                  item={item}
+                  key={item.key}
+                  value={settingsSource?.[item.key]}
+                />
+              ))}
+            </tbody>
           </Table>
         </FormTable.Card>
       ))}
