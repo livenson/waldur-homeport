@@ -3,13 +3,13 @@ import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
 
+import {
+  ComponentUsage,
+  MarketplaceComponentUsagesListData,
+} from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 import { getStartAndEndDatesOfMonth } from '@waldur/issues/utils';
-import {
-  UsageReport,
-  UsageReportRequest,
-} from '@waldur/marketplace/resources/usage/types';
 import { createFetcher } from '@waldur/table/api';
 import { ExpandableContainer } from '@waldur/table/ExpandableContainer';
 import Table from '@waldur/table/Table';
@@ -33,7 +33,7 @@ export const ResourceUsageList: FC = () => {
     fetchData: createFetcher('marketplace-component-usages'),
     filter,
   });
-  const columns: Array<Column<UsageReport>> = [
+  const columns: Array<Column<ComponentUsage>> = [
     {
       title: translate('Client organization'),
       render: ({ row }) => <>{row.customer_name}</>,
@@ -110,7 +110,7 @@ export const ResourceUsageList: FC = () => {
 const mapStateToFilter = createSelector(
   getFormValues(FORM_ID),
   (usageFilter: any) => {
-    const filter: UsageReportRequest = {};
+    const filter: MarketplaceComponentUsagesListData['query'] = {};
     if (usageFilter) {
       if (usageFilter.accounting_period) {
         const { start } = getStartAndEndDatesOfMonth(

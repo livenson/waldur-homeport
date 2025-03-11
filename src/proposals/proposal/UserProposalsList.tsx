@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
 
+import { Proposal } from '@waldur/api';
 import { isFeatureVisible } from '@waldur/features/connect';
 import { ProjectFeatures } from '@waldur/FeaturesEnums';
 import { translate } from '@waldur/i18n';
@@ -16,6 +17,7 @@ import { ActionsDropdown } from '@waldur/table/ActionsDropdown';
 import { createFetcher } from '@waldur/table/api';
 import { DASH_ESCAPE_CODE } from '@waldur/table/constants';
 import Table from '@waldur/table/Table';
+import { Column } from '@waldur/table/types';
 import { useTable } from '@waldur/table/useTable';
 import { renderFieldOrDash } from '@waldur/table/utils';
 
@@ -81,7 +83,7 @@ export const UserProposalsList: FC = () => {
     [callObj],
   );
 
-  const columns = [
+  const columns: Column<Proposal>[] = [
     {
       title: translate('Proposal'),
       render: ({ row }) => <>{row.name}</>,

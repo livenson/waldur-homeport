@@ -71,6 +71,12 @@ export const SettingsDescription = [
         default: 'Marketplace',
         type: 'string',
       },
+      {
+        key: 'COUNTRIES',
+        description: translate('It is used in organization creation dialog in order to limit country choices to predefined set.'),
+        default: ['AL', 'AT', 'BA', 'BE', 'BG', 'CH', 'CY', 'CZ', 'DE', 'DK', 'EE', 'ES', 'EU', 'FI', 'FR', 'GB', 'GE', 'GR', 'HR', 'HU', 'IE', 'IS', 'IT', 'LT', 'LU', 'LV', 'MC', 'MK', 'MT', 'NL', 'NO', 'PL', 'PT', 'RO', 'RS', 'SE', 'SI', 'SK', 'UA'],
+        type: 'country_list_field',
+      },
     ],
   },
   {
@@ -270,12 +276,6 @@ export const SettingsDescription = [
         type: 'color_field',
       },
       {
-        key: 'BRAND_LABEL_COLOR',
-        description: translate('Hex color definition is used in HomePort landing page for font color of login button.'),
-        default: '#000000',
-        type: 'color_field',
-      },
-      {
         key: 'DISABLE_DARK_THEME',
         description: translate('Toggler for dark theme.'),
         default: false,
@@ -377,7 +377,7 @@ export const SettingsDescription = [
       {
         key: 'ATLASSIAN_API_URL',
         description: translate('Atlassian API server URL'),
-        default: 'http://example.com/',
+        default: 'https://example.com/',
         type: 'url_field',
       },
       {
@@ -527,7 +527,7 @@ export const SettingsDescription = [
       {
         key: 'ATLASSIAN_VERIFY_SSL',
         description: translate('Toggler for SSL verification'),
-        default: false,
+        default: true,
         type: 'boolean',
       },
       {
@@ -573,7 +573,7 @@ export const SettingsDescription = [
     items: [
       {
         key: 'ZAMMAD_API_URL',
-        description: translate('Zammad API server URL. For example <http://localhost:8080/>'),
+        description: translate('Zammad API server URL. For example <https://localhost:8080/>'),
         default: '',
         type: 'url_field',
       },
@@ -620,7 +620,7 @@ export const SettingsDescription = [
     items: [
       {
         key: 'SMAX_API_URL',
-        description: translate('SMAX API server URL. For example <http://localhost:8080/>'),
+        description: translate('SMAX API server URL. For example <https://localhost:8080/>'),
         default: '',
         type: 'url_field',
       },

@@ -1,20 +1,20 @@
 import classNames from 'classnames';
 import { FC } from 'react';
 
+import { BasePublicPlan, PublicOfferingDetails } from '@waldur/api';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { FormattedHtml } from '@waldur/core/FormattedHtml';
 import { Link } from '@waldur/core/Link';
 import { translate } from '@waldur/i18n';
 import { PlanDetailsList } from '@waldur/marketplace/details/plan/PlanDetailsList';
 import { combinePrices } from '@waldur/marketplace/details/plan/utils';
-import { Offering, Plan } from '@waldur/marketplace/types';
 import { isExperimentalUiComponentsVisible } from '@waldur/marketplace/utils';
 
 import { PricingPlanDetailsList } from './PublicOfferingPricingPlanDetailsList';
 
 interface PricingPlanItemProps {
-  offering: Offering;
-  plan: Plan;
+  offering: PublicOfferingDetails;
+  plan: BasePublicPlan;
   canDeploy?: boolean;
   singlePlan?: boolean;
 }

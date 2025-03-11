@@ -2,6 +2,7 @@ import Axios, { AxiosResponse } from 'axios';
 
 import { getRoles } from '@waldur/administration/roles/api';
 import { afterBootstrap } from '@waldur/afterBootstrap';
+import { initAuthToken } from '@waldur/auth/interceptor';
 import { ENV } from '@waldur/configs/default';
 
 import { format } from './ErrorMessageFormatter';
@@ -81,9 +82,9 @@ export async function loadConfig() {
     FEATURES: backendSettings.FEATURES,
   };
   Object.assign(ENV, config);
+  initAuthToken();
   try {
-    const roles = await getRoles();
-    ENV.roles = roles;
+    ENV.roles = await getRoles();
   } catch (error) {
     throw new Error(`Unable to fetch user roles. ${format(error)}`);
   }

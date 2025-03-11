@@ -2,18 +2,18 @@ import { useCurrentStateAndParams, useRouter } from '@uirouter/react';
 import { FC, useMemo } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
 
+import { User } from '@waldur/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { isDescendantOf } from '@waldur/navigation/useTabs';
-import { UserDetails } from '@waldur/workspace/types';
 
 import { UsersService } from '../UsersService';
 
 import { UserProfile } from './UserProfile';
 
 interface UserProfileHeroProps {
-  user: UserDetails;
+  user: User;
   refetch?;
   isLoading?;
   error?;

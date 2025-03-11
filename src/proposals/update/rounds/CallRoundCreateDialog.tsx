@@ -2,12 +2,14 @@ import { DateTime } from 'luxon';
 import { FC, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 
-import { ProtectedRoundRequest } from '@waldur/api';
+import {
+  proposalProtectedCallsRoundsSet,
+  ProtectedRoundRequest,
+} from '@waldur/api';
 import { parseDate } from '@waldur/core/dateUtils';
 import { WizardFormContainer } from '@waldur/form/WizardFormContainer';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
-import { createCallRound } from '@waldur/proposals/api';
 import { Call } from '@waldur/proposals/types';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
@@ -49,11 +51,13 @@ export const CallRoundCreateDialog: FC<CallRoundCreateDialogProps> = (
   const createRound = useCallback(
     async (formData: ProtectedRoundRequest, _dispatch, formProps) => {
       try {
-        await createCallRound(props.resolve.call.uuid, formData).then(() => {
-          formProps.destroy();
-          dispatch(closeModalDialog());
-          props.resolve.refetch();
+        await proposalProtectedCallsRoundsSet({
+          path: { uuid: props.resolve.call.uuid },
+          body: formData,
         });
+        formProps.destroy();
+        dispatch(closeModalDialog());
+        props.resolve.refetch();
         dispatch(showSuccess(translate('Round has been created.')));
       } catch (e) {
         dispatch(showErrorResponse(e));

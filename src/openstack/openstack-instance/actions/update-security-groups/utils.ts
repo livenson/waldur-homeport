@@ -4,15 +4,15 @@ import { useAsync } from 'react-use';
 import { reduxForm } from 'redux-form';
 
 import { openstackInstancesUpdateSecurityGroups } from '@waldur/api';
+import { OpenStackInstance } from '@waldur/api';
 import { translate } from '@waldur/i18n';
+import { Option } from '@waldur/marketplace/common/registry';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { loadSecurityGroups } from '@waldur/openstack/api';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
-import { OpenStackInstance } from '../../types';
-
 interface UpdateSecurityGroupsFormData {
-  security_groups: { value: string; label: string }[];
+  security_groups: Option[];
 }
 
 export const useUpdateSecurityGroupsForm = (
@@ -23,7 +23,7 @@ export const useUpdateSecurityGroupsForm = (
     () =>
       loadSecurityGroups({
         tenant_uuid: resource.tenant_uuid,
-        fields: ['name', 'url'],
+        field: ['name', 'url'],
       }).then((groups) =>
         groups.map((group) => ({
           label: group.name,

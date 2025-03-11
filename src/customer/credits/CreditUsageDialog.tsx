@@ -1,5 +1,6 @@
 import { FC, useMemo } from 'react';
 
+import { InvoiceItem, InvoiceItemsListData } from '@waldur/api';
 import { parseDate } from '@waldur/core/dateUtils';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { translate } from '@waldur/i18n';
@@ -15,7 +16,7 @@ interface CreditUsageDialogProps {
 }
 
 export const CreditUsageDialog: FC<CreditUsageDialogProps> = (props) => {
-  const filter = useMemo(
+  const filter = useMemo<InvoiceItemsListData['query']>(
     () => ({
       credit_uuid: props.creditUuid,
       customer_uuid: props.customerUuid,
@@ -33,7 +34,7 @@ export const CreditUsageDialog: FC<CreditUsageDialogProps> = (props) => {
 
   return (
     <MetronicModalDialog headerLess bodyClassName="p-0">
-      <Table
+      <Table<InvoiceItem>
         {...tableProps}
         columns={[
           {

@@ -2,6 +2,7 @@ import { useQuery } from '@tanstack/react-query';
 import { useCallback, useEffect, useMemo, useState } from 'react';
 import { Field } from 'redux-form';
 
+import { VmwareTemplate } from '@waldur/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { required } from '@waldur/core/validators';
 import { VStepperFormStepCard } from '@waldur/form/VStepperFormStep';
@@ -16,7 +17,6 @@ import { generateSystemImageChoices } from '@waldur/marketplace/deploy/utils';
 import { isExperimentalUiComponentsVisible } from '@waldur/marketplace/utils';
 
 import { getVMwareTemplates } from '../api';
-import { VMwareTemplate } from '../types';
 
 const tabs: TabSpec[] = [
   { title: translate('Images'), key: 'images' },
@@ -31,10 +31,7 @@ export const FormTemplateStep = (props: FormStepProps) => {
     ['VMwareImages', props.offering?.scope_uuid, props.offering?.customer_uuid],
     () =>
       props.offering.scope_uuid && props.offering.customer_uuid
-        ? getVMwareTemplates(
-            props.offering.scope_uuid,
-            props.offering.customer_uuid,
-          )
+        ? getVMwareTemplates(props.offering.scope_uuid)
         : Promise.resolve([]),
     { staleTime: 3 * 60 * 1000 },
   );
@@ -51,7 +48,7 @@ export const FormTemplateStep = (props: FormStepProps) => {
   }, [data]);
 
   const onChangeImage = useCallback(
-    (value: VMwareTemplate) => {
+    (value: VmwareTemplate) => {
       props.change('limits.cpu', value.cores);
       props.change('limits.ram', value.ram / 1024);
       props.change('limits.disk', value.disk / 1024);

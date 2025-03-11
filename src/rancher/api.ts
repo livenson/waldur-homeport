@@ -1,79 +1,9 @@
 import Axios from 'axios';
 
-import { get, getAll, post } from '@waldur/core/api';
-
-import {
-  RancherProject,
-  TemplateVersion,
-  Secret,
-  KubeconfigFile,
-  HPA,
-  HPACreateType,
-  ClusterTemplate,
-  Workload,
-} from './types';
-
-export const getTemplateVersion = (templateUuid: string, versionUuid: string) =>
-  get<TemplateVersion>(
-    `/rancher-template-versions/${templateUuid}/${versionUuid}/`,
-  ).then((response) => response.data);
-
-export const pullCluster = (clusterUuid: string) =>
-  post(`/rancher-clusters/${clusterUuid}/pull/`);
-
-export const pullNode = (clusterUuid: string) =>
-  post(`/rancher-nodes/${clusterUuid}/pull/`);
-
-export const getKubeconfigFile = (resourceId) =>
-  get<KubeconfigFile>(`/rancher-clusters/${resourceId}/kubeconfig_file/`).then(
-    (response) => response.data.config,
-  );
-
-export const getProjects = (clusterUuid: string) =>
-  getAll<RancherProject>('/rancher-projects/', {
-    params: { cluster_uuid: clusterUuid },
-  });
-
-export const getProjectSecrets = (projectUuid: string) =>
-  get<Secret[]>(`/rancher-projects/${projectUuid}/secrets/`).then(
-    (response) => response.data,
-  );
-
-export const createApp = (payload) => post('/rancher-apps/', payload);
-
-export const createNode = (payload) => post('/rancher-nodes/', payload);
-
-export const linkInstance = (id, payload) =>
-  post(`/rancher-nodes/${id}/link_openstack/`, payload);
-
-export const unlinkInstance = (id: string) =>
-  post(`/rancher-nodes/${id}/unlink_openstack/`);
-
-export const getNodeConsoleUrl = (id) =>
-  get<{ url: string }>(`/rancher-nodes/${id}/console/`).then(
-    (response) => response.data.url,
-  );
-
-export const listWorkloads = (params) =>
-  getAll<Workload>('/rancher-workloads/', params);
-
-export const redeployWorkload = (id: string) =>
-  post(`/rancher-workloads/${id}/redeploy/`);
-
-export const listNamespaces = (params) =>
-  getAll('/rancher-namespaces/', params);
-
-export const createHPA = (payload: HPACreateType) =>
-  post<HPA>('/rancher-hpas/', payload);
-
-export const listClusterTemplates = (options?) =>
-  getAll<ClusterTemplate>('/rancher-cluster-templates/', options);
+import { get } from '@waldur/core/api';
 
 export const getYAML = (url: string) =>
   get<{ yaml: string }>(`${url}yaml/`).then((response) => response.data);
 
 export const putYAML = (url: string, yaml: string) =>
   Axios.put(`${url}yaml/`, { yaml });
-
-export const importYAML = (clusterId: string, yaml: string) =>
-  post(`/rancher-clusters/${clusterId}/import_yaml/`, { yaml });

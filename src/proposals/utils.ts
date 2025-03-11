@@ -7,6 +7,7 @@ import {
   ProtectedRound,
   ProtectedRoundRequest,
 } from '@waldur/api';
+import { User } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { usePresetBreadcrumbItems } from '@waldur/navigation/header/breadcrumb/utils';
 import { IBreadcrumbItem } from '@waldur/navigation/types';
@@ -20,7 +21,6 @@ import {
   RoundAllocationTime,
   RoundReviewStrategy,
 } from '@waldur/proposals/types';
-import { User } from '@waldur/workspace/types';
 
 export const getRoundReviewStrategyOptions = () =>
   [

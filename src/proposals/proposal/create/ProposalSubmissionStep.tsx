@@ -6,7 +6,9 @@ import { change, getFormValues } from 'redux-form';
 
 import {
   proposalProposalsAttachDocument,
+  proposalProposalsSubmit,
   proposalProposalsUpdateProjectDetails,
+  ProposalReview,
 } from '@waldur/api';
 import { formDataOptions } from '@waldur/core/api';
 import { isEmpty } from '@waldur/core/utils';
@@ -14,7 +16,6 @@ import { Form } from '@waldur/form/Form';
 import { SidebarLayout } from '@waldur/form/SidebarLayout';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
-import { submitProposal } from '@waldur/proposals/api';
 import { PROPOSAL_UPDATE_SUBMISSION_FORM_ID } from '@waldur/proposals/constants';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
@@ -52,11 +53,11 @@ const validate = (values) => {
   return errors;
 };
 
-export const ProposalSubmissionStep: FC<{ proposal; reviews?; refetch }> = ({
-  proposal,
-  reviews,
-  refetch,
-}) => {
+export const ProposalSubmissionStep: FC<{
+  proposal;
+  reviews?: ProposalReview[];
+  refetch;
+}> = ({ proposal, reviews, refetch }) => {
   const dispatch = useDispatch();
   const initialValues = useMemo(
     () => ({
@@ -125,7 +126,7 @@ export const ProposalSubmissionStep: FC<{ proposal; reviews?; refetch }> = ({
           proposal_uuid,
           formValues.supporting_documentation,
         );
-        await submitProposal(proposal_uuid);
+        await proposalProposalsSubmit({ path: { uuid: proposal_uuid } });
         refetch && refetch();
         dispatch(showSuccess(translate('Proposal submitted successfully')));
       } catch (error) {

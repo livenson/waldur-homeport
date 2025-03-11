@@ -3,9 +3,12 @@ import { useRouter } from '@uirouter/react';
 import { useCallback } from 'react';
 import { reduxForm } from 'redux-form';
 
-import { proposalReviewsCreate } from '@waldur/api';
+import {
+  proposalProtectedCallsListUsersList,
+  proposalReviewsCreate,
+} from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
-import { fixURL } from '@waldur/core/api';
+import { getAllPages } from '@waldur/core/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { required } from '@waldur/core/validators';
@@ -15,7 +18,6 @@ import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { RoleEnum } from '@waldur/permissions/enums';
-import { getAllCallUsers } from '@waldur/proposals/api';
 import { CALL_REVIEWERS_QUERY_KEY } from '@waldur/proposals/constants';
 import { Proposal } from '@waldur/proposals/types';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
@@ -42,7 +44,15 @@ export const CreateReviewDialog = reduxForm<
   } = useQuery(
     [CALL_REVIEWERS_QUERY_KEY, props.resolve.proposal.call_uuid],
     () =>
-      getAllCallUsers(props.resolve.proposal.call_uuid, RoleEnum.CALL_REVIEWER),
+      getAllPages((page) =>
+        proposalProtectedCallsListUsersList({
+          path: { uuid: props.resolve.proposal.call_uuid },
+          query: {
+            page,
+            role: RoleEnum.CALL_REVIEWER,
+          },
+        }),
+      ),
     { staleTime: 3 * 60 * 1000 },
   );
 
@@ -50,12 +60,9 @@ export const CreateReviewDialog = reduxForm<
   const processRequest = useCallback(
     async (values: FormData, dispatch) => {
       if (!values.reviewer) return;
-      const proposalUrl =
-        props.resolve.proposal.url ||
-        fixURL(`/proposal-proposals/${props.resolve.proposal.uuid}/`);
       try {
         await proposalReviewsCreate({
-          body: { proposal: proposalUrl, ...values },
+          body: { proposal: props.resolve.proposal.url, ...values },
         });
         dispatch(
           showSuccess(translate('Proposal review created successfully')),

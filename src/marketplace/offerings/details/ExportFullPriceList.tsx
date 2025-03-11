@@ -2,26 +2,23 @@ import { DownloadSimple } from '@phosphor-icons/react';
 import { FunctionComponent } from 'react';
 import { useAsync } from 'react-use';
 
-import { getAll } from '@waldur/core/api';
+import {
+  marketplacePlanComponentsList,
+  PlanComponent,
+  PublicOfferingDetails,
+} from '@waldur/api';
+import { getAllPages } from '@waldur/core/api';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
-import { Offering, PlanComponent } from '@waldur/marketplace/types';
 import exportExcel from '@waldur/table/exporters/excel';
 
 import './ExportFullPriceList.scss';
 
 interface ExportFullPriceListProps {
-  offering: Offering;
+  offering: PublicOfferingDetails;
 }
 
-const fetchPlanComponents = (offering_uuid: string) =>
-  getAll<PlanComponent>('/marketplace-plan-components/', {
-    params: {
-      offering_uuid,
-    },
-  });
-
-const onExport = (offeringName, rows) => {
+const onExport = (offeringName: string, rows: PlanComponent[]) => {
   const filename = translate('Full price list of {offeringName} offering', {
     offeringName,
   });
@@ -34,7 +31,7 @@ const onExport = (offeringName, rows) => {
     'Amount',
     'Component price',
   ];
-  const exportRow = (row) => [
+  const exportRow = (row: PlanComponent) => [
     row.plan_name,
     row.component_name,
     row.measured_unit || 'N/A',
@@ -58,7 +55,14 @@ export const ExportFullPriceList: FunctionComponent<
     error,
     value: components,
   } = useAsync(async () => {
-    const components = await fetchPlanComponents(offering.uuid);
+    const components = await getAllPages((page) =>
+      marketplacePlanComponentsList({
+        query: {
+          page,
+          offering_uuid: offering.uuid,
+        },
+      }),
+    );
     components.map((plan) => {
       if (plan.billing_type !== 'limit') return plan;
       if (plan.amount === 0) plan.amount = 1;

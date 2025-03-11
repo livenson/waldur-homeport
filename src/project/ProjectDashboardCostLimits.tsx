@@ -5,6 +5,7 @@ import { useCallback } from 'react';
 import { Col } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 
+import { Project } from '@waldur/api';
 import { EChart } from '@waldur/core/EChart';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { LoadingErred } from '@waldur/core/LoadingErred';
@@ -14,7 +15,6 @@ import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { ChangesAmountBadge } from '@waldur/marketplace/service-providers/dashboard/ChangesAmountBadge';
 import { openModalDialog } from '@waldur/modal/actions';
 import { isOwnerOrStaff as isOwnerOrStaffSelector } from '@waldur/workspace/selectors';
-import { Project } from '@waldur/workspace/types';
 
 import { loadChart } from './utils';
 

@@ -1,15 +1,15 @@
 import { Badge } from 'react-bootstrap';
 
+import { OpenStackNestedVolume } from '@waldur/api';
 import { Link } from '@waldur/core/Link';
 import { Tip } from '@waldur/core/Tooltip';
 import { formatFilesize } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';
 import openstackIcon from '@waldur/images/appstore/icon-openstack.png';
 import { Field } from '@waldur/resource/summary';
-import { Volume } from '@waldur/resource/types';
 
 interface VolumeBadgeProps {
-  volume: Volume;
+  volume: OpenStackNestedVolume;
   resourceName?: string;
 }
 

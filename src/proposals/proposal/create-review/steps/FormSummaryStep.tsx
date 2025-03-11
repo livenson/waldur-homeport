@@ -6,6 +6,11 @@ import { useDispatch } from 'react-redux';
 import { Field, reduxForm, InjectedFormProps } from 'redux-form';
 
 import {
+  ProposalReview,
+  proposalReviewsPartialUpdate,
+  ReviewSubmitRequest,
+} from '@waldur/api';
+import {
   RATING_STAR_ACTIVE_COLOR,
   RATING_STAR_INACTIVE_COLOR,
 } from '@waldur/core/constants';
@@ -14,24 +19,17 @@ import { Tip } from '@waldur/core/Tooltip';
 import { FormGroup, TextField, FieldError } from '@waldur/form';
 import { VStepperFormStepProps } from '@waldur/form/VStepperFormStep';
 import { translate } from '@waldur/i18n';
-import { updateProposalReview } from '@waldur/proposals/api';
 import { REVIEW_SUMMARY_FORM_ID } from '@waldur/proposals/constants';
 import { isReviewInFinalState } from '@waldur/proposals/utils';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
-interface FormData {
-  summary_score: number;
-  summary_public_comment: string;
-  summary_private_comment: string;
-}
-
 type FormSummaryStepProps = VStepperFormStepProps &
-  InjectedFormProps<FormData, VStepperFormStepProps>;
+  InjectedFormProps<ReviewSubmitRequest, VStepperFormStepProps>;
 
 const FormSummaryStep: React.FC<FormSummaryStepProps> = (props) => {
   const { handleSubmit, params } = props;
 
-  const review = params.reviews?.[0];
+  const review: ProposalReview = params.reviews?.[0];
 
   useEffect(() => {
     props.initialize({
@@ -43,9 +41,12 @@ const FormSummaryStep: React.FC<FormSummaryStepProps> = (props) => {
 
   const dispatch = useDispatch();
 
-  const updateReview = async (formData: FormData) => {
+  const updateReview = async (formData: ReviewSubmitRequest) => {
     try {
-      await updateProposalReview(formData, review?.uuid);
+      await proposalReviewsPartialUpdate({
+        body: formData,
+        path: { uuid: review?.uuid },
+      });
       dispatch(showSuccess(translate('Review has been updated.')));
     } catch (e) {
       dispatch(showErrorResponse(e, translate('Unable to update review.')));
@@ -62,7 +63,7 @@ const FormSummaryStep: React.FC<FormSummaryStepProps> = (props) => {
   );
 
   return (
-    <Panel title={props.title} id={props.id}>
+    <Panel title={props.title} id={props.id} cardBordered>
       <Field
         name="summary_score"
         component={(fieldProps) => (
@@ -127,7 +128,7 @@ const FormSummaryStep: React.FC<FormSummaryStepProps> = (props) => {
   );
 };
 
-export default reduxForm<FormData, VStepperFormStepProps>({
+export default reduxForm<ReviewSubmitRequest, VStepperFormStepProps>({
   form: REVIEW_SUMMARY_FORM_ID,
   enableReinitialize: false,
 })(FormSummaryStep);

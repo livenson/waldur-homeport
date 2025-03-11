@@ -56,7 +56,9 @@ export const MonthOverview: FunctionComponent<MonthOverviewProps> = ({
 
   const date = useMemo(() => {
     if (invoice) {
-      return parseDate(formatPeriod(invoice)).toFormat('LLLL yyyy');
+      return parseDate(
+        formatPeriod({ year: invoice.year, month: invoice.month }),
+      ).toFormat('LLLL yyyy');
     }
   }, [invoice]);
 

@@ -660,65 +660,6 @@ export type BackendMetadata = {
     readonly instance_name: string | null;
 };
 
-export type Backup = {
-    readonly url: string;
-    readonly uuid: string;
-    name: string;
-    description?: string;
-    readonly service_name: string;
-    readonly service_settings: string;
-    readonly service_settings_uuid: string;
-    readonly service_settings_state: string;
-    readonly service_settings_error_message: string;
-    readonly project: string;
-    readonly project_name: string;
-    readonly project_uuid: string;
-    readonly customer: string;
-    readonly customer_name: string;
-    readonly customer_native_name: string;
-    readonly customer_abbreviation: string;
-    readonly error_message: string;
-    readonly error_traceback: string;
-    readonly resource_type: string;
-    state: CoreStates;
-    readonly created: string;
-    readonly modified: string;
-    readonly backend_id: string;
-    readonly access_url: string | null;
-    /**
-     * Guaranteed time of backup retention. If null - keep forever.
-     */
-    kept_until?: string | null;
-    readonly metadata: unknown;
-    readonly instance: string;
-    readonly instance_name: string;
-    readonly instance_marketplace_uuid: string;
-    readonly restorations: Array<OpenStackBackupRestoration>;
-    readonly instance_security_groups: Array<OpenStackNestedSecurityGroup>;
-    readonly instance_ports: Array<OpenStackNestedPort>;
-    readonly instance_floating_ips: Array<OpenStackNestedFloatingIp>;
-    readonly tenant_uuid: string;
-    readonly marketplace_offering_uuid: string;
-    readonly marketplace_offering_name: string;
-    readonly marketplace_offering_plugin_options: {};
-    readonly marketplace_category_uuid: string;
-    readonly marketplace_category_name: string;
-    readonly marketplace_resource_uuid: string;
-    readonly marketplace_plan_uuid: string;
-    readonly marketplace_resource_state: string;
-    readonly is_usage_based: boolean;
-    readonly is_limit_based: boolean;
-};
-
-export type BackupRequest = {
-    name: string;
-    description?: string;
-    /**
-     * Guaranteed time of backup retention. If null - keep forever.
-     */
-    kept_until?: string | null;
-};
-
 export type BaseComponentUsage = {
     readonly uuid: string;
     readonly created: string;
@@ -919,7 +860,7 @@ export type BookingResource = {
     readonly url: string;
     readonly scope: string;
     readonly description: string;
-    readonly state: string;
+    state: ResourceState;
     readonly resource_uuid: string;
     readonly backend_id: string;
     readonly effective_id: string;
@@ -1179,8 +1120,12 @@ export type CategoryColumn = {
     attribute?: string;
     /**
      * Widget field allows to customise table cell rendering.
+     *
+     * * `csv` - csv
+     * * `filesize` - filesize
+     * * `attached_instance` - attached_instance
      */
-    widget?: string | null;
+    widget?: WidgetEnum | BlankEnum | NullEnum | null;
     category: string;
 };
 
@@ -1199,8 +1144,12 @@ export type CategoryColumnRequest = {
     attribute?: string;
     /**
      * Widget field allows to customise table cell rendering.
+     *
+     * * `csv` - csv
+     * * `filesize` - filesize
+     * * `attached_instance` - attached_instance
      */
-    widget?: string | null;
+    widget?: WidgetEnum | BlankEnum | NullEnum | null;
     category: string;
 };
 
@@ -1610,7 +1559,6 @@ export type ConstanceSettingsRequest = {
     SHORT_PAGE_TITLE?: string;
     FULL_PAGE_TITLE?: string;
     BRAND_COLOR?: string;
-    BRAND_LABEL_COLOR?: string;
     HERO_LINK_LABEL?: string;
     HERO_LINK_URL?: string;
     SUPPORT_PORTAL_URL?: string;
@@ -1695,9 +1643,8 @@ export type ConstanceSettingsRequest = {
     FREEIPA_BLACKLISTED_USERNAMES?: Array<string>;
     FREEIPA_GROUP_SYNCHRONIZATION_ENABLED?: boolean;
     KEYCLOAK_ICON?: (Blob | File) | null;
+    COUNTRIES?: Array<string>;
 };
-
-export type ContentTypeEnum = 'json' | 'form';
 
 export type CoreAuthToken = {
     readonly token: string;
@@ -1870,6 +1817,10 @@ export type CustomerDetails = {
     phone_number?: string;
     bank_name?: string;
     bank_account?: string;
+    /**
+     * VAT number
+     */
+    vat_code?: string;
 };
 
 export type CustomerDetailsRequest = {
@@ -1881,6 +1832,10 @@ export type CustomerDetailsRequest = {
     phone_number?: string;
     bank_name?: string;
     bank_account?: string;
+    /**
+     * VAT number
+     */
+    vat_code?: string;
 };
 
 export type CustomerEstimatedCostPolicy = {
@@ -2253,10 +2208,6 @@ export type EmailLog = {
     emails: Array<string>;
 };
 
-export type EndpointDelete = {
-    uuid: string;
-};
-
 export type EndpointDeleteRequest = {
     uuid: string;
 };
@@ -2353,6 +2304,85 @@ export type Fingerprint = {
     readonly md5: string;
     readonly sha256: string;
     readonly sha512: string;
+};
+
+export type FirecrestJob = {
+    readonly url: string;
+    readonly uuid: string;
+    name: string;
+    description?: string;
+    readonly service_name: string;
+    service_settings: string;
+    readonly service_settings_uuid: string;
+    readonly service_settings_state: string;
+    readonly service_settings_error_message: string;
+    project: string;
+    readonly project_name: string;
+    readonly project_uuid: string;
+    readonly customer: string;
+    readonly customer_name: string;
+    readonly customer_native_name: string;
+    readonly customer_abbreviation: string;
+    readonly error_message: string;
+    readonly error_traceback: string;
+    readonly resource_type: string;
+    state: CoreStates;
+    readonly created: string;
+    readonly modified: string;
+    readonly backend_id: string;
+    readonly access_url: string | null;
+    runtime_state?: string;
+    file: string;
+    /**
+     * Reference to user which submitted job
+     */
+    readonly user: string | null;
+    readonly user_uuid: string;
+    /**
+     * Required. 128 characters or fewer. Lowercase letters, numbers and @/./+/-/_ characters
+     */
+    readonly user_username: string;
+    readonly report: unknown;
+};
+
+export type FirecrestJobRequest = {
+    name: string;
+    description?: string;
+    service_settings: string;
+    project: string;
+    runtime_state?: string;
+    file: Blob | File;
+};
+
+export type FreeipaProfile = {
+    readonly uuid: string;
+    /**
+     * Letters, numbers and ./+/-/_ characters
+     */
+    username: string;
+    /**
+     * Indicates when the user has agreed with the policy.
+     */
+    agreement_date?: string;
+    readonly is_active: boolean;
+    readonly user: string;
+    readonly user_uuid: string;
+    /**
+     * Required. 128 characters or fewer. Lowercase letters, numbers and @/./+/-/_ characters
+     */
+    readonly user_username: string;
+    readonly user_full_name: string;
+};
+
+export type FreeipaProfileRequest = {
+    /**
+     * Letters, numbers and ./+/-/_ characters
+     */
+    username: string;
+    /**
+     * Indicates when the user has agreed with the policy.
+     */
+    agreement_date?: string;
 };
 
 export type GoogleCalendar = {
@@ -2514,6 +2544,13 @@ export type ImportResourceRequest = {
     plan?: string;
 };
 
+export type ImportableResource = {
+    backend_id: string;
+    name: string;
+    type: string;
+    description: string;
+};
+
 export type InstanceFlavorChangeRequest = {
     flavor: string;
 };
@@ -2608,7 +2645,7 @@ export type Invoice = {
     state?: InvoiceStateEnum;
     year?: number;
     month?: number;
-    readonly issuer_details: {};
+    issuer_details: CustomerDetails;
     /**
      * Date then invoice moved from state pending to created.
      */
@@ -2668,12 +2705,13 @@ export type InvoiceItem = {
     readonly project_name: string;
     readonly project_uuid: string;
     quantity?: string;
-    details: unknown;
+    details: InvoiceItemDetails;
     resource?: string | null;
     readonly resource_uuid: string;
     readonly resource_name: string;
     readonly billing_type: string;
     readonly backend_uuid: string | null;
+    readonly credit: boolean;
 };
 
 export type InvoiceItemCompensation = {
@@ -2737,6 +2775,38 @@ export type InvoiceItemDetailRequest = {
     details?: unknown;
 };
 
+export type InvoiceItemDetails = {
+    resource_name: string;
+    resource_uuid: string;
+    plan_name: string;
+    plan_uuid: string;
+    offering_type: string;
+    offering_name: string;
+    offering_uuid: string;
+    service_provider_name: string;
+    service_provider_uuid: string;
+    plan_component_id: number;
+    offering_component_type: string;
+    offering_component_name: string;
+    resource_limit_periods: Array<ResourceLimitPeriod>;
+};
+
+export type InvoiceItemDetailsRequest = {
+    resource_name: string;
+    resource_uuid: string;
+    plan_name: string;
+    plan_uuid: string;
+    offering_type: string;
+    offering_name: string;
+    offering_uuid: string;
+    service_provider_name: string;
+    service_provider_uuid: string;
+    plan_component_id: number;
+    offering_component_type: string;
+    offering_component_name: string;
+    resource_limit_periods: Array<ResourceLimitPeriodRequest>;
+};
+
 export type InvoiceItemMigrateTo = {
     invoice: string;
 };
@@ -2761,7 +2831,7 @@ export type InvoiceItemRequest = {
     end?: string;
     article_code?: string;
     quantity?: string;
-    details: unknown;
+    details: InvoiceItemDetailsRequest;
     resource?: string | null;
 };
 
@@ -2946,54 +3016,6 @@ export type JiraIssueProjectRequest = {
 export type JiraIssueRequest = {
     key: string;
     fields: JiraIssueFieldsRequest;
-};
-
-export type Job = {
-    readonly url: string;
-    readonly uuid: string;
-    name: string;
-    description?: string;
-    readonly service_name: string;
-    service_settings: string;
-    readonly service_settings_uuid: string;
-    readonly service_settings_state: string;
-    readonly service_settings_error_message: string;
-    project: string;
-    readonly project_name: string;
-    readonly project_uuid: string;
-    readonly customer: string;
-    readonly customer_name: string;
-    readonly customer_native_name: string;
-    readonly customer_abbreviation: string;
-    readonly error_message: string;
-    readonly error_traceback: string;
-    readonly resource_type: string;
-    state: CoreStates;
-    readonly created: string;
-    readonly modified: string;
-    readonly backend_id: string;
-    readonly access_url: string | null;
-    runtime_state?: string;
-    file: string;
-    /**
-     * Reference to user which submitted job
-     */
-    readonly user: string | null;
-    readonly user_uuid: string;
-    /**
-     * Required. 128 characters or fewer. Lowercase letters, numbers and @/./+/-/_ characters
-     */
-    readonly user_username: string;
-    readonly report: unknown;
-};
-
-export type JobRequest = {
-    name: string;
-    description?: string;
-    service_settings: string;
-    project: string;
-    runtime_state?: string;
-    file: Blob | File;
 };
 
 export type LexisLink = {
@@ -3606,8 +3628,12 @@ export type NestedColumn = {
     attribute?: string;
     /**
      * Widget field allows to customise table cell rendering.
+     *
+     * * `csv` - csv
+     * * `filesize` - filesize
+     * * `attached_instance` - attached_instance
      */
-    widget?: string | null;
+    widget?: WidgetEnum | BlankEnum | NullEnum | null;
 };
 
 export type NestedColumnRequest = {
@@ -3625,8 +3651,12 @@ export type NestedColumnRequest = {
     attribute?: string;
     /**
      * Widget field allows to customise table cell rendering.
+     *
+     * * `csv` - csv
+     * * `filesize` - filesize
+     * * `attached_instance` - attached_instance
      */
-    widget?: string | null;
+    widget?: WidgetEnum | BlankEnum | NullEnum | null;
 };
 
 export type NestedEndpoint = {
@@ -3673,10 +3703,10 @@ export type NestedOfferingFileRequest = {
 };
 
 export type NestedPriceEstimate = {
-    readonly total: number;
-    readonly current: number;
-    readonly tax: number;
-    readonly tax_current: number;
+    readonly total: string;
+    readonly current: string;
+    readonly tax: string;
+    readonly tax_current: string;
 };
 
 export type NestedProject = {
@@ -3926,20 +3956,11 @@ export type Offering = {
     readonly category_uuid: string;
     readonly category_title: string;
     readonly attributes: {};
-    /**
-     * Fields describing resource provision form.
-     */
-    options?: unknown;
-    /**
-     * Fields describing resource report form.
-     */
-    resource_options?: unknown;
+    options: OfferingOptions;
+    resource_options: OfferingOptions;
     readonly components: Array<OfferingComponent>;
-    /**
-     * Public data used by specific plugin, such as storage mode for OpenStack.
-     */
-    plugin_options?: unknown;
-    state: OfferingStates;
+    plugin_options: MergedPluginOptions;
+    state: OfferingState;
     state_code: StateCodeEnum;
     vendor_details?: string;
     getting_started?: string;
@@ -3957,6 +3978,8 @@ export type Offering = {
      * Purchase and usage is invoiced.
      */
     billable?: boolean;
+    readonly scope: string;
+    readonly scope_uuid: string;
     readonly scope_name: string;
     scope_state: CoreStates;
     readonly files: Array<NestedOfferingFile>;
@@ -4060,6 +4083,17 @@ export type OfferingComponentRequest = {
     default_limit?: number | null;
 };
 
+export type OfferingComponentStat = {
+    readonly period: string;
+    readonly billing_period: string;
+    readonly date: string;
+    readonly usage: number;
+    readonly description: string;
+    readonly measured_unit: string;
+    readonly type: string;
+    readonly name: string;
+};
+
 export type OfferingCountryStats = {
     country: string;
     count: number;
@@ -4095,13 +4129,10 @@ export type OfferingCreate = {
     options?: OfferingOptions;
     resource_options?: OfferingOptions;
     components?: Array<OfferingComponent>;
-    /**
-     * Public data used by specific plugin, such as storage mode for OpenStack.
-     */
-    plugin_options?: unknown;
-    secret_options?: unknown;
+    plugin_options: MergedPluginOptions;
+    secret_options: MergedSecretOptions;
     readonly service_attributes: {};
-    state: OfferingStates;
+    state: OfferingState;
     state_code: StateCodeEnum;
     vendor_details?: string;
     getting_started?: string;
@@ -4119,6 +4150,8 @@ export type OfferingCreate = {
      * Purchase and usage is invoiced.
      */
     billable?: boolean;
+    readonly scope: string;
+    readonly scope_uuid: string;
     readonly scope_name: string;
     scope_state: CoreStates;
     readonly files: Array<NestedOfferingFile>;
@@ -4161,11 +4194,6 @@ export type OfferingCreateRequest = {
     options?: OfferingOptionsRequest;
     resource_options?: OfferingOptionsRequest;
     components?: Array<OfferingComponentRequest>;
-    /**
-     * Public data used by specific plugin, such as storage mode for OpenStack.
-     */
-    plugin_options?: unknown;
-    secret_options?: unknown;
     vendor_details?: string;
     getting_started?: string;
     integration_guide?: string;
@@ -4247,6 +4275,10 @@ export type OfferingFileRequest = {
     name: string;
     offering: string;
     file: Blob | File;
+};
+
+export type OfferingImageRequest = {
+    image: Blob | File;
 };
 
 export type OfferingIntegrationUpdate = {
@@ -4382,19 +4414,7 @@ export type OfferingRequest = {
     customer?: string | null;
     category: string;
     attributes?: unknown;
-    /**
-     * Fields describing resource provision form.
-     */
-    options?: unknown;
-    /**
-     * Fields describing resource report form.
-     */
-    resource_options?: unknown;
     components?: Array<OfferingComponentRequest>;
-    /**
-     * Public data used by specific plugin, such as storage mode for OpenStack.
-     */
-    plugin_options?: unknown;
     vendor_details?: string;
     getting_started?: string;
     integration_guide?: string;
@@ -4427,7 +4447,7 @@ export type OfferingResourceOptionsUpdateRequest = {
     resource_options: OfferingOptionsRequest;
 };
 
-export type OfferingStates = 'Draft' | 'Active' | 'Paused' | 'Archived';
+export type OfferingState = 'Draft' | 'Active' | 'Paused' | 'Archived';
 
 export type OfferingStats = {
     count: number;
@@ -4531,6 +4551,10 @@ export type OfferingUserUpdateRestrictionRequest = {
     is_restricted: boolean;
 };
 
+export type OpenStackAllowedAddressPair = {
+    mac_address?: string;
+};
+
 export type OpenStackAllowedAddressPairRequest = {
     ip_address?: string;
     mac_address?: string;
@@ -4564,31 +4588,7 @@ export type OpenStackBackendVolumes = {
     readonly availability_zone: string;
 };
 
-export type OpenStackBackupRestoration = {
-    readonly uuid: string;
-    readonly instance: string;
-    readonly created: string;
-    flavor: string;
-    /**
-     * New instance name. Leave blank to use source instance name.
-     */
-    name?: string;
-    floating_ips?: Array<OpenStackNestedFloatingIp>;
-    security_groups?: Array<OpenStackNestedSecurityGroup>;
-    ports?: Array<OpenStackNestedPort>;
-};
-
-export type OpenStackBackupRestorationRequest = {
-    flavor: string;
-    /**
-     * New instance name. Leave blank to use source instance name.
-     */
-    name?: string;
-    floating_ips?: Array<OpenStackNestedFloatingIpRequest>;
-    ports?: Array<OpenStackNestedPortRequest>;
-};
-
-export type OpenStackCreateServerGroup = {
+export type OpenStackBackup = {
     readonly url: string;
     readonly uuid: string;
     name: string;
@@ -4613,12 +4613,19 @@ export type OpenStackCreateServerGroup = {
     readonly modified: string;
     readonly backend_id: string;
     readonly access_url: string | null;
-    readonly tenant: string;
-    readonly tenant_name: string;
+    /**
+     * Guaranteed time of backup retention. If null - keep forever.
+     */
+    kept_until?: string | null;
+    readonly metadata: unknown;
+    readonly instance: string;
+    readonly instance_name: string;
+    readonly instance_marketplace_uuid: string;
+    readonly restorations: Array<OpenStackBackupRestoration>;
+    readonly instance_security_groups: Array<OpenStackNestedSecurityGroup>;
+    readonly instance_ports: Array<OpenStackNestedPort>;
+    readonly instance_floating_ips: Array<OpenStackNestedFloatingIp>;
     readonly tenant_uuid: string;
-    policy?: PolicyEnum | BlankEnum;
-    readonly display_name: string;
-    readonly instances: Array<OpenStackNestedInstance>;
     readonly marketplace_offering_uuid: string;
     readonly marketplace_offering_name: string;
     readonly marketplace_offering_plugin_options: {};
@@ -4631,10 +4638,37 @@ export type OpenStackCreateServerGroup = {
     readonly is_limit_based: boolean;
 };
 
-export type OpenStackCreateServerGroupRequest = {
+export type OpenStackBackupRequest = {
     name: string;
     description?: string;
-    policy?: PolicyEnum | BlankEnum;
+    /**
+     * Guaranteed time of backup retention. If null - keep forever.
+     */
+    kept_until?: string | null;
+};
+
+export type OpenStackBackupRestoration = {
+    readonly uuid: string;
+    readonly instance: string;
+    readonly created: string;
+    flavor: string;
+    /**
+     * New instance name. Leave blank to use source instance name.
+     */
+    name?: string;
+    floating_ips?: Array<OpenStackNestedFloatingIp>;
+    security_groups?: Array<OpenStackNestedSecurityGroup>;
+    ports?: Array<OpenStackNestedPort>;
+};
+
+export type OpenStackBackupRestorationRequest = {
+    flavor: string;
+    /**
+     * New instance name. Leave blank to use source instance name.
+     */
+    name?: string;
+    floating_ips?: Array<OpenStackNestedFloatingIpRequest>;
+    ports?: Array<OpenStackNestedPortRequest>;
 };
 
 export type OpenStackDataVolume = {
@@ -4645,6 +4679,16 @@ export type OpenStackDataVolume = {
 export type OpenStackDataVolumeRequest = {
     size: number;
     volume_type?: string | null;
+};
+
+export type OpenStackFixedIp = {
+    ip_address: string;
+    subnet_id: string;
+};
+
+export type OpenStackFixedIpRequest = {
+    ip_address: string;
+    subnet_id: string;
 };
 
 export type OpenStackFlavor = {
@@ -4908,14 +4952,14 @@ export type OpenStackNestedInstance = {
 };
 
 export type OpenStackNestedPort = {
-    readonly fixed_ips: unknown;
+    readonly fixed_ips: Array<OpenStackFixedIp>;
     readonly mac_address: string;
     subnet?: string | null;
     readonly subnet_uuid: string;
     readonly subnet_name: string;
     readonly subnet_description: string;
     readonly subnet_cidr: string;
-    readonly allowed_address_pairs: unknown;
+    readonly allowed_address_pairs: Array<OpenStackAllowedAddressPair>;
     readonly device_id: string | null;
     readonly device_owner: string | null;
 };
@@ -5070,9 +5114,9 @@ export type OpenStackPort = {
     readonly modified: string;
     readonly backend_id: string;
     readonly access_url: string | null;
-    fixed_ips?: unknown;
+    fixed_ips?: Array<OpenStackFixedIp>;
     mac_address?: string;
-    readonly allowed_address_pairs: unknown;
+    readonly allowed_address_pairs: Array<OpenStackAllowedAddressPair>;
     readonly tenant: string;
     readonly tenant_name: string;
     readonly tenant_uuid: string;
@@ -5108,7 +5152,7 @@ export type OpenStackPortNestedSecurityGroupRequest = {
 export type OpenStackPortRequest = {
     name: string;
     description?: string;
-    fixed_ips?: unknown;
+    fixed_ips?: Array<OpenStackFixedIpRequest>;
     mac_address?: string;
     network?: string | null;
 };
@@ -5142,7 +5186,7 @@ export type OpenStackRouter = {
     readonly tenant_name: string;
     readonly tenant_uuid: string;
     routes: Array<OpenStackStaticRoute>;
-    readonly fixed_ips: unknown;
+    readonly fixed_ips: Array<OpenStackFixedIp>;
     readonly marketplace_offering_uuid: string;
     readonly marketplace_offering_name: string;
     readonly marketplace_offering_plugin_options: {};
@@ -5267,6 +5311,55 @@ export type OpenStackSecurityGroupUpdate = {
 export type OpenStackSecurityGroupUpdateRequest = {
     name: string;
     description?: string;
+};
+
+export type OpenStackServerGroup = {
+    readonly url: string;
+    readonly uuid: string;
+    name: string;
+    description?: string;
+    readonly service_name: string;
+    readonly service_settings: string;
+    readonly service_settings_uuid: string;
+    readonly service_settings_state: string;
+    readonly service_settings_error_message: string;
+    readonly project: string;
+    readonly project_name: string;
+    readonly project_uuid: string;
+    readonly customer: string;
+    readonly customer_name: string;
+    readonly customer_native_name: string;
+    readonly customer_abbreviation: string;
+    readonly error_message: string;
+    readonly error_traceback: string;
+    readonly resource_type: string;
+    state: CoreStates;
+    readonly created: string;
+    readonly modified: string;
+    readonly backend_id: string;
+    readonly access_url: string | null;
+    readonly tenant: string;
+    readonly tenant_name: string;
+    readonly tenant_uuid: string;
+    policy?: PolicyEnum | BlankEnum;
+    readonly display_name: string;
+    readonly instances: Array<OpenStackNestedInstance>;
+    readonly marketplace_offering_uuid: string;
+    readonly marketplace_offering_name: string;
+    readonly marketplace_offering_plugin_options: {};
+    readonly marketplace_category_uuid: string;
+    readonly marketplace_category_name: string;
+    readonly marketplace_resource_uuid: string;
+    readonly marketplace_plan_uuid: string;
+    readonly marketplace_resource_state: string;
+    readonly is_usage_based: boolean;
+    readonly is_limit_based: boolean;
+};
+
+export type OpenStackServerGroupRequest = {
+    name: string;
+    description?: string;
+    policy?: PolicyEnum | BlankEnum;
 };
 
 export type OpenStackSnapshot = {
@@ -5698,7 +5791,7 @@ export type OrderCreate = {
     readonly resource_type: string;
     readonly resource_name: string;
     readonly cost: string | null;
-    readonly state: string;
+    state: OrderState;
     output?: string;
     readonly marketplace_resource_uuid: string;
     readonly error_message: string;
@@ -5786,7 +5879,7 @@ export type OrderDetails = {
     readonly resource_type: string;
     readonly resource_name: string;
     readonly cost: string | null;
-    readonly state: string;
+    state: OrderState;
     readonly output: string;
     readonly marketplace_resource_uuid: string;
     readonly error_message: string;
@@ -5797,13 +5890,25 @@ export type OrderDetails = {
      */
     readonly consumer_reviewed_by: string;
     readonly consumer_reviewed_by_full_name: string;
+    /**
+     * Required. 128 characters or fewer. Lowercase letters, numbers and @/./+/-/_ characters
+     */
+    readonly consumer_reviewed_by_username: string;
     readonly consumer_reviewed_at: string | null;
     /**
      * Required. 128 characters or fewer. Lowercase letters, numbers and @/./+/-/_ characters
      */
     readonly provider_reviewed_by: string;
     readonly provider_reviewed_by_full_name: string;
+    /**
+     * Required. 128 characters or fewer. Lowercase letters, numbers and @/./+/-/_ characters
+     */
+    readonly provider_reviewed_by_username: string;
     readonly provider_reviewed_at: string | null;
+    /**
+     * Required. 128 characters or fewer. Lowercase letters, numbers and @/./+/-/_ characters
+     */
+    readonly created_by_username: string;
     readonly created_by_full_name: string;
     readonly created_by_civil_number: string | null;
     readonly customer_name: string;
@@ -5841,6 +5946,8 @@ export type OrderSetStateErredRequest = {
     error_message?: string;
     error_traceback?: string;
 };
+
+export type OrderState = 'pending-consumer' | 'pending-provider' | 'pending-project' | 'executing' | 'done' | 'erred' | 'canceled' | 'rejected';
 
 export type OrganizationGroup = {
     readonly uuid: string;
@@ -5898,8 +6005,6 @@ export type PaginatedAzureSqlDatabaseList = Array<AzureSqlDatabase>;
 export type PaginatedAzureSqlServerList = Array<AzureSqlServer>;
 
 export type PaginatedAzureVirtualMachineList = Array<AzureVirtualMachine>;
-
-export type PaginatedBackupList = Array<Backup>;
 
 export type PaginatedBasicCustomerList = Array<BasicCustomer>;
 
@@ -5985,11 +6090,17 @@ export type PaginatedFeedbackList = Array<Feedback>;
 
 export type PaginatedFinancialReportList = Array<FinancialReport>;
 
+export type PaginatedFirecrestJobList = Array<FirecrestJob>;
+
+export type PaginatedFreeipaProfileList = Array<FreeipaProfile>;
+
 export type PaginatedGoogleCredentialsList = Array<GoogleCredentials>;
 
 export type PaginatedGroupInvitationList = Array<GroupInvitation>;
 
 export type PaginatedIdentityProviderList = Array<IdentityProvider>;
+
+export type PaginatedImportableResourceList = Array<ImportableResource>;
 
 export type PaginatedIntegrationStatusDetailsList = Array<IntegrationStatusDetails>;
 
@@ -6006,8 +6117,6 @@ export type PaginatedInvoiceList = Array<Invoice>;
 export type PaginatedInvoiceStatsOfferingList = Array<InvoiceStatsOffering>;
 
 export type PaginatedIssueList = Array<Issue>;
-
-export type PaginatedJobList = Array<Job>;
 
 export type PaginatedLexisLinkList = Array<LexisLink>;
 
@@ -6026,6 +6135,8 @@ export type PaginatedNestedProjectList = Array<NestedProject>;
 export type PaginatedNotificationList = Array<Notification>;
 
 export type PaginatedNotificationTemplateDetailSerializersList = Array<NotificationTemplateDetailSerializers>;
+
+export type PaginatedOfferingComponentStatList = Array<OfferingComponentStat>;
 
 export type PaginatedOfferingCountryStatsList = Array<OfferingCountryStats>;
 
@@ -6053,7 +6164,7 @@ export type PaginatedOpenStackBackendInstanceList = Array<OpenStackBackendInstan
 
 export type PaginatedOpenStackBackendVolumesList = Array<OpenStackBackendVolumes>;
 
-export type PaginatedOpenStackCreateServerGroupList = Array<OpenStackCreateServerGroup>;
+export type PaginatedOpenStackBackupList = Array<OpenStackBackup>;
 
 export type PaginatedOpenStackFlavorList = Array<OpenStackFlavor>;
 
@@ -6076,6 +6187,8 @@ export type PaginatedOpenStackPortList = Array<OpenStackPort>;
 export type PaginatedOpenStackRouterList = Array<OpenStackRouter>;
 
 export type PaginatedOpenStackSecurityGroupList = Array<OpenStackSecurityGroup>;
+
+export type PaginatedOpenStackServerGroupList = Array<OpenStackServerGroup>;
 
 export type PaginatedOpenStackSnapshotList = Array<OpenStackSnapshot>;
 
@@ -6105,9 +6218,9 @@ export type PaginatedPermissionRequestList = Array<PermissionRequest>;
 
 export type PaginatedPlanComponentList = Array<PlanComponent>;
 
-export type PaginatedPriorityList = Array<Priority>;
+export type PaginatedPlanUsageResponseList = Array<PlanUsageResponse>;
 
-export type PaginatedProfileList = Array<Profile>;
+export type PaginatedPriorityList = Array<Priority>;
 
 export type PaginatedProjectCreditList = Array<ProjectCredit>;
 
@@ -6132,6 +6245,10 @@ export type PaginatedProtectedRoundList = Array<ProtectedRound>;
 export type PaginatedProviderCustomerList = Array<ProviderCustomer>;
 
 export type PaginatedProviderCustomerProjectList = Array<ProviderCustomerProject>;
+
+export type PaginatedProviderOfferingCostsList = Array<ProviderOfferingCosts>;
+
+export type PaginatedProviderOfferingCustomerList = Array<ProviderOfferingCustomer>;
 
 export type PaginatedProviderOfferingDetailsList = Array<ProviderOfferingDetails>;
 
@@ -6165,6 +6282,8 @@ export type PaginatedRancherNodeList = Array<RancherNode>;
 
 export type PaginatedRancherProjectList = Array<RancherProject>;
 
+export type PaginatedRancherServiceList = Array<RancherService>;
+
 export type PaginatedRancherTemplateList = Array<RancherTemplate>;
 
 export type PaginatedRancherUserList = Array<RancherUser>;
@@ -6187,8 +6306,6 @@ export type PaginatedResourceList = Array<Resource>;
 
 export type PaginatedResourceOfferingList = Array<ResourceOffering>;
 
-export type PaginatedResourcePlanPeriodList = Array<ResourcePlanPeriod>;
-
 export type PaginatedResourceUserList = Array<ResourceUser>;
 
 export type PaginatedRmqUserStatsItemList = Array<RmqUserStatsItem>;
@@ -6204,8 +6321,6 @@ export type PaginatedSaml2ProviderList = Array<Saml2Provider>;
 export type PaginatedScreenshotList = Array<Screenshot>;
 
 export type PaginatedSectionList = Array<Section>;
-
-export type PaginatedServiceList = Array<Service>;
 
 export type PaginatedServiceProviderList = Array<ServiceProvider>;
 
@@ -6308,15 +6423,6 @@ export type PatchedAzureVirtualMachineRequest = {
     location?: string;
 };
 
-export type PatchedBackupRequest = {
-    name?: string;
-    description?: string;
-    /**
-     * Guaranteed time of backup retention. If null - keep forever.
-     */
-    kept_until?: string | null;
-};
-
 export type PatchedBookingResourceRequest = {
     plan?: string;
     name?: string;
@@ -6369,8 +6475,12 @@ export type PatchedCategoryColumnRequest = {
     attribute?: string;
     /**
      * Widget field allows to customise table cell rendering.
+     *
+     * * `csv` - csv
+     * * `filesize` - filesize
+     * * `attached_instance` - attached_instance
      */
-    widget?: string | null;
+    widget?: WidgetEnum | BlankEnum | NullEnum | null;
     category?: string;
 };
 
@@ -6522,6 +6632,12 @@ export type PatchedFinancialReportRequest = {
     agreement_number?: string;
 };
 
+export type PatchedFirecrestJobRequest = {
+    name?: string;
+    description?: string;
+    runtime_state?: string;
+};
+
 export type PatchedGoogleCredentialsRequest = {
     description?: string;
     image?: (Blob | File) | null;
@@ -6572,7 +6688,7 @@ export type PatchedInvoiceItemRequest = {
     end?: string;
     article_code?: string;
     quantity?: string;
-    details?: unknown;
+    details?: InvoiceItemDetailsRequest;
     resource?: string | null;
 };
 
@@ -6622,12 +6738,6 @@ export type PatchedIssueRequest = {
      * Set true if issue is created by regular user via portal.
      */
     is_reported_manually?: boolean;
-};
-
-export type PatchedJobRequest = {
-    name?: string;
-    description?: string;
-    runtime_state?: string;
 };
 
 export type PatchedLexisLinkRequest = {
@@ -6707,19 +6817,7 @@ export type PatchedOfferingRequest = {
     access_url?: string;
     category?: string;
     attributes?: unknown;
-    /**
-     * Fields describing resource provision form.
-     */
-    options?: unknown;
-    /**
-     * Fields describing resource report form.
-     */
-    resource_options?: unknown;
     components?: Array<OfferingComponentRequest>;
-    /**
-     * Public data used by specific plugin, such as storage mode for OpenStack.
-     */
-    plugin_options?: unknown;
     vendor_details?: string;
     getting_started?: string;
     integration_guide?: string;
@@ -6767,10 +6865,13 @@ export type PatchedOfferingUserRoleRequest = {
     offering?: string;
 };
 
-export type PatchedOpenStackCreateServerGroupRequest = {
+export type PatchedOpenStackBackupRequest = {
     name?: string;
     description?: string;
-    policy?: PolicyEnum | BlankEnum;
+    /**
+     * Guaranteed time of backup retention. If null - keep forever.
+     */
+    kept_until?: string | null;
 };
 
 export type PatchedOpenStackInstanceRequest = {
@@ -6789,7 +6890,7 @@ export type PatchedOpenStackNetworkRequest = {
 export type PatchedOpenStackPortRequest = {
     name?: string;
     description?: string;
-    fixed_ips?: unknown;
+    fixed_ips?: Array<OpenStackFixedIpRequest>;
     mac_address?: string;
     network?: string | null;
 };
@@ -6809,6 +6910,12 @@ export type PatchedOpenStackRouterRequest = {
 export type PatchedOpenStackSecurityGroupUpdateRequest = {
     name?: string;
     description?: string;
+};
+
+export type PatchedOpenStackServerGroupRequest = {
+    name?: string;
+    description?: string;
+    policy?: PolicyEnum | BlankEnum;
 };
 
 export type PatchedOpenStackSnapshotRequest = {
@@ -6867,7 +6974,7 @@ export type PatchedOrganizationGroupRequest = {
 export type PatchedPaymentProfileRequest = {
     name?: string;
     organization?: string;
-    attributes?: unknown;
+    attributes?: PaymentProfileAttributesRequest;
     payment_type?: PaymentTypeEnum;
     is_active?: boolean | null;
 };
@@ -6984,20 +7091,7 @@ export type PatchedProviderOfferingDetailsRequest = {
     access_url?: string;
     category?: string;
     attributes?: unknown;
-    /**
-     * Fields describing resource provision form.
-     */
-    options?: unknown;
-    /**
-     * Fields describing resource report form.
-     */
-    resource_options?: unknown;
     components?: Array<OfferingComponentRequest>;
-    /**
-     * Public data used by specific plugin, such as storage mode for OpenStack.
-     */
-    plugin_options?: unknown;
-    secret_options?: unknown;
     vendor_details?: string;
     getting_started?: string;
     integration_guide?: string;
@@ -7065,19 +7159,7 @@ export type PatchedPublicOfferingDetailsRequest = {
     access_url?: string;
     category?: string;
     attributes?: unknown;
-    /**
-     * Fields describing resource provision form.
-     */
-    options?: unknown;
-    /**
-     * Fields describing resource report form.
-     */
-    resource_options?: unknown;
     components?: Array<OfferingComponentRequest>;
-    /**
-     * Public data used by specific plugin, such as storage mode for OpenStack.
-     */
-    plugin_options?: unknown;
     vendor_details?: string;
     getting_started?: string;
     integration_guide?: string;
@@ -7171,6 +7253,21 @@ export type PatchedRancherNodeRequest = {
     controlplane_role?: boolean;
     etcd_role?: boolean;
     worker_role?: boolean;
+};
+
+export type PatchedRancherServiceRequest = {
+    name?: string;
+    description?: string;
+    service_settings?: string;
+    project?: string;
+    error_message?: string;
+    error_traceback?: string;
+    backend_id?: string;
+    runtime_state?: string;
+    namespace?: string;
+    cluster_ip?: string | null;
+    selector?: unknown;
+    target_workloads?: Array<RancherNestedWorkloadRequest>;
 };
 
 export type PatchedRancherUserRequest = {
@@ -7288,21 +7385,6 @@ export type PatchedServiceProviderRequest = {
     image?: (Blob | File) | null;
 };
 
-export type PatchedServiceRequest = {
-    name?: string;
-    description?: string;
-    service_settings?: string;
-    project?: string;
-    error_message?: string;
-    error_traceback?: string;
-    backend_id?: string;
-    runtime_state?: string;
-    namespace?: string;
-    cluster_ip?: string | null;
-    selector?: unknown;
-    target_workloads?: Array<RancherNestedWorkloadRequest>;
-};
-
 export type PatchedServiceSettingsRequest = {
     name?: string;
     type?: string;
@@ -7397,7 +7479,7 @@ export type PatchedWebHookRequest = {
     event_types?: Array<EventTypesEnum>;
     event_groups?: Array<EventGroupsEnum>;
     destination_url?: string;
-    content_type?: ContentTypeEnum;
+    content_type?: WebHookContentTypeEnum;
 };
 
 export type Payment = {
@@ -7419,16 +7501,28 @@ export type PaymentProfile = {
     name: string;
     readonly organization_uuid: string;
     organization: string;
-    attributes?: unknown;
+    attributes?: PaymentProfileAttributes;
     payment_type: PaymentTypeEnum;
     readonly payment_type_display: string;
     is_active?: boolean | null;
 };
 
+export type PaymentProfileAttributes = {
+    end_date?: string;
+    agreement_number?: string;
+    contract_sum?: number;
+};
+
+export type PaymentProfileAttributesRequest = {
+    end_date?: string;
+    agreement_number?: string;
+    contract_sum?: number;
+};
+
 export type PaymentProfileRequest = {
     name: string;
     organization: string;
-    attributes?: unknown;
+    attributes?: PaymentProfileAttributesRequest;
     payment_type: PaymentTypeEnum;
     is_active?: boolean | null;
 };
@@ -7570,37 +7664,6 @@ export type Priority = {
     name: string;
     description?: string;
     icon_url?: string;
-};
-
-export type Profile = {
-    readonly uuid: string;
-    /**
-     * Letters, numbers and ./+/-/_ characters
-     */
-    username: string;
-    /**
-     * Indicates when the user has agreed with the policy.
-     */
-    agreement_date?: string;
-    readonly is_active: boolean;
-    readonly user: string;
-    readonly user_uuid: string;
-    /**
-     * Required. 128 characters or fewer. Lowercase letters, numbers and @/./+/-/_ characters
-     */
-    readonly user_username: string;
-    readonly user_full_name: string;
-};
-
-export type ProfileRequest = {
-    /**
-     * Letters, numbers and ./+/-/_ characters
-     */
-    username: string;
-    /**
-     * Indicates when the user has agreed with the policy.
-     */
-    agreement_date?: string;
 };
 
 export type Project = {
@@ -7900,19 +7963,6 @@ export type ProposalReviewStateEnum = 'created' | 'in_review' | 'submitted' | 'r
 
 export type ProposalStates = 'draft' | 'submitted' | 'in_review' | 'accepted' | 'rejected' | 'canceled';
 
-export type ProposalUpdateProjectDetails = {
-    name: string;
-    description?: string;
-    project_summary?: string;
-    project_is_confidential?: boolean;
-    project_has_civilian_purpose?: boolean;
-    /**
-     * Duration in days after provisioning of resources.
-     */
-    duration_in_days?: number | null;
-    oecd_fos_2007_code?: OecdFos2007CodeEnum | BlankEnum | NullEnum | null;
-};
-
 export type ProposalUpdateProjectDetailsRequest = {
     name: string;
     description?: string;
@@ -8042,7 +8092,7 @@ export type ProviderOffering = {
     readonly slug: string;
     readonly category_title: string;
     type: string;
-    state: OfferingStates;
+    state: OfferingState;
     readonly resources_count: number;
     billing_price_estimate: NestedPriceEstimate;
     components?: Array<OfferingComponent>;
@@ -8055,10 +8105,23 @@ export type ProviderOffering = {
      * Fields describing resource report form.
      */
     resource_options?: unknown;
-    /**
-     * Private data used by specific plugin, such as credentials and hooks.
-     */
-    secret_options?: unknown;
+    secret_options: MergedSecretOptions;
+};
+
+export type ProviderOfferingCosts = {
+    readonly period: string;
+    readonly price: number;
+    readonly tax: number;
+    readonly total: number;
+};
+
+export type ProviderOfferingCustomer = {
+    readonly uuid: string;
+    name: string;
+    slug: string;
+    abbreviation?: string;
+    phone_number?: string;
+    email?: string;
 };
 
 export type ProviderOfferingDetails = {
@@ -8088,22 +8151,13 @@ export type ProviderOfferingDetails = {
     readonly category_uuid: string;
     readonly category_title: string;
     readonly attributes: {};
-    /**
-     * Fields describing resource provision form.
-     */
-    options?: unknown;
-    /**
-     * Fields describing resource report form.
-     */
-    resource_options?: unknown;
+    options: OfferingOptions;
+    resource_options: OfferingOptions;
     readonly components: Array<OfferingComponent>;
-    /**
-     * Public data used by specific plugin, such as storage mode for OpenStack.
-     */
-    plugin_options?: unknown;
-    secret_options?: unknown;
+    plugin_options: MergedPluginOptions;
+    secret_options: MergedSecretOptions;
     readonly service_attributes: {};
-    state: OfferingStates;
+    state: OfferingState;
     state_code: StateCodeEnum;
     vendor_details?: string;
     getting_started?: string;
@@ -8121,6 +8175,8 @@ export type ProviderOfferingDetails = {
      * Purchase and usage is invoiced.
      */
     billable?: boolean;
+    readonly scope: string;
+    readonly scope_uuid: string;
     readonly scope_name: string;
     scope_state: CoreStates;
     readonly files: Array<NestedOfferingFile>;
@@ -8162,20 +8218,7 @@ export type ProviderOfferingDetailsRequest = {
     access_url?: string;
     category: string;
     attributes?: unknown;
-    /**
-     * Fields describing resource provision form.
-     */
-    options?: unknown;
-    /**
-     * Fields describing resource report form.
-     */
-    resource_options?: unknown;
     components?: Array<OfferingComponentRequest>;
-    /**
-     * Public data used by specific plugin, such as storage mode for OpenStack.
-     */
-    plugin_options?: unknown;
-    secret_options?: unknown;
     vendor_details?: string;
     getting_started?: string;
     integration_guide?: string;
@@ -8365,20 +8408,11 @@ export type PublicOfferingDetails = {
     readonly category_uuid: string;
     readonly category_title: string;
     readonly attributes: {};
-    /**
-     * Fields describing resource provision form.
-     */
-    options?: unknown;
-    /**
-     * Fields describing resource report form.
-     */
-    resource_options?: unknown;
+    options: OfferingOptions;
+    resource_options: OfferingOptions;
     readonly components: Array<OfferingComponent>;
-    /**
-     * Public data used by specific plugin, such as storage mode for OpenStack.
-     */
-    plugin_options?: unknown;
-    state: OfferingStates;
+    plugin_options: MergedPluginOptions;
+    state: OfferingState;
     state_code: StateCodeEnum;
     vendor_details?: string;
     getting_started?: string;
@@ -8396,6 +8430,8 @@ export type PublicOfferingDetails = {
      * Purchase and usage is invoiced.
      */
     billable?: boolean;
+    readonly scope: string;
+    readonly scope_uuid: string;
     readonly scope_name: string;
     scope_state: CoreStates;
     readonly files: Array<NestedOfferingFile>;
@@ -8438,19 +8474,7 @@ export type PublicOfferingDetailsRequest = {
     customer?: string | null;
     category: string;
     attributes?: unknown;
-    /**
-     * Fields describing resource provision form.
-     */
-    options?: unknown;
-    /**
-     * Fields describing resource report form.
-     */
-    resource_options?: unknown;
     components?: Array<OfferingComponentRequest>;
-    /**
-     * Public data used by specific plugin, such as storage mode for OpenStack.
-     */
-    plugin_options?: unknown;
     vendor_details?: string;
     getting_started?: string;
     integration_guide?: string;
@@ -9009,6 +9033,64 @@ export type RancherProject = {
     namespaces: Array<RancherNestedNamespace>;
 };
 
+export type RancherService = {
+    readonly url: string;
+    readonly uuid: string;
+    name: string;
+    description?: string;
+    readonly service_name: string;
+    service_settings: string;
+    readonly service_settings_uuid: string;
+    readonly service_settings_state: string;
+    readonly service_settings_error_message: string;
+    project: string;
+    readonly project_name: string;
+    readonly project_uuid: string;
+    readonly customer: string;
+    readonly customer_name: string;
+    readonly customer_native_name: string;
+    readonly customer_abbreviation: string;
+    error_message?: string;
+    error_traceback?: string;
+    readonly resource_type: string;
+    state: CoreStates;
+    readonly created: string;
+    readonly modified: string;
+    backend_id?: string;
+    readonly access_url: string | null;
+    runtime_state?: string;
+    namespace?: string;
+    readonly namespace_name: string;
+    cluster_ip?: string | null;
+    selector?: unknown;
+    target_workloads?: Array<RancherNestedWorkload>;
+    readonly marketplace_offering_uuid: string;
+    readonly marketplace_offering_name: string;
+    readonly marketplace_offering_plugin_options: {};
+    readonly marketplace_category_uuid: string;
+    readonly marketplace_category_name: string;
+    readonly marketplace_resource_uuid: string;
+    readonly marketplace_plan_uuid: string;
+    readonly marketplace_resource_state: string;
+    readonly is_usage_based: boolean;
+    readonly is_limit_based: boolean;
+};
+
+export type RancherServiceRequest = {
+    name: string;
+    description?: string;
+    service_settings: string;
+    project: string;
+    error_message?: string;
+    error_traceback?: string;
+    backend_id?: string;
+    runtime_state?: string;
+    namespace?: string;
+    cluster_ip?: string | null;
+    selector?: unknown;
+    target_workloads?: Array<RancherNestedWorkloadRequest>;
+};
+
 export type RancherTemplate = {
     readonly url: string;
     readonly uuid: string;
@@ -9026,6 +9108,34 @@ export type RancherTemplate = {
     readonly catalog_name: string;
     versions: Array<string>;
 };
+
+export type RancherTemplateBaseQuestion = {
+    label: string;
+    description?: string;
+    variable: string;
+    required?: boolean;
+    validate?: unknown;
+    type: RancherTemplateQuestionType;
+    default?: string | null;
+    group?: string;
+    showIf?: string;
+};
+
+export type RancherTemplateQuestion = {
+    label: string;
+    description?: string;
+    variable: string;
+    required?: boolean;
+    validate?: unknown;
+    type: RancherTemplateQuestionType;
+    default?: string | null;
+    group?: string;
+    showIf?: string;
+    subquestions?: Array<RancherTemplateBaseQuestion>;
+    showSubquestionIf?: string;
+};
+
+export type RancherTemplateQuestionType = 'boolean' | 'string' | 'enum' | 'secret';
 
 export type RancherUser = {
     readonly url: string;
@@ -9124,6 +9234,10 @@ export type RemoteEduteamsRequestRequest = {
     cuid: string;
 };
 
+export type RemoteEduteamsResponse = {
+    uuid: string;
+};
+
 export type RemoteOffering = {
     readonly uuid: string;
     readonly name: string;
@@ -9149,6 +9263,7 @@ export type RemoteProjectUpdateRequest = {
     readonly uuid: string;
     readonly state: string;
     readonly customer_name: string;
+    readonly customer_uuid: string;
     readonly offering_name: string;
     readonly offering_uuid: string;
     readonly created: string;
@@ -9324,7 +9439,7 @@ export type Resource = {
     readonly url: string;
     readonly scope: string;
     readonly description: string;
-    readonly state: string;
+    state: ResourceState;
     readonly resource_uuid: string;
     readonly backend_id: string;
     readonly effective_id: string;
@@ -9398,6 +9513,22 @@ export type ResourceEndDateByProviderRequest = {
     end_date?: string | null;
 };
 
+export type ResourceLimitPeriod = {
+    start: string;
+    end: string;
+    quantity: number;
+    billing_periods: number;
+    total: string;
+};
+
+export type ResourceLimitPeriodRequest = {
+    start: string;
+    end: string;
+    quantity: number;
+    billing_periods: number;
+    total: string;
+};
+
 export type ResourceOffering = {
     name: string;
     readonly uuid: string;
@@ -9461,6 +9592,8 @@ export type ResourceSetStateErredRequest = {
 export type ResourceSlugRequest = {
     slug: string;
 };
+
+export type ResourceState = 'Creating' | 'OK' | 'Erred' | 'Updating' | 'Terminating' | 'Terminated';
 
 export type ResourceSuggestName = {
     project: string;
@@ -9621,7 +9754,7 @@ export type RobotAccountDetails = {
     readonly customer_uuid: string;
     readonly customer_name: string;
     readonly offering_customer_uuid: string;
-    readonly offering_plugin_options: string;
+    offering_plugin_options: MergedPluginOptions;
 };
 
 export type RobotAccountRequest = {
@@ -9690,7 +9823,7 @@ export type RoleDetails = {
     readonly permissions: Array<string>;
     readonly is_system_role: boolean;
     is_active?: boolean;
-    readonly content_type: string;
+    content_type: RoleType;
 };
 
 export type RoleEnum = 'owner' | 'member';
@@ -9716,6 +9849,8 @@ export type RoleModifyRequest = {
     is_active?: boolean;
     content_type: string;
 };
+
+export type RoleType = 'customer' | 'service_provider' | 'call_organizer' | 'project' | 'offering' | 'call' | 'proposal';
 
 export type RolesEnum = 'controlplane' | 'etcd' | 'worker';
 
@@ -9807,49 +9942,6 @@ export type SectionRequest = {
     is_standalone?: boolean;
 };
 
-export type Service = {
-    readonly url: string;
-    readonly uuid: string;
-    name: string;
-    description?: string;
-    readonly service_name: string;
-    service_settings: string;
-    readonly service_settings_uuid: string;
-    readonly service_settings_state: string;
-    readonly service_settings_error_message: string;
-    project: string;
-    readonly project_name: string;
-    readonly project_uuid: string;
-    readonly customer: string;
-    readonly customer_name: string;
-    readonly customer_native_name: string;
-    readonly customer_abbreviation: string;
-    error_message?: string;
-    error_traceback?: string;
-    readonly resource_type: string;
-    state: CoreStates;
-    readonly created: string;
-    readonly modified: string;
-    backend_id?: string;
-    readonly access_url: string | null;
-    runtime_state?: string;
-    namespace?: string;
-    readonly namespace_name: string;
-    cluster_ip?: string | null;
-    selector?: unknown;
-    target_workloads?: Array<RancherNestedWorkload>;
-    readonly marketplace_offering_uuid: string;
-    readonly marketplace_offering_name: string;
-    readonly marketplace_offering_plugin_options: {};
-    readonly marketplace_category_uuid: string;
-    readonly marketplace_category_name: string;
-    readonly marketplace_resource_uuid: string;
-    readonly marketplace_plan_uuid: string;
-    readonly marketplace_resource_state: string;
-    readonly is_usage_based: boolean;
-    readonly is_limit_based: boolean;
-};
-
 export type ServiceProvider = {
     readonly url: string;
     readonly uuid: string;
@@ -9906,21 +9998,6 @@ export type ServiceProviderStatistics = {
     readonly unresolved_tickets: number;
     readonly pending_orders: number;
     readonly erred_resources: number;
-};
-
-export type ServiceRequest = {
-    name: string;
-    description?: string;
-    service_settings: string;
-    project: string;
-    error_message?: string;
-    error_traceback?: string;
-    backend_id?: string;
-    runtime_state?: string;
-    namespace?: string;
-    cluster_ip?: string | null;
-    selector?: unknown;
-    target_workloads?: Array<RancherNestedWorkloadRequest>;
 };
 
 export type ServiceSettings = {
@@ -10101,6 +10178,11 @@ export type SubNetMappingRequest = {
     dst_cidr: string;
 };
 
+export type SubresourceOffering = {
+    readonly uuid: string;
+    readonly type: string;
+};
+
 export type SupportStats = {
     readonly open_issues_count: number;
     readonly closed_this_month_count: number;
@@ -10150,6 +10232,12 @@ export type TemplateRequest = {
     name: string;
     description: string;
     issue_type?: IssueTypeEnum;
+};
+
+export type TemplateVersion = {
+    readonly readme: string;
+    readonly app_readme: string;
+    readonly questions: Array<RancherTemplateQuestion>;
 };
 
 export type TokenRequest = {
@@ -10720,8 +10808,10 @@ export type WebHook = {
     readonly author_username: string;
     readonly author_email: string;
     destination_url: string;
-    content_type?: ContentTypeEnum;
+    content_type?: WebHookContentTypeEnum;
 };
+
+export type WebHookContentTypeEnum = 'json' | 'form';
 
 export type WebHookReceiver = {
     webhookEvent: WebhookEventEnum;
@@ -10744,10 +10834,12 @@ export type WebHookRequest = {
     event_types?: Array<EventTypesEnum>;
     event_groups?: Array<EventGroupsEnum>;
     destination_url: string;
-    content_type?: ContentTypeEnum;
+    content_type?: WebHookContentTypeEnum;
 };
 
 export type WebhookEventEnum = 'jira:issue_updated' | 'jira:issue_deleted' | 'comment_created' | 'comment_updated' | 'comment_deleted';
+
+export type WidgetEnum = 'csv' | 'filesize' | 'attached_instance';
 
 export type ApiAuthEduteamsCompleteRetrieveData = {
     body?: never;
@@ -12728,7 +12820,7 @@ export type BookingOfferingsListData = {
     body?: never;
     path?: never;
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'googlecalendar' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'googlecalendar' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope' | 'scope_name' | 'scope_state' | 'scope_uuid' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
         /**
          * A page number within the paginated result set.
          */
@@ -12784,7 +12876,7 @@ export type BookingOfferingsRetrieveData = {
         uuid: string;
     };
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'googlecalendar' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'googlecalendar' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope' | 'scope_name' | 'scope_state' | 'scope_uuid' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
     };
     url: '/api/booking-offerings/{uuid}/';
 };
@@ -14105,7 +14197,7 @@ export type CustomersCreateResponses = {
 
 export type CustomersCreateResponse = CustomersCreateResponses[keyof CustomersCreateResponses];
 
-export type CustomersMarketplaceChecklistsListData = {
+export type MarketplaceChecklistsCustomerRetrieveData = {
     body?: never;
     path: {
         customer_uuid: string;
@@ -14114,13 +14206,13 @@ export type CustomersMarketplaceChecklistsListData = {
     url: '/api/customers/{customer_uuid}/marketplace-checklists/';
 };
 
-export type CustomersMarketplaceChecklistsListResponses = {
+export type MarketplaceChecklistsCustomerRetrieveResponses = {
     200: Array<string>;
 };
 
-export type CustomersMarketplaceChecklistsListResponse = CustomersMarketplaceChecklistsListResponses[keyof CustomersMarketplaceChecklistsListResponses];
+export type MarketplaceChecklistsCustomerRetrieveResponse = MarketplaceChecklistsCustomerRetrieveResponses[keyof MarketplaceChecklistsCustomerRetrieveResponses];
 
-export type CustomersMarketplaceChecklistsData = {
+export type MarketplaceChecklistsCustomerUpdateData = {
     body: Array<string>;
     path: {
         customer_uuid: string;
@@ -14129,12 +14221,11 @@ export type CustomersMarketplaceChecklistsData = {
     url: '/api/customers/{customer_uuid}/marketplace-checklists/';
 };
 
-export type CustomersMarketplaceChecklistsResponses = {
-    /**
-     * No response body
-     */
-    200: unknown;
+export type MarketplaceChecklistsCustomerUpdateResponses = {
+    200: Array<string>;
 };
+
+export type MarketplaceChecklistsCustomerUpdateResponse = MarketplaceChecklistsCustomerUpdateResponses[keyof MarketplaceChecklistsCustomerUpdateResponses];
 
 export type MarketplaceChecklistsCustomerStatsData = {
     body?: never;
@@ -15262,20 +15353,20 @@ export type FreeipaProfilesListData = {
 };
 
 export type FreeipaProfilesListResponses = {
-    200: PaginatedProfileList;
+    200: PaginatedFreeipaProfileList;
 };
 
 export type FreeipaProfilesListResponse = FreeipaProfilesListResponses[keyof FreeipaProfilesListResponses];
 
 export type FreeipaProfilesCreateData = {
-    body: ProfileRequest;
+    body: FreeipaProfileRequest;
     path?: never;
     query?: never;
     url: '/api/freeipa-profiles/';
 };
 
 export type FreeipaProfilesCreateResponses = {
-    201: Profile;
+    201: FreeipaProfile;
 };
 
 export type FreeipaProfilesCreateResponse = FreeipaProfilesCreateResponses[keyof FreeipaProfilesCreateResponses];
@@ -15308,7 +15399,7 @@ export type FreeipaProfilesRetrieveData = {
 };
 
 export type FreeipaProfilesRetrieveResponses = {
-    200: Profile;
+    200: FreeipaProfile;
 };
 
 export type FreeipaProfilesRetrieveResponse = FreeipaProfilesRetrieveResponses[keyof FreeipaProfilesRetrieveResponses];
@@ -15323,13 +15414,13 @@ export type FreeipaProfilesPartialUpdateData = {
 };
 
 export type FreeipaProfilesPartialUpdateResponses = {
-    200: Profile;
+    200: FreeipaProfile;
 };
 
 export type FreeipaProfilesPartialUpdateResponse = FreeipaProfilesPartialUpdateResponses[keyof FreeipaProfilesPartialUpdateResponses];
 
 export type FreeipaProfilesUpdateData = {
-    body: ProfileRequest;
+    body: FreeipaProfileRequest;
     path: {
         uuid: string;
     };
@@ -15338,7 +15429,7 @@ export type FreeipaProfilesUpdateData = {
 };
 
 export type FreeipaProfilesUpdateResponses = {
-    200: Profile;
+    200: FreeipaProfile;
 };
 
 export type FreeipaProfilesUpdateResponse = FreeipaProfilesUpdateResponses[keyof FreeipaProfilesUpdateResponses];
@@ -15765,11 +15856,10 @@ export type IconsFaviconRetrieveErrors = {
 };
 
 export type IconsFaviconRetrieveResponses = {
-    /**
-     * Logo image
-     */
-    200: unknown;
+    200: Blob | File;
 };
+
+export type IconsFaviconRetrieveResponse = IconsFaviconRetrieveResponses[keyof IconsFaviconRetrieveResponses];
 
 export type IconsHeroImageRetrieveData = {
     body?: never;
@@ -15786,11 +15876,10 @@ export type IconsHeroImageRetrieveErrors = {
 };
 
 export type IconsHeroImageRetrieveResponses = {
-    /**
-     * Logo image
-     */
-    200: unknown;
+    200: Blob | File;
 };
+
+export type IconsHeroImageRetrieveResponse = IconsHeroImageRetrieveResponses[keyof IconsHeroImageRetrieveResponses];
 
 export type IconsKeycloakIconRetrieveData = {
     body?: never;
@@ -15807,11 +15896,10 @@ export type IconsKeycloakIconRetrieveErrors = {
 };
 
 export type IconsKeycloakIconRetrieveResponses = {
-    /**
-     * Logo image
-     */
-    200: unknown;
+    200: Blob | File;
 };
+
+export type IconsKeycloakIconRetrieveResponse = IconsKeycloakIconRetrieveResponses[keyof IconsKeycloakIconRetrieveResponses];
 
 export type IconsLoginLogoRetrieveData = {
     body?: never;
@@ -15828,11 +15916,10 @@ export type IconsLoginLogoRetrieveErrors = {
 };
 
 export type IconsLoginLogoRetrieveResponses = {
-    /**
-     * Logo image
-     */
-    200: unknown;
+    200: Blob | File;
 };
+
+export type IconsLoginLogoRetrieveResponse = IconsLoginLogoRetrieveResponses[keyof IconsLoginLogoRetrieveResponses];
 
 export type IconsOfferingLogoPlaceholderRetrieveData = {
     body?: never;
@@ -15849,11 +15936,10 @@ export type IconsOfferingLogoPlaceholderRetrieveErrors = {
 };
 
 export type IconsOfferingLogoPlaceholderRetrieveResponses = {
-    /**
-     * Logo image
-     */
-    200: unknown;
+    200: Blob | File;
 };
+
+export type IconsOfferingLogoPlaceholderRetrieveResponse = IconsOfferingLogoPlaceholderRetrieveResponses[keyof IconsOfferingLogoPlaceholderRetrieveResponses];
 
 export type IconsPoweredByLogoRetrieveData = {
     body?: never;
@@ -15870,11 +15956,10 @@ export type IconsPoweredByLogoRetrieveErrors = {
 };
 
 export type IconsPoweredByLogoRetrieveResponses = {
-    /**
-     * Logo image
-     */
-    200: unknown;
+    200: Blob | File;
 };
+
+export type IconsPoweredByLogoRetrieveResponse = IconsPoweredByLogoRetrieveResponses[keyof IconsPoweredByLogoRetrieveResponses];
 
 export type IconsSidebarLogoRetrieveData = {
     body?: never;
@@ -15891,11 +15976,10 @@ export type IconsSidebarLogoRetrieveErrors = {
 };
 
 export type IconsSidebarLogoRetrieveResponses = {
-    /**
-     * Logo image
-     */
-    200: unknown;
+    200: Blob | File;
 };
+
+export type IconsSidebarLogoRetrieveResponse = IconsSidebarLogoRetrieveResponses[keyof IconsSidebarLogoRetrieveResponses];
 
 export type IconsSidebarLogoDarkRetrieveData = {
     body?: never;
@@ -15912,11 +15996,10 @@ export type IconsSidebarLogoDarkRetrieveErrors = {
 };
 
 export type IconsSidebarLogoDarkRetrieveResponses = {
-    /**
-     * Logo image
-     */
-    200: unknown;
+    200: Blob | File;
 };
+
+export type IconsSidebarLogoDarkRetrieveResponse = IconsSidebarLogoDarkRetrieveResponses[keyof IconsSidebarLogoDarkRetrieveResponses];
 
 export type IconsSidebarLogoMobileRetrieveData = {
     body?: never;
@@ -15933,11 +16016,10 @@ export type IconsSidebarLogoMobileRetrieveErrors = {
 };
 
 export type IconsSidebarLogoMobileRetrieveResponses = {
-    /**
-     * Logo image
-     */
-    200: unknown;
+    200: Blob | File;
 };
+
+export type IconsSidebarLogoMobileRetrieveResponse = IconsSidebarLogoMobileRetrieveResponses[keyof IconsSidebarLogoMobileRetrieveResponses];
 
 export type IconsSiteLogoRetrieveData = {
     body?: never;
@@ -15954,11 +16036,10 @@ export type IconsSiteLogoRetrieveErrors = {
 };
 
 export type IconsSiteLogoRetrieveResponses = {
-    /**
-     * Logo image
-     */
-    200: unknown;
+    200: Blob | File;
 };
+
+export type IconsSiteLogoRetrieveResponse = IconsSiteLogoRetrieveResponses[keyof IconsSiteLogoRetrieveResponses];
 
 export type IdentityProvidersListData = {
     body?: never;
@@ -17646,6 +17727,7 @@ export type MarketplaceComponentUsagesListData = {
         customer_uuid?: string;
         date_after?: string;
         date_before?: string;
+        field?: Array<'billing_period' | 'created' | 'customer_name' | 'customer_uuid' | 'date' | 'description' | 'measured_unit' | 'modified_by' | 'name' | 'offering_name' | 'offering_uuid' | 'project_name' | 'project_uuid' | 'recurring' | 'resource_name' | 'resource_uuid' | 'type' | 'usage' | 'uuid'>;
         offering_uuid?: string;
         /**
          * A page number within the paginated result set.
@@ -17705,7 +17787,9 @@ export type MarketplaceComponentUsagesRetrieveData = {
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        field?: Array<'billing_period' | 'created' | 'customer_name' | 'customer_uuid' | 'date' | 'description' | 'measured_unit' | 'modified_by' | 'name' | 'offering_name' | 'offering_uuid' | 'project_name' | 'project_uuid' | 'recurring' | 'resource_name' | 'resource_uuid' | 'type' | 'usage' | 'uuid'>;
+    };
     url: '/api/marketplace-component-usages/{uuid}/';
 };
 
@@ -17781,6 +17865,7 @@ export type MarketplaceComponentUserUsagesListData = {
         customer_uuid?: string;
         date_after?: string;
         date_before?: string;
+        field?: Array<'backend_id' | 'billing_period' | 'component_type' | 'component_usage' | 'created' | 'customer_name' | 'customer_uuid' | 'date' | 'description' | 'measured_unit' | 'modified' | 'offering_name' | 'offering_uuid' | 'project_name' | 'project_uuid' | 'resource_name' | 'resource_uuid' | 'usage' | 'user' | 'username' | 'uuid'>;
         offering_uuid?: string;
         /**
          * A page number within the paginated result set.
@@ -17843,7 +17928,9 @@ export type MarketplaceComponentUserUsagesRetrieveData = {
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        field?: Array<'backend_id' | 'billing_period' | 'component_type' | 'component_usage' | 'created' | 'customer_name' | 'customer_uuid' | 'date' | 'description' | 'measured_unit' | 'modified' | 'offering_name' | 'offering_uuid' | 'project_name' | 'project_uuid' | 'resource_name' | 'resource_uuid' | 'usage' | 'user' | 'username' | 'uuid'>;
+    };
     url: '/api/marketplace-component-user-usages/{uuid}/';
 };
 
@@ -18933,7 +19020,7 @@ export type MarketplaceOrdersListData = {
          */
         created?: string;
         customer_uuid?: string;
-        field?: Array<'accepting_terms_of_service' | 'activation_price' | 'attributes' | 'backend_id' | 'callback_url' | 'can_terminate' | 'category_icon' | 'category_title' | 'category_uuid' | 'completed_at' | 'consumer_reviewed_at' | 'consumer_reviewed_by' | 'consumer_reviewed_by_full_name' | 'cost' | 'created' | 'created_by_civil_number' | 'created_by_full_name' | 'customer_name' | 'customer_slug' | 'customer_uuid' | 'error_message' | 'fixed_price' | 'issue' | 'limits' | 'marketplace_resource_uuid' | 'modified' | 'new_cost_estimate' | 'new_plan_name' | 'new_plan_uuid' | 'offering' | 'offering_billable' | 'offering_description' | 'offering_image' | 'offering_name' | 'offering_plugin_options' | 'offering_shared' | 'offering_terms_of_service' | 'offering_thumbnail' | 'offering_type' | 'offering_uuid' | 'old_cost_estimate' | 'old_plan_name' | 'old_plan_uuid' | 'output' | 'plan' | 'plan_description' | 'plan_name' | 'plan_unit' | 'plan_uuid' | 'project_description' | 'project_name' | 'project_slug' | 'project_uuid' | 'provider_name' | 'provider_reviewed_at' | 'provider_reviewed_by' | 'provider_reviewed_by_full_name' | 'provider_uuid' | 'resource_name' | 'resource_type' | 'resource_uuid' | 'state' | 'termination_comment' | 'type' | 'uuid'>;
+        field?: Array<'accepting_terms_of_service' | 'activation_price' | 'attributes' | 'backend_id' | 'callback_url' | 'can_terminate' | 'category_icon' | 'category_title' | 'category_uuid' | 'completed_at' | 'consumer_reviewed_at' | 'consumer_reviewed_by' | 'consumer_reviewed_by_full_name' | 'consumer_reviewed_by_username' | 'cost' | 'created' | 'created_by_civil_number' | 'created_by_full_name' | 'created_by_username' | 'customer_name' | 'customer_slug' | 'customer_uuid' | 'error_message' | 'fixed_price' | 'issue' | 'limits' | 'marketplace_resource_uuid' | 'modified' | 'new_cost_estimate' | 'new_plan_name' | 'new_plan_uuid' | 'offering' | 'offering_billable' | 'offering_description' | 'offering_image' | 'offering_name' | 'offering_plugin_options' | 'offering_shared' | 'offering_terms_of_service' | 'offering_thumbnail' | 'offering_type' | 'offering_uuid' | 'old_cost_estimate' | 'old_plan_name' | 'old_plan_uuid' | 'output' | 'plan' | 'plan_description' | 'plan_name' | 'plan_unit' | 'plan_uuid' | 'project_description' | 'project_name' | 'project_slug' | 'project_uuid' | 'provider_name' | 'provider_reviewed_at' | 'provider_reviewed_by' | 'provider_reviewed_by_full_name' | 'provider_reviewed_by_username' | 'provider_uuid' | 'resource_name' | 'resource_type' | 'resource_uuid' | 'state' | 'termination_comment' | 'type' | 'uuid'>;
         /**
          * Modified after
          */
@@ -19033,7 +19120,7 @@ export type MarketplaceOrdersRetrieveData = {
         uuid: string;
     };
     query?: {
-        field?: Array<'accepting_terms_of_service' | 'activation_price' | 'attributes' | 'backend_id' | 'callback_url' | 'can_terminate' | 'category_icon' | 'category_title' | 'category_uuid' | 'completed_at' | 'consumer_reviewed_at' | 'consumer_reviewed_by' | 'consumer_reviewed_by_full_name' | 'cost' | 'created' | 'created_by_civil_number' | 'created_by_full_name' | 'customer_name' | 'customer_slug' | 'customer_uuid' | 'error_message' | 'fixed_price' | 'issue' | 'limits' | 'marketplace_resource_uuid' | 'modified' | 'new_cost_estimate' | 'new_plan_name' | 'new_plan_uuid' | 'offering' | 'offering_billable' | 'offering_description' | 'offering_image' | 'offering_name' | 'offering_plugin_options' | 'offering_shared' | 'offering_terms_of_service' | 'offering_thumbnail' | 'offering_type' | 'offering_uuid' | 'old_cost_estimate' | 'old_plan_name' | 'old_plan_uuid' | 'output' | 'plan' | 'plan_description' | 'plan_name' | 'plan_unit' | 'plan_uuid' | 'project_description' | 'project_name' | 'project_slug' | 'project_uuid' | 'provider_name' | 'provider_reviewed_at' | 'provider_reviewed_by' | 'provider_reviewed_by_full_name' | 'provider_uuid' | 'resource_name' | 'resource_type' | 'resource_uuid' | 'state' | 'termination_comment' | 'type' | 'uuid'>;
+        field?: Array<'accepting_terms_of_service' | 'activation_price' | 'attributes' | 'backend_id' | 'callback_url' | 'can_terminate' | 'category_icon' | 'category_title' | 'category_uuid' | 'completed_at' | 'consumer_reviewed_at' | 'consumer_reviewed_by' | 'consumer_reviewed_by_full_name' | 'consumer_reviewed_by_username' | 'cost' | 'created' | 'created_by_civil_number' | 'created_by_full_name' | 'created_by_username' | 'customer_name' | 'customer_slug' | 'customer_uuid' | 'error_message' | 'fixed_price' | 'issue' | 'limits' | 'marketplace_resource_uuid' | 'modified' | 'new_cost_estimate' | 'new_plan_name' | 'new_plan_uuid' | 'offering' | 'offering_billable' | 'offering_description' | 'offering_image' | 'offering_name' | 'offering_plugin_options' | 'offering_shared' | 'offering_terms_of_service' | 'offering_thumbnail' | 'offering_type' | 'offering_uuid' | 'old_cost_estimate' | 'old_plan_name' | 'old_plan_uuid' | 'output' | 'plan' | 'plan_description' | 'plan_name' | 'plan_unit' | 'plan_uuid' | 'project_description' | 'project_name' | 'project_slug' | 'project_uuid' | 'provider_name' | 'provider_reviewed_at' | 'provider_reviewed_by' | 'provider_reviewed_by_full_name' | 'provider_reviewed_by_username' | 'provider_uuid' | 'resource_name' | 'resource_type' | 'resource_uuid' | 'state' | 'termination_comment' | 'type' | 'uuid'>;
     };
     url: '/api/marketplace-orders/{uuid}/';
 };
@@ -19473,22 +19560,32 @@ export type MarketplacePlansUpdateQuotasResponses = {
     200: unknown;
 };
 
-export type MarketplacePlansUsageStatsRetrieveData = {
+export type MarketplacePlansUsageStatsListData = {
     body?: never;
     path?: never;
     query?: {
         customer_provider_uuid?: string;
         o?: string;
+        offering?: string;
         offering_uuid?: string;
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+        parent_offering_uuid?: string;
     };
     url: '/api/marketplace-plans/usage_stats/';
 };
 
-export type MarketplacePlansUsageStatsRetrieveResponses = {
-    200: PlanUsageResponse;
+export type MarketplacePlansUsageStatsListResponses = {
+    200: PaginatedPlanUsageResponseList;
 };
 
-export type MarketplacePlansUsageStatsRetrieveResponse = MarketplacePlansUsageStatsRetrieveResponses[keyof MarketplacePlansUsageStatsRetrieveResponses];
+export type MarketplacePlansUsageStatsListResponse = MarketplacePlansUsageStatsListResponses[keyof MarketplacePlansUsageStatsListResponses];
 
 export type MarketplacePluginsListData = {
     body?: never;
@@ -19781,7 +19878,7 @@ export type MarketplaceProviderOfferingsListData = {
         customer?: string;
         customer_uuid?: string;
         description?: string;
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope' | 'scope_name' | 'scope_state' | 'scope_uuid' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
         /**
          * Keyword
          */
@@ -19885,7 +19982,7 @@ export type MarketplaceProviderOfferingsRetrieveData = {
         uuid: string;
     };
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope' | 'scope_name' | 'scope_state' | 'scope_uuid' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
     };
     url: '/api/marketplace-provider-offerings/{uuid}/';
 };
@@ -19987,39 +20084,196 @@ export type MarketplaceProviderOfferingsArchiveResponses = {
 
 export type MarketplaceProviderOfferingsArchiveResponse = MarketplaceProviderOfferingsArchiveResponses[keyof MarketplaceProviderOfferingsArchiveResponses];
 
-export type MarketplaceProviderOfferingsComponentStatsRetrieveData = {
+export type MarketplaceProviderOfferingsComponentStatsListData = {
     body?: never;
     path: {
         uuid: string;
     };
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        /**
+         * Accessible via calls
+         */
+        accessible_via_calls?: boolean;
+        /**
+         * Allowed customer UUID
+         */
+        allowed_customer_uuid?: string;
+        attributes?: string;
+        billable?: boolean;
+        category_group_uuid?: string;
+        category_uuid?: string;
+        customer?: string;
+        customer_uuid?: string;
+        description?: string;
+        /**
+         * End date in format YYYY-MM.
+         */
+        end?: string;
+        /**
+         * Keyword
+         */
+        keyword?: string;
+        name?: string;
+        name_exact?: string;
+        /**
+         * Ordering
+         *
+         * * `name` - Name
+         * * `-name` - Name (descending)
+         * * `created` - Created
+         * * `-created` - Created (descending)
+         * * `type` - Type
+         * * `-type` - Type (descending)
+         * * `total_customers` - Total customers
+         * * `-total_customers` - Total customers (descending)
+         * * `total_cost` - Total cost
+         * * `-total_cost` - Total cost (descending)
+         * * `total_cost_estimated` - Total cost estimated
+         * * `-total_cost_estimated` - Total cost estimated (descending)
+         * * `state` - State
+         * * `-state` - State (descending)
+         */
+        o?: Array<'-created' | '-name' | '-state' | '-total_cost' | '-total_cost_estimated' | '-total_customers' | '-type' | 'created' | 'name' | 'state' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type'>;
+        organization_group_uuid?: Array<string>;
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+        parent_uuid?: string;
+        /**
+         * Project UUID
+         */
+        project_uuid?: string;
+        /**
+         * Scope UUID
+         */
+        scope_uuid?: string;
+        /**
+         * Service manager UUID
+         */
+        service_manager_uuid?: string;
+        shared?: boolean;
+        /**
+         * Start date in format YYYY-MM.
+         */
+        start?: string;
+        /**
+         * * `Draft` - Draft
+         * * `Active` - Active
+         * * `Paused` - Paused
+         * * `Archived` - Archived
+         */
+        state?: Array<'Active' | 'Archived' | 'Draft' | 'Paused'>;
+        type?: Array<string>;
     };
     url: '/api/marketplace-provider-offerings/{uuid}/component_stats/';
 };
 
-export type MarketplaceProviderOfferingsComponentStatsRetrieveResponses = {
-    200: ProviderOfferingDetails;
+export type MarketplaceProviderOfferingsComponentStatsListResponses = {
+    200: PaginatedOfferingComponentStatList;
 };
 
-export type MarketplaceProviderOfferingsComponentStatsRetrieveResponse = MarketplaceProviderOfferingsComponentStatsRetrieveResponses[keyof MarketplaceProviderOfferingsComponentStatsRetrieveResponses];
+export type MarketplaceProviderOfferingsComponentStatsListResponse = MarketplaceProviderOfferingsComponentStatsListResponses[keyof MarketplaceProviderOfferingsComponentStatsListResponses];
 
-export type MarketplaceProviderOfferingsCostsRetrieveData = {
+export type MarketplaceProviderOfferingsCostsListData = {
     body?: never;
     path: {
         uuid: string;
     };
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        /**
+         * Accessible via calls
+         */
+        accessible_via_calls?: boolean;
+        accounting_is_running?: boolean;
+        /**
+         * Allowed customer UUID
+         */
+        allowed_customer_uuid?: string;
+        attributes?: string;
+        billable?: boolean;
+        category_group_uuid?: string;
+        category_uuid?: string;
+        customer?: string;
+        customer_uuid?: string;
+        description?: string;
+        /**
+         * End date in format YYYY-MM.
+         */
+        end?: string;
+        /**
+         * Keyword
+         */
+        keyword?: string;
+        name?: string;
+        name_exact?: string;
+        /**
+         * Ordering
+         *
+         * * `name` - Name
+         * * `-name` - Name (descending)
+         * * `created` - Created
+         * * `-created` - Created (descending)
+         * * `type` - Type
+         * * `-type` - Type (descending)
+         * * `total_customers` - Total customers
+         * * `-total_customers` - Total customers (descending)
+         * * `total_cost` - Total cost
+         * * `-total_cost` - Total cost (descending)
+         * * `total_cost_estimated` - Total cost estimated
+         * * `-total_cost_estimated` - Total cost estimated (descending)
+         * * `state` - State
+         * * `-state` - State (descending)
+         */
+        o?: Array<'-created' | '-name' | '-state' | '-total_cost' | '-total_cost_estimated' | '-total_customers' | '-type' | 'created' | 'name' | 'state' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type'>;
+        organization_group_uuid?: Array<string>;
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+        parent_uuid?: string;
+        /**
+         * Project UUID
+         */
+        project_uuid?: string;
+        /**
+         * Scope UUID
+         */
+        scope_uuid?: string;
+        /**
+         * Service manager UUID
+         */
+        service_manager_uuid?: string;
+        shared?: boolean;
+        /**
+         * Start date in format YYYY-MM.
+         */
+        start?: string;
+        /**
+         * * `Draft` - Draft
+         * * `Active` - Active
+         * * `Paused` - Paused
+         * * `Archived` - Archived
+         */
+        state?: Array<'Active' | 'Archived' | 'Draft' | 'Paused'>;
+        type?: Array<string>;
     };
     url: '/api/marketplace-provider-offerings/{uuid}/costs/';
 };
 
-export type MarketplaceProviderOfferingsCostsRetrieveResponses = {
-    200: ProviderOfferingDetails;
+export type MarketplaceProviderOfferingsCostsListResponses = {
+    200: PaginatedProviderOfferingCostsList;
 };
 
-export type MarketplaceProviderOfferingsCostsRetrieveResponse = MarketplaceProviderOfferingsCostsRetrieveResponses[keyof MarketplaceProviderOfferingsCostsRetrieveResponses];
+export type MarketplaceProviderOfferingsCostsListResponse = MarketplaceProviderOfferingsCostsListResponses[keyof MarketplaceProviderOfferingsCostsListResponses];
 
 export type MarketplaceProviderOfferingsCreateOfferingComponentData = {
     body: OfferingComponentRequest;
@@ -20037,22 +20291,92 @@ export type MarketplaceProviderOfferingsCreateOfferingComponentResponses = {
     200: unknown;
 };
 
-export type MarketplaceProviderOfferingsCustomersRetrieveData = {
+export type MarketplaceProviderOfferingsCustomersListData = {
     body?: never;
     path: {
         uuid: string;
     };
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        /**
+         * Accessible via calls
+         */
+        accessible_via_calls?: boolean;
+        /**
+         * Allowed customer UUID
+         */
+        allowed_customer_uuid?: string;
+        attributes?: string;
+        billable?: boolean;
+        category_group_uuid?: string;
+        category_uuid?: string;
+        customer?: string;
+        customer_uuid?: string;
+        description?: string;
+        /**
+         * Keyword
+         */
+        keyword?: string;
+        name?: string;
+        name_exact?: string;
+        /**
+         * Ordering
+         *
+         * * `name` - Name
+         * * `-name` - Name (descending)
+         * * `created` - Created
+         * * `-created` - Created (descending)
+         * * `type` - Type
+         * * `-type` - Type (descending)
+         * * `total_customers` - Total customers
+         * * `-total_customers` - Total customers (descending)
+         * * `total_cost` - Total cost
+         * * `-total_cost` - Total cost (descending)
+         * * `total_cost_estimated` - Total cost estimated
+         * * `-total_cost_estimated` - Total cost estimated (descending)
+         * * `state` - State
+         * * `-state` - State (descending)
+         */
+        o?: Array<'-created' | '-name' | '-state' | '-total_cost' | '-total_cost_estimated' | '-total_customers' | '-type' | 'created' | 'name' | 'state' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type'>;
+        organization_group_uuid?: Array<string>;
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+        parent_uuid?: string;
+        /**
+         * Project UUID
+         */
+        project_uuid?: string;
+        /**
+         * Scope UUID
+         */
+        scope_uuid?: string;
+        /**
+         * Service manager UUID
+         */
+        service_manager_uuid?: string;
+        shared?: boolean;
+        /**
+         * * `Draft` - Draft
+         * * `Active` - Active
+         * * `Paused` - Paused
+         * * `Archived` - Archived
+         */
+        state?: Array<'Active' | 'Archived' | 'Draft' | 'Paused'>;
+        type?: Array<string>;
     };
     url: '/api/marketplace-provider-offerings/{uuid}/customers/';
 };
 
-export type MarketplaceProviderOfferingsCustomersRetrieveResponses = {
-    200: ProviderOfferingDetails;
+export type MarketplaceProviderOfferingsCustomersListResponses = {
+    200: PaginatedProviderOfferingCustomerList;
 };
 
-export type MarketplaceProviderOfferingsCustomersRetrieveResponse = MarketplaceProviderOfferingsCustomersRetrieveResponses[keyof MarketplaceProviderOfferingsCustomersRetrieveResponses];
+export type MarketplaceProviderOfferingsCustomersListResponse = MarketplaceProviderOfferingsCustomersListResponses[keyof MarketplaceProviderOfferingsCustomersListResponses];
 
 export type MarketplaceProviderOfferingsDeleteEndpointData = {
     body: EndpointDeleteRequest;
@@ -20064,10 +20388,29 @@ export type MarketplaceProviderOfferingsDeleteEndpointData = {
 };
 
 export type MarketplaceProviderOfferingsDeleteEndpointResponses = {
-    200: EndpointDelete;
+    /**
+     * No response body
+     */
+    204: void;
 };
 
 export type MarketplaceProviderOfferingsDeleteEndpointResponse = MarketplaceProviderOfferingsDeleteEndpointResponses[keyof MarketplaceProviderOfferingsDeleteEndpointResponses];
+
+export type MarketplaceProviderOfferingsDeleteImageData = {
+    body?: never;
+    path: {
+        uuid: string;
+    };
+    query?: never;
+    url: '/api/marketplace-provider-offerings/{uuid}/delete_image/';
+};
+
+export type MarketplaceProviderOfferingsDeleteImageResponses = {
+    /**
+     * No response body
+     */
+    200: unknown;
+};
 
 export type MarketplaceProviderOfferingsDeleteOrganizationGroupsData = {
     body?: never;
@@ -20162,22 +20505,92 @@ export type MarketplaceProviderOfferingsImportResourceResponses = {
 
 export type MarketplaceProviderOfferingsImportResourceResponse = MarketplaceProviderOfferingsImportResourceResponses[keyof MarketplaceProviderOfferingsImportResourceResponses];
 
-export type MarketplaceProviderOfferingsImportableResourcesRetrieveData = {
+export type MarketplaceProviderOfferingsImportableResourcesListData = {
     body?: never;
     path: {
         uuid: string;
     };
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        /**
+         * Accessible via calls
+         */
+        accessible_via_calls?: boolean;
+        /**
+         * Allowed customer UUID
+         */
+        allowed_customer_uuid?: string;
+        attributes?: string;
+        billable?: boolean;
+        category_group_uuid?: string;
+        category_uuid?: string;
+        customer?: string;
+        customer_uuid?: string;
+        description?: string;
+        /**
+         * Keyword
+         */
+        keyword?: string;
+        name?: string;
+        name_exact?: string;
+        /**
+         * Ordering
+         *
+         * * `name` - Name
+         * * `-name` - Name (descending)
+         * * `created` - Created
+         * * `-created` - Created (descending)
+         * * `type` - Type
+         * * `-type` - Type (descending)
+         * * `total_customers` - Total customers
+         * * `-total_customers` - Total customers (descending)
+         * * `total_cost` - Total cost
+         * * `-total_cost` - Total cost (descending)
+         * * `total_cost_estimated` - Total cost estimated
+         * * `-total_cost_estimated` - Total cost estimated (descending)
+         * * `state` - State
+         * * `-state` - State (descending)
+         */
+        o?: Array<'-created' | '-name' | '-state' | '-total_cost' | '-total_cost_estimated' | '-total_customers' | '-type' | 'created' | 'name' | 'state' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type'>;
+        organization_group_uuid?: Array<string>;
+        /**
+         * A page number within the paginated result set.
+         */
+        page?: number;
+        /**
+         * Number of results to return per page.
+         */
+        page_size?: number;
+        parent_uuid?: string;
+        /**
+         * Project UUID
+         */
+        project_uuid?: string;
+        /**
+         * Scope UUID
+         */
+        scope_uuid?: string;
+        /**
+         * Service manager UUID
+         */
+        service_manager_uuid?: string;
+        shared?: boolean;
+        /**
+         * * `Draft` - Draft
+         * * `Active` - Active
+         * * `Paused` - Paused
+         * * `Archived` - Archived
+         */
+        state?: Array<'Active' | 'Archived' | 'Draft' | 'Paused'>;
+        type?: Array<string>;
     };
     url: '/api/marketplace-provider-offerings/{uuid}/importable_resources/';
 };
 
-export type MarketplaceProviderOfferingsImportableResourcesRetrieveResponses = {
-    200: ProviderOfferingDetails;
+export type MarketplaceProviderOfferingsImportableResourcesListResponses = {
+    200: PaginatedImportableResourceList;
 };
 
-export type MarketplaceProviderOfferingsImportableResourcesRetrieveResponse = MarketplaceProviderOfferingsImportableResourcesRetrieveResponses[keyof MarketplaceProviderOfferingsImportableResourcesRetrieveResponses];
+export type MarketplaceProviderOfferingsImportableResourcesListResponse = MarketplaceProviderOfferingsImportableResourcesListResponses[keyof MarketplaceProviderOfferingsImportableResourcesListResponses];
 
 export type MarketplaceProviderOfferingsListCustomerProjectsListData = {
     body?: never;
@@ -20529,7 +20942,7 @@ export type MarketplaceProviderOfferingsStatsRetrieveData = {
         uuid: string;
     };
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope' | 'scope_name' | 'scope_state' | 'scope_uuid' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
     };
     url: '/api/marketplace-provider-offerings/{uuid}/stats/';
 };
@@ -20572,7 +20985,7 @@ export type MarketplaceProviderOfferingsUnpauseResponses = {
 export type MarketplaceProviderOfferingsUnpauseResponse = MarketplaceProviderOfferingsUnpauseResponses[keyof MarketplaceProviderOfferingsUnpauseResponses];
 
 export type MarketplaceProviderOfferingsUpdateAttributesData = {
-    body: ProviderOfferingDetailsRequest;
+    body?: {};
     path: {
         uuid: string;
     };
@@ -20581,10 +20994,11 @@ export type MarketplaceProviderOfferingsUpdateAttributesData = {
 };
 
 export type MarketplaceProviderOfferingsUpdateAttributesResponses = {
-    200: ProviderOfferingDetails;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type MarketplaceProviderOfferingsUpdateAttributesResponse = MarketplaceProviderOfferingsUpdateAttributesResponses[keyof MarketplaceProviderOfferingsUpdateAttributesResponses];
 
 export type MarketplaceProviderOfferingsUpdateDescriptionData = {
     body: OfferingDescriptionUpdateRequest;
@@ -20600,6 +21014,21 @@ export type MarketplaceProviderOfferingsUpdateDescriptionResponses = {
 };
 
 export type MarketplaceProviderOfferingsUpdateDescriptionResponse = MarketplaceProviderOfferingsUpdateDescriptionResponses[keyof MarketplaceProviderOfferingsUpdateDescriptionResponses];
+
+export type MarketplaceProviderOfferingsUpdateImageData = {
+    body: OfferingImageRequest;
+    path: {
+        uuid: string;
+    };
+    query?: never;
+    url: '/api/marketplace-provider-offerings/{uuid}/update_image/';
+};
+
+export type MarketplaceProviderOfferingsUpdateImageResponses = {
+    200: ProviderOfferingDetails;
+};
+
+export type MarketplaceProviderOfferingsUpdateImageResponse = MarketplaceProviderOfferingsUpdateImageResponses[keyof MarketplaceProviderOfferingsUpdateImageResponses];
 
 export type MarketplaceProviderOfferingsUpdateIntegrationData = {
     body?: OfferingIntegrationUpdateRequest;
@@ -20744,7 +21173,7 @@ export type MarketplaceProviderOfferingsUserHasResourceAccessRetrieveData = {
         uuid: string;
     };
     query: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope' | 'scope_name' | 'scope_state' | 'scope_uuid' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
         /**
          * Username of the user to check.
          */
@@ -20763,7 +21192,7 @@ export type MarketplaceProviderOfferingsGroupsRetrieveData = {
     body?: never;
     path?: never;
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'integration_status' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'quotas' | 'resource_options' | 'roles' | 'scope' | 'scope_name' | 'scope_state' | 'scope_uuid' | 'screenshots' | 'secret_options' | 'service_attributes' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
     };
     url: '/api/marketplace-provider-offerings/groups/';
 };
@@ -20810,8 +21239,10 @@ export type MarketplaceProviderResourcesListData = {
          * * `-created` - Created (descending)
          * * `project_name` - Project name
          * * `-project_name` - Project name (descending)
+         * * `state` - State
+         * * `-state` - State (descending)
          */
-        o?: Array<'-created' | '-name' | '-project_name' | 'created' | 'name' | 'project_name'>;
+        o?: Array<'-created' | '-name' | '-project_name' | '-state' | 'created' | 'name' | 'project_name' | 'state'>;
         offering?: string;
         offering_billable?: string;
         offering_type?: string;
@@ -21005,22 +21436,91 @@ export type MarketplaceProviderResourcesOfferingRetrieveResponses = {
 
 export type MarketplaceProviderResourcesOfferingRetrieveResponse = MarketplaceProviderResourcesOfferingRetrieveResponses[keyof MarketplaceProviderResourcesOfferingRetrieveResponses];
 
-export type MarketplaceProviderResourcesOfferingForSubresourcesRetrieveData = {
+export type MarketplaceProviderResourcesOfferingForSubresourcesListData = {
     body?: never;
     path: {
         uuid: string;
     };
     query?: {
-        field?: Array<'attributes' | 'available_actions' | 'backend_id' | 'backend_metadata' | 'can_terminate' | 'category_icon' | 'category_title' | 'category_uuid' | 'created' | 'creation_order' | 'current_usages' | 'customer_name' | 'customer_uuid' | 'description' | 'downscaled' | 'effective_id' | 'end_date' | 'end_date_requested_by' | 'endpoints' | 'error_message' | 'error_traceback' | 'is_limit_based' | 'is_usage_based' | 'last_sync' | 'limit_usage' | 'limits' | 'modified' | 'name' | 'offering' | 'offering_billable' | 'offering_customer_uuid' | 'offering_description' | 'offering_image' | 'offering_name' | 'offering_plugin_options' | 'offering_shared' | 'offering_terms_of_service' | 'offering_thumbnail' | 'offering_type' | 'offering_uuid' | 'options' | 'order_in_progress' | 'parent_name' | 'parent_offering_name' | 'parent_offering_uuid' | 'parent_uuid' | 'paused' | 'plan' | 'plan_description' | 'plan_name' | 'plan_unit' | 'plan_uuid' | 'project' | 'project_description' | 'project_end_date' | 'project_end_date_requested_by' | 'project_name' | 'project_uuid' | 'provider_name' | 'provider_uuid' | 'report' | 'resource_type' | 'resource_uuid' | 'restrict_member_access' | 'scope' | 'slug' | 'state' | 'url' | 'username' | 'uuid'>;
+        /**
+         * Backend ID
+         */
+        backend_id?: string;
+        category_uuid?: string;
+        /**
+         * Created after
+         */
+        created?: string;
+        customer?: string;
+        customer_uuid?: string;
+        downscaled?: boolean;
+        /**
+         * LEXIS links supported
+         */
+        lexis_links_supported?: boolean;
+        /**
+         * Modified after
+         */
+        modified?: string;
+        name?: string;
+        name_exact?: string;
+        /**
+         * Ordering
+         *
+         * * `name` - Name
+         * * `-name` - Name (descending)
+         * * `created` - Created
+         * * `-created` - Created (descending)
+         * * `project_name` - Project name
+         * * `-project_name` - Project name (descending)
+         * * `state` - State
+         * * `-state` - State (descending)
+         */
+        o?: Array<'-created' | '-name' | '-project_name' | '-state' | 'created' | 'name' | 'project_name' | 'state'>;
+        offering?: string;
+        offering_billable?: string;
+        offering_type?: string;
+        offering_uuid?: string;
+        parent_offering_uuid?: string;
+        paused?: boolean;
+        project_name?: string;
+        project_uuid?: string;
+        provider_uuid?: string;
+        /**
+         * Query
+         */
+        query?: string;
+        restrict_member_access?: boolean;
+        /**
+         * Runtime state
+         */
+        runtime_state?: string;
+        /**
+         * Service Manager UUID
+         */
+        service_manager_uuid?: string;
+        /**
+         * * `Creating` - Creating
+         * * `OK` - OK
+         * * `Erred` - Erred
+         * * `Updating` - Updating
+         * * `Terminating` - Terminating
+         * * `Terminated` - Terminated
+         */
+        state?: Array<'Creating' | 'Erred' | 'OK' | 'Terminated' | 'Terminating' | 'Updating'>;
+        /**
+         * Visible to username
+         */
+        visible_to_username?: string;
     };
     url: '/api/marketplace-provider-resources/{uuid}/offering_for_subresources/';
 };
 
-export type MarketplaceProviderResourcesOfferingForSubresourcesRetrieveResponses = {
-    200: Resource;
+export type MarketplaceProviderResourcesOfferingForSubresourcesListResponses = {
+    200: Array<SubresourceOffering>;
 };
 
-export type MarketplaceProviderResourcesOfferingForSubresourcesRetrieveResponse = MarketplaceProviderResourcesOfferingForSubresourcesRetrieveResponses[keyof MarketplaceProviderResourcesOfferingForSubresourcesRetrieveResponses];
+export type MarketplaceProviderResourcesOfferingForSubresourcesListResponse = MarketplaceProviderResourcesOfferingForSubresourcesListResponses[keyof MarketplaceProviderResourcesOfferingForSubresourcesListResponses];
 
 export type MarketplaceProviderResourcesPlanPeriodsListData = {
     body?: never;
@@ -21029,19 +21529,81 @@ export type MarketplaceProviderResourcesPlanPeriodsListData = {
     };
     query?: {
         /**
-         * A page number within the paginated result set.
+         * Backend ID
          */
-        page?: number;
+        backend_id?: string;
+        category_uuid?: string;
         /**
-         * Number of results to return per page.
+         * Created after
          */
-        page_size?: number;
+        created?: string;
+        customer?: string;
+        customer_uuid?: string;
+        downscaled?: boolean;
+        /**
+         * LEXIS links supported
+         */
+        lexis_links_supported?: boolean;
+        /**
+         * Modified after
+         */
+        modified?: string;
+        name?: string;
+        name_exact?: string;
+        /**
+         * Ordering
+         *
+         * * `name` - Name
+         * * `-name` - Name (descending)
+         * * `created` - Created
+         * * `-created` - Created (descending)
+         * * `project_name` - Project name
+         * * `-project_name` - Project name (descending)
+         * * `state` - State
+         * * `-state` - State (descending)
+         */
+        o?: Array<'-created' | '-name' | '-project_name' | '-state' | 'created' | 'name' | 'project_name' | 'state'>;
+        offering?: string;
+        offering_billable?: string;
+        offering_type?: string;
+        offering_uuid?: string;
+        parent_offering_uuid?: string;
+        paused?: boolean;
+        project_name?: string;
+        project_uuid?: string;
+        provider_uuid?: string;
+        /**
+         * Query
+         */
+        query?: string;
+        restrict_member_access?: boolean;
+        /**
+         * Runtime state
+         */
+        runtime_state?: string;
+        /**
+         * Service Manager UUID
+         */
+        service_manager_uuid?: string;
+        /**
+         * * `Creating` - Creating
+         * * `OK` - OK
+         * * `Erred` - Erred
+         * * `Updating` - Updating
+         * * `Terminating` - Terminating
+         * * `Terminated` - Terminated
+         */
+        state?: Array<'Creating' | 'Erred' | 'OK' | 'Terminated' | 'Terminating' | 'Updating'>;
+        /**
+         * Visible to username
+         */
+        visible_to_username?: string;
     };
     url: '/api/marketplace-provider-resources/{uuid}/plan_periods/';
 };
 
 export type MarketplaceProviderResourcesPlanPeriodsListResponses = {
-    200: PaginatedResourcePlanPeriodList;
+    200: Array<ResourcePlanPeriod>;
 };
 
 export type MarketplaceProviderResourcesPlanPeriodsListResponse = MarketplaceProviderResourcesPlanPeriodsListResponses[keyof MarketplaceProviderResourcesPlanPeriodsListResponses];
@@ -21289,7 +21851,7 @@ export type MarketplacePublicOfferingsListData = {
         customer?: string;
         customer_uuid?: string;
         description?: string;
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'promotion_campaigns' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'promotion_campaigns' | 'quotas' | 'resource_options' | 'roles' | 'scope' | 'scope_name' | 'scope_state' | 'scope_uuid' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
         /**
          * Keyword
          */
@@ -21362,7 +21924,7 @@ export type MarketplacePublicOfferingsRetrieveData = {
         uuid: string;
     };
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'promotion_campaigns' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'promotion_campaigns' | 'quotas' | 'resource_options' | 'roles' | 'scope' | 'scope_name' | 'scope_state' | 'scope_uuid' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
     };
     url: '/api/marketplace-public-offerings/{uuid}/';
 };
@@ -21708,8 +22270,10 @@ export type MarketplaceResourcesListData = {
          * * `-created` - Created (descending)
          * * `project_name` - Project name
          * * `-project_name` - Project name (descending)
+         * * `state` - State
+         * * `-state` - State (descending)
          */
-        o?: Array<'-created' | '-name' | '-project_name' | 'created' | 'name' | 'project_name'>;
+        o?: Array<'-created' | '-name' | '-project_name' | '-state' | 'created' | 'name' | 'project_name' | 'state'>;
         offering?: string;
         offering_billable?: string;
         offering_type?: string;
@@ -21903,22 +22467,91 @@ export type MarketplaceResourcesOfferingRetrieveResponses = {
 
 export type MarketplaceResourcesOfferingRetrieveResponse = MarketplaceResourcesOfferingRetrieveResponses[keyof MarketplaceResourcesOfferingRetrieveResponses];
 
-export type MarketplaceResourcesOfferingForSubresourcesRetrieveData = {
+export type MarketplaceResourcesOfferingForSubresourcesListData = {
     body?: never;
     path: {
         uuid: string;
     };
     query?: {
-        field?: Array<'attributes' | 'available_actions' | 'backend_id' | 'backend_metadata' | 'can_terminate' | 'category_icon' | 'category_title' | 'category_uuid' | 'created' | 'creation_order' | 'current_usages' | 'customer_name' | 'customer_uuid' | 'description' | 'downscaled' | 'effective_id' | 'end_date' | 'end_date_requested_by' | 'endpoints' | 'error_message' | 'error_traceback' | 'is_limit_based' | 'is_usage_based' | 'last_sync' | 'limit_usage' | 'limits' | 'modified' | 'name' | 'offering' | 'offering_billable' | 'offering_customer_uuid' | 'offering_description' | 'offering_image' | 'offering_name' | 'offering_plugin_options' | 'offering_shared' | 'offering_terms_of_service' | 'offering_thumbnail' | 'offering_type' | 'offering_uuid' | 'options' | 'order_in_progress' | 'parent_name' | 'parent_offering_name' | 'parent_offering_uuid' | 'parent_uuid' | 'paused' | 'plan' | 'plan_description' | 'plan_name' | 'plan_unit' | 'plan_uuid' | 'project' | 'project_description' | 'project_end_date' | 'project_end_date_requested_by' | 'project_name' | 'project_uuid' | 'provider_name' | 'provider_uuid' | 'report' | 'resource_type' | 'resource_uuid' | 'restrict_member_access' | 'scope' | 'slug' | 'state' | 'url' | 'username' | 'uuid'>;
+        /**
+         * Backend ID
+         */
+        backend_id?: string;
+        category_uuid?: string;
+        /**
+         * Created after
+         */
+        created?: string;
+        customer?: string;
+        customer_uuid?: string;
+        downscaled?: boolean;
+        /**
+         * LEXIS links supported
+         */
+        lexis_links_supported?: boolean;
+        /**
+         * Modified after
+         */
+        modified?: string;
+        name?: string;
+        name_exact?: string;
+        /**
+         * Ordering
+         *
+         * * `name` - Name
+         * * `-name` - Name (descending)
+         * * `created` - Created
+         * * `-created` - Created (descending)
+         * * `project_name` - Project name
+         * * `-project_name` - Project name (descending)
+         * * `state` - State
+         * * `-state` - State (descending)
+         */
+        o?: Array<'-created' | '-name' | '-project_name' | '-state' | 'created' | 'name' | 'project_name' | 'state'>;
+        offering?: string;
+        offering_billable?: string;
+        offering_type?: string;
+        offering_uuid?: string;
+        parent_offering_uuid?: string;
+        paused?: boolean;
+        project_name?: string;
+        project_uuid?: string;
+        provider_uuid?: string;
+        /**
+         * Query
+         */
+        query?: string;
+        restrict_member_access?: boolean;
+        /**
+         * Runtime state
+         */
+        runtime_state?: string;
+        /**
+         * Service Manager UUID
+         */
+        service_manager_uuid?: string;
+        /**
+         * * `Creating` - Creating
+         * * `OK` - OK
+         * * `Erred` - Erred
+         * * `Updating` - Updating
+         * * `Terminating` - Terminating
+         * * `Terminated` - Terminated
+         */
+        state?: Array<'Creating' | 'Erred' | 'OK' | 'Terminated' | 'Terminating' | 'Updating'>;
+        /**
+         * Visible to username
+         */
+        visible_to_username?: string;
     };
     url: '/api/marketplace-resources/{uuid}/offering_for_subresources/';
 };
 
-export type MarketplaceResourcesOfferingForSubresourcesRetrieveResponses = {
-    200: Resource;
+export type MarketplaceResourcesOfferingForSubresourcesListResponses = {
+    200: Array<SubresourceOffering>;
 };
 
-export type MarketplaceResourcesOfferingForSubresourcesRetrieveResponse = MarketplaceResourcesOfferingForSubresourcesRetrieveResponses[keyof MarketplaceResourcesOfferingForSubresourcesRetrieveResponses];
+export type MarketplaceResourcesOfferingForSubresourcesListResponse = MarketplaceResourcesOfferingForSubresourcesListResponses[keyof MarketplaceResourcesOfferingForSubresourcesListResponses];
 
 export type MarketplaceResourcesPlanPeriodsListData = {
     body?: never;
@@ -21927,19 +22560,81 @@ export type MarketplaceResourcesPlanPeriodsListData = {
     };
     query?: {
         /**
-         * A page number within the paginated result set.
+         * Backend ID
          */
-        page?: number;
+        backend_id?: string;
+        category_uuid?: string;
         /**
-         * Number of results to return per page.
+         * Created after
          */
-        page_size?: number;
+        created?: string;
+        customer?: string;
+        customer_uuid?: string;
+        downscaled?: boolean;
+        /**
+         * LEXIS links supported
+         */
+        lexis_links_supported?: boolean;
+        /**
+         * Modified after
+         */
+        modified?: string;
+        name?: string;
+        name_exact?: string;
+        /**
+         * Ordering
+         *
+         * * `name` - Name
+         * * `-name` - Name (descending)
+         * * `created` - Created
+         * * `-created` - Created (descending)
+         * * `project_name` - Project name
+         * * `-project_name` - Project name (descending)
+         * * `state` - State
+         * * `-state` - State (descending)
+         */
+        o?: Array<'-created' | '-name' | '-project_name' | '-state' | 'created' | 'name' | 'project_name' | 'state'>;
+        offering?: string;
+        offering_billable?: string;
+        offering_type?: string;
+        offering_uuid?: string;
+        parent_offering_uuid?: string;
+        paused?: boolean;
+        project_name?: string;
+        project_uuid?: string;
+        provider_uuid?: string;
+        /**
+         * Query
+         */
+        query?: string;
+        restrict_member_access?: boolean;
+        /**
+         * Runtime state
+         */
+        runtime_state?: string;
+        /**
+         * Service Manager UUID
+         */
+        service_manager_uuid?: string;
+        /**
+         * * `Creating` - Creating
+         * * `OK` - OK
+         * * `Erred` - Erred
+         * * `Updating` - Updating
+         * * `Terminating` - Terminating
+         * * `Terminated` - Terminated
+         */
+        state?: Array<'Creating' | 'Erred' | 'OK' | 'Terminated' | 'Terminating' | 'Updating'>;
+        /**
+         * Visible to username
+         */
+        visible_to_username?: string;
     };
     url: '/api/marketplace-resources/{uuid}/plan_periods/';
 };
 
 export type MarketplaceResourcesPlanPeriodsListResponses = {
-    200: PaginatedResourcePlanPeriodList;
+    200: Array<ResourcePlanPeriod>;
 };
 
 export type MarketplaceResourcesPlanPeriodsListResponse = MarketplaceResourcesPlanPeriodsListResponses[keyof MarketplaceResourcesPlanPeriodsListResponses];
@@ -22418,7 +23113,7 @@ export type MarketplaceScriptDryRunListData = {
     body?: never;
     path?: never;
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'promotion_campaigns' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'promotion_campaigns' | 'quotas' | 'resource_options' | 'roles' | 'scope' | 'scope_name' | 'scope_state' | 'scope_uuid' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
         /**
          * A page number within the paginated result set.
          */
@@ -22474,7 +23169,7 @@ export type MarketplaceScriptDryRunRetrieveData = {
         uuid: string;
     };
     query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'promotion_campaigns' | 'quotas' | 'resource_options' | 'roles' | 'scope_name' | 'scope_state' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
+        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'promotion_campaigns' | 'quotas' | 'resource_options' | 'roles' | 'scope' | 'scope_name' | 'scope_state' | 'scope_uuid' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
     };
     url: '/api/marketplace-script-dry-run/{uuid}/';
 };
@@ -23024,16 +23719,55 @@ export type MarketplaceServiceProvidersOfferingsListData = {
         uuid: string;
     };
     query?: {
+        /**
+         * Filter by accessibility via calls
+         */
+        accessible_via_calls?: boolean;
+        /**
+         * Allowed customer UUID
+         */
+        allowed_customer_uuid?: string;
+        /**
+         * Filter by attributes
+         */
+        attributes?: string;
+        /**
+         * Filter by billable status
+         */
+        billable?: boolean;
+        /**
+         * Filter by category group UUID
+         */
+        category_group_uuid?: string;
+        /**
+         * Filter by category UUID
+         */
+        category_uuid?: string;
+        /**
+         * Filter by customer URL
+         */
         customer?: string;
         customer_keyword?: string;
+        /**
+         * Filter by customer UUID
+         */
         customer_uuid?: string;
         /**
-         * Ordering
-         *
-         * * `customer_name` - Customer name
-         * * `-customer_name` - Customer name (descending)
+         * Filter by description (case-insensitive contains)
          */
-        o?: Array<'-customer_name' | 'customer_name'>;
+        description?: string;
+        /**
+         * Filter by keyword
+         */
+        keyword?: string;
+        /**
+         * Ordering field
+         */
+        o?: '-created' | '-name' | '-state' | '-total_cost' | '-total_cost_estimated' | '-total_customers' | '-type' | 'created' | 'name' | 'state' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type';
+        /**
+         * Filter by organization group UUID
+         */
+        organization_group_uuid?: Array<string>;
         /**
          * A page number within the paginated result set.
          */
@@ -23042,6 +23776,34 @@ export type MarketplaceServiceProvidersOfferingsListData = {
          * Number of results to return per page.
          */
         page_size?: number;
+        /**
+         * Filter by parent UUID
+         */
+        parent_uuid?: string;
+        /**
+         * Project UUID
+         */
+        project_uuid?: string;
+        /**
+         * Scope UUID
+         */
+        scope_uuid?: string;
+        /**
+         * Service manager UUID
+         */
+        service_manager_uuid?: string;
+        /**
+         * Filter by shared status
+         */
+        shared?: boolean;
+        /**
+         * Filter by state
+         */
+        state?: Array<'Active' | 'Archived' | 'Draft' | 'Paused'>;
+        /**
+         * Filter by type
+         */
+        type?: Array<string>;
     };
     url: '/api/marketplace-service-providers/{uuid}/offerings/';
 };
@@ -24037,20 +24799,20 @@ export type OpenstackBackupsListData = {
 };
 
 export type OpenstackBackupsListResponses = {
-    200: PaginatedBackupList;
+    200: PaginatedOpenStackBackupList;
 };
 
 export type OpenstackBackupsListResponse = OpenstackBackupsListResponses[keyof OpenstackBackupsListResponses];
 
 export type OpenstackBackupsCreateData = {
-    body: BackupRequest;
+    body: OpenStackBackupRequest;
     path?: never;
     query?: never;
     url: '/api/openstack-backups/';
 };
 
 export type OpenstackBackupsCreateResponses = {
-    201: Backup;
+    201: OpenStackBackup;
 };
 
 export type OpenstackBackupsCreateResponse = OpenstackBackupsCreateResponses[keyof OpenstackBackupsCreateResponses];
@@ -24085,13 +24847,13 @@ export type OpenstackBackupsRetrieveData = {
 };
 
 export type OpenstackBackupsRetrieveResponses = {
-    200: Backup;
+    200: OpenStackBackup;
 };
 
 export type OpenstackBackupsRetrieveResponse = OpenstackBackupsRetrieveResponses[keyof OpenstackBackupsRetrieveResponses];
 
 export type OpenstackBackupsPartialUpdateData = {
-    body?: PatchedBackupRequest;
+    body?: PatchedOpenStackBackupRequest;
     path: {
         uuid: string;
     };
@@ -24100,13 +24862,13 @@ export type OpenstackBackupsPartialUpdateData = {
 };
 
 export type OpenstackBackupsPartialUpdateResponses = {
-    200: Backup;
+    200: OpenStackBackup;
 };
 
 export type OpenstackBackupsPartialUpdateResponse = OpenstackBackupsPartialUpdateResponses[keyof OpenstackBackupsPartialUpdateResponses];
 
 export type OpenstackBackupsUpdateData = {
-    body: BackupRequest;
+    body: OpenStackBackupRequest;
     path: {
         uuid: string;
     };
@@ -24115,7 +24877,7 @@ export type OpenstackBackupsUpdateData = {
 };
 
 export type OpenstackBackupsUpdateResponses = {
-    200: Backup;
+    200: OpenStackBackup;
 };
 
 export type OpenstackBackupsUpdateResponse = OpenstackBackupsUpdateResponses[keyof OpenstackBackupsUpdateResponses];
@@ -24146,7 +24908,7 @@ export type OpenstackBackupsRestoreData = {
 };
 
 export type OpenstackBackupsRestoreResponses = {
-    200: OpenStackBackupRestoration;
+    200: OpenStackInstance;
 };
 
 export type OpenstackBackupsRestoreResponse = OpenstackBackupsRestoreResponses[keyof OpenstackBackupsRestoreResponses];
@@ -24177,6 +24939,7 @@ export type OpenstackFlavorsListData = {
         disk?: number;
         disk__gte?: number;
         disk__lte?: number;
+        field?: Array<'backend_id' | 'cores' | 'disk' | 'display_name' | 'name' | 'ram' | 'settings' | 'url' | 'uuid'>;
         name?: string;
         name_exact?: string;
         name_iregex?: string;
@@ -24221,7 +24984,9 @@ export type OpenstackFlavorsRetrieveData = {
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        field?: Array<'backend_id' | 'cores' | 'disk' | 'display_name' | 'name' | 'ram' | 'settings' | 'url' | 'uuid'>;
+    };
     url: '/api/openstack-flavors/{uuid}/';
 };
 
@@ -24234,7 +24999,9 @@ export type OpenstackFlavorsRetrieveResponse = OpenstackFlavorsRetrieveResponses
 export type OpenstackFlavorsUsageStatsRetrieveData = {
     body?: never;
     path?: never;
-    query?: never;
+    query?: {
+        field?: Array<'backend_id' | 'cores' | 'disk' | 'display_name' | 'name' | 'ram' | 'settings' | 'url' | 'uuid'>;
+    };
     url: '/api/openstack-flavors/usage_stats/';
 };
 
@@ -24690,7 +25457,7 @@ export type OpenstackInstancesUpdateResponses = {
 export type OpenstackInstancesUpdateResponse = OpenstackInstancesUpdateResponses[keyof OpenstackInstancesUpdateResponses];
 
 export type OpenstackInstancesBackupData = {
-    body: BackupRequest;
+    body: OpenStackBackupRequest;
     path: {
         uuid: string;
     };
@@ -24699,7 +25466,7 @@ export type OpenstackInstancesBackupData = {
 };
 
 export type OpenstackInstancesBackupResponses = {
-    200: Backup;
+    200: OpenStackBackup;
 };
 
 export type OpenstackInstancesBackupResponse = OpenstackInstancesBackupResponses[keyof OpenstackInstancesBackupResponses];
@@ -25109,7 +25876,7 @@ export type OpenstackMigrationsUpdateResponses = {
 export type OpenstackMigrationsUpdateResponse = OpenstackMigrationsUpdateResponses[keyof OpenstackMigrationsUpdateResponses];
 
 export type OpenstackMigrationsRunData = {
-    body: MigrationDetailsRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -25118,10 +25885,11 @@ export type OpenstackMigrationsRunData = {
 };
 
 export type OpenstackMigrationsRunResponses = {
-    200: MigrationDetails;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type OpenstackMigrationsRunResponse = OpenstackMigrationsRunResponses[keyof OpenstackMigrationsRunResponses];
 
 export type OpenstackNetworksListData = {
     body?: never;
@@ -25822,20 +26590,20 @@ export type OpenstackServerGroupsListData = {
 };
 
 export type OpenstackServerGroupsListResponses = {
-    200: PaginatedOpenStackCreateServerGroupList;
+    200: PaginatedOpenStackServerGroupList;
 };
 
 export type OpenstackServerGroupsListResponse = OpenstackServerGroupsListResponses[keyof OpenstackServerGroupsListResponses];
 
 export type OpenstackServerGroupsCreateData = {
-    body: OpenStackCreateServerGroupRequest;
+    body: OpenStackServerGroupRequest;
     path?: never;
     query?: never;
     url: '/api/openstack-server-groups/';
 };
 
 export type OpenstackServerGroupsCreateResponses = {
-    201: OpenStackCreateServerGroup;
+    201: OpenStackServerGroup;
 };
 
 export type OpenstackServerGroupsCreateResponse = OpenstackServerGroupsCreateResponses[keyof OpenstackServerGroupsCreateResponses];
@@ -25870,13 +26638,13 @@ export type OpenstackServerGroupsRetrieveData = {
 };
 
 export type OpenstackServerGroupsRetrieveResponses = {
-    200: OpenStackCreateServerGroup;
+    200: OpenStackServerGroup;
 };
 
 export type OpenstackServerGroupsRetrieveResponse = OpenstackServerGroupsRetrieveResponses[keyof OpenstackServerGroupsRetrieveResponses];
 
 export type OpenstackServerGroupsPartialUpdateData = {
-    body?: PatchedOpenStackCreateServerGroupRequest;
+    body?: PatchedOpenStackServerGroupRequest;
     path: {
         uuid: string;
     };
@@ -25885,13 +26653,13 @@ export type OpenstackServerGroupsPartialUpdateData = {
 };
 
 export type OpenstackServerGroupsPartialUpdateResponses = {
-    200: OpenStackCreateServerGroup;
+    200: OpenStackServerGroup;
 };
 
 export type OpenstackServerGroupsPartialUpdateResponse = OpenstackServerGroupsPartialUpdateResponses[keyof OpenstackServerGroupsPartialUpdateResponses];
 
 export type OpenstackServerGroupsUpdateData = {
-    body: OpenStackCreateServerGroupRequest;
+    body: OpenStackServerGroupRequest;
     path: {
         uuid: string;
     };
@@ -25900,7 +26668,7 @@ export type OpenstackServerGroupsUpdateData = {
 };
 
 export type OpenstackServerGroupsUpdateResponses = {
-    200: OpenStackCreateServerGroup;
+    200: OpenStackServerGroup;
 };
 
 export type OpenstackServerGroupsUpdateResponse = OpenstackServerGroupsUpdateResponses[keyof OpenstackServerGroupsUpdateResponses];
@@ -26667,7 +27435,7 @@ export type OpenstackTenantsCreateSecurityGroupResponses = {
 export type OpenstackTenantsCreateSecurityGroupResponse = OpenstackTenantsCreateSecurityGroupResponses[keyof OpenstackTenantsCreateSecurityGroupResponses];
 
 export type OpenstackTenantsCreateServerGroupData = {
-    body: OpenStackCreateServerGroupRequest;
+    body: OpenStackServerGroupRequest;
     path: {
         uuid: string;
     };
@@ -26676,7 +27444,7 @@ export type OpenstackTenantsCreateServerGroupData = {
 };
 
 export type OpenstackTenantsCreateServerGroupResponses = {
-    200: OpenStackCreateServerGroup;
+    200: OpenStackServerGroup;
 };
 
 export type OpenstackTenantsCreateServerGroupResponse = OpenstackTenantsCreateServerGroupResponses[keyof OpenstackTenantsCreateServerGroupResponses];
@@ -27236,11 +28004,132 @@ export type OverrideSettingsRetrieveData = {
     url: '/api/override-settings/';
 };
 
+export type ConstanceSettings = {
+    SITE_NAME?: string;
+    SITE_DESCRIPTION?: string;
+    HOMEPORT_URL?: string;
+    SITE_ADDRESS?: string;
+    SITE_EMAIL?: string;
+    SITE_PHONE?: string;
+    CURRENCY_NAME?: string;
+    THUMBNAIL_SIZE?: string;
+    ANONYMOUS_USER_CAN_VIEW_OFFERINGS?: boolean;
+    ANONYMOUS_USER_CAN_VIEW_PLANS?: boolean;
+    NOTIFY_STAFF_ABOUT_APPROVALS?: boolean;
+    NOTIFY_ABOUT_RESOURCE_CHANGE?: boolean;
+    DISABLE_SENDING_NOTIFICATIONS_ABOUT_RESOURCE_UPDATE?: boolean;
+    MARKETPLACE_LANDING_PAGE?: string;
+    ENABLE_STALE_RESOURCE_NOTIFICATIONS?: boolean;
+    ENABLE_RESOURCE_END_DATE?: boolean;
+    TELEMETRY_URL?: string;
+    TELEMETRY_VERSION?: number;
+    SCRIPT_RUN_MODE?: string;
+    DOCKER_CLIENT?: string;
+    DOCKER_RUN_OPTIONS?: string;
+    DOCKER_SCRIPT_DIR?: string;
+    DOCKER_REMOVE_CONTAINER?: boolean;
+    DOCKER_IMAGES?: string;
+    DOCKER_VOLUME_NAME?: string;
+    K8S_NAMESPACE?: string;
+    K8S_CONFIG_PATH?: string;
+    K8S_JOB_TIMEOUT?: number;
+    ENABLE_STRICT_CHECK_ACCEPTING_INVITATION?: boolean;
+    INVITATION_DISABLE_MULTIPLE_ROLES?: boolean;
+    DEFAULT_IDP?: string;
+    DOCS_URL?: string;
+    SHORT_PAGE_TITLE?: string;
+    FULL_PAGE_TITLE?: string;
+    BRAND_COLOR?: string;
+    BRAND_LABEL_COLOR?: string;
+    HERO_LINK_LABEL?: string;
+    HERO_LINK_URL?: string;
+    SUPPORT_PORTAL_URL?: string;
+    COMMON_FOOTER_TEXT?: string;
+    COMMON_FOOTER_HTML?: string;
+    LANGUAGE_CHOICES?: string;
+    DISABLE_DARK_THEME?: boolean;
+    POWERED_BY_LOGO?: string | null;
+    HERO_IMAGE?: string | null;
+    SIDEBAR_LOGO?: string | null;
+    SIDEBAR_LOGO_DARK?: string | null;
+    SIDEBAR_LOGO_MOBILE?: string | null;
+    SIDEBAR_STYLE?: string;
+    SITE_LOGO?: string | null;
+    LOGIN_LOGO?: string | null;
+    FAVICON?: string | null;
+    OFFERING_LOGO_PLACEHOLDER?: string | null;
+    WALDUR_SUPPORT_ENABLED?: boolean;
+    WALDUR_SUPPORT_ACTIVE_BACKEND_TYPE?: string;
+    WALDUR_SUPPORT_DISPLAY_REQUEST_TYPE?: boolean;
+    ATLASSIAN_USE_OLD_API?: boolean;
+    ATLASSIAN_USE_TEENAGE_API?: boolean;
+    ATLASSIAN_USE_AUTOMATIC_REQUEST_MAPPING?: boolean;
+    ATLASSIAN_MAP_WALDUR_USERS_TO_SERVICEDESK_AGENTS?: boolean;
+    ATLASSIAN_STRANGE_SETTING?: number;
+    ATLASSIAN_API_URL?: string;
+    ATLASSIAN_USERNAME?: string;
+    ATLASSIAN_PASSWORD?: string;
+    ATLASSIAN_EMAIL?: string;
+    ATLASSIAN_TOKEN?: string;
+    ATLASSIAN_VERIFY_SSL?: boolean;
+    ATLASSIAN_PROJECT_ID?: string;
+    ATLASSIAN_SHARED_USERNAME?: boolean;
+    ATLASSIAN_CUSTOM_ISSUE_FIELD_MAPPING_ENABLED?: boolean;
+    ATLASSIAN_DEFAULT_OFFERING_ISSUE_TYPE?: string;
+    ATLASSIAN_EXCLUDED_ATTACHMENT_TYPES?: string;
+    ATLASSIAN_PULL_PRIORITIES?: boolean;
+    ATLASSIAN_ISSUE_TYPES?: string;
+    ATLASSIAN_DESCRIPTION_TEMPLATE?: string;
+    ATLASSIAN_SUMMARY_TEMPLATE?: string;
+    ATLASSIAN_AFFECTED_RESOURCE_FIELD?: string;
+    ATLASSIAN_IMPACT_FIELD?: string;
+    ATLASSIAN_ORGANISATION_FIELD?: string;
+    ATLASSIAN_RESOLUTION_SLA_FIELD?: string;
+    ATLASSIAN_PROJECT_FIELD?: string;
+    ATLASSIAN_REPORTER_FIELD?: string;
+    ATLASSIAN_CALLER_FIELD?: string;
+    ATLASSIAN_SLA_FIELD?: string;
+    ATLASSIAN_LINKED_ISSUE_TYPE?: string;
+    ATLASSIAN_SATISFACTION_FIELD?: string;
+    ATLASSIAN_REQUEST_FEEDBACK_FIELD?: string;
+    ATLASSIAN_TEMPLATE_FIELD?: string;
+    ZAMMAD_API_URL?: string;
+    ZAMMAD_TOKEN?: string;
+    ZAMMAD_GROUP?: string;
+    ZAMMAD_ARTICLE_TYPE?: string;
+    ZAMMAD_COMMENT_MARKER?: string;
+    ZAMMAD_COMMENT_PREFIX?: string;
+    ZAMMAD_COMMENT_COOLDOWN_DURATION?: number;
+    SMAX_API_URL?: string;
+    SMAX_TENANT_ID?: string;
+    SMAX_LOGIN?: string;
+    SMAX_PASSWORD?: string;
+    SMAX_ORGANISATION_FIELD?: string;
+    SMAX_PROJECT_FIELD?: string;
+    SMAX_AFFECTED_RESOURCE_FIELD?: string;
+    SMAX_TIMES_TO_PULL?: number;
+    SMAX_SECONDS_TO_WAIT?: number;
+    SMAX_CREATION_SOURCE_NAME?: string;
+    SMAX_REQUESTS_OFFERING?: string;
+    SMAX_VERIFY_SSL?: boolean;
+    PROPOSAL_REVIEW_DURATION?: number;
+    USER_TABLE_COLUMNS?: string;
+    AUTO_APPROVE_USER_TOS?: boolean;
+    FREEIPA_ENABLED?: boolean;
+    FREEIPA_HOSTNAME?: string;
+    FREEIPA_USERNAME?: string;
+    FREEIPA_PASSWORD?: string;
+    FREEIPA_VERIFY_SSL?: boolean;
+    FREEIPA_USERNAME_PREFIX?: string;
+    FREEIPA_GROUPNAME_PREFIX?: string;
+    FREEIPA_BLACKLISTED_USERNAMES?: Array<string>;
+    FREEIPA_GROUP_SYNCHRONIZATION_ENABLED?: boolean;
+    KEYCLOAK_ICON?: string | null;
+    COUNTRIES?: Array<string>;
+};
+
 export type OverrideSettingsRetrieveResponses = {
-    /**
-     * No response body
-     */
-    200: unknown;
+    200: ConstanceSettings;
 };
 
 export type OverrideSettingsData = {
@@ -27705,6 +28594,14 @@ export type ProjectsListData = {
     path?: never;
     query?: {
         backend_id?: string;
+        /**
+         * Return a list of projects where current user is admin.
+         */
+        can_admin?: boolean;
+        /**
+         * Return a list of projects where current user is manager or a customer owner.
+         */
+        can_manage?: boolean;
         created?: string;
         /**
          * Multiple values may be separated by commas.
@@ -27889,6 +28786,14 @@ export type ProjectsListUsersListData = {
     };
     query?: {
         backend_id?: string;
+        /**
+         * Return a list of projects where current user is admin.
+         */
+        can_admin?: boolean;
+        /**
+         * Return a list of projects where current user is manager or a customer owner.
+         */
+        can_manage?: boolean;
         created?: string;
         /**
          * Multiple values may be separated by commas.
@@ -28690,7 +29595,7 @@ export type ProposalProposalsResourcesUpdateResponses = {
 export type ProposalProposalsResourcesUpdateResponse = ProposalProposalsResourcesUpdateResponses[keyof ProposalProposalsResourcesUpdateResponses];
 
 export type ProposalProposalsSubmitData = {
-    body: ProposalRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -28699,10 +29604,11 @@ export type ProposalProposalsSubmitData = {
 };
 
 export type ProposalProposalsSubmitResponses = {
-    200: Proposal;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type ProposalProposalsSubmitResponse = ProposalProposalsSubmitResponses[keyof ProposalProposalsSubmitResponses];
 
 export type ProposalProposalsUpdateProjectDetailsData = {
     body: ProposalUpdateProjectDetailsRequest;
@@ -28714,10 +29620,11 @@ export type ProposalProposalsUpdateProjectDetailsData = {
 };
 
 export type ProposalProposalsUpdateProjectDetailsResponses = {
-    200: ProposalUpdateProjectDetails;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type ProposalProposalsUpdateProjectDetailsResponse = ProposalProposalsUpdateProjectDetailsResponses[keyof ProposalProposalsUpdateProjectDetailsResponses];
 
 export type ProposalProposalsUpdateUserData = {
     body: UserRoleUpdateRequest;
@@ -31140,7 +32047,9 @@ export type RancherNodesConsoleLogRetrieveData = {
     path: {
         uuid: string;
     };
-    query?: never;
+    query?: {
+        length?: number;
+    };
     url: '/api/rancher-nodes/{uuid}/console_log/';
 };
 
@@ -31206,7 +32115,7 @@ export type RancherNodesUnlinkResponses = {
 };
 
 export type RancherNodesUnlinkOpenstackData = {
-    body: RancherNodeRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -31215,10 +32124,11 @@ export type RancherNodesUnlinkOpenstackData = {
 };
 
 export type RancherNodesUnlinkOpenstackResponses = {
-    200: RancherNode;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type RancherNodesUnlinkOpenstackResponse = RancherNodesUnlinkOpenstackResponses[keyof RancherNodesUnlinkOpenstackResponses];
 
 export type RancherProjectsListData = {
     body?: never;
@@ -31325,20 +32235,20 @@ export type RancherServicesListData = {
 };
 
 export type RancherServicesListResponses = {
-    200: PaginatedServiceList;
+    200: PaginatedRancherServiceList;
 };
 
 export type RancherServicesListResponse = RancherServicesListResponses[keyof RancherServicesListResponses];
 
 export type RancherServicesCreateData = {
-    body: ServiceRequest;
+    body: RancherServiceRequest;
     path?: never;
     query?: never;
     url: '/api/rancher-services/';
 };
 
 export type RancherServicesCreateResponses = {
-    201: Service;
+    201: RancherService;
 };
 
 export type RancherServicesCreateResponse = RancherServicesCreateResponses[keyof RancherServicesCreateResponses];
@@ -31373,13 +32283,13 @@ export type RancherServicesRetrieveData = {
 };
 
 export type RancherServicesRetrieveResponses = {
-    200: Service;
+    200: RancherService;
 };
 
 export type RancherServicesRetrieveResponse = RancherServicesRetrieveResponses[keyof RancherServicesRetrieveResponses];
 
 export type RancherServicesPartialUpdateData = {
-    body?: PatchedServiceRequest;
+    body?: PatchedRancherServiceRequest;
     path: {
         uuid: string;
     };
@@ -31388,13 +32298,13 @@ export type RancherServicesPartialUpdateData = {
 };
 
 export type RancherServicesPartialUpdateResponses = {
-    200: Service;
+    200: RancherService;
 };
 
 export type RancherServicesPartialUpdateResponse = RancherServicesPartialUpdateResponses[keyof RancherServicesPartialUpdateResponses];
 
 export type RancherServicesUpdateData = {
-    body: ServiceRequest;
+    body: RancherServiceRequest;
     path: {
         uuid: string;
     };
@@ -31403,7 +32313,7 @@ export type RancherServicesUpdateData = {
 };
 
 export type RancherServicesUpdateResponses = {
-    200: Service;
+    200: RancherService;
 };
 
 export type RancherServicesUpdateResponse = RancherServicesUpdateResponses[keyof RancherServicesUpdateResponses];
@@ -31452,13 +32362,13 @@ export type RancherServicesYamlRetrieveData = {
 };
 
 export type RancherServicesYamlRetrieveResponses = {
-    200: Service;
+    200: RancherService;
 };
 
 export type RancherServicesYamlRetrieveResponse = RancherServicesYamlRetrieveResponses[keyof RancherServicesYamlRetrieveResponses];
 
 export type RancherServicesYamlUpdateData = {
-    body: ServiceRequest;
+    body: RancherServiceRequest;
     path: {
         uuid: string;
     };
@@ -31467,7 +32377,7 @@ export type RancherServicesYamlUpdateData = {
 };
 
 export type RancherServicesYamlUpdateResponses = {
-    200: Service;
+    200: RancherService;
 };
 
 export type RancherServicesYamlUpdateResponse = RancherServicesYamlUpdateResponses[keyof RancherServicesYamlUpdateResponses];
@@ -31483,11 +32393,10 @@ export type RancherTemplateVersionsRetrieveData = {
 };
 
 export type RancherTemplateVersionsRetrieveResponses = {
-    /**
-     * No response body
-     */
-    200: unknown;
+    200: TemplateVersion;
 };
+
+export type RancherTemplateVersionsRetrieveResponse = RancherTemplateVersionsRetrieveResponses[keyof RancherTemplateVersionsRetrieveResponses];
 
 export type RancherTemplatesListData = {
     body?: never;
@@ -31771,7 +32680,7 @@ export type RancherWorkloadsUpdateResponses = {
 export type RancherWorkloadsUpdateResponse = RancherWorkloadsUpdateResponses[keyof RancherWorkloadsUpdateResponses];
 
 export type RancherWorkloadsRedeployData = {
-    body: RancherWorkloadRequest;
+    body?: never;
     path: {
         uuid: string;
     };
@@ -31780,10 +32689,11 @@ export type RancherWorkloadsRedeployData = {
 };
 
 export type RancherWorkloadsRedeployResponses = {
-    200: RancherWorkload;
+    /**
+     * No response body
+     */
+    200: unknown;
 };
-
-export type RancherWorkloadsRedeployResponse = RancherWorkloadsRedeployResponses[keyof RancherWorkloadsRedeployResponses];
 
 export type RancherWorkloadsYamlRetrieveData = {
     body?: never;
@@ -31823,8 +32733,10 @@ export type RemoteEduteamsData = {
 };
 
 export type RemoteEduteamsResponses = {
-    200: unknown;
+    200: RemoteEduteamsResponse;
 };
+
+export type RemoteEduteamsResponse2 = RemoteEduteamsResponses[keyof RemoteEduteamsResponses];
 
 export type RemoteWaldurApiCancelTerminationData = {
     body?: never;
@@ -32654,20 +33566,20 @@ export type SlurmJobsListData = {
 };
 
 export type SlurmJobsListResponses = {
-    200: PaginatedJobList;
+    200: PaginatedFirecrestJobList;
 };
 
 export type SlurmJobsListResponse = SlurmJobsListResponses[keyof SlurmJobsListResponses];
 
 export type SlurmJobsCreateData = {
-    body: JobRequest;
+    body: FirecrestJobRequest;
     path?: never;
     query?: never;
     url: '/api/slurm-jobs/';
 };
 
 export type SlurmJobsCreateResponses = {
-    201: Job;
+    201: FirecrestJob;
 };
 
 export type SlurmJobsCreateResponse = SlurmJobsCreateResponses[keyof SlurmJobsCreateResponses];
@@ -32702,13 +33614,13 @@ export type SlurmJobsRetrieveData = {
 };
 
 export type SlurmJobsRetrieveResponses = {
-    200: Job;
+    200: FirecrestJob;
 };
 
 export type SlurmJobsRetrieveResponse = SlurmJobsRetrieveResponses[keyof SlurmJobsRetrieveResponses];
 
 export type SlurmJobsPartialUpdateData = {
-    body?: PatchedJobRequest;
+    body?: PatchedFirecrestJobRequest;
     path: {
         uuid: string;
     };
@@ -32717,13 +33629,13 @@ export type SlurmJobsPartialUpdateData = {
 };
 
 export type SlurmJobsPartialUpdateResponses = {
-    200: Job;
+    200: FirecrestJob;
 };
 
 export type SlurmJobsPartialUpdateResponse = SlurmJobsPartialUpdateResponses[keyof SlurmJobsPartialUpdateResponses];
 
 export type SlurmJobsUpdateData = {
-    body: JobRequest;
+    body: FirecrestJobRequest;
     path: {
         uuid: string;
     };
@@ -32732,7 +33644,7 @@ export type SlurmJobsUpdateData = {
 };
 
 export type SlurmJobsUpdateResponses = {
-    200: Job;
+    200: FirecrestJob;
 };
 
 export type SlurmJobsUpdateResponse = SlurmJobsUpdateResponses[keyof SlurmJobsUpdateResponses];

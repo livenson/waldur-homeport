@@ -4,19 +4,24 @@ import {
   keysRetrieve,
   OpenStackFlavor,
   openstackFlavorsRetrieve,
+  OpenStackFloatingIp,
+  openstackFloatingIpsRetrieve,
   OpenStackImage,
   openstackImagesRetrieve,
   OpenStackInstanceAvailabilityZone,
   openstackInstanceAvailabilityZonesRetrieve,
+  OpenStackSecurityGroup,
+  openstackSecurityGroupsRetrieve,
+  OpenStackSubNet,
+  openstackSubnetsRetrieve,
   OpenStackVolumeType,
   openstackVolumeTypesRetrieve,
+  SshKey,
 } from '@waldur/api';
-import { get } from '@waldur/core/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { getUUID } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';
 import { OrderDetailsProps } from '@waldur/marketplace/types';
-import { FloatingIp } from '@waldur/openstack/openstack-instance/types';
 import {
   formatSubnet,
   formatVolumeTypeLabel,
@@ -37,10 +42,13 @@ export const OpenstackInstanceDetails = (props: OrderDetailsProps) => {
       dataVolumeType: OpenStackVolumeType,
       flavor: OpenStackFlavor,
       image: OpenStackImage,
-      publicKey,
+      publicKey: SshKey,
       systemVolumeType: OpenStackVolumeType,
-      networks,
-      securityGroups;
+      networks: Array<{
+        subnet: OpenStackSubNet;
+        floatingIp: OpenStackFloatingIp;
+      }>,
+      securityGroups: OpenStackSecurityGroup[];
     if (attributes.availability_zone) {
       availabilityZone = await openstackInstanceAvailabilityZonesRetrieve({
         path: { uuid: getUUID(attributes.availability_zone) },
@@ -85,18 +93,17 @@ export const OpenstackInstanceDetails = (props: OrderDetailsProps) => {
         const defaults = getDefaultFloatingIps();
         networks = await Promise.all(
           Object.keys(networksMap).map(async (key) => {
-            const subnet = await get(key).then((response) => response.data);
+            const subnet = await openstackSubnetsRetrieve({
+              path: { uuid: getUUID(key) },
+            }).then((response) => response.data);
             const value = networksMap[key];
             let floatingIp = defaults.find((s) => s.url === value);
             if (value !== 'true' && value !== 'false')
-              floatingIp = await get<FloatingIp>(value).then(
-                (response) => response.data,
-              );
+              floatingIp = await openstackFloatingIpsRetrieve({
+                path: { uuid: getUUID(value) },
+              }).then((response) => response.data);
             return {
-              subnet: {
-                ...subnet,
-                label: formatSubnet(subnet),
-              },
+              subnet,
               floatingIp,
             };
           }),
@@ -108,9 +115,11 @@ export const OpenstackInstanceDetails = (props: OrderDetailsProps) => {
     if (attributes.security_groups) {
       try {
         securityGroups = await Promise.all(
-          attributes.security_groups.map(async (item) => {
-            return await get(item.url).then((response) => response.data);
-          }),
+          attributes.security_groups.map((item) =>
+            openstackSecurityGroupsRetrieve({
+              path: { uuid: getUUID(item.url) },
+            }).then((response) => response.data),
+          ),
         );
       } catch {
         securityGroups = null;
@@ -152,9 +161,9 @@ export const OpenstackInstanceDetails = (props: OrderDetailsProps) => {
           {attributesData.availabilityZone.name}
         </Field>
       )}
-      {attributes.system_volume_size && (
+      {attributes['system_volume_size'] && (
         <Field label={translate('System volume size')}>
-          {attributes.system_volume_size / 1024} GB
+          {attributes['system_volume_size'] / 1024} GB
         </Field>
       )}
       {attributesData?.systemVolumeType && (
@@ -162,9 +171,9 @@ export const OpenstackInstanceDetails = (props: OrderDetailsProps) => {
           {formatVolumeTypeLabel(attributesData.systemVolumeType)}
         </Field>
       )}
-      {attributes.data_volume_size && (
+      {attributes['data_volume_size'] && (
         <Field label={translate('Data volume size')}>
-          {attributes.data_volume_size / 1024} GB
+          {attributes['data_volume_size'] / 1024} GB
         </Field>
       )}
       {attributesData?.dataVolumeType && (
@@ -188,16 +197,16 @@ export const OpenstackInstanceDetails = (props: OrderDetailsProps) => {
         <Field label={translate('Networks')}>
           {attributesData.networks.map((network, index) => (
             <p key={index}>
-              {network.subnet.label}
+              {formatSubnet(network.subnet)}
               <br />
               {network.floatingIp.address}
             </p>
           ))}
         </Field>
       )}
-      {attributes.user_data && (
+      {attributes['user_data'] && (
         <Field label={translate('User data')}>
-          <pre>{attributes.user_data}</pre>
+          <pre>{attributes['user_data']}</pre>
         </Field>
       )}
     </>

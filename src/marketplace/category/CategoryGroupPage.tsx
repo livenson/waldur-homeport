@@ -2,10 +2,13 @@ import { useQuery } from '@tanstack/react-query';
 import { useCurrentStateAndParams } from '@uirouter/react';
 import { FunctionComponent } from 'react';
 
-import { marketplaceCategoryGroupsRetrieve } from '@waldur/api';
+import {
+  marketplaceCategoriesList,
+  marketplaceCategoryGroupsRetrieve,
+} from '@waldur/api';
+import { getAllPages } from '@waldur/core/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
-import { getCategories } from '@waldur/marketplace/common/api';
 import { useFullPage } from '@waldur/navigation/context';
 import { useTitle } from '@waldur/navigation/title';
 
@@ -23,7 +26,9 @@ export const CategoryGroupPage: FunctionComponent = () => {
     queryFn: () =>
       Promise.all([
         marketplaceCategoryGroupsRetrieve({ path: { uuid: group_uuid } }),
-        getCategories({ params: { group_uuid } }),
+        getAllPages((page) =>
+          marketplaceCategoriesList({ query: { page, group_uuid } }),
+        ),
       ]).then(([groupResponse, categories]) => ({
         ...groupResponse.data,
         categories,

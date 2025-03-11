@@ -2,8 +2,9 @@ import { Info, WarningCircle, XCircle } from '@phosphor-icons/react';
 import { useQuery } from '@tanstack/react-query';
 import { Button } from 'react-bootstrap';
 
-import { getAdminAnnouncements } from '@waldur/administration/api';
 import { AnnouncementTypeOptions } from '@waldur/administration/utils';
+import { adminAnnouncementsList } from '@waldur/api';
+import { getAllPages } from '@waldur/core/api';
 import { RadarIcon } from '@waldur/core/RadarIcon';
 import { translate } from '@waldur/i18n';
 
@@ -28,7 +29,8 @@ const getTypeLabel = (type) =>
 export const Announcements = () => {
   const { isLoading, error, data, refetch } = useQuery(
     ['adminAnnouncements'],
-    () => getAdminAnnouncements({ params: { is_active: true } }),
+    () =>
+      getAllPages(() => adminAnnouncementsList({ query: { is_active: true } })),
     {
       staleTime: 1000 * 60 * 5,
       cacheTime: 1000 * 60 * 60, // Keep cached data for 60 minutes

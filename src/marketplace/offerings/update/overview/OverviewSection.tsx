@@ -12,7 +12,7 @@ import { OfferingSectionProps } from '../types';
 import { EditGettingStartedButton } from './EditGettingStartedButton';
 import { EditOverviewButton } from './EditOverviewButton';
 import { OfferingLocationButton } from './OfferingLocationButton';
-import { OfferingLogoButton } from './OfferingLogoButton';
+import { OfferingMediaButton } from './OfferingMediaButton';
 import { SetAccessPolicyButton } from './SetAccessPolicyButton';
 import { Attribute } from './types';
 
@@ -186,9 +186,29 @@ export const OverviewSection: FC<OfferingSectionProps> = (props) => {
             'Upload an image to represent the offering visually.',
           )}
           actions={
-            <OfferingLogoButton
+            <OfferingMediaButton
               offering={props.offering}
               refetch={props.refetch}
+              mediaType="thumbnail"
+            />
+          }
+        />
+        <FormTable.Item
+          key="image"
+          label={translate('Image')}
+          value={
+            props.offering.image ? (
+              <Check weight="bold" className="text-info" />
+            ) : (
+              <X weight="bold" className="text-danger" />
+            )
+          }
+          description={translate('Upload a background image for the offering.')}
+          actions={
+            <OfferingMediaButton
+              offering={props.offering}
+              refetch={props.refetch}
+              mediaType="image"
             />
           }
         />

@@ -28,7 +28,6 @@ export const TeamDropdownActions = ({ refetch }: TeamDropdownActionsProps) => {
           roleTypes={['customer', 'project']}
           refetch={refetch}
           enableBulkUpload={true}
-          asDropdownItem
         />
         <GroupInvitationCreateButton refetch={refetch} />
         <UserAddButton refetch={refetch} />

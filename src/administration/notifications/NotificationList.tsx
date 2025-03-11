@@ -4,6 +4,7 @@ import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
 
+import { Notification } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { Tip } from '@waldur/core/Tooltip';
 import { translate } from '@waldur/i18n';
@@ -48,7 +49,7 @@ export const NotificationList = () => {
     return row.templates.some((template) => template.is_content_overridden);
   };
   return (
-    <Table
+    <Table<Notification>
       {...tableProps}
       columns={[
         {

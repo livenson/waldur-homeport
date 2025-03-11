@@ -1,7 +1,9 @@
 import {
+  BasePublicPlan,
   marketplacePublicOfferingsPlansRetrieve,
   marketplacePublicOfferingsRetrieve,
   marketplaceResourcesRetrieve,
+  PublicOfferingDetails,
   Resource,
 } from '@waldur/api';
 import {
@@ -14,12 +16,11 @@ import { getBillingPeriods } from '@waldur/marketplace/common/utils';
 import { parseOfferingLimits } from '@waldur/marketplace/offerings/store/limits';
 import { OfferingLimits } from '@waldur/marketplace/offerings/store/types';
 import { StateProps } from '@waldur/marketplace/resources/change-limits/connector';
-import { Offering, Plan } from '@waldur/marketplace/types';
 
 export interface FetchedData {
   resource: Resource;
-  offering: Offering;
-  plan: Plan;
+  offering: PublicOfferingDetails;
+  plan: BasePublicPlan;
   limitSerializer: LimitParser;
   usages: Limits;
   limits: Limits;
@@ -31,9 +32,9 @@ export async function loadData(resource_uuid): Promise<FetchedData> {
   const resource = await marketplaceResourcesRetrieve({
     path: { uuid: resource_uuid },
   }).then((r) => r.data);
-  const offering = (await marketplacePublicOfferingsRetrieve({
+  const offering = await marketplacePublicOfferingsRetrieve({
     path: { uuid: resource.offering_uuid },
-  }).then((response) => response.data)) as Offering;
+  }).then((response) => response.data);
   const plan = await marketplacePublicOfferingsPlansRetrieve({
     path: { uuid: resource.offering_uuid, plan_uuid: resource.plan_uuid },
   }).then((response) => response.data);

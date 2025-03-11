@@ -3,17 +3,17 @@ import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
+import { User } from '@waldur/api';
 import FormTable from '@waldur/form/FormTable';
 import { WideImageField } from '@waldur/form/WideImageField';
 import { translate } from '@waldur/i18n';
 import { getItemAbbreviation } from '@waldur/navigation/workspace/context-selector/utils';
 import { getUser } from '@waldur/workspace/selectors';
-import { UserDetails } from '@waldur/workspace/types';
 
 import { useUpdateUser } from './useUpdateUser';
 
 interface OwnProps {
-  user: UserDetails;
+  user: User;
 }
 
 export const UserEditAvatarFormItem: React.FC<OwnProps> = ({ user }) => {

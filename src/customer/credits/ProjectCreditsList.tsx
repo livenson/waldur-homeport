@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
 
-import { getUUID } from '@waldur/core/utils';
+import { ProjectCredit } from '@waldur/api';
 import { FilteredEventsButton } from '@waldur/events/FilteredEventsButton';
 import { translate } from '@waldur/i18n';
 import { ProjectLink } from '@waldur/project/ProjectLink';
@@ -14,7 +14,6 @@ import { COMMON_CREDIT_COLUMNS } from './constants';
 import { CreditExpandableRow } from './CreditExpandableRow';
 import { ProjectCreateCreditButton } from './ProjectCreateCreditButton';
 import { ProjectCreditActions } from './ProjectCreditActions';
-import { ProjectCredit } from './types';
 
 export const ProjectCreditsList: FC = () => {
   const customer = useSelector(getCustomer);
@@ -34,7 +33,7 @@ export const ProjectCreditsList: FC = () => {
           title: translate('Name'),
           render: ({ row }) => (
             <ProjectLink
-              row={{ uuid: getUUID(row.project), name: row.project_name }}
+              row={{ uuid: row.project_uuid, name: row.project_name }}
             >
               {row.project_name}
             </ProjectLink>

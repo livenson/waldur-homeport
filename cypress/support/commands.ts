@@ -270,8 +270,8 @@ Cypress.Commands.add('mockConfigs', () => {
   cy.intercept('GET', '/api/configuration/', {
     fixture: 'configuration.json',
   })
-    .intercept('GET', '/api/events/', [])
-    .intercept('GET', '/api/roles/', {
+    .intercept('GET', '/api/events/**', [])
+    .intercept('GET', '/api/roles/**', {
       fixture: 'roles.json',
     });
 });
@@ -289,7 +289,11 @@ Cypress.Commands.add('mockUser', (userName) => {
     .intercept('GET', '/api/users/me/', {
       fixture: `users/${userData}`,
     })
-    .intercept('GET', '/api/roles/', { fixture: 'roles.json' });
+    .intercept('GET', '/api/roles/**', { fixture: 'roles.json' })
+    .intercept('GET', '/api/marketplace-categories/**', [])
+    .intercept('GET', '/api/marketplace-category-groups/**', [])
+    .intercept('GET', '/api/marketplace-global-categories/**', [])
+    .intercept('GET', '/api/admin-announcements/**', []);
 });
 
 Cypress.Commands.add('mockCustomer', () => {
@@ -301,9 +305,9 @@ Cypress.Commands.add('mockCustomer', () => {
     .intercept('GET', '/api/customers/bf6d515c9e6e445f9c339021b30fc96b/', {
       fixture: 'customers/alice.json',
     })
-    .intercept('GET', '/api/invoices/', [])
-    .intercept('GET', '/api/projects/', [])
-    .intercept('GET', '/api/marketplace-orders/', []);
+    .intercept('GET', '/api/invoices/**', [])
+    .intercept('GET', '/api/projects/**', [])
+    .intercept('GET', '/api/marketplace-orders/**', []);
 });
 
 Cypress.Commands.add('mockChecklists', () => {
@@ -321,7 +325,7 @@ Cypress.Commands.add('mockEvents', () => {
 });
 
 Cypress.Commands.add('mockCustomers', () => {
-  cy.intercept('HEAD', '/api/customers/', []).intercept(
+  cy.intercept('HEAD', '/api/customers/**', []).intercept(
     'GET',
     '/api/customers/**',
     [],

@@ -3,12 +3,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useEffectOnce } from 'react-use';
 import { reduxForm } from 'redux-form';
 
-import { rancherHpasUpdate } from '@waldur/api';
+import { RancherHpa, rancherHpasUpdate } from '@waldur/api';
 import { StringField, SelectField, NumberField, TextField } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { ActionDialog } from '@waldur/modal/ActionDialog';
 import { closeModalDialog } from '@waldur/modal/actions';
-import { HPA } from '@waldur/rancher/types';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { updateEntity } from '@waldur/table/actions';
 
@@ -23,11 +22,11 @@ import {
 
 interface OwnProps {
   resolve: {
-    hpa: HPA;
+    hpa: RancherHpa;
   };
 }
 
-const useHPAUpdateDialog = (originalHPA) => {
+const useHPAUpdateDialog = (originalHPA: RancherHpa) => {
   const [submitting, setSubmitting] = useState(false);
   const dispatch = useDispatch();
   const callback = useCallback(

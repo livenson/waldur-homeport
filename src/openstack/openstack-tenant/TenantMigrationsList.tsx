@@ -1,6 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
 
-import { OpenstackMigrationsListData } from '@waldur/api';
+import { MigrationDetails, OpenstackMigrationsListData } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 import { ResourceLink } from '@waldur/resource/ResourceLink';
@@ -27,7 +27,7 @@ export const TenantMigrationsList: FunctionComponent<{ resourceScope }> = ({
     filter,
   });
   return (
-    <Table
+    <Table<MigrationDetails>
       {...props}
       columns={[
         {

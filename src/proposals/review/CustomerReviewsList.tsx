@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
 
+import { ProposalReviewsListData } from '@waldur/api';
 import { Link } from '@waldur/core/Link';
 import { translate } from '@waldur/i18n';
 import { EndingField } from '@waldur/proposals/EndingField';
@@ -24,7 +25,7 @@ const filtersSelector = createSelector(
   getCustomer,
   getFormValues(USER_REVIEWS_FILTER_FORM_ID),
   (customer, filters: any) => {
-    const result: Record<string, any> = {};
+    const result: ProposalReviewsListData['query'] = {};
     if (customer) {
       result.organization_uuid = customer.uuid;
     }

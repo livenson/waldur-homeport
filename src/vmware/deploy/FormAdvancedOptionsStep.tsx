@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 
+import { VmwareCluster } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { FormContainer, SelectField } from '@waldur/form';
 import { VStepperFormStepCard } from '@waldur/form/VStepperFormStep';
@@ -13,13 +14,11 @@ export const FormAdvancedOptionsStep = (props: FormStepProps) => {
 
   const { data, isLoading } = useQuery(
     ['vmware-advanced-options', props.offering.uuid],
-    async () => {
-      const data = await loadVMwareAdvancedOptions({
+    () =>
+      loadVMwareAdvancedOptions({
         customer_uuid: props.offering.customer_uuid,
         settings_uuid: props.offering.scope_uuid,
-      });
-      return data;
-    },
+      }),
     { staleTime: 3 * 60 * 1000 },
   );
 
@@ -38,8 +37,8 @@ export const FormAdvancedOptionsStep = (props: FormStepProps) => {
               label={translate('Cluster')}
               name="attributes.cluster"
               options={data.clusters}
-              getOptionValue={(option) => option.url}
-              getOptionLabel={(option) => option.name}
+              getOptionValue={(option: VmwareCluster) => option.url}
+              getOptionLabel={(option: VmwareCluster) => option.name}
               isClearable={true}
               noUpdateOnBlur
             />

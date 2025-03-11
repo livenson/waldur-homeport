@@ -2,6 +2,7 @@ import { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
 import { Field, getFormValues, reduxForm } from 'redux-form';
 
+import { Project } from '@waldur/api';
 import {
   getInitialValues,
   syncFiltersToURL,
@@ -15,7 +16,7 @@ import { parentOfferingFilter } from '@waldur/marketplace/offerings/utils';
 import { OrganizationAutocomplete } from '@waldur/marketplace/orders/OrganizationAutocomplete';
 import { PROJECT_RESOURCES_ALL_FILTER_FORM_ID } from '@waldur/marketplace/resources/list/constants';
 import { TableFilterItem } from '@waldur/table/TableFilterItem';
-import { Customer, Project } from '@waldur/workspace/types';
+import { Customer } from '@waldur/workspace/types';
 
 import { CategoryFilter } from './CategoryFilter';
 import { ProjectFilter } from './ProjectFilter';

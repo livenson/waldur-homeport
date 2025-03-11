@@ -98,6 +98,10 @@
           white-space: nowrap;
         }
       }
+
+      .dropdown-toggle:before {
+        display: none;
+      }
     }
 
     > td.row-control > div {

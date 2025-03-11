@@ -1,6 +1,7 @@
 import { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
 
+import { User } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { FieldWithCopy } from '@waldur/core/FieldWithCopy';
 import { isFeatureVisible } from '@waldur/features/connect';
@@ -14,10 +15,9 @@ import {
   formatUserStatus,
 } from '@waldur/user/support/utils';
 import { isStaffOrSupport } from '@waldur/workspace/selectors';
-import { UserDetails } from '@waldur/workspace/types';
 
 interface OwnProps {
-  user: UserDetails;
+  user: User;
   profile?: any;
   hasHeader?: boolean;
 }

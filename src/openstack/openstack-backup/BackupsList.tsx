@@ -1,5 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
 
+import { OpenStackBackup } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 import { ResourceRowActions } from '@waldur/resource/actions/ResourceRowActions';
@@ -33,7 +34,7 @@ export const BackupsList: FunctionComponent<{ resourceScope }> = ({
     filter,
   });
   return (
-    <Table
+    <Table<OpenStackBackup>
       {...props}
       columns={[
         {

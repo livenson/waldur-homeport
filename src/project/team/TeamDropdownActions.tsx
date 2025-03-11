@@ -1,9 +1,9 @@
 import { CaretDown, PlusCircle } from '@phosphor-icons/react';
 import { Dropdown } from 'react-bootstrap';
 
+import { Project } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { InvitationCreateButton } from '@waldur/invitations/actions/create/InvitationCreateButton';
-import { Project } from '@waldur/workspace/types';
 
 import { AddUserButton } from './AddUserButton';
 
@@ -33,7 +33,6 @@ export const TeamDropdownActions = ({
           roleTypes={['project']}
           refetch={refetch}
           enableBulkUpload={true}
-          asDropdownItem
         />
         <AddUserButton project={project} refetch={refetch} />
       </Dropdown.Menu>

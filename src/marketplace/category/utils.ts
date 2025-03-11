@@ -2,20 +2,17 @@ import { useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
 
 import {
+  CategoryColumn,
   CategoryColumnRequest,
   marketplaceCategoryColumnsCreate,
+  marketplaceCategoryColumnsList,
   marketplaceCategoryColumnsUpdate,
 } from '@waldur/api';
+import { getAllPages } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';
-import {
-  Category,
-  CategoryColumn,
-  CategoryGroup,
-} from '@waldur/marketplace/types';
+import { Category, CategoryGroup } from '@waldur/marketplace/types';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
-
-import { getCategoryColumns } from './admin/api';
 
 export const countSelectedFilters = (filterValues) => {
   const selectedFilters = [];
@@ -106,14 +103,16 @@ interface FormData {
   columns: CategoryColumn[];
 }
 
-async function loadData(categoryUUID: string) {
-  const params = { category_uuid: categoryUUID };
-  const columns = await getCategoryColumns(params);
-  return { columns };
-}
-
 export const useCategoryColumnsEditor = (category: Category) => {
-  const asyncState = useAsync(() => loadData(category.uuid), [category.uuid]);
+  const asyncState = useAsync(
+    () =>
+      getAllPages((page) =>
+        marketplaceCategoryColumnsList({
+          query: { page, category_uuid: category.uuid },
+        }),
+      ),
+    [category.uuid],
+  );
   const dispatch = useDispatch();
 
   const submitRequest = async (formData: FormData) => {
@@ -150,9 +149,7 @@ export const useCategoryColumnsEditor = (category: Category) => {
     }
   };
 
-  const initialValues = asyncState.value
-    ? { columns: asyncState.value.columns }
-    : { columns: [] };
+  const initialValues = { columns: asyncState.value || [] };
 
   return {
     asyncState,

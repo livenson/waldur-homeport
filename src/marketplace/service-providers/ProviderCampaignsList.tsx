@@ -2,6 +2,7 @@ import { FunctionComponent, useCallback, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 
+import { Campaign } from '@waldur/api';
 import { formatDate } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 import { CampaignCreateButton } from '@waldur/marketplace/service-providers/CampaignCreateButton';
@@ -51,7 +52,7 @@ const ProviderCampaignsListComponent: FunctionComponent<{ provider }> = ({
     queryField: 'query',
   });
   return (
-    <Table
+    <Table<Campaign>
       {...props}
       columns={[
         {

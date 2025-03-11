@@ -74,3 +74,29 @@ Axios.interceptors.response.use(
     return Promise.reject(error);
   },
 );
+
+client.interceptors.response.use((response) => {
+  if (
+    response?.status === 401 &&
+    response.url !== ENV.apiEndpoint + 'api-auth/password/'
+  ) {
+    if (router.globals.transition) {
+      const target = router.globals.transition.targetState();
+      setRedirect({
+        toState: target.name(),
+        toParams: target.params(),
+      });
+    } else if (router.globals.$current.name === 'login') {
+      setRedirect(router.globals.params as any);
+    } else if (router.globals.$current.name) {
+      setRedirect({
+        toState: router.globals.$current.name,
+        toParams: router.globals.params
+          ? cleanObject(router.globals.params)
+          : undefined,
+      });
+    }
+    AuthService.localLogout();
+  }
+  return response;
+});

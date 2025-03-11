@@ -1,5 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
 
+import { RancherIngress } from '@waldur/api';
 import { formatDate } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 import { createFetcher } from '@waldur/table/api';
@@ -24,7 +25,7 @@ export const ClusterIngressesList: FunctionComponent<{ resourceScope }> = ({
     filter,
   });
   return (
-    <Table
+    <Table<RancherIngress>
       {...props}
       columns={[
         {
@@ -43,7 +44,12 @@ export const ClusterIngressesList: FunctionComponent<{ resourceScope }> = ({
         {
           title: translate('Targets'),
           render: ({ row }) => (
-            <>{row.rules.map((rule) => rule.host).join(', ')}</>
+            <>
+              {
+                // @ts-ignore
+                row.rules.map((rule) => rule.host).join(', ')
+              }
+            </>
           ),
         },
         {

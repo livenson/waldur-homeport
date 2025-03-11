@@ -28,22 +28,6 @@ interface QueryRequest {
   all_users: boolean;
 }
 
-interface QueryResponse {
-  customers: IdNamePair[];
-  offerings: IdNamePair[];
-  projects: IdNamePair[];
-  all_users: boolean;
-}
-
 export interface BroadcastRequestData extends Broadcast {
   query: QueryRequest;
-}
-
-export interface BroadcastResponseData extends Broadcast {
-  uuid: string;
-  query: QueryResponse;
-  emails: string[];
-  created: string;
-  state: string;
-  author_full_name: string;
 }

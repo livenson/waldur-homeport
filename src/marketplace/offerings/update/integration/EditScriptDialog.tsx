@@ -5,6 +5,7 @@ import { Field, getFormValues, initialize, reduxForm } from 'redux-form';
 
 import {
   marketplaceProviderOfferingsUpdateIntegration,
+  marketplaceScriptAsyncDryRunRetrieve,
   marketplaceScriptDryRunAsyncRun,
 } from '@waldur/api';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
@@ -13,7 +14,6 @@ import { wait } from '@waldur/core/utils';
 import { SubmitButton, SelectField } from '@waldur/form';
 import { MonacoField } from '@waldur/form/MonacoField';
 import { translate } from '@waldur/i18n';
-import { getAsyncDryRun } from '@waldur/marketplace/common/api';
 import { closeModalDialog } from '@waldur/modal/actions';
 import {
   showError,
@@ -85,7 +85,9 @@ export const EditScriptDialog = connect<{}, {}, OwnProps>((_, ownProps) => ({
       let asyncDryRunResult: any;
       setExecuting(true);
       do {
-        asyncDryRunResult = await getAsyncDryRun(dryRunUuid);
+        asyncDryRunResult = await marketplaceScriptAsyncDryRunRetrieve({
+          path: { uuid: dryRunUuid },
+        });
         if (asyncDryRunResult.data.get_state_display === 'erred') {
           break;
         }

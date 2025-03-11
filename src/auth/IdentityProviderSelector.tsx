@@ -1,4 +1,4 @@
-import { OIDCConfig } from '@waldur/administration/types';
+import { IdentityProvider } from '@waldur/api';
 
 import { OauthLoginButton } from './OauthLoginButton';
 import { Saml2Button } from './Saml2Button';
@@ -12,7 +12,7 @@ export const IdentityProviderSelector = ({
   providers,
 }: {
   features: AuthFeatures;
-  providers: Pick<OIDCConfig, 'provider' | 'label'>[];
+  providers: Pick<IdentityProvider, 'provider' | 'label'>[];
 }) => (
   <>
     {providers.map((provider) => (

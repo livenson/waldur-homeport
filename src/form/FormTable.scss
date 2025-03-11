@@ -1,7 +1,4 @@
 .card.form-table-card {
-  .card-header {
-    padding: 0 1.85rem;
-  }
   .card-body {
     padding: 1rem 1.85rem;
   }
@@ -39,8 +36,17 @@
     }
   }
 
+  &.gy-base {
+    td,
+    th {
+      padding-bottom: 24px;
+      padding-top: 24px;
+    }
+  }
+
   .col-actions {
-    text-align: right;
+    text-align: end;
+    justify-items: end;
     padding-top: 1rem;
     padding-bottom: 1rem;
   }

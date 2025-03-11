@@ -1,7 +1,6 @@
 import MatomoTracker from '@jonkoops/matomo-tracker';
 import * as Sentry from '@sentry/react';
 
-import { initAuthToken } from './auth/interceptor';
 import { ENV } from './configs/default';
 import { LanguageUtilsService } from './i18n/LanguageUtilsService';
 import { attachTransitions } from './transitions';
@@ -43,7 +42,6 @@ export function afterBootstrap() {
       siteId: ENV.plugins.WALDUR_CORE.MATOMO_SITE_ID,
     });
   initSentry();
-  initAuthToken();
   LanguageUtilsService.checkLanguage();
   attachTransitions();
   initCssVariables();

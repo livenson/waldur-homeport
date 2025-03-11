@@ -2,13 +2,17 @@ import { useCallback, useMemo, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { change, getFormValues } from 'redux-form';
 
-import { marketplaceProviderOfferingsImportResource } from '@waldur/api';
+import {
+  ImportableResource,
+  marketplaceProviderOfferingsImportResource,
+} from '@waldur/api';
+import { Project } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import { ImportableResource, Offering, Plan } from '@waldur/marketplace/types';
+import { Offering, Plan } from '@waldur/marketplace/types';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { createEntity } from '@waldur/table/actions';
-import { Customer, Project } from '@waldur/workspace/types';
+import { Customer } from '@waldur/workspace/types';
 
 export const IMPORT_RESOURCE_FORM_ID = 'ResourceImportDialog';
 

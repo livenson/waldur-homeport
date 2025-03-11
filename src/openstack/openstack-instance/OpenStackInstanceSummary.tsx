@@ -1,3 +1,5 @@
+import { OpenStackNestedVolume } from '@waldur/api';
+import { OpenStackInstance } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { OpenStackSecurityGroupsLink } from '@waldur/openstack/openstack-security-groups/OpenStackSecurityGroupsLink';
 import { ResourceLink } from '@waldur/resource/ResourceLink';
@@ -6,10 +8,8 @@ import {
   ResourceSummaryProps,
   PureVirtualMachineSummary,
 } from '@waldur/resource/summary';
-import { Volume } from '@waldur/resource/types';
 
 import { OpenStackInstanceVolumeBadge } from './OpenStackInstanceVolumeBadge';
-import { OpenStackInstance } from './types';
 
 const formatSecurityGroups = (props) => {
   if (props.resource.security_groups) {
@@ -25,7 +25,7 @@ const VolumeBadges = ({
   volumes,
   resource,
 }: {
-  volumes: Volume[];
+  volumes: OpenStackNestedVolume[];
   resource?: OpenStackInstance;
 }) => {
   return (

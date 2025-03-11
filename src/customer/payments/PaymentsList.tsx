@@ -1,6 +1,7 @@
 import { FunctionComponent, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
+import { Payment, PaymentsListData } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { PAYMENTS_TABLE } from '@waldur/customer/details/constants';
 import { PaymentInvoiceRenderer } from '@waldur/customer/payments/PaymentInvoiceRenderer';
@@ -9,6 +10,7 @@ import { translate } from '@waldur/i18n';
 import { getActivePaymentProfile } from '@waldur/invoices/details/utils';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
+import { Column } from '@waldur/table/types';
 import { useTable } from '@waldur/table/useTable';
 import { getCustomer } from '@waldur/workspace/selectors';
 
@@ -22,7 +24,7 @@ export const PaymentsList: FunctionComponent = () => {
     [customer],
   );
 
-  const filter = useMemo(
+  const filter = useMemo<PaymentsListData['query']>(
     () => ({
       profile_uuid: profile?.uuid,
     }),
@@ -45,7 +47,7 @@ export const PaymentsList: FunctionComponent = () => {
     );
   }
 
-  const columns = [
+  const columns: Column<Payment>[] = [
     {
       title: translate('Date'),
       render: ({ row }) => formatDateTime(row.date_of_payment),

@@ -1,12 +1,12 @@
+import { Permission } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
-import { BasePermission } from '@waldur/permissions/types';
 import { Field } from '@waldur/resource/summary';
 
 export const PermissionDetails = ({
   permission,
 }: {
-  permission: BasePermission;
+  permission: Permission;
 }) => (
   <>
     <Field label={translate('Role')} value={permission.role_description} />

@@ -1,6 +1,6 @@
 import { FC } from 'react';
 
-import { OpenStackInstance } from '../../types';
+import { OpenStackInstance } from '@waldur/api';
 
 import { UpdateSecurityGroupsForm } from './UpdateSecurityGroupsForm';
 import { useUpdateSecurityGroupsForm } from './utils';

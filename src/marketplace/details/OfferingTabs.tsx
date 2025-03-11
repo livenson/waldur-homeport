@@ -1,8 +1,7 @@
-import { NestedSection } from '@waldur/api';
+import { NestedSection, PublicOfferingDetails } from '@waldur/api';
 import { FormattedHtml } from '@waldur/core/FormattedHtml';
 import { translate } from '@waldur/i18n';
 import { ImagesTab } from '@waldur/marketplace/offerings/images/ImagesTab';
-import { Offering } from '@waldur/marketplace/types';
 
 import { AttributesTable } from './attributes/AttributesTable';
 import { OfferingTab } from './OfferingTabsComponent';
@@ -10,7 +9,7 @@ import { OverviewTab } from './OverviewTab';
 
 interface OfferingTabsProps {
   sections: NestedSection[];
-  offering: Offering;
+  offering: PublicOfferingDetails;
   order?: any;
 }
 

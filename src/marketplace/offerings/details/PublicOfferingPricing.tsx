@@ -1,19 +1,19 @@
 import { FC, useState } from 'react';
 import { Card, FormCheck, Stack } from 'react-bootstrap';
 
+import { PublicOfferingDetails } from '@waldur/api';
 import { Link } from '@waldur/core/Link';
 import { translate } from '@waldur/i18n';
-import { Offering } from '@waldur/marketplace/types';
 import { isExperimentalUiComponentsVisible } from '@waldur/marketplace/utils';
 
 import { ExportFullPriceList } from './ExportFullPriceList';
 import { PublicOfferingCardTitle } from './PublicOfferingCardTitle';
+import './PublicOfferingPricing.scss';
 import { PricingPlanDetailsList } from './PublicOfferingPricingPlanDetailsList';
 import { PublicOfferingPricingPlanItem } from './PublicOfferingPricingPlanItem';
-import './PublicOfferingPricing.scss';
 
 interface PublicOfferingPricingProps {
-  offering: Offering;
+  offering: PublicOfferingDetails;
   canDeploy?: boolean;
 }
 

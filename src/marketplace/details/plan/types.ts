@@ -1,6 +1,7 @@
 import { ComponentType, ReactNode } from 'react';
 
-import { Offering, OfferingComponent } from '@waldur/marketplace/types';
+import { PublicOfferingDetails } from '@waldur/api';
+import { OfferingComponent } from '@waldur/marketplace/types';
 
 export interface Component extends OfferingComponent {
   price: number;
@@ -18,7 +19,7 @@ export interface PricesData {
 }
 
 export interface PlanDetailsTableProps extends PricesData {
-  offering: Offering;
+  offering: PublicOfferingDetails;
   viewMode?: boolean;
   formGroupClassName?: string;
   columnClassName?: string;

@@ -44,15 +44,17 @@ export const AwesomeCheckboxField: FunctionComponent<
       data-testid={props['data-testid']}
       disabled={props.disabled}
     />
-    <label className="form-check-label">
-      {tooltip && !tooltipEnd && (
-        <Tip id={'form-field-tooltip-' + input.name} label={tooltip}>
-          <Question weight="bold" size={20} className="text-muted" />{' '}
-        </Tip>
-      )}
-      {label}
-      {help_text && <p className="text-muted">{help_text}</p>}
-    </label>
+    {(tooltip || label || help_text) && (
+      <label className="form-check-label">
+        {tooltip && !tooltipEnd && (
+          <Tip id={'form-field-tooltip-' + input.name} label={tooltip}>
+            <Question weight="bold" size={20} className="text-muted" />{' '}
+          </Tip>
+        )}
+        {label}
+        {help_text && <p className="text-muted">{help_text}</p>}
+      </label>
+    )}
     {tooltip && tooltipEnd && (
       <Tip
         id={'form-field-tooltip-' + input.name}

@@ -1,8 +1,14 @@
 import { useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
 
+import {
+  Customer,
+  MarketplacePublicOfferingsListData,
+  Project,
+} from '@waldur/api';
 import { Link } from '@waldur/core/Link';
 import { translate } from '@waldur/i18n';
+import { RootState } from '@waldur/store/reducers';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
@@ -15,7 +21,7 @@ import {
   getMarketplaceFilters,
 } from './filter/store/selectors';
 
-const field = [
+const mandatoryFields: MarketplacePublicOfferingsListData['query']['field'] = [
   'uuid',
   'name',
   'description',
@@ -31,7 +37,13 @@ const field = [
   'paused_reason',
 ];
 
-const mapStateToFilter = createSelector(
+const mapStateToFilter = createSelector<
+  RootState,
+  Customer,
+  Project,
+  any,
+  MarketplacePublicOfferingsListData['query']
+>(
   getCustomer,
   getProject,
   getMarketplaceFilters,
@@ -45,7 +57,6 @@ const mapStateToFilter = createSelector(
     }
     return {
       page_size: 6,
-      field,
       state: ['Active', 'Paused'],
       ...contextFilter,
     };
@@ -59,6 +70,7 @@ export const OfferingsGroup = () => {
     filter,
     fetchData: createFetcher('marketplace-public-offerings'),
     staleTime: 3 * 60 * 1000,
+    mandatoryFields,
   });
 
   return (

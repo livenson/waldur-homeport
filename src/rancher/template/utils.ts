@@ -1,7 +1,14 @@
-import { rancherClustersRetrieve, rancherTemplatesRetrieve } from '@waldur/api';
+import {
+  RancherApplicationRequest,
+  rancherClustersRetrieve,
+  rancherProjectsList,
+  RancherTemplate,
+  rancherTemplatesRetrieve,
+  rancherTemplateVersionsRetrieve,
+} from '@waldur/api';
+import { getAllPages } from '@waldur/core/api';
 
-import { getTemplateVersion, getProjects } from '../api';
-import { Template, Question, QuestionType } from '../types';
+import { Question, QuestionType } from '../types';
 
 import { FormData } from './types';
 
@@ -82,11 +89,17 @@ export const loadData = async (templateUuid: string, clusterUuid: string) => {
   const cluster = await rancherClustersRetrieve({
     path: { uuid: clusterUuid },
   }).then((response) => response.data);
-  const version = await getTemplateVersion(
-    template.uuid,
-    template.default_version,
+  const version = await rancherTemplateVersionsRetrieve({
+    path: {
+      template_uuid: template.uuid,
+      version: template.default_version,
+    },
+  }).then((r) => r.data);
+  const projects = await getAllPages((page) =>
+    rancherProjectsList({
+      query: { page, cluster_uuid: clusterUuid },
+    }),
   );
-  const projects = await getProjects(clusterUuid);
   const namespaces = projects[0].namespaces;
   const initialValues = {
     version: template.default_version,
@@ -133,11 +146,11 @@ const serializeAnswer = (question: Question, answers: object) => {
 
 export const serializeApplication = (
   formData: FormData,
-  template: Template,
+  template: RancherTemplate,
   service_settings: string,
   project: string,
   visibleQuestions: Question[],
-) => ({
+): RancherApplicationRequest => ({
   name: formData.name,
   description: formData.description,
   version: formData.version,

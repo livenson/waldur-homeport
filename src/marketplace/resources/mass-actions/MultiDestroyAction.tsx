@@ -2,8 +2,8 @@ import { X } from '@phosphor-icons/react';
 import { useCallback, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 
+import { marketplaceResourcesTerminate } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import { terminateResource } from '@waldur/marketplace/common/api';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 
@@ -28,7 +28,9 @@ export const MultiDestroyAction = ({ rows, refetch }) => {
     }
 
     Promise.all(
-      validResources.map((resource) => terminateResource(resource.uuid)),
+      validResources.map((resource) =>
+        marketplaceResourcesTerminate({ path: { uuid: resource.uuid } }),
+      ),
     ).then(() => {
       refetch();
     });

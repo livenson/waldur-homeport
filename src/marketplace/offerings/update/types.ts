@@ -1,5 +1,7 @@
+import { ProviderOfferingDetails } from '@waldur/api';
+
 export interface OfferingSectionProps {
-  offering;
+  offering: ProviderOfferingDetails;
   refetch;
   loading;
 }

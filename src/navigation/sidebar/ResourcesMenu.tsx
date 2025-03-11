@@ -6,7 +6,10 @@ import { useMemo, useState } from 'react';
 import { Badge } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 
-import { marketplaceGlobalCategoriesRetrieve } from '@waldur/api';
+import {
+  marketplaceGlobalCategoriesRetrieve,
+  MarketplaceGlobalCategoriesRetrieveData,
+} from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { getGroupedCategories } from '@waldur/marketplace/category/utils';
 import { getCategoryGroups } from '@waldur/marketplace/common/api';
@@ -103,19 +106,21 @@ const RenderMenuItems = ({ items }) => {
   );
 };
 
-export const ResourcesMenu = ({ anonymous = false, user }) => {
-  const categories = useOfferingCategories(anonymous);
+export const ResourcesMenu = ({ user }) => {
+  const categories = useOfferingCategories();
 
   const { data: categoryGroups } = useQuery(
     ['MarketplaceCategoryGroups'],
-    () => getCategoryGroups({ params: { field: ['uuid', 'title', 'url'] } }),
+    () => getCategoryGroups({ field: ['uuid', 'title', 'url'] }),
     { staleTime: 1 * 60 * 1000 },
   );
 
   const resourcesFilters = useSelector((state: any) =>
     selectFiltersStorage(state, ALL_RESOURCES_TABLE_ID),
   );
-  const filtersObj = useMemo(() => {
+  const query = useMemo<
+    MarketplaceGlobalCategoriesRetrieveData['query']
+  >(() => {
     if (!resourcesFilters) return undefined;
     const project = resourcesFilters.find((item) => item.name === 'project');
     const organization = resourcesFilters.find(
@@ -133,11 +138,11 @@ export const ResourcesMenu = ({ anonymous = false, user }) => {
       'ResourcesMenu',
       'Counters',
       user?.uuid,
-      filtersObj?.customer_uuid,
-      filtersObj?.project_uuid,
+      query?.customer_uuid,
+      query?.project_uuid,
     ],
     () =>
-      marketplaceGlobalCategoriesRetrieve({ query: filtersObj }).then(
+      marketplaceGlobalCategoriesRetrieve({ query }).then(
         (response) => response.data,
       ),
     { refetchOnWindowFocus: false },
@@ -147,7 +152,7 @@ export const ResourcesMenu = ({ anonymous = false, user }) => {
   const sortedCategoryGroups = useMemo(() => {
     if (!categories) return [];
     const _categories = categories.map((category) => {
-      category.resource_count = counters[category.uuid] || 0;
+      category['resource_count'] = counters[category.uuid] || 0;
       return category;
     });
 

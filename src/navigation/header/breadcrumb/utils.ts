@@ -1,6 +1,7 @@
+import { Project } from '@waldur/api';
 import { useOrganizationAndProjectFiltersForResources } from '@waldur/navigation/sidebar/resources-filter/utils';
 import { IBreadcrumbItem } from '@waldur/navigation/types';
-import { Customer, Project } from '@waldur/workspace/types';
+import { Customer } from '@waldur/workspace/types';
 
 export const usePresetBreadcrumbItems = () => {
   const { syncResourceFilters } =

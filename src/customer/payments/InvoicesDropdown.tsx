@@ -2,8 +2,8 @@ import { FileText } from '@phosphor-icons/react';
 import { FunctionComponent } from 'react';
 import { DropdownButton, Dropdown } from 'react-bootstrap';
 
+import { Invoice } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import { Invoice } from '@waldur/invoices/types';
 
 interface ResourceActionComponentProps {
   onToggle: (isOpen: boolean) => void;
@@ -13,7 +13,7 @@ interface ResourceActionComponentProps {
   loading?: boolean;
   error?: object;
   variant?: string;
-  invoices: object;
+  invoices: Invoice[];
 }
 
 const ActionItem = ({ invoice, invoiceKey, onSelect }) => (

@@ -1,18 +1,20 @@
 import { DateTime } from 'luxon';
 
 import {
+  ComponentUsage,
+  ComponentUserUsage,
+  marketplaceComponentUserUsagesList,
   marketplaceProviderOfferingsRetrieve,
+  marketplaceProviderResourcesPlanPeriodsList,
   marketplaceResourcesOfferingRetrieve,
+  OfferingComponent,
+  PublicOfferingDetails,
 } from '@waldur/api';
+import { getAllPages } from '@waldur/core/api';
 import { formatDateTime, parseDate } from '@waldur/core/dateUtils';
-import {
-  getComponentUsages,
-  getComponentUserUsages,
-  getProviderResourcePlanPeriods,
-} from '@waldur/marketplace/common/api';
-import { Offering } from '@waldur/marketplace/types';
+import { getComponentUsages } from '@waldur/marketplace/common/api';
 
-import { UsageReportContext, ResourcePlanPeriod } from './types';
+import { ResourcePlanPeriod, UsageReportContext } from './types';
 
 export const getPeriodLabel = (
   period: Pick<ResourcePlanPeriod, 'start' | 'end' | 'plan_name'>,
@@ -35,15 +37,18 @@ export const getProviderUsageComponents = async (
 ) => {
   let components = null;
   if (params.offering_uuid) {
-    const offering = (await marketplaceProviderOfferingsRetrieve({
+    const offering = await marketplaceProviderOfferingsRetrieve({
       path: { uuid: params.offering_uuid },
-    }).then((response) => response.data)) as Offering;
-    components = await getUsageBasedOfferingComponents(offering);
+    }).then((response) => response.data);
+    components = getUsageBasedOfferingComponents(offering.components);
   }
-  const periods = await getProviderResourcePlanPeriods(params.resource_uuid);
+  const periods = await marketplaceProviderResourcesPlanPeriodsList({
+    path: { uuid: params.resource_uuid },
+  }).then((r) => r.data);
   const options =
     periods.length > 0
       ? periods.map((period) => ({
+          // @ts-ignore
           label: getPeriodLabel(period),
           value: period,
         }))
@@ -58,12 +63,13 @@ export const getProviderUsageComponents = async (
   };
 };
 
-const getUsageBasedOfferingComponents = (offering) => {
-  const components = offering.components.filter((component) =>
-    // Allow to report usage for limit-based components
-    ['usage', 'limit'].includes(component.billing_type),
-  );
-  return components.sort((a, b) => a.name.localeCompare(b.name));
+const getUsageBasedOfferingComponents = (components: OfferingComponent[]) => {
+  return components
+    .filter((component) =>
+      // Allow to report usage for limit-based components
+      ['usage', 'limit'].includes(component.billing_type),
+    )
+    .sort((a, b) => a.name.localeCompare(b.name));
 };
 
 export const getComponentsAndUsages = async (
@@ -74,7 +80,7 @@ export const getComponentsAndUsages = async (
     return { components: null, usages: null, userUsages: null };
   }
 
-  let offering;
+  let offering: PublicOfferingDetails;
   try {
     offering = await marketplaceResourcesOfferingRetrieve({
       path: { uuid: resource_uuid },
@@ -83,21 +89,28 @@ export const getComponentsAndUsages = async (
     throw new Error(`Error while getting offering, ${error.message}`);
   }
 
-  const components = getUsageBasedOfferingComponents(offering);
+  const components = getUsageBasedOfferingComponents(offering.components);
 
   const date_after = months
     ? DateTime.now().startOf('month').minus({ months }).toFormat('yyyy-MM-dd')
     : undefined;
 
-  let usages;
-  let userUsages;
+  let usages: ComponentUsage[];
+  let userUsages: ComponentUserUsage[];
   try {
     usages = await getComponentUsages(resource_uuid, date_after, {
-      fields: ['type', 'usage', 'billing_period'],
+      field: ['type', 'usage', 'billing_period'],
     });
-    userUsages = await getComponentUserUsages(resource_uuid, date_after, {
-      fields: ['component_type', 'usage', 'billing_period'],
-    });
+    userUsages = await getAllPages((page) =>
+      marketplaceComponentUserUsagesList({
+        query: {
+          page,
+          resource_uuid,
+          date_after,
+          field: ['component_type', 'usage', 'billing_period'],
+        },
+      }),
+    );
   } catch (error) {
     throw new Error(
       `Error while getting usages for resource: ${resource_uuid}, ${error.message}`,

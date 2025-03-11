@@ -1,5 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
 
+import { OpenStackRouter, OpenstackRoutersListData } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { ResourceState } from '@waldur/resource/state/ResourceState';
 import { ResourceSummary } from '@waldur/resource/summary/ResourceSummary';
@@ -12,7 +13,7 @@ import { SetRoutersButton } from './SetRoutersButton';
 export const TenantRoutersList: FunctionComponent<{ resourceScope }> = ({
   resourceScope,
 }) => {
-  const filter = useMemo(
+  const filter = useMemo<OpenstackRoutersListData['query']>(
     () => ({
       tenant_uuid: resourceScope.uuid,
       field: [
@@ -44,7 +45,7 @@ export const TenantRoutersList: FunctionComponent<{ resourceScope }> = ({
     filter,
   });
   return (
-    <Table
+    <Table<OpenStackRouter>
       {...props}
       columns={[
         {

@@ -6,14 +6,13 @@ import { useSelector, useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
 import { formValueSelector } from 'redux-form';
 
+import { rancherAppsCreate } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { useTitle } from '@waldur/navigation/title';
 import { TemplateQuestions } from '@waldur/rancher/template/TemplateQuestions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { type RootState } from '@waldur/store/reducers';
-
-import { createApp } from '../api';
 
 import { FORM_ID } from './constants';
 import { TemplateHeader } from './TemplateHeader';
@@ -49,6 +48,7 @@ export const TemplateDetail: FunctionComponent = () => {
   const questions = state.value?.questions;
 
   const visibleQuestions = useMemo(
+    // @ts-ignore
     () => parseVisibleQuestions(questions, answers),
     [questions, answers],
   );
@@ -58,15 +58,15 @@ export const TemplateDetail: FunctionComponent = () => {
   const createApplication = useCallback(
     async (formData: FormData) => {
       try {
-        await createApp(
-          serializeApplication(
+        await rancherAppsCreate({
+          body: serializeApplication(
             formData,
             state.value.template,
             state.value.cluster.service_settings,
             state.value.cluster.project,
             visibleQuestions,
           ),
-        );
+        });
       } catch (response) {
         dispatch(
           showErrorResponse(

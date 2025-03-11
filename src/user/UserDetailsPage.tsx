@@ -9,7 +9,6 @@ import store from '@waldur/store/store';
 import { setCurrentUser } from '@waldur/workspace/actions';
 import { useUser } from '@waldur/workspace/hooks';
 import { getUser } from '@waldur/workspace/selectors';
-import { UserDetails as IUserDetails } from '@waldur/workspace/types';
 
 import { UserProfileHero } from './dashboard/UserProfileHero';
 
@@ -37,7 +36,7 @@ async function loadUser() {
 }
 
 const WithHero = () => {
-  const user = useUser() as IUserDetails;
+  const user = useUser();
   const { state } = useCurrentStateAndParams();
 
   usePageHero(<UserProfileHero user={user} isLoading={!user} />, [user, state]);
@@ -45,7 +44,7 @@ const WithHero = () => {
   return <UIView />;
 };
 
-export const UserDetails: FunctionComponent = () => {
+export const UserDetailsPage: FunctionComponent = () => {
   const { state } = useCurrentStateAndParams();
 
   useEffectOnce(() => {

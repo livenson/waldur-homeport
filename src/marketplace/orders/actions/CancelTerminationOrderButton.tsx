@@ -3,13 +3,12 @@ import { useMutation } from '@tanstack/react-query';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { remoteWaldurApiCancelTermination } from '@waldur/api';
+import { OrderDetails as OrderResponse } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { REMOTE_OFFERING_TYPE } from '@waldur/marketplace-remote/constants';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { getUser } from '@waldur/workspace/selectors';
-
-import { OrderResponse } from '../types';
 
 export const CancelTerminationOrderButton = ({
   row,

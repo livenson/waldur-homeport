@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
 import { marketplaceOrdersApproveByProvider } from '@waldur/api';
+import { OrderDetails as OrderResponse } from '@waldur/api';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import {
@@ -11,7 +12,6 @@ import {
   TABLE_PENDING_PUBLIC_ORDERS,
   TABLE_PUBLIC_ORDERS,
 } from '@waldur/marketplace/orders/list/constants';
-import { OrderResponse } from '@waldur/marketplace/orders/types';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
 import { fetchListStart, resetPagination } from '@waldur/table/actions';
 
@@ -25,15 +25,13 @@ export const ApproveAllButton: React.FC<ApproveAllButtonProps> = (props) => {
   const handler = React.useCallback(async () => {
     setLoading(true);
     try {
-      const promises = [];
-      props.orders.forEach((order) => {
-        promises.push(
+      await Promise.all(
+        props.orders.map((order) =>
           marketplaceOrdersApproveByProvider({
             path: { uuid: order.uuid },
           }),
-        );
-      });
-      await Promise.all(promises);
+        ),
+      );
       // refresh tables
       dispatch(resetPagination(TABLE_PUBLIC_ORDERS));
       dispatch(fetchListStart(TABLE_PUBLIC_ORDERS));

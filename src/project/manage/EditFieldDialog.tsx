@@ -3,6 +3,7 @@ import { Field, Form } from 'react-final-form';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { projectsPartialUpdate } from '@waldur/api';
+import { Project } from '@waldur/api';
 import { formatDate } from '@waldur/core/dateUtils';
 import { SubmitButton } from '@waldur/form';
 import { StringField } from '@waldur/form/StringField';
@@ -14,7 +15,6 @@ import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { useNotify } from '@waldur/store/hooks';
 import { setCurrentProject } from '@waldur/workspace/actions';
 import { getCustomer } from '@waldur/workspace/selectors';
-import { Project } from '@waldur/workspace/types';
 
 import { DescriptionGroup } from '../create/DescriptionGroup';
 import { EndDateGroup } from '../create/EndDateGroup';

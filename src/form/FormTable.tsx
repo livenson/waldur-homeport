@@ -17,13 +17,14 @@ import './FormTable.scss';
 export interface FormTableItemProps {
   label?: ReactNode;
   description?: ReactNode;
-  value: ReactNode;
+  value?: ReactNode;
   group?: boolean;
   tooltip?: ReactNode;
   warnTooltip?: string;
   actions?: ReactNode;
   disabled?: boolean;
   className?: string;
+  descriptionClassName?: string;
 }
 
 const FormTableItem: FC<FormTableItemProps> = ({ actions, ...props }) => {
@@ -36,7 +37,10 @@ const FormTableItem: FC<FormTableItemProps> = ({ actions, ...props }) => {
         className={classNames(props.disabled && 'opacity-50', props.className)}
       >
         {i === 0 && props.description ? (
-          <th className="col-md-4" rowSpan={titleRowSpan}>
+          <th
+            className={row ? 'col-md-4' : 'col-md-auto'}
+            rowSpan={titleRowSpan}
+          >
             <div className="title fw-bolder">
               {props.label}
               {Boolean(props.tooltip) &&
@@ -60,7 +64,14 @@ const FormTableItem: FC<FormTableItemProps> = ({ actions, ...props }) => {
                   />,
                 )}
             </div>
-            <div className="description fw-normal">{props.description}</div>
+            <div
+              className={classNames(
+                'description fw-normal',
+                props.descriptionClassName,
+              )}
+            >
+              {props.description}
+            </div>
           </th>
         ) : i === 0 && props.label ? (
           <th className="title col-md-3" rowSpan={titleRowSpan}>
@@ -86,9 +97,11 @@ const FormTableItem: FC<FormTableItemProps> = ({ actions, ...props }) => {
               )}
           </th>
         ) : null}
-        <td className="value col-md" colSpan={props.label ? undefined : 2}>
-          {row}
-        </td>
+        {row ? (
+          <td className="value col-md" colSpan={props.label ? undefined : 2}>
+            {row}
+          </td>
+        ) : null}
         <td className="col-md-auto col-actions">
           {actions ? cloneElement(actions as ReactElement, props) : actions}
         </td>
@@ -151,7 +164,7 @@ const FormTable: FC<PropsWithChildren<FormTableProps>> & {
         props.hideActions && 'hide-actions',
         props.detailsMode && 'details-mode',
         props.alignTop && 'align-top',
-        !TABLE_GY_SPACE_REGEX.test(props.className) && 'gy-6',
+        !TABLE_GY_SPACE_REGEX.test(props.className) && 'gy-base',
         props.className,
       )}
     >

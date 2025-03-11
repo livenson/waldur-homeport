@@ -180,7 +180,11 @@ export const InvoiceItemsTable: FC<InvoiceItemsTableProps> = ({
         </div>
       }
       verboseName={translate('Invoice items')}
-      subtitle={translate('Record period') + ': ' + formatPeriod(invoice)}
+      subtitle={
+        translate('Record period') +
+        ': ' +
+        formatPeriod({ year: invoice.year, month: invoice.month })
+      }
       hasQuery={true}
       hideRefresh
       minHeight="auto"

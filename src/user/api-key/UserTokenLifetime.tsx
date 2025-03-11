@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import { Card, Col, Form, Row } from 'react-bootstrap';
 
 import { usersPartialUpdate } from '@waldur/api';
+import { User } from '@waldur/api';
 import { Tip } from '@waldur/core/Tooltip';
 import { SubmitButton } from '@waldur/form';
 import { Select } from '@waldur/form/themed-select';
@@ -10,7 +11,6 @@ import { translate } from '@waldur/i18n';
 import { SecretField } from '@waldur/marketplace/common/SecretField';
 import { FormGroup } from '@waldur/marketplace/offerings/FormGroup';
 import { useNotify } from '@waldur/store/hooks';
-import { UserDetails } from '@waldur/workspace/types';
 
 const TOKEN_OPTIONS = [
   { label: translate('{count} minutes', { count: 10 }), value: 600 },
@@ -22,7 +22,7 @@ const TOKEN_OPTIONS = [
 ];
 
 interface UserEditTokenComponentProps {
-  user: UserDetails;
+  user: User;
 }
 
 export const UserTokenLifetime: React.FC<UserEditTokenComponentProps> = (

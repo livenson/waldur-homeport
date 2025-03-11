@@ -2,6 +2,7 @@ import { PencilSimple } from '@phosphor-icons/react';
 import { useCurrentStateAndParams } from '@uirouter/react';
 import { Dropdown } from 'react-bootstrap';
 
+import { ProviderOfferingDetails } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';
@@ -9,7 +10,11 @@ import { useUser } from '@waldur/workspace/hooks';
 
 import { DropdownLink } from './DropdownLink';
 
-export const EditOfferingButton = ({ row }) => {
+export const EditOfferingButton = ({
+  row,
+}: {
+  row: ProviderOfferingDetails;
+}) => {
   const user = useUser();
 
   const canUpdateOffering = hasPermission(user, {

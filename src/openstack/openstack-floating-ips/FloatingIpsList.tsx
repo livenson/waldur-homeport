@@ -1,6 +1,7 @@
 import { FunctionComponent, useMemo } from 'react';
 import { ButtonGroup } from 'react-bootstrap';
 
+import { OpenStackFloatingIp } from '@waldur/api';
 import { Link } from '@waldur/core/Link';
 import { translate } from '@waldur/i18n';
 import { ActionButtonResource } from '@waldur/resource/actions/ActionButtonResource';
@@ -45,7 +46,7 @@ export const FloatingIpsList: FunctionComponent<{ resourceScope }> = ({
     filter,
   });
   return (
-    <Table
+    <Table<OpenStackFloatingIp>
       {...tableProps}
       columns={[
         {

@@ -2,9 +2,8 @@ import { useRouter } from '@uirouter/react';
 import { FC, PropsWithChildren } from 'react';
 import { SubmissionError } from 'redux-form';
 
-import { marketplaceOrdersCreate } from '@waldur/api';
+import { marketplaceOrdersCreate, PublicOfferingDetails } from '@waldur/api';
 import { translate } from '@waldur/i18n';
-import { Offering } from '@waldur/marketplace/types';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
@@ -12,7 +11,7 @@ import { formatOrderForCreate } from '../details/utils';
 import { scrollToSectionById } from '../offerings/utils';
 
 export const DeployForm: FC<
-  PropsWithChildren<{ offering: Offering; handleSubmit }>
+  PropsWithChildren<{ offering: PublicOfferingDetails; handleSubmit }>
 > = ({ offering, handleSubmit, children }) => {
   const router = useRouter();
   const mutate = async (values, dispatch) => {

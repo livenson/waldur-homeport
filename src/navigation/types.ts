@@ -1,14 +1,14 @@
 import { ComponentType, ReactNode } from 'react';
 
-export interface PageBarTab {
+export interface PageBarTab<T = any> {
   key: string;
   title: ReactNode;
-  component?: ComponentType<any>;
+  component?: ComponentType<T>;
   /** The default key that will be activated when the parent is clicked. It can be the key of one of the children. */
   defaultKey?: string;
   disabled?: boolean;
   visible?: boolean;
-  children?: Omit<PageBarTab, 'children' | 'defaultKey'>[];
+  children?: Omit<PageBarTab<T>, 'children' | 'defaultKey'>[];
 }
 
 export interface IBreadcrumbItem {

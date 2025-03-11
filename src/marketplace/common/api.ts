@@ -1,72 +1,44 @@
-import Axios, { AxiosRequestConfig } from 'axios';
+import Axios from 'axios';
 
-import { OfferingPermission, OrganizationGroup } from '@waldur/api';
+import {
+  marketplaceCategoriesList,
+  marketplaceCategoryGroupsList,
+  MarketplaceCategoryGroupsListData,
+  marketplaceComponentUsagesList,
+  MarketplaceComponentUsagesListData,
+  marketplaceProviderResourcesOfferingForSubresourcesList,
+  marketplaceServiceProvidersList,
+  MarketplaceServiceProvidersListData,
+} from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
-import { get, getAll, parseResultCount, post } from '@waldur/core/api';
-import {
-  Category,
-  CategoryGroup,
-  Offering,
-  ServiceProvider,
-} from '@waldur/marketplace/types';
+import { getAllPages, parseResultCount, post } from '@waldur/core/api';
+import { ServiceProvider } from '@waldur/marketplace/types';
 
-import { PlanUsageRow } from '../../reporting/plan-usage/types';
-import {
-  ComponentUsage,
-  ComponentUserUsage,
-  ResourcePlanPeriod,
-} from '../resources/usage/types';
+export const getCategoryGroups = (
+  query?: MarketplaceCategoryGroupsListData['query'],
+) =>
+  getAllPages((page) =>
+    marketplaceCategoryGroupsList({ query: { page, ...query } }),
+  );
 
-export const getCategoryGroups = (options?: AxiosRequestConfig) =>
-  getAll<CategoryGroup>('/marketplace-category-groups/', options);
-
-export const getCategories = (options?: AxiosRequestConfig) =>
-  getAll<Category>('/marketplace-categories/', options);
+export const getCategories = () =>
+  getAllPages((page) => marketplaceCategoriesList({ query: { page } }));
 
 export const getComponentUsages = (
   resource_uuid: string,
   date_after?: string,
-  params?: {},
+  query?: MarketplaceComponentUsagesListData['query'],
 ) =>
-  getAll<ComponentUsage>('/marketplace-component-usages/', {
-    params: { resource_uuid, date_after, ...params },
-  });
-
-export const getComponentUserUsages = (
-  resource_uuid: string,
-  date_after?: string,
-  params?: {},
-) =>
-  getAll<ComponentUserUsage>('/marketplace-component-user-usages/', {
-    params: { resource_uuid, date_after, ...params },
-  });
-
-const getAllProviderOfferings = (options?: {}) =>
-  getAll<Offering>('/marketplace-provider-offerings/', options);
-
-export const getAllOfferingPermissions = (options?: AxiosRequestConfig) =>
-  getAll<OfferingPermission>('/marketplace-offering-permissions/', options);
-
-export const getProviderOfferings = (customerUuid: string) =>
-  getAllProviderOfferings({ params: { customer_uuid: customerUuid } });
-
-export const getOfferingPlansUsage = (offeringUuid: string) =>
-  getAll<PlanUsageRow>('/marketplace-plans/usage_stats/', {
-    params: { offering_uuid: offeringUuid },
-  });
-
-export const getProviderResourcePlanPeriods = (resourceId: string) =>
-  getAll<ResourcePlanPeriod>(
-    `/marketplace-provider-resources/${resourceId}/plan_periods/`,
+  getAllPages((page) =>
+    marketplaceComponentUsagesList({
+      query: { page, resource_uuid, date_after, ...query },
+    }),
   );
 
-export const getSubResourcesOfferings = (resourceId: string) =>
-  getAll<{ uuid; type }>(
-    `/marketplace-resources/${resourceId}/offering_for_subresources/`,
-  );
-
-export const getAllOrganizationGroups = (options?) =>
-  getAll<OrganizationGroup>('/organization-groups/', options);
+export const getSubResourcesOfferings = (uuid: string) =>
+  marketplaceProviderResourcesOfferingForSubresourcesList({
+    path: { uuid },
+  }).then((r) => r.data);
 
 export const updateOfferingState = (offeringUuid, action, reason) =>
   post(
@@ -74,30 +46,12 @@ export const updateOfferingState = (offeringUuid, action, reason) =>
     reason && { paused_reason: reason },
   ).then((response) => response.data);
 
-export const getRuntimeStates = (projectUuid?, categoryUuid?) => {
-  let url = '/marketplace-runtime-states/';
-
-  if (projectUuid) {
-    url += projectUuid + '/';
-  }
-
-  return get(url, {
-    params: { category_uuid: categoryUuid },
-  }).then((response) => response.data);
-};
-
-export const getServiceProviderByCustomer = async (params, options?) => {
-  const response = await get<ServiceProvider>(
-    '/marketplace-service-providers/',
-    { ...options, params },
-  );
+export const getServiceProviderByCustomer = async (
+  query: MarketplaceServiceProvidersListData['query'],
+) => {
+  const response = await marketplaceServiceProvidersList({ query });
   return (response.data[0] as ServiceProvider) ?? null;
 };
-
-export const terminateResource = (resource_uuid: string, data?) =>
-  post(`/marketplace-resources/${resource_uuid}/terminate/`, data).then(
-    (response) => response.data,
-  );
 
 export const moveResource = (resourceUuid: string, projectUrl: string) =>
   post(`/marketplace-resources/${resourceUuid}/move_resource/`, {
@@ -105,9 +59,6 @@ export const moveResource = (resourceUuid: string, projectUrl: string) =>
       url: projectUrl,
     },
   });
-
-export const getAsyncDryRun = (uuid) =>
-  get(`/marketplace-script-async-dry-run/${uuid}/`);
 
 export const countOrders = (params) =>
   Axios.request({

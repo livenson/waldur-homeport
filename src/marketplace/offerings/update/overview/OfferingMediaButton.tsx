@@ -1,6 +1,7 @@
 import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
+import { ProviderOfferingDetails } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { EditButton } from '@waldur/form/EditButton';
 import { openModalDialog } from '@waldur/modal/actions';
@@ -8,27 +9,37 @@ import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';
 import { useUser } from '@waldur/workspace/hooks';
 import { getCustomer } from '@waldur/workspace/selectors';
-import { User } from '@waldur/workspace/types';
 
 import { ACTIVE, DRAFT, PAUSED } from '../../store/constants';
 
-const UpdateOfferingLogoDialog = lazyComponent(() =>
-  import('../../actions/UpdateOfferingLogoDialog').then((module) => ({
-    default: module.UpdateOfferingLogoDialog,
+import { MediaType } from './types';
+
+const UpdateOfferingMediaDialog = lazyComponent(() =>
+  import('../../actions/UpdateOfferingMediaDialog').then((module) => ({
+    default: module.UpdateOfferingMediaDialog,
   })),
 );
 
-export const OfferingLogoButton: FC<{ offering; refetch }> = (props) => {
-  const user = useUser() as User;
+export const OfferingMediaButton: FC<{
+  offering: ProviderOfferingDetails;
+  refetch: () => void;
+  mediaType: MediaType;
+}> = (props) => {
+  const user = useUser();
   const customer = useSelector(getCustomer);
-
   const dispatch = useDispatch();
+
   const callback = () =>
     dispatch(
-      openModalDialog(UpdateOfferingLogoDialog, {
-        resolve: props,
+      openModalDialog(UpdateOfferingMediaDialog, {
+        resolve: {
+          offering: props.offering,
+          refetch: props.refetch,
+          mediaType: props.mediaType,
+        },
       }),
     );
+
   if (
     user.is_staff ||
     ([DRAFT, ACTIVE, PAUSED].includes(props.offering.state) &&

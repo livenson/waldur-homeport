@@ -1,7 +1,9 @@
+import { Template } from '@waldur/api';
 import { StateIndicator } from '@waldur/core/StateIndicator';
 import { translate } from '@waldur/i18n';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
+import { Column } from '@waldur/table/types';
 import { useTable } from '@waldur/table/useTable';
 
 import { IssueTemplateCreateButton } from './IssueTemplateCreateButton';
@@ -28,7 +30,7 @@ export const AdministrationIssueTemplatesList = () => {
     table: 'issueTemplates',
     fetchData: createFetcher('support-templates'),
   });
-  const columns = [
+  const columns: Column<Template>[] = [
     {
       title: translate('Name'),
       render: ({ row }) => row.name,

@@ -101,7 +101,7 @@ export const MigrateTenantDialog = connect<
             tenant_uuid: resource.uuid,
           });
           const destinationVolumeTypes = await loadVolumeTypes({
-            settings_uuid: offering.scope_uuid,
+            service_settings_uuid: offering.scope_uuid,
           });
           const networks = (
             await openstackNetworksList({

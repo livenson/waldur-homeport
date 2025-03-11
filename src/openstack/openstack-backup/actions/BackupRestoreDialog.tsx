@@ -5,15 +5,13 @@ import { Field, Form } from 'react-final-form';
 import { FieldArray } from 'react-final-form-arrays';
 import { useAsync } from 'react-use';
 
-import { openstackBackupsRestore } from '@waldur/api';
+import { OpenStackBackup, openstackBackupsRestore } from '@waldur/api';
 import { required } from '@waldur/core/validators';
 import { Select } from '@waldur/form/themed-select';
 import { translate } from '@waldur/i18n';
 import { useModal } from '@waldur/modal/hooks';
 import { AsyncActionDialog } from '@waldur/resource/actions/AsyncActionDialog';
 import { useNotify } from '@waldur/store/hooks';
-
-import { OpenStackBackup } from '../types';
 
 import { NetworksList } from './NetworksList';
 import {
