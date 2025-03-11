@@ -121,10 +121,6 @@ export type AuthToken = {
     readonly user_token_lifetime: number | null;
 };
 
-export type AuthTokenRequest = {
-    user: string;
-};
-
 export type AwsImage = {
     readonly url: string;
     readonly uuid: string;
@@ -924,18 +920,6 @@ export type BookingResource = {
     readonly slots: Array<BookingSlot>;
 };
 
-export type BookingResourceRequest = {
-    offering: string;
-    plan?: string;
-    name: string;
-    /**
-     * The date is inclusive. Once reached, a resource will be scheduled for termination.
-     */
-    end_date?: string | null;
-    downscaled?: boolean;
-    paused?: boolean;
-};
-
 export type BookingSlot = {
     start: string;
     end: string;
@@ -1031,11 +1015,6 @@ export type CallRound = {
     readonly call_uuid: string;
     readonly call_name: string;
     status: StatusEnum;
-};
-
-export type CallRoundRequest = {
-    start_time: string;
-    cutoff_time: string;
 };
 
 export type CallStates = 'draft' | 'active' | 'archived';
@@ -1206,13 +1185,6 @@ export type CategoryComponentUsage = {
     scope: string;
 };
 
-export type CategoryComponentUsageRequest = {
-    date: string;
-    reported_usage?: number | null;
-    fixed_usage?: number | null;
-    scope: string;
-};
-
 export type CategoryComponents = {
     readonly uuid: string;
     /**
@@ -1354,7 +1326,6 @@ export type Comment = {
 export type CommentRequest = {
     description: string;
     is_public?: boolean;
-    remote_id?: string | null;
 };
 
 export type ComponentStats = {
@@ -1430,17 +1401,6 @@ export type ComponentUsageItemRequest = {
     recurring?: boolean;
 };
 
-export type ComponentUsageRequest = {
-    description?: string;
-    date: string;
-    /**
-     * Reported value is reused every month until changed.
-     */
-    recurring?: boolean;
-    billing_period: string;
-    modified_by?: number | null;
-};
-
 export type ComponentUserUsage = {
     readonly uuid: string;
     user: string;
@@ -1503,14 +1463,6 @@ export type ComponentUserUsageLimitRequest = {
     limit?: string;
 };
 
-export type ComponentUserUsageRequest = {
-    user: string;
-    username: string;
-    component_usage: string;
-    description?: string;
-    backend_id?: string;
-};
-
 export type ComponentsUsageStats = {
     readonly components: Array<ComponentStats>;
 };
@@ -1521,6 +1473,129 @@ export type ConfirmEmailRequestRequest = {
 
 export type ConsoleUrl = {
     readonly url: string;
+};
+
+export type ConstanceSettings = {
+    SITE_NAME?: string;
+    SITE_DESCRIPTION?: string;
+    HOMEPORT_URL?: string;
+    SITE_ADDRESS?: string;
+    SITE_EMAIL?: string;
+    SITE_PHONE?: string;
+    CURRENCY_NAME?: string;
+    THUMBNAIL_SIZE?: string;
+    ANONYMOUS_USER_CAN_VIEW_OFFERINGS?: boolean;
+    ANONYMOUS_USER_CAN_VIEW_PLANS?: boolean;
+    NOTIFY_STAFF_ABOUT_APPROVALS?: boolean;
+    NOTIFY_ABOUT_RESOURCE_CHANGE?: boolean;
+    DISABLE_SENDING_NOTIFICATIONS_ABOUT_RESOURCE_UPDATE?: boolean;
+    MARKETPLACE_LANDING_PAGE?: string;
+    ENABLE_STALE_RESOURCE_NOTIFICATIONS?: boolean;
+    ENABLE_RESOURCE_END_DATE?: boolean;
+    TELEMETRY_URL?: string;
+    TELEMETRY_VERSION?: number;
+    SCRIPT_RUN_MODE?: string;
+    DOCKER_CLIENT?: string;
+    DOCKER_RUN_OPTIONS?: string;
+    DOCKER_SCRIPT_DIR?: string;
+    DOCKER_REMOVE_CONTAINER?: boolean;
+    DOCKER_IMAGES?: string;
+    DOCKER_VOLUME_NAME?: string;
+    K8S_NAMESPACE?: string;
+    K8S_CONFIG_PATH?: string;
+    K8S_JOB_TIMEOUT?: number;
+    ENABLE_STRICT_CHECK_ACCEPTING_INVITATION?: boolean;
+    INVITATION_DISABLE_MULTIPLE_ROLES?: boolean;
+    DEFAULT_IDP?: string;
+    DOCS_URL?: string;
+    SHORT_PAGE_TITLE?: string;
+    FULL_PAGE_TITLE?: string;
+    BRAND_COLOR?: string;
+    HERO_LINK_LABEL?: string;
+    HERO_LINK_URL?: string;
+    SUPPORT_PORTAL_URL?: string;
+    COMMON_FOOTER_TEXT?: string;
+    COMMON_FOOTER_HTML?: string;
+    LANGUAGE_CHOICES?: string;
+    DISABLE_DARK_THEME?: boolean;
+    POWERED_BY_LOGO?: string | null;
+    HERO_IMAGE?: string | null;
+    SIDEBAR_LOGO?: string | null;
+    SIDEBAR_LOGO_DARK?: string | null;
+    SIDEBAR_LOGO_MOBILE?: string | null;
+    SIDEBAR_STYLE?: string;
+    SITE_LOGO?: string | null;
+    LOGIN_LOGO?: string | null;
+    FAVICON?: string | null;
+    OFFERING_LOGO_PLACEHOLDER?: string | null;
+    WALDUR_SUPPORT_ENABLED?: boolean;
+    WALDUR_SUPPORT_ACTIVE_BACKEND_TYPE?: string;
+    WALDUR_SUPPORT_DISPLAY_REQUEST_TYPE?: boolean;
+    ATLASSIAN_USE_OLD_API?: boolean;
+    ATLASSIAN_USE_TEENAGE_API?: boolean;
+    ATLASSIAN_USE_AUTOMATIC_REQUEST_MAPPING?: boolean;
+    ATLASSIAN_MAP_WALDUR_USERS_TO_SERVICEDESK_AGENTS?: boolean;
+    ATLASSIAN_STRANGE_SETTING?: number;
+    ATLASSIAN_API_URL?: string;
+    ATLASSIAN_USERNAME?: string;
+    ATLASSIAN_PASSWORD?: string;
+    ATLASSIAN_EMAIL?: string;
+    ATLASSIAN_TOKEN?: string;
+    ATLASSIAN_VERIFY_SSL?: boolean;
+    ATLASSIAN_PROJECT_ID?: string;
+    ATLASSIAN_SHARED_USERNAME?: boolean;
+    ATLASSIAN_CUSTOM_ISSUE_FIELD_MAPPING_ENABLED?: boolean;
+    ATLASSIAN_DEFAULT_OFFERING_ISSUE_TYPE?: string;
+    ATLASSIAN_EXCLUDED_ATTACHMENT_TYPES?: string;
+    ATLASSIAN_PULL_PRIORITIES?: boolean;
+    ATLASSIAN_ISSUE_TYPES?: string;
+    ATLASSIAN_DESCRIPTION_TEMPLATE?: string;
+    ATLASSIAN_SUMMARY_TEMPLATE?: string;
+    ATLASSIAN_AFFECTED_RESOURCE_FIELD?: string;
+    ATLASSIAN_IMPACT_FIELD?: string;
+    ATLASSIAN_ORGANISATION_FIELD?: string;
+    ATLASSIAN_RESOLUTION_SLA_FIELD?: string;
+    ATLASSIAN_PROJECT_FIELD?: string;
+    ATLASSIAN_REPORTER_FIELD?: string;
+    ATLASSIAN_CALLER_FIELD?: string;
+    ATLASSIAN_SLA_FIELD?: string;
+    ATLASSIAN_LINKED_ISSUE_TYPE?: string;
+    ATLASSIAN_SATISFACTION_FIELD?: string;
+    ATLASSIAN_REQUEST_FEEDBACK_FIELD?: string;
+    ATLASSIAN_TEMPLATE_FIELD?: string;
+    ZAMMAD_API_URL?: string;
+    ZAMMAD_TOKEN?: string;
+    ZAMMAD_GROUP?: string;
+    ZAMMAD_ARTICLE_TYPE?: string;
+    ZAMMAD_COMMENT_MARKER?: string;
+    ZAMMAD_COMMENT_PREFIX?: string;
+    ZAMMAD_COMMENT_COOLDOWN_DURATION?: number;
+    SMAX_API_URL?: string;
+    SMAX_TENANT_ID?: string;
+    SMAX_LOGIN?: string;
+    SMAX_PASSWORD?: string;
+    SMAX_ORGANISATION_FIELD?: string;
+    SMAX_PROJECT_FIELD?: string;
+    SMAX_AFFECTED_RESOURCE_FIELD?: string;
+    SMAX_TIMES_TO_PULL?: number;
+    SMAX_SECONDS_TO_WAIT?: number;
+    SMAX_CREATION_SOURCE_NAME?: string;
+    SMAX_REQUESTS_OFFERING?: string;
+    SMAX_VERIFY_SSL?: boolean;
+    PROPOSAL_REVIEW_DURATION?: number;
+    USER_TABLE_COLUMNS?: string;
+    AUTO_APPROVE_USER_TOS?: boolean;
+    FREEIPA_ENABLED?: boolean;
+    FREEIPA_HOSTNAME?: string;
+    FREEIPA_USERNAME?: string;
+    FREEIPA_PASSWORD?: string;
+    FREEIPA_VERIFY_SSL?: boolean;
+    FREEIPA_USERNAME_PREFIX?: string;
+    FREEIPA_GROUPNAME_PREFIX?: string;
+    FREEIPA_BLACKLISTED_USERNAMES?: Array<string>;
+    FREEIPA_GROUP_SYNCHRONIZATION_ENABLED?: boolean;
+    KEYCLOAK_ICON?: string | null;
+    COUNTRIES?: Array<string>;
 };
 
 export type ConstanceSettingsRequest = {
@@ -1650,7 +1725,7 @@ export type CoreAuthToken = {
     readonly token: string;
 };
 
-export type CoreStates = 'Creation Scheduled' | 'Creating' | 'Update Scheduled' | 'Updating' | 'Deletion Scheduled' | 'Deleting' | 'OK' | 'Erred';
+export type CoreStates = 'CREATION_SCHEDULED' | 'CREATING' | 'UPDATE_SCHEDULED' | 'UPDATING' | 'DELETION_SCHEDULED' | 'DELETING' | 'OK' | 'ERRED';
 
 export type CostsForPeriod = {
     readonly total_price: string;
@@ -1812,21 +1887,6 @@ export type CustomerDetails = {
     address?: string;
     country?: string;
     readonly country_name: string;
-    email?: string;
-    postal?: string;
-    phone_number?: string;
-    bank_name?: string;
-    bank_account?: string;
-    /**
-     * VAT number
-     */
-    vat_code?: string;
-};
-
-export type CustomerDetailsRequest = {
-    name: string;
-    address?: string;
-    country?: string;
     email?: string;
     postal?: string;
     phone_number?: string;
@@ -2269,11 +2329,6 @@ export type Feedback = {
     readonly issue_summary: string;
 };
 
-export type FeedbackRequest = {
-    evaluation: number;
-    comment?: string;
-};
-
 export type FinancialReport = {
     name: string;
     readonly uuid: string;
@@ -2290,14 +2345,6 @@ export type FinancialReportEmailRequest = {
     emails: Array<string>;
     year: number;
     month: number;
-};
-
-export type FinancialReportRequest = {
-    name: string;
-    abbreviation?: string;
-    accounting_start_date?: string;
-    registration_code?: string;
-    agreement_number?: string;
 };
 
 export type Fingerprint = {
@@ -2391,11 +2438,6 @@ export type GoogleCalendar = {
     readonly http_link: string;
 };
 
-export type GoogleCalendarRequest = {
-    backend_id?: string | null;
-    public?: boolean;
-};
-
 export type GoogleCredentials = {
     readonly url: string;
     readonly uuid: string;
@@ -2415,12 +2457,6 @@ export type GoogleCredentials = {
     readonly calendar_token: string;
     readonly calendar_refresh_token: string;
     readonly google_auth_url: string;
-};
-
-export type GoogleCredentialsRequest = {
-    description?: string;
-    customer: string;
-    image?: (Blob | File) | null;
 };
 
 export type GroupInvitation = {
@@ -2566,10 +2602,6 @@ export type IntegrationStatusDetails = {
     readonly last_request_timestamp: string | null;
     offering: string;
     readonly url: string;
-};
-
-export type IntegrationStatusDetailsRequest = {
-    offering: string;
 };
 
 export type Invitation = {
@@ -2749,32 +2781,6 @@ export type InvoiceItemDetail = {
     details?: unknown;
 };
 
-export type InvoiceItemDetailRequest = {
-    invoice: string;
-    resource?: string | null;
-    article_code?: string;
-    unit_price?: string;
-    unit?: BillingUnit;
-    quantity?: string;
-    /**
-     * Unit of measurement, for example, GB.
-     */
-    measured_unit?: string;
-    name?: string;
-    /**
-     * Date and time when item usage has started.
-     */
-    start?: string;
-    /**
-     * Date and time when item usage has ended.
-     */
-    end?: string;
-    /**
-     * Stores data about scope
-     */
-    details?: unknown;
-};
-
 export type InvoiceItemDetails = {
     resource_name: string;
     resource_uuid: string;
@@ -2791,48 +2797,12 @@ export type InvoiceItemDetails = {
     resource_limit_periods: Array<ResourceLimitPeriod>;
 };
 
-export type InvoiceItemDetailsRequest = {
-    resource_name: string;
-    resource_uuid: string;
-    plan_name: string;
-    plan_uuid: string;
-    offering_type: string;
-    offering_name: string;
-    offering_uuid: string;
-    service_provider_name: string;
-    service_provider_uuid: string;
-    plan_component_id: number;
-    offering_component_type: string;
-    offering_component_name: string;
-    resource_limit_periods: Array<ResourceLimitPeriodRequest>;
-};
-
 export type InvoiceItemMigrateTo = {
     invoice: string;
 };
 
 export type InvoiceItemMigrateToRequest = {
     invoice: string;
-};
-
-export type InvoiceItemRequest = {
-    name?: string;
-    tax: string;
-    total: string;
-    unit_price?: string;
-    unit?: BillingUnit;
-    /**
-     * Date and time when item usage has started.
-     */
-    start?: string;
-    /**
-     * Date and time when item usage has ended.
-     */
-    end?: string;
-    article_code?: string;
-    quantity?: string;
-    details: InvoiceItemDetailsRequest;
-    resource?: string | null;
 };
 
 export type InvoiceItemUpdate = {
@@ -2859,31 +2829,6 @@ export type InvoiceItemUpdateRequest = {
      * Date and time when item usage has ended.
      */
     end?: string;
-};
-
-export type InvoiceRequest = {
-    customer: string;
-    price: string;
-    tax: string;
-    total: string;
-    state?: InvoiceStateEnum;
-    year?: number;
-    month?: number;
-    /**
-     * Date then invoice moved from state pending to created.
-     */
-    invoice_date?: string | null;
-    due_date: string;
-    customer_details: CustomerDetailsRequest;
-    backend_id?: string;
-    /**
-     * URL for initiating payment via payment gateway.
-     */
-    payment_url?: string;
-    /**
-     * Reference number associated with the invoice.
-     */
-    reference_number?: string;
 };
 
 export type InvoiceStateEnum = 'pending' | 'created' | 'paid' | 'canceled';
@@ -4400,45 +4345,6 @@ export type OfferingReferral = {
     referral_url?: string;
 };
 
-export type OfferingRequest = {
-    name: string;
-    description?: string;
-    full_description?: string;
-    terms_of_service?: string;
-    terms_of_service_link?: string;
-    privacy_policy_link?: string;
-    /**
-     * Publicly accessible offering access URL
-     */
-    access_url?: string;
-    customer?: string | null;
-    category: string;
-    attributes?: unknown;
-    components?: Array<OfferingComponentRequest>;
-    vendor_details?: string;
-    getting_started?: string;
-    integration_guide?: string;
-    thumbnail?: (Blob | File) | null;
-    plans?: Array<BaseProviderPlanRequest>;
-    type: string;
-    /**
-     * Accessible to all customers.
-     */
-    shared?: boolean;
-    /**
-     * Purchase and usage is invoiced.
-     */
-    billable?: boolean;
-    datacite_doi?: string;
-    latitude?: number | null;
-    longitude?: number | null;
-    country?: CountryEnum | BlankEnum;
-    backend_id?: string;
-    image?: (Blob | File) | null;
-    backend_metadata?: unknown;
-    googlecalendar?: GoogleCalendarRequest;
-};
-
 export type OfferingResourceOptionsUpdate = {
     resource_options: OfferingOptions;
 };
@@ -4904,24 +4810,9 @@ export type OpenStackInstancePortsUpdateRequest = {
 export type OpenStackInstanceRequest = {
     name: string;
     description?: string;
-    project: string;
-    ssh_public_key?: string;
-    /**
-     * Additional data that will be added to instance on provisioning
-     */
-    user_data?: string;
-    image: string;
-    flavor: string;
-    system_volume_size: number;
     system_volume_type?: string | null;
-    data_volume_size?: number;
     data_volume_type?: string | null;
     data_volumes?: Array<OpenStackDataVolumeRequest>;
-    floating_ips?: Array<OpenStackNestedFloatingIpRequest>;
-    ports: Array<OpenStackNestedPortRequest>;
-    availability_zone?: string | null;
-    connect_directly_to_external_network?: boolean;
-    tenant: string;
 };
 
 export type OpenStackInstanceSecurityGroupsUpdateRequest = {
@@ -5198,18 +5089,6 @@ export type OpenStackRouter = {
     readonly is_usage_based: boolean;
     readonly is_limit_based: boolean;
     readonly offering_external_ips: Array<string> | null;
-};
-
-export type OpenStackRouterRequest = {
-    name: string;
-    description?: string;
-    service_settings: string;
-    project: string;
-    error_message?: string;
-    error_traceback?: string;
-    backend_id?: string;
-    tenant: string;
-    routes: Array<OpenStackStaticRouteRequest>;
 };
 
 export type OpenStackRouterSetRoutes = {
@@ -5700,16 +5579,7 @@ export type OpenStackVolumeExtendRequest = {
 export type OpenStackVolumeRequest = {
     name: string;
     description?: string;
-    project: string;
-    /**
-     * Size in MiB
-     */
-    size?: number | null;
     bootable?: boolean;
-    image?: string | null;
-    type?: string | null;
-    availability_zone?: string | null;
-    tenant: string;
 };
 
 export type OpenStackVolumeRetypeRequest = {
@@ -5930,16 +5800,6 @@ export type OrderDetails = {
     readonly termination_comment: string | null;
     backend_id?: string;
     issue: IssueReference;
-};
-
-export type OrderDetailsRequest = {
-    attributes?: unknown;
-    limits?: {
-        [key: string]: number;
-    };
-    type?: RequestTypes;
-    accepting_terms_of_service?: boolean;
-    backend_id?: string;
 };
 
 export type OrderSetStateErredRequest = {
@@ -6385,15 +6245,6 @@ export type PatchedAdminAnnouncementRequest = {
     type?: AdminAnnouncementTypeEnum;
 };
 
-export type PatchedAttachmentRequest = {
-    issue?: string;
-    file?: Blob | File;
-};
-
-export type PatchedAuthTokenRequest = {
-    user?: string;
-};
-
 export type PatchedAwsInstanceRequest = {
     name?: string;
     description?: string;
@@ -6423,17 +6274,6 @@ export type PatchedAzureVirtualMachineRequest = {
     location?: string;
 };
 
-export type PatchedBookingResourceRequest = {
-    plan?: string;
-    name?: string;
-    /**
-     * The date is inclusive. Once reached, a resource will be scheduled for termination.
-     */
-    end_date?: string | null;
-    downscaled?: boolean;
-    paused?: boolean;
-};
-
 export type PatchedBroadcastMessageRequest = {
     subject?: string;
     body?: string;
@@ -6444,20 +6284,6 @@ export type PatchedBroadcastMessageRequest = {
 export type PatchedCallManagingOrganisationRequest = {
     description?: string;
     image?: (Blob | File) | null;
-};
-
-export type PatchedCallRoundRequest = {
-    start_time?: string;
-    cutoff_time?: string;
-};
-
-export type PatchedCampaignRequest = {
-    name?: string;
-    /**
-     * If coupon is empty, campaign is available to all users.
-     */
-    coupon?: string;
-    description?: string;
 };
 
 export type PatchedCategoryColumnRequest = {
@@ -6482,13 +6308,6 @@ export type PatchedCategoryColumnRequest = {
      */
     widget?: WidgetEnum | BlankEnum | NullEnum | null;
     category?: string;
-};
-
-export type PatchedCategoryComponentUsageRequest = {
-    date?: string;
-    reported_usage?: number | null;
-    fixed_usage?: number | null;
-    scope?: string;
 };
 
 export type PatchedCategoryComponentsRequest = {
@@ -6525,30 +6344,11 @@ export type PatchedCommentRequest = {
     is_public?: boolean;
 };
 
-export type PatchedComponentUsageRequest = {
-    description?: string;
-    date?: string;
-    /**
-     * Reported value is reused every month until changed.
-     */
-    recurring?: boolean;
-    billing_period?: string;
-    modified_by?: number | null;
-};
-
 export type PatchedComponentUserUsageLimitRequest = {
     resource?: string;
     component?: string;
     user?: string;
     limit?: string;
-};
-
-export type PatchedComponentUserUsageRequest = {
-    user?: string;
-    username?: string;
-    component_usage?: string;
-    description?: string;
-    backend_id?: string;
 };
 
 export type PatchedCreateCustomerCreditRequest = {
@@ -6605,13 +6405,6 @@ export type PatchedDigitalOceanDropletRequest = {
     description?: string;
 };
 
-export type PatchedDryRunRequest = {
-    plan?: string | null;
-    type?: DryRunTypeEnum;
-    attributes?: unknown;
-    order_offering?: string | null;
-};
-
 export type PatchedEmailHookRequest = {
     is_active?: boolean;
     event_types?: Array<EventTypesEnum>;
@@ -6619,28 +6412,10 @@ export type PatchedEmailHookRequest = {
     email?: string;
 };
 
-export type PatchedFeedbackRequest = {
-    evaluation?: number;
-    comment?: string;
-};
-
-export type PatchedFinancialReportRequest = {
-    name?: string;
-    abbreviation?: string;
-    accounting_start_date?: string;
-    registration_code?: string;
-    agreement_number?: string;
-};
-
 export type PatchedFirecrestJobRequest = {
     name?: string;
     description?: string;
     runtime_state?: string;
-};
-
-export type PatchedGoogleCredentialsRequest = {
-    description?: string;
-    image?: (Blob | File) | null;
 };
 
 export type PatchedIdentityProviderRequest = {
@@ -6668,30 +6443,6 @@ export type PatchedIdentityProviderRequest = {
     protected_fields?: unknown;
 };
 
-export type PatchedIntegrationStatusDetailsRequest = {
-    offering?: string;
-};
-
-export type PatchedInvoiceItemRequest = {
-    name?: string;
-    tax?: string;
-    total?: string;
-    unit_price?: string;
-    unit?: BillingUnit;
-    /**
-     * Date and time when item usage has started.
-     */
-    start?: string;
-    /**
-     * Date and time when item usage has ended.
-     */
-    end?: string;
-    article_code?: string;
-    quantity?: string;
-    details?: InvoiceItemDetailsRequest;
-    resource?: string | null;
-};
-
 export type PatchedInvoiceItemUpdateRequest = {
     article_code?: string;
     quantity?: string;
@@ -6703,31 +6454,6 @@ export type PatchedInvoiceItemUpdateRequest = {
      * Date and time when item usage has ended.
      */
     end?: string;
-};
-
-export type PatchedInvoiceRequest = {
-    customer?: string;
-    price?: string;
-    tax?: string;
-    total?: string;
-    state?: InvoiceStateEnum;
-    year?: number;
-    month?: number;
-    /**
-     * Date then invoice moved from state pending to created.
-     */
-    invoice_date?: string | null;
-    due_date?: string;
-    customer_details?: CustomerDetailsRequest;
-    backend_id?: string;
-    /**
-     * URL for initiating payment via payment gateway.
-     */
-    payment_url?: string;
-    /**
-     * Reference number associated with the invoice.
-     */
-    reference_number?: string;
 };
 
 export type PatchedIssueRequest = {
@@ -6798,49 +6524,6 @@ export type PatchedOfferingEstimatedCostPolicyRequest = {
     organization_groups?: Array<string>;
 };
 
-export type PatchedOfferingFileRequest = {
-    name?: string;
-    offering?: string;
-    file?: Blob | File;
-};
-
-export type PatchedOfferingRequest = {
-    name?: string;
-    description?: string;
-    full_description?: string;
-    terms_of_service?: string;
-    terms_of_service_link?: string;
-    privacy_policy_link?: string;
-    /**
-     * Publicly accessible offering access URL
-     */
-    access_url?: string;
-    category?: string;
-    attributes?: unknown;
-    components?: Array<OfferingComponentRequest>;
-    vendor_details?: string;
-    getting_started?: string;
-    integration_guide?: string;
-    thumbnail?: (Blob | File) | null;
-    plans?: Array<BaseProviderPlanRequest>;
-    /**
-     * Accessible to all customers.
-     */
-    shared?: boolean;
-    /**
-     * Purchase and usage is invoiced.
-     */
-    billable?: boolean;
-    datacite_doi?: string;
-    latitude?: number | null;
-    longitude?: number | null;
-    country?: CountryEnum | BlankEnum;
-    backend_id?: string;
-    image?: (Blob | File) | null;
-    backend_metadata?: unknown;
-    googlecalendar?: GoogleCalendarRequest;
-};
-
 export type PatchedOfferingUsagePolicyRequest = {
     scope?: string;
     actions?: string;
@@ -6885,26 +6568,6 @@ export type PatchedOpenStackInstanceRequest = {
 export type PatchedOpenStackNetworkRequest = {
     name?: string;
     description?: string;
-};
-
-export type PatchedOpenStackPortRequest = {
-    name?: string;
-    description?: string;
-    fixed_ips?: Array<OpenStackFixedIpRequest>;
-    mac_address?: string;
-    network?: string | null;
-};
-
-export type PatchedOpenStackRouterRequest = {
-    name?: string;
-    description?: string;
-    service_settings?: string;
-    project?: string;
-    error_message?: string;
-    error_traceback?: string;
-    backend_id?: string;
-    tenant?: string;
-    routes?: Array<OpenStackStaticRouteRequest>;
 };
 
 export type PatchedOpenStackSecurityGroupUpdateRequest = {
@@ -6956,16 +6619,6 @@ export type PatchedOpenStackVolumeRequest = {
     bootable?: boolean;
 };
 
-export type PatchedOrderDetailsRequest = {
-    attributes?: unknown;
-    limits?: {
-        [key: string]: number;
-    };
-    type?: RequestTypes;
-    accepting_terms_of_service?: boolean;
-    backend_id?: string;
-};
-
 export type PatchedOrganizationGroupRequest = {
     name?: string;
     parent?: string | null;
@@ -6984,11 +6637,6 @@ export type PatchedPaymentRequest = {
     date_of_payment?: string;
     sum?: string;
     proof?: (Blob | File) | null;
-};
-
-export type PatchedPermissionRequestRequest = {
-    invitation?: string;
-    review_comment?: string | null;
 };
 
 export type PatchedProjectCreditRequest = {
@@ -7028,19 +6676,6 @@ export type PatchedProjectRequest = {
     image?: (Blob | File) | null;
 };
 
-export type PatchedProposalRequest = {
-    name?: string;
-    description?: string;
-    project_summary?: string;
-    project_is_confidential?: boolean;
-    project_has_civilian_purpose?: boolean;
-    /**
-     * Duration in days after provisioning of resources.
-     */
-    duration_in_days?: number | null;
-    oecd_fos_2007_code?: OecdFos2007CodeEnum | BlankEnum | NullEnum | null;
-};
-
 export type PatchedProposalReviewRequest = {
     summary_score?: number;
     summary_public_comment?: string;
@@ -7078,42 +6713,6 @@ export type PatchedProtectedRoundRequest = {
     minimum_number_of_reviewers?: number | null;
 };
 
-export type PatchedProviderOfferingDetailsRequest = {
-    name?: string;
-    description?: string;
-    full_description?: string;
-    terms_of_service?: string;
-    terms_of_service_link?: string;
-    privacy_policy_link?: string;
-    /**
-     * Publicly accessible offering access URL
-     */
-    access_url?: string;
-    category?: string;
-    attributes?: unknown;
-    components?: Array<OfferingComponentRequest>;
-    vendor_details?: string;
-    getting_started?: string;
-    integration_guide?: string;
-    thumbnail?: (Blob | File) | null;
-    plans?: Array<BaseProviderPlanRequest>;
-    /**
-     * Accessible to all customers.
-     */
-    shared?: boolean;
-    /**
-     * Purchase and usage is invoiced.
-     */
-    billable?: boolean;
-    datacite_doi?: string;
-    latitude?: number | null;
-    longitude?: number | null;
-    country?: CountryEnum | BlankEnum;
-    backend_id?: string;
-    image?: (Blob | File) | null;
-    backend_metadata?: unknown;
-};
-
 export type PatchedProviderPlanDetailsRequest = {
     name?: string;
     description?: string;
@@ -7129,57 +6728,6 @@ export type PatchedProviderPlanDetailsRequest = {
     unit_price?: string;
     unit?: BillingUnit;
     backend_id?: string;
-};
-
-export type PatchedProviderRequestedOfferingRequest = {
-    offering?: string;
-    attributes?: unknown;
-    call?: string;
-};
-
-export type PatchedProviderRequestedResourceRequest = {
-    resource?: string | null;
-    attributes?: unknown;
-    limits?: unknown;
-    description?: string;
-    created_by?: string | null;
-    proposal?: string;
-};
-
-export type PatchedPublicOfferingDetailsRequest = {
-    name?: string;
-    description?: string;
-    full_description?: string;
-    terms_of_service?: string;
-    terms_of_service_link?: string;
-    privacy_policy_link?: string;
-    /**
-     * Publicly accessible offering access URL
-     */
-    access_url?: string;
-    category?: string;
-    attributes?: unknown;
-    components?: Array<OfferingComponentRequest>;
-    vendor_details?: string;
-    getting_started?: string;
-    integration_guide?: string;
-    thumbnail?: (Blob | File) | null;
-    plans?: Array<BaseProviderPlanRequest>;
-    /**
-     * Accessible to all customers.
-     */
-    shared?: boolean;
-    /**
-     * Purchase and usage is invoiced.
-     */
-    billable?: boolean;
-    datacite_doi?: string;
-    latitude?: number | null;
-    longitude?: number | null;
-    country?: CountryEnum | BlankEnum;
-    backend_id?: string;
-    image?: (Blob | File) | null;
-    backend_metadata?: unknown;
 };
 
 export type PatchedRancherApplicationRequest = {
@@ -7217,12 +6765,6 @@ export type PatchedRancherClusterRequest = {
     install_longhorn?: boolean;
 };
 
-export type PatchedRancherClusterTemplateRequest = {
-    name?: string;
-    description?: string;
-    nodes?: Array<RancherClusterTemplateNodeRequest>;
-};
-
 export type PatchedRancherHpaRequest = {
     name?: string;
     description?: string;
@@ -7246,15 +6788,6 @@ export type PatchedRancherIngressRequest = {
     rules?: unknown;
 };
 
-export type PatchedRancherNodeRequest = {
-    name?: string;
-    cluster?: string;
-    instance?: string;
-    controlplane_role?: boolean;
-    etcd_role?: boolean;
-    worker_role?: boolean;
-};
-
 export type PatchedRancherServiceRequest = {
     name?: string;
     description?: string;
@@ -7270,12 +6803,6 @@ export type PatchedRancherServiceRequest = {
     target_workloads?: Array<RancherNestedWorkloadRequest>;
 };
 
-export type PatchedRancherUserRequest = {
-    user?: string;
-    settings?: string;
-    is_active?: boolean;
-};
-
 export type PatchedRancherWorkloadRequest = {
     name?: string;
     runtime_state?: string;
@@ -7283,21 +6810,6 @@ export type PatchedRancherWorkloadRequest = {
     project?: string | null;
     namespace?: string | null;
     scale?: number;
-};
-
-export type PatchedRemoteProjectUpdateRequestRequest = {
-    review_comment?: string | null;
-    old_name?: string;
-    new_name?: string;
-    old_description?: string;
-    new_description?: string;
-    old_end_date?: string | null;
-    new_end_date?: string | null;
-    old_oecd_fos_2007_code?: string | null;
-    new_oecd_fos_2007_code?: string | null;
-    old_is_industry?: boolean | null;
-    new_is_industry?: boolean | null;
-    created_by?: number | null;
 };
 
 export type PatchedRemoteSynchronisationRequest = {
@@ -7329,12 +6841,6 @@ export type PatchedResourceUpdateRequest = {
      * The date is inclusive. Once reached, a resource will be scheduled for termination.
      */
     end_date?: string | null;
-};
-
-export type PatchedResourceUserRequest = {
-    resource?: string;
-    role?: string;
-    user?: string;
 };
 
 export type PatchedRobotAccountRequest = {
@@ -7383,19 +6889,6 @@ export type PatchedSectionRequest = {
 export type PatchedServiceProviderRequest = {
     description?: string;
     image?: (Blob | File) | null;
-};
-
-export type PatchedServiceSettingsRequest = {
-    name?: string;
-    type?: string;
-    /**
-     * Anybody can use it
-     */
-    shared?: boolean;
-    customer?: string | null;
-    terms_of_services?: string;
-    scope?: string | null;
-    options?: {};
 };
 
 export type PatchedSlurmAllocationRequest = {
@@ -7448,14 +6941,6 @@ export type PatchedUserRequest = {
     first_name?: string;
     last_name?: string;
     image?: (Blob | File) | null;
-};
-
-export type PatchedVmwareDiskRequest = {
-    description?: string;
-};
-
-export type PatchedVmwarePortRequest = {
-    description?: string;
 };
 
 export type PatchedVmwareVirtualMachineRequest = {
@@ -7600,11 +7085,6 @@ export type PermissionRequest = {
     readonly customer_name: string;
     readonly role_name: string;
     readonly role_description: string;
-};
-
-export type PermissionRequestRequest = {
-    invitation: string;
-    review_comment?: string | null;
 };
 
 export type PlanComponent = {
@@ -8216,6 +7696,7 @@ export type ProviderOfferingDetailsRequest = {
      * Publicly accessible offering access URL
      */
     access_url?: string;
+    customer?: string | null;
     category: string;
     attributes?: unknown;
     components?: Array<OfferingComponentRequest>;
@@ -8224,6 +7705,7 @@ export type ProviderOfferingDetailsRequest = {
     integration_guide?: string;
     thumbnail?: (Blob | File) | null;
     plans?: Array<BaseProviderPlanRequest>;
+    type: string;
     /**
      * Accessible to all customers.
      */
@@ -8324,12 +7806,6 @@ export type ProviderRequestedOffering = {
     readonly created_by_email: string;
 };
 
-export type ProviderRequestedOfferingRequest = {
-    offering: string;
-    attributes?: unknown;
-    call: string;
-};
-
 export type ProviderRequestedResource = {
     readonly uuid: string;
     readonly url: string;
@@ -8342,15 +7818,6 @@ export type ProviderRequestedResource = {
     created_by?: string | null;
     readonly created_by_name: string;
     readonly proposal_name: string;
-    proposal: string;
-};
-
-export type ProviderRequestedResourceRequest = {
-    resource?: string | null;
-    attributes?: unknown;
-    limits?: unknown;
-    description?: string;
-    created_by?: string | null;
     proposal: string;
 };
 
@@ -8458,44 +7925,6 @@ export type PublicOfferingDetails = {
     readonly google_calendar_is_public: boolean;
     readonly google_calendar_link: string | null;
     promotion_campaigns: NestedCampaign;
-};
-
-export type PublicOfferingDetailsRequest = {
-    name: string;
-    description?: string;
-    full_description?: string;
-    terms_of_service?: string;
-    terms_of_service_link?: string;
-    privacy_policy_link?: string;
-    /**
-     * Publicly accessible offering access URL
-     */
-    access_url?: string;
-    customer?: string | null;
-    category: string;
-    attributes?: unknown;
-    components?: Array<OfferingComponentRequest>;
-    vendor_details?: string;
-    getting_started?: string;
-    integration_guide?: string;
-    thumbnail?: (Blob | File) | null;
-    plans?: Array<BaseProviderPlanRequest>;
-    type: string;
-    /**
-     * Accessible to all customers.
-     */
-    shared?: boolean;
-    /**
-     * Purchase and usage is invoiced.
-     */
-    billable?: boolean;
-    datacite_doi?: string;
-    latitude?: number | null;
-    longitude?: number | null;
-    country?: CountryEnum | BlankEnum;
-    backend_id?: string;
-    image?: (Blob | File) | null;
-    backend_metadata?: unknown;
 };
 
 export type PullMarketplaceScriptResourceRequest = {
@@ -8752,19 +8181,6 @@ export type RancherClusterTemplateNode = {
     readonly roles: Array<RolesEnum>;
 };
 
-export type RancherClusterTemplateNodeRequest = {
-    min_vcpu: number;
-    min_ram: number;
-    system_volume_size: number;
-    preferred_volume_type?: string;
-};
-
-export type RancherClusterTemplateRequest = {
-    name: string;
-    description?: string;
-    nodes: Array<RancherClusterTemplateNodeRequest>;
-};
-
 export type RancherCreateNode = {
     cluster: string;
 };
@@ -8911,7 +8327,6 @@ export type RancherNestedNode = {
     readonly uuid: string;
     readonly error_message: string;
     error_traceback?: string;
-    state?: RancherNestedNodeStateEnum;
     backend_id?: string;
     controlplane_role?: boolean;
     readonly etcd_role: boolean;
@@ -8949,12 +8364,9 @@ export type RancherNestedNodeRequest = {
     cpu?: number;
     roles: Array<RolesEnum>;
     error_traceback?: string;
-    state?: RancherNestedNodeStateEnum;
     backend_id?: string;
     controlplane_role?: boolean;
 };
-
-export type RancherNestedNodeStateEnum = 5 | 6 | 1 | 2 | 7 | 8 | 3 | 4;
 
 export type RancherNestedSecurityGroup = {
     readonly url: string;
@@ -9010,15 +8422,6 @@ export type RancherNode = {
     readonly labels: unknown;
     readonly annotations: unknown;
     readonly runtime_state: string;
-};
-
-export type RancherNodeRequest = {
-    name: string;
-    cluster: string;
-    instance: string;
-    controlplane_role?: boolean;
-    etcd_role?: boolean;
-    worker_role?: boolean;
 };
 
 export type RancherProject = {
@@ -9159,27 +8562,11 @@ export type RancherUserClusterLink = {
     readonly cluster_uuid: string;
 };
 
-export type RancherUserClusterLinkRequest = {
-    cluster: string;
-    role: RoleEnum;
-};
-
 export type RancherUserProjectLink = {
     project: string;
     role: string;
     readonly project_name: string;
     readonly project_uuid: string;
-};
-
-export type RancherUserProjectLinkRequest = {
-    project: string;
-    role: string;
-};
-
-export type RancherUserRequest = {
-    user: string;
-    settings: string;
-    is_active?: boolean;
 };
 
 export type RancherWorkload = {
@@ -9234,7 +8621,7 @@ export type RemoteEduteamsRequestRequest = {
     cuid: string;
 };
 
-export type RemoteEduteamsResponse = {
+export type RemoteEduteamsUuid = {
     uuid: string;
 };
 
@@ -9281,21 +8668,6 @@ export type RemoteProjectUpdateRequest = {
     readonly old_oecd_fos_2007_label: string;
     new_oecd_fos_2007_code?: string | null;
     readonly new_oecd_fos_2007_label: string;
-    old_is_industry?: boolean | null;
-    new_is_industry?: boolean | null;
-    created_by?: number | null;
-};
-
-export type RemoteProjectUpdateRequestRequest = {
-    review_comment?: string | null;
-    old_name?: string;
-    new_name?: string;
-    old_description?: string;
-    new_description?: string;
-    old_end_date?: string | null;
-    new_end_date?: string | null;
-    old_oecd_fos_2007_code?: string | null;
-    new_oecd_fos_2007_code?: string | null;
     old_is_industry?: boolean | null;
     new_is_industry?: boolean | null;
     created_by?: number | null;
@@ -9514,14 +8886,6 @@ export type ResourceEndDateByProviderRequest = {
 };
 
 export type ResourceLimitPeriod = {
-    start: string;
-    end: string;
-    quantity: number;
-    billing_periods: number;
-    total: string;
-};
-
-export type ResourceLimitPeriodRequest = {
     start: string;
     end: string;
     quantity: number;
@@ -10020,20 +9384,7 @@ export type ServiceSettings = {
     readonly options: {};
 };
 
-export type ServiceSettingsRequest = {
-    name: string;
-    type: string;
-    /**
-     * Anybody can use it
-     */
-    shared?: boolean;
-    customer?: string | null;
-    terms_of_services?: string;
-    scope?: string | null;
-    options: {};
-};
-
-export type ServiceSettingsStateEnum = 'Creation Scheduled' | 'Creating' | 'Update Scheduled' | 'Updating' | 'Deletion Scheduled' | 'Deleting' | 'OK' | 'Erred';
+export type ServiceSettingsStateEnum = 'CREATION_SCHEDULED' | 'CREATING' | 'UPDATE_SCHEDULED' | 'UPDATING' | 'DELETION_SCHEDULED' | 'DELETING' | 'OK' | 'ERRED';
 
 export type SetMtu = {
     mtu: number;
@@ -11307,19 +10658,6 @@ export type AuthTokensListResponses = {
 
 export type AuthTokensListResponse = AuthTokensListResponses[keyof AuthTokensListResponses];
 
-export type AuthTokensCreateData = {
-    body: AuthTokenRequest;
-    path?: never;
-    query?: never;
-    url: '/api/auth-tokens/';
-};
-
-export type AuthTokensCreateResponses = {
-    201: AuthToken;
-};
-
-export type AuthTokensCreateResponse = AuthTokensCreateResponses[keyof AuthTokensCreateResponses];
-
 export type AuthTokensDestroyData = {
     body?: never;
     path: {
@@ -11352,36 +10690,6 @@ export type AuthTokensRetrieveResponses = {
 };
 
 export type AuthTokensRetrieveResponse = AuthTokensRetrieveResponses[keyof AuthTokensRetrieveResponses];
-
-export type AuthTokensPartialUpdateData = {
-    body?: PatchedAuthTokenRequest;
-    path: {
-        user_id: number;
-    };
-    query?: never;
-    url: '/api/auth-tokens/{user_id}/';
-};
-
-export type AuthTokensPartialUpdateResponses = {
-    200: AuthToken;
-};
-
-export type AuthTokensPartialUpdateResponse = AuthTokensPartialUpdateResponses[keyof AuthTokensPartialUpdateResponses];
-
-export type AuthTokensUpdateData = {
-    body: AuthTokenRequest;
-    path: {
-        user_id: number;
-    };
-    query?: never;
-    url: '/api/auth-tokens/{user_id}/';
-};
-
-export type AuthTokensUpdateResponses = {
-    200: AuthToken;
-};
-
-export type AuthTokensUpdateResponse = AuthTokensUpdateResponses[keyof AuthTokensUpdateResponses];
 
 export type AuthValimoCreateData = {
     body: AuthResultRequest;
@@ -11478,16 +10786,16 @@ export type AwsInstancesListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         uuid?: string;
     };
     url: '/api/aws-instances/';
@@ -12031,16 +11339,16 @@ export type AzurePublicIpsListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         uuid?: string;
     };
     url: '/api/azure-public-ips/';
@@ -12279,16 +11587,16 @@ export type AzureSqlDatabasesListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         uuid?: string;
     };
     url: '/api/azure-sql-databases/';
@@ -12441,16 +11749,16 @@ export type AzureSqlServersListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         uuid?: string;
     };
     url: '/api/azure-sql-servers/';
@@ -12618,16 +11926,16 @@ export type AzureVirtualmachinesListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         uuid?: string;
     };
     url: '/api/azure-virtualmachines/';
@@ -12839,37 +12147,6 @@ export type BookingOfferingsListResponses = {
 
 export type BookingOfferingsListResponse = BookingOfferingsListResponses[keyof BookingOfferingsListResponses];
 
-export type BookingOfferingsCreateData = {
-    body: OfferingRequest;
-    path?: never;
-    query?: never;
-    url: '/api/booking-offerings/';
-};
-
-export type BookingOfferingsCreateResponses = {
-    201: Offering;
-};
-
-export type BookingOfferingsCreateResponse = BookingOfferingsCreateResponses[keyof BookingOfferingsCreateResponses];
-
-export type BookingOfferingsDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/booking-offerings/{uuid}/';
-};
-
-export type BookingOfferingsDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type BookingOfferingsDestroyResponse = BookingOfferingsDestroyResponses[keyof BookingOfferingsDestroyResponses];
-
 export type BookingOfferingsRetrieveData = {
     body?: never;
     path: {
@@ -12886,36 +12163,6 @@ export type BookingOfferingsRetrieveResponses = {
 };
 
 export type BookingOfferingsRetrieveResponse = BookingOfferingsRetrieveResponses[keyof BookingOfferingsRetrieveResponses];
-
-export type BookingOfferingsPartialUpdateData = {
-    body?: PatchedOfferingRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/booking-offerings/{uuid}/';
-};
-
-export type BookingOfferingsPartialUpdateResponses = {
-    200: Offering;
-};
-
-export type BookingOfferingsPartialUpdateResponse = BookingOfferingsPartialUpdateResponses[keyof BookingOfferingsPartialUpdateResponses];
-
-export type BookingOfferingsUpdateData = {
-    body: OfferingRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/booking-offerings/{uuid}/';
-};
-
-export type BookingOfferingsUpdateResponses = {
-    200: Offering;
-};
-
-export type BookingOfferingsUpdateResponse = BookingOfferingsUpdateResponses[keyof BookingOfferingsUpdateResponses];
 
 export type BookingOfferingsGoogleCalendarSyncData = {
     body?: never;
@@ -13059,37 +12306,6 @@ export type BookingResourcesListResponses = {
 
 export type BookingResourcesListResponse = BookingResourcesListResponses[keyof BookingResourcesListResponses];
 
-export type BookingResourcesCreateData = {
-    body: BookingResourceRequest;
-    path?: never;
-    query?: never;
-    url: '/api/booking-resources/';
-};
-
-export type BookingResourcesCreateResponses = {
-    201: BookingResource;
-};
-
-export type BookingResourcesCreateResponse = BookingResourcesCreateResponses[keyof BookingResourcesCreateResponses];
-
-export type BookingResourcesDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/booking-resources/{uuid}/';
-};
-
-export type BookingResourcesDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type BookingResourcesDestroyResponse = BookingResourcesDestroyResponses[keyof BookingResourcesDestroyResponses];
-
 export type BookingResourcesRetrieveData = {
     body?: never;
     path: {
@@ -13106,36 +12322,6 @@ export type BookingResourcesRetrieveResponses = {
 };
 
 export type BookingResourcesRetrieveResponse = BookingResourcesRetrieveResponses[keyof BookingResourcesRetrieveResponses];
-
-export type BookingResourcesPartialUpdateData = {
-    body?: PatchedBookingResourceRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/booking-resources/{uuid}/';
-};
-
-export type BookingResourcesPartialUpdateResponses = {
-    200: BookingResource;
-};
-
-export type BookingResourcesPartialUpdateResponse = BookingResourcesPartialUpdateResponses[keyof BookingResourcesPartialUpdateResponses];
-
-export type BookingResourcesUpdateData = {
-    body: BookingResourceRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/booking-resources/{uuid}/';
-};
-
-export type BookingResourcesUpdateResponses = {
-    200: BookingResource;
-};
-
-export type BookingResourcesUpdateResponse = BookingResourcesUpdateResponses[keyof BookingResourcesUpdateResponses];
 
 export type BookingResourcesAcceptData = {
     body?: never;
@@ -13678,37 +12864,6 @@ export type CallRoundsListResponses = {
 
 export type CallRoundsListResponse = CallRoundsListResponses[keyof CallRoundsListResponses];
 
-export type CallRoundsCreateData = {
-    body: CallRoundRequest;
-    path?: never;
-    query?: never;
-    url: '/api/call-rounds/';
-};
-
-export type CallRoundsCreateResponses = {
-    201: CallRound;
-};
-
-export type CallRoundsCreateResponse = CallRoundsCreateResponses[keyof CallRoundsCreateResponses];
-
-export type CallRoundsDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/call-rounds/{uuid}/';
-};
-
-export type CallRoundsDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type CallRoundsDestroyResponse = CallRoundsDestroyResponses[keyof CallRoundsDestroyResponses];
-
 export type CallRoundsRetrieveData = {
     body?: never;
     path: {
@@ -13723,36 +12878,6 @@ export type CallRoundsRetrieveResponses = {
 };
 
 export type CallRoundsRetrieveResponse = CallRoundsRetrieveResponses[keyof CallRoundsRetrieveResponses];
-
-export type CallRoundsPartialUpdateData = {
-    body?: PatchedCallRoundRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/call-rounds/{uuid}/';
-};
-
-export type CallRoundsPartialUpdateResponses = {
-    200: CallRound;
-};
-
-export type CallRoundsPartialUpdateResponse = CallRoundsPartialUpdateResponses[keyof CallRoundsPartialUpdateResponses];
-
-export type CallRoundsUpdateData = {
-    body: CallRoundRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/call-rounds/{uuid}/';
-};
-
-export type CallRoundsUpdateResponses = {
-    200: CallRound;
-};
-
-export type CallRoundsUpdateResponse = CallRoundsUpdateResponses[keyof CallRoundsUpdateResponses];
 
 export type CallRoundsReviewersListData = {
     body?: never;
@@ -14620,16 +13745,16 @@ export type DigitaloceanDropletsListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         uuid?: string;
     };
     url: '/api/digitalocean-droplets/';
@@ -15258,37 +14383,6 @@ export type FinancialReportsListResponses = {
 
 export type FinancialReportsListResponse = FinancialReportsListResponses[keyof FinancialReportsListResponses];
 
-export type FinancialReportsCreateData = {
-    body: FinancialReportRequest;
-    path?: never;
-    query?: never;
-    url: '/api/financial-reports/';
-};
-
-export type FinancialReportsCreateResponses = {
-    201: FinancialReport;
-};
-
-export type FinancialReportsCreateResponse = FinancialReportsCreateResponses[keyof FinancialReportsCreateResponses];
-
-export type FinancialReportsDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/financial-reports/{uuid}/';
-};
-
-export type FinancialReportsDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type FinancialReportsDestroyResponse = FinancialReportsDestroyResponses[keyof FinancialReportsDestroyResponses];
-
 export type FinancialReportsRetrieveData = {
     body?: never;
     path: {
@@ -15303,36 +14397,6 @@ export type FinancialReportsRetrieveResponses = {
 };
 
 export type FinancialReportsRetrieveResponse = FinancialReportsRetrieveResponses[keyof FinancialReportsRetrieveResponses];
-
-export type FinancialReportsPartialUpdateData = {
-    body?: PatchedFinancialReportRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/financial-reports/{uuid}/';
-};
-
-export type FinancialReportsPartialUpdateResponses = {
-    200: FinancialReport;
-};
-
-export type FinancialReportsPartialUpdateResponse = FinancialReportsPartialUpdateResponses[keyof FinancialReportsPartialUpdateResponses];
-
-export type FinancialReportsUpdateData = {
-    body: FinancialReportRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/financial-reports/{uuid}/';
-};
-
-export type FinancialReportsUpdateResponses = {
-    200: FinancialReport;
-};
-
-export type FinancialReportsUpdateResponse = FinancialReportsUpdateResponses[keyof FinancialReportsUpdateResponses];
 
 export type FreeipaProfilesListData = {
     body?: never;
@@ -15370,24 +14434,6 @@ export type FreeipaProfilesCreateResponses = {
 };
 
 export type FreeipaProfilesCreateResponse = FreeipaProfilesCreateResponses[keyof FreeipaProfilesCreateResponses];
-
-export type FreeipaProfilesDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/freeipa-profiles/{uuid}/';
-};
-
-export type FreeipaProfilesDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type FreeipaProfilesDestroyResponse = FreeipaProfilesDestroyResponses[keyof FreeipaProfilesDestroyResponses];
 
 export type FreeipaProfilesRetrieveData = {
     body?: never;
@@ -15477,37 +14523,6 @@ export type GoogleAuthListResponses = {
 
 export type GoogleAuthListResponse = GoogleAuthListResponses[keyof GoogleAuthListResponses];
 
-export type GoogleAuthCreateData = {
-    body: GoogleCredentialsRequest;
-    path?: never;
-    query?: never;
-    url: '/api/google-auth/';
-};
-
-export type GoogleAuthCreateResponses = {
-    201: GoogleCredentials;
-};
-
-export type GoogleAuthCreateResponse = GoogleAuthCreateResponses[keyof GoogleAuthCreateResponses];
-
-export type GoogleAuthDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/google-auth/{uuid}/';
-};
-
-export type GoogleAuthDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type GoogleAuthDestroyResponse = GoogleAuthDestroyResponses[keyof GoogleAuthDestroyResponses];
-
 export type GoogleAuthRetrieveData = {
     body?: never;
     path: {
@@ -15524,36 +14539,6 @@ export type GoogleAuthRetrieveResponses = {
 };
 
 export type GoogleAuthRetrieveResponse = GoogleAuthRetrieveResponses[keyof GoogleAuthRetrieveResponses];
-
-export type GoogleAuthPartialUpdateData = {
-    body?: PatchedGoogleCredentialsRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/google-auth/{uuid}/';
-};
-
-export type GoogleAuthPartialUpdateResponses = {
-    200: GoogleCredentials;
-};
-
-export type GoogleAuthPartialUpdateResponse = GoogleAuthPartialUpdateResponses[keyof GoogleAuthPartialUpdateResponses];
-
-export type GoogleAuthUpdateData = {
-    body: GoogleCredentialsRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/google-auth/{uuid}/';
-};
-
-export type GoogleAuthUpdateResponses = {
-    200: GoogleCredentials;
-};
-
-export type GoogleAuthUpdateResponse = GoogleAuthUpdateResponses[keyof GoogleAuthUpdateResponses];
 
 export type GoogleAuthAuthorizeRetrieveData = {
     body?: never;
@@ -16167,19 +15152,6 @@ export type InvoiceItemsListResponses = {
 
 export type InvoiceItemsListResponse = InvoiceItemsListResponses[keyof InvoiceItemsListResponses];
 
-export type InvoiceItemsCreateData = {
-    body: InvoiceItemDetailRequest;
-    path?: never;
-    query?: never;
-    url: '/api/invoice-items/';
-};
-
-export type InvoiceItemsCreateResponses = {
-    201: InvoiceItemDetail;
-};
-
-export type InvoiceItemsCreateResponse = InvoiceItemsCreateResponses[keyof InvoiceItemsCreateResponses];
-
 export type InvoiceItemsDestroyData = {
     body?: never;
     path: {
@@ -16409,37 +15381,6 @@ export type InvoicesListResponses = {
 
 export type InvoicesListResponse = InvoicesListResponses[keyof InvoicesListResponses];
 
-export type InvoicesCreateData = {
-    body: InvoiceRequest;
-    path?: never;
-    query?: never;
-    url: '/api/invoices/';
-};
-
-export type InvoicesCreateResponses = {
-    201: Invoice;
-};
-
-export type InvoicesCreateResponse = InvoicesCreateResponses[keyof InvoicesCreateResponses];
-
-export type InvoicesDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/invoices/{uuid}/';
-};
-
-export type InvoicesDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type InvoicesDestroyResponse = InvoicesDestroyResponses[keyof InvoicesDestroyResponses];
-
 export type InvoicesRetrieveData = {
     body?: never;
     path: {
@@ -16456,36 +15397,6 @@ export type InvoicesRetrieveResponses = {
 };
 
 export type InvoicesRetrieveResponse = InvoicesRetrieveResponses[keyof InvoicesRetrieveResponses];
-
-export type InvoicesPartialUpdateData = {
-    body?: PatchedInvoiceRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/invoices/{uuid}/';
-};
-
-export type InvoicesPartialUpdateResponses = {
-    200: Invoice;
-};
-
-export type InvoicesPartialUpdateResponse = InvoicesPartialUpdateResponses[keyof InvoicesPartialUpdateResponses];
-
-export type InvoicesUpdateData = {
-    body: InvoiceRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/invoices/{uuid}/';
-};
-
-export type InvoicesUpdateResponses = {
-    200: Invoice;
-};
-
-export type InvoicesUpdateResponse = InvoicesUpdateResponses[keyof InvoicesUpdateResponses];
 
 export type InvoicesPaidData = {
     body: PaidRequest;
@@ -17093,40 +16004,6 @@ export type MarketplaceCategoryComponentUsagesListResponses = {
 
 export type MarketplaceCategoryComponentUsagesListResponse = MarketplaceCategoryComponentUsagesListResponses[keyof MarketplaceCategoryComponentUsagesListResponses];
 
-export type MarketplaceCategoryComponentUsagesCreateData = {
-    body: CategoryComponentUsageRequest;
-    path?: never;
-    query?: never;
-    url: '/api/marketplace-category-component-usages/';
-};
-
-export type MarketplaceCategoryComponentUsagesCreateResponses = {
-    201: CategoryComponentUsage;
-};
-
-export type MarketplaceCategoryComponentUsagesCreateResponse = MarketplaceCategoryComponentUsagesCreateResponses[keyof MarketplaceCategoryComponentUsagesCreateResponses];
-
-export type MarketplaceCategoryComponentUsagesDestroyData = {
-    body?: never;
-    path: {
-        /**
-         * A unique integer value identifying this category component usage.
-         */
-        id: number;
-    };
-    query?: never;
-    url: '/api/marketplace-category-component-usages/{id}/';
-};
-
-export type MarketplaceCategoryComponentUsagesDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type MarketplaceCategoryComponentUsagesDestroyResponse = MarketplaceCategoryComponentUsagesDestroyResponses[keyof MarketplaceCategoryComponentUsagesDestroyResponses];
-
 export type MarketplaceCategoryComponentUsagesRetrieveData = {
     body?: never;
     path: {
@@ -17146,42 +16023,6 @@ export type MarketplaceCategoryComponentUsagesRetrieveResponses = {
 };
 
 export type MarketplaceCategoryComponentUsagesRetrieveResponse = MarketplaceCategoryComponentUsagesRetrieveResponses[keyof MarketplaceCategoryComponentUsagesRetrieveResponses];
-
-export type MarketplaceCategoryComponentUsagesPartialUpdateData = {
-    body?: PatchedCategoryComponentUsageRequest;
-    path: {
-        /**
-         * A unique integer value identifying this category component usage.
-         */
-        id: number;
-    };
-    query?: never;
-    url: '/api/marketplace-category-component-usages/{id}/';
-};
-
-export type MarketplaceCategoryComponentUsagesPartialUpdateResponses = {
-    200: CategoryComponentUsage;
-};
-
-export type MarketplaceCategoryComponentUsagesPartialUpdateResponse = MarketplaceCategoryComponentUsagesPartialUpdateResponses[keyof MarketplaceCategoryComponentUsagesPartialUpdateResponses];
-
-export type MarketplaceCategoryComponentUsagesUpdateData = {
-    body: CategoryComponentUsageRequest;
-    path: {
-        /**
-         * A unique integer value identifying this category component usage.
-         */
-        id: number;
-    };
-    query?: never;
-    url: '/api/marketplace-category-component-usages/{id}/';
-};
-
-export type MarketplaceCategoryComponentUsagesUpdateResponses = {
-    200: CategoryComponentUsage;
-};
-
-export type MarketplaceCategoryComponentUsagesUpdateResponse = MarketplaceCategoryComponentUsagesUpdateResponses[keyof MarketplaceCategoryComponentUsagesUpdateResponses];
 
 export type MarketplaceCategoryComponentsListData = {
     body?: never;
@@ -17751,37 +16592,6 @@ export type MarketplaceComponentUsagesListResponses = {
 
 export type MarketplaceComponentUsagesListResponse = MarketplaceComponentUsagesListResponses[keyof MarketplaceComponentUsagesListResponses];
 
-export type MarketplaceComponentUsagesCreateData = {
-    body: ComponentUsageRequest;
-    path?: never;
-    query?: never;
-    url: '/api/marketplace-component-usages/';
-};
-
-export type MarketplaceComponentUsagesCreateResponses = {
-    201: ComponentUsage;
-};
-
-export type MarketplaceComponentUsagesCreateResponse = MarketplaceComponentUsagesCreateResponses[keyof MarketplaceComponentUsagesCreateResponses];
-
-export type MarketplaceComponentUsagesDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-component-usages/{uuid}/';
-};
-
-export type MarketplaceComponentUsagesDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type MarketplaceComponentUsagesDestroyResponse = MarketplaceComponentUsagesDestroyResponses[keyof MarketplaceComponentUsagesDestroyResponses];
-
 export type MarketplaceComponentUsagesRetrieveData = {
     body?: never;
     path: {
@@ -17798,36 +16608,6 @@ export type MarketplaceComponentUsagesRetrieveResponses = {
 };
 
 export type MarketplaceComponentUsagesRetrieveResponse = MarketplaceComponentUsagesRetrieveResponses[keyof MarketplaceComponentUsagesRetrieveResponses];
-
-export type MarketplaceComponentUsagesPartialUpdateData = {
-    body?: PatchedComponentUsageRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-component-usages/{uuid}/';
-};
-
-export type MarketplaceComponentUsagesPartialUpdateResponses = {
-    200: ComponentUsage;
-};
-
-export type MarketplaceComponentUsagesPartialUpdateResponse = MarketplaceComponentUsagesPartialUpdateResponses[keyof MarketplaceComponentUsagesPartialUpdateResponses];
-
-export type MarketplaceComponentUsagesUpdateData = {
-    body: ComponentUsageRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-component-usages/{uuid}/';
-};
-
-export type MarketplaceComponentUsagesUpdateResponses = {
-    200: ComponentUsage;
-};
-
-export type MarketplaceComponentUsagesUpdateResponse = MarketplaceComponentUsagesUpdateResponses[keyof MarketplaceComponentUsagesUpdateResponses];
 
 export type MarketplaceComponentUsagesSetUserUsageData = {
     body: ComponentUserUsageCreateRequest;
@@ -17892,37 +16672,6 @@ export type MarketplaceComponentUserUsagesListResponses = {
 
 export type MarketplaceComponentUserUsagesListResponse = MarketplaceComponentUserUsagesListResponses[keyof MarketplaceComponentUserUsagesListResponses];
 
-export type MarketplaceComponentUserUsagesCreateData = {
-    body: ComponentUserUsageRequest;
-    path?: never;
-    query?: never;
-    url: '/api/marketplace-component-user-usages/';
-};
-
-export type MarketplaceComponentUserUsagesCreateResponses = {
-    201: ComponentUserUsage;
-};
-
-export type MarketplaceComponentUserUsagesCreateResponse = MarketplaceComponentUserUsagesCreateResponses[keyof MarketplaceComponentUserUsagesCreateResponses];
-
-export type MarketplaceComponentUserUsagesDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-component-user-usages/{uuid}/';
-};
-
-export type MarketplaceComponentUserUsagesDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type MarketplaceComponentUserUsagesDestroyResponse = MarketplaceComponentUserUsagesDestroyResponses[keyof MarketplaceComponentUserUsagesDestroyResponses];
-
 export type MarketplaceComponentUserUsagesRetrieveData = {
     body?: never;
     path: {
@@ -17939,36 +16688,6 @@ export type MarketplaceComponentUserUsagesRetrieveResponses = {
 };
 
 export type MarketplaceComponentUserUsagesRetrieveResponse = MarketplaceComponentUserUsagesRetrieveResponses[keyof MarketplaceComponentUserUsagesRetrieveResponses];
-
-export type MarketplaceComponentUserUsagesPartialUpdateData = {
-    body?: PatchedComponentUserUsageRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-component-user-usages/{uuid}/';
-};
-
-export type MarketplaceComponentUserUsagesPartialUpdateResponses = {
-    200: ComponentUserUsage;
-};
-
-export type MarketplaceComponentUserUsagesPartialUpdateResponse = MarketplaceComponentUserUsagesPartialUpdateResponses[keyof MarketplaceComponentUserUsagesPartialUpdateResponses];
-
-export type MarketplaceComponentUserUsagesUpdateData = {
-    body: ComponentUserUsageRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-component-user-usages/{uuid}/';
-};
-
-export type MarketplaceComponentUserUsagesUpdateResponses = {
-    200: ComponentUserUsage;
-};
-
-export type MarketplaceComponentUserUsagesUpdateResponse = MarketplaceComponentUserUsagesUpdateResponses[keyof MarketplaceComponentUserUsagesUpdateResponses];
 
 export type MarketplaceCustomerEstimatedCostPoliciesListData = {
     body?: never;
@@ -18149,37 +16868,6 @@ export type MarketplaceIntegrationStatusesListResponses = {
 
 export type MarketplaceIntegrationStatusesListResponse = MarketplaceIntegrationStatusesListResponses[keyof MarketplaceIntegrationStatusesListResponses];
 
-export type MarketplaceIntegrationStatusesCreateData = {
-    body: IntegrationStatusDetailsRequest;
-    path?: never;
-    query?: never;
-    url: '/api/marketplace-integration-statuses/';
-};
-
-export type MarketplaceIntegrationStatusesCreateResponses = {
-    201: IntegrationStatusDetails;
-};
-
-export type MarketplaceIntegrationStatusesCreateResponse = MarketplaceIntegrationStatusesCreateResponses[keyof MarketplaceIntegrationStatusesCreateResponses];
-
-export type MarketplaceIntegrationStatusesDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-integration-statuses/{uuid}/';
-};
-
-export type MarketplaceIntegrationStatusesDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type MarketplaceIntegrationStatusesDestroyResponse = MarketplaceIntegrationStatusesDestroyResponses[keyof MarketplaceIntegrationStatusesDestroyResponses];
-
 export type MarketplaceIntegrationStatusesRetrieveData = {
     body?: never;
     path: {
@@ -18194,36 +16882,6 @@ export type MarketplaceIntegrationStatusesRetrieveResponses = {
 };
 
 export type MarketplaceIntegrationStatusesRetrieveResponse = MarketplaceIntegrationStatusesRetrieveResponses[keyof MarketplaceIntegrationStatusesRetrieveResponses];
-
-export type MarketplaceIntegrationStatusesPartialUpdateData = {
-    body?: PatchedIntegrationStatusDetailsRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-integration-statuses/{uuid}/';
-};
-
-export type MarketplaceIntegrationStatusesPartialUpdateResponses = {
-    200: IntegrationStatusDetails;
-};
-
-export type MarketplaceIntegrationStatusesPartialUpdateResponse = MarketplaceIntegrationStatusesPartialUpdateResponses[keyof MarketplaceIntegrationStatusesPartialUpdateResponses];
-
-export type MarketplaceIntegrationStatusesUpdateData = {
-    body: IntegrationStatusDetailsRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-integration-statuses/{uuid}/';
-};
-
-export type MarketplaceIntegrationStatusesUpdateResponses = {
-    200: IntegrationStatusDetails;
-};
-
-export type MarketplaceIntegrationStatusesUpdateResponse = MarketplaceIntegrationStatusesUpdateResponses[keyof MarketplaceIntegrationStatusesUpdateResponses];
 
 export type MarketplaceOfferingEstimatedCostPoliciesListData = {
     body?: never;
@@ -18420,36 +17078,6 @@ export type MarketplaceOfferingFilesRetrieveResponses = {
 };
 
 export type MarketplaceOfferingFilesRetrieveResponse = MarketplaceOfferingFilesRetrieveResponses[keyof MarketplaceOfferingFilesRetrieveResponses];
-
-export type MarketplaceOfferingFilesPartialUpdateData = {
-    body?: PatchedOfferingFileRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-offering-files/{uuid}/';
-};
-
-export type MarketplaceOfferingFilesPartialUpdateResponses = {
-    200: OfferingFile;
-};
-
-export type MarketplaceOfferingFilesPartialUpdateResponse = MarketplaceOfferingFilesPartialUpdateResponses[keyof MarketplaceOfferingFilesPartialUpdateResponses];
-
-export type MarketplaceOfferingFilesUpdateData = {
-    body: OfferingFileRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-offering-files/{uuid}/';
-};
-
-export type MarketplaceOfferingFilesUpdateResponses = {
-    200: OfferingFile;
-};
-
-export type MarketplaceOfferingFilesUpdateResponse = MarketplaceOfferingFilesUpdateResponses[keyof MarketplaceOfferingFilesUpdateResponses];
 
 export type MarketplaceOfferingPermissionsListData = {
     body?: never;
@@ -19131,36 +17759,6 @@ export type MarketplaceOrdersRetrieveResponses = {
 
 export type MarketplaceOrdersRetrieveResponse = MarketplaceOrdersRetrieveResponses[keyof MarketplaceOrdersRetrieveResponses];
 
-export type MarketplaceOrdersPartialUpdateData = {
-    body?: PatchedOrderDetailsRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-orders/{uuid}/';
-};
-
-export type MarketplaceOrdersPartialUpdateResponses = {
-    200: OrderDetails;
-};
-
-export type MarketplaceOrdersPartialUpdateResponse = MarketplaceOrdersPartialUpdateResponses[keyof MarketplaceOrdersPartialUpdateResponses];
-
-export type MarketplaceOrdersUpdateData = {
-    body?: OrderDetailsRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-orders/{uuid}/';
-};
-
-export type MarketplaceOrdersUpdateResponses = {
-    200: OrderDetails;
-};
-
-export type MarketplaceOrdersUpdateResponse = MarketplaceOrdersUpdateResponses[keyof MarketplaceOrdersUpdateResponses];
-
 export type MarketplaceOrdersApproveByConsumerData = {
     body?: never;
     path: {
@@ -19416,24 +18014,6 @@ export type MarketplacePlansCreateResponses = {
 };
 
 export type MarketplacePlansCreateResponse = MarketplacePlansCreateResponses[keyof MarketplacePlansCreateResponses];
-
-export type MarketplacePlansDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-plans/{uuid}/';
-};
-
-export type MarketplacePlansDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type MarketplacePlansDestroyResponse = MarketplacePlansDestroyResponses[keyof MarketplacePlansDestroyResponses];
 
 export type MarketplacePlansRetrieveData = {
     body?: never;
@@ -19751,37 +18331,6 @@ export type MarketplaceProjectUpdateRequestsListResponses = {
 
 export type MarketplaceProjectUpdateRequestsListResponse = MarketplaceProjectUpdateRequestsListResponses[keyof MarketplaceProjectUpdateRequestsListResponses];
 
-export type MarketplaceProjectUpdateRequestsCreateData = {
-    body?: RemoteProjectUpdateRequestRequest;
-    path?: never;
-    query?: never;
-    url: '/api/marketplace-project-update-requests/';
-};
-
-export type MarketplaceProjectUpdateRequestsCreateResponses = {
-    201: RemoteProjectUpdateRequest;
-};
-
-export type MarketplaceProjectUpdateRequestsCreateResponse = MarketplaceProjectUpdateRequestsCreateResponses[keyof MarketplaceProjectUpdateRequestsCreateResponses];
-
-export type MarketplaceProjectUpdateRequestsDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-project-update-requests/{uuid}/';
-};
-
-export type MarketplaceProjectUpdateRequestsDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type MarketplaceProjectUpdateRequestsDestroyResponse = MarketplaceProjectUpdateRequestsDestroyResponses[keyof MarketplaceProjectUpdateRequestsDestroyResponses];
-
 export type MarketplaceProjectUpdateRequestsRetrieveData = {
     body?: never;
     path: {
@@ -19796,36 +18345,6 @@ export type MarketplaceProjectUpdateRequestsRetrieveResponses = {
 };
 
 export type MarketplaceProjectUpdateRequestsRetrieveResponse = MarketplaceProjectUpdateRequestsRetrieveResponses[keyof MarketplaceProjectUpdateRequestsRetrieveResponses];
-
-export type MarketplaceProjectUpdateRequestsPartialUpdateData = {
-    body?: PatchedRemoteProjectUpdateRequestRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-project-update-requests/{uuid}/';
-};
-
-export type MarketplaceProjectUpdateRequestsPartialUpdateResponses = {
-    200: RemoteProjectUpdateRequest;
-};
-
-export type MarketplaceProjectUpdateRequestsPartialUpdateResponse = MarketplaceProjectUpdateRequestsPartialUpdateResponses[keyof MarketplaceProjectUpdateRequestsPartialUpdateResponses];
-
-export type MarketplaceProjectUpdateRequestsUpdateData = {
-    body?: RemoteProjectUpdateRequestRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-project-update-requests/{uuid}/';
-};
-
-export type MarketplaceProjectUpdateRequestsUpdateResponses = {
-    200: RemoteProjectUpdateRequest;
-};
-
-export type MarketplaceProjectUpdateRequestsUpdateResponse = MarketplaceProjectUpdateRequestsUpdateResponses[keyof MarketplaceProjectUpdateRequestsUpdateResponses];
 
 export type MarketplaceProjectUpdateRequestsApproveData = {
     body?: ReviewCommentRequest;
@@ -19992,36 +18511,6 @@ export type MarketplaceProviderOfferingsRetrieveResponses = {
 };
 
 export type MarketplaceProviderOfferingsRetrieveResponse = MarketplaceProviderOfferingsRetrieveResponses[keyof MarketplaceProviderOfferingsRetrieveResponses];
-
-export type MarketplaceProviderOfferingsPartialUpdateData = {
-    body?: PatchedProviderOfferingDetailsRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-provider-offerings/{uuid}/';
-};
-
-export type MarketplaceProviderOfferingsPartialUpdateResponses = {
-    200: ProviderOfferingDetails;
-};
-
-export type MarketplaceProviderOfferingsPartialUpdateResponse = MarketplaceProviderOfferingsPartialUpdateResponses[keyof MarketplaceProviderOfferingsPartialUpdateResponses];
-
-export type MarketplaceProviderOfferingsUpdateData = {
-    body: ProviderOfferingDetailsRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-provider-offerings/{uuid}/';
-};
-
-export type MarketplaceProviderOfferingsUpdateResponses = {
-    200: ProviderOfferingDetails;
-};
-
-export type MarketplaceProviderOfferingsUpdateResponse = MarketplaceProviderOfferingsUpdateResponses[keyof MarketplaceProviderOfferingsUpdateResponses];
 
 export type MarketplaceProviderOfferingsActivateData = {
     body: ProviderOfferingDetailsRequest;
@@ -21296,37 +19785,6 @@ export type MarketplaceProviderResourcesListResponses = {
 
 export type MarketplaceProviderResourcesListResponse = MarketplaceProviderResourcesListResponses[keyof MarketplaceProviderResourcesListResponses];
 
-export type MarketplaceProviderResourcesCreateData = {
-    body: ResourceRequest;
-    path?: never;
-    query?: never;
-    url: '/api/marketplace-provider-resources/';
-};
-
-export type MarketplaceProviderResourcesCreateResponses = {
-    201: Resource;
-};
-
-export type MarketplaceProviderResourcesCreateResponse = MarketplaceProviderResourcesCreateResponses[keyof MarketplaceProviderResourcesCreateResponses];
-
-export type MarketplaceProviderResourcesDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-provider-resources/{uuid}/';
-};
-
-export type MarketplaceProviderResourcesDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type MarketplaceProviderResourcesDestroyResponse = MarketplaceProviderResourcesDestroyResponses[keyof MarketplaceProviderResourcesDestroyResponses];
-
 export type MarketplaceProviderResourcesRetrieveData = {
     body?: never;
     path: {
@@ -22204,36 +20662,6 @@ export type MarketplaceResourceUsersRetrieveResponses = {
 
 export type MarketplaceResourceUsersRetrieveResponse = MarketplaceResourceUsersRetrieveResponses[keyof MarketplaceResourceUsersRetrieveResponses];
 
-export type MarketplaceResourceUsersPartialUpdateData = {
-    body?: PatchedResourceUserRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-resource-users/{uuid}/';
-};
-
-export type MarketplaceResourceUsersPartialUpdateResponses = {
-    200: ResourceUser;
-};
-
-export type MarketplaceResourceUsersPartialUpdateResponse = MarketplaceResourceUsersPartialUpdateResponses[keyof MarketplaceResourceUsersPartialUpdateResponses];
-
-export type MarketplaceResourceUsersUpdateData = {
-    body: ResourceUserRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-resource-users/{uuid}/';
-};
-
-export type MarketplaceResourceUsersUpdateResponses = {
-    200: ResourceUser;
-};
-
-export type MarketplaceResourceUsersUpdateResponse = MarketplaceResourceUsersUpdateResponses[keyof MarketplaceResourceUsersUpdateResponses];
-
 export type MarketplaceResourcesListData = {
     body?: never;
     path?: never;
@@ -22326,37 +20754,6 @@ export type MarketplaceResourcesListResponses = {
 };
 
 export type MarketplaceResourcesListResponse = MarketplaceResourcesListResponses[keyof MarketplaceResourcesListResponses];
-
-export type MarketplaceResourcesCreateData = {
-    body: ResourceRequest;
-    path?: never;
-    query?: never;
-    url: '/api/marketplace-resources/';
-};
-
-export type MarketplaceResourcesCreateResponses = {
-    201: Resource;
-};
-
-export type MarketplaceResourcesCreateResponse = MarketplaceResourcesCreateResponses[keyof MarketplaceResourcesCreateResponses];
-
-export type MarketplaceResourcesDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-resources/{uuid}/';
-};
-
-export type MarketplaceResourcesDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type MarketplaceResourcesDestroyResponse = MarketplaceResourcesDestroyResponses[keyof MarketplaceResourcesDestroyResponses];
 
 export type MarketplaceResourcesRetrieveData = {
     body?: never;
@@ -23033,37 +21430,6 @@ export type MarketplaceScriptAsyncDryRunListResponses = {
 
 export type MarketplaceScriptAsyncDryRunListResponse = MarketplaceScriptAsyncDryRunListResponses[keyof MarketplaceScriptAsyncDryRunListResponses];
 
-export type MarketplaceScriptAsyncDryRunCreateData = {
-    body?: DryRunRequest;
-    path?: never;
-    query?: never;
-    url: '/api/marketplace-script-async-dry-run/';
-};
-
-export type MarketplaceScriptAsyncDryRunCreateResponses = {
-    201: DryRun;
-};
-
-export type MarketplaceScriptAsyncDryRunCreateResponse = MarketplaceScriptAsyncDryRunCreateResponses[keyof MarketplaceScriptAsyncDryRunCreateResponses];
-
-export type MarketplaceScriptAsyncDryRunDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-script-async-dry-run/{uuid}/';
-};
-
-export type MarketplaceScriptAsyncDryRunDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type MarketplaceScriptAsyncDryRunDestroyResponse = MarketplaceScriptAsyncDryRunDestroyResponses[keyof MarketplaceScriptAsyncDryRunDestroyResponses];
-
 export type MarketplaceScriptAsyncDryRunRetrieveData = {
     body?: never;
     path: {
@@ -23078,137 +21444,6 @@ export type MarketplaceScriptAsyncDryRunRetrieveResponses = {
 };
 
 export type MarketplaceScriptAsyncDryRunRetrieveResponse = MarketplaceScriptAsyncDryRunRetrieveResponses[keyof MarketplaceScriptAsyncDryRunRetrieveResponses];
-
-export type MarketplaceScriptAsyncDryRunPartialUpdateData = {
-    body?: PatchedDryRunRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-script-async-dry-run/{uuid}/';
-};
-
-export type MarketplaceScriptAsyncDryRunPartialUpdateResponses = {
-    200: DryRun;
-};
-
-export type MarketplaceScriptAsyncDryRunPartialUpdateResponse = MarketplaceScriptAsyncDryRunPartialUpdateResponses[keyof MarketplaceScriptAsyncDryRunPartialUpdateResponses];
-
-export type MarketplaceScriptAsyncDryRunUpdateData = {
-    body?: DryRunRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-script-async-dry-run/{uuid}/';
-};
-
-export type MarketplaceScriptAsyncDryRunUpdateResponses = {
-    200: DryRun;
-};
-
-export type MarketplaceScriptAsyncDryRunUpdateResponse = MarketplaceScriptAsyncDryRunUpdateResponses[keyof MarketplaceScriptAsyncDryRunUpdateResponses];
-
-export type MarketplaceScriptDryRunListData = {
-    body?: never;
-    path?: never;
-    query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'promotion_campaigns' | 'quotas' | 'resource_options' | 'roles' | 'scope' | 'scope_name' | 'scope_state' | 'scope_uuid' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
-        /**
-         * A page number within the paginated result set.
-         */
-        page?: number;
-        /**
-         * Number of results to return per page.
-         */
-        page_size?: number;
-    };
-    url: '/api/marketplace-script-dry-run/';
-};
-
-export type MarketplaceScriptDryRunListResponses = {
-    200: PaginatedPublicOfferingDetailsList;
-};
-
-export type MarketplaceScriptDryRunListResponse = MarketplaceScriptDryRunListResponses[keyof MarketplaceScriptDryRunListResponses];
-
-export type MarketplaceScriptDryRunCreateData = {
-    body: PublicOfferingDetailsRequest;
-    path?: never;
-    query?: never;
-    url: '/api/marketplace-script-dry-run/';
-};
-
-export type MarketplaceScriptDryRunCreateResponses = {
-    201: PublicOfferingDetails;
-};
-
-export type MarketplaceScriptDryRunCreateResponse = MarketplaceScriptDryRunCreateResponses[keyof MarketplaceScriptDryRunCreateResponses];
-
-export type MarketplaceScriptDryRunDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-script-dry-run/{uuid}/';
-};
-
-export type MarketplaceScriptDryRunDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type MarketplaceScriptDryRunDestroyResponse = MarketplaceScriptDryRunDestroyResponses[keyof MarketplaceScriptDryRunDestroyResponses];
-
-export type MarketplaceScriptDryRunRetrieveData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: {
-        field?: Array<'access_url' | 'attributes' | 'backend_id' | 'backend_metadata' | 'billable' | 'category' | 'category_title' | 'category_uuid' | 'citation_count' | 'components' | 'country' | 'created' | 'customer' | 'customer_name' | 'customer_uuid' | 'datacite_doi' | 'description' | 'endpoints' | 'files' | 'full_description' | 'getting_started' | 'google_calendar_is_public' | 'google_calendar_link' | 'image' | 'integration_guide' | 'latitude' | 'longitude' | 'name' | 'options' | 'order_count' | 'organization_groups' | 'parent_description' | 'parent_name' | 'parent_uuid' | 'paused_reason' | 'plans' | 'plugin_options' | 'privacy_policy_link' | 'project' | 'project_name' | 'project_uuid' | 'promotion_campaigns' | 'quotas' | 'resource_options' | 'roles' | 'scope' | 'scope_name' | 'scope_state' | 'scope_uuid' | 'screenshots' | 'shared' | 'slug' | 'state' | 'state_code' | 'terms_of_service' | 'terms_of_service_link' | 'thumbnail' | 'total_cost' | 'total_cost_estimated' | 'total_customers' | 'type' | 'url' | 'uuid' | 'vendor_details'>;
-    };
-    url: '/api/marketplace-script-dry-run/{uuid}/';
-};
-
-export type MarketplaceScriptDryRunRetrieveResponses = {
-    200: PublicOfferingDetails;
-};
-
-export type MarketplaceScriptDryRunRetrieveResponse = MarketplaceScriptDryRunRetrieveResponses[keyof MarketplaceScriptDryRunRetrieveResponses];
-
-export type MarketplaceScriptDryRunPartialUpdateData = {
-    body?: PatchedPublicOfferingDetailsRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-script-dry-run/{uuid}/';
-};
-
-export type MarketplaceScriptDryRunPartialUpdateResponses = {
-    200: PublicOfferingDetails;
-};
-
-export type MarketplaceScriptDryRunPartialUpdateResponse = MarketplaceScriptDryRunPartialUpdateResponses[keyof MarketplaceScriptDryRunPartialUpdateResponses];
-
-export type MarketplaceScriptDryRunUpdateData = {
-    body: PublicOfferingDetailsRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/marketplace-script-dry-run/{uuid}/';
-};
-
-export type MarketplaceScriptDryRunUpdateResponses = {
-    200: PublicOfferingDetails;
-};
-
-export type MarketplaceScriptDryRunUpdateResponse = MarketplaceScriptDryRunUpdateResponses[keyof MarketplaceScriptDryRunUpdateResponses];
 
 export type MarketplaceScriptDryRunAsyncRunData = {
     body?: DryRunRequest;
@@ -24781,16 +23016,16 @@ export type OpenstackBackupsListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         tenant?: string;
         tenant_uuid?: string;
         uuid?: string;
@@ -24803,19 +23038,6 @@ export type OpenstackBackupsListResponses = {
 };
 
 export type OpenstackBackupsListResponse = OpenstackBackupsListResponses[keyof OpenstackBackupsListResponses];
-
-export type OpenstackBackupsCreateData = {
-    body: OpenStackBackupRequest;
-    path?: never;
-    query?: never;
-    url: '/api/openstack-backups/';
-};
-
-export type OpenstackBackupsCreateResponses = {
-    201: OpenStackBackup;
-};
-
-export type OpenstackBackupsCreateResponse = OpenstackBackupsCreateResponses[keyof OpenstackBackupsCreateResponses];
 
 export type OpenstackBackupsDestroyData = {
     body?: never;
@@ -25043,16 +23265,16 @@ export type OpenstackFloatingIpsListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         tenant?: string;
         tenant_uuid?: string;
         uuid?: string;
@@ -25065,19 +23287,6 @@ export type OpenstackFloatingIpsListResponses = {
 };
 
 export type OpenstackFloatingIpsListResponse = OpenstackFloatingIpsListResponses[keyof OpenstackFloatingIpsListResponses];
-
-export type OpenstackFloatingIpsCreateData = {
-    body?: never;
-    path?: never;
-    query?: never;
-    url: '/api/openstack-floating-ips/';
-};
-
-export type OpenstackFloatingIpsCreateResponses = {
-    201: OpenStackFloatingIp;
-};
-
-export type OpenstackFloatingIpsCreateResponse = OpenstackFloatingIpsCreateResponses[keyof OpenstackFloatingIpsCreateResponses];
 
 export type OpenstackFloatingIpsDestroyData = {
     body?: never;
@@ -25113,36 +23322,6 @@ export type OpenstackFloatingIpsRetrieveResponses = {
 };
 
 export type OpenstackFloatingIpsRetrieveResponse = OpenstackFloatingIpsRetrieveResponses[keyof OpenstackFloatingIpsRetrieveResponses];
-
-export type OpenstackFloatingIpsPartialUpdateData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-floating-ips/{uuid}/';
-};
-
-export type OpenstackFloatingIpsPartialUpdateResponses = {
-    200: OpenStackFloatingIp;
-};
-
-export type OpenstackFloatingIpsPartialUpdateResponse = OpenstackFloatingIpsPartialUpdateResponses[keyof OpenstackFloatingIpsPartialUpdateResponses];
-
-export type OpenstackFloatingIpsUpdateData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-floating-ips/{uuid}/';
-};
-
-export type OpenstackFloatingIpsUpdateResponses = {
-    200: OpenStackFloatingIp;
-};
-
-export type OpenstackFloatingIpsUpdateResponse = OpenstackFloatingIpsUpdateResponses[keyof OpenstackFloatingIpsUpdateResponses];
 
 export type OpenstackFloatingIpsAttachToPortData = {
     body: OpenStackFloatingIpAttachRequest;
@@ -25355,16 +23534,16 @@ export type OpenstackInstancesListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         tenant?: string;
         tenant_uuid?: string;
         uuid?: string;
@@ -25377,37 +23556,6 @@ export type OpenstackInstancesListResponses = {
 };
 
 export type OpenstackInstancesListResponse = OpenstackInstancesListResponses[keyof OpenstackInstancesListResponses];
-
-export type OpenstackInstancesCreateData = {
-    body: OpenStackInstanceRequest;
-    path?: never;
-    query?: never;
-    url: '/api/openstack-instances/';
-};
-
-export type OpenstackInstancesCreateResponses = {
-    201: OpenStackInstance;
-};
-
-export type OpenstackInstancesCreateResponse = OpenstackInstancesCreateResponses[keyof OpenstackInstancesCreateResponses];
-
-export type OpenstackInstancesDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-instances/{uuid}/';
-};
-
-export type OpenstackInstancesDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type OpenstackInstancesDestroyResponse = OpenstackInstancesDestroyResponses[keyof OpenstackInstancesDestroyResponses];
 
 export type OpenstackInstancesRetrieveData = {
     body?: never;
@@ -25552,16 +23700,16 @@ export type OpenstackInstancesFloatingIpsListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         tenant?: string;
         tenant_uuid?: string;
         uuid?: string;
@@ -25608,16 +23756,16 @@ export type OpenstackInstancesPortsListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         tenant?: string;
         tenant_uuid?: string;
         uuid?: string;
@@ -25921,16 +24069,16 @@ export type OpenstackNetworksListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         tenant?: string;
         tenant_uuid?: string;
         type?: string;
@@ -25944,19 +24092,6 @@ export type OpenstackNetworksListResponses = {
 };
 
 export type OpenstackNetworksListResponse = OpenstackNetworksListResponses[keyof OpenstackNetworksListResponses];
-
-export type OpenstackNetworksCreateData = {
-    body: OpenStackNetworkRequest;
-    path?: never;
-    query?: never;
-    url: '/api/openstack-networks/';
-};
-
-export type OpenstackNetworksCreateResponses = {
-    201: OpenStackNetwork;
-};
-
-export type OpenstackNetworksCreateResponse = OpenstackNetworksCreateResponses[keyof OpenstackNetworksCreateResponses];
 
 export type OpenstackNetworksDestroyData = {
     body?: never;
@@ -26134,19 +24269,6 @@ export type OpenstackPortsListResponses = {
 
 export type OpenstackPortsListResponse = OpenstackPortsListResponses[keyof OpenstackPortsListResponses];
 
-export type OpenstackPortsCreateData = {
-    body: OpenStackPortRequest;
-    path?: never;
-    query?: never;
-    url: '/api/openstack-ports/';
-};
-
-export type OpenstackPortsCreateResponses = {
-    201: OpenStackPort;
-};
-
-export type OpenstackPortsCreateResponse = OpenstackPortsCreateResponses[keyof OpenstackPortsCreateResponses];
-
 export type OpenstackPortsDestroyData = {
     body?: never;
     path: {
@@ -26181,36 +24303,6 @@ export type OpenstackPortsRetrieveResponses = {
 };
 
 export type OpenstackPortsRetrieveResponse = OpenstackPortsRetrieveResponses[keyof OpenstackPortsRetrieveResponses];
-
-export type OpenstackPortsPartialUpdateData = {
-    body?: PatchedOpenStackPortRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-ports/{uuid}/';
-};
-
-export type OpenstackPortsPartialUpdateResponses = {
-    200: OpenStackPort;
-};
-
-export type OpenstackPortsPartialUpdateResponse = OpenstackPortsPartialUpdateResponses[keyof OpenstackPortsPartialUpdateResponses];
-
-export type OpenstackPortsUpdateData = {
-    body: OpenStackPortRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-ports/{uuid}/';
-};
-
-export type OpenstackPortsUpdateResponses = {
-    200: OpenStackPort;
-};
-
-export type OpenstackPortsUpdateResponse = OpenstackPortsUpdateResponses[keyof OpenstackPortsUpdateResponses];
 
 export type OpenstackPortsPullData = {
     body?: never;
@@ -26271,37 +24363,6 @@ export type OpenstackRoutersListResponses = {
 
 export type OpenstackRoutersListResponse = OpenstackRoutersListResponses[keyof OpenstackRoutersListResponses];
 
-export type OpenstackRoutersCreateData = {
-    body: OpenStackRouterRequest;
-    path?: never;
-    query?: never;
-    url: '/api/openstack-routers/';
-};
-
-export type OpenstackRoutersCreateResponses = {
-    201: OpenStackRouter;
-};
-
-export type OpenstackRoutersCreateResponse = OpenstackRoutersCreateResponses[keyof OpenstackRoutersCreateResponses];
-
-export type OpenstackRoutersDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-routers/{uuid}/';
-};
-
-export type OpenstackRoutersDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type OpenstackRoutersDestroyResponse = OpenstackRoutersDestroyResponses[keyof OpenstackRoutersDestroyResponses];
-
 export type OpenstackRoutersRetrieveData = {
     body?: never;
     path: {
@@ -26318,36 +24379,6 @@ export type OpenstackRoutersRetrieveResponses = {
 };
 
 export type OpenstackRoutersRetrieveResponse = OpenstackRoutersRetrieveResponses[keyof OpenstackRoutersRetrieveResponses];
-
-export type OpenstackRoutersPartialUpdateData = {
-    body?: PatchedOpenStackRouterRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-routers/{uuid}/';
-};
-
-export type OpenstackRoutersPartialUpdateResponses = {
-    200: OpenStackRouter;
-};
-
-export type OpenstackRoutersPartialUpdateResponse = OpenstackRoutersPartialUpdateResponses[keyof OpenstackRoutersPartialUpdateResponses];
-
-export type OpenstackRoutersUpdateData = {
-    body: OpenStackRouterRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-routers/{uuid}/';
-};
-
-export type OpenstackRoutersUpdateResponses = {
-    200: OpenStackRouter;
-};
-
-export type OpenstackRoutersUpdateResponse = OpenstackRoutersUpdateResponses[keyof OpenstackRoutersUpdateResponses];
 
 export type OpenstackRoutersSetRoutesData = {
     body: OpenStackRouterSetRoutesRequest;
@@ -26394,16 +24425,16 @@ export type OpenstackSecurityGroupsListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         tenant?: string;
         tenant_uuid?: string;
         uuid?: string;
@@ -26416,19 +24447,6 @@ export type OpenstackSecurityGroupsListResponses = {
 };
 
 export type OpenstackSecurityGroupsListResponse = OpenstackSecurityGroupsListResponses[keyof OpenstackSecurityGroupsListResponses];
-
-export type OpenstackSecurityGroupsCreateData = {
-    body: OpenStackSecurityGroupRequest;
-    path?: never;
-    query?: never;
-    url: '/api/openstack-security-groups/';
-};
-
-export type OpenstackSecurityGroupsCreateResponses = {
-    201: OpenStackSecurityGroup;
-};
-
-export type OpenstackSecurityGroupsCreateResponse = OpenstackSecurityGroupsCreateResponses[keyof OpenstackSecurityGroupsCreateResponses];
 
 export type OpenstackSecurityGroupsDestroyData = {
     body?: never;
@@ -26572,16 +24590,16 @@ export type OpenstackServerGroupsListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         tenant?: string;
         tenant_uuid?: string;
         uuid?: string;
@@ -26739,16 +24757,16 @@ export type OpenstackSnapshotsListData = {
         source_volume?: string;
         source_volume_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         tenant?: string;
         tenant_uuid?: string;
         uuid?: string;
@@ -26761,19 +24779,6 @@ export type OpenstackSnapshotsListResponses = {
 };
 
 export type OpenstackSnapshotsListResponse = OpenstackSnapshotsListResponses[keyof OpenstackSnapshotsListResponses];
-
-export type OpenstackSnapshotsCreateData = {
-    body: OpenStackSnapshotRequest;
-    path?: never;
-    query?: never;
-    url: '/api/openstack-snapshots/';
-};
-
-export type OpenstackSnapshotsCreateResponses = {
-    201: OpenStackSnapshot;
-};
-
-export type OpenstackSnapshotsCreateResponse = OpenstackSnapshotsCreateResponses[keyof OpenstackSnapshotsCreateResponses];
 
 export type OpenstackSnapshotsDestroyData = {
     body?: never;
@@ -26891,16 +24896,16 @@ export type OpenstackSnapshotsRestorationsListData = {
         source_volume?: string;
         source_volume_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         tenant?: string;
         tenant_uuid?: string;
         uuid?: string;
@@ -26978,16 +24983,16 @@ export type OpenstackSubnetsListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         tenant?: string;
         tenant_uuid?: string;
         uuid?: string;
@@ -27000,19 +25005,6 @@ export type OpenstackSubnetsListResponses = {
 };
 
 export type OpenstackSubnetsListResponse = OpenstackSubnetsListResponses[keyof OpenstackSubnetsListResponses];
-
-export type OpenstackSubnetsCreateData = {
-    body: OpenStackSubNetRequest;
-    path?: never;
-    query?: never;
-    url: '/api/openstack-subnets/';
-};
-
-export type OpenstackSubnetsCreateResponses = {
-    201: OpenStackSubNet;
-};
-
-export type OpenstackSubnetsCreateResponse = OpenstackSubnetsCreateResponses[keyof OpenstackSubnetsCreateResponses];
 
 export type OpenstackSubnetsDestroyData = {
     body?: never;
@@ -27172,16 +25164,16 @@ export type OpenstackTenantsListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         uuid?: string;
     };
     url: '/api/openstack-tenants/';
@@ -27301,16 +25293,16 @@ export type OpenstackTenantsBackendInstancesListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         uuid?: string;
     };
     url: '/api/openstack-tenants/{uuid}/backend_instances/';
@@ -27352,16 +25344,16 @@ export type OpenstackTenantsBackendVolumesListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         uuid?: string;
     };
     url: '/api/openstack-tenants/{uuid}/backend_volumes/';
@@ -27680,16 +25672,16 @@ export type OpenstackVolumesListData = {
         snapshot?: string;
         snapshot_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         tenant?: string;
         tenant_uuid?: string;
         uuid?: string;
@@ -27702,37 +25694,6 @@ export type OpenstackVolumesListResponses = {
 };
 
 export type OpenstackVolumesListResponse = OpenstackVolumesListResponses[keyof OpenstackVolumesListResponses];
-
-export type OpenstackVolumesCreateData = {
-    body: OpenStackVolumeRequest;
-    path?: never;
-    query?: never;
-    url: '/api/openstack-volumes/';
-};
-
-export type OpenstackVolumesCreateResponses = {
-    201: OpenStackVolume;
-};
-
-export type OpenstackVolumesCreateResponse = OpenstackVolumesCreateResponses[keyof OpenstackVolumesCreateResponses];
-
-export type OpenstackVolumesDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/openstack-volumes/{uuid}/';
-};
-
-export type OpenstackVolumesDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type OpenstackVolumesDestroyResponse = OpenstackVolumesDestroyResponses[keyof OpenstackVolumesDestroyResponses];
 
 export type OpenstackVolumesRetrieveData = {
     body?: never;
@@ -28004,133 +25965,11 @@ export type OverrideSettingsRetrieveData = {
     url: '/api/override-settings/';
 };
 
-export type ConstanceSettings = {
-    SITE_NAME?: string;
-    SITE_DESCRIPTION?: string;
-    HOMEPORT_URL?: string;
-    SITE_ADDRESS?: string;
-    SITE_EMAIL?: string;
-    SITE_PHONE?: string;
-    CURRENCY_NAME?: string;
-    THUMBNAIL_SIZE?: string;
-    ANONYMOUS_USER_CAN_VIEW_OFFERINGS?: boolean;
-    ANONYMOUS_USER_CAN_VIEW_PLANS?: boolean;
-    NOTIFY_STAFF_ABOUT_APPROVALS?: boolean;
-    NOTIFY_ABOUT_RESOURCE_CHANGE?: boolean;
-    DISABLE_SENDING_NOTIFICATIONS_ABOUT_RESOURCE_UPDATE?: boolean;
-    MARKETPLACE_LANDING_PAGE?: string;
-    ENABLE_STALE_RESOURCE_NOTIFICATIONS?: boolean;
-    ENABLE_RESOURCE_END_DATE?: boolean;
-    TELEMETRY_URL?: string;
-    TELEMETRY_VERSION?: number;
-    SCRIPT_RUN_MODE?: string;
-    DOCKER_CLIENT?: string;
-    DOCKER_RUN_OPTIONS?: string;
-    DOCKER_SCRIPT_DIR?: string;
-    DOCKER_REMOVE_CONTAINER?: boolean;
-    DOCKER_IMAGES?: string;
-    DOCKER_VOLUME_NAME?: string;
-    K8S_NAMESPACE?: string;
-    K8S_CONFIG_PATH?: string;
-    K8S_JOB_TIMEOUT?: number;
-    ENABLE_STRICT_CHECK_ACCEPTING_INVITATION?: boolean;
-    INVITATION_DISABLE_MULTIPLE_ROLES?: boolean;
-    DEFAULT_IDP?: string;
-    DOCS_URL?: string;
-    SHORT_PAGE_TITLE?: string;
-    FULL_PAGE_TITLE?: string;
-    BRAND_COLOR?: string;
-    BRAND_LABEL_COLOR?: string;
-    HERO_LINK_LABEL?: string;
-    HERO_LINK_URL?: string;
-    SUPPORT_PORTAL_URL?: string;
-    COMMON_FOOTER_TEXT?: string;
-    COMMON_FOOTER_HTML?: string;
-    LANGUAGE_CHOICES?: string;
-    DISABLE_DARK_THEME?: boolean;
-    POWERED_BY_LOGO?: string | null;
-    HERO_IMAGE?: string | null;
-    SIDEBAR_LOGO?: string | null;
-    SIDEBAR_LOGO_DARK?: string | null;
-    SIDEBAR_LOGO_MOBILE?: string | null;
-    SIDEBAR_STYLE?: string;
-    SITE_LOGO?: string | null;
-    LOGIN_LOGO?: string | null;
-    FAVICON?: string | null;
-    OFFERING_LOGO_PLACEHOLDER?: string | null;
-    WALDUR_SUPPORT_ENABLED?: boolean;
-    WALDUR_SUPPORT_ACTIVE_BACKEND_TYPE?: string;
-    WALDUR_SUPPORT_DISPLAY_REQUEST_TYPE?: boolean;
-    ATLASSIAN_USE_OLD_API?: boolean;
-    ATLASSIAN_USE_TEENAGE_API?: boolean;
-    ATLASSIAN_USE_AUTOMATIC_REQUEST_MAPPING?: boolean;
-    ATLASSIAN_MAP_WALDUR_USERS_TO_SERVICEDESK_AGENTS?: boolean;
-    ATLASSIAN_STRANGE_SETTING?: number;
-    ATLASSIAN_API_URL?: string;
-    ATLASSIAN_USERNAME?: string;
-    ATLASSIAN_PASSWORD?: string;
-    ATLASSIAN_EMAIL?: string;
-    ATLASSIAN_TOKEN?: string;
-    ATLASSIAN_VERIFY_SSL?: boolean;
-    ATLASSIAN_PROJECT_ID?: string;
-    ATLASSIAN_SHARED_USERNAME?: boolean;
-    ATLASSIAN_CUSTOM_ISSUE_FIELD_MAPPING_ENABLED?: boolean;
-    ATLASSIAN_DEFAULT_OFFERING_ISSUE_TYPE?: string;
-    ATLASSIAN_EXCLUDED_ATTACHMENT_TYPES?: string;
-    ATLASSIAN_PULL_PRIORITIES?: boolean;
-    ATLASSIAN_ISSUE_TYPES?: string;
-    ATLASSIAN_DESCRIPTION_TEMPLATE?: string;
-    ATLASSIAN_SUMMARY_TEMPLATE?: string;
-    ATLASSIAN_AFFECTED_RESOURCE_FIELD?: string;
-    ATLASSIAN_IMPACT_FIELD?: string;
-    ATLASSIAN_ORGANISATION_FIELD?: string;
-    ATLASSIAN_RESOLUTION_SLA_FIELD?: string;
-    ATLASSIAN_PROJECT_FIELD?: string;
-    ATLASSIAN_REPORTER_FIELD?: string;
-    ATLASSIAN_CALLER_FIELD?: string;
-    ATLASSIAN_SLA_FIELD?: string;
-    ATLASSIAN_LINKED_ISSUE_TYPE?: string;
-    ATLASSIAN_SATISFACTION_FIELD?: string;
-    ATLASSIAN_REQUEST_FEEDBACK_FIELD?: string;
-    ATLASSIAN_TEMPLATE_FIELD?: string;
-    ZAMMAD_API_URL?: string;
-    ZAMMAD_TOKEN?: string;
-    ZAMMAD_GROUP?: string;
-    ZAMMAD_ARTICLE_TYPE?: string;
-    ZAMMAD_COMMENT_MARKER?: string;
-    ZAMMAD_COMMENT_PREFIX?: string;
-    ZAMMAD_COMMENT_COOLDOWN_DURATION?: number;
-    SMAX_API_URL?: string;
-    SMAX_TENANT_ID?: string;
-    SMAX_LOGIN?: string;
-    SMAX_PASSWORD?: string;
-    SMAX_ORGANISATION_FIELD?: string;
-    SMAX_PROJECT_FIELD?: string;
-    SMAX_AFFECTED_RESOURCE_FIELD?: string;
-    SMAX_TIMES_TO_PULL?: number;
-    SMAX_SECONDS_TO_WAIT?: number;
-    SMAX_CREATION_SOURCE_NAME?: string;
-    SMAX_REQUESTS_OFFERING?: string;
-    SMAX_VERIFY_SSL?: boolean;
-    PROPOSAL_REVIEW_DURATION?: number;
-    USER_TABLE_COLUMNS?: string;
-    AUTO_APPROVE_USER_TOS?: boolean;
-    FREEIPA_ENABLED?: boolean;
-    FREEIPA_HOSTNAME?: string;
-    FREEIPA_USERNAME?: string;
-    FREEIPA_PASSWORD?: string;
-    FREEIPA_VERIFY_SSL?: boolean;
-    FREEIPA_USERNAME_PREFIX?: string;
-    FREEIPA_GROUPNAME_PREFIX?: string;
-    FREEIPA_BLACKLISTED_USERNAMES?: Array<string>;
-    FREEIPA_GROUP_SYNCHRONIZATION_ENABLED?: boolean;
-    KEYCLOAK_ICON?: string | null;
-    COUNTRIES?: Array<string>;
-};
-
 export type OverrideSettingsRetrieveResponses = {
     200: ConstanceSettings;
 };
+
+export type OverrideSettingsRetrieveResponse = OverrideSettingsRetrieveResponses[keyof OverrideSettingsRetrieveResponses];
 
 export type OverrideSettingsData = {
     body?: ConstanceSettingsRequest;
@@ -28942,11 +26781,11 @@ export type PromotionsCampaignsListData = {
         service_provider_uuid?: string;
         start_date?: string;
         /**
-         * * `1` - Draft
-         * * `2` - Active
-         * * `3` - Terminated
+         * * `Draft` - Draft
+         * * `Active` - Active
+         * * `Terminated` - Terminated
          */
-        state?: Array<1 | 2 | 3>;
+        state?: Array<'Active' | 'Draft' | 'Terminated'>;
     };
     url: '/api/promotions-campaigns/';
 };
@@ -29002,21 +26841,6 @@ export type PromotionsCampaignsRetrieveResponses = {
 };
 
 export type PromotionsCampaignsRetrieveResponse = PromotionsCampaignsRetrieveResponses[keyof PromotionsCampaignsRetrieveResponses];
-
-export type PromotionsCampaignsPartialUpdateData = {
-    body?: PatchedCampaignRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/promotions-campaigns/{uuid}/';
-};
-
-export type PromotionsCampaignsPartialUpdateResponses = {
-    200: Campaign;
-};
-
-export type PromotionsCampaignsPartialUpdateResponse = PromotionsCampaignsPartialUpdateResponses[keyof PromotionsCampaignsPartialUpdateResponses];
 
 export type PromotionsCampaignsUpdateData = {
     body: CampaignRequest;
@@ -29090,11 +26914,11 @@ export type PromotionsCampaignsOrdersListData = {
         service_provider_uuid?: string;
         start_date?: string;
         /**
-         * * `1` - Draft
-         * * `2` - Active
-         * * `3` - Terminated
+         * * `Draft` - Draft
+         * * `Active` - Active
+         * * `Terminated` - Terminated
          */
-        state?: Array<1 | 2 | 3>;
+        state?: Array<'Active' | 'Draft' | 'Terminated'>;
     };
     url: '/api/promotions-campaigns/{uuid}/orders/';
 };
@@ -29139,11 +26963,11 @@ export type PromotionsCampaignsResourcesListData = {
         service_provider_uuid?: string;
         start_date?: string;
         /**
-         * * `1` - Draft
-         * * `2` - Active
-         * * `3` - Terminated
+         * * `Draft` - Draft
+         * * `Active` - Active
+         * * `Terminated` - Terminated
          */
-        state?: Array<1 | 2 | 3>;
+        state?: Array<'Active' | 'Draft' | 'Terminated'>;
     };
     url: '/api/promotions-campaigns/{uuid}/resources/';
 };
@@ -29272,36 +27096,6 @@ export type ProposalProposalsRetrieveResponses = {
 };
 
 export type ProposalProposalsRetrieveResponse = ProposalProposalsRetrieveResponses[keyof ProposalProposalsRetrieveResponses];
-
-export type ProposalProposalsPartialUpdateData = {
-    body?: PatchedProposalRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/proposal-proposals/{uuid}/';
-};
-
-export type ProposalProposalsPartialUpdateResponses = {
-    200: Proposal;
-};
-
-export type ProposalProposalsPartialUpdateResponse = ProposalProposalsPartialUpdateResponses[keyof ProposalProposalsPartialUpdateResponses];
-
-export type ProposalProposalsUpdateData = {
-    body: ProposalRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/proposal-proposals/{uuid}/';
-};
-
-export type ProposalProposalsUpdateResponses = {
-    200: Proposal;
-};
-
-export type ProposalProposalsUpdateResponse = ProposalProposalsUpdateResponses[keyof ProposalProposalsUpdateResponses];
 
 export type ProposalProposalsAddUserData = {
     body: UserRoleCreateRequest;
@@ -30352,37 +28146,6 @@ export type ProposalRequestedOfferingsListResponses = {
 
 export type ProposalRequestedOfferingsListResponse = ProposalRequestedOfferingsListResponses[keyof ProposalRequestedOfferingsListResponses];
 
-export type ProposalRequestedOfferingsCreateData = {
-    body: ProviderRequestedOfferingRequest;
-    path?: never;
-    query?: never;
-    url: '/api/proposal-requested-offerings/';
-};
-
-export type ProposalRequestedOfferingsCreateResponses = {
-    201: ProviderRequestedOffering;
-};
-
-export type ProposalRequestedOfferingsCreateResponse = ProposalRequestedOfferingsCreateResponses[keyof ProposalRequestedOfferingsCreateResponses];
-
-export type ProposalRequestedOfferingsDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/proposal-requested-offerings/{uuid}/';
-};
-
-export type ProposalRequestedOfferingsDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type ProposalRequestedOfferingsDestroyResponse = ProposalRequestedOfferingsDestroyResponses[keyof ProposalRequestedOfferingsDestroyResponses];
-
 export type ProposalRequestedOfferingsRetrieveData = {
     body?: never;
     path: {
@@ -30397,36 +28160,6 @@ export type ProposalRequestedOfferingsRetrieveResponses = {
 };
 
 export type ProposalRequestedOfferingsRetrieveResponse = ProposalRequestedOfferingsRetrieveResponses[keyof ProposalRequestedOfferingsRetrieveResponses];
-
-export type ProposalRequestedOfferingsPartialUpdateData = {
-    body?: PatchedProviderRequestedOfferingRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/proposal-requested-offerings/{uuid}/';
-};
-
-export type ProposalRequestedOfferingsPartialUpdateResponses = {
-    200: ProviderRequestedOffering;
-};
-
-export type ProposalRequestedOfferingsPartialUpdateResponse = ProposalRequestedOfferingsPartialUpdateResponses[keyof ProposalRequestedOfferingsPartialUpdateResponses];
-
-export type ProposalRequestedOfferingsUpdateData = {
-    body: ProviderRequestedOfferingRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/proposal-requested-offerings/{uuid}/';
-};
-
-export type ProposalRequestedOfferingsUpdateResponses = {
-    200: ProviderRequestedOffering;
-};
-
-export type ProposalRequestedOfferingsUpdateResponse = ProposalRequestedOfferingsUpdateResponses[keyof ProposalRequestedOfferingsUpdateResponses];
 
 export type ProposalRequestedOfferingsAcceptData = {
     body?: never;
@@ -30511,37 +28244,6 @@ export type ProposalRequestedResourcesListResponses = {
 
 export type ProposalRequestedResourcesListResponse = ProposalRequestedResourcesListResponses[keyof ProposalRequestedResourcesListResponses];
 
-export type ProposalRequestedResourcesCreateData = {
-    body: ProviderRequestedResourceRequest;
-    path?: never;
-    query?: never;
-    url: '/api/proposal-requested-resources/';
-};
-
-export type ProposalRequestedResourcesCreateResponses = {
-    201: ProviderRequestedResource;
-};
-
-export type ProposalRequestedResourcesCreateResponse = ProposalRequestedResourcesCreateResponses[keyof ProposalRequestedResourcesCreateResponses];
-
-export type ProposalRequestedResourcesDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/proposal-requested-resources/{uuid}/';
-};
-
-export type ProposalRequestedResourcesDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type ProposalRequestedResourcesDestroyResponse = ProposalRequestedResourcesDestroyResponses[keyof ProposalRequestedResourcesDestroyResponses];
-
 export type ProposalRequestedResourcesRetrieveData = {
     body?: never;
     path: {
@@ -30556,36 +28258,6 @@ export type ProposalRequestedResourcesRetrieveResponses = {
 };
 
 export type ProposalRequestedResourcesRetrieveResponse = ProposalRequestedResourcesRetrieveResponses[keyof ProposalRequestedResourcesRetrieveResponses];
-
-export type ProposalRequestedResourcesPartialUpdateData = {
-    body?: PatchedProviderRequestedResourceRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/proposal-requested-resources/{uuid}/';
-};
-
-export type ProposalRequestedResourcesPartialUpdateResponses = {
-    200: ProviderRequestedResource;
-};
-
-export type ProposalRequestedResourcesPartialUpdateResponse = ProposalRequestedResourcesPartialUpdateResponses[keyof ProposalRequestedResourcesPartialUpdateResponses];
-
-export type ProposalRequestedResourcesUpdateData = {
-    body: ProviderRequestedResourceRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/proposal-requested-resources/{uuid}/';
-};
-
-export type ProposalRequestedResourcesUpdateResponses = {
-    200: ProviderRequestedResource;
-};
-
-export type ProposalRequestedResourcesUpdateResponse = ProposalRequestedResourcesUpdateResponses[keyof ProposalRequestedResourcesUpdateResponses];
 
 export type ProposalReviewsListData = {
     body?: never;
@@ -30794,40 +28466,6 @@ export type ProviderInvoiceItemsListResponses = {
 
 export type ProviderInvoiceItemsListResponse = ProviderInvoiceItemsListResponses[keyof ProviderInvoiceItemsListResponses];
 
-export type ProviderInvoiceItemsCreateData = {
-    body: InvoiceItemRequest;
-    path?: never;
-    query?: never;
-    url: '/api/provider-invoice-items/';
-};
-
-export type ProviderInvoiceItemsCreateResponses = {
-    201: InvoiceItem;
-};
-
-export type ProviderInvoiceItemsCreateResponse = ProviderInvoiceItemsCreateResponses[keyof ProviderInvoiceItemsCreateResponses];
-
-export type ProviderInvoiceItemsDestroyData = {
-    body?: never;
-    path: {
-        /**
-         * A unique integer value identifying this invoice item.
-         */
-        id: number;
-    };
-    query?: never;
-    url: '/api/provider-invoice-items/{id}/';
-};
-
-export type ProviderInvoiceItemsDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type ProviderInvoiceItemsDestroyResponse = ProviderInvoiceItemsDestroyResponses[keyof ProviderInvoiceItemsDestroyResponses];
-
 export type ProviderInvoiceItemsRetrieveData = {
     body?: never;
     path: {
@@ -30845,42 +28483,6 @@ export type ProviderInvoiceItemsRetrieveResponses = {
 };
 
 export type ProviderInvoiceItemsRetrieveResponse = ProviderInvoiceItemsRetrieveResponses[keyof ProviderInvoiceItemsRetrieveResponses];
-
-export type ProviderInvoiceItemsPartialUpdateData = {
-    body?: PatchedInvoiceItemRequest;
-    path: {
-        /**
-         * A unique integer value identifying this invoice item.
-         */
-        id: number;
-    };
-    query?: never;
-    url: '/api/provider-invoice-items/{id}/';
-};
-
-export type ProviderInvoiceItemsPartialUpdateResponses = {
-    200: InvoiceItem;
-};
-
-export type ProviderInvoiceItemsPartialUpdateResponse = ProviderInvoiceItemsPartialUpdateResponses[keyof ProviderInvoiceItemsPartialUpdateResponses];
-
-export type ProviderInvoiceItemsUpdateData = {
-    body: InvoiceItemRequest;
-    path: {
-        /**
-         * A unique integer value identifying this invoice item.
-         */
-        id: number;
-    };
-    query?: never;
-    url: '/api/provider-invoice-items/{id}/';
-};
-
-export type ProviderInvoiceItemsUpdateResponses = {
-    200: InvoiceItem;
-};
-
-export type ProviderInvoiceItemsUpdateResponse = ProviderInvoiceItemsUpdateResponses[keyof ProviderInvoiceItemsUpdateResponses];
 
 export type QueryData = {
     body: QueryRequest;
@@ -30961,16 +28563,16 @@ export type RancherAppsListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         template_uuid?: string;
         uuid?: string;
     };
@@ -31228,37 +28830,6 @@ export type RancherClusterTemplatesListResponses = {
 
 export type RancherClusterTemplatesListResponse = RancherClusterTemplatesListResponses[keyof RancherClusterTemplatesListResponses];
 
-export type RancherClusterTemplatesCreateData = {
-    body: RancherClusterTemplateRequest;
-    path?: never;
-    query?: never;
-    url: '/api/rancher-cluster-templates/';
-};
-
-export type RancherClusterTemplatesCreateResponses = {
-    201: RancherClusterTemplate;
-};
-
-export type RancherClusterTemplatesCreateResponse = RancherClusterTemplatesCreateResponses[keyof RancherClusterTemplatesCreateResponses];
-
-export type RancherClusterTemplatesDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/rancher-cluster-templates/{uuid}/';
-};
-
-export type RancherClusterTemplatesDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type RancherClusterTemplatesDestroyResponse = RancherClusterTemplatesDestroyResponses[keyof RancherClusterTemplatesDestroyResponses];
-
 export type RancherClusterTemplatesRetrieveData = {
     body?: never;
     path: {
@@ -31273,36 +28844,6 @@ export type RancherClusterTemplatesRetrieveResponses = {
 };
 
 export type RancherClusterTemplatesRetrieveResponse = RancherClusterTemplatesRetrieveResponses[keyof RancherClusterTemplatesRetrieveResponses];
-
-export type RancherClusterTemplatesPartialUpdateData = {
-    body?: PatchedRancherClusterTemplateRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/rancher-cluster-templates/{uuid}/';
-};
-
-export type RancherClusterTemplatesPartialUpdateResponses = {
-    200: RancherClusterTemplate;
-};
-
-export type RancherClusterTemplatesPartialUpdateResponse = RancherClusterTemplatesPartialUpdateResponses[keyof RancherClusterTemplatesPartialUpdateResponses];
-
-export type RancherClusterTemplatesUpdateData = {
-    body: RancherClusterTemplateRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/rancher-cluster-templates/{uuid}/';
-};
-
-export type RancherClusterTemplatesUpdateResponses = {
-    200: RancherClusterTemplate;
-};
-
-export type RancherClusterTemplatesUpdateResponse = RancherClusterTemplatesUpdateResponses[keyof RancherClusterTemplatesUpdateResponses];
 
 export type RancherClustersListData = {
     body?: never;
@@ -31333,16 +28874,16 @@ export type RancherClustersListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         uuid?: string;
     };
     url: '/api/rancher-clusters/';
@@ -31711,16 +29252,16 @@ export type RancherIngressesListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         uuid?: string;
     };
     url: '/api/rancher-ingresses/';
@@ -31997,36 +29538,6 @@ export type RancherNodesRetrieveResponses = {
 
 export type RancherNodesRetrieveResponse = RancherNodesRetrieveResponses[keyof RancherNodesRetrieveResponses];
 
-export type RancherNodesPartialUpdateData = {
-    body?: PatchedRancherNodeRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/rancher-nodes/{uuid}/';
-};
-
-export type RancherNodesPartialUpdateResponses = {
-    200: RancherNode;
-};
-
-export type RancherNodesPartialUpdateResponse = RancherNodesPartialUpdateResponses[keyof RancherNodesPartialUpdateResponses];
-
-export type RancherNodesUpdateData = {
-    body: RancherNodeRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/rancher-nodes/{uuid}/';
-};
-
-export type RancherNodesUpdateResponses = {
-    200: RancherNode;
-};
-
-export type RancherNodesUpdateResponse = RancherNodesUpdateResponses[keyof RancherNodesUpdateResponses];
-
 export type RancherNodesConsoleRetrieveData = {
     body?: never;
     path: {
@@ -32219,16 +29730,16 @@ export type RancherServicesListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         uuid?: string;
     };
     url: '/api/rancher-services/';
@@ -32485,37 +29996,6 @@ export type RancherUsersListResponses = {
 
 export type RancherUsersListResponse = RancherUsersListResponses[keyof RancherUsersListResponses];
 
-export type RancherUsersCreateData = {
-    body: RancherUserRequest;
-    path?: never;
-    query?: never;
-    url: '/api/rancher-users/';
-};
-
-export type RancherUsersCreateResponses = {
-    201: RancherUser;
-};
-
-export type RancherUsersCreateResponse = RancherUsersCreateResponses[keyof RancherUsersCreateResponses];
-
-export type RancherUsersDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/rancher-users/{uuid}/';
-};
-
-export type RancherUsersDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type RancherUsersDestroyResponse = RancherUsersDestroyResponses[keyof RancherUsersDestroyResponses];
-
 export type RancherUsersRetrieveData = {
     body?: never;
     path: {
@@ -32530,36 +30010,6 @@ export type RancherUsersRetrieveResponses = {
 };
 
 export type RancherUsersRetrieveResponse = RancherUsersRetrieveResponses[keyof RancherUsersRetrieveResponses];
-
-export type RancherUsersPartialUpdateData = {
-    body?: PatchedRancherUserRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/rancher-users/{uuid}/';
-};
-
-export type RancherUsersPartialUpdateResponses = {
-    200: RancherUser;
-};
-
-export type RancherUsersPartialUpdateResponse = RancherUsersPartialUpdateResponses[keyof RancherUsersPartialUpdateResponses];
-
-export type RancherUsersUpdateData = {
-    body: RancherUserRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/rancher-users/{uuid}/';
-};
-
-export type RancherUsersUpdateResponses = {
-    200: RancherUser;
-};
-
-export type RancherUsersUpdateResponse = RancherUsersUpdateResponses[keyof RancherUsersUpdateResponses];
 
 export type RancherWorkloadsListData = {
     body?: never;
@@ -32733,10 +30183,10 @@ export type RemoteEduteamsData = {
 };
 
 export type RemoteEduteamsResponses = {
-    200: RemoteEduteamsResponse;
+    200: RemoteEduteamsUuid;
 };
 
-export type RemoteEduteamsResponse2 = RemoteEduteamsResponses[keyof RemoteEduteamsResponses];
+export type RemoteEduteamsResponse = RemoteEduteamsResponses[keyof RemoteEduteamsResponses];
 
 export type RemoteWaldurApiCancelTerminationData = {
     body?: never;
@@ -33188,16 +30638,16 @@ export type ServiceSettingsListData = {
         scope_uuid?: string;
         shared?: boolean;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         type?: string;
     };
     url: '/api/service-settings/';
@@ -33208,37 +30658,6 @@ export type ServiceSettingsListResponses = {
 };
 
 export type ServiceSettingsListResponse = ServiceSettingsListResponses[keyof ServiceSettingsListResponses];
-
-export type ServiceSettingsCreateData = {
-    body: ServiceSettingsRequest;
-    path?: never;
-    query?: never;
-    url: '/api/service-settings/';
-};
-
-export type ServiceSettingsCreateResponses = {
-    201: ServiceSettings;
-};
-
-export type ServiceSettingsCreateResponse = ServiceSettingsCreateResponses[keyof ServiceSettingsCreateResponses];
-
-export type ServiceSettingsDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/service-settings/{uuid}/';
-};
-
-export type ServiceSettingsDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type ServiceSettingsDestroyResponse = ServiceSettingsDestroyResponses[keyof ServiceSettingsDestroyResponses];
 
 export type ServiceSettingsRetrieveData = {
     body?: never;
@@ -33256,36 +30675,6 @@ export type ServiceSettingsRetrieveResponses = {
 };
 
 export type ServiceSettingsRetrieveResponse = ServiceSettingsRetrieveResponses[keyof ServiceSettingsRetrieveResponses];
-
-export type ServiceSettingsPartialUpdateData = {
-    body?: PatchedServiceSettingsRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/service-settings/{uuid}/';
-};
-
-export type ServiceSettingsPartialUpdateResponses = {
-    200: ServiceSettings;
-};
-
-export type ServiceSettingsPartialUpdateResponse = ServiceSettingsPartialUpdateResponses[keyof ServiceSettingsPartialUpdateResponses];
-
-export type ServiceSettingsUpdateData = {
-    body: ServiceSettingsRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/service-settings/{uuid}/';
-};
-
-export type ServiceSettingsUpdateResponses = {
-    200: ServiceSettings;
-};
-
-export type ServiceSettingsUpdateResponse = ServiceSettingsUpdateResponses[keyof ServiceSettingsUpdateResponses];
 
 export type SlurmAllocationUserUsageListData = {
     body?: never;
@@ -33363,16 +30752,16 @@ export type SlurmAllocationsListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         uuid?: string;
     };
     url: '/api/slurm-allocations/';
@@ -33754,36 +31143,6 @@ export type SupportAttachmentsRetrieveResponses = {
 
 export type SupportAttachmentsRetrieveResponse = SupportAttachmentsRetrieveResponses[keyof SupportAttachmentsRetrieveResponses];
 
-export type SupportAttachmentsPartialUpdateData = {
-    body?: PatchedAttachmentRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/support-attachments/{uuid}/';
-};
-
-export type SupportAttachmentsPartialUpdateResponses = {
-    200: Attachment;
-};
-
-export type SupportAttachmentsPartialUpdateResponse = SupportAttachmentsPartialUpdateResponses[keyof SupportAttachmentsPartialUpdateResponses];
-
-export type SupportAttachmentsUpdateData = {
-    body: AttachmentRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/support-attachments/{uuid}/';
-};
-
-export type SupportAttachmentsUpdateResponses = {
-    200: Attachment;
-};
-
-export type SupportAttachmentsUpdateResponse = SupportAttachmentsUpdateResponses[keyof SupportAttachmentsUpdateResponses];
-
 export type SupportCommentsListData = {
     body?: never;
     path?: never;
@@ -33824,19 +31183,6 @@ export type SupportCommentsListResponses = {
 };
 
 export type SupportCommentsListResponse = SupportCommentsListResponses[keyof SupportCommentsListResponses];
-
-export type SupportCommentsCreateData = {
-    body: CommentRequest;
-    path?: never;
-    query?: never;
-    url: '/api/support-comments/';
-};
-
-export type SupportCommentsCreateResponses = {
-    201: Comment;
-};
-
-export type SupportCommentsCreateResponse = SupportCommentsCreateResponses[keyof SupportCommentsCreateResponses];
 
 export type SupportCommentsDestroyData = {
     body?: never;
@@ -33976,24 +31322,6 @@ export type SupportFeedbacksCreateResponses = {
 
 export type SupportFeedbacksCreateResponse = SupportFeedbacksCreateResponses[keyof SupportFeedbacksCreateResponses];
 
-export type SupportFeedbacksDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/support-feedbacks/{uuid}/';
-};
-
-export type SupportFeedbacksDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type SupportFeedbacksDestroyResponse = SupportFeedbacksDestroyResponses[keyof SupportFeedbacksDestroyResponses];
-
 export type SupportFeedbacksRetrieveData = {
     body?: never;
     path: {
@@ -34008,36 +31336,6 @@ export type SupportFeedbacksRetrieveResponses = {
 };
 
 export type SupportFeedbacksRetrieveResponse = SupportFeedbacksRetrieveResponses[keyof SupportFeedbacksRetrieveResponses];
-
-export type SupportFeedbacksPartialUpdateData = {
-    body?: PatchedFeedbackRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/support-feedbacks/{uuid}/';
-};
-
-export type SupportFeedbacksPartialUpdateResponses = {
-    200: Feedback;
-};
-
-export type SupportFeedbacksPartialUpdateResponse = SupportFeedbacksPartialUpdateResponses[keyof SupportFeedbacksPartialUpdateResponses];
-
-export type SupportFeedbacksUpdateData = {
-    body: FeedbackRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/support-feedbacks/{uuid}/';
-};
-
-export type SupportFeedbacksUpdateResponses = {
-    200: Feedback;
-};
-
-export type SupportFeedbacksUpdateResponse = SupportFeedbacksUpdateResponses[keyof SupportFeedbacksUpdateResponses];
 
 export type SupportIssuesListData = {
     body?: never;
@@ -35007,37 +32305,6 @@ export type UserPermissionRequestsListResponses = {
 
 export type UserPermissionRequestsListResponse = UserPermissionRequestsListResponses[keyof UserPermissionRequestsListResponses];
 
-export type UserPermissionRequestsCreateData = {
-    body: PermissionRequestRequest;
-    path?: never;
-    query?: never;
-    url: '/api/user-permission-requests/';
-};
-
-export type UserPermissionRequestsCreateResponses = {
-    201: PermissionRequest;
-};
-
-export type UserPermissionRequestsCreateResponse = UserPermissionRequestsCreateResponses[keyof UserPermissionRequestsCreateResponses];
-
-export type UserPermissionRequestsDestroyData = {
-    body?: never;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/user-permission-requests/{uuid}/';
-};
-
-export type UserPermissionRequestsDestroyResponses = {
-    /**
-     * No response body
-     */
-    204: void;
-};
-
-export type UserPermissionRequestsDestroyResponse = UserPermissionRequestsDestroyResponses[keyof UserPermissionRequestsDestroyResponses];
-
 export type UserPermissionRequestsRetrieveData = {
     body?: never;
     path: {
@@ -35052,36 +32319,6 @@ export type UserPermissionRequestsRetrieveResponses = {
 };
 
 export type UserPermissionRequestsRetrieveResponse = UserPermissionRequestsRetrieveResponses[keyof UserPermissionRequestsRetrieveResponses];
-
-export type UserPermissionRequestsPartialUpdateData = {
-    body?: PatchedPermissionRequestRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/user-permission-requests/{uuid}/';
-};
-
-export type UserPermissionRequestsPartialUpdateResponses = {
-    200: PermissionRequest;
-};
-
-export type UserPermissionRequestsPartialUpdateResponse = UserPermissionRequestsPartialUpdateResponses[keyof UserPermissionRequestsPartialUpdateResponses];
-
-export type UserPermissionRequestsUpdateData = {
-    body: PermissionRequestRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/user-permission-requests/{uuid}/';
-};
-
-export type UserPermissionRequestsUpdateResponses = {
-    200: PermissionRequest;
-};
-
-export type UserPermissionRequestsUpdateResponse = UserPermissionRequestsUpdateResponses[keyof UserPermissionRequestsUpdateResponses];
 
 export type UserPermissionRequestsApproveData = {
     body?: ReviewCommentRequest;
@@ -35612,16 +32849,16 @@ export type VmwareDisksListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         uuid?: string;
         vm?: string;
         vm_uuid?: string;
@@ -35634,19 +32871,6 @@ export type VmwareDisksListResponses = {
 };
 
 export type VmwareDisksListResponse = VmwareDisksListResponses[keyof VmwareDisksListResponses];
-
-export type VmwareDisksCreateData = {
-    body: VmwareDiskRequest;
-    path?: never;
-    query?: never;
-    url: '/api/vmware-disks/';
-};
-
-export type VmwareDisksCreateResponses = {
-    201: VmwareDisk;
-};
-
-export type VmwareDisksCreateResponse = VmwareDisksCreateResponses[keyof VmwareDisksCreateResponses];
 
 export type VmwareDisksDestroyData = {
     body?: never;
@@ -35682,36 +32906,6 @@ export type VmwareDisksRetrieveResponses = {
 };
 
 export type VmwareDisksRetrieveResponse = VmwareDisksRetrieveResponses[keyof VmwareDisksRetrieveResponses];
-
-export type VmwareDisksPartialUpdateData = {
-    body?: PatchedVmwareDiskRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/vmware-disks/{uuid}/';
-};
-
-export type VmwareDisksPartialUpdateResponses = {
-    200: VmwareDisk;
-};
-
-export type VmwareDisksPartialUpdateResponse = VmwareDisksPartialUpdateResponses[keyof VmwareDisksPartialUpdateResponses];
-
-export type VmwareDisksUpdateData = {
-    body: VmwareDiskRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/vmware-disks/{uuid}/';
-};
-
-export type VmwareDisksUpdateResponses = {
-    200: VmwareDisk;
-};
-
-export type VmwareDisksUpdateResponse = VmwareDisksUpdateResponses[keyof VmwareDisksUpdateResponses];
 
 export type VmwareDisksExtendData = {
     body: VmwareDiskExtendRequest;
@@ -35900,16 +33094,16 @@ export type VmwarePortsListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         uuid?: string;
         vm?: string;
         vm_uuid?: string;
@@ -35922,19 +33116,6 @@ export type VmwarePortsListResponses = {
 };
 
 export type VmwarePortsListResponse = VmwarePortsListResponses[keyof VmwarePortsListResponses];
-
-export type VmwarePortsCreateData = {
-    body: VmwarePortRequest;
-    path?: never;
-    query?: never;
-    url: '/api/vmware-ports/';
-};
-
-export type VmwarePortsCreateResponses = {
-    201: VmwarePort;
-};
-
-export type VmwarePortsCreateResponse = VmwarePortsCreateResponses[keyof VmwarePortsCreateResponses];
 
 export type VmwarePortsDestroyData = {
     body?: never;
@@ -35970,36 +33151,6 @@ export type VmwarePortsRetrieveResponses = {
 };
 
 export type VmwarePortsRetrieveResponse = VmwarePortsRetrieveResponses[keyof VmwarePortsRetrieveResponses];
-
-export type VmwarePortsPartialUpdateData = {
-    body?: PatchedVmwarePortRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/vmware-ports/{uuid}/';
-};
-
-export type VmwarePortsPartialUpdateResponses = {
-    200: VmwarePort;
-};
-
-export type VmwarePortsPartialUpdateResponse = VmwarePortsPartialUpdateResponses[keyof VmwarePortsPartialUpdateResponses];
-
-export type VmwarePortsUpdateData = {
-    body: VmwarePortRequest;
-    path: {
-        uuid: string;
-    };
-    query?: never;
-    url: '/api/vmware-ports/{uuid}/';
-};
-
-export type VmwarePortsUpdateResponses = {
-    200: VmwarePort;
-};
-
-export type VmwarePortsUpdateResponse = VmwarePortsUpdateResponses[keyof VmwarePortsUpdateResponses];
 
 export type VmwarePortsPullData = {
     body?: never;
@@ -36104,16 +33255,16 @@ export type VmwareVirtualMachineListData = {
         service_settings_name?: string;
         service_settings_uuid?: string;
         /**
-         * * `Creation Scheduled` - Creation Scheduled
-         * * `Creating` - Creating
-         * * `Update Scheduled` - Update Scheduled
-         * * `Updating` - Updating
-         * * `Deletion Scheduled` - Deletion Scheduled
-         * * `Deleting` - Deleting
+         * * `CREATION_SCHEDULED` - CREATION_SCHEDULED
+         * * `CREATING` - CREATING
+         * * `UPDATE_SCHEDULED` - UPDATE_SCHEDULED
+         * * `UPDATING` - UPDATING
+         * * `DELETION_SCHEDULED` - DELETION_SCHEDULED
+         * * `DELETING` - DELETING
          * * `OK` - OK
-         * * `Erred` - Erred
+         * * `ERRED` - ERRED
          */
-        state?: Array<'Creating' | 'Creation Scheduled' | 'Deleting' | 'Deletion Scheduled' | 'Erred' | 'OK' | 'Update Scheduled' | 'Updating'>;
+        state?: Array<'CREATING' | 'CREATION_SCHEDULED' | 'DELETING' | 'DELETION_SCHEDULED' | 'ERRED' | 'OK' | 'UPDATE_SCHEDULED' | 'UPDATING'>;
         uuid?: string;
     };
     url: '/api/vmware-virtual-machine/';
@@ -36392,5 +33543,5 @@ export type VmwareVirtualMachineWebConsoleRetrieveResponses = {
 export type VmwareVirtualMachineWebConsoleRetrieveResponse = VmwareVirtualMachineWebConsoleRetrieveResponses[keyof VmwareVirtualMachineWebConsoleRetrieveResponses];
 
 export type ClientOptions = {
-    baseUrl: `${string}://waldur-openapi-schema.yaml` | (string & {});
+    baseUrl: `${string}://schema.yaml` | (string & {});
 };
