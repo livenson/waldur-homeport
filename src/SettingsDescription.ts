@@ -277,7 +277,7 @@ export const SettingsDescription = [
       },
       {
         key: 'DISABLE_DARK_THEME',
-        description: translate('Toggler for dark theme.'),
+        description: translate('Toggler to disable dark theme.'),
         default: false,
         type: 'boolean',
       },
