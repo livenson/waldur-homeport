@@ -1451,6 +1451,10 @@
     "description": "marketplace/offerings/details/PublicOfferingLocation.tsx",
     "message": "Availability:"
   },
+  "Available countries": {
+    "description": "administration/settings/CountrySelector.tsx",
+    "message": "Available countries"
+  },
   "Available for organization owner": {
     "description": "customer/team/UserAddButton.tsx",
     "message": "Available for organization owner"
@@ -2438,6 +2442,10 @@
   "Could not create organization": {
     "description": "customer/create/CustomerCreateDialog.tsx",
     "message": "Could not create organization"
+  },
+  "Country list has been updated": {
+    "description": "administration/settings/CountrySelector.tsx",
+    "message": "Country list has been updated"
   },
   "Country": {
     "description": "customer/details/CustomerDetailsPanel.tsx, customer/list/SelectCountryField.tsx, user/affiliations/OrganizationsList.tsx",
@@ -3656,7 +3664,7 @@
     "message": "Edit {title}"
   },
   "Edit": {
-    "description": "administration/announcements/AnnouncementForm.tsx, administration/organizations/OrganizationGroupForm.tsx, administration/providers/ProviderCard.tsx, customer/cost-policies/CostPolicyEditButton.tsx, customer/cost-policies/CostPolicyFormDialog.tsx, customer/credits/EditCreditButton.tsx, customer/credits/ProjectCreditFormDialog.tsx, customer/credits/ProjectEditCreditButton.tsx, customer/list/OrganizationCard.tsx, customer/payments/EditPaymentButton.tsx, customer/team/EditProjectUserButton.tsx, customer/team/UserEditButton.tsx, form/EditAction.tsx, form/EditButton.tsx, marketplace/category/admin/CategoryEditDialog.tsx, marketplace/category/admin/GroupFromDialog.tsx, marketplace/deploy/DeployPage.tsx, marketplace/offerings/OfferingViewHero.tsx, marketplace/offerings/list/EditOfferingButton.tsx, marketplace/offerings/list/OfferingActions.test.tsx, marketplace/offerings/update/plans/EditPlanDescriptionButton.tsx, marketplace/resources/actions/EditAction.tsx, marketplace/resources/options/UpdateResourceOptionButton.tsx, openstack/openstack-backup/actions/EditAction.tsx, openstack/openstack-instance/actions/EditAction.tsx, openstack/openstack-network/actions/EditNetworkAction.tsx, openstack/openstack-security-groups/EditAction.tsx, openstack/openstack-snapshot/EditAction.tsx, openstack/openstack-subnet/EditSubnetAction.tsx, openstack/openstack-tenant/actions/EditAction.tsx, openstack/openstack-volume/actions/EditAction.tsx, organization/OrganizationUIView.tsx, project/ProjectCard.tsx, project/ProjectContainer.tsx, project/ProjectEditAction.tsx, proposals/call-management/CallFormDialog.tsx, proposals/details/CallTabs.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestFormDialog.tsx, proposals/round/allocation/EditAllocationInfoButton.tsx, proposals/round/allocation/EditRoundAllocationDialog.tsx, proposals/round/review/EditReviewInfoButton.tsx, proposals/round/review/EditRoundReviewDialog.tsx, proposals/round/submission/EditRoundSubmissionDialog.tsx, proposals/round/submission/EditSubmissionInfoButton.tsx, proposals/update/general/EditGeneralInfoButton.tsx, rancher/cluster/hpas/HPAUpdateButton.tsx, slurm/EditAction.tsx, user/dashboard/UserProfileHero.tsx, vmware/actions/EditAction.tsx",
+    "description": "administration/announcements/AnnouncementForm.tsx, administration/organizations/OrganizationGroupForm.tsx, administration/providers/ProviderCard.tsx, administration/settings/FieldRow.tsx, customer/cost-policies/CostPolicyEditButton.tsx, customer/cost-policies/CostPolicyFormDialog.tsx, customer/credits/EditCreditButton.tsx, customer/credits/ProjectCreditFormDialog.tsx, customer/credits/ProjectEditCreditButton.tsx, customer/list/OrganizationCard.tsx, customer/payments/EditPaymentButton.tsx, customer/team/EditProjectUserButton.tsx, customer/team/UserEditButton.tsx, form/EditAction.tsx, form/EditButton.tsx, marketplace/category/admin/CategoryEditDialog.tsx, marketplace/category/admin/GroupFromDialog.tsx, marketplace/deploy/DeployPage.tsx, marketplace/offerings/OfferingViewHero.tsx, marketplace/offerings/list/EditOfferingButton.tsx, marketplace/offerings/list/OfferingActions.test.tsx, marketplace/offerings/update/plans/EditPlanDescriptionButton.tsx, marketplace/resources/actions/EditAction.tsx, marketplace/resources/options/UpdateResourceOptionButton.tsx, openstack/openstack-backup/actions/EditAction.tsx, openstack/openstack-instance/actions/EditAction.tsx, openstack/openstack-network/actions/EditNetworkAction.tsx, openstack/openstack-security-groups/EditAction.tsx, openstack/openstack-snapshot/EditAction.tsx, openstack/openstack-subnet/EditSubnetAction.tsx, openstack/openstack-tenant/actions/EditAction.tsx, openstack/openstack-volume/actions/EditAction.tsx, organization/OrganizationUIView.tsx, project/ProjectCard.tsx, project/ProjectContainer.tsx, project/ProjectEditAction.tsx, proposals/call-management/CallFormDialog.tsx, proposals/details/CallTabs.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestFormDialog.tsx, proposals/round/allocation/EditAllocationInfoButton.tsx, proposals/round/allocation/EditRoundAllocationDialog.tsx, proposals/round/review/EditReviewInfoButton.tsx, proposals/round/review/EditRoundReviewDialog.tsx, proposals/round/submission/EditRoundSubmissionDialog.tsx, proposals/round/submission/EditSubmissionInfoButton.tsx, proposals/update/general/EditGeneralInfoButton.tsx, rancher/cluster/hpas/HPAUpdateButton.tsx, slurm/EditAction.tsx, user/dashboard/UserProfileHero.tsx, vmware/actions/EditAction.tsx",
     "message": "Edit"
   },
   "Educational sciences": {
@@ -4731,10 +4739,6 @@
     "description": "administration/TelemetryExampleDialog.tsx",
     "message": "Helpdesk integration status"
   },
-  "Hex color definition is used in HomePort landing page for font color of login button.": {
-    "description": "SettingsDescription.ts",
-    "message": "Hex color definition is used in HomePort landing page for font color of login button."
-  },
   "Hex color definition is used in HomePort landing page for login button.": {
     "description": "SettingsDescription.ts",
     "message": "Hex color definition is used in HomePort landing page for login button."
@@ -5483,6 +5487,10 @@
     "description": "SettingsDescription.ts",
     "message": "It is used in marketplace order header."
   },
+  "It is used in organization creation dialog in order to limit country choices to predefined set.": {
+    "description": "SettingsDescription.ts",
+    "message": "It is used in organization creation dialog in order to limit country choices to predefined set."
+  },
   "It is used to automatically assign floating IP to your virtual machine.": {
     "description": "openstack/OpenStackForm.tsx",
     "message": "It is used to automatically assign floating IP to your virtual machine."
@@ -5992,7 +6000,7 @@
     "message": "Marker for comment. Used for separating comments made via Waldur from natively added comments."
   },
   "Marketplace Branding": {
-    "description": "SettingsDescription.ts, administration/settings/AdministrationBranding.tsx",
+    "description": "SettingsDescription.ts, administration/settings/AdministrationBranding.tsx, administration/settings/CountrySelector.tsx",
     "message": "Marketplace Branding"
   },
   "Marketplace UUID": {
@@ -8007,6 +8015,10 @@
     "description": "freeipa/UsernameGroup.tsx",
     "message": "Please select a username that you will use for login into the Linux systems."
   },
+  "Please select at least one country": {
+    "description": "administration/settings/CountrySelector.tsx",
+    "message": "Please select at least one country"
+  },
   "Please select at least one language to save changes": {
     "description": "administration/languages/AdministrationLanguages.tsx",
     "message": "Please select at least one language to save changes"
@@ -9883,9 +9895,9 @@
     "description": "features/FeaturesDescription.ts",
     "message": "SLURM resources provisioning"
   },
-  "SMAX API server URL. For example <http://localhost:8080/>": {
+  "SMAX API server URL. For example <https://localhost:8080/>": {
     "description": "SettingsDescription.ts",
-    "message": "SMAX API server URL. For example <http://localhost:8080/>"
+    "message": "SMAX API server URL. For example <https://localhost:8080/>"
   },
   "SMAX settings": {
     "description": "SettingsDescription.ts",
@@ -9964,7 +9976,7 @@
     "message": "Save summary"
   },
   "Save": {
-    "description": "administration/FeaturesList.tsx, administration/agreements/UserAgreementCreateDialog.tsx, administration/agreements/UserAgreementsEditDialog.tsx, administration/languages/AdministrationLanguages.tsx, administration/notifications/NotificationForm.tsx, administration/providers/UpdateProviderDialog.tsx, administration/remote-offering-sync/RemoteSyncFormDialog.tsx, administration/roles/RoleDescriptionEditDialog.tsx, administration/roles/RoleForm.tsx, broadcasts/BroadcastSaveAsTemplateDialog.tsx, broadcasts/BroadcastTemplateForm.tsx, customer/details/CustomerMediaPanel.tsx, customer/team/AddProjectUserDialog.tsx, customer/team/EditProjectUserDialog.tsx, customer/team/EditUserDialog.tsx, form/InsertLinkPopover.tsx, map/SetLocationDialog.tsx, marketplace/offerings/actions/SetAccessPolicyDialogForm.tsx, marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx, marketplace/offerings/expandable/utils.ts, marketplace/offerings/update/attributes/EditAttributeDialog.tsx, marketplace/offerings/update/attributes/EditCategoryDialog.tsx, marketplace/offerings/update/components/ChangeStorageModeDialog.tsx, marketplace/offerings/update/components/EditComponentDialog.tsx, marketplace/offerings/update/integration/EditLexisLinkIntegrationDialog.tsx, marketplace/offerings/update/integration/EditScriptDialog.tsx, marketplace/offerings/update/integration/EditVarsDialog.tsx, marketplace/offerings/update/options/EditOptionDialog.tsx, marketplace/offerings/update/plans/EditPlanDescriptionDialog.tsx, marketplace/offerings/update/plans/EditPlanPricesDialog.tsx, marketplace/offerings/update/plans/EditPlanQuotasDialog.tsx, marketplace/resources/actions/EditResourceEndDateDialog.tsx, marketplace/resources/actions/MoveResourceDialog.tsx, marketplace/resources/mass-actions/MultiMoveDialog.tsx, marketplace/resources/usage/utils.ts, marketplace-checklist/ChecklistCustomer.tsx, project/MoveProjectDialog.tsx, project/manage/ProjectAvatar.tsx, project/team/EditUserDialog.tsx, proposals/update/documents/AttachDocumentsDialog.tsx, proposals/update/general/EditGeneralInfoDialog.tsx, reporting/invoices/utils.ts, table/SaveFilterDialog.tsx, user/support/UserEditAvatarFormItem.tsx",
+    "description": "administration/FeaturesList.tsx, administration/agreements/UserAgreementCreateDialog.tsx, administration/agreements/UserAgreementsEditDialog.tsx, administration/languages/AdministrationLanguages.tsx, administration/notifications/NotificationForm.tsx, administration/providers/UpdateProviderDialog.tsx, administration/remote-offering-sync/RemoteSyncFormDialog.tsx, administration/roles/RoleDescriptionEditDialog.tsx, administration/roles/RoleForm.tsx, administration/settings/CountrySelector.tsx, broadcasts/BroadcastSaveAsTemplateDialog.tsx, broadcasts/BroadcastTemplateForm.tsx, customer/details/CustomerMediaPanel.tsx, customer/team/AddProjectUserDialog.tsx, customer/team/EditProjectUserDialog.tsx, customer/team/EditUserDialog.tsx, form/InsertLinkPopover.tsx, map/SetLocationDialog.tsx, marketplace/offerings/actions/SetAccessPolicyDialogForm.tsx, marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx, marketplace/offerings/expandable/utils.ts, marketplace/offerings/update/attributes/EditAttributeDialog.tsx, marketplace/offerings/update/attributes/EditCategoryDialog.tsx, marketplace/offerings/update/components/ChangeStorageModeDialog.tsx, marketplace/offerings/update/components/EditComponentDialog.tsx, marketplace/offerings/update/integration/EditLexisLinkIntegrationDialog.tsx, marketplace/offerings/update/integration/EditScriptDialog.tsx, marketplace/offerings/update/integration/EditVarsDialog.tsx, marketplace/offerings/update/options/EditOptionDialog.tsx, marketplace/offerings/update/plans/EditPlanDescriptionDialog.tsx, marketplace/offerings/update/plans/EditPlanPricesDialog.tsx, marketplace/offerings/update/plans/EditPlanQuotasDialog.tsx, marketplace/resources/actions/EditResourceEndDateDialog.tsx, marketplace/resources/actions/MoveResourceDialog.tsx, marketplace/resources/mass-actions/MultiMoveDialog.tsx, marketplace/resources/usage/utils.ts, marketplace-checklist/ChecklistCustomer.tsx, project/MoveProjectDialog.tsx, project/manage/ProjectAvatar.tsx, project/team/EditUserDialog.tsx, proposals/update/documents/AttachDocumentsDialog.tsx, proposals/update/general/EditGeneralInfoDialog.tsx, reporting/invoices/utils.ts, table/SaveFilterDialog.tsx, user/support/UserEditAvatarFormItem.tsx",
     "message": "Save"
   },
   "Saved filters": {
@@ -13187,6 +13199,10 @@
     "description": "administration/settings/ConfigurationEditDialog.tsx",
     "message": "Unable to update configuration."
   },
+  "Unable to update country list": {
+    "description": "administration/settings/CountrySelector.tsx",
+    "message": "Unable to update country list"
+  },
   "Unable to update enabled checklists.": {
     "description": "marketplace-checklist/ChecklistCustomer.tsx",
     "message": "Unable to update enabled checklists."
@@ -14571,9 +14587,9 @@
     "description": "user/support/UserEditRows.tsx",
     "message": "Your"
   },
-  "Zammad API server URL. For example <http://localhost:8080/>": {
+  "Zammad API server URL. For example <https://localhost:8080/>": {
     "description": "SettingsDescription.ts",
-    "message": "Zammad API server URL. For example <http://localhost:8080/>"
+    "message": "Zammad API server URL. For example <https://localhost:8080/>"
   },
   "Zammad settings": {
     "description": "SettingsDescription.ts",
@@ -15018,6 +15034,10 @@
   "{changes} vs last month": {
     "description": "customer/dashboard/CustomerDashboardChart.tsx, dashboard/TeamWidget.tsx, project/ProjectDashboardCostLimits.tsx",
     "message": "{changes} vs last month"
+  },
+  "{count} countries selected": {
+    "description": "administration/settings/CountryListField.tsx",
+    "message": "{count} countries selected"
   },
   "{count} hour": {
     "description": "user/api-key/UserTokenLifetime.tsx",
