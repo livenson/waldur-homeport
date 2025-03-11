@@ -13,7 +13,7 @@ const ForceDestroyDialog = lazyComponent(() =>
 );
 
 function validate(ctx: ActionContext<OpenStackInstance>): string {
-  if (ctx.resource.state === 'Erred') {
+  if (ctx.resource.state === 'ERRED') {
     return;
   }
   if (ctx.resource.state === 'OK') {

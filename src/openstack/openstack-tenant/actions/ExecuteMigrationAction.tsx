@@ -18,6 +18,6 @@ export const ExecuteMigrationAction: FC<TenantActionProps> = ({
     resource={resource}
     apiMethod={(uuid) => openstackMigrationsRun({ path: { uuid } })}
     refetch={refetch}
-    validators={[validateState('Creation Scheduled')]}
+    validators={[validateState('CREATION_SCHEDULED')]}
   />
 );
