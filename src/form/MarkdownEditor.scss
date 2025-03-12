@@ -6,6 +6,8 @@
     max-height: 400px;
     height: calc(100vh - 325px);
     overflow-y: auto;
+
+    --baseTextContrast: var(--bs-dark);
   }
 }
 
