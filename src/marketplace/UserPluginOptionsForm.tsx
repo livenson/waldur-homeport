@@ -2,8 +2,10 @@ import { get } from 'lodash-es';
 import { FunctionComponent, useMemo } from 'react';
 
 import { UsernameGenerationPolicyEnum } from '@waldur/api';
+import { formatYesNo } from '@waldur/core/utils';
 import { required } from '@waldur/core/validators';
 import { SelectField, NumberField, StringField } from '@waldur/form';
+import { AwesomeCheckboxField } from '@waldur/form/AwesomeCheckboxField';
 import FormTable from '@waldur/form/FormTable';
 import { translate } from '@waldur/i18n';
 import { SLURM_REMOTE_PLUGIN } from '@waldur/slurm/constants';
@@ -62,7 +64,7 @@ export const UserPluginOptionsForm: FunctionComponent<
 > = (props) => {
   const pluginOptions = props.offering.plugin_options;
   const canCreateUser =
-    props.offering.options?.options?.service_provider_can_create_offering_user;
+    props.offering.plugin_options?.service_provider_can_create_offering_user;
 
   const fields = useMemo(
     () =>
@@ -137,7 +139,7 @@ export const UserPluginOptionsForm: FunctionComponent<
     [props],
   );
 
-  return fields.map((field) => (
+  const main = fields.map((field) => (
     <FormTable.Item
       key={field.key}
       label={field.label}
@@ -156,4 +158,30 @@ export const UserPluginOptionsForm: FunctionComponent<
       }
     />
   ));
+
+  return (
+    <>
+      <FormTable.Item
+        label={translate('Enable automatic creation of offering users')}
+        description={translate(
+          'If true, offering users are created automatically when a user is added to the project with active offering resources or when a new offering resource is created.',
+        )}
+        value={formatYesNo(
+          props.offering.plugin_options
+            ?.service_provider_can_create_offering_user,
+        )}
+        actions={
+          <FieldEditButton
+            title={props.title}
+            scope={props.offering}
+            name="plugin_options.service_provider_can_create_offering_user"
+            callback={props.callback}
+            fieldComponent={AwesomeCheckboxField}
+            hideLabel
+          />
+        }
+      />
+      {main}
+    </>
+  );
 };

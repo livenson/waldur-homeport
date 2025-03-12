@@ -3744,7 +3744,7 @@
     "message": "Enable VM type overview in support workspace."
   },
   "Enable automatic creation of offering users": {
-    "description": "marketplace/UserSecretOptionsForm.tsx",
+    "description": "marketplace/UserPluginOptionsForm.tsx",
     "message": "Enable automatic creation of offering users"
   },
   "Enable by default": {
@@ -4924,7 +4924,7 @@
     "message": "If true, notify users about resource changes from Marketplace perspective. Can generate duplicate events if plugins also log"
   },
   "If true, offering users are created automatically when a user is added to the project with active offering resources or when a new offering resource is created.": {
-    "description": "marketplace/UserSecretOptionsForm.tsx",
+    "description": "marketplace/UserPluginOptionsForm.tsx",
     "message": "If true, offering users are created automatically when a user is added to the project with active offering resources or when a new offering resource is created."
   },
   "If true, users with staff role are notified when request for order approval is generated": {
@@ -11959,10 +11959,6 @@
     "description": "SettingsDescription.ts",
     "message": "Toggler for automatic request mapping."
   },
-  "Toggler for dark theme.": {
-    "description": "SettingsDescription.ts",
-    "message": "Toggler for dark theme."
-  },
   "Toggler for legacy API usage.": {
     "description": "SettingsDescription.ts",
     "message": "Toggler for legacy API usage."
@@ -11986,6 +11982,10 @@
   "Toggler for teenage API usage.": {
     "description": "SettingsDescription.ts",
     "message": "Toggler for teenage API usage."
+  },
+  "Toggler to disable dark theme.": {
+    "description": "SettingsDescription.ts",
+    "message": "Toggler to disable dark theme."
   },
   "Token for access user": {
     "description": "SettingsDescription.ts",
