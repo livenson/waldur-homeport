@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { Table } from 'react-bootstrap';
 
 import FormTable from '@waldur/form/FormTable';
 import { SettingsDescription } from '@waldur/SettingsDescription';
@@ -25,17 +24,15 @@ export const SettingsCard: FC<SettingsCardProps> = ({
           key={group.description}
           className="card-bordered mb-5"
         >
-          <Table bordered={true} responsive={true} className="form-table">
-            <tbody>
-              {group.items.map((item) => (
-                <FieldRow
-                  item={item}
-                  key={item.key}
-                  value={settingsSource?.[item.key]}
-                />
-              ))}
-            </tbody>
-          </Table>
+          <FormTable>
+            {group.items.map((item) => (
+              <FieldRow
+                item={item}
+                key={item.key}
+                value={settingsSource?.[item.key]}
+              />
+            ))}
+          </FormTable>
         </FormTable.Card>
       ))}
     </>

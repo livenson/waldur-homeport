@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
 import { useCallback } from 'react';
-import { Table } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
 import { ConstanceSettings, overrideSettingsRetrieve } from '@waldur/api';
@@ -68,7 +67,7 @@ export const AdministrationBranding = () => {
             key={group.description}
             className="card-bordered mb-5"
           >
-            <Table bordered={true} responsive={true} className="form-table">
+            <FormTable>
               {group.items.map((item) => {
                 if (item.type === 'country_list_field' && error) {
                   return null;
@@ -87,7 +86,7 @@ export const AdministrationBranding = () => {
                   />
                 );
               })}
-            </Table>
+            </FormTable>
           </FormTable.Card>
         );
       })}
