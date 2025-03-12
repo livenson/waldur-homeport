@@ -2,7 +2,7 @@ import { Trash } from '@phosphor-icons/react';
 import { useDispatch } from 'react-redux';
 
 import {
-  proposalRequestedOfferingsDestroy,
+  proposalRequestedOfferingsCancel,
   RequestedOffering,
 } from '@waldur/api';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
@@ -36,7 +36,7 @@ export const CallOfferingDeleteButton = ({
       return;
     }
     try {
-      await proposalRequestedOfferingsDestroy({ path: { uuid: row.uuid } });
+      await proposalRequestedOfferingsCancel({ path: { uuid: row.uuid } });
       await refetch();
       dispatch(showSuccess(translate('Requested offering has been removed.')));
     } catch (e) {

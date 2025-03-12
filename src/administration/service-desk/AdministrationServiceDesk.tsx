@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { capitalize } from 'lodash-es';
-import { Button, Card, Col, Row, Table } from 'react-bootstrap';
+import { Button, Card, Col, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
 import { ServiceDeskProviderLogo } from '@waldur/administration/service-desk/ServiceDeskProviderLogo';
@@ -97,11 +97,11 @@ export const AdministrationServiceDesk = () => {
         key={INTEGRATION_SETTINGS.description}
         className="card-bordered mb-5"
       >
-        <Table bordered={true} responsive={true} className="form-table">
+        <FormTable>
           {INTEGRATION_SETTINGS.items.map((item) => (
             <FieldRow item={item} key={item.key} value={data[item.key]} />
           ))}
-        </Table>
+        </FormTable>
       </FormTable.Card>
       <Card className="card-bordered">
         <Card.Body>

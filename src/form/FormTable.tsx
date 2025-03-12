@@ -1,12 +1,6 @@
 import { Question, WarningCircle } from '@phosphor-icons/react';
 import classNames from 'classnames';
-import {
-  cloneElement,
-  FC,
-  PropsWithChildren,
-  ReactElement,
-  ReactNode,
-} from 'react';
+import { FC, PropsWithChildren, ReactNode } from 'react';
 import { Card, Table } from 'react-bootstrap';
 
 import { RefreshButton } from '@waldur/marketplace/offerings/update/components/RefreshButton';
@@ -102,9 +96,7 @@ const FormTableItem: FC<FormTableItemProps> = ({ actions, ...props }) => {
             {row}
           </td>
         ) : null}
-        <td className="col-md-auto col-actions">
-          {actions ? cloneElement(actions as ReactElement, props) : actions}
-        </td>
+        <td className="col-md-auto col-actions">{actions}</td>
       </tr>
     ),
   );

@@ -84,7 +84,9 @@ export async function loadConfig() {
   Object.assign(ENV, config);
   initAuthToken();
   try {
-    ENV.roles = await getRoles();
+    ENV.roles = await getRoles({
+      auth: null,
+    });
   } catch (error) {
     throw new Error(`Unable to fetch user roles. ${format(error)}`);
   }

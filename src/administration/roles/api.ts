@@ -1,5 +1,5 @@
-import { rolesList } from '@waldur/api';
+import { Options, rolesList, RolesListData } from '@waldur/api';
 import { getAllPages } from '@waldur/core/api';
 
-export const getRoles = () =>
-  getAllPages((page) => rolesList({ query: { page } }));
+export const getRoles = (options?: Options<RolesListData>) =>
+  getAllPages((page) => rolesList({ query: { page }, ...options }));
