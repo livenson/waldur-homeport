@@ -3207,6 +3207,10 @@ export type MergedPluginOptionsRequest = {
      */
     auto_approve_remote_orders?: boolean;
     /**
+     * Service provider can create offering user
+     */
+    service_provider_can_create_offering_user?: boolean;
+    /**
      * Maximum resource termination offset in days
      */
     max_resource_termination_offset_in_days?: number;
