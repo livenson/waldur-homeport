@@ -10417,6 +10417,7 @@ export type AccessSubnetsListData = {
     query?: {
         customer?: string;
         customer_uuid?: string;
+        description?: string;
         inet?: string;
         /**
          * A page number within the paginated result set.
