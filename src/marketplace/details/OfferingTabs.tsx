@@ -1,5 +1,6 @@
+import Markdown from 'markdown-to-jsx';
+
 import { NestedSection, PublicOfferingDetails } from '@waldur/api';
-import { FormattedHtml } from '@waldur/core/FormattedHtml';
 import { translate } from '@waldur/i18n';
 import { ImagesTab } from '@waldur/marketplace/offerings/images/ImagesTab';
 
@@ -33,7 +34,7 @@ export const getTabs = (props: OfferingTabsProps): OfferingTab[] => {
     {
       visible: !!props.offering.terms_of_service,
       title: translate('Terms of Service'),
-      component: () => <FormattedHtml html={props.offering.terms_of_service} />,
+      component: () => <Markdown>{props.offering.terms_of_service}</Markdown>,
     },
     {
       visible: basicSections.length > 0,
