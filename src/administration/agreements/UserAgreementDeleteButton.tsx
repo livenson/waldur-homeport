@@ -1,8 +1,8 @@
 import { Trash } from '@phosphor-icons/react';
 import { FC, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { userAgreementsDestroy } from 'waldur-js-client';
 
-import { userAgreementsDestroy } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';

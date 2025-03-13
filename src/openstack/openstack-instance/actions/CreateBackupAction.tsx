@@ -1,7 +1,7 @@
 import { PlusCircle } from '@phosphor-icons/react';
 import { FC } from 'react';
+import { OpenStackInstance } from 'waldur-js-client';
 
-import { OpenStackInstance } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { validateState } from '@waldur/resource/actions/base';

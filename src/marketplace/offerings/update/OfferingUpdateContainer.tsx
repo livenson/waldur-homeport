@@ -1,6 +1,6 @@
 import { FC } from 'react';
+import { PluginComponent } from 'waldur-js-client';
 
-import { PluginComponent } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { Category, Offering } from '@waldur/marketplace/types';

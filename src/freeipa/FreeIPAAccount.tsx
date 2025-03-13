@@ -2,8 +2,8 @@ import React from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useAsyncFn, useEffectOnce } from 'react-use';
+import { freeipaProfilesList } from 'waldur-js-client';
 
-import { freeipaProfilesList } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';

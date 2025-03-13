@@ -4,8 +4,8 @@ import ReactStars from 'react-rating-stars-component';
 import { connect, useDispatch } from 'react-redux';
 import { compose } from 'redux';
 import { Field, reduxForm } from 'redux-form';
+import { supportFeedbacksCreate } from 'waldur-js-client';
 
-import { supportFeedbacksCreate } from '@waldur/api';
 import { RATING_STAR_ACTIVE_COLOR } from '@waldur/core/constants';
 import { FormContainer, SubmitButton, TextField } from '@waldur/form';
 import { translate } from '@waldur/i18n';

@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { useCurrentStateAndParams } from '@uirouter/react';
 import { FunctionComponent, useMemo } from 'react';
+import { proposalProtectedCallsRetrieve } from 'waldur-js-client';
 
-import { proposalProtectedCallsRetrieve } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { InvalidRoutePage } from '@waldur/error/InvalidRoutePage';
 import { isFeatureVisible } from '@waldur/features/connect';

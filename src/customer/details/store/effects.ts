@@ -1,9 +1,9 @@
 import { call, put, select, takeLatest } from 'redux-saga/effects';
-
 import {
   CustomerPermissionReview,
   customerPermissionsReviewsList,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { isFeatureVisible } from '@waldur/features/connect';
 import { CustomerFeatures } from '@waldur/FeaturesEnums';

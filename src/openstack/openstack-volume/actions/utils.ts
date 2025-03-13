@@ -1,4 +1,5 @@
-import { OpenStackVolume } from '@waldur/api';
+import { OpenStackVolume } from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import { ActionContext } from '@waldur/resource/actions/types';
 

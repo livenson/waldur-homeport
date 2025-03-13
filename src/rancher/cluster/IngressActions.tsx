@@ -3,8 +3,8 @@ import { FunctionComponent } from 'react';
 import { ButtonGroup } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useAsyncFn } from 'react-use';
+import { rancherIngressesDestroy } from 'waldur-js-client';
 
-import { rancherIngressesDestroy } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
 import { ActionButton } from '@waldur/table/ActionButton';

@@ -1,6 +1,6 @@
 import { FC } from 'react';
+import { marketplaceResourcesPartialUpdate } from 'waldur-js-client';
 
-import { marketplaceResourcesPartialUpdate } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import {
   createNameField,

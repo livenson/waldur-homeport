@@ -3,8 +3,8 @@ import { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
+import { GroupInvitation } from 'waldur-js-client';
 
-import { GroupInvitation } from '@waldur/api';
 import { Badge } from '@waldur/core/Badge';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { CustomerPermissionsLogButton } from '@waldur/customer/team/CustomerPermissionsLogButton';

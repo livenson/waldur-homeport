@@ -1,5 +1,6 @@
-import { OpenStackNestedPort, OpenStackVolumeType } from '@waldur/api';
-import { OpenStackFloatingIp } from '@waldur/api';
+import { OpenStackNestedPort, OpenStackVolumeType } from 'waldur-js-client';
+import { OpenStackFloatingIp } from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import { formatFlavor } from '@waldur/resource/utils';
 

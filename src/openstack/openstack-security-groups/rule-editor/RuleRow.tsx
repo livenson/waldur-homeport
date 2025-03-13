@@ -1,7 +1,6 @@
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
-
-import { OpenStackSecurityGroup } from '@waldur/api';
+import { OpenStackSecurityGroup } from 'waldur-js-client';
 
 import { ActionsField } from './ActionsField';
 import { CIDRField } from './CIDRField';

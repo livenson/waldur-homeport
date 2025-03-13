@@ -1,6 +1,6 @@
 import { FC } from 'react';
+import { PlanUsageResponse } from 'waldur-js-client';
 
-import { PlanUsageResponse } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { Category, Offering } from '@waldur/marketplace/types';

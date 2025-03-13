@@ -1,8 +1,8 @@
 import { FC, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
+import { RobotAccountDetails } from 'waldur-js-client';
 
-import { RobotAccountDetails } from '@waldur/api';
 import { CopyToClipboardContainer } from '@waldur/core/CopyToClipboardContainer';
 import { translate } from '@waldur/i18n';
 import { createFetcher } from '@waldur/table/api';

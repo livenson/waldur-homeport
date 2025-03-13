@@ -1,8 +1,8 @@
 import { PencilSimple } from '@phosphor-icons/react';
 import { Dropdown } from 'react-bootstrap';
 import { SubmissionError } from 'redux-form';
+import { projectCreditsUpdate } from 'waldur-js-client';
 
-import { projectCreditsUpdate } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { useModal } from '@waldur/modal/hooks';

@@ -2,8 +2,8 @@ import { useCallback, FunctionComponent } from 'react';
 import { Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
+import { userGroupInvitationsRetrieve } from 'waldur-js-client';
 
-import { userGroupInvitationsRetrieve } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';

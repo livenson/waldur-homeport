@@ -1,8 +1,8 @@
 import { FunctionComponent } from 'react';
 import { useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
+import { Resource } from 'waldur-js-client';
 
-import { Resource } from '@waldur/api';
 import { FormContainer, SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { moveResource } from '@waldur/marketplace/common/api';

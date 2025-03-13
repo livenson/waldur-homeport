@@ -1,10 +1,10 @@
 import { FunctionComponent, useMemo } from 'react';
 import { ButtonGroup } from 'react-bootstrap';
-
 import {
   OpenStackServerGroup,
   OpenstackServerGroupsListData,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import { CreateServerGroupAction } from '@waldur/openstack/openstack-tenant/actions/CreateServerGroupAction';
 import { PullServerGroupsAction } from '@waldur/openstack/openstack-tenant/actions/PullServerGroupsAction';

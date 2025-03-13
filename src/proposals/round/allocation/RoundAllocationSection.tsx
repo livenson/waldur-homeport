@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Card } from 'react-bootstrap';
+import { ProtectedRound } from 'waldur-js-client';
 
-import { ProtectedRound } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { ReadOnlyFormControl } from '@waldur/form/ReadOnlyFormControl';
 import { translate } from '@waldur/i18n';

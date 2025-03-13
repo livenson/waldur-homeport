@@ -1,8 +1,8 @@
 import { FunctionComponent, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
+import { Invitation, UserInvitationsListData } from 'waldur-js-client';
 
-import { Invitation, UserInvitationsListData } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { CopyToClipboardButton } from '@waldur/core/CopyToClipboardButton';
 import { formatDate } from '@waldur/core/dateUtils';

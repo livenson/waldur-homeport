@@ -1,6 +1,6 @@
 import { FC } from 'react';
+import { CustomerCredit } from 'waldur-js-client';
 
-import { CustomerCredit } from '@waldur/api';
 import { Link } from '@waldur/core/Link';
 import { COMMON_CREDIT_COLUMNS } from '@waldur/customer/credits/constants';
 import { CreateCreditButton } from '@waldur/customer/credits/CreateCreditButton';

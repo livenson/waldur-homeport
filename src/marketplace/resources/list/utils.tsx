@@ -1,4 +1,5 @@
-import { Resource } from '@waldur/api';
+import { Resource } from 'waldur-js-client';
+
 import { ENV } from '@waldur/configs/default';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';

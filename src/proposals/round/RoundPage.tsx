@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
+import { ProtectedRound } from 'waldur-js-client';
 
-import { ProtectedRound } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { InvalidRoutePage } from '@waldur/error/InvalidRoutePage';
 import { translate } from '@waldur/i18n';

@@ -1,6 +1,6 @@
 import { Play } from '@phosphor-icons/react';
+import { azureVirtualmachinesStart } from 'waldur-js-client';
 
-import { azureVirtualmachinesStart } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { AsyncActionItem } from '@waldur/resource/actions/AsyncActionItem';
 import {

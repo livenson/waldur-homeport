@@ -1,8 +1,8 @@
 import { Trash } from '@phosphor-icons/react';
 import { FC } from 'react';
 import { Button } from 'react-bootstrap';
+import { Project } from 'waldur-js-client';
 
-import { Project } from '@waldur/api';
 import { Panel } from '@waldur/core/Panel';
 import { translate } from '@waldur/i18n';
 

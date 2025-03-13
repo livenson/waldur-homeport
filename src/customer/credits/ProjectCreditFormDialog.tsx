@@ -3,8 +3,8 @@ import { useMemo } from 'react';
 import { Accordion, Form } from 'react-bootstrap';
 import { useSelector, connect } from 'react-redux';
 import { formValueSelector, reduxForm } from 'redux-form';
+import { customerCreditsList } from 'waldur-js-client';
 
-import { customerCreditsList } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { EChart } from '@waldur/core/EChart';
 import { LoadingErred } from '@waldur/core/LoadingErred';

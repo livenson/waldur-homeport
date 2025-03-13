@@ -1,6 +1,6 @@
 import { FC } from 'react';
+import { RequestedOffering } from 'waldur-js-client';
 
-import { RequestedOffering } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { CallOfferingDeleteButton } from '@waldur/proposals/details/CallOfferingDeleteButton';
 import { CallOfferingStateField } from '@waldur/proposals/details/CallOfferingStateField';

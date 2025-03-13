@@ -2,11 +2,11 @@ import { useQuery } from '@tanstack/react-query';
 import { UIView, useCurrentStateAndParams, useRouter } from '@uirouter/react';
 import { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import {
   marketplaceCategoriesRetrieve,
   marketplacePublicOfferingsRetrieve,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { isFeatureVisible } from '@waldur/features/connect';
 import { MarketplaceFeatures } from '@waldur/FeaturesEnums';

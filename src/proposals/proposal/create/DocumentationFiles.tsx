@@ -1,4 +1,5 @@
-import { ProposalDocumentation } from '@waldur/api';
+import { ProposalDocumentation } from 'waldur-js-client';
+
 import { AttachmentItemPending } from '@waldur/form/upload/AttachmentItemPending';
 import { AttachmentsList } from '@waldur/form/upload/AttachmentsList';
 

@@ -1,12 +1,12 @@
 import { DownloadSimple } from '@phosphor-icons/react';
 import { FunctionComponent } from 'react';
 import { useAsync } from 'react-use';
-
 import {
   marketplacePlanComponentsList,
   PlanComponent,
   PublicOfferingDetails,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { getAllPages } from '@waldur/core/api';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';

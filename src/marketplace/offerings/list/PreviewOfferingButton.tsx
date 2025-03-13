@@ -1,8 +1,8 @@
 import { Eye } from '@phosphor-icons/react';
 import { Dropdown } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { ProviderOfferingDetails } from 'waldur-js-client';
 
-import { ProviderOfferingDetails } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { isFeatureVisible } from '@waldur/features/connect';
 import { MarketplaceFeatures } from '@waldur/FeaturesEnums';

@@ -1,4 +1,5 @@
-import { User } from '@waldur/api';
+import { User } from 'waldur-js-client';
+
 import { isFeatureVisible } from '@waldur/features/connect';
 import { SupportFeatures } from '@waldur/FeaturesEnums';
 import { ISSUE_IDS, getIssueTypeChoices } from '@waldur/issues/types/constants';

@@ -5,11 +5,11 @@ import { Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { useEffectOnce } from 'react-use';
 import { Field } from 'redux-form';
-
 import {
   marketplacePublicOfferingsList,
   PublicOfferingDetails,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { getNextPageUrl } from '@waldur/core/api';
 import { required } from '@waldur/core/validators';
 import { VStepperFormStepCard } from '@waldur/form/VStepperFormStep';

@@ -1,8 +1,8 @@
 import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
+import { Project } from 'waldur-js-client';
 
-import { Project } from '@waldur/api';
 import { formatDate, formatDateTime } from '@waldur/core/dateUtils';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { OrganizationLink } from '@waldur/customer/list/OrganizationLink';

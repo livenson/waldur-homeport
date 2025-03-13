@@ -1,6 +1,6 @@
 import { ArrowClockwise } from '@phosphor-icons/react';
+import { vmwareVirtualMachineRebootGuest } from 'waldur-js-client';
 
-import { vmwareVirtualMachineRebootGuest } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { AsyncActionItem } from '@waldur/resource/actions/AsyncActionItem';
 import {

@@ -1,6 +1,6 @@
 import { describe, it, expect } from 'vitest';
+import { OpenStackNestedPort } from 'waldur-js-client';
 
-import { OpenStackNestedPort } from '@waldur/api';
 import { renderTable } from '@waldur/table/testUtils';
 
 import { TenantPortsList } from './TenantPortsList';

@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
+import { marketplaceResourceUsersDestroy } from 'waldur-js-client';
 
-import { marketplaceResourceUsersDestroy } from '@waldur/api';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';

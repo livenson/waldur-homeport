@@ -1,4 +1,5 @@
-import { azureSqlServersDestroy } from '@waldur/api';
+import { azureSqlServersDestroy } from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import { validateState } from '@waldur/resource/actions/base';
 import { DestroyActionItem } from '@waldur/resource/actions/DestroyActionItem';

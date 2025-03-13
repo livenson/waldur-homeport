@@ -1,7 +1,7 @@
 import { FC, useState } from 'react';
 import { Card, FormCheck, Stack } from 'react-bootstrap';
+import { PublicOfferingDetails } from 'waldur-js-client';
 
-import { PublicOfferingDetails } from '@waldur/api';
 import { Link } from '@waldur/core/Link';
 import { translate } from '@waldur/i18n';
 import { isExperimentalUiComponentsVisible } from '@waldur/marketplace/utils';

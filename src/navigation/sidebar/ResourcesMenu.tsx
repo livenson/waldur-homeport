@@ -5,11 +5,11 @@ import classNames from 'classnames';
 import { useMemo, useState } from 'react';
 import { Badge } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-
 import {
   marketplaceGlobalCategoriesRetrieve,
   MarketplaceGlobalCategoriesRetrieveData,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import { getGroupedCategories } from '@waldur/marketplace/category/utils';
 import { getCategoryGroups } from '@waldur/marketplace/common/api';

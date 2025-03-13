@@ -1,4 +1,5 @@
-import { PublicOfferingDetails } from '@waldur/api';
+import { PublicOfferingDetails } from 'waldur-js-client';
+
 import { AzureSQLServerOffering } from '@waldur/azure/sql/marketplace';
 import { AzureVirtualMachineOffering } from '@waldur/azure/vm/marketplace';
 import { BookingOffering } from '@waldur/booking/marketplace';

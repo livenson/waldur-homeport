@@ -6,8 +6,8 @@ import {
 import { mount, ReactWrapper } from 'enzyme';
 import { Provider } from 'react-redux';
 import { Store } from 'redux';
+import { OpenStackFloatingIp, OpenStackInstance } from 'waldur-js-client';
 
-import { OpenStackFloatingIp, OpenStackInstance } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 
 import { UpdateFloatingIpsDialog } from './UpdateFloatingIpsDialog';

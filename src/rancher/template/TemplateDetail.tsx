@@ -5,8 +5,8 @@ import { Card, Accordion } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
 import { formValueSelector } from 'redux-form';
+import { rancherAppsCreate } from 'waldur-js-client';
 
-import { rancherAppsCreate } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { useTitle } from '@waldur/navigation/title';

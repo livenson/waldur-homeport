@@ -3,8 +3,8 @@ import { FunctionComponent } from 'react';
 import { Form } from 'react-bootstrap';
 import { components } from 'react-select';
 import { Field } from 'redux-form';
+import { customersCountriesList } from 'waldur-js-client';
 
-import { customersCountriesList } from '@waldur/api';
 import { WindowedSelect } from '@waldur/form/themed-select';
 import { translate } from '@waldur/i18n';
 import { CountryFlag } from '@waldur/marketplace/common/CountryFlag';

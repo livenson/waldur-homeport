@@ -1,10 +1,10 @@
 import { render } from '@testing-library/react';
 import { describe, it, expect } from 'vitest';
-
 import {
   CountryEnum,
   CustomerDetails as CustomerDetailsType,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { Customer } from '@waldur/workspace/types';
 
 import { CustomerDetails } from './CustomerDetails';

@@ -3,8 +3,8 @@ import { useRouter } from '@uirouter/react';
 import { FunctionComponent } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
+import { projectCreditsList, projectsStatsRetrieve } from 'waldur-js-client';
 
-import { projectCreditsList, projectsStatsRetrieve } from '@waldur/api';
 import { Panel } from '@waldur/core/Panel';
 import { CreditStatusWidget } from '@waldur/customer/dashboard/CreditStatusWidget';
 import { COMMON_WIDGET_HEIGHT } from '@waldur/dashboard/constants';

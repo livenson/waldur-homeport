@@ -1,4 +1,8 @@
-import { BillingUnit, OptionField, OptionFieldTypeEnum } from '@waldur/api';
+import {
+  BillingUnit,
+  OptionField,
+  OptionFieldTypeEnum,
+} from 'waldur-js-client';
 
 import { PlanFormData, OptionFormData } from './types';
 

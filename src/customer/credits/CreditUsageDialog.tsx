@@ -1,6 +1,6 @@
 import { FC, useMemo } from 'react';
+import { InvoiceItem, InvoiceItemsListData } from 'waldur-js-client';
 
-import { InvoiceItem, InvoiceItemsListData } from '@waldur/api';
 import { parseDate } from '@waldur/core/dateUtils';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { translate } from '@waldur/i18n';

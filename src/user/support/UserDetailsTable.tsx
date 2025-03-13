@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
+import { User } from 'waldur-js-client';
 
-import { User } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { FieldWithCopy } from '@waldur/core/FieldWithCopy';
 import { isFeatureVisible } from '@waldur/features/connect';

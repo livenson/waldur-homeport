@@ -3,8 +3,8 @@ import { useCallback } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { connect, useDispatch } from 'react-redux';
 import { FieldArray, reduxForm } from 'redux-form';
+import { marketplaceProviderOfferingsUpdateIntegration } from 'waldur-js-client';
 
-import { marketplaceProviderOfferingsUpdateIntegration } from '@waldur/api';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';

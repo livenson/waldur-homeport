@@ -1,9 +1,9 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { usersPartialUpdate } from 'waldur-js-client';
+import { User } from 'waldur-js-client';
 
-import { usersPartialUpdate } from '@waldur/api';
-import { User } from '@waldur/api';
 import { AwesomeCheckbox } from '@waldur/core/AwesomeCheckbox';
 import { Panel } from '@waldur/core/Panel';
 import { formatJsxTemplate, translate } from '@waldur/i18n';

@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
 import { useAsyncFn, useEffectOnce } from 'react-use';
 import { Field } from 'redux-form';
+import { notificationMessagesTemplatesList } from 'waldur-js-client';
 
-import { notificationMessagesTemplatesList } from '@waldur/api';
 import { FormattedHtml } from '@waldur/core/FormattedHtml';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';

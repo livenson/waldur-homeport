@@ -1,4 +1,4 @@
-import { CustomerCreditRequest } from '@waldur/api';
+import { CustomerCreditRequest } from 'waldur-js-client';
 
 export const serializeCustomerCredit = (formData): CustomerCreditRequest => ({
   ...formData,

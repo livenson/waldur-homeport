@@ -1,7 +1,7 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
+import { User } from 'waldur-js-client';
 
-import { User } from '@waldur/api';
 import FormTable from '@waldur/form/FormTable';
 import { translate } from '@waldur/i18n';
 import { getUser } from '@waldur/workspace/selectors';

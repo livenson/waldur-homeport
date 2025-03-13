@@ -4,9 +4,9 @@ import { Fragment, useCallback } from 'react';
 import { Button, Form, FormCheck } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { arrayPush, arrayRemoveAll, Field, FieldArray } from 'redux-form';
+import { rancherClusterTemplatesList } from 'waldur-js-client';
+import { OpenStackFlavor } from 'waldur-js-client';
 
-import { rancherClusterTemplatesList } from '@waldur/api';
-import { OpenStackFlavor } from '@waldur/api';
 import { getAllPages } from '@waldur/core/api';
 import { required } from '@waldur/core/validators';
 import { FormGroup, SelectField, StringField } from '@waldur/form';

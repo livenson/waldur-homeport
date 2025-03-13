@@ -1,6 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
+import { SshKey } from 'waldur-js-client';
 
-import { SshKey } from '@waldur/api';
 import { CopyToClipboardContainer } from '@waldur/core/CopyToClipboardContainer';
 import { translate } from '@waldur/i18n';
 import { createFetcher } from '@waldur/table/api';

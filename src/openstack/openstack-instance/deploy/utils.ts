@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
+import { OpenStackFlavor, PublicOfferingDetails } from 'waldur-js-client';
 
-import { OpenStackFlavor, PublicOfferingDetails } from '@waldur/api';
 import { orderFormAttributesSelector } from '@waldur/marketplace/utils';
 import { loadVolumeTypes } from '@waldur/openstack/api';
 import {

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
+import { openstackNetworksCreateSubnet } from 'waldur-js-client';
 
-import { openstackNetworksCreateSubnet } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { getFields } from '@waldur/openstack/openstack-subnet/fields';

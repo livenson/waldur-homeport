@@ -3,8 +3,8 @@ import { pick } from 'lodash-es';
 import { useCallback } from 'react';
 import { connect } from 'react-redux';
 import { SubmissionError, reduxForm } from 'redux-form';
+import { organizationGroupsList } from 'waldur-js-client';
 
-import { organizationGroupsList } from '@waldur/api';
 import { getAllPages } from '@waldur/core/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';

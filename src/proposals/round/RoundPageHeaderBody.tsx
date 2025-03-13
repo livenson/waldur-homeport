@@ -1,4 +1,5 @@
-import { ProtectedRound } from '@waldur/api';
+import { ProtectedRound } from 'waldur-js-client';
+
 import { formatDateTime, formatRelativeWithHour } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 

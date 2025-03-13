@@ -1,8 +1,8 @@
 import { Trash } from '@phosphor-icons/react';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { CustomerUser } from 'waldur-js-client';
 
-import { CustomerUser } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { deleteCustomerUser, deleteProjectUser } from '@waldur/permissions/api';

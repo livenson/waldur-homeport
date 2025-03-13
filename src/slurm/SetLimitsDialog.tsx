@@ -1,9 +1,9 @@
 import { FC } from 'react';
-
 import {
   SlurmAllocationSetLimits,
   slurmAllocationsSetLimits,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import { ActionDialogProps } from '@waldur/resource/actions/types';
 import { UpdateResourceDialog } from '@waldur/resource/actions/UpdateResourceDialog';

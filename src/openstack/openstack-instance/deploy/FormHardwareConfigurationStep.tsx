@@ -1,7 +1,7 @@
 import { debounce } from 'lodash-es';
 import { useCallback, useMemo } from 'react';
+import { OpenStackFlavor } from 'waldur-js-client';
 
-import { OpenStackFlavor } from '@waldur/api';
 import { formatFilesize } from '@waldur/core/utils';
 import { required } from '@waldur/core/validators';
 import { FilterBox } from '@waldur/form/FilterBox';

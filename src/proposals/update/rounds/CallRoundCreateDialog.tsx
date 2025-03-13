@@ -1,11 +1,11 @@
 import { DateTime } from 'luxon';
 import { FC, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-
 import {
   proposalProtectedCallsRoundsSet,
   ProtectedRoundRequest,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { parseDate } from '@waldur/core/dateUtils';
 import { WizardFormContainer } from '@waldur/form/WizardFormContainer';
 import { translate } from '@waldur/i18n';

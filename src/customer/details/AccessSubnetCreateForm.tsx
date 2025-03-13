@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { AccessSubnetRequest, accessSubnetsCreate } from 'waldur-js-client';
 
-import { AccessSubnetRequest, accessSubnetsCreate } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { ModalDialog } from '@waldur/modal/ModalDialog';

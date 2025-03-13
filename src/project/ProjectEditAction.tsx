@@ -1,8 +1,8 @@
 import { Pen } from '@phosphor-icons/react';
 import { useRouter } from '@uirouter/react';
 import { useSelector } from 'react-redux';
+import { Project } from 'waldur-js-client';
 
-import { Project } from '@waldur/api';
 import { translate } from '@waldur/i18n/translate';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';

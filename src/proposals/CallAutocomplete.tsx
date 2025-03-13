@@ -1,12 +1,12 @@
 import React from 'react';
 import { Props as SelectProps } from 'react-select';
 import { Field, Validator } from 'redux-form';
-
 import {
   proposalProtectedCallsList,
   proposalPublicCallsList,
   ProposalPublicCallsListData,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { ENV } from '@waldur/configs/default';
 import { parseSelectData } from '@waldur/core/api';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';

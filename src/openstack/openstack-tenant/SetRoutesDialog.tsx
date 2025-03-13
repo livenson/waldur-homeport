@@ -1,8 +1,8 @@
 import { connect, useDispatch } from 'react-redux';
 import { compose } from 'redux';
 import { FieldArray, reduxForm } from 'redux-form';
+import { openstackRoutersSetRoutes } from 'waldur-js-client';
 
-import { openstackRoutersSetRoutes } from '@waldur/api';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';

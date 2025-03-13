@@ -1,6 +1,6 @@
 import { FC, useMemo } from 'react';
+import { RancherTemplate } from 'waldur-js-client';
 
-import { RancherTemplate } from '@waldur/api';
 import { Link } from '@waldur/core/Link';
 import { translate } from '@waldur/i18n';
 import { OfferingLogo } from '@waldur/marketplace/common/OfferingLogo';

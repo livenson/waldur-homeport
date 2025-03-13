@@ -2,12 +2,12 @@ import { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
 import { useAsyncFn, useEffectOnce } from 'react-use';
 import { createSelector } from 'reselect';
-
 import {
   freeipaProfilesList,
   FreeipaProfile,
   usersRetrieve,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { ENV } from '@waldur/configs/default';
 import { countChecklists } from '@waldur/marketplace-checklist/api';
 import { isSupport, isStaff, isOwner } from '@waldur/workspace/selectors';

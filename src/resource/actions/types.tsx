@@ -1,6 +1,6 @@
 import { ComponentType } from 'react';
+import { User } from 'waldur-js-client';
 
-import { User } from '@waldur/api';
 import { BaseResource } from '@waldur/resource/types';
 
 interface BaseField<Resource> {

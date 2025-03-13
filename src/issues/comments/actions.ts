@@ -1,4 +1,4 @@
-import { Issue } from '@waldur/api';
+import { Issue } from 'waldur-js-client';
 
 import * as constants from './constants';
 import { Comment } from './types';

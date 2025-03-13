@@ -3,8 +3,11 @@ import { useEffect } from 'react';
 import { Form } from 'react-bootstrap';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { Field, FieldArray, formValueSelector, reduxForm } from 'redux-form';
+import {
+  openstackMigrationsCreate,
+  openstackNetworksList,
+} from 'waldur-js-client';
 
-import { openstackMigrationsCreate, openstackNetworksList } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { FormGroup, SelectField, SubmitButton } from '@waldur/form';
 import { AsyncSelectField } from '@waldur/form/AsyncSelectField';

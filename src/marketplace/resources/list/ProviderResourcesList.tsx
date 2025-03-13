@@ -4,9 +4,12 @@ import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
+import {
+  MarketplaceProviderResourcesListData,
+  Resource,
+} from 'waldur-js-client';
+import { Project } from 'waldur-js-client';
 
-import { MarketplaceProviderResourcesListData, Resource } from '@waldur/api';
-import { Project } from '@waldur/api';
 import { Badge } from '@waldur/core/Badge';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { lazyComponent } from '@waldur/core/lazyComponent';

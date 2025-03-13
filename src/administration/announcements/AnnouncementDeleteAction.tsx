@@ -1,7 +1,7 @@
 import { Trash } from '@phosphor-icons/react';
 import { useDispatch } from 'react-redux';
+import { adminAnnouncementsDestroy } from 'waldur-js-client';
 
-import { adminAnnouncementsDestroy } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';

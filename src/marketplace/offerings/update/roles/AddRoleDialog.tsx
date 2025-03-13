@@ -2,8 +2,8 @@ import { useCallback } from 'react';
 import { Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
+import { marketplaceOfferingUserRolesCreate } from 'waldur-js-client';
 
-import { marketplaceOfferingUserRolesCreate } from '@waldur/api';
 import { required } from '@waldur/core/validators';
 import { StringField, SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';

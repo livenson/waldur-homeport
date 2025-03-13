@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { FunctionComponent, useMemo } from 'react';
+import { marketplacePublicOfferingsRetrieve } from 'waldur-js-client';
 
-import { marketplacePublicOfferingsRetrieve } from '@waldur/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { FormContainer } from '@waldur/form';

@@ -1,8 +1,8 @@
 import { Trash } from '@phosphor-icons/react';
 import { useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
+import { AccessSubnet, accessSubnetsDestroy } from 'waldur-js-client';
 
-import { AccessSubnet, accessSubnetsDestroy } from '@waldur/api';
 import { translate, formatJsxTemplate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';

@@ -4,7 +4,8 @@ import {
   marketplaceResourcesRetrieve,
   PublicOfferingDetails,
   Resource,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { OFFERING_TYPE_BOOKING } from '@waldur/booking/constants';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { isFeatureVisible } from '@waldur/features/connect';

@@ -1,6 +1,6 @@
 import { Badge } from 'react-bootstrap';
+import { OpenStackNestedVolume } from 'waldur-js-client';
 
-import { OpenStackNestedVolume } from '@waldur/api';
 import { Link } from '@waldur/core/Link';
 import { Tip } from '@waldur/core/Tooltip';
 import { formatFilesize } from '@waldur/core/utils';

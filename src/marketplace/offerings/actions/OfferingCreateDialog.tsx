@@ -2,8 +2,11 @@ import { useQuery } from '@tanstack/react-query';
 import { useRouter } from '@uirouter/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { reduxForm } from 'redux-form';
+import {
+  BillingUnit,
+  marketplaceProviderOfferingsCreate,
+} from 'waldur-js-client';
 
-import { BillingUnit, marketplaceProviderOfferingsCreate } from '@waldur/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { required } from '@waldur/core/validators';

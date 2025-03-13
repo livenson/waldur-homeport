@@ -1,4 +1,4 @@
-import { NestedAttribute } from '@waldur/api';
+import { NestedAttribute } from 'waldur-js-client';
 
 export const ListAttribute: NestedAttribute = {
   key: 'node_information_cpu',

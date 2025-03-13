@@ -1,4 +1,5 @@
-import { Template } from '@waldur/api';
+import { Template } from 'waldur-js-client';
+
 import { StateIndicator } from '@waldur/core/StateIndicator';
 import { translate } from '@waldur/i18n';
 import { createFetcher } from '@waldur/table/api';

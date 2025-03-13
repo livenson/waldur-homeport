@@ -2,15 +2,15 @@ import { useCallback, useEffect, useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { connect, useDispatch } from 'react-redux';
 import { reduxForm, SubmissionError } from 'redux-form';
-
-import { attachDocumentsToIssueTemplate } from '@waldur/administration/api';
-import { IssueTemplateTypeOptions } from '@waldur/administration/utils';
 import {
   supportTemplatesCreate,
   supportTemplatesDeleteAttachments,
   supportTemplatesRetrieve,
   supportTemplatesUpdate,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
+import { attachDocumentsToIssueTemplate } from '@waldur/administration/api';
+import { IssueTemplateTypeOptions } from '@waldur/administration/utils';
 import { ACCEPTED_FILE_TYPES } from '@waldur/core/constants';
 import {
   FormContainer,

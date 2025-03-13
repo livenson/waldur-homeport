@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
+import { Payment } from 'waldur-js-client';
 
-import { Payment } from '@waldur/api';
 import { Link } from '@waldur/core/Link';
 import { DASH_ESCAPE_CODE } from '@waldur/table/constants';
 

@@ -1,6 +1,6 @@
 import { Form, Field } from 'react-final-form';
+import { userAgreementsCreate } from 'waldur-js-client';
 
-import { userAgreementsCreate } from '@waldur/api';
 import { SubmitButton } from '@waldur/auth/SubmitButton';
 import { required } from '@waldur/core/validators';
 import { SelectField, TextField } from '@waldur/form';

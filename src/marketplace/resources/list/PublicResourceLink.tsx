@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
+import { Resource } from 'waldur-js-client';
 
-import { Resource } from '@waldur/api';
 import { Link } from '@waldur/core/Link';
 import { BackendIdTip } from '@waldur/core/Tooltip';
 

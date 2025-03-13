@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
+import { PlanUsageResponse } from 'waldur-js-client';
 
-import { PlanUsageResponse } from '@waldur/api';
 import { Category, Offering } from '@waldur/marketplace/types';
 import { useToolbarActions } from '@waldur/navigation/context';
 

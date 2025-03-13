@@ -1,8 +1,8 @@
 import { Modal } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
+import { marketplacePlansUpdatePrices } from 'waldur-js-client';
 
-import { marketplacePlansUpdatePrices } from '@waldur/api';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { Offering, OfferingComponent, Plan } from '@waldur/marketplace/types';

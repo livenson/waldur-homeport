@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
+import { marketplaceCategoriesList } from 'waldur-js-client';
 
-import { marketplaceCategoriesList } from '@waldur/api';
 import { getAllPages } from '@waldur/core/api';
 
 export const useOfferingCategories = () => {

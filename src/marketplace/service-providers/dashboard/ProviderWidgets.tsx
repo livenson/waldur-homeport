@@ -10,11 +10,11 @@ import {
 import { FC, ReactNode } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
 import { useAsync } from 'react-use';
-
 import {
   marketplaceServiceProvidersStatRetrieve,
   ServiceProviderStatistics,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { Link } from '@waldur/core/Link';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';

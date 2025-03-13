@@ -1,7 +1,7 @@
 import { Col, Form, Row } from 'react-bootstrap';
 import { useAsync } from 'react-use';
+import { marketplaceOfferingPermissionsList } from 'waldur-js-client';
 
-import { marketplaceOfferingPermissionsList } from '@waldur/api';
 import { getAllPages } from '@waldur/core/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { SymbolsGroup } from '@waldur/customer/dashboard/SymbolsGroup';

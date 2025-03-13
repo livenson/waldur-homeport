@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
+import { User } from 'waldur-js-client';
 
-import { User } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { isFeatureVisible } from '@waldur/features/connect';

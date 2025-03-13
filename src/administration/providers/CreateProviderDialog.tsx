@@ -2,8 +2,11 @@ import { PlusCircle } from '@phosphor-icons/react';
 import { useCallback } from 'react';
 import { Form } from 'react-final-form';
 import { useDispatch } from 'react-redux';
+import {
+  IdentityProviderRequest,
+  identityProvidersCreate,
+} from 'waldur-js-client';
 
-import { IdentityProviderRequest, identityProvidersCreate } from '@waldur/api';
 import { EDUTEAMS_IDP, TARA_IDP } from '@waldur/auth/providers/constants';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';

@@ -1,8 +1,8 @@
 import { Button } from 'react-bootstrap';
 import { Field, Form } from 'react-final-form';
+import { featureValues } from 'waldur-js-client';
 
 import { TelemetryExampleButton } from '@waldur/administration/TelemetryExampleButton';
-import { featureValues } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { FeaturesDescription } from '@waldur/features/FeaturesDescription';
 import { TelemetryFeatures } from '@waldur/FeaturesEnums';

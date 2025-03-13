@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { Table } from 'react-bootstrap';
 import { FormName, FormSection, WrappedFieldArrayProps } from 'redux-form';
+import { OpenStackSecurityGroup } from 'waldur-js-client';
 
-import { OpenStackSecurityGroup } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 
 import { RuleAddButton } from './RuleAddButton';

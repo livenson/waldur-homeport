@@ -2,8 +2,8 @@ import { Trash } from '@phosphor-icons/react';
 import { FC, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { User } from 'waldur-js-client';
 
-import { User } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { Panel } from '@waldur/core/Panel';

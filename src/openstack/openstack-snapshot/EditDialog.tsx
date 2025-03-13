@@ -1,6 +1,6 @@
 import { FC } from 'react';
+import { openstackSnapshotsUpdate } from 'waldur-js-client';
 
-import { openstackSnapshotsUpdate } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import {
   createNameField,

@@ -1,6 +1,5 @@
 import Axios from 'axios';
-
-import { marketplaceResourcesRetrieve, Resource } from '@waldur/api';
+import { marketplaceResourcesRetrieve, Resource } from 'waldur-js-client';
 
 export async function loadData(url: string) {
   try {

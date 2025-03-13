@@ -1,6 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
+import { OpenStackVolume, OpenstackVolumesListData } from 'waldur-js-client';
 
-import { OpenStackVolume, OpenstackVolumesListData } from '@waldur/api';
 import { formatFilesize } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';
 import { ModalActionsRouter } from '@waldur/marketplace/resources/actions/ModalActionsRouter';

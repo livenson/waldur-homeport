@@ -2,8 +2,8 @@ import { Eye } from '@phosphor-icons/react';
 import { useQuery } from '@tanstack/react-query';
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
+import { marketplaceProviderOfferingsGlauthUsersConfigRetrieve } from 'waldur-js-client';
 
-import { marketplaceProviderOfferingsGlauthUsersConfigRetrieve } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { translate } from '@waldur/i18n';

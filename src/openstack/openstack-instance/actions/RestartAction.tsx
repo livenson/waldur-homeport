@@ -1,7 +1,7 @@
 import { ArrowClockwise } from '@phosphor-icons/react';
+import { openstackInstancesRestart } from 'waldur-js-client';
+import { OpenStackInstance } from 'waldur-js-client';
 
-import { openstackInstancesRestart } from '@waldur/api';
-import { OpenStackInstance } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import {
   AsyncActionItem,

@@ -2,8 +2,7 @@ import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
-
-import { MarketplaceProviderOfferingsListData } from '@waldur/api';
+import { MarketplaceProviderOfferingsListData } from 'waldur-js-client';
 
 import { BaseOfferingsList } from '../list/OfferingsList';
 import { getStates } from '../list/OfferingStateFilter';

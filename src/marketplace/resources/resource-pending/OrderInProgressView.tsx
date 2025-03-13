@@ -1,8 +1,8 @@
 import { Info } from '@phosphor-icons/react';
 import { FC } from 'react';
 import { Button, Card } from 'react-bootstrap';
+import { Resource } from 'waldur-js-client';
 
-import { Resource } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { ProgressSteps } from '@waldur/core/ProgressSteps';
 import { translate } from '@waldur/i18n';

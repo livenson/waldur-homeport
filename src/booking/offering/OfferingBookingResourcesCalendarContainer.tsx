@@ -2,8 +2,11 @@ import { ArrowsClockwise } from '@phosphor-icons/react';
 import { useQuery } from '@tanstack/react-query';
 import { FunctionComponent } from 'react';
 import { Card } from 'react-bootstrap';
+import {
+  bookingResourcesList,
+  BookingResourcesListData,
+} from 'waldur-js-client';
 
-import { bookingResourcesList, BookingResourcesListData } from '@waldur/api';
 import { OFFERING_TYPE_BOOKING } from '@waldur/booking/constants';
 import { getBookingFilterOptionStates } from '@waldur/booking/utils';
 import { LoadingErred } from '@waldur/core/LoadingErred';

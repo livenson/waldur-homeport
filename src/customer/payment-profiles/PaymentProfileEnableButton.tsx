@@ -1,7 +1,7 @@
 import { Play } from '@phosphor-icons/react';
 import { useDispatch, useSelector } from 'react-redux';
+import { paymentProfilesEnable } from 'waldur-js-client';
 
-import { paymentProfilesEnable } from '@waldur/api';
 import { getCustomer as getCustomerApi } from '@waldur/customer/api';
 import { translate } from '@waldur/i18n';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';

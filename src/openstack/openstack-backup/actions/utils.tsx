@@ -5,7 +5,8 @@ import {
   openstackFloatingIpsList,
   openstackSecurityGroupsList,
   openstackSubnetsList,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { getAllPages } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';
 import { Option } from '@waldur/marketplace/common/registry';

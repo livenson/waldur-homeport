@@ -2,8 +2,8 @@ import { pick } from 'lodash-es';
 import { useCallback } from 'react';
 import { connect } from 'react-redux';
 import { SubmissionError, reduxForm } from 'redux-form';
+import { proposalProtectedCallsPartialUpdate } from 'waldur-js-client';
 
-import { proposalProtectedCallsPartialUpdate } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { required } from '@waldur/core/validators';
 import { SelectField, SubmitButton } from '@waldur/form';

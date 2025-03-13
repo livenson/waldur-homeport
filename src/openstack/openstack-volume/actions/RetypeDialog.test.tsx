@@ -1,16 +1,16 @@
 import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { openstackVolumesRetype, OpenStackVolumeType } from 'waldur-js-client';
+import { OpenStackVolume } from 'waldur-js-client';
 
-import { openstackVolumesRetype, OpenStackVolumeType } from '@waldur/api';
-import { OpenStackVolume } from '@waldur/api';
 import { useModal } from '@waldur/modal/hooks';
 import * as api from '@waldur/openstack/api';
 import { useNotify } from '@waldur/store/hooks';
 
 import { RetypeDialog } from './RetypeDialog';
 
-vi.mock('@waldur/api');
+vi.mock('waldur-js-client');
 vi.mock('@waldur/openstack/api');
 vi.mock('@waldur/store/hooks');
 vi.mock('@waldur/modal/hooks');

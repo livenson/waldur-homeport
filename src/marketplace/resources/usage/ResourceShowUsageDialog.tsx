@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import { useAsync } from 'react-use';
+import { Resource } from 'waldur-js-client';
 
-import { Resource } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { ResourceUsageTabsContainer } from '@waldur/marketplace/resources/usage/ResourceUsageTabsContainer';

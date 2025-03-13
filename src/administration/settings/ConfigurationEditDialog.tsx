@@ -1,8 +1,8 @@
 import { FormControl } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
+import { overrideSettings } from 'waldur-js-client';
 
-import { overrideSettings } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { formDataOptions } from '@waldur/core/api';
 import { SelectField, SubmitButton, TextField } from '@waldur/form';

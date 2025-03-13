@@ -1,6 +1,5 @@
 import { FunctionComponent } from 'react';
-
-import { User } from '@waldur/api';
+import { User } from 'waldur-js-client';
 
 interface OwnProps {
   tabSpec;

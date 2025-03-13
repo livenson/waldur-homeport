@@ -1,10 +1,10 @@
 import { EChartsOption } from 'echarts';
 import { DateTime } from 'luxon';
-
 import {
   SlurmAllocationUserUsage,
   slurmAllocationUserUsageList,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { getAllPages } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';
 import { getComponentUsages } from '@waldur/marketplace/common/api';

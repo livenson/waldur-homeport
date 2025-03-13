@@ -1,7 +1,7 @@
 import { PencilSimple } from '@phosphor-icons/react';
 import { useDispatch } from 'react-redux';
+import { User } from 'waldur-js-client';
 
-import { User } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import FormTable from '@waldur/form/FormTable';
 import { translate } from '@waldur/i18n';

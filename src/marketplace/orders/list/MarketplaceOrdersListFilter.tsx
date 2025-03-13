@@ -1,6 +1,6 @@
 import { reduxForm } from 'redux-form';
+import { OrderState } from 'waldur-js-client';
 
-import { OrderState } from '@waldur/api';
 import { syncFiltersToURL } from '@waldur/core/filters';
 import { CUSTOMER_ORDERS_LIST_FILTER_FORM_ID } from '@waldur/customer/constants';
 import { REACT_SELECT_TABLE_FILTER } from '@waldur/form/themed-select';

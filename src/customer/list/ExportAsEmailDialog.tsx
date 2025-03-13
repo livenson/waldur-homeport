@@ -4,8 +4,11 @@ import { Col, Form, Modal, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
 import { Field, FieldArray, reduxForm } from 'redux-form';
+import {
+  invoiceSendFinancialReportByMail,
+  invoicesList,
+} from 'waldur-js-client';
 
-import { invoiceSendFinancialReportByMail, invoicesList } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { AccountingPeriodField } from '@waldur/customer/list/AccountingPeriodField';
 import { getOptions } from '@waldur/customer/list/AccountingRunningField';

@@ -1,8 +1,8 @@
 import classNames from 'classnames';
 import { FC } from 'react';
 import { Card } from 'react-bootstrap';
+import { PlanUsageResponse } from 'waldur-js-client';
 
-import { PlanUsageResponse } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 
 interface OwnProps {

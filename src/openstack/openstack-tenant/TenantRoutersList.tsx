@@ -1,6 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
+import { OpenStackRouter, OpenstackRoutersListData } from 'waldur-js-client';
 
-import { OpenStackRouter, OpenstackRoutersListData } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { ResourceState } from '@waldur/resource/state/ResourceState';
 import { ResourceSummary } from '@waldur/resource/summary/ResourceSummary';

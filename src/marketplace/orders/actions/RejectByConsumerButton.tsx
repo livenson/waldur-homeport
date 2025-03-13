@@ -2,8 +2,8 @@ import { XCircle } from '@phosphor-icons/react';
 import { useMutation } from '@tanstack/react-query';
 import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { marketplaceOrdersRejectByConsumer } from 'waldur-js-client';
 
-import { marketplaceOrdersRejectByConsumer } from '@waldur/api';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { PermissionEnum } from '@waldur/permissions/enums';

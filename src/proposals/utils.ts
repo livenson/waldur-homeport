@@ -1,13 +1,13 @@
 import { DateTime } from 'luxon';
 import { useMemo } from 'react';
-
 import {
   NestedRound,
   ProposalReviewStateEnum,
   ProtectedRound,
   ProtectedRoundRequest,
-} from '@waldur/api';
-import { User } from '@waldur/api';
+} from 'waldur-js-client';
+import { User } from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import { usePresetBreadcrumbItems } from '@waldur/navigation/header/breadcrumb/utils';
 import { IBreadcrumbItem } from '@waldur/navigation/types';

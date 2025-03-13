@@ -3,8 +3,8 @@ import { uniqueId } from 'lodash-es';
 import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
+import { Notification } from 'waldur-js-client';
 
-import { Notification } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { Tip } from '@waldur/core/Tooltip';
 import { translate } from '@waldur/i18n';

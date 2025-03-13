@@ -1,8 +1,8 @@
 import { Trash } from '@phosphor-icons/react';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
+import { marketplaceOrdersUnlink } from 'waldur-js-client';
 
-import { marketplaceOrdersUnlink } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';

@@ -1,8 +1,8 @@
 import Axios from 'axios';
 import React from 'react';
 import { useAsyncFn, useBoolean } from 'react-use';
+import { marketplaceResourcesRetrieve } from 'waldur-js-client';
 
-import { marketplaceResourcesRetrieve } from '@waldur/api';
 import {
   CustomerResourceActions,
   StaffActions,

@@ -2,8 +2,8 @@ import { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
+import { MarketplaceOrdersListData } from 'waldur-js-client';
 
-import { MarketplaceOrdersListData } from '@waldur/api';
 import { CustomerOrdersListFilter } from '@waldur/marketplace/orders/list/MarketplaceOrdersListFilter';
 import { OrdersTableComponent } from '@waldur/marketplace/orders/list/OrdersTableComponent';
 import { RootState } from '@waldur/store/reducers';

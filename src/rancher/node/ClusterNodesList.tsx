@@ -1,6 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
+import { RancherCluster, RancherNode } from 'waldur-js-client';
 
-import { RancherCluster, RancherNode } from '@waldur/api';
 import { Link } from '@waldur/core/Link';
 import { translate } from '@waldur/i18n';
 import { INSTANCE_TYPE } from '@waldur/openstack/constants';

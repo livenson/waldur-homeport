@@ -1,8 +1,8 @@
 import { useRouter } from '@uirouter/react';
 import { useDispatch, useSelector } from 'react-redux';
+import { projectsDestroy } from 'waldur-js-client';
+import { Project } from 'waldur-js-client';
 
-import { projectsDestroy } from '@waldur/api';
-import { Project } from '@waldur/api';
 import { getCustomer as getCustomerApi } from '@waldur/customer/api';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';

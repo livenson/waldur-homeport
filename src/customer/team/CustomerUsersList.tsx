@@ -3,8 +3,8 @@ import { FunctionComponent, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
+import { CustomersUsersListData, CustomerUser } from 'waldur-js-client';
 
-import { CustomersUsersListData, CustomerUser } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import Avatar from '@waldur/core/Avatar';
 import { formatDate } from '@waldur/core/dateUtils';

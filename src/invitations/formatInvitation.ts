@@ -1,4 +1,5 @@
-import { VisibleInvitationDetails } from '@waldur/api';
+import { VisibleInvitationDetails } from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import { RoleType } from '@waldur/permissions/types';
 import { formatRoleType } from '@waldur/permissions/utils';

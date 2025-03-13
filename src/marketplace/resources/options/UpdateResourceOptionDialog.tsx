@@ -1,9 +1,12 @@
 import { useMemo } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
+import {
+  marketplaceResourcesUpdateOptions,
+  OptionField,
+} from 'waldur-js-client';
+import { Resource } from 'waldur-js-client';
 
-import { marketplaceResourcesUpdateOptions, OptionField } from '@waldur/api';
-import { Resource } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { OptionsForm } from '@waldur/marketplace/common/OptionsForm';
 import { Offering } from '@waldur/marketplace/types';

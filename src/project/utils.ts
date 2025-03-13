@@ -1,7 +1,8 @@
 import {
   invoiceItemsCostsList,
   marketplaceProjectEstimatedCostPoliciesList,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { getCostPolicyActionOptions } from '@waldur/customer/cost-policies/utils';
 import { formatCostChart, getTeamSizeChart } from '@waldur/dashboard/api';

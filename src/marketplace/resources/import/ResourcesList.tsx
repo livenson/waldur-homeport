@@ -1,6 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
+import { ImportableResource } from 'waldur-js-client';
 
-import { ImportableResource } from '@waldur/api';
 import { requiredArray } from '@waldur/core/validators';
 import { Select } from '@waldur/form/themed-select';
 import { translate } from '@waldur/i18n';

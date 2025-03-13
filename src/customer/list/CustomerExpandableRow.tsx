@@ -3,8 +3,8 @@ import { memo } from 'react';
 import { useSelector } from 'react-redux';
 import { useAsync } from 'react-use';
 import { formValueSelector } from 'redux-form';
+import { invoicesList } from 'waldur-js-client';
 
-import { invoicesList } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { AgreementInfo } from '@waldur/invoices/list/AgreementInfo';

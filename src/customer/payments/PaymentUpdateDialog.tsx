@@ -2,8 +2,8 @@ import { FunctionComponent, useEffect } from 'react';
 import { Form } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { InjectedFormProps, reduxForm } from 'redux-form';
+import { paymentsPartialUpdate } from 'waldur-js-client';
 
-import { paymentsPartialUpdate } from '@waldur/api';
 import { formDataOptions, fileSerializer } from '@waldur/core/api';
 import { formatDate } from '@waldur/core/dateUtils';
 import { Link } from '@waldur/core/Link';

@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
+import { lexisLinksCreate } from 'waldur-js-client';
 
-import { lexisLinksCreate } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';

@@ -1,8 +1,8 @@
 import { useRouter } from '@uirouter/react';
 import { useEffect, FunctionComponent } from 'react';
 import { useDispatch } from 'react-redux';
+import { usersConfirmEmail } from 'waldur-js-client';
 
-import { usersConfirmEmail } from '@waldur/api';
 import * as AuthService from '@waldur/auth/AuthService';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { wait } from '@waldur/core/utils';

@@ -2,8 +2,9 @@ import {
   marketplaceCategoriesList,
   marketplaceProviderOfferingsList,
   marketplacePublicOfferingsList,
-} from '@waldur/api';
-import { Project } from '@waldur/api';
+} from 'waldur-js-client';
+import { Project } from 'waldur-js-client';
+
 import { getAllPages, parseSelectData } from '@waldur/core/api';
 import { Category, Offering } from '@waldur/marketplace/types';
 import { Customer } from '@waldur/workspace/types';

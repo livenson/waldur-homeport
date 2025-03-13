@@ -3,8 +3,8 @@ import { FunctionComponent } from 'react';
 import { Card } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { formValueSelector } from 'redux-form';
+import { invoicesGrowthRetrieve } from 'waldur-js-client';
 
-import { invoicesGrowthRetrieve } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { EChart } from '@waldur/core/EChart';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';

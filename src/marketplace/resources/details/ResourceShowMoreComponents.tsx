@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
+import { Resource } from 'waldur-js-client';
 
-import { Resource } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { OfferingComponent } from '@waldur/marketplace/types';

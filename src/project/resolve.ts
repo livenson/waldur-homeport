@@ -1,7 +1,7 @@
 import { Transition } from '@uirouter/react';
+import { projectsRetrieve } from 'waldur-js-client';
+import { Project } from 'waldur-js-client';
 
-import { projectsRetrieve } from '@waldur/api';
-import { Project } from '@waldur/api';
 import { router } from '@waldur/router';
 import store from '@waldur/store/store';
 import {

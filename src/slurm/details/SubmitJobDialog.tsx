@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
+import { slurmJobsCreate } from 'waldur-js-client';
 
-import { slurmJobsCreate } from '@waldur/api';
 import { formDataOptions, fileSerializer } from '@waldur/core/api';
 import { FileUploadField } from '@waldur/form';
 import { translate } from '@waldur/i18n';

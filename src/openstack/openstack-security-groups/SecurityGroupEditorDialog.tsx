@@ -1,6 +1,5 @@
 import { FC } from 'react';
-
-import { OpenStackSecurityGroup } from '@waldur/api';
+import { OpenStackSecurityGroup } from 'waldur-js-client';
 
 import { RulesForm } from './rule-editor/RulesForm';
 import { useRulesEditor } from './rule-editor/utils';

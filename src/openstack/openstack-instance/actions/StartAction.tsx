@@ -1,7 +1,7 @@
 import { Play } from '@phosphor-icons/react';
+import { openstackInstancesStart } from 'waldur-js-client';
+import { OpenStackInstance } from 'waldur-js-client';
 
-import { openstackInstancesStart } from '@waldur/api';
-import { OpenStackInstance } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import {
   AsyncActionItem,

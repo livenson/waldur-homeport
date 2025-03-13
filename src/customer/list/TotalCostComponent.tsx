@@ -1,8 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { useAsync } from 'react-use';
+import { billingTotalCostRetrieve } from 'waldur-js-client';
 
-import { billingTotalCostRetrieve } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';

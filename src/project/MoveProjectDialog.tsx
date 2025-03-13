@@ -1,8 +1,8 @@
 import { FunctionComponent, useCallback } from 'react';
 import { Field, Form } from 'react-final-form';
 import { useDispatch } from 'react-redux';
+import { projectsMoveProject } from 'waldur-js-client';
 
-import { projectsMoveProject } from '@waldur/api';
 import { format } from '@waldur/core/ErrorMessageFormatter';
 import { required } from '@waldur/core/validators';
 import { SubmitButton } from '@waldur/form';

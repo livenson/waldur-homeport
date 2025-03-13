@@ -3,11 +3,11 @@ import { useCallback } from 'react';
 import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
-
 import {
   broadcastMessageTemplatesCreate,
   MessageTemplateRequest,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { SubmitButton } from '@waldur/auth/SubmitButton';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { required } from '@waldur/core/validators';

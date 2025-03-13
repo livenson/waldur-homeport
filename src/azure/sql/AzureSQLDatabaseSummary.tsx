@@ -1,4 +1,5 @@
-import { AzureSqlDatabase } from '@waldur/api';
+import { AzureSqlDatabase } from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import { ResourceLink } from '@waldur/resource/ResourceLink';
 import { Field, ResourceSummaryProps } from '@waldur/resource/summary';

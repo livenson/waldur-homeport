@@ -1,9 +1,9 @@
 import { useQueries } from '@tanstack/react-query';
 import { FC } from 'react';
 import { Nav, Tab } from 'react-bootstrap';
+import { Project } from 'waldur-js-client';
 
 import { getResourcesCount } from '@waldur/administration/api';
-import { Project } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { getStates } from '@waldur/marketplace/resources/list/ResourceStateFilter';
 import { getProjectUsersCount } from '@waldur/project/team/api';

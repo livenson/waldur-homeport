@@ -5,7 +5,8 @@ import {
   RancherTemplate,
   rancherTemplatesRetrieve,
   rancherTemplateVersionsRetrieve,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { getAllPages } from '@waldur/core/api';
 
 import { Question, QuestionType } from '../types';

@@ -1,11 +1,11 @@
 import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { FunctionComponent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import {
   marketplaceServiceProvidersCreate,
   marketplaceServiceProvidersDestroy,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import FormTable from '@waldur/form/FormTable';

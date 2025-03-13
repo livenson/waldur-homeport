@@ -1,6 +1,6 @@
 import { DropdownButton, DropdownDivider } from 'react-bootstrap';
+import { Resource } from 'waldur-js-client';
 
-import { Resource } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { useUser } from '@waldur/workspace/hooks';
 

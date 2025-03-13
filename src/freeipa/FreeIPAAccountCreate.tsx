@@ -3,8 +3,8 @@ import { useEffect, useCallback } from 'react';
 import { FormGroup } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { reduxForm, change } from 'redux-form';
+import { freeipaProfilesCreate } from 'waldur-js-client';
 
-import { freeipaProfilesCreate } from '@waldur/api';
 import { SubmitButton } from '@waldur/auth/SubmitButton';
 import { FormContainer } from '@waldur/form';
 import { translate } from '@waldur/i18n';

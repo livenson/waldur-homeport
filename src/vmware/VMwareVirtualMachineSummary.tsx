@@ -1,4 +1,5 @@
-import { VmwareVirtualMachine } from '@waldur/api';
+import { VmwareVirtualMachine } from 'waldur-js-client';
+
 import { ENV } from '@waldur/configs/default';
 import { translate } from '@waldur/i18n';
 import { Field, ResourceSummaryProps } from '@waldur/resource/summary';

@@ -1,4 +1,5 @@
-import { DiscountTypeEnum } from '@waldur/api';
+import { DiscountTypeEnum } from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import { CampaignFormData } from '@waldur/marketplace/service-providers/types';
 import { IBreadcrumbItem } from '@waldur/navigation/types';

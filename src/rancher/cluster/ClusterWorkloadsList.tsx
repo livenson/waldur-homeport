@@ -1,6 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
+import { RancherWorkload } from 'waldur-js-client';
 
-import { RancherWorkload } from '@waldur/api';
 import { formatDate } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 import { createFetcher } from '@waldur/table/api';

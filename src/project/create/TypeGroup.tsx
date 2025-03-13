@@ -1,7 +1,7 @@
 import { Field } from 'react-final-form';
 import { useAsync } from 'react-use';
+import { projectTypesList } from 'waldur-js-client';
 
-import { projectTypesList } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { isFeatureVisible } from '@waldur/features/connect';
 import { ProjectFeatures } from '@waldur/FeaturesEnums';

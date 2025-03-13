@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon';
 import { FunctionComponent, useMemo } from 'react';
+import { OrderDetails } from 'waldur-js-client';
 
-import { OrderDetails } from '@waldur/api';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { translate } from '@waldur/i18n';
 import { Offering, OfferingComponent } from '@waldur/marketplace/types';

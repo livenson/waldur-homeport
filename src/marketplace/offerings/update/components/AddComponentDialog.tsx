@@ -3,8 +3,8 @@ import { useCallback } from 'react';
 import { Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
+import { marketplaceProviderOfferingsCreateOfferingComponent } from 'waldur-js-client';
 
-import { marketplaceProviderOfferingsCreateOfferingComponent } from '@waldur/api';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { PROVIDER_OFFERING_DATA_QUERY_KEY } from '@waldur/marketplace/offerings/constants';

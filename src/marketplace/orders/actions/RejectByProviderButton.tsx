@@ -3,12 +3,12 @@ import { useMutation } from '@tanstack/react-query';
 import { FunctionComponent } from 'react';
 import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-
 import {
   marketplaceOrdersRejectByProvider,
   marketplaceOrdersRetrieve,
   OrderDetails,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import {
   TABLE_MARKETPLACE_ORDERS,

@@ -1,8 +1,11 @@
 import { ChatText, CheckCircle, Eye, XCircle } from '@phosphor-icons/react';
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import {
+  proposalProposalsApprove,
+  proposalProposalsReject,
+} from 'waldur-js-client';
 
-import { proposalProposalsApprove, proposalProposalsReject } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { openModalDialog, waitForConfirmation } from '@waldur/modal/actions';

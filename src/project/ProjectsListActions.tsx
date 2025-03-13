@@ -1,6 +1,6 @@
 import { FC } from 'react';
+import { Project } from 'waldur-js-client';
 
-import { Project } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { ActionsDropdownComponent } from '@waldur/table/ActionsDropdown';
 

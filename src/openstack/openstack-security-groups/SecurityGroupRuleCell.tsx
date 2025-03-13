@@ -1,6 +1,6 @@
 import React from 'react';
+import { OpenStackSecurityGroupRuleCreate } from 'waldur-js-client';
 
-import { OpenStackSecurityGroupRuleCreate } from '@waldur/api';
 import {
   formatSecurityGroupProtocol,
   formatSecurityGroupRuleDirection,

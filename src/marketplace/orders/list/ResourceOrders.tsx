@@ -1,6 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
+import { MarketplaceResourcesListData, Resource } from 'waldur-js-client';
 
-import { MarketplaceResourcesListData, Resource } from '@waldur/api';
 import { CopyToClipboardButton } from '@waldur/core/CopyToClipboardButton';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';

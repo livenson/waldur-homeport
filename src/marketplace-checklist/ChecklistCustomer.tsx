@@ -2,11 +2,11 @@ import { useState, FunctionComponent } from 'react';
 import { Table, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useAsync, useAsyncFn } from 'react-use';
-
 import {
   marketplaceChecklistsCustomerRetrieve,
   marketplaceChecklistsCustomerUpdate,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { SubmitButton } from '@waldur/auth/SubmitButton';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { Select } from '@waldur/form/themed-select';

@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { rolesUpdateDescriptionsUpdate } from 'waldur-js-client';
 
-import { rolesUpdateDescriptionsUpdate } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 
 import { getRoles } from './api';
@@ -12,7 +12,7 @@ import { RoleDescriptionEditDialog } from './RoleDescriptionEditDialog';
 
 vi.mock('./api');
 
-vi.mock('@waldur/api');
+vi.mock('waldur-js-client');
 
 vi.mock('@waldur/modal/hooks', () => ({
   useModal: () => ({

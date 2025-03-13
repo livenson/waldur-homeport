@@ -1,8 +1,8 @@
 import { FunctionComponent } from 'react';
 import { useAsync } from 'react-use';
+import { marketplaceResourcesDetailsRetrieve } from 'waldur-js-client';
+import { Resource } from 'waldur-js-client';
 
-import { marketplaceResourcesDetailsRetrieve } from '@waldur/api';
-import { Resource } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { PlanDetailsLink } from '@waldur/marketplace/details/plan/PlanDetailsLink';

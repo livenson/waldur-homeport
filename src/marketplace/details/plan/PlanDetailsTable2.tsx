@@ -2,8 +2,8 @@ import { WarningCircle } from '@phosphor-icons/react';
 import { FunctionComponent, useMemo, useState } from 'react';
 import { Nav, Tab } from 'react-bootstrap';
 import { connect, useSelector } from 'react-redux';
+import { PublicOfferingDetails } from 'waldur-js-client';
 
-import { PublicOfferingDetails } from '@waldur/api';
 import { AwesomeCheckbox } from '@waldur/core/AwesomeCheckbox';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { Tip } from '@waldur/core/Tooltip';

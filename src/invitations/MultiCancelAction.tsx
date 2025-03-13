@@ -1,8 +1,8 @@
 import { Prohibit } from '@phosphor-icons/react';
 import { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { userInvitationsCancel } from 'waldur-js-client';
 
-import { userInvitationsCancel } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';

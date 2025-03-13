@@ -3,8 +3,8 @@ import { useQuery } from '@tanstack/react-query';
 import { useMemo, useState } from 'react';
 import { Button, Card, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
 import { useAsync } from 'react-use';
+import { marketplaceResourcesTeamList } from 'waldur-js-client';
 
-import { marketplaceResourcesTeamList } from '@waldur/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { Select } from '@waldur/form/themed-select';

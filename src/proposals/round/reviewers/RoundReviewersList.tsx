@@ -1,6 +1,6 @@
 import { FC } from 'react';
+import { ProtectedRound, RoundReviewer } from 'waldur-js-client';
 
-import { ProtectedRound, RoundReviewer } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';

@@ -1,9 +1,9 @@
 import { pick } from 'lodash-es';
 import { Field, Form } from 'react-final-form';
 import { useDispatch, useSelector } from 'react-redux';
+import { projectsPartialUpdate } from 'waldur-js-client';
+import { Project } from 'waldur-js-client';
 
-import { projectsPartialUpdate } from '@waldur/api';
-import { Project } from '@waldur/api';
 import { formatDate } from '@waldur/core/dateUtils';
 import { SubmitButton } from '@waldur/form';
 import { StringField } from '@waldur/form/StringField';

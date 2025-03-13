@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { useSelector } from 'react-redux';
+import { marketplaceCategoriesList } from 'waldur-js-client';
 
-import { marketplaceCategoriesList } from '@waldur/api';
 import { getAllPages } from '@waldur/core/api';
 import { getCategoryGroups } from '@waldur/marketplace/common/api';
 import { CategoryGroup } from '@waldur/marketplace/types';

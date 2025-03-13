@@ -2,8 +2,8 @@ import { useQuery } from '@tanstack/react-query';
 import { FunctionComponent, useMemo } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
+import { customersStatsRetrieve } from 'waldur-js-client';
 
-import { customersStatsRetrieve } from '@waldur/api';
 import { COMMON_WIDGET_HEIGHT } from '@waldur/dashboard/constants';
 import { AggregateLimitWidget } from '@waldur/marketplace/aggregate-limits/AggregateLimitWidget';
 import { ProjectsList } from '@waldur/project/ProjectsList';

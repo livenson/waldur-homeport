@@ -2,7 +2,8 @@ import {
   AzureSqlDatabase,
   AzureSqlServer,
   AzureVirtualMachine,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import { Field, ResourceSummaryProps } from '@waldur/resource/summary';
 

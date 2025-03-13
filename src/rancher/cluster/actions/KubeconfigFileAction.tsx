@@ -1,7 +1,7 @@
 import { FileCode } from '@phosphor-icons/react';
 import { useSelector } from 'react-redux';
+import { OpenStackInstance } from 'waldur-js-client';
 
-import { OpenStackInstance } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { DialogActionItem } from '@waldur/resource/actions/DialogActionItem';

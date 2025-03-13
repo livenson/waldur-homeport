@@ -2,9 +2,9 @@ import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
 import { reduxForm } from 'redux-form';
+import { RancherCluster, rancherNodesCreate } from 'waldur-js-client';
+import { OpenStackFlavor } from 'waldur-js-client';
 
-import { RancherCluster, rancherNodesCreate } from '@waldur/api';
-import { OpenStackFlavor } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';

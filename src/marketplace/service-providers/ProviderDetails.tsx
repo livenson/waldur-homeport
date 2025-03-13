@@ -1,8 +1,8 @@
 import { useCurrentStateAndParams } from '@uirouter/react';
 import { FunctionComponent } from 'react';
 import { useAsync } from 'react-use';
+import { marketplaceProviderOfferingsList } from 'waldur-js-client';
 
-import { marketplaceProviderOfferingsList } from '@waldur/api';
 import { getAllPages } from '@waldur/core/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';

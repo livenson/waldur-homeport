@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
+import { overrideSettingsRetrieve } from 'waldur-js-client';
 
-import { overrideSettingsRetrieve } from '@waldur/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';

@@ -2,9 +2,9 @@ import { useQuery } from '@tanstack/react-query';
 import { capitalize } from 'lodash-es';
 import { Button, Card, Col, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { overrideSettingsRetrieve } from 'waldur-js-client';
 
 import { ServiceDeskProviderLogo } from '@waldur/administration/service-desk/ServiceDeskProviderLogo';
-import { overrideSettingsRetrieve } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';

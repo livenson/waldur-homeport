@@ -11,12 +11,13 @@ import {
   callManagingOrganisationsAddUser,
   marketplaceServiceProvidersAddUser,
   ProjectsListUsersListData,
-} from '@waldur/api';
+} from 'waldur-js-client';
 import {
   customersUsersList,
   CustomersUsersListData,
   projectsListUsersList,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { getAllPages, parseSelectData } from '@waldur/core/api';
 
 export const addProjectUser = ({

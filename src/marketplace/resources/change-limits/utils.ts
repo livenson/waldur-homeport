@@ -5,7 +5,8 @@ import {
   marketplaceResourcesRetrieve,
   PublicOfferingDetails,
   Resource,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import {
   filterOfferingComponents,
   getFormLimitParser,

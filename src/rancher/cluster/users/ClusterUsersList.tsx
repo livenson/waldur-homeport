@@ -1,6 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
+import { RancherCluster } from 'waldur-js-client';
 
-import { RancherCluster } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { createFetcher } from '@waldur/table/api';
 import { DASH_ESCAPE_CODE } from '@waldur/table/constants';

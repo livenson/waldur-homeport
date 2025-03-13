@@ -1,9 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { isValid } from 'redux-form';
+import { PublicOfferingDetails } from 'waldur-js-client';
+import { Project } from 'waldur-js-client';
 
-import { PublicOfferingDetails } from '@waldur/api';
-import { Project } from '@waldur/api';
 import { isFeatureVisible } from '@waldur/features/connect';
 import { MarketplaceFeatures } from '@waldur/FeaturesEnums';
 import { ORDER_FORM_ID } from '@waldur/marketplace/details/constants';

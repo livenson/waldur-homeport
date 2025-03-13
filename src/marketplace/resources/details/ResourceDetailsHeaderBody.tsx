@@ -1,6 +1,5 @@
 import { FunctionComponent } from 'react';
-
-import { PublicOfferingDetails, Resource } from '@waldur/api';
+import { PublicOfferingDetails, Resource } from 'waldur-js-client';
 
 import { EndDateField } from './EndDateField';
 import { OfferingDetailsField } from './OfferingDetailsField';

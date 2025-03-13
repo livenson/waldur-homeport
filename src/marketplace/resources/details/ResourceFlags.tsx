@@ -1,6 +1,6 @@
 import { ArrowsInSimple, PauseCircle, XCircle } from '@phosphor-icons/react';
+import { Resource } from 'waldur-js-client';
 
-import { Resource } from '@waldur/api';
 import { Badge } from '@waldur/core/Badge';
 import { translate } from '@waldur/i18n';
 

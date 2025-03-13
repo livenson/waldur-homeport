@@ -1,4 +1,5 @@
-import { organizationGroupsList } from '@waldur/api';
+import { organizationGroupsList } from 'waldur-js-client';
+
 import { ENV } from '@waldur/configs/default';
 import { parseSelectData } from '@waldur/core/api';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';

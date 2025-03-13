@@ -1,8 +1,8 @@
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { SubmissionError } from 'redux-form';
+import { marketplaceOfferingEstimatedCostPoliciesCreate } from 'waldur-js-client';
 
-import { marketplaceOfferingEstimatedCostPoliciesCreate } from '@waldur/api';
 import { AddButton } from '@waldur/core/AddButton';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { policyPeriodOptions } from '@waldur/customer/cost-policies/utils';

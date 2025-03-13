@@ -3,13 +3,12 @@ import { Provider } from 'react-redux';
 import { createStore, combineReducers } from 'redux';
 import { reducer as formReducer } from 'redux-form';
 import { vi, describe, it, expect } from 'vitest';
-
-import { marketplacePlansUpdatePrices } from '@waldur/api';
+import { marketplacePlansUpdatePrices } from 'waldur-js-client';
 
 import { EditPlanPricesDialog } from './EditPlanPricesDialog';
 
 // Mock dependencies
-vi.mock('@waldur/api', () => ({
+vi.mock('waldur-js-client', () => ({
   marketplacePlansUpdatePrices: vi.fn(),
 }));
 

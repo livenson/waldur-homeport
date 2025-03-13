@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { reduxForm } from 'redux-form';
+import { marketplaceResourcesTerminate } from 'waldur-js-client';
 
-import { marketplaceResourcesTerminate } from '@waldur/api';
 import { SubmitButton } from '@waldur/form';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { orderCanBeApproved as orderCanBeApprovedSelector } from '@waldur/marketplace/orders/actions/selectors';

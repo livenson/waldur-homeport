@@ -1,7 +1,7 @@
 import React from 'react';
 import { useMediaQuery } from 'react-responsive';
+import { BasePublicPlan } from 'waldur-js-client';
 
-import { BasePublicPlan } from '@waldur/api';
 import { GRID_BREAKPOINTS } from '@waldur/core/constants';
 import { translate } from '@waldur/i18n';
 import { OfferingLimits } from '@waldur/marketplace/offerings/store/types';

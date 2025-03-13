@@ -1,4 +1,4 @@
-import { OpenStackVolume } from '@waldur/api';
+import { OpenStackVolume } from 'waldur-js-client';
 
 export interface VolumeActionProps {
   resource: OpenStackVolume;

@@ -1,4 +1,4 @@
-import { OrderDetails as OrderResponse } from '@waldur/api';
+import { OrderDetails as OrderResponse } from 'waldur-js-client';
 
 import { ApproveAllButton } from './ApproveAllButton';
 import { RejectAllButton } from './RejectAllButton';

@@ -2,8 +2,8 @@ import { useEffect, useCallback } from 'react';
 import { Form, InputGroup, Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { Field, reduxForm, change } from 'redux-form';
+import { OpenStackVolume, openstackVolumesExtend } from 'waldur-js-client';
 
-import { OpenStackVolume, openstackVolumesExtend } from '@waldur/api';
 import { SubmitButton } from '@waldur/auth/SubmitButton';
 import { formatFilesize } from '@waldur/core/utils';
 import { InputField } from '@waldur/form/InputField';

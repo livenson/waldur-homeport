@@ -1,6 +1,6 @@
 import { FC } from 'react';
+import { ProtectedRound } from 'waldur-js-client';
 
-import { ProtectedRound } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { Link } from '@waldur/core/Link';
 import { StateIndicator } from '@waldur/core/StateIndicator';

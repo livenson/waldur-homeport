@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { Modal } from 'react-bootstrap';
+import { User, UsersListData } from 'waldur-js-client';
 
-import { User, UsersListData } from '@waldur/api';
 import { FREEIPA_IDP } from '@waldur/auth/providers/constants';
 import { CancelButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';

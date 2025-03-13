@@ -1,4 +1,4 @@
-import { PaymentProfile } from '@waldur/api';
+import { PaymentProfile } from 'waldur-js-client';
 
 export type ChartData = Array<{
   label: string;

@@ -1,4 +1,5 @@
-import { OpenStackSecurityGroupRuleCreate as SecurityGroupRule } from '@waldur/api';
+import { OpenStackSecurityGroupRuleCreate as SecurityGroupRule } from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 
 const COMMON_PORTS = {

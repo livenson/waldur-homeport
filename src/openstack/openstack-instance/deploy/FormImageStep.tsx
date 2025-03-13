@@ -4,8 +4,8 @@ import { useCallback, useMemo, useState } from 'react';
 import { FormLabel } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { Field } from 'redux-form';
+import { openstackImagesList } from 'waldur-js-client';
 
-import { openstackImagesList } from '@waldur/api';
 import { getAllPages } from '@waldur/core/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';

@@ -1,4 +1,5 @@
-import { rolesList } from '@waldur/api';
+import { rolesList } from 'waldur-js-client';
+
 import { ENV } from '@waldur/configs/default';
 import { parseSelectData } from '@waldur/core/api';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';

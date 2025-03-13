@@ -1,4 +1,5 @@
-import { rancherNodesConsoleLogRetrieve } from '@waldur/api';
+import { rancherNodesConsoleLogRetrieve } from 'waldur-js-client';
+
 import { validateState } from '@waldur/resource/actions/base';
 import { OpenConsoleLogActionItem } from '@waldur/resource/actions/OpenConsoleLogActionItem';
 import { ActionItemType } from '@waldur/resource/actions/types';

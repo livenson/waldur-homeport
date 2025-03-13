@@ -9,8 +9,8 @@ import {
 import { Provider } from 'react-redux';
 import { createStore } from 'redux';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
+import { projectTypesList, projectsCreate } from 'waldur-js-client';
 
-import { projectTypesList, projectsCreate } from '@waldur/api';
 import * as config from '@waldur/configs/default';
 import { formDataOptions } from '@waldur/core/api';
 import { Customer } from '@waldur/workspace/types';
@@ -19,7 +19,7 @@ import { ProjectCreateDialog } from './ProjectCreateDialog';
 
 // Mock API calls
 vi.mock('../api');
-vi.mock('@waldur/api');
+vi.mock('waldur-js-client');
 vi.mock('@waldur/configs/default');
 
 describe('ProjectCreateDialog', () => {

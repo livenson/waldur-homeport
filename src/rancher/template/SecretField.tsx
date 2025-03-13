@@ -2,8 +2,8 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
 import { formValueSelector, clearFields } from 'redux-form';
+import { rancherProjectsSecretsRetrieve } from 'waldur-js-client';
 
-import { rancherProjectsSecretsRetrieve } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { type RootState } from '@waldur/store/reducers';

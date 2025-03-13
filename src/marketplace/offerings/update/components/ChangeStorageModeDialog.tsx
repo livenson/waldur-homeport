@@ -1,12 +1,12 @@
 import { FC } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { Field, Form } from 'react-final-form';
-
 import {
   marketplaceProviderOfferingsUpdateIntegration,
   MergedPluginOptionsRequest,
   StorageModeEnum,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import { Option } from '@waldur/marketplace/common/registry';
 import { useModal } from '@waldur/modal/hooks';

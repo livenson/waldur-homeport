@@ -1,6 +1,6 @@
 import { Plugs } from '@phosphor-icons/react';
+import { openstackVolumesDetach } from 'waldur-js-client';
 
-import { openstackVolumesDetach } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { AsyncActionItem } from '@waldur/resource/actions/AsyncActionItem';
 import {

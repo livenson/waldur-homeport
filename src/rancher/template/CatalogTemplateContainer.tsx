@@ -1,8 +1,11 @@
 import { useCurrentStateAndParams } from '@uirouter/react';
 import { FunctionComponent } from 'react';
 import { useAsync } from 'react-use';
+import {
+  rancherCatalogsRetrieve,
+  rancherClustersRetrieve,
+} from 'waldur-js-client';
 
-import { rancherCatalogsRetrieve, rancherClustersRetrieve } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { useTitle } from '@waldur/navigation/title';

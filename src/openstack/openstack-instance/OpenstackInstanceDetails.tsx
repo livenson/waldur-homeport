@@ -1,5 +1,4 @@
 import { useAsync } from 'react-use';
-
 import {
   keysRetrieve,
   OpenStackFlavor,
@@ -17,7 +16,8 @@ import {
   OpenStackVolumeType,
   openstackVolumeTypesRetrieve,
   SshKey,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { getUUID } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';

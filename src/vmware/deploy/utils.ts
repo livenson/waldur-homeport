@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { useMemo } from 'react';
+import { vmwareLimitsRetrieve } from 'waldur-js-client';
 
-import { vmwareLimitsRetrieve } from '@waldur/api';
 import { minAmount } from '@waldur/marketplace/common/utils';
 
 export const minOne = minAmount(1);

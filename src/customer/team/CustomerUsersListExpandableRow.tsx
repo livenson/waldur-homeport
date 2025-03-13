@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
+import { CustomerUser } from 'waldur-js-client';
 
-import { CustomerUser } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { Link } from '@waldur/core/Link';
 import { translate } from '@waldur/i18n';

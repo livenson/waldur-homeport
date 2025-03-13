@@ -1,5 +1,4 @@
 import { InjectedFormProps } from 'redux-form';
-
 import {
   CategoryGroup as WaldurCategoryGroup,
   MarketplaceCategory as WaldurCategory,
@@ -7,8 +6,9 @@ import {
   PublicOfferingDetails as Offering,
   PublicOfferingDetails,
   ProviderPlanDetails as Plan,
-} from '@waldur/api';
-import { Project } from '@waldur/api';
+} from 'waldur-js-client';
+import { Project } from 'waldur-js-client';
+
 import { Customer } from '@waldur/workspace/types';
 
 export {
@@ -17,7 +17,7 @@ export {
   CategoryColumn,
   ProviderOfferingDetails as Offering,
   ProviderPlanDetails as Plan,
-} from '@waldur/api';
+} from 'waldur-js-client';
 
 export interface CategoryGroup extends WaldurCategoryGroup {
   /** generated on frontend side */

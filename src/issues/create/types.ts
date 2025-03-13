@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
+import { Project } from 'waldur-js-client';
 
-import { Project } from '@waldur/api';
 import { Customer } from '@waldur/workspace/types';
 
 export interface IssueFormData {

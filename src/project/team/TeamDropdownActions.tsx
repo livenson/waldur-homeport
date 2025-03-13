@@ -1,7 +1,7 @@
 import { CaretDown, PlusCircle } from '@phosphor-icons/react';
 import { Dropdown } from 'react-bootstrap';
+import { Project } from 'waldur-js-client';
 
-import { Project } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { InvitationCreateButton } from '@waldur/invitations/actions/create/InvitationCreateButton';
 

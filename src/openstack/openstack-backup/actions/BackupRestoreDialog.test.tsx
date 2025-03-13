@@ -1,19 +1,19 @@
 import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
-
 import {
   openstackBackupsRestore,
   OpenStackSubNet,
   OpenStackFlavor,
   OpenStackBackup,
-} from '@waldur/api';
+} from 'waldur-js-client';
 import {
   openstackFlavorsList,
   openstackFloatingIpsList,
   openstackSecurityGroupsList,
   openstackSubnetsList,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { useModal } from '@waldur/modal/hooks';
 import { useNotify } from '@waldur/store/hooks';
 
@@ -79,7 +79,7 @@ const fakeFlavors = [
   },
 ] as unknown as OpenStackFlavor[];
 
-vi.mock('@waldur/api');
+vi.mock('waldur-js-client');
 vi.mock('@waldur/modal/hooks');
 
 vi.mock('@waldur/store/hooks', () => ({

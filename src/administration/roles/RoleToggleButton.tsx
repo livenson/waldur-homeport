@@ -1,8 +1,8 @@
 import { CheckSquare, XSquare } from '@phosphor-icons/react';
 import { FunctionComponent } from 'react';
 import { useDispatch } from 'react-redux';
+import { rolesDisable, rolesEnable } from 'waldur-js-client';
 
-import { rolesDisable, rolesEnable } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';

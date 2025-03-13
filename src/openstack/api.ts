@@ -9,7 +9,8 @@ import {
   OpenstackSubnetsListData,
   OpenstackVolumesListData,
   openstackVolumeTypesList,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { getAllPages } from '@waldur/core/api';
 
 export interface DestroyInstanceParams {

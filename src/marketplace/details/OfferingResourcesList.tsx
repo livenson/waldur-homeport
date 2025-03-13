@@ -1,8 +1,8 @@
 import { FunctionComponent, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
+import { MarketplaceProviderResourcesListData } from 'waldur-js-client';
 
-import { MarketplaceProviderResourcesListData } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import {
   FILTER_OFFERING_RESOURCE,

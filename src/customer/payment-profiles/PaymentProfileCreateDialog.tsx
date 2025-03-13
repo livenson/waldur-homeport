@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
+import { paymentProfilesCreate, paymentProfilesEnable } from 'waldur-js-client';
 
-import { paymentProfilesCreate, paymentProfilesEnable } from '@waldur/api';
 import { AwesomeCheckbox } from '@waldur/core/AwesomeCheckbox';
 import { required } from '@waldur/core/validators';
 import { getCustomer as getCustomerApi } from '@waldur/customer/api';

@@ -1,8 +1,8 @@
 import { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
 import { Field, getFormValues, reduxForm } from 'redux-form';
+import { Project } from 'waldur-js-client';
 
-import { Project } from '@waldur/api';
 import {
   getInitialValues,
   syncFiltersToURL,

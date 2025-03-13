@@ -1,6 +1,5 @@
 import { useQuery } from '@tanstack/react-query';
 import { formValueSelector } from 'redux-form';
-
 import {
   marketplacePublicOfferingsRetrieve,
   OpenStackFlavor,
@@ -8,7 +7,8 @@ import {
   PublicOfferingDetails,
   RancherCluster,
   rancherClusterTemplatesList,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { ENV } from '@waldur/configs/default';
 import { getAllPages } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';

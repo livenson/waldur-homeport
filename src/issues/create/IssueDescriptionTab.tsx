@@ -3,8 +3,8 @@ import { Form } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useAsync } from 'react-use';
 import { change, Field, formValueSelector, isSubmitting } from 'redux-form';
+import { supportTemplatesList, Template } from 'waldur-js-client';
 
-import { supportTemplatesList, Template } from '@waldur/api';
 import { getAllPages } from '@waldur/core/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { InputGroup } from '@waldur/customer/create/InputGroup';

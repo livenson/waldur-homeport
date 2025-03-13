@@ -1,7 +1,6 @@
 import { FunctionComponent } from 'react';
 import { useDispatch } from 'react-redux';
-
-import { IssueRequest } from '@waldur/api';
+import { IssueRequest } from 'waldur-js-client';
 
 import { IssueCreateButtonProps } from '../list/IssueCreateButton';
 import { ISSUE_IDS } from '../types/constants';

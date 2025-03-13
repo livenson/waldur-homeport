@@ -4,12 +4,12 @@ import { Button } from 'react-bootstrap';
 import ReactStars from 'react-rating-stars-component';
 import { useDispatch } from 'react-redux';
 import { Field, reduxForm, InjectedFormProps } from 'redux-form';
-
 import {
   ProposalReview,
   proposalReviewsPartialUpdate,
   ReviewSubmitRequest,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import {
   RATING_STAR_ACTIVE_COLOR,
   RATING_STAR_INACTIVE_COLOR,

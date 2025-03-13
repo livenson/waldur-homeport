@@ -1,8 +1,8 @@
 import { useRouter } from '@uirouter/react';
 import { useCallback } from 'react';
 import { reduxForm } from 'redux-form';
+import { proposalProposalsCreate, ProtectedRound } from 'waldur-js-client';
 
-import { proposalProposalsCreate, ProtectedRound } from '@waldur/api';
 import { required } from '@waldur/core/validators';
 import { SubmitButton } from '@waldur/form';
 import { FormContainer } from '@waldur/form/FormContainer';

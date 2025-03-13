@@ -1,6 +1,6 @@
 import { FC } from 'react';
+import { Resource } from 'waldur-js-client';
 
-import { Resource } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { Offering } from '@waldur/marketplace/types';

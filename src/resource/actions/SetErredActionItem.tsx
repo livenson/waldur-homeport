@@ -1,8 +1,8 @@
 import { CloudX } from '@phosphor-icons/react';
 import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { marketplaceProviderResourcesSetAsErred } from 'waldur-js-client';
 
-import { marketplaceProviderResourcesSetAsErred } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { PermissionEnum } from '@waldur/permissions/enums';

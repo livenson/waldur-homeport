@@ -1,8 +1,8 @@
 import { FunctionComponent, useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useAsyncFn, useBoolean } from 'react-use';
+import { Invoice, invoicesList, paymentsLinkToInvoice } from 'waldur-js-client';
 
-import { Invoice, invoicesList, paymentsLinkToInvoice } from '@waldur/api';
 import { getAllPages } from '@waldur/core/api';
 import { InvoicesDropdown } from '@waldur/customer/payments/InvoicesDropdown';
 import { translate } from '@waldur/i18n';

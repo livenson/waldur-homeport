@@ -1,8 +1,8 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { marketplaceProviderOfferingsRemoveOfferingComponent } from 'waldur-js-client';
 
-import { marketplaceProviderOfferingsRemoveOfferingComponent } from '@waldur/api';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { PROVIDER_OFFERING_DATA_QUERY_KEY } from '@waldur/marketplace/offerings/constants';
 import { OfferingData } from '@waldur/marketplace/offerings/OfferingEditUIView';

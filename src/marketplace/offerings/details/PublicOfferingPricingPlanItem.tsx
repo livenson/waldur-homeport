@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { FC } from 'react';
+import { BasePublicPlan, PublicOfferingDetails } from 'waldur-js-client';
 
-import { BasePublicPlan, PublicOfferingDetails } from '@waldur/api';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { FormattedHtml } from '@waldur/core/FormattedHtml';
 import { Link } from '@waldur/core/Link';

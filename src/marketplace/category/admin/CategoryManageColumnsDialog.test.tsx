@@ -2,12 +2,12 @@ import { render, screen, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { Provider } from 'react-redux';
 import { describe, it, expect, vi, beforeEach } from 'vitest';
-
 import {
   marketplaceCategoryColumnsCreate,
   marketplaceCategoryColumnsDestroy,
-} from '@waldur/api';
-import { marketplaceCategoryColumnsList } from '@waldur/api';
+} from 'waldur-js-client';
+import { marketplaceCategoryColumnsList } from 'waldur-js-client';
+
 import { Category } from '@waldur/marketplace/types';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { createActionStore } from '@waldur/resource/actions/testUtils';
@@ -21,7 +21,7 @@ const category = {
   columns: [],
 } as Category;
 
-vi.mock('@waldur/api');
+vi.mock('waldur-js-client');
 vi.mock('@waldur/store/hooks');
 vi.mock('@waldur/modal/actions');
 

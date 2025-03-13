@@ -1,5 +1,4 @@
 import { DateTime } from 'luxon';
-
 import {
   ComponentUsage,
   ComponentUserUsage,
@@ -9,7 +8,8 @@ import {
   marketplaceResourcesOfferingRetrieve,
   OfferingComponent,
   PublicOfferingDetails,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { getAllPages } from '@waldur/core/api';
 import { formatDateTime, parseDate } from '@waldur/core/dateUtils';
 import { getComponentUsages } from '@waldur/marketplace/common/api';

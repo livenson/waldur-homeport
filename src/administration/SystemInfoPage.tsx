@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { Card } from 'react-bootstrap';
+import { databaseStatsList, TableSize } from 'waldur-js-client';
 
-import { databaseStatsList, TableSize } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { formatFilesize } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';

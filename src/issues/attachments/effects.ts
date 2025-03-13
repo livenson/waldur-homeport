@@ -1,6 +1,9 @@
 import { call, put, race, select, spawn, takeEvery } from 'redux-saga/effects';
+import {
+  supportAttachmentsDestroy,
+  supportAttachmentsList,
+} from 'waldur-js-client';
 
-import { supportAttachmentsDestroy, supportAttachmentsList } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { translate } from '@waldur/i18n';
 import { showError, showErrorResponse } from '@waldur/store/notify';

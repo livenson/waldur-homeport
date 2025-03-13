@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
+import { VmwareCluster } from 'waldur-js-client';
 
-import { VmwareCluster } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { FormContainer, SelectField } from '@waldur/form';
 import { VStepperFormStepCard } from '@waldur/form/VStepperFormStep';

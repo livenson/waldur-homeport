@@ -4,7 +4,8 @@ import {
   azureLocationsList,
   AzureSize,
   azureSizesList,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { ENV } from '@waldur/configs/default';
 import { parseSelectData } from '@waldur/core/api';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';

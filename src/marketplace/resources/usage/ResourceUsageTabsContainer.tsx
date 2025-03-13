@@ -1,10 +1,10 @@
 import { FunctionComponent, useMemo } from 'react';
-
 import {
   ComponentUsage,
   ComponentUserUsage,
   OfferingComponent,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { generateColors } from '@waldur/core/generateColors';
 import { ResourceMetaInfo } from '@waldur/marketplace/resources/usage/ResourceMetaInfo';
 import { ResourceUsageTabs } from '@waldur/marketplace/resources/usage/ResourceUsageTabs';

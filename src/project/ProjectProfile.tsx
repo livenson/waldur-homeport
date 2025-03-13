@@ -2,8 +2,8 @@ import { Factory } from '@phosphor-icons/react';
 import { useMemo } from 'react';
 import { Stack } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
+import { Project } from 'waldur-js-client';
 
-import { Project } from '@waldur/api';
 import { formatDate } from '@waldur/core/dateUtils';
 import { Link } from '@waldur/core/Link';
 import { PublicDashboardHero2 } from '@waldur/dashboard/hero/PublicDashboardHero2';

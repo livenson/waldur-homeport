@@ -4,8 +4,8 @@ import { useRouter } from '@uirouter/react';
 import { FC } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { marketplaceOrdersCreate, Resource } from 'waldur-js-client';
 
-import { marketplaceOrdersCreate, Resource } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { ProgressSteps } from '@waldur/core/ProgressSteps';

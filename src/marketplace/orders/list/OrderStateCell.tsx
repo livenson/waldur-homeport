@@ -1,4 +1,5 @@
-import { OrderDetails, OrderState } from '@waldur/api';
+import { OrderDetails, OrderState } from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 
 export const OrderStateCell = ({ row }: { row: OrderDetails }) => (

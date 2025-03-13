@@ -1,6 +1,6 @@
 import Markdown from 'markdown-to-jsx';
+import { NestedSection, PublicOfferingDetails } from 'waldur-js-client';
 
-import { NestedSection, PublicOfferingDetails } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { ImagesTab } from '@waldur/marketplace/offerings/images/ImagesTab';
 

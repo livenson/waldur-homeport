@@ -1,7 +1,7 @@
 import { PlusCircle } from '@phosphor-icons/react';
 import { FC } from 'react';
+import { RancherCluster } from 'waldur-js-client';
 
-import { RancherCluster } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';

@@ -1,4 +1,5 @@
-import { rancherNodesDestroy } from '@waldur/api';
+import { rancherNodesDestroy } from 'waldur-js-client';
+
 import { ENV } from '@waldur/configs/default';
 import { validateState } from '@waldur/resource/actions/base';
 import { DestroyActionItem } from '@waldur/resource/actions/DestroyActionItem';

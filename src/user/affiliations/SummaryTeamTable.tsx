@@ -1,6 +1,6 @@
 import { FC } from 'react';
+import { Project } from 'waldur-js-client';
 
-import { Project } from '@waldur/api';
 import Avatar from '@waldur/core/Avatar';
 import { renderRoleExpirationDate } from '@waldur/customer/team/CustomerUsersList';
 import { translate } from '@waldur/i18n';

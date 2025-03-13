@@ -1,4 +1,4 @@
-import { Issue } from '@waldur/api';
+import { Issue } from 'waldur-js-client';
 
 export interface Comment {
   author_name: string;

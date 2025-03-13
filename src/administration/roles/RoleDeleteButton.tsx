@@ -1,7 +1,7 @@
 import { Trash } from '@phosphor-icons/react';
 import { useDispatch } from 'react-redux';
+import { rolesDestroy } from 'waldur-js-client';
 
-import { rolesDestroy } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';

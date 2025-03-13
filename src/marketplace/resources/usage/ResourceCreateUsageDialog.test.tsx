@@ -7,15 +7,15 @@ import {
 } from '@testing-library/react';
 import { Provider } from 'react-redux';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { marketplaceComponentUsagesSetUsage } from 'waldur-js-client';
 
-import { marketplaceComponentUsagesSetUsage } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { createActionStore } from '@waldur/resource/actions/testUtils';
 
 import * as api from './api';
 import { ResourceCreateUsageDialog } from './ResourceCreateUsageDialog';
 
-vi.mock('@waldur/api', () => ({
+vi.mock('waldur-js-client', () => ({
   marketplaceComponentUsagesSetUsage: vi.fn(),
 }));
 

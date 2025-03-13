@@ -2,13 +2,13 @@ import { useQuery } from '@tanstack/react-query';
 import { useCurrentStateAndParams, useRouter } from '@uirouter/react';
 import { createRef, useCallback, useRef, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import {
   proposalProposalsRetrieve,
   proposalReviewsPartialUpdate,
   proposalReviewsRetrieve,
   proposalReviewsSubmit,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';

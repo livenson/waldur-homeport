@@ -3,11 +3,11 @@ import { startCase } from 'lodash-es';
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { useAsync } from 'react-use';
-
 import {
   marketplacePluginsList,
   marketplacePublicOfferingsRetrieve,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { usePermissionView } from '@waldur/auth/PermissionLayout';
 import { formatDate, parseDate } from '@waldur/core/dateUtils';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';

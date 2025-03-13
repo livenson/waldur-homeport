@@ -1,7 +1,7 @@
 import { FunctionComponent, useCallback } from 'react';
 import { useSelector } from 'react-redux';
+import { customersPartialUpdate } from 'waldur-js-client';
 
-import { customersPartialUpdate } from '@waldur/api';
 import { formDataOptions, fileSerializer } from '@waldur/core/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { isFeatureVisible } from '@waldur/features/connect';

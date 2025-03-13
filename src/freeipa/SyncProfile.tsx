@@ -2,8 +2,8 @@ import { ArrowsClockwise } from '@phosphor-icons/react';
 import { useCallback, FunctionComponent } from 'react';
 import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { freeipaProfilesUpdateSshKeys } from 'waldur-js-client';
 
-import { freeipaProfilesUpdateSshKeys } from '@waldur/api';
 import { Tip } from '@waldur/core/Tooltip';
 import { translate } from '@waldur/i18n';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';

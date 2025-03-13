@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import { useDispatch } from 'react-redux';
+import { BroadcastMessage } from 'waldur-js-client';
 
-import { BroadcastMessage } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { openModalDialog } from '@waldur/modal/actions';
 

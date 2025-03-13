@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
+import { GroupInvitation } from 'waldur-js-client';
 
-import { GroupInvitation } from '@waldur/api';
 import { GroupInvitationCancelButton } from '@waldur/invitations/GroupInvitationCancelButton';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';

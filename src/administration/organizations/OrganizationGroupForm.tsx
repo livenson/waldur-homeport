@@ -1,11 +1,11 @@
 import { PlusCircle } from '@phosphor-icons/react';
 import { Field, Form } from 'react-final-form';
 import { useDispatch } from 'react-redux';
-
 import {
   organizationGroupsCreate,
   organizationGroupsUpdate,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { required } from '@waldur/core/validators';
 import { FormGroup, SubmitButton } from '@waldur/form';
 import { StringField } from '@waldur/form/StringField';

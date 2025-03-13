@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 import { Form } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { change, Field, formValueSelector } from 'redux-form';
+import { MarketplaceResourcesListData } from 'waldur-js-client';
 
-import { MarketplaceResourcesListData } from '@waldur/api';
 import { Select as AsyncSelectField } from '@waldur/form/AsyncSelectField';
 import { Select } from '@waldur/form/themed-select';
 import { translate } from '@waldur/i18n';

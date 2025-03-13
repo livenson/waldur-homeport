@@ -1,8 +1,8 @@
 import { FunctionComponent } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { NestedScreenshot } from 'waldur-js-client';
 
-import { NestedScreenshot } from '@waldur/api';
 import { openModalDialog } from '@waldur/modal/actions';
 
 import { ImageDetailsDialog } from './ImageDetailsDialog';

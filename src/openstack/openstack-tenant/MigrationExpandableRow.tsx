@@ -1,6 +1,6 @@
 import { FC } from 'react';
+import { MigrationDetails } from 'waldur-js-client';
 
-import { MigrationDetails } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { ExpandableContainer } from '@waldur/table/ExpandableContainer';
 

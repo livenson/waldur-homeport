@@ -2,8 +2,8 @@ import { useCallback } from 'react';
 import { Modal } from 'react-bootstrap';
 import { connect, useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
+import { marketplacePlansUpdateQuotas } from 'waldur-js-client';
 
-import { marketplacePlansUpdateQuotas } from '@waldur/api';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';

@@ -1,12 +1,12 @@
 import { useCallback, useMemo, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { change, getFormValues } from 'redux-form';
-
 import {
   ImportableResource,
   marketplaceProviderOfferingsImportResource,
-} from '@waldur/api';
-import { Project } from '@waldur/api';
+} from 'waldur-js-client';
+import { Project } from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import { Offering, Plan } from '@waldur/marketplace/types';
 import { closeModalDialog } from '@waldur/modal/actions';

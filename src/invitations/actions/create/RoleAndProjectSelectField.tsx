@@ -8,8 +8,8 @@ import React, {
 } from 'react';
 import { FormControl, FormGroup } from 'react-bootstrap';
 import { Field } from 'redux-form';
+import { Project } from 'waldur-js-client';
 
-import { Project } from '@waldur/api';
 import { Tip } from '@waldur/core/Tooltip';
 import { required } from '@waldur/core/validators';
 import { FormField } from '@waldur/form/types';

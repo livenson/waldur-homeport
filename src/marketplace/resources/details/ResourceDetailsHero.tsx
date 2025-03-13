@@ -2,7 +2,8 @@ import {
   OfferingComponent,
   PublicOfferingDetails,
   Resource,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { PublicDashboardHero2 } from '@waldur/dashboard/hero/PublicDashboardHero2';
 import { RefreshButton } from '@waldur/marketplace/common/RefreshButton';
 import { INSTANCE_TYPE, VOLUME_TYPE } from '@waldur/openstack/constants';

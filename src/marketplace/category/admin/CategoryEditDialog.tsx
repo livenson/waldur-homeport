@@ -2,12 +2,12 @@ import { useQuery } from '@tanstack/react-query';
 import { FC } from 'react';
 import { Field, Form } from 'react-final-form';
 import { useDispatch } from 'react-redux';
-
 import {
   marketplaceCategoriesCreate,
   marketplaceCategoriesUpdate,
   MarketplaceCategoryRequest,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { formDataOptions, fileSerializer } from '@waldur/core/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { required } from '@waldur/core/validators';

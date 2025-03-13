@@ -2,8 +2,8 @@ import { ArrowsClockwise } from '@phosphor-icons/react';
 import { useQuery } from '@tanstack/react-query';
 import { FunctionComponent } from 'react';
 import { Button } from 'react-bootstrap';
+import { MarketplaceCategoriesListData } from 'waldur-js-client';
 
-import { MarketplaceCategoriesListData } from '@waldur/api';
 import { Image } from '@waldur/core/Image';
 import { ImagePlaceholder } from '@waldur/core/ImagePlaceholder';
 import { Link } from '@waldur/core/Link';

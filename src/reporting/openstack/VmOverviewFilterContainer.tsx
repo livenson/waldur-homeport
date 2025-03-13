@@ -1,7 +1,7 @@
 import { useAsync } from 'react-use';
 import { reduxForm } from 'redux-form';
+import { openstackTenantsList } from 'waldur-js-client';
 
-import { openstackTenantsList } from '@waldur/api';
 import { getAllPages } from '@waldur/core/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';

@@ -1,6 +1,6 @@
 import { call, put, takeEvery } from 'redux-saga/effects';
+import { supportCommentsDestroy, supportCommentsList } from 'waldur-js-client';
 
-import { supportCommentsDestroy, supportCommentsList } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { showErrorResponse } from '@waldur/store/notify';
 

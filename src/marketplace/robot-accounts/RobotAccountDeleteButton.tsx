@@ -1,4 +1,5 @@
-import { marketplaceRobotAccountsDestroy } from '@waldur/api';
+import { marketplaceRobotAccountsDestroy } from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';

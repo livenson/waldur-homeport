@@ -1,7 +1,7 @@
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
+import { rolesCreate } from 'waldur-js-client';
 
-import { rolesCreate } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { AddButton } from '@waldur/core/AddButton';
 import { lazyComponent } from '@waldur/core/lazyComponent';

@@ -1,4 +1,5 @@
-import { openstackServerGroupsDestroy } from '@waldur/api';
+import { openstackServerGroupsDestroy } from 'waldur-js-client';
+
 import { DestroyActionItem } from '@waldur/resource/actions/DestroyActionItem';
 import { ActionItemType } from '@waldur/resource/actions/types';
 

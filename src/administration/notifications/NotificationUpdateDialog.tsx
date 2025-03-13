@@ -2,8 +2,8 @@ import arrayMutators from 'final-form-arrays';
 import { useCallback } from 'react';
 import { Form } from 'react-final-form';
 import { useDispatch } from 'react-redux';
+import { notificationMessagesTemplatesOverride } from 'waldur-js-client';
 
-import { notificationMessagesTemplatesOverride } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { ModalDialog } from '@waldur/modal/ModalDialog';

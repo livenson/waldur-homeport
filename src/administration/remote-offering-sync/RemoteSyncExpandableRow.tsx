@@ -1,6 +1,9 @@
 import { FC, useEffect } from 'react';
+import {
+  NestedRemoteLocalCategory,
+  RemoteSynchronisation,
+} from 'waldur-js-client';
 
-import { NestedRemoteLocalCategory, RemoteSynchronisation } from '@waldur/api';
 import { CopyToClipboardButton } from '@waldur/core/CopyToClipboardButton';
 import { translate } from '@waldur/i18n';
 import { ExpandableContainer } from '@waldur/table/ExpandableContainer';

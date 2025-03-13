@@ -1,4 +1,5 @@
-import { Resource } from '@waldur/api';
+import { Resource } from 'waldur-js-client';
+
 import { StateIndicator } from '@waldur/core/StateIndicator';
 import { translate } from '@waldur/i18n';
 

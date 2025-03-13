@@ -2,11 +2,11 @@ import { FC, useEffect, useState } from 'react';
 import { Form, Table } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { InjectedFormProps } from 'redux-form';
-
 import {
   invoiceItemsCustomerCostsForPeriodRetrieve,
   invoiceItemsProjectCostsForPeriodRetrieve,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { ENV } from '@waldur/configs/default';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { required } from '@waldur/core/validators';

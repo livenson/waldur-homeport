@@ -1,7 +1,8 @@
 import {
   userGroupInvitationsSubmitRequest,
   userInvitationsAccept,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import * as AuthService from '@waldur/auth/AuthService';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { createDeferred } from '@waldur/core/utils';

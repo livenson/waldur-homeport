@@ -1,6 +1,5 @@
 import { formValues } from 'redux-form';
-
-import { BillingTypeEnum } from '@waldur/api';
+import { BillingTypeEnum } from 'waldur-js-client';
 
 import { ComponentBooleanDefaultLimitField } from './ComponentBooleanDefaultLimitField';
 import { ComponentBooleanLimitField } from './ComponentBooleanLimitField';

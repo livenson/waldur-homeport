@@ -1,4 +1,5 @@
-import { BillingUnit, ResourceLimitPeriod } from '@waldur/api';
+import { BillingUnit, ResourceLimitPeriod } from 'waldur-js-client';
+
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 

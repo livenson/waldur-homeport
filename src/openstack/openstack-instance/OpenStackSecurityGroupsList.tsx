@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import { Card } from 'react-bootstrap';
+import { OpenStackInstance } from 'waldur-js-client';
 
-import { OpenStackInstance } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { RefreshButton } from '@waldur/marketplace/offerings/update/components/RefreshButton';
 

@@ -3,8 +3,8 @@ import { useQuery } from '@tanstack/react-query';
 import { Form } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { Field, FieldArray, WrappedFieldArrayProps } from 'redux-form';
+import { marketplaceCategoriesList } from 'waldur-js-client';
 
-import { marketplaceCategoriesList } from '@waldur/api';
 import { getAllPages } from '@waldur/core/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';

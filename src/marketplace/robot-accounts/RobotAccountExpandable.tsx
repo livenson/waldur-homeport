@@ -1,6 +1,6 @@
 import { FC, useMemo } from 'react';
+import { RobotAccountDetails, SshKey } from 'waldur-js-client';
 
-import { RobotAccountDetails, SshKey } from '@waldur/api';
 import { CopyToClipboardContainer } from '@waldur/core/CopyToClipboardContainer';
 import { translate } from '@waldur/i18n';
 import { ExpandableContainer } from '@waldur/table/ExpandableContainer';

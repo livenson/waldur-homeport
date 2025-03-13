@@ -1,9 +1,9 @@
 import { Prohibit } from '@phosphor-icons/react';
 import { useMutation } from '@tanstack/react-query';
 import { useDispatch, useSelector } from 'react-redux';
+import { remoteWaldurApiCancelTermination } from 'waldur-js-client';
+import { OrderDetails as OrderResponse } from 'waldur-js-client';
 
-import { remoteWaldurApiCancelTermination } from '@waldur/api';
-import { OrderDetails as OrderResponse } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { REMOTE_OFFERING_TYPE } from '@waldur/marketplace-remote/constants';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';

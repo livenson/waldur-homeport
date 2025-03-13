@@ -1,4 +1,4 @@
-import { MarketplaceResourcesListData } from '@waldur/api';
+import { MarketplaceResourcesListData } from 'waldur-js-client';
 
 export const TABLE_PUBLIC_RESOURCE = 'PublicResourcesList';
 export const PROVIDER_RESOURCES_LIST_FILTER_FORM_ID = 'ProviderResourcesFilter';

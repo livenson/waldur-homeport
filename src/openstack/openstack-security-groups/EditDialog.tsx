@@ -1,9 +1,9 @@
 import { FC } from 'react';
-
 import {
   openstackSecurityGroupsUpdate,
   OpenStackSecurityGroupUpdateRequest,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import {
   createNameField,

@@ -3,8 +3,8 @@ import { FunctionComponent } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { compose } from 'redux';
 import { Field, reduxForm, InjectedFormProps } from 'redux-form';
+import { Resource } from 'waldur-js-client';
 
-import { Resource } from '@waldur/api';
 import { formatDate } from '@waldur/core/dateUtils';
 import { FormContainer, SubmitButton } from '@waldur/form';
 import { DateField } from '@waldur/form/DateField';

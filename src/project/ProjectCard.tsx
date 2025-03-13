@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
+import { Project } from 'waldur-js-client';
 
-import { Project } from '@waldur/api';
 import { formatDate } from '@waldur/core/dateUtils';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { Link } from '@waldur/core/Link';

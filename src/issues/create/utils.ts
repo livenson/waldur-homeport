@@ -1,4 +1,5 @@
-import { IssueRequest, supportIssuesCreate } from '@waldur/api';
+import { IssueRequest, supportIssuesCreate } from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import { putAttachment } from '@waldur/issues/attachments/api';
 import { closeModalDialog } from '@waldur/modal/actions';

@@ -1,6 +1,6 @@
 import { FunctionComponent, PropsWithChildren, useMemo } from 'react';
+import { Resource } from 'waldur-js-client';
 
-import { Resource } from '@waldur/api';
 import { Field } from '@waldur/resource/summary';
 
 import { getResourceSummaryFields } from './utils';

@@ -1,11 +1,11 @@
 import { FunctionComponent } from 'react';
 import ReactStars from 'react-rating-stars-component';
 import { useAsync } from 'react-use';
-
 import {
   supportFeedbackAverageReportRetrieve,
   supportFeedbackReportRetrieve,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { RATING_STAR_ACTIVE_COLOR } from '@waldur/core/constants';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { Panel } from '@waldur/core/Panel';

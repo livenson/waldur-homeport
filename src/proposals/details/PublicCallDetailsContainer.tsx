@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { UIView, useCurrentStateAndParams } from '@uirouter/react';
 import { FC, useMemo } from 'react';
+import { proposalPublicCallsRetrieve } from 'waldur-js-client';
 
-import { proposalPublicCallsRetrieve } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { isFeatureVisible } from '@waldur/features/connect';

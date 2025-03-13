@@ -1,10 +1,10 @@
 import Axios from 'axios';
-
 import {
   marketplaceChecklistsCategoriesList,
   marketplaceChecklistsCategoriesChecklistsList,
   marketplaceChecklistsList,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { ENV } from '@waldur/configs/default';
 import { getAllPages, parseResultCount } from '@waldur/core/api';
 

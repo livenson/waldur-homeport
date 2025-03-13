@@ -1,4 +1,5 @@
-import { eventsEventGroupsRetrieve } from '@waldur/api';
+import { eventsEventGroupsRetrieve } from 'waldur-js-client';
+
 import { titleCase } from '@waldur/core/utils';
 
 import { EventGroupOption } from './types';

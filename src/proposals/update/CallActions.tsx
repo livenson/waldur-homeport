@@ -1,11 +1,11 @@
 import { FC, useCallback } from 'react';
 import { DropdownButton, Dropdown, Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
-
 import {
   proposalProtectedCallsActivate,
   proposalProtectedCallsArchive,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { Tip } from '@waldur/core/Tooltip';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';

@@ -1,8 +1,8 @@
 import { XCircle } from '@phosphor-icons/react';
 import { FunctionComponent } from 'react';
 import { useDispatch } from 'react-redux';
+import { GroupInvitation, userGroupInvitationsCancel } from 'waldur-js-client';
 
-import { GroupInvitation, userGroupInvitationsCancel } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';

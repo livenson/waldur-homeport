@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { customersPartialUpdate } from 'waldur-js-client';
 
-import { customersPartialUpdate } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { EditButton } from '@waldur/form/EditButton';
 import { translate } from '@waldur/i18n';

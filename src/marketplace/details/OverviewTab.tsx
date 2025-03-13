@@ -1,8 +1,8 @@
 import { ChatCircleText } from '@phosphor-icons/react';
 import { FunctionComponent } from 'react';
 import { Col, Row } from 'react-bootstrap';
+import { PublicOfferingDetails } from 'waldur-js-client';
 
-import { PublicOfferingDetails } from '@waldur/api';
 import { FormattedHtml } from '@waldur/core/FormattedHtml';
 import { translate } from '@waldur/i18n';
 import { LeafletMap } from '@waldur/map/LeafletMap';

@@ -1,4 +1,5 @@
-import { IdentityProvider } from '@waldur/api';
+import { IdentityProvider } from 'waldur-js-client';
+
 import { IdentityProviderLogo } from '@waldur/auth/providers/IdentityProviderLogo';
 
 import { LoginButton } from './LoginButton';

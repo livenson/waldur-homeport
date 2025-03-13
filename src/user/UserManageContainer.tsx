@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { UIView, useCurrentStateAndParams } from '@uirouter/react';
 import { useMemo } from 'react';
+import { usersRetrieve } from 'waldur-js-client';
 
-import { usersRetrieve } from '@waldur/api';
 import { usePermissionView } from '@waldur/auth/PermissionLayout';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { LoadingErred } from '@waldur/core/LoadingErred';

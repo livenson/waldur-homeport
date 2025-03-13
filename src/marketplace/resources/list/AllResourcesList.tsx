@@ -2,8 +2,8 @@ import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
+import { Project } from 'waldur-js-client';
 
-import { Project } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import {
   ALL_RESOURCES_TABLE_ID,

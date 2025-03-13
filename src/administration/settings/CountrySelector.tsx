@@ -1,8 +1,8 @@
 import { FunctionComponent, useMemo, useState } from 'react';
 import { Button, Col, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { overrideSettings } from 'waldur-js-client';
 
-import { overrideSettings } from '@waldur/api';
 import { formDataOptions } from '@waldur/core/api';
 import { AwesomeCheckboxField } from '@waldur/form/AwesomeCheckboxField';
 import { translate } from '@waldur/i18n';

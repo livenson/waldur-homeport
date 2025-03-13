@@ -1,8 +1,8 @@
-import { OpenStackFlavor } from '@waldur/api';
+import { OpenStackFlavor } from 'waldur-js-client';
 export {
   RancherTemplateQuestion as Question,
   RancherTemplateQuestionType as QuestionType,
-} from '@waldur/api';
+} from 'waldur-js-client';
 
 export interface Namespace {
   url: string;

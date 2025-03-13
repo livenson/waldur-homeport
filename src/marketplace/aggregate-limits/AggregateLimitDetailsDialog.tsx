@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
-
 import {
   marketplaceResourcesList,
   MarketplaceResourcesListData,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { getAllPages } from '@waldur/core/api';
 import { Select } from '@waldur/form/themed-select';
 import { translate } from '@waldur/i18n';

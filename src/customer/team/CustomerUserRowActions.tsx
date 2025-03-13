@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
+import { CustomerUser } from 'waldur-js-client';
 
-import { CustomerUser } from '@waldur/api';
 import { ActionsDropdownComponent } from '@waldur/table/ActionsDropdown';
 import { UserDetailsButton } from '@waldur/user/UserDetailsButton';
 

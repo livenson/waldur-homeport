@@ -1,6 +1,6 @@
 import { Power } from '@phosphor-icons/react';
+import { vmwareVirtualMachineShutdownGuest } from 'waldur-js-client';
 
-import { vmwareVirtualMachineShutdownGuest } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { AsyncActionItem } from '@waldur/resource/actions/AsyncActionItem';
 import {

@@ -8,12 +8,12 @@ import { useCallback } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
-
 import {
   broadcastMessagesCreate,
   broadcastMessagesSend,
   broadcastMessagesUpdate,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { formatDate } from '@waldur/core/dateUtils';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';

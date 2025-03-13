@@ -1,5 +1,6 @@
-import { PublicOfferingDetails } from '@waldur/api';
-import { Project } from '@waldur/api';
+import { PublicOfferingDetails } from 'waldur-js-client';
+import { Project } from 'waldur-js-client';
+
 import { Offering, Plan } from '@waldur/marketplace/types';
 
 import { PricesData } from './plan/types';

@@ -1,9 +1,9 @@
 import { Info, WarningCircle, XCircle } from '@phosphor-icons/react';
 import { useQuery } from '@tanstack/react-query';
 import { Button } from 'react-bootstrap';
+import { adminAnnouncementsList } from 'waldur-js-client';
 
 import { AnnouncementTypeOptions } from '@waldur/administration/utils';
-import { adminAnnouncementsList } from '@waldur/api';
 import { getAllPages } from '@waldur/core/api';
 import { RadarIcon } from '@waldur/core/RadarIcon';
 import { translate } from '@waldur/i18n';

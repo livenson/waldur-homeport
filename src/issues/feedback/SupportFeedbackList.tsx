@@ -2,8 +2,8 @@ import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
+import { Feedback, SupportFeedbacksListData } from 'waldur-js-client';
 
-import { Feedback, SupportFeedbacksListData } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 import {

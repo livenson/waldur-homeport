@@ -2,8 +2,8 @@ import { useCallback } from 'react';
 import { Modal } from 'react-bootstrap';
 import { connect, useDispatch } from 'react-redux';
 import { FieldArray, reduxForm } from 'redux-form';
+import { marketplaceProviderOfferingsUpdateAttributes } from 'waldur-js-client';
 
-import { marketplaceProviderOfferingsUpdateAttributes } from '@waldur/api';
 import { pick } from '@waldur/core/utils';
 import { FormContainer, SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';

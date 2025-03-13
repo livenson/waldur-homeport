@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
+import { marketplaceOfferingUsersCreate } from 'waldur-js-client';
 
-import { marketplaceOfferingUsersCreate } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { userAutocomplete } from '@waldur/marketplace/common/autocompletes';
 import { closeModalDialog } from '@waldur/modal/actions';
