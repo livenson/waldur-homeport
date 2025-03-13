@@ -30,7 +30,6 @@
     "@dnd-kit/sortable": "^8.0.0",
     "@fontsource/inter": "^4.5.15",
     "@fontsource/open-sans": "^4.5.14",
-    "@hey-api/client-fetch": "^0.8.1",
     "@jonkoops/matomo-tracker": "^0.7.0",
     "@mdxeditor/editor": "^3.23.0",
     "@phosphor-icons/react": "^2.1.7",
@@ -89,7 +88,8 @@
     "redux-thunk": "^2.4.2",
     "reselect": "^3.0.1",
     "source-map": "^0.7.4",
-    "text-security": "^3.2.1"
+    "text-security": "^3.2.1",
+    "waldur-js-client": "^1.0.0"
   },
   "devDependencies": {
     "@babel/core": "^7.26.0",
@@ -201,8 +201,7 @@
       "*.fixture.ts",
       "*.fixture.tsx",
       "src/EventsEnums.ts",
-      "src/FeaturesEnums.ts",
-      "src/api/*.ts"
+      "src/FeaturesEnums.ts"
     ]
   },
   "stylelint": {

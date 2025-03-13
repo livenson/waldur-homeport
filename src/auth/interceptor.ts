@@ -1,7 +1,7 @@
 import Axios from 'axios';
 import Qs from 'qs';
+import { client } from 'waldur-js-client/client.gen';
 
-import { client } from '@waldur/api/client.gen';
 import { ENV } from '@waldur/configs/default';
 import { cleanObject, wait } from '@waldur/core/utils';
 import { router } from '@waldur/router';
