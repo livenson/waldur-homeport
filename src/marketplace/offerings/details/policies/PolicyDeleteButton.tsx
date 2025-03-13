@@ -1,10 +1,10 @@
 import { Trash } from '@phosphor-icons/react';
 import { useDispatch } from 'react-redux';
-
 import {
   marketplaceOfferingEstimatedCostPoliciesDestroy,
   marketplaceOfferingUsagePoliciesDestroy,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { showErrorResponse } from '@waldur/store/notify';

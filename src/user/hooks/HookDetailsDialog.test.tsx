@@ -1,12 +1,12 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
-
 import {
   hooksEmailCreate,
   hooksWebCreate,
   hooksWebPartialUpdate,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { useNotify } from '@waldur/store/hooks';
 
 import { HookDetailsDialog } from './HookDetailsDialog';
@@ -14,7 +14,7 @@ import { HookResponse } from './types';
 import { loadEventGroupsOptions } from './utils';
 
 // Mock the required modules
-vi.mock('@waldur/api');
+vi.mock('waldur-js-client');
 vi.mock('./utils');
 vi.mock('@waldur/modal/actions', () => ({
   closeModalDialog: vi.fn(),

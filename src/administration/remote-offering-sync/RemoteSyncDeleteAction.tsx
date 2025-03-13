@@ -1,8 +1,8 @@
 import { Trash } from '@phosphor-icons/react';
 import { useMutation } from '@tanstack/react-query';
 import { useDispatch } from 'react-redux';
+import { marketplaceRemoteSynchronisationsDestroy } from 'waldur-js-client';
 
-import { marketplaceRemoteSynchronisationsDestroy } from '@waldur/api';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';

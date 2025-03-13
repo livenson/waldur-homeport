@@ -5,8 +5,12 @@ import { Form, InputGroup, Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useMountedState } from 'react-use';
 import { reduxForm, Field } from 'redux-form';
+import {
+  AuthResult,
+  authValimoCreate,
+  authValimoResult,
+} from 'waldur-js-client';
 
-import { AuthResult, authValimoCreate, authValimoResult } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { wait } from '@waldur/core/utils';
 import { InputField } from '@waldur/form/InputField';

@@ -2,8 +2,8 @@ import { useQuery } from '@tanstack/react-query';
 import { groupBy } from 'lodash-es';
 import { useDispatch, useSelector } from 'react-redux';
 import { change } from 'redux-form';
+import { remoteWaldurApiSharedOfferings } from 'waldur-js-client';
 
-import { remoteWaldurApiSharedOfferings } from '@waldur/api';
 import { required } from '@waldur/core/validators';
 import { FormContainer, SelectField } from '@waldur/form';
 import { MultiSelectOption } from '@waldur/form/themed-select';

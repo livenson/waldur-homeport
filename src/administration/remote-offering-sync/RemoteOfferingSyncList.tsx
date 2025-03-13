@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
+import { RemoteSynchronisation } from 'waldur-js-client';
 
-import { RemoteSynchronisation } from '@waldur/api';
 import { Badge } from '@waldur/core/Badge';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';

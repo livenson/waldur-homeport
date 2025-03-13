@@ -4,8 +4,8 @@ import { Card } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { useAsync } from 'react-use';
 import { formValueSelector } from 'redux-form';
+import { marketplaceProviderOfferingsCostsList } from 'waldur-js-client';
 
-import { marketplaceProviderOfferingsCostsList } from '@waldur/api';
 import { getAllPages } from '@waldur/core/api';
 import { EChart } from '@waldur/core/EChart';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';

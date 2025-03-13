@@ -3,8 +3,8 @@ import { useMutation } from '@tanstack/react-query';
 import { Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { Field } from 'redux-form';
+import { marketplaceResourcesSuggestName } from 'waldur-js-client';
 
-import { marketplaceResourcesSuggestName } from '@waldur/api';
 import { Tip } from '@waldur/core/Tooltip';
 import { getNameFieldValidators } from '@waldur/core/validators';
 import { FormGroup, StringField } from '@waldur/form';

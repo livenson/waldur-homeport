@@ -1,7 +1,7 @@
 import { get } from 'lodash-es';
 import { FunctionComponent, useMemo } from 'react';
+import { UsernameGenerationPolicyEnum } from 'waldur-js-client';
 
-import { UsernameGenerationPolicyEnum } from '@waldur/api';
 import { formatYesNo } from '@waldur/core/utils';
 import { required } from '@waldur/core/validators';
 import { SelectField, NumberField, StringField } from '@waldur/form';

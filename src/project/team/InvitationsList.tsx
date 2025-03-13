@@ -3,8 +3,8 @@ import { FunctionComponent, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
+import { Invitation } from 'waldur-js-client';
 
-import { Invitation } from '@waldur/api';
 import Avatar from '@waldur/core/Avatar';
 import { CopyToClipboardButton } from '@waldur/core/CopyToClipboardButton';
 import { formatDate } from '@waldur/core/dateUtils';

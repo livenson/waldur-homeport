@@ -1,4 +1,4 @@
-import { OptionFieldTypeEnum } from '@waldur/api';
+import { OptionFieldTypeEnum } from 'waldur-js-client';
 
 export const FIELD_TYPES: Array<{ value: OptionFieldTypeEnum; label: string }> =
   [

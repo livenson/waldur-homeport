@@ -1,4 +1,5 @@
-import { openstackInstancesConsoleRetrieve } from '@waldur/api';
+import { openstackInstancesConsoleRetrieve } from 'waldur-js-client';
+
 import { validatePermissionsForConsoleAction } from '@waldur/openstack/utils';
 import { validateState } from '@waldur/resource/actions/base';
 import { OpenConsoleActionItem } from '@waldur/resource/actions/OpenConsoleActionItem';

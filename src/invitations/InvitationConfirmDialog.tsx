@@ -3,9 +3,9 @@ import { useRouter } from '@uirouter/react';
 import { FunctionComponent, useCallback, useEffect } from 'react';
 import { Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
+import { userInvitationsDetailsRetrieve } from 'waldur-js-client';
 
 import { getInvitationLinkProps } from '@waldur/administration/getInvitationLinkProps';
-import { userInvitationsDetailsRetrieve } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';

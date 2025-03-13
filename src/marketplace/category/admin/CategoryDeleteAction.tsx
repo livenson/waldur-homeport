@@ -1,8 +1,8 @@
 import { Trash } from '@phosphor-icons/react';
 import { useCallback, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { marketplaceCategoriesDestroy } from 'waldur-js-client';
 
-import { marketplaceCategoriesDestroy } from '@waldur/api';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { Category } from '@waldur/marketplace/types';
 import { waitForConfirmation } from '@waldur/modal/actions';

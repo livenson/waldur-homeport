@@ -1,8 +1,8 @@
 import { useMutation } from '@tanstack/react-query';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
+import { proposalProposalsResourcesDestroy } from 'waldur-js-client';
 
-import { proposalProposalsResourcesDestroy } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { EditButton } from '@waldur/form/EditButton';
 import { formatJsxTemplate, translate } from '@waldur/i18n';

@@ -3,8 +3,8 @@ import { useRouter } from '@uirouter/react';
 import { useCallback } from 'react';
 import { Card, Col, Form, Row, Stack } from 'react-bootstrap';
 import { useAsync } from 'react-use';
+import { usersList, versionRetrieve } from 'waldur-js-client';
 
-import { usersList, versionRetrieve } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { fixURL, parseSelectData } from '@waldur/core/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';

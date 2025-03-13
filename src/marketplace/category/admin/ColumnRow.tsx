@@ -2,8 +2,8 @@ import { Trash } from '@phosphor-icons/react';
 import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { Field } from 'redux-form';
+import { marketplaceCategoryColumnsDestroy } from 'waldur-js-client';
 
-import { marketplaceCategoryColumnsDestroy } from '@waldur/api';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { FormField } from '@waldur/openstack/openstack-security-groups/rule-editor/FormField';

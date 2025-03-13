@@ -1,8 +1,8 @@
 import { Check, Prohibit } from '@phosphor-icons/react';
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
+import { marketplaceOfferingUsersUpdateRestricted } from 'waldur-js-client';
 
-import { marketplaceOfferingUsersUpdateRestricted } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';

@@ -1,6 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
+import { VmwareDisk } from 'waldur-js-client';
 
-import { VmwareDisk } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { formatFilesize } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';

@@ -1,9 +1,9 @@
 import { Question } from '@phosphor-icons/react';
 import React, { useState } from 'react';
 import { Card, Col, Form, Row } from 'react-bootstrap';
+import { usersPartialUpdate } from 'waldur-js-client';
+import { User } from 'waldur-js-client';
 
-import { usersPartialUpdate } from '@waldur/api';
-import { User } from '@waldur/api';
 import { Tip } from '@waldur/core/Tooltip';
 import { SubmitButton } from '@waldur/form';
 import { Select } from '@waldur/form/themed-select';

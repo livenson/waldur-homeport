@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { usersPartialUpdate } from 'waldur-js-client';
+import { User } from 'waldur-js-client';
 
-import { usersPartialUpdate } from '@waldur/api';
-import { User } from '@waldur/api';
 import { fileSerializer, formDataOptions } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';
 import { useNotify } from '@waldur/store/hooks';

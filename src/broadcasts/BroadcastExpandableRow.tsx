@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import { Col, Row } from 'react-bootstrap';
+import { BroadcastMessage } from 'waldur-js-client';
 
-import { BroadcastMessage } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';

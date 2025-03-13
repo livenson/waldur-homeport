@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { useSelector } from 'react-redux';
+import { organizationGroupsList } from 'waldur-js-client';
 
-import { organizationGroupsList } from '@waldur/api';
 import { getAllPages } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';
 import { getUser } from '@waldur/workspace/selectors';

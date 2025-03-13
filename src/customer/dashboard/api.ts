@@ -1,4 +1,5 @@
-import { invoicesList } from '@waldur/api';
+import { invoicesList } from 'waldur-js-client';
+
 import { formatCostChart, getTeamSizeChart } from '@waldur/dashboard/api';
 import {
   getLineChartOptions,

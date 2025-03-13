@@ -1,4 +1,5 @@
-import { IdentityProvider } from '@waldur/api';
+import { IdentityProvider } from 'waldur-js-client';
+
 import { ENV } from '@waldur/configs/default';
 
 export const getOauthURL = (provider: Pick<IdentityProvider, 'provider'>) =>

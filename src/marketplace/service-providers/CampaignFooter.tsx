@@ -2,11 +2,11 @@ import { CaretRight, PaperPlaneTilt } from '@phosphor-icons/react';
 import { useCallback } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
-
 import {
   promotionsCampaignsCreate,
   promotionsCampaignsUpdate,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import * as api from '@waldur/marketplace/common/api';
 import { serializeCampaign } from '@waldur/marketplace/service-providers/utils';

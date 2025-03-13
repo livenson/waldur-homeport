@@ -1,7 +1,7 @@
 import { FunctionComponent, useMemo } from 'react';
 import { ButtonGroup } from 'react-bootstrap';
+import { RancherCluster, RancherHpa } from 'waldur-js-client';
 
-import { RancherCluster, RancherHpa } from '@waldur/api';
 import { formatDate } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 import { createFetcher } from '@waldur/table/api';

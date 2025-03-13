@@ -1,11 +1,11 @@
 import { useMutation } from '@tanstack/react-query';
 import { useDispatch } from 'react-redux';
-
 import {
   proposalRequestedOfferingsAccept,
   proposalRequestedOfferingsCancel,
   ProviderRequestedOffering,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';

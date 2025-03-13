@@ -1,8 +1,8 @@
 import { useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
+import { rancherCatalogsCreate } from 'waldur-js-client';
 
-import { rancherCatalogsCreate } from '@waldur/api';
 import { StringField, TextField, SecretField } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { ActionDialog } from '@waldur/modal/ActionDialog';

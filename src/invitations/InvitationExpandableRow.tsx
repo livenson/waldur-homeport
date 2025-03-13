@@ -1,6 +1,6 @@
 import React from 'react';
+import { Invitation } from 'waldur-js-client';
 
-import { Invitation } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { CopyToClipboardContainer } from '@waldur/core/CopyToClipboardContainer';
 import { translate } from '@waldur/i18n';

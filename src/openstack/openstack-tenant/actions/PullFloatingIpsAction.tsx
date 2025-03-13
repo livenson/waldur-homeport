@@ -1,7 +1,7 @@
 import { ArrowsClockwise } from '@phosphor-icons/react';
 import { FC } from 'react';
+import { openstackTenantsPullFloatingIps } from 'waldur-js-client';
 
-import { openstackTenantsPullFloatingIps } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { AsyncActionButton } from '@waldur/resource/actions/AsyncActionButton';
 import { validateState } from '@waldur/resource/actions/base';

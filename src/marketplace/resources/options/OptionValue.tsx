@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
+import { OptionField, OptionFieldTypeEnum } from 'waldur-js-client';
 
-import { OptionField, OptionFieldTypeEnum } from '@waldur/api';
 import { formatDate, formatTime } from '@waldur/core/dateUtils';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { FormattedHtml } from '@waldur/core/FormattedHtml';

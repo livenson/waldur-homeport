@@ -3,8 +3,8 @@ import { useRouter } from '@uirouter/react';
 import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
+import { customersDestroy } from 'waldur-js-client';
 
-import { customersDestroy } from '@waldur/api';
 import { FormContainer, TextField } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';

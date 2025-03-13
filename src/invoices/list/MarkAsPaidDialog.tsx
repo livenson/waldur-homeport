@@ -1,8 +1,8 @@
 import { FunctionComponent } from 'react';
 import { useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
+import { invoicesPaid } from 'waldur-js-client';
 
-import { invoicesPaid } from '@waldur/api';
 import { formDataOptions, fileSerializer } from '@waldur/core/api';
 import { formatDate } from '@waldur/core/dateUtils';
 import { FileUploadField, FormContainer, SubmitButton } from '@waldur/form';

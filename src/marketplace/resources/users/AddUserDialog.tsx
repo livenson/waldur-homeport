@@ -2,8 +2,8 @@ import { useCallback } from 'react';
 import { Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
+import { marketplaceResourceUsersCreate, usersList } from 'waldur-js-client';
 
-import { marketplaceResourceUsersCreate, usersList } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { parseSelectData } from '@waldur/core/api';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';

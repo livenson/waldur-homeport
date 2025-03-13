@@ -2,7 +2,7 @@ export {
   ChecklistQuestion as Question,
   Checklist,
   ChecklistCustomerStats as ChecklistStats,
-} from '@waldur/api';
+} from 'waldur-js-client';
 
 export interface Category {
   name: string;

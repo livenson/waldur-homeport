@@ -1,8 +1,11 @@
 import { useCallback } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
+import {
+  broadcastMessageTemplatesUpdate,
+  MessageTemplate,
+} from 'waldur-js-client';
 
-import { broadcastMessageTemplatesUpdate, MessageTemplate } from '@waldur/api';
 import { BroadcastTemplateForm } from '@waldur/broadcasts/BroadcastTemplateForm';
 import { BROADCAST_TEMPLATE_CREATE_FORM_ID } from '@waldur/broadcasts/constants';
 import { translate } from '@waldur/i18n';

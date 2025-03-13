@@ -2,8 +2,8 @@ import { useState, useCallback, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffectOnce } from 'react-use';
 import { reduxForm } from 'redux-form';
+import { RancherHpa, rancherHpasUpdate } from 'waldur-js-client';
 
-import { RancherHpa, rancherHpasUpdate } from '@waldur/api';
 import { StringField, SelectField, NumberField, TextField } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { ActionDialog } from '@waldur/modal/ActionDialog';

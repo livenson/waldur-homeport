@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { Card, Col, Row } from 'react-bootstrap';
+import { overrideSettingsRetrieve } from 'waldur-js-client';
 
-import { overrideSettingsRetrieve } from '@waldur/api';
 import {
   EDUTEAMS_IDP,
   FREEIPA_IDP,

@@ -3,13 +3,13 @@ import { get } from 'lodash-es';
 import { createRef, FC, useCallback, useMemo, useRef } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { change, getFormValues } from 'redux-form';
-
 import {
   proposalProposalsAttachDocument,
   proposalProposalsSubmit,
   proposalProposalsUpdateProjectDetails,
   ProposalReview,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { formDataOptions } from '@waldur/core/api';
 import { isEmpty } from '@waldur/core/utils';
 import { Form } from '@waldur/form/Form';

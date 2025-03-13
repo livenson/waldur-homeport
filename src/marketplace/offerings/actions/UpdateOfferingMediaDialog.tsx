@@ -1,11 +1,11 @@
 import { FunctionComponent } from 'react';
 import { useDispatch } from 'react-redux';
 import { InjectedFormProps, reduxForm } from 'redux-form';
-
 import {
   marketplaceProviderOfferingsUpdateImage,
   marketplaceProviderOfferingsUpdateThumbnail,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { formDataOptions } from '@waldur/core/api';
 import { FormContainer, SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';

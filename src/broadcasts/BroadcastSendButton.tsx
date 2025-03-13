@@ -1,7 +1,7 @@
 import { Share } from '@phosphor-icons/react';
 import { useDispatch } from 'react-redux';
+import { broadcastMessagesSend } from 'waldur-js-client';
 
-import { broadcastMessagesSend } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';

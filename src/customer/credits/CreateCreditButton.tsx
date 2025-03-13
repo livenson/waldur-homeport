@@ -1,6 +1,6 @@
 import { SubmissionError } from 'redux-form';
+import { customerCreditsCreate } from 'waldur-js-client';
 
-import { customerCreditsCreate } from '@waldur/api';
 import { AddButton } from '@waldur/core/AddButton';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';

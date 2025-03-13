@@ -1,7 +1,7 @@
 import { ArrowSquareOut } from '@phosphor-icons/react';
 import { FunctionComponent } from 'react';
+import { Payment } from 'waldur-js-client';
 
-import { Payment } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { DASH_ESCAPE_CODE } from '@waldur/table/constants';
 

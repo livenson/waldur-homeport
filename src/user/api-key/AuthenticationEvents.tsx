@@ -1,6 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
+import { Event } from 'waldur-js-client';
 
-import { Event } from '@waldur/api';
 import { formatRelative } from '@waldur/core/dateUtils';
 import eventsRegistry from '@waldur/events/registry';
 import { translate } from '@waldur/i18n';

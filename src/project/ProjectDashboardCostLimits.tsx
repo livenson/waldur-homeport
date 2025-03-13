@@ -4,8 +4,8 @@ import { useRouter } from '@uirouter/react';
 import { useCallback } from 'react';
 import { Col } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
+import { Project } from 'waldur-js-client';
 
-import { Project } from '@waldur/api';
 import { EChart } from '@waldur/core/EChart';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { LoadingErred } from '@waldur/core/LoadingErred';

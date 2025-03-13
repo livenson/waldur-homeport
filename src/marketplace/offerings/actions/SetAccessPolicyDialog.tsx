@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
+import { OrganizationGroup } from 'waldur-js-client';
 
 import { OrganizationGroupCreateButton } from '@waldur/administration/organizations/OrganizationGroupCreateButton';
-import { OrganizationGroup } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { SetAccessPolicyDialogForm } from '@waldur/marketplace/offerings/actions/SetAccessPolicyDialogForm';

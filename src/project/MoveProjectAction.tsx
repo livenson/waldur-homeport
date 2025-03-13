@@ -1,7 +1,7 @@
 import { ArrowsOutCardinal } from '@phosphor-icons/react';
 import { useSelector, useDispatch } from 'react-redux';
+import { Project } from 'waldur-js-client';
 
-import { Project } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { openModalDialog } from '@waldur/modal/actions';

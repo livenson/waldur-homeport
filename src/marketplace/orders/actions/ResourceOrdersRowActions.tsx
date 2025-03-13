@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
+import { OrderDetails as OrderResponse } from 'waldur-js-client';
 
-import { OrderDetails as OrderResponse } from '@waldur/api';
 import { ActionsDropdown } from '@waldur/table/ActionsDropdown';
 import { getUser } from '@waldur/workspace/selectors';
 

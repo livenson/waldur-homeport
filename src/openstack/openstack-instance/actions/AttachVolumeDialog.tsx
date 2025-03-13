@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
+import { openstackVolumesAttach, openstackVolumesList } from 'waldur-js-client';
+import { OpenStackVolume } from 'waldur-js-client';
 
-import { openstackVolumesAttach, openstackVolumesList } from '@waldur/api';
-import { OpenStackVolume } from '@waldur/api';
 import { getAllPages } from '@waldur/core/api';
 import { formatFilesize } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';

@@ -1,8 +1,8 @@
 import { Trash } from '@phosphor-icons/react';
 import { Dropdown } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { marketplaceProviderOfferingsDestroy } from 'waldur-js-client';
 
-import { marketplaceProviderOfferingsDestroy } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { PermissionEnum } from '@waldur/permissions/enums';

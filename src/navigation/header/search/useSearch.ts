@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import { useCallback, useEffect, useState } from 'react';
-
 import {
   customersList,
   marketplaceResourcesList,
   projectsList,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { fetchResultCount } from '@waldur/core/api';
 
 export const useSearch = () => {

@@ -3,7 +3,8 @@ import {
   vmwareDatastoresList,
   vmwareFoldersList,
   vmwareTemplatesList,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { getAllPages } from '@waldur/core/api';
 
 export const getVMwareTemplates = (settings_uuid: string) =>

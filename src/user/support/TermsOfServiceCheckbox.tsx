@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import { Form } from 'react-bootstrap';
+import { User } from 'waldur-js-client';
 
-import { User } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { Link } from '@waldur/core/Link';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';

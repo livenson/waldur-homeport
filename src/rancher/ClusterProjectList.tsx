@@ -1,10 +1,10 @@
 import { FunctionComponent, useMemo } from 'react';
-
 import {
   RancherCluster,
   RancherProject,
   RancherProjectsListData,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';

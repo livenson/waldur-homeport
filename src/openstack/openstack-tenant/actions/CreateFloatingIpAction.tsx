@@ -1,7 +1,7 @@
 import { PlusCircle } from '@phosphor-icons/react';
 import { FC } from 'react';
+import { openstackTenantsCreateFloatingIp } from 'waldur-js-client';
 
-import { openstackTenantsCreateFloatingIp } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { OpenStackTenant } from '@waldur/openstack/openstack-tenant/types';
 import { AsyncActionButton } from '@waldur/resource/actions/AsyncActionButton';

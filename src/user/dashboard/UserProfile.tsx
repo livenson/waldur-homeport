@@ -2,8 +2,8 @@ import { At, MapPinLine, PhoneCall, UserSquare } from '@phosphor-icons/react';
 import { useMemo } from 'react';
 import { Stack } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
+import { User } from 'waldur-js-client';
 
-import { User } from '@waldur/api';
 import { StateIndicator } from '@waldur/core/StateIndicator';
 import { PublicDashboardHero2 } from '@waldur/dashboard/hero/PublicDashboardHero2';
 import { getItemAbbreviation } from '@waldur/navigation/workspace/context-selector/utils';

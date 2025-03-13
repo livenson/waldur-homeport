@@ -1,7 +1,7 @@
 import { UserPlus } from '@phosphor-icons/react';
 import React from 'react';
+import { Project } from 'waldur-js-client';
 
-import { Project } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { useModal } from '@waldur/modal/hooks';

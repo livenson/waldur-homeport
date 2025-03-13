@@ -1,11 +1,11 @@
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import {
   bookingOfferingsGoogleCalendarSync,
   bookingOfferingsShareGoogleCalendar,
   bookingOfferingsUnshareGoogleCalendar,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { OFFERING_TYPE_BOOKING } from '@waldur/booking/constants';
 import { translate } from '@waldur/i18n';
 import { isOfferingTypeSchedulable } from '@waldur/marketplace/common/registry';

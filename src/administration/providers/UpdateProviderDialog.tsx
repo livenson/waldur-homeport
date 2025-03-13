@@ -2,8 +2,8 @@ import { useCallback } from 'react';
 import { Modal } from 'react-bootstrap';
 import { Form } from 'react-final-form';
 import { useDispatch } from 'react-redux';
+import { identityProvidersUpdate, overrideSettings } from 'waldur-js-client';
 
-import { identityProvidersUpdate, overrideSettings } from '@waldur/api';
 import { FREEIPA_IDP } from '@waldur/auth/providers/constants';
 import { ENV } from '@waldur/configs/default';
 import { SubmitButton } from '@waldur/form';

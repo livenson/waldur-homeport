@@ -1,8 +1,8 @@
 import { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
 import { useAsync } from 'react-use';
+import { financialReportsRetrieve } from 'waldur-js-client';
 
-import { financialReportsRetrieve } from '@waldur/api';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { translate } from '@waldur/i18n';
 import { getActiveFixedPricePaymentProfile } from '@waldur/invoices/details/utils';

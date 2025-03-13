@@ -2,9 +2,9 @@ import { Eye } from '@phosphor-icons/react';
 import { useCallback } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { ComponentsUsageStats } from 'waldur-js-client';
+import { Project } from 'waldur-js-client';
 
-import { ComponentsUsageStats } from '@waldur/api';
-import { Project } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { WidgetCard } from '@waldur/dashboard/WidgetCard';

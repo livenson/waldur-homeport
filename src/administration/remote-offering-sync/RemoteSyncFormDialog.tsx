@@ -3,7 +3,6 @@ import arrayMutators from 'final-form-arrays';
 import { FC, useEffect, useState } from 'react';
 import { Alert, Col, Row } from 'react-bootstrap';
 import { Field, Form, FormRenderProps } from 'react-final-form';
-
 import {
   marketplaceRemoteSynchronisationsCreate,
   marketplaceRemoteSynchronisationsUpdate,
@@ -11,7 +10,8 @@ import {
   RemoteSynchronisationRequest,
   remoteWaldurApiRemoteCategories,
   remoteWaldurApiRemoteCustomers,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { required } from '@waldur/core/validators';
 import {
   FieldError,

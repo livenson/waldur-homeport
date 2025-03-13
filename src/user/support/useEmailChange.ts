@@ -1,7 +1,7 @@
 import { useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
+import { usersCancelChangeEmail, usersChangeEmail } from 'waldur-js-client';
 
-import { usersCancelChangeEmail, usersChangeEmail } from '@waldur/api';
 import { format } from '@waldur/core/ErrorMessageFormatter';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';

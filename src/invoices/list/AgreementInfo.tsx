@@ -1,8 +1,8 @@
 import { FunctionComponent, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useEffectOnce } from 'react-use';
+import { PaymentProfile } from 'waldur-js-client';
 
-import { PaymentProfile } from '@waldur/api';
 import { formatDate } from '@waldur/core/dateUtils';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { getTotalOfSumPaid } from '@waldur/customer/payments/api';

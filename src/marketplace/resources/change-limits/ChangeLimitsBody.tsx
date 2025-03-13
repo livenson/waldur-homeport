@@ -1,7 +1,7 @@
 import { useDispatch } from 'react-redux';
 import { InjectedFormProps } from 'redux-form';
+import { marketplaceResourcesUpdateLimits } from 'waldur-js-client';
 
-import { marketplaceResourcesUpdateLimits } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';

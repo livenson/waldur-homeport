@@ -1,8 +1,8 @@
 import { Check } from '@phosphor-icons/react';
 import { FunctionComponent } from 'react';
 import { useDispatch } from 'react-redux';
+import { userPermissionRequestsApprove } from 'waldur-js-client';
 
-import { userPermissionRequestsApprove } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog, openModalDialog } from '@waldur/modal/actions';

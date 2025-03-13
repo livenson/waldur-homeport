@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { AsyncState } from 'react-use/lib/useAsync';
 import { FieldArray, InjectedFormProps, reduxForm } from 'redux-form';
+import { CategoryColumn } from 'waldur-js-client';
 
-import { CategoryColumn } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { Category } from '@waldur/marketplace/types';
 import { AsyncActionDialog } from '@waldur/resource/actions/AsyncActionDialog';

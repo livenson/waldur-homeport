@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
+import { marketplaceScreenshotsDestroy } from 'waldur-js-client';
 
-import { marketplaceScreenshotsDestroy } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { PermissionEnum } from '@waldur/permissions/enums';

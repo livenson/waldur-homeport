@@ -1,8 +1,8 @@
 import { Modal } from 'react-bootstrap';
 import { Field, Form } from 'react-final-form';
 import { useDispatch } from 'react-redux';
+import { userAgreementsPartialUpdate } from 'waldur-js-client';
 
-import { userAgreementsPartialUpdate } from '@waldur/api';
 import { FormGroup, SubmitButton, TextField } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';

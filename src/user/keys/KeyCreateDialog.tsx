@@ -1,8 +1,8 @@
 import React from 'react';
 import { useDispatch } from 'react-redux';
 import { InjectedFormProps, reduxForm, SubmissionError } from 'redux-form';
+import { keysCreate, SshKeyRequest } from 'waldur-js-client';
 
-import { keysCreate, SshKeyRequest } from '@waldur/api';
 import { FormContainer } from '@waldur/form/FormContainer';
 import { StringField } from '@waldur/form/StringField';
 import { SubmitButton } from '@waldur/form/SubmitButton';

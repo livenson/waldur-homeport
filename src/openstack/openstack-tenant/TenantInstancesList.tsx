@@ -1,6 +1,9 @@
 import { FunctionComponent, useMemo } from 'react';
+import {
+  OpenStackInstance,
+  OpenstackInstancesListData,
+} from 'waldur-js-client';
 
-import { OpenStackInstance, OpenstackInstancesListData } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { AddResourceButton } from '@waldur/marketplace/resources/actions/AddResourceButton';
 import { ModalActionsRouter } from '@waldur/marketplace/resources/actions/ModalActionsRouter';

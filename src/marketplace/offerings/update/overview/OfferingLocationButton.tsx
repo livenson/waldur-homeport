@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux';
-
 import {
   marketplaceProviderOfferingsUpdateLocation,
   Offering,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { EditButton } from '@waldur/form/EditButton';
 import { translate } from '@waldur/i18n';

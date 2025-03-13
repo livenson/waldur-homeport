@@ -1,14 +1,14 @@
 import { useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
 import { reduxForm } from 'redux-form';
-
 import {
   OpenStackServerGroupRequest,
   openstackSecurityGroupsList,
   openstackServerGroupsList,
   openstackTenantsCreateSecurityGroup,
   openstackTenantsCreateServerGroup,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { ENV } from '@waldur/configs/default';
 import { getAllPages } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';

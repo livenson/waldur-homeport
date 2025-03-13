@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import { useDispatch } from 'react-redux';
+import { BroadcastMessage } from 'waldur-js-client';
 
-import { BroadcastMessage } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { EditAction } from '@waldur/form/EditAction';
 import { translate } from '@waldur/i18n';

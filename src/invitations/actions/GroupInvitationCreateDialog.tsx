@@ -2,9 +2,9 @@ import { Link, UsersThree } from '@phosphor-icons/react';
 import { useCallback, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { reduxForm } from 'redux-form';
+import { userGroupInvitationsCreate } from 'waldur-js-client';
+import { Project } from 'waldur-js-client';
 
-import { userGroupInvitationsCreate } from '@waldur/api';
-import { Project } from '@waldur/api';
 import { SubmitButton } from '@waldur/auth/SubmitButton';
 import { translate } from '@waldur/i18n';
 import { GROUP_INVITATION_CREATE_FORM_ID } from '@waldur/invitations/actions/constants';

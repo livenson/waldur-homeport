@@ -1,5 +1,6 @@
-import { OpenStackNestedVolume } from '@waldur/api';
-import { OpenStackInstance } from '@waldur/api';
+import { OpenStackNestedVolume } from 'waldur-js-client';
+import { OpenStackInstance } from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import { OpenStackSecurityGroupsLink } from '@waldur/openstack/openstack-security-groups/OpenStackSecurityGroupsLink';
 import { ResourceLink } from '@waldur/resource/ResourceLink';

@@ -2,7 +2,7 @@ export {
   ComponentUsage,
   ComponentUserUsage,
   ResourcePlanPeriod,
-} from '@waldur/api';
+} from 'waldur-js-client';
 
 export interface UsageReportContext {
   resource_uuid: string;

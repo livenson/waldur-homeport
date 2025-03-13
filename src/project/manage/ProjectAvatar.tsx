@@ -3,9 +3,9 @@ import { useMemo } from 'react';
 import { Button, Card } from 'react-bootstrap';
 import { Field, Form } from 'react-final-form';
 import { useDispatch } from 'react-redux';
+import { projectsPartialUpdate } from 'waldur-js-client';
+import { Project } from 'waldur-js-client';
 
-import { projectsPartialUpdate } from '@waldur/api';
-import { Project } from '@waldur/api';
 import { fileSerializer, formDataOptions } from '@waldur/core/api';
 import { WideImageField } from '@waldur/form/WideImageField';
 import { translate } from '@waldur/i18n';

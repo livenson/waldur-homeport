@@ -2,9 +2,9 @@ import { useCallback } from 'react';
 import { Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
+import { CustomerUser } from 'waldur-js-client';
+import { Project } from 'waldur-js-client';
 
-import { CustomerUser } from '@waldur/api';
-import { Project } from '@waldur/api';
 import { SubmitButton } from '@waldur/auth/SubmitButton';
 import { FormContainer } from '@waldur/form';
 import { translate } from '@waldur/i18n';

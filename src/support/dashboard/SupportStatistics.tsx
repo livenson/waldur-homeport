@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { Col, Row } from 'react-bootstrap';
+import { supportStatisticsRetrieve } from 'waldur-js-client';
 
-import { supportStatisticsRetrieve } from '@waldur/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { StatisticsCard } from '@waldur/core/StatisticsCard';

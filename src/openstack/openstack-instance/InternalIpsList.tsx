@@ -1,7 +1,10 @@
 import { FunctionComponent, useCallback } from 'react';
+import {
+  OpenStackInstance,
+  openstackInstancesRetrieve,
+} from 'waldur-js-client';
+import { OpenStackNestedPort } from 'waldur-js-client';
 
-import { OpenStackInstance, openstackInstancesRetrieve } from '@waldur/api';
-import { OpenStackNestedPort } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';

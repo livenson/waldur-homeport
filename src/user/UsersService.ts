@@ -1,6 +1,6 @@
 import Axios from 'axios';
+import { User } from 'waldur-js-client';
 
-import { User } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { get } from '@waldur/core/api';
 import store from '@waldur/store/store';

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Field, Form } from 'react-final-form';
 import { useAsync } from 'react-use';
+import { marketplaceResourcesSwitchPlan } from 'waldur-js-client';
 
-import { marketplaceResourcesSwitchPlan } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { SubmitButton } from '@waldur/form';
 import { ChoicesTable } from '@waldur/form/ChoicesTable';

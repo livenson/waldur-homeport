@@ -3,8 +3,8 @@ import { useCallback, useMemo } from 'react';
 import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { formValueSelector } from 'redux-form';
+import { OpenStackSecurityGroup } from 'waldur-js-client';
 
-import { OpenStackSecurityGroup } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { Tip } from '@waldur/core/Tooltip';
 import { translate } from '@waldur/i18n';

@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
+import { BasePublicPlan, PublicOfferingDetails } from 'waldur-js-client';
 
-import { BasePublicPlan, PublicOfferingDetails } from '@waldur/api';
 import {
   filterOfferingComponents,
   getFormLimitParser,

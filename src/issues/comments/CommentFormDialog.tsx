@@ -2,12 +2,12 @@ import { FC } from 'react';
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { InjectedFormProps, reduxForm } from 'redux-form';
-
 import {
   Issue,
   supportCommentsUpdate,
   supportIssuesComment,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { required } from '@waldur/core/validators';
 import { FormContainer, SubmitButton, TextField } from '@waldur/form';
 import { translate } from '@waldur/i18n';

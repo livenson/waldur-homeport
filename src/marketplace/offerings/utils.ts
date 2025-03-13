@@ -1,6 +1,6 @@
 import { change } from 'redux-form';
+import { User } from 'waldur-js-client';
 
-import { User } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { Offering } from '@waldur/marketplace/types';
 import { IBreadcrumbItem } from '@waldur/navigation/types';

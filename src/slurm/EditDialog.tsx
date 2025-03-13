@@ -1,6 +1,6 @@
 import { FC } from 'react';
+import { slurmAllocationsUpdate } from 'waldur-js-client';
 
-import { slurmAllocationsUpdate } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import {
   createNameField,

@@ -1,7 +1,7 @@
 import { Trash } from '@phosphor-icons/react';
 import { useDispatch, useSelector } from 'react-redux';
+import { paymentProfilesDestroy } from 'waldur-js-client';
 
-import { paymentProfilesDestroy } from '@waldur/api';
 import { getCustomer as getCustomerApi } from '@waldur/customer/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog, waitForConfirmation } from '@waldur/modal/actions';

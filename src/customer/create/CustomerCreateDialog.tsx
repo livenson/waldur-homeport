@@ -4,8 +4,8 @@ import { FC, useCallback } from 'react';
 import { Form } from 'react-final-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { reset, SubmissionError } from 'redux-form';
+import { customersCreate } from 'waldur-js-client';
 
-import { customersCreate } from '@waldur/api';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';

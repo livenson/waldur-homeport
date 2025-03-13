@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import { useAsync } from 'react-use';
+import { rancherClustersKubeconfigFileRetrieve } from 'waldur-js-client';
 
-import { rancherClustersKubeconfigFileRetrieve } from '@waldur/api';
 import { CopyToClipboard } from '@waldur/core/CopyToClipboard';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';

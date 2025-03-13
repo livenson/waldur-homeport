@@ -4,9 +4,9 @@ import { useRouter } from '@uirouter/react';
 import { useState } from 'react';
 import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { usersDestroy } from 'waldur-js-client';
+import { User } from 'waldur-js-client';
 
-import { usersDestroy } from '@waldur/api';
-import { User } from '@waldur/api';
 import { Panel } from '@waldur/core/Panel';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';

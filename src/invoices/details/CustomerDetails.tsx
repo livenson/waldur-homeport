@@ -1,6 +1,6 @@
 import React from 'react';
+import { CustomerDetails as CustomerDetailsType } from 'waldur-js-client';
 
-import { CustomerDetails as CustomerDetailsType } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 
 import { formatPhone } from './utils';

@@ -2,8 +2,8 @@ import { useQuery } from '@tanstack/react-query';
 import { Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { change, Field, reduxForm } from 'redux-form';
+import { marketplaceProviderOfferingsUpdateDescription } from 'waldur-js-client';
 
-import { marketplaceProviderOfferingsUpdateDescription } from '@waldur/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { required } from '@waldur/core/validators';

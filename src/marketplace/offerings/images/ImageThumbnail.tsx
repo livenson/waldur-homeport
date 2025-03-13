@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import { useDispatch } from 'react-redux';
+import { Screenshot } from 'waldur-js-client';
 
-import { Screenshot } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { openModalDialog } from '@waldur/modal/actions';

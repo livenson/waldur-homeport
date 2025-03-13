@@ -1,9 +1,9 @@
 import { Circle, WarningOctagon } from '@phosphor-icons/react';
 import { FC } from 'react';
 import { Col, Stack } from 'react-bootstrap';
+import { CustomerCredit, ProjectCredit } from 'waldur-js-client';
+import { Project } from 'waldur-js-client';
 
-import { CustomerCredit, ProjectCredit } from '@waldur/api';
-import { Project } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { Badge } from '@waldur/core/Badge';
 import { formatDate } from '@waldur/core/dateUtils';

@@ -1,7 +1,7 @@
 import { FC, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
+import { proposalProtectedCallsOfferingsSet } from 'waldur-js-client';
 
-import { proposalProtectedCallsOfferingsSet } from '@waldur/api';
 import { fixURL } from '@waldur/core/api';
 import { WizardFormContainer } from '@waldur/form/WizardFormContainer';
 import { translate } from '@waldur/i18n';

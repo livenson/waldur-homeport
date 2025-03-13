@@ -1,8 +1,11 @@
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
+import {
+  openstackInstancesList,
+  openstackVolumesAttach,
+} from 'waldur-js-client';
 
-import { openstackInstancesList, openstackVolumesAttach } from '@waldur/api';
 import { getAllPages } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';

@@ -1,11 +1,11 @@
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-
 import {
   marketplaceCustomerEstimatedCostPoliciesCreate,
   marketplaceProjectEstimatedCostPoliciesCreate,
-} from '@waldur/api';
-import { Project } from '@waldur/api';
+} from 'waldur-js-client';
+import { Project } from 'waldur-js-client';
+
 import { AddButton } from '@waldur/core/AddButton';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { closeModalDialog, openModalDialog } from '@waldur/modal/actions';

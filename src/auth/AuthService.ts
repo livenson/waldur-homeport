@@ -1,6 +1,6 @@
 import Axios from 'axios';
+import { apiAuthPassword } from 'waldur-js-client';
 
-import { apiAuthPassword } from '@waldur/api';
 import { router } from '@waldur/router';
 import store from '@waldur/store/store';
 import {

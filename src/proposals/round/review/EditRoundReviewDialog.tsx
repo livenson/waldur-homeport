@@ -1,11 +1,11 @@
 import { FC, useCallback, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
-
 import {
   proposalProtectedCallsRoundsUpdate,
   ProtectedRound,
   ProtectedRoundRequest,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { WizardFormContainer } from '@waldur/form/WizardFormContainer';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';

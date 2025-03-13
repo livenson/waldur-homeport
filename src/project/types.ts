@@ -1,4 +1,4 @@
-import { Project } from '@waldur/api';
+import { Project } from 'waldur-js-client';
 
 export interface EditProjectProps {
   project: Project;

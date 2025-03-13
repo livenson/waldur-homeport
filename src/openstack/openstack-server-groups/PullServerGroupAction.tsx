@@ -1,4 +1,5 @@
-import { openstackServerGroupsPull } from '@waldur/api';
+import { openstackServerGroupsPull } from 'waldur-js-client';
+
 import { PullActionItem } from '@waldur/resource/actions/PullActionItem';
 import { ActionItemType } from '@waldur/resource/actions/types';
 

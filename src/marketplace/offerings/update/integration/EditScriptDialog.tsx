@@ -2,12 +2,12 @@ import { useCallback, useState } from 'react';
 import { Button, Col, Modal, Row } from 'react-bootstrap';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { Field, getFormValues, initialize, reduxForm } from 'redux-form';
-
 import {
   marketplaceProviderOfferingsUpdateIntegration,
   marketplaceScriptAsyncDryRunRetrieve,
   marketplaceScriptDryRunAsyncRun,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
 import { Tip } from '@waldur/core/Tooltip';
 import { wait } from '@waldur/core/utils';

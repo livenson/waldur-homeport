@@ -1,7 +1,6 @@
 import { FunctionComponent } from 'react';
 import { Table } from 'react-bootstrap';
-
-import { NestedSection } from '@waldur/api';
+import { NestedSection } from 'waldur-js-client';
 
 import { AttributeSection } from './AttributeSection';
 

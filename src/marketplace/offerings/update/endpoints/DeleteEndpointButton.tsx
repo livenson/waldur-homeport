@@ -1,7 +1,7 @@
 import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { marketplaceProviderOfferingsDeleteEndpoint } from 'waldur-js-client';
 
-import { marketplaceProviderOfferingsDeleteEndpoint } from '@waldur/api';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';

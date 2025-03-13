@@ -1,6 +1,6 @@
 import { FC, useMemo } from 'react';
+import { Resource } from 'waldur-js-client';
 
-import { Resource } from '@waldur/api';
 import { FieldWithCopy } from '@waldur/core/FieldWithCopy';
 import FormTable from '@waldur/form/FormTable';
 

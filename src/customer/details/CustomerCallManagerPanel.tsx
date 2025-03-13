@@ -3,12 +3,12 @@ import { FunctionComponent, useState } from 'react';
 import { Card } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useAsyncFn } from 'react-use';
-
 import {
   callManagingOrganisationsCreate,
   callManagingOrganisationsDestroy,
   callManagingOrganisationsList,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { AwesomeCheckbox } from '@waldur/core/AwesomeCheckbox';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';

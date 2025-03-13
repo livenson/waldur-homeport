@@ -1,6 +1,6 @@
 import { startCase } from 'lodash';
+import { CustomerCredit, ProjectCredit } from 'waldur-js-client';
 
-import { CustomerCredit, ProjectCredit } from '@waldur/api';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { translate } from '@waldur/i18n';
 import { Field } from '@waldur/resource/summary';

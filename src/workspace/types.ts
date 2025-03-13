@@ -3,8 +3,8 @@ import {
   Project,
   Customer as SdkCustomer,
   CustomerCredit,
-} from '@waldur/api';
-export { User, Project, PaymentProfile, Payment } from '@waldur/api';
+} from 'waldur-js-client';
+export { User, Project, PaymentProfile, Payment } from 'waldur-js-client';
 
 export interface Customer extends SdkCustomer {
   credit?: CustomerCredit;

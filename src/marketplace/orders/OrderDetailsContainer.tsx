@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import { useCurrentStateAndParams } from '@uirouter/react';
-
 import {
   marketplaceOrdersRetrieve,
   marketplacePluginsList,
   marketplacePublicOfferingsRetrieve,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 

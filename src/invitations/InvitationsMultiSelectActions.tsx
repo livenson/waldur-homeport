@@ -1,6 +1,6 @@
 import { DropdownButton } from 'react-bootstrap';
+import { Invitation } from 'waldur-js-client';
 
-import { Invitation } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { useUser } from '@waldur/workspace/hooks';
 

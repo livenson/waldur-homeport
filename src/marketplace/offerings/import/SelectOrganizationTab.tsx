@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { useSelector } from 'react-redux';
+import { remoteWaldurApiRemoteCustomers } from 'waldur-js-client';
 
-import { remoteWaldurApiRemoteCustomers } from '@waldur/api';
 import { required } from '@waldur/core/validators';
 import { FormContainer, SelectField } from '@waldur/form';
 import { translate } from '@waldur/i18n';

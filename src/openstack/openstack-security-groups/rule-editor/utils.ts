@@ -1,7 +1,6 @@
 import { useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
 import { formValueSelector, reduxForm } from 'redux-form';
-
 import {
   DirectionEnum,
   EthertypeEnum,
@@ -9,7 +8,8 @@ import {
   openstackSecurityGroupsList,
   openstackSecurityGroupsSetRules,
   ProtocolEnum,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { getAllPages } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';

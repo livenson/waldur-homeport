@@ -1,8 +1,8 @@
 import { PencilSimple } from '@phosphor-icons/react';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
+import { RoleModifyRequest, rolesUpdate } from 'waldur-js-client';
 
-import { RoleModifyRequest, rolesUpdate } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n/translate';

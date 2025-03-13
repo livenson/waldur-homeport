@@ -1,10 +1,10 @@
 import { Card } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-
 import {
   OrderDetails as OrderResponse,
   PublicOfferingDetails,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { FormSteps } from '@waldur/form/FormSteps';
 import { SidebarProps } from '@waldur/form/SidebarProps';
 import { translate } from '@waldur/i18n';

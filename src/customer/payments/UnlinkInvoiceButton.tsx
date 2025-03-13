@@ -1,7 +1,7 @@
 import { FileText } from '@phosphor-icons/react';
 import { useDispatch, useSelector } from 'react-redux';
+import { paymentsUnlinkFromInvoice } from 'waldur-js-client';
 
-import { paymentsUnlinkFromInvoice } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';

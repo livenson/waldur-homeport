@@ -1,6 +1,6 @@
 import { FC } from 'react';
+import { openstackVolumesUpdate } from 'waldur-js-client';
 
-import { openstackVolumesUpdate } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import {
   createLatinNameField,

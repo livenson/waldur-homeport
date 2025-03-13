@@ -1,6 +1,6 @@
 import { Plugs } from '@phosphor-icons/react';
+import { openstackSubnetsDisconnect } from 'waldur-js-client';
 
-import { openstackSubnetsDisconnect } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { AsyncActionItem } from '@waldur/resource/actions/AsyncActionItem';
 import { validateState } from '@waldur/resource/actions/base';

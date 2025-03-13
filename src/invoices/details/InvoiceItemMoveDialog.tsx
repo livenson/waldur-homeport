@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux';
 import { useAsync } from 'react-use';
+import { invoiceItemsMigrateTo, invoicesList } from 'waldur-js-client';
 
-import { invoiceItemsMigrateTo, invoicesList } from '@waldur/api';
 import { getAllPages } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';

@@ -1,11 +1,11 @@
 import { useQuery } from '@tanstack/react-query';
 import { UIView, useCurrentStateAndParams } from '@uirouter/react';
 import { useMemo } from 'react';
-
 import {
   proposalProtectedCallsRetrieve,
   proposalProtectedCallsRoundsRetrieve,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { useBreadcrumbs, usePageHero } from '@waldur/navigation/context';

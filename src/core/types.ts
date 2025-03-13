@@ -1,8 +1,8 @@
 import { StateDeclaration as BaseStateDeclaration } from '@uirouter/core';
 import { UIView } from '@uirouter/react';
 import { ComponentType, LazyExoticComponent } from 'react';
+import { RoleDetails } from 'waldur-js-client';
 
-import { RoleDetails } from '@waldur/api';
 import { PluginConfiguration } from '@waldur/auth/types';
 import { FeaturesEnum } from '@waldur/FeaturesEnums';
 

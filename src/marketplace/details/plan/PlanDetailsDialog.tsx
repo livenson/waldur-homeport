@@ -1,10 +1,10 @@
 import React from 'react';
 import { useAsync } from 'react-use';
-
 import {
   marketplacePublicOfferingsRetrieve,
   marketplaceResourcesRetrieve,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';

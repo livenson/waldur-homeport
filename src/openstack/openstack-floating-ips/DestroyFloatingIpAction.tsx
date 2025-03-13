@@ -1,4 +1,5 @@
-import { openstackFloatingIpsDestroy } from '@waldur/api';
+import { openstackFloatingIpsDestroy } from 'waldur-js-client';
+
 import { validateState } from '@waldur/resource/actions/base';
 import { DestroyActionItem } from '@waldur/resource/actions/DestroyActionItem';
 import { ActionItemType } from '@waldur/resource/actions/types';

@@ -1,11 +1,11 @@
 import { connect } from 'react-redux';
 import { reduxForm, SubmissionError } from 'redux-form';
-
 import {
   AdminAnnouncementRequest,
   adminAnnouncementsCreate,
   adminAnnouncementsUpdate,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import {
   FormContainer,
   SelectField,

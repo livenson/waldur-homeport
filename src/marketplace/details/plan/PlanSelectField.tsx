@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import { Field } from 'redux-form';
+import { BasePublicPlan } from 'waldur-js-client';
 
-import { BasePublicPlan } from '@waldur/api';
 import { required } from '@waldur/core/validators';
 import { FieldError } from '@waldur/form';
 import { Select } from '@waldur/form/themed-select';

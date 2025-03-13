@@ -1,8 +1,11 @@
 import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
+import {
+  AdminAnnouncement,
+  AdminAnnouncementsListData,
+} from 'waldur-js-client';
 
-import { AdminAnnouncement, AdminAnnouncementsListData } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { StateIndicator } from '@waldur/core/StateIndicator';
 import { createFetcher } from '@waldur/table/api';

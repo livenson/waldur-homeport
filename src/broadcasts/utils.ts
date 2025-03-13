@@ -1,4 +1,4 @@
-import { BroadcastMessage } from '@waldur/api';
+import { BroadcastMessage } from 'waldur-js-client';
 
 import { BroadcastFormData, BroadcastRequestData } from './types';
 

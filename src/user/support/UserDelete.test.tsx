@@ -3,8 +3,8 @@ import { fireEvent, render, screen, waitFor } from '@testing-library/react';
 import { useRouter } from '@uirouter/react';
 import { useDispatch } from 'react-redux';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { usersDestroy } from 'waldur-js-client';
 
-import { usersDestroy } from '@waldur/api';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { useNotify } from '@waldur/store/hooks';
 
@@ -20,7 +20,7 @@ vi.mock('@waldur/navigation/useTabs', () => ({
   isDescendantOf: vi.fn(),
 }));
 vi.mock('@waldur/store/hooks');
-vi.mock('@waldur/api');
+vi.mock('waldur-js-client');
 
 describe('UserDelete', () => {
   let user;

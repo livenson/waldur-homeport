@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
+import { RemoteProjectUpdateRequest } from 'waldur-js-client';
 
-import { RemoteProjectUpdateRequest } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 import { createFetcher } from '@waldur/table/api';

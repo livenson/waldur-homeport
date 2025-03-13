@@ -1,8 +1,8 @@
 import React from 'react';
 import { Props as SelectProps } from 'react-select';
 import { Field } from 'redux-form';
+import { Project } from 'waldur-js-client';
 
-import { Project } from '@waldur/api';
 import {
   AsyncPaginate,
   REACT_SELECT_TABLE_FILTER,

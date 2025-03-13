@@ -1,8 +1,8 @@
 import { render, screen } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
+import { overrideSettings } from 'waldur-js-client';
 
-import { overrideSettings } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 
 import { AdministrationLanguages } from './AdministrationLanguages';
@@ -23,7 +23,7 @@ vi.mock('@waldur/configs/default', () => ({
   },
 }));
 
-vi.mock('@waldur/api');
+vi.mock('waldur-js-client');
 
 vi.mock('@waldur/i18n', () => ({
   translate: (key: string) => key,

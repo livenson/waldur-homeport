@@ -1,7 +1,6 @@
 import { Check, X } from '@phosphor-icons/react';
 import React from 'react';
-
-import { NestedAttribute } from '@waldur/api';
+import { NestedAttribute } from 'waldur-js-client';
 
 interface AttributeCellProps {
   value: string | string[] | number | boolean | undefined;

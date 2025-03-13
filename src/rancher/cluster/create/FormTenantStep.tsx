@@ -2,8 +2,8 @@ import { useQuery } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { Field } from 'redux-form';
+import { openstackTenantsList } from 'waldur-js-client';
 
-import { openstackTenantsList } from '@waldur/api';
 import { getAllPages } from '@waldur/core/api';
 import { required } from '@waldur/core/validators';
 import { FormGroup, SelectField } from '@waldur/form';

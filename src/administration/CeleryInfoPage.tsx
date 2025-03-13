@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
+import { celeryStatsRetrieve } from 'waldur-js-client';
 
-import { celeryStatsRetrieve } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import FormTable from '@waldur/form/FormTable';
 import { translate } from '@waldur/i18n';

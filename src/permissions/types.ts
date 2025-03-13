@@ -2,7 +2,7 @@ import { PermissionMap } from './enums';
 
 export type RoleType = keyof typeof PermissionMap;
 
-export { RoleDetails as Role } from '@waldur/api';
+export { RoleDetails as Role } from 'waldur-js-client';
 
 interface BasePermission {
   customer_uuid: string;

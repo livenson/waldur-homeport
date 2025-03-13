@@ -1,5 +1,4 @@
 import Axios from 'axios';
-
 import {
   marketplaceCategoriesList,
   marketplaceCategoryGroupsList,
@@ -9,7 +8,8 @@ import {
   marketplaceProviderResourcesOfferingForSubresourcesList,
   marketplaceServiceProvidersList,
   MarketplaceServiceProvidersListData,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { ENV } from '@waldur/configs/default';
 import { getAllPages, parseResultCount, post } from '@waldur/core/api';
 import { ServiceProvider } from '@waldur/marketplace/types';

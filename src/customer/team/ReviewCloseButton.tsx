@@ -1,8 +1,8 @@
 import { Prohibit } from '@phosphor-icons/react';
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
+import { customerPermissionsReviewsClose } from 'waldur-js-client';
 
-import { customerPermissionsReviewsClose } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { RowActionButton } from '@waldur/table/ActionButton';

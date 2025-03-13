@@ -1,8 +1,8 @@
 import { connect } from 'react-redux';
 import { compose } from 'redux';
 import { change, reduxForm } from 'redux-form';
+import { marketplaceComponentUsagesSetUsage } from 'waldur-js-client';
 
-import { marketplaceComponentUsagesSetUsage } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { OfferingComponent } from '@waldur/marketplace/types';
 import { closeModalDialog } from '@waldur/modal/actions';

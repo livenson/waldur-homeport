@@ -3,8 +3,8 @@ import { FunctionComponent } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { useAsync } from 'react-use';
+import { supportIssuesRetrieve } from 'waldur-js-client';
 
-import { supportIssuesRetrieve } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { formatDateTime, formatRelative } from '@waldur/core/dateUtils';
 import { ExternalLink } from '@waldur/core/ExternalLink';

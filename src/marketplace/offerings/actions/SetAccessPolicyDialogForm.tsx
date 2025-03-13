@@ -2,13 +2,13 @@ import { FunctionComponent } from 'react';
 import { connect, useDispatch } from 'react-redux';
 import { compose } from 'redux';
 import { reduxForm } from 'redux-form';
-
 import {
   marketplaceProviderOfferingsUpdateOrganizationGroups,
   marketplacePlansUpdateOrganizationGroups,
   OrganizationGroup,
   customersUpdateOrganizationGroups,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { SET_ACCESS_POLICY_FORM_ID } from '@waldur/marketplace/offerings/actions/constants';

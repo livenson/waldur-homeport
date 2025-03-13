@@ -1,10 +1,10 @@
 import { FunctionComponent, useCallback } from 'react';
-
 import {
   OpenStackInstance,
   openstackInstancesRetrieve,
   OpenStackNestedFloatingIp,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import { UpdateFloatingIpsActionButton } from '@waldur/openstack/openstack-instance/actions/update-floating-ips/UpdateFloatingIpsActionButton';
 import Table from '@waldur/table/Table';

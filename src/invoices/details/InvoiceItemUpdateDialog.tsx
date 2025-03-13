@@ -1,9 +1,9 @@
 import { useDispatch } from 'react-redux';
-
 import {
   invoiceItemsPartialUpdate,
   PatchedInvoiceItemUpdateRequest,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { ResourceActionDialog } from '@waldur/resource/actions/ResourceActionDialog';

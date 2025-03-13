@@ -1,7 +1,8 @@
 import {
   marketplaceProjectUpdateRequestsApprove,
   marketplaceProjectUpdateRequestsReject,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { ReviewActions } from '@waldur/marketplace-remote/ReviewActions';
 
 export const ProjectUpdateRequestActions = ({ request, refetch }) => (

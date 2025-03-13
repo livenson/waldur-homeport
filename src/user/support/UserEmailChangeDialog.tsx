@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import { Form } from 'react-bootstrap';
+import { User } from 'waldur-js-client';
 
-import { User } from '@waldur/api';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';

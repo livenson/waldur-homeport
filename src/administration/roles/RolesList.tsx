@@ -1,4 +1,5 @@
-import { RoleDetails } from '@waldur/api';
+import { RoleDetails } from 'waldur-js-client';
+
 import { Badge } from '@waldur/core/Badge';
 import { translate } from '@waldur/i18n';
 import { formatRoleType } from '@waldur/permissions/utils';

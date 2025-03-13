@@ -3,12 +3,12 @@ import { useRouter } from '@uirouter/react';
 import React, { useEffect } from 'react';
 import { connect, useSelector } from 'react-redux';
 import { SubmissionError, reduxForm } from 'redux-form';
-
 import {
   callManagingOrganisationsList,
   proposalProtectedCallsCreate,
   proposalProtectedCallsPartialUpdate,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { required } from '@waldur/core/validators';

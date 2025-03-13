@@ -4,8 +4,8 @@ import { FormGroup, FormLabel } from 'react-bootstrap';
 import { Field, Form } from 'react-final-form';
 import { FieldArray } from 'react-final-form-arrays';
 import { useAsync } from 'react-use';
+import { OpenStackBackup, openstackBackupsRestore } from 'waldur-js-client';
 
-import { OpenStackBackup, openstackBackupsRestore } from '@waldur/api';
 import { required } from '@waldur/core/validators';
 import { Select } from '@waldur/form/themed-select';
 import { translate } from '@waldur/i18n';

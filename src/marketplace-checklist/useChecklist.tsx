@@ -1,6 +1,5 @@
 import { useEffect, useState, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-
 import {
   ChecklistCategory,
   marketplaceChecklistsAnswersSubmitCreate,
@@ -8,7 +7,8 @@ import {
   marketplaceChecklistsQuestionsList,
   marketplaceChecklistsStatsList,
   marketplaceChecklistsUserAnswersList,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { getAllPages } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';

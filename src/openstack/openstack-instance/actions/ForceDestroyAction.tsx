@@ -1,6 +1,6 @@
 import { X } from '@phosphor-icons/react';
+import { OpenStackInstance } from 'waldur-js-client';
 
-import { OpenStackInstance } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { DialogActionItem } from '@waldur/resource/actions/DialogActionItem';

@@ -2,9 +2,9 @@ import { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
+import { Customer, CustomersListData } from 'waldur-js-client';
 
 import { OrganizationsFilter } from '@waldur/administration/organizations/OrganizationsFilter';
-import { Customer, CustomersListData } from '@waldur/api';
 import { formatDate, formatDateTime } from '@waldur/core/dateUtils';
 import { OrganizationCard } from '@waldur/customer/list/OrganizationCard';
 import { OrganizationCreateButton } from '@waldur/customer/list/OrganizationCreateButton';

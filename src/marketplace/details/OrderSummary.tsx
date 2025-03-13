@@ -1,8 +1,8 @@
 import { createElement, FC, useMemo } from 'react';
 import { connect } from 'react-redux';
 import { isSubmitting, isValid } from 'redux-form';
+import { PublicOfferingDetails } from 'waldur-js-client';
 
-import { PublicOfferingDetails } from '@waldur/api';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { isFeatureVisible } from '@waldur/features/connect';
 import { MarketplaceFeatures } from '@waldur/FeaturesEnums';

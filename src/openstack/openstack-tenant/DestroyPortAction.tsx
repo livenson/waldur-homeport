@@ -1,4 +1,5 @@
-import { openstackPortsDestroy } from '@waldur/api';
+import { openstackPortsDestroy } from 'waldur-js-client';
+
 import { validateState } from '@waldur/resource/actions/base';
 import { DestroyActionItem } from '@waldur/resource/actions/DestroyActionItem';
 import { ActionItemType } from '@waldur/resource/actions/types';

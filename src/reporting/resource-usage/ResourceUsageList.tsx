@@ -2,11 +2,11 @@ import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
-
 import {
   ComponentUsage,
   MarketplaceComponentUsagesListData,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 import { getStartAndEndDatesOfMonth } from '@waldur/issues/utils';

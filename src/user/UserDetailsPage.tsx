@@ -1,8 +1,8 @@
 import { UIView, useCurrentStateAndParams } from '@uirouter/react';
 import { FunctionComponent } from 'react';
 import { useEffectOnce } from 'react-use';
+import { usersRetrieve } from 'waldur-js-client';
 
-import { usersRetrieve } from '@waldur/api';
 import { usePageHero } from '@waldur/navigation/context';
 import { router } from '@waldur/router';
 import store from '@waldur/store/store';

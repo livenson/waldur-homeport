@@ -1,4 +1,5 @@
-import { paymentsList } from '@waldur/api';
+import { paymentsList } from 'waldur-js-client';
+
 import { getAllPages } from '@waldur/core/api';
 
 export const getTotalOfSumPaid = (profileUuid: string): Promise<number> =>

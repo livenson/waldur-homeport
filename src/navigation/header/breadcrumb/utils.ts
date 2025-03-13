@@ -1,4 +1,5 @@
-import { Project } from '@waldur/api';
+import { Project } from 'waldur-js-client';
+
 import { useOrganizationAndProjectFiltersForResources } from '@waldur/navigation/sidebar/resources-filter/utils';
 import { IBreadcrumbItem } from '@waldur/navigation/types';
 import { Customer } from '@waldur/workspace/types';

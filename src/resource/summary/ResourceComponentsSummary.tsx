@@ -1,9 +1,9 @@
 import { useQuery } from '@tanstack/react-query';
 import { FC } from 'react';
 import { Col, Row } from 'react-bootstrap';
+import { marketplaceResourcesOfferingRetrieve } from 'waldur-js-client';
+import { Resource } from 'waldur-js-client';
 
-import { marketplaceResourcesOfferingRetrieve } from '@waldur/api';
-import { Resource } from '@waldur/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { ResourceComponentItem } from '@waldur/marketplace/resources/details/ResourceComponentItem';

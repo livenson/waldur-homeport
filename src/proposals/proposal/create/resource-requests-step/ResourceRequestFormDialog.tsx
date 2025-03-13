@@ -1,11 +1,11 @@
 import { FC, useCallback, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { formValueSelector } from 'redux-form';
-
 import {
   proposalProposalsResourcesPartialUpdate,
   proposalProposalsResourcesSet,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { WizardFormContainer } from '@waldur/form/WizardFormContainer';
 import { translate } from '@waldur/i18n';
 import { Offering } from '@waldur/marketplace/types';

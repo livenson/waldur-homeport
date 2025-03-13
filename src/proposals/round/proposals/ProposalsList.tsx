@@ -1,6 +1,6 @@
 import { FC } from 'react';
+import { ProtectedRound } from 'waldur-js-client';
 
-import { ProtectedRound } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 import { ProposalBadge } from '@waldur/proposals/proposal/ProposalBadge';

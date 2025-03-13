@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
+import { ConstanceSettings, overrideSettingsRetrieve } from 'waldur-js-client';
 
-import { ConstanceSettings, overrideSettingsRetrieve } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import FormTable from '@waldur/form/FormTable';

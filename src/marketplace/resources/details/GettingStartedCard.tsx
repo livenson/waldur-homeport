@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { Card } from 'react-bootstrap';
+import { PublicOfferingDetails, Resource } from 'waldur-js-client';
 
-import { PublicOfferingDetails, Resource } from '@waldur/api';
 import { CodePreview } from '@waldur/core/CodePreview';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { ResourceAccessButton } from '@waldur/resource/ResourceAccessButton';

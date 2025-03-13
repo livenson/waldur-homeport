@@ -1,6 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
+import { Customer, CustomersListData } from 'waldur-js-client';
 
-import { Customer, CustomersListData } from '@waldur/api';
 import { formatDate, formatDateTime } from '@waldur/core/dateUtils';
 import { Link } from '@waldur/core/Link';
 import { translate } from '@waldur/i18n';

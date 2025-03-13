@@ -2,12 +2,12 @@ import { useCallback } from 'react';
 import { Modal } from 'react-bootstrap';
 import { connect, useDispatch } from 'react-redux';
 import { FormSection, reduxForm } from 'redux-form';
-
 import {
   marketplaceProviderOfferingsUpdateIntegration,
   MergedPluginOptionsRequest,
   MergedSecretOptionsRequest,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { FormContainer, SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { UserLexisLinkPluginOptionsForm } from '@waldur/marketplace/UserLexisLInkPluginOptionsForm';

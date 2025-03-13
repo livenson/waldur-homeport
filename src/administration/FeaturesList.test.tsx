@@ -1,14 +1,14 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { vi, describe, expect, beforeEach, it } from 'vitest';
+import { featureValues } from 'waldur-js-client';
 
-import { featureValues } from '@waldur/api';
 import { useNotify } from '@waldur/store/hooks';
 
 import { FeaturesList } from './FeaturesList';
 
 // Mock dependencies
-vi.mock('@waldur/api');
+vi.mock('waldur-js-client');
 vi.mock('@waldur/store/hooks', () => ({
   useNotify: vi.fn().mockReturnValue({
     showSuccess: vi.fn(),

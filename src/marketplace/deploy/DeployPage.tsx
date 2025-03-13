@@ -10,8 +10,8 @@ import {
 import { useSelector } from 'react-redux';
 import { useEffectOnce } from 'react-use';
 import { reduxForm } from 'redux-form';
+import { OrderDetails as OrderResponse } from 'waldur-js-client';
 
-import { OrderDetails as OrderResponse } from '@waldur/api';
 import { parseDate } from '@waldur/core/dateUtils';
 import { SidebarLayout } from '@waldur/form/SidebarLayout';
 import { translate } from '@waldur/i18n';

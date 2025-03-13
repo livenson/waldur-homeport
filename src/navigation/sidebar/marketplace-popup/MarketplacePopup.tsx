@@ -3,8 +3,8 @@ import { useCallback, useEffect, useState } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { getFormValues, reduxForm } from 'redux-form';
+import { Project } from 'waldur-js-client';
 
-import { Project } from '@waldur/api';
 import { FilterBox } from '@waldur/form/FilterBox';
 import { translate } from '@waldur/i18n';
 import { setMarketplaceFilter } from '@waldur/marketplace/landing/filter/store/actions';

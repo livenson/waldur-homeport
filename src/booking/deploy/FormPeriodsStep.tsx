@@ -5,8 +5,8 @@ import { DateTime, Duration } from 'luxon';
 import { useCallback, useEffect, useMemo } from 'react';
 import { Button } from 'react-bootstrap';
 import { Field, FieldArray } from 'redux-form';
+import { marketplaceBookingsList } from 'waldur-js-client';
 
-import { marketplaceBookingsList } from '@waldur/api';
 import { parseDate } from '@waldur/core/dateUtils';
 import { VStepperFormStepCard } from '@waldur/form/VStepperFormStep';
 import { translate } from '@waldur/i18n';

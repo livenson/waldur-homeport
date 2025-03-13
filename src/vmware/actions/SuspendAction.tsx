@@ -1,6 +1,6 @@
 import { PauseCircle } from '@phosphor-icons/react';
+import { vmwareVirtualMachineSuspend } from 'waldur-js-client';
 
-import { vmwareVirtualMachineSuspend } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { AsyncActionItem } from '@waldur/resource/actions/AsyncActionItem';
 import {

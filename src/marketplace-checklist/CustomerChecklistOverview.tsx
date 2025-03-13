@@ -1,8 +1,8 @@
 import { useState, FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
 import { useAsync } from 'react-use';
+import { marketplaceChecklistsCustomerStats } from 'waldur-js-client';
 
-import { marketplaceChecklistsCustomerStats } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { Panel } from '@waldur/core/Panel';
 import { Select } from '@waldur/form/themed-select';

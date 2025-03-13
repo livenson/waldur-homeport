@@ -1,10 +1,10 @@
 import React from 'react';
 import { useAsync } from 'react-use';
-
 import {
   marketplaceCategoriesRetrieve,
   PublicOfferingDetails,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { FormattedHtml } from '@waldur/core/FormattedHtml';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';

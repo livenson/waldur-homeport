@@ -1,6 +1,6 @@
 import Axios, { AxiosRequestConfig } from 'axios';
+import { identityProvidersList } from 'waldur-js-client';
 
-import { identityProvidersList } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { getAllPages, parseResultCount, sendForm } from '@waldur/core/api';
 

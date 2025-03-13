@@ -1,7 +1,7 @@
 import { Trash } from '@phosphor-icons/react';
 import { useDispatch } from 'react-redux';
+import { lexisLinksDestroy } from 'waldur-js-client';
 
-import { lexisLinksDestroy } from '@waldur/api';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { RowActionButton } from '@waldur/table/ActionButton';

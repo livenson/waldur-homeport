@@ -1,12 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { SubmissionError, reduxForm } from 'redux-form';
-
 import {
   CategoryGroupRequest,
   marketplaceCategoryGroupsCreate,
   marketplaceCategoryGroupsPartialUpdate,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { fileSerializer, formDataOptions } from '@waldur/core/api';
 import { required } from '@waldur/core/validators';
 import { SubmitButton } from '@waldur/form';

@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
+import { UserAgreement } from 'waldur-js-client';
 
-import { UserAgreement } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 import { ActionsDropdown } from '@waldur/table/ActionsDropdown';

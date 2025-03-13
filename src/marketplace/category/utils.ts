@@ -1,13 +1,13 @@
 import { useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
-
 import {
   CategoryColumn,
   CategoryColumnRequest,
   marketplaceCategoryColumnsCreate,
   marketplaceCategoryColumnsList,
   marketplaceCategoryColumnsUpdate,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { getAllPages } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';
 import { Category, CategoryGroup } from '@waldur/marketplace/types';

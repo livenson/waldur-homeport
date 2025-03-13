@@ -1,9 +1,9 @@
 import { DateTime } from 'luxon';
-
 import {
   marketplaceServiceProvidersRevenueList,
   ServiceProviderRevenues,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { parseDate } from '@waldur/core/dateUtils';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import {

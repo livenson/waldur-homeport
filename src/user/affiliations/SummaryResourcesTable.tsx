@@ -1,9 +1,9 @@
 import { Eye } from '@phosphor-icons/react';
 import { FC, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
+import { MarketplaceResourcesListData, Resource } from 'waldur-js-client';
+import { Project } from 'waldur-js-client';
 
-import { MarketplaceResourcesListData, Resource } from '@waldur/api';
-import { Project } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';

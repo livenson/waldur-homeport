@@ -2,14 +2,14 @@ import { useQueryClient } from '@tanstack/react-query';
 import { render, screen, fireEvent, waitFor } from '@testing-library/react';
 import { useDispatch } from 'react-redux';
 import { vi, describe, it, expect, beforeEach } from 'vitest';
+import { usersPartialUpdate } from 'waldur-js-client';
 
-import { usersPartialUpdate } from '@waldur/api';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { useNotify } from '@waldur/store/hooks';
 
 import { UserStatus } from './UserStatus';
 
-vi.mock('@waldur/api');
+vi.mock('waldur-js-client');
 vi.mock('@tanstack/react-query');
 vi.mock('react-redux');
 vi.mock('@waldur/modal/actions');

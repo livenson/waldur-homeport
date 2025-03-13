@@ -2,12 +2,12 @@ import { useMutation, useQuery, useQueryClient } from '@tanstack/react-query';
 import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { SubmissionError } from 'redux-form';
-
 import {
   marketplaceServiceProvidersPartialUpdate,
   serviceProviderApiSecretCodeGenerate,
   serviceProviderApiSecretCodeRetrieve,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { FieldEditButton } from '@waldur/customer/details/FieldEditButton';
 import FormTable from '@waldur/form/FormTable';

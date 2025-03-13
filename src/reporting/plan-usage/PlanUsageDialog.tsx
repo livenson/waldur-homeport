@@ -1,7 +1,7 @@
 import { EChartsOption } from 'echarts';
 import { DateTime } from 'luxon';
+import { PlanUsageResponse } from 'waldur-js-client';
 
-import { PlanUsageResponse } from '@waldur/api';
 import { EChart } from '@waldur/core/EChart';
 import { translate } from '@waldur/i18n';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';

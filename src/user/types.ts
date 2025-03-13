@@ -1,6 +1,5 @@
 import { ReactNode } from 'react';
-
-import { User } from '@waldur/api';
+import { User } from 'waldur-js-client';
 
 export interface EditUserProps {
   user: User;

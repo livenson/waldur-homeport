@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
+import { invoiceItemsCreateCompensation } from 'waldur-js-client';
 
-import { invoiceItemsCreateCompensation } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { ResourceActionDialog } from '@waldur/resource/actions/ResourceActionDialog';

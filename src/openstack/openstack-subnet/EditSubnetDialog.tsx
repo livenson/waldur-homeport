@@ -1,6 +1,6 @@
 import { FC } from 'react';
+import { openstackSubnetsUpdate } from 'waldur-js-client';
 
-import { openstackSubnetsUpdate } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { ActionDialogProps } from '@waldur/resource/actions/types';
 import { UpdateResourceDialog } from '@waldur/resource/actions/UpdateResourceDialog';

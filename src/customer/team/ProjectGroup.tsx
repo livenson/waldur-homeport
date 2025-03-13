@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 import { Form } from 'react-bootstrap';
+import { NestedProjectPermission } from 'waldur-js-client';
 
-import { NestedProjectPermission } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 
 export const ProjectGroup: FunctionComponent<{

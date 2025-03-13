@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
+import { BroadcastMessage } from 'waldur-js-client';
 
-import { BroadcastMessage } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { StateIndicator } from '@waldur/core/StateIndicator';
 import { translate } from '@waldur/i18n';

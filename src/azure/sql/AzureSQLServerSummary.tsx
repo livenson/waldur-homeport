@@ -1,6 +1,6 @@
 import { Question } from '@phosphor-icons/react';
+import { AzureSqlServer } from 'waldur-js-client';
 
-import { AzureSqlServer } from '@waldur/api';
 import { Tip } from '@waldur/core/Tooltip';
 import { formatFilesize } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';

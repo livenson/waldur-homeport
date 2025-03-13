@@ -1,11 +1,11 @@
 import { useSelector } from 'react-redux';
 import { createSelector } from 'reselect';
-
 import {
   Customer,
   MarketplacePublicOfferingsListData,
   Project,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { Link } from '@waldur/core/Link';
 import { translate } from '@waldur/i18n';
 import { RootState } from '@waldur/store/reducers';

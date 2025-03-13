@@ -1,7 +1,10 @@
 import { useQuery } from '@tanstack/react-query';
 import { useCurrentStateAndParams } from '@uirouter/react';
+import {
+  proposalProposalsRetrieve,
+  proposalReviewsList,
+} from 'waldur-js-client';
 
-import { proposalProposalsRetrieve, proposalReviewsList } from '@waldur/api';
 import { getAllPages } from '@waldur/core/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';

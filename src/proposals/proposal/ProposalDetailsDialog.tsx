@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { FC } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
+import { proposalPublicCallsRetrieve } from 'waldur-js-client';
 
-import { proposalPublicCallsRetrieve } from '@waldur/api';
 import { FieldWithCopy } from '@waldur/core/FieldWithCopy';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';

@@ -1,8 +1,8 @@
 import { FileText } from '@phosphor-icons/react';
 import { FunctionComponent } from 'react';
 import { DropdownButton, Dropdown } from 'react-bootstrap';
+import { Invoice } from 'waldur-js-client';
 
-import { Invoice } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 
 interface ResourceActionComponentProps {

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { Col, Row } from 'react-bootstrap';
+import { Offering } from 'waldur-js-client';
 
-import { Offering } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 

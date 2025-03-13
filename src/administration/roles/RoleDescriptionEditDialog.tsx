@@ -1,8 +1,8 @@
 import { useMemo } from 'react';
 import { Modal, Stack } from 'react-bootstrap';
 import { Field, Form } from 'react-final-form';
+import { rolesUpdateDescriptionsUpdate } from 'waldur-js-client';
 
-import { rolesUpdateDescriptionsUpdate } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { CancelButton, StringField, SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';

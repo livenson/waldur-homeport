@@ -1,12 +1,12 @@
 import { PencilSimple } from '@phosphor-icons/react';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-
 import {
   marketplaceCustomerEstimatedCostPoliciesUpdate,
   marketplaceProjectEstimatedCostPoliciesUpdate,
-} from '@waldur/api';
-import { Project } from '@waldur/api';
+} from 'waldur-js-client';
+import { Project } from 'waldur-js-client';
+
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog, openModalDialog } from '@waldur/modal/actions';

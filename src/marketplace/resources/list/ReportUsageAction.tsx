@@ -1,7 +1,7 @@
 import { FileText } from '@phosphor-icons/react';
 import { useDispatch } from 'react-redux';
+import { Resource } from 'waldur-js-client';
 
-import { Resource } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { UsageReportContext } from '@waldur/marketplace/resources/usage/types';

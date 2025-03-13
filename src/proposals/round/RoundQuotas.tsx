@@ -1,8 +1,8 @@
 import { FC, useMemo } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useMediaQuery } from 'react-responsive';
+import { ProtectedRound } from 'waldur-js-client';
 
-import { ProtectedRound } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { translate } from '@waldur/i18n';
 import { QuotaCell } from '@waldur/marketplace/resources/details/QuotaCell';

@@ -2,8 +2,8 @@ import { useCallback, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
 import { getFormValues, reduxForm } from 'redux-form';
+import { Project } from 'waldur-js-client';
 
-import { Project } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { SIDEBAR_RESOURCES_FILTER_FORM } from '@waldur/marketplace/constants';
 import { OrganizationAutocomplete } from '@waldur/marketplace/orders/OrganizationAutocomplete';

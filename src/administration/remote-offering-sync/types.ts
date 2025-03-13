@@ -1,4 +1,4 @@
-import { RemoteSynchronisation } from '@waldur/api';
+import { RemoteSynchronisation } from 'waldur-js-client';
 
 export interface RemoteSyncActionProps {
   row: RemoteSynchronisation;

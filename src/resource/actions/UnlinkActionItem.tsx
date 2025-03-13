@@ -1,8 +1,8 @@
 import { LinkBreak } from '@phosphor-icons/react';
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
+import { marketplaceResourcesUnlink } from 'waldur-js-client';
 
-import { marketplaceResourcesUnlink } from '@waldur/api';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';

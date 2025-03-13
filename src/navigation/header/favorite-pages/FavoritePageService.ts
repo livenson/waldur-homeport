@@ -7,14 +7,14 @@ import {
 import { isMatch, pickBy, uniqueId } from 'lodash-es';
 import { useCallback, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
-
 import {
   marketplaceCategoriesRetrieve,
   marketplaceProviderOfferingsRetrieve,
   marketplacePublicOfferingsRetrieve,
   Offering,
   Resource,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import { getTitle } from '@waldur/navigation/title';
 import { isDescendantOf } from '@waldur/navigation/useTabs';

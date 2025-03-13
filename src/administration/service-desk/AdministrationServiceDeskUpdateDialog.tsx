@@ -1,8 +1,8 @@
 import { capitalize } from 'lodash-es';
 import { useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
+import { overrideSettings } from 'waldur-js-client';
 
-import { overrideSettings } from '@waldur/api';
 import { formDataOptions } from '@waldur/core/api';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';

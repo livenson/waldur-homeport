@@ -1,8 +1,8 @@
 import { useCurrentStateAndParams, useRouter } from '@uirouter/react';
 import { FC, useMemo } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
+import { User } from 'waldur-js-client';
 
-import { User } from '@waldur/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';

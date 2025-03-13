@@ -1,7 +1,7 @@
 import { Factory } from '@phosphor-icons/react';
 import { FC, PropsWithChildren } from 'react';
+import { Project } from 'waldur-js-client';
 
-import { Project } from '@waldur/api';
 import { Link } from '@waldur/core/Link';
 import { AtLeast } from '@waldur/core/types';
 import { isFeatureVisible } from '@waldur/features/connect';

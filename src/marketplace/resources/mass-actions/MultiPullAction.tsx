@@ -1,12 +1,12 @@
 import { GitPullRequest } from '@phosphor-icons/react';
 import { useCallback, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
-
 import {
   openstackInstancesPull,
   openstackTenantsPull,
   openstackVolumesPull,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import {

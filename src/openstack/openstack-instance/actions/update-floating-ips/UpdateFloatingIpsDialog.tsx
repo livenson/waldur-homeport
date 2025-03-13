@@ -1,6 +1,5 @@
 import { FC } from 'react';
-
-import { OpenStackInstance } from '@waldur/api';
+import { OpenStackInstance } from 'waldur-js-client';
 
 import { FloatingIpsForm } from './FloatingIpsForm';
 import { useFloatingIpsEditor } from './utils';

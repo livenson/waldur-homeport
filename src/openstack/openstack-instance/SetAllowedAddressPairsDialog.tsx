@@ -4,11 +4,11 @@ import { Button, Table } from 'react-bootstrap';
 import { connect, useDispatch } from 'react-redux';
 import { compose } from 'redux';
 import { Field, FieldArray, reduxForm } from 'redux-form';
-
 import {
   OpenStackAllowedAddressPairRequest,
   openstackInstancesUpdateAllowedAddressPairs,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { SubmitButton } from '@waldur/form';
 import { renderValidationWrapper } from '@waldur/form/FieldValidationWrapper';
 import { InputField } from '@waldur/form/InputField';

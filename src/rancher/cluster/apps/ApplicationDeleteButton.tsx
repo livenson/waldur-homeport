@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
+import { rancherAppsDestroy } from 'waldur-js-client';
 
-import { rancherAppsDestroy } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { ResourceDeleteButton } from '@waldur/resource/actions/ResourceDeleteButton';
 

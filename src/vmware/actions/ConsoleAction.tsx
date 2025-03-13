@@ -1,4 +1,5 @@
-import { vmwareVirtualMachineConsoleRetrieve } from '@waldur/api';
+import { vmwareVirtualMachineConsoleRetrieve } from 'waldur-js-client';
+
 import { validateState } from '@waldur/resource/actions/base';
 import { OpenConsoleActionItem } from '@waldur/resource/actions/OpenConsoleActionItem';
 import { ActionItemType } from '@waldur/resource/actions/types';

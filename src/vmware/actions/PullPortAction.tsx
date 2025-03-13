@@ -1,4 +1,5 @@
-import { vmwarePortsPull } from '@waldur/api';
+import { vmwarePortsPull } from 'waldur-js-client';
+
 import { PullActionItem } from '@waldur/resource/actions/PullActionItem';
 import { ActionItemType } from '@waldur/resource/actions/types';
 

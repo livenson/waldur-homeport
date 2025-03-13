@@ -1,6 +1,6 @@
 import { Card } from 'react-bootstrap';
+import { OrderDetails as OrderResponse } from 'waldur-js-client';
 
-import { OrderDetails as OrderResponse } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { DetailsField } from '@waldur/marketplace/common/DetailsField';
 import { PlanDescriptionButton } from '@waldur/marketplace/details/plan/PlanDescriptionButton';

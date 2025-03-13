@@ -1,8 +1,8 @@
 import { Trash } from '@phosphor-icons/react';
 import { FunctionComponent, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { rancherCatalogsDestroy } from 'waldur-js-client';
 
-import { rancherCatalogsDestroy } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';

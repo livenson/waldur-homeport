@@ -1,11 +1,11 @@
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
-
 import {
   InstanceFlavorChangeRequest,
   openstackInstancesChangeFlavor,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { loadFlavors } from '@waldur/openstack/api';

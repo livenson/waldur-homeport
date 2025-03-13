@@ -1,7 +1,7 @@
 import { useMutation } from '@tanstack/react-query';
 import { useDispatch } from 'react-redux';
+import { proposalReviewsAccept, proposalReviewsReject } from 'waldur-js-client';
 
-import { proposalReviewsAccept, proposalReviewsReject } from '@waldur/api';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { router } from '@waldur/router';

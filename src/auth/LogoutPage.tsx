@@ -13,8 +13,8 @@
  */
 import { useRouter } from '@uirouter/react';
 import { useEffect, FunctionComponent } from 'react';
+import { apiAuthLogout } from 'waldur-js-client';
 
-import { apiAuthLogout } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 

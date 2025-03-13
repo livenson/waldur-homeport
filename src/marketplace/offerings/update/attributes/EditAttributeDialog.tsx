@@ -1,8 +1,8 @@
 import { Modal } from 'react-bootstrap';
 import { connect, useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
+import { marketplaceProviderOfferingsUpdateAttributes } from 'waldur-js-client';
 
-import { marketplaceProviderOfferingsUpdateAttributes } from '@waldur/api';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';

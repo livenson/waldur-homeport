@@ -2,9 +2,9 @@ import { Prohibit } from '@phosphor-icons/react';
 import React from 'react';
 import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { marketplaceOrdersRejectByProvider } from 'waldur-js-client';
+import { OrderDetails as OrderResponse } from 'waldur-js-client';
 
-import { marketplaceOrdersRejectByProvider } from '@waldur/api';
-import { OrderDetails as OrderResponse } from '@waldur/api';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import {

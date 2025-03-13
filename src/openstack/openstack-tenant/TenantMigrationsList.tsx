@@ -1,6 +1,9 @@
 import { FunctionComponent, useMemo } from 'react';
+import {
+  MigrationDetails,
+  OpenstackMigrationsListData,
+} from 'waldur-js-client';
 
-import { MigrationDetails, OpenstackMigrationsListData } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 import { ResourceLink } from '@waldur/resource/ResourceLink';

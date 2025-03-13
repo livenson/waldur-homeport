@@ -1,7 +1,7 @@
 import { ClipboardText } from '@phosphor-icons/react';
 import { FC } from 'react';
+import { Project } from 'waldur-js-client';
 
-import { Project } from '@waldur/api';
 import { formatDate } from '@waldur/core/dateUtils';
 import { FieldWithCopy } from '@waldur/core/FieldWithCopy';
 import FormTable from '@waldur/form/FormTable';

@@ -1,6 +1,6 @@
 import { FC } from 'react';
+import { openstackInstancesUpdate } from 'waldur-js-client';
 
-import { openstackInstancesUpdate } from '@waldur/api';
 import { required } from '@waldur/core/validators';
 import { translate } from '@waldur/i18n';
 import { createDescriptionField } from '@waldur/resource/actions/base';

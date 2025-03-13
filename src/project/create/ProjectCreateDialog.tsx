@@ -1,8 +1,8 @@
 import { PlusCircle } from '@phosphor-icons/react';
 import { useRouter } from '@uirouter/react';
 import { Form } from 'react-final-form';
+import { projectsCreate } from 'waldur-js-client';
 
-import { projectsCreate } from '@waldur/api';
 import { formDataOptions, fileSerializer } from '@waldur/core/api';
 import { formatDate } from '@waldur/core/dateUtils';
 import { SubmitButton } from '@waldur/form';

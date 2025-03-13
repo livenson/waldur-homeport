@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
+import { VisibleInvitationDetails } from 'waldur-js-client';
+import { User } from 'waldur-js-client';
 
-import { VisibleInvitationDetails } from '@waldur/api';
-import { User } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 
 import { formatInvitation } from './formatInvitation';

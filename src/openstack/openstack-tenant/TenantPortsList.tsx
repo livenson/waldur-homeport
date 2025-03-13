@@ -1,6 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
+import { OpenStackPort, OpenstackPortsListData } from 'waldur-js-client';
 
-import { OpenStackPort, OpenstackPortsListData } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { ResourceRowActions } from '@waldur/resource/actions/ResourceRowActions';
 import { createFetcher } from '@waldur/table/api';

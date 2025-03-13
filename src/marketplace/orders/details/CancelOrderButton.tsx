@@ -1,8 +1,8 @@
 import { Prohibit } from '@phosphor-icons/react';
 import { FC, useState } from 'react';
 import { useDispatch } from 'react-redux';
+import { marketplaceOrdersCancel } from 'waldur-js-client';
 
-import { marketplaceOrdersCancel } from '@waldur/api';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';

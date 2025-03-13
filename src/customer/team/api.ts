@@ -1,6 +1,6 @@
 import Axios from 'axios';
+import { usersList, UsersListData } from 'waldur-js-client';
 
-import { usersList, UsersListData } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { fixURL, parseResultCount, parseSelectData } from '@waldur/core/api';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';

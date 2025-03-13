@@ -1,12 +1,12 @@
 import { set, unset } from 'lodash-es';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
-
 import {
   marketplaceProviderOfferingsUpdateIntegration,
   OfferingIntegrationUpdateRequest,
   ProviderOfferingDetails,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { flattenObject } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';

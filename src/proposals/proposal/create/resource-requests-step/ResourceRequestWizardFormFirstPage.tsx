@@ -1,8 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
 import { FunctionComponent, useMemo } from 'react';
 import { Field } from 'redux-form';
+import { proposalPublicCallsRetrieve } from 'waldur-js-client';
 
-import { proposalPublicCallsRetrieve } from '@waldur/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { required } from '@waldur/core/validators';

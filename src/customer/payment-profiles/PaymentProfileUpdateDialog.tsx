@@ -1,8 +1,8 @@
 import { FunctionComponent, useEffect, useMemo, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { reduxForm } from 'redux-form';
+import { paymentProfilesPartialUpdate } from 'waldur-js-client';
 
-import { paymentProfilesPartialUpdate } from '@waldur/api';
 import { required } from '@waldur/core/validators';
 import { getCustomer as getCustomerApi } from '@waldur/customer/api';
 import { EDIT_PAYMENT_PROFILE_FORM_ID } from '@waldur/customer/payment-profiles/constants';

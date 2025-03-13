@@ -1,6 +1,7 @@
-export { Invoice, InvoiceItem } from '@waldur/api';
-import { InvoiceItem } from '@waldur/api';
-import { Project } from '@waldur/api';
+export { Invoice, InvoiceItem } from 'waldur-js-client';
+import { InvoiceItem } from 'waldur-js-client';
+import { Project } from 'waldur-js-client';
+
 import { Offering, ServiceProvider } from '@waldur/marketplace/types';
 
 export interface InvoiceTableItem {

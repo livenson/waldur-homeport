@@ -1,8 +1,8 @@
 import { PlusCircle } from '@phosphor-icons/react';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { CustomerUser } from 'waldur-js-client';
 
-import { CustomerUser } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { openModalDialog } from '@waldur/modal/actions';

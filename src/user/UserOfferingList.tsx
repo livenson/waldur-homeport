@@ -1,6 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
+import { User } from 'waldur-js-client';
 
-import { User } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 import { createFetcher } from '@waldur/table/api';

@@ -2,8 +2,8 @@ import { useRouter } from '@uirouter/react';
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { reduxForm } from 'redux-form';
+import { remoteWaldurApiImportOffering } from 'waldur-js-client';
 
-import { remoteWaldurApiImportOffering } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { StepsList } from '@waldur/marketplace/common/StepsList';
 import { useModal } from '@waldur/modal/hooks';

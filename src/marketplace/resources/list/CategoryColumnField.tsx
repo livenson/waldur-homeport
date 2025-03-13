@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
+import { Resource } from 'waldur-js-client';
 
-import { Resource } from '@waldur/api';
 import { formatFilesize } from '@waldur/core/utils';
 import { CategoryColumn } from '@waldur/marketplace/types';
 import { validateIP } from '@waldur/marketplace/utils';

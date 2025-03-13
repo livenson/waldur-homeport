@@ -1,8 +1,8 @@
 import { PencilSimple } from '@phosphor-icons/react';
 import React from 'react';
 import { useDispatch } from 'react-redux';
+import { CustomerUser, NestedProjectPermission } from 'waldur-js-client';
 
-import { CustomerUser, NestedProjectPermission } from '@waldur/api';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { openModalDialog } from '@waldur/modal/actions';

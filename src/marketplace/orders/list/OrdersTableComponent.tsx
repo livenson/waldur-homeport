@@ -1,6 +1,6 @@
 import { FC } from 'react';
+import { MarketplaceOrdersListData, OrderDetails } from 'waldur-js-client';
 
-import { MarketplaceOrdersListData, OrderDetails } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { Link } from '@waldur/core/Link';
 import { translate } from '@waldur/i18n';

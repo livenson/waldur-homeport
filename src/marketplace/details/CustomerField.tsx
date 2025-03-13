@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Field, change } from 'redux-form';
+import { projectsList } from 'waldur-js-client';
 
-import { projectsList } from '@waldur/api';
 import { required } from '@waldur/core/validators';
 import { AsyncPaginate } from '@waldur/form/themed-select';
 import { formatJsxTemplate, translate } from '@waldur/i18n';

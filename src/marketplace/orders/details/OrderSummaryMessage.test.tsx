@@ -1,6 +1,5 @@
 import { describe, expect, it, vi } from 'vitest';
-
-import { BillingTypeEnum } from '@waldur/api';
+import { BillingTypeEnum } from 'waldur-js-client';
 
 import { getUpdateSummary } from './OrderSummaryMessage';
 

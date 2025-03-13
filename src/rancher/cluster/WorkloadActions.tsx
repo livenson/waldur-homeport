@@ -2,8 +2,11 @@ import { Swap, Trash } from '@phosphor-icons/react';
 import { FunctionComponent } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAsyncFn } from 'react-use';
+import {
+  rancherWorkloadsDestroy,
+  rancherWorkloadsRedeploy,
+} from 'waldur-js-client';
 
-import { rancherWorkloadsDestroy, rancherWorkloadsRedeploy } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
 import { RowActionButton } from '@waldur/table/ActionButton';

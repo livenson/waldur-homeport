@@ -1,9 +1,9 @@
 import { useQueries } from '@tanstack/react-query';
 import { FC } from 'react';
 import { Tab, Tabs } from 'react-bootstrap';
+import { projectsRetrieve } from 'waldur-js-client';
+import { Project } from 'waldur-js-client';
 
-import { projectsRetrieve } from '@waldur/api';
-import { Project } from '@waldur/api';
 import { CopyToClipboardButton } from '@waldur/core/CopyToClipboardButton';
 import { formatDate } from '@waldur/core/dateUtils';
 import { LoadingErred } from '@waldur/core/LoadingErred';

@@ -1,6 +1,6 @@
 import { reduxForm } from 'redux-form';
+import { marketplaceScreenshotsCreate } from 'waldur-js-client';
 
-import { marketplaceScreenshotsCreate } from '@waldur/api';
 import { fileSerializer, formDataOptions } from '@waldur/core/api';
 import { required } from '@waldur/core/validators';
 import {

@@ -1,7 +1,7 @@
 import { FunctionComponent, useMemo } from 'react';
 import { useSelector } from 'react-redux';
+import { Payment, PaymentsListData } from 'waldur-js-client';
 
-import { Payment, PaymentsListData } from '@waldur/api';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { PAYMENTS_TABLE } from '@waldur/customer/details/constants';
 import { PaymentInvoiceRenderer } from '@waldur/customer/payments/PaymentInvoiceRenderer';

@@ -1,6 +1,6 @@
 import { FC } from 'react';
+import { vmwareVirtualMachineUpdate } from 'waldur-js-client';
 
-import { vmwareVirtualMachineUpdate } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import {
   createNameField,

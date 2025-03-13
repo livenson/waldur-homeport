@@ -2,9 +2,9 @@ import { useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
 import { reduxForm } from 'redux-form';
+import { openstackInstancesUpdatePorts } from 'waldur-js-client';
+import { OpenStackInstance } from 'waldur-js-client';
 
-import { openstackInstancesUpdatePorts } from '@waldur/api';
-import { OpenStackInstance } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { Option } from '@waldur/marketplace/common/registry';
 import { closeModalDialog } from '@waldur/modal/actions';

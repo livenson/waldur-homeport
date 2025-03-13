@@ -1,7 +1,7 @@
 import { useCallback, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
+import { userInvitationsCreate } from 'waldur-js-client';
 
-import { userInvitationsCreate } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';

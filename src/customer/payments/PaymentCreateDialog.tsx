@@ -1,8 +1,8 @@
 import { FunctionComponent } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { InjectedFormProps, reduxForm } from 'redux-form';
+import { paymentsCreate } from 'waldur-js-client';
 
-import { paymentsCreate } from '@waldur/api';
 import { formDataOptions, fileSerializer } from '@waldur/core/api';
 import { formatDate } from '@waldur/core/dateUtils';
 import { ADD_PAYMENT_FORM_ID } from '@waldur/customer/payments/constants';

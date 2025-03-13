@@ -1,14 +1,14 @@
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { describe, beforeEach, afterEach, it, expect, vi } from 'vitest';
+import { userAgreementsCreate } from 'waldur-js-client';
 
-import { userAgreementsCreate } from '@waldur/api';
 import { useModal } from '@waldur/modal/hooks';
 import { useNotify } from '@waldur/store/hooks';
 
 import { UserAgreementCreateDialog } from './UserAgreementCreateDialog';
 
-vi.mock('@waldur/api');
+vi.mock('waldur-js-client');
 vi.mock('@waldur/store/hooks');
 vi.mock('@waldur/modal/hooks');
 vi.mock('@waldur/i18n', () => ({

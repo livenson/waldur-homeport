@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
+import { ProviderRequestedOffering } from 'waldur-js-client';
 
-import { ProviderRequestedOffering } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { Field } from '@waldur/resource/summary';
 import { ExpandableContainer } from '@waldur/table/ExpandableContainer';

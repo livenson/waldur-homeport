@@ -1,7 +1,7 @@
 import { Fragment, FunctionComponent } from 'react';
 import { Table } from 'react-bootstrap';
+import { OpenStackNestedSecurityGroup } from 'waldur-js-client';
 
-import { OpenStackNestedSecurityGroup } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
 

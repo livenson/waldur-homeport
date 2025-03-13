@@ -1,6 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
+import { RancherCluster, RancherTemplate } from 'waldur-js-client';
 
-import { RancherCluster, RancherTemplate } from '@waldur/api';
 import { Link } from '@waldur/core/Link';
 import { translate } from '@waldur/i18n';
 import { createFetcher } from '@waldur/table/api';

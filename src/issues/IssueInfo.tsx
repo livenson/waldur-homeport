@@ -1,8 +1,8 @@
 import { Eye } from '@phosphor-icons/react';
 import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
+import { Issue } from 'waldur-js-client';
 
-import { Issue } from '@waldur/api';
 import { Badge } from '@waldur/core/Badge';
 import { formatRelative, formatDateTime } from '@waldur/core/dateUtils';
 import { ExternalLink } from '@waldur/core/ExternalLink';

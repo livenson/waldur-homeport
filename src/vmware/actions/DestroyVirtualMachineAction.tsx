@@ -1,4 +1,5 @@
-import { vmwareVirtualMachineDestroy } from '@waldur/api';
+import { vmwareVirtualMachineDestroy } from 'waldur-js-client';
+
 import {
   validateRuntimeState,
   validateState,

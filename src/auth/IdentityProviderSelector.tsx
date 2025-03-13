@@ -1,4 +1,4 @@
-import { IdentityProvider } from '@waldur/api';
+import { IdentityProvider } from 'waldur-js-client';
 
 import { OauthLoginButton } from './OauthLoginButton';
 import { Saml2Button } from './Saml2Button';

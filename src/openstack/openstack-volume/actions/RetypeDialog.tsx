@@ -1,8 +1,8 @@
 import { FC } from 'react';
 import { Field, Form } from 'react-final-form';
 import { useAsync } from 'react-use';
+import { openstackVolumesRetype } from 'waldur-js-client';
 
-import { openstackVolumesRetype } from '@waldur/api';
 import { required } from '@waldur/core/validators';
 import { Select } from '@waldur/form/themed-select';
 import { translate } from '@waldur/i18n';

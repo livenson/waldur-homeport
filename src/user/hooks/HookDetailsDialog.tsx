@@ -1,14 +1,14 @@
 import { FunctionComponent } from 'react';
 import { Field, Form } from 'react-final-form';
 import { useAsync } from 'react-use';
-
 import {
   EventGroupsEnum,
   hooksEmailCreate,
   hooksEmailPartialUpdate,
   hooksWebCreate,
   hooksWebPartialUpdate,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { SubmitButton } from '@waldur/auth/SubmitButton';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { titleCase } from '@waldur/core/utils';

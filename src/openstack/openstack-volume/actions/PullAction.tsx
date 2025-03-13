@@ -1,4 +1,5 @@
-import { openstackVolumesPull } from '@waldur/api';
+import { openstackVolumesPull } from 'waldur-js-client';
+
 import { PullActionItem } from '@waldur/resource/actions/PullActionItem';
 import { ActionItemType } from '@waldur/resource/actions/types';
 

@@ -1,8 +1,11 @@
 import { useRouter } from '@uirouter/react';
 import { FC, PropsWithChildren } from 'react';
 import { SubmissionError } from 'redux-form';
+import {
+  marketplaceOrdersCreate,
+  PublicOfferingDetails,
+} from 'waldur-js-client';
 
-import { marketplaceOrdersCreate, PublicOfferingDetails } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';

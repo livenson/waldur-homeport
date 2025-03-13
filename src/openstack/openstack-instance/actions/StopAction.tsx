@@ -1,7 +1,7 @@
 import { Stop } from '@phosphor-icons/react';
+import { openstackInstancesStop } from 'waldur-js-client';
+import { OpenStackInstance } from 'waldur-js-client';
 
-import { openstackInstancesStop } from '@waldur/api';
-import { OpenStackInstance } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import {
   AsyncActionItem,

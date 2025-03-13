@@ -1,8 +1,7 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
-
-import { MarketplaceOrdersListData } from '@waldur/api';
+import { MarketplaceOrdersListData } from 'waldur-js-client';
 
 import { ProviderOrdersListFilter } from '../orders/list/MarketplaceOrdersListFilter';
 import { OrdersTableComponent } from '../orders/list/OrdersTableComponent';

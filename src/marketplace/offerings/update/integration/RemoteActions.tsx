@@ -1,6 +1,5 @@
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import {
   remoteWaldurApiPullOfferingDetails,
   remoteWaldurApiPullOfferingInvoices,
@@ -10,7 +9,8 @@ import {
   remoteWaldurApiPullOfferingUsage,
   remoteWaldurApiPullOfferingUsers,
   remoteWaldurApiPushProjectData,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { translate } from '@waldur/i18n';
 import { REMOTE_OFFERING_TYPE } from '@waldur/marketplace-remote/constants';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';

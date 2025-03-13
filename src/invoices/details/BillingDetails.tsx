@@ -2,8 +2,8 @@ import { useCurrentStateAndParams, useRouter } from '@uirouter/react';
 import { FunctionComponent, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAsyncFn } from 'react-use';
+import { invoicesRetrieve } from 'waldur-js-client';
 
-import { invoicesRetrieve } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';

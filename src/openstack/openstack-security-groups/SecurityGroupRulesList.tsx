@@ -1,4 +1,4 @@
-import { OpenStackSecurityGroup } from '@waldur/api';
+import { OpenStackSecurityGroup } from 'waldur-js-client';
 
 import { SecurityGroupRuleCell } from './SecurityGroupRuleCell';
 import { SecurityGroupRuleHeader } from './SecurityGroupRuleHeader';

@@ -1,8 +1,8 @@
 import { DateTime } from 'luxon';
 import { FunctionComponent } from 'react';
 import { useAsync } from 'react-use';
+import { invoicesList } from 'waldur-js-client';
 
-import { invoicesList } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 

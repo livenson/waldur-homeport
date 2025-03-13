@@ -1,4 +1,5 @@
-import { openstackSnapshotsDestroy } from '@waldur/api';
+import { openstackSnapshotsDestroy } from 'waldur-js-client';
+
 import { validateState } from '@waldur/resource/actions/base';
 import { DestroyActionItem } from '@waldur/resource/actions/DestroyActionItem';
 import { ActionItemType } from '@waldur/resource/actions/types';

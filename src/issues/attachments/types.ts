@@ -1,5 +1,5 @@
-import { Attachment } from '@waldur/api';
-export { Attachment } from '@waldur/api';
+import { Attachment } from 'waldur-js-client';
+export { Attachment } from 'waldur-js-client';
 
 export type IssueAttachmentUploading = {
   key: string | number;

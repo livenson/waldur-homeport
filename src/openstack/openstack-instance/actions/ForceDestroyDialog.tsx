@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
+import { marketplaceResourcesTerminate } from 'waldur-js-client';
 
-import { marketplaceResourcesTerminate } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { DestroyInstanceParams } from '@waldur/openstack/api';

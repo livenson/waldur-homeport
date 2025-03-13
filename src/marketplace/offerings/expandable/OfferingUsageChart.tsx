@@ -2,8 +2,8 @@ import { DateTime } from 'luxon';
 import { FunctionComponent } from 'react';
 import { Card } from 'react-bootstrap';
 import { useAsync } from 'react-use';
+import { marketplaceProviderOfferingsComponentStatsList } from 'waldur-js-client';
 
-import { marketplaceProviderOfferingsComponentStatsList } from '@waldur/api';
 import { getAllPages } from '@waldur/core/api';
 import { generateColors } from '@waldur/core/generateColors';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';

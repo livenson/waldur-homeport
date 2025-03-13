@@ -1,6 +1,6 @@
 import { Transition } from '@uirouter/react';
+import { customerCreditsList } from 'waldur-js-client';
 
-import { customerCreditsList } from '@waldur/api';
 import { getCustomer } from '@waldur/customer/api';
 import { router } from '@waldur/router';
 import store from '@waldur/store/store';

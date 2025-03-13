@@ -2,8 +2,8 @@ import { Trash } from '@phosphor-icons/react';
 import { useRouter } from '@uirouter/react';
 import { FunctionComponent, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
+import { IssueTypeEnum, supportIssuesCreate } from 'waldur-js-client';
 
-import { IssueTypeEnum, supportIssuesCreate } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { CancelButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';

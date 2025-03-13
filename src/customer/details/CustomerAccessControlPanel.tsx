@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
+import { AccessSubnet } from 'waldur-js-client';
 
-import { AccessSubnet } from '@waldur/api';
 import { CustomerEditPanelProps } from '@waldur/customer/details/types';
 import { FilteredEventsButton } from '@waldur/events/FilteredEventsButton';
 import { translate } from '@waldur/i18n';

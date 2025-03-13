@@ -2,8 +2,8 @@ import { useRouter } from '@uirouter/react';
 import { useState, FunctionComponent } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
+import { customerPermissionsReviewsClose } from 'waldur-js-client';
 
-import { customerPermissionsReviewsClose } from '@waldur/api';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';

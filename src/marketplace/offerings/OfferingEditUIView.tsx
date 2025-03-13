@@ -1,12 +1,12 @@
 import { useQuery } from '@tanstack/react-query';
 import { UIView, useCurrentStateAndParams } from '@uirouter/react';
 import { useMemo } from 'react';
-
 import {
   marketplaceCategoriesRetrieve,
   marketplacePluginsList,
   marketplaceProviderOfferingsRetrieve,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { OFFERING_TYPE_BOOKING } from '@waldur/booking/constants';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';

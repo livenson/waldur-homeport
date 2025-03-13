@@ -1,10 +1,10 @@
 import { Clock } from '@phosphor-icons/react';
 import { useDispatch, useSelector } from 'react-redux';
-
 import {
   marketplaceProviderResourcesSetEndDateByProvider,
   Resource,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { ENV } from '@waldur/configs/default';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';

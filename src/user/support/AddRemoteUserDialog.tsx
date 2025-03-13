@@ -1,6 +1,6 @@
 import { useDispatch } from 'react-redux';
+import { remoteEduteams } from 'waldur-js-client';
 
-import { remoteEduteams } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { ResourceActionDialog } from '@waldur/resource/actions/ResourceActionDialog';

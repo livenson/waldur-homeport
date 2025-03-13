@@ -1,8 +1,8 @@
 import { useEffect } from 'react';
 import { Card } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
+import { Issue } from 'waldur-js-client';
 
-import { Issue } from '@waldur/api';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { type RootState } from '@waldur/store/reducers';

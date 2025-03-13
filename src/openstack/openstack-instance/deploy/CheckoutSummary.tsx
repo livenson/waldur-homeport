@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
+import { PublicOfferingDetails } from 'waldur-js-client';
 
-import { PublicOfferingDetails } from '@waldur/api';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { DeployPageTotalCard } from '@waldur/marketplace/deploy/DeployPageTotalCard';
 import {

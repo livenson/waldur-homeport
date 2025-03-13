@@ -2,11 +2,11 @@ import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
-
 import {
   CustomerEstimatedCostPolicy,
   MarketplaceCustomerEstimatedCostPoliciesListData,
-} from '@waldur/api';
+} from 'waldur-js-client';
+
 import { BooleanBadge } from '@waldur/core/BooleanBadge';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { CostPolicyActions } from '@waldur/customer/cost-policies/CostPolicyActions';

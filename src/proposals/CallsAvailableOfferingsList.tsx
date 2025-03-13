@@ -1,6 +1,6 @@
 import { FC, useMemo } from 'react';
+import { MarketplacePublicOfferingsListData } from 'waldur-js-client';
 
-import { MarketplacePublicOfferingsListData } from '@waldur/api';
 import { Link } from '@waldur/core/Link';
 import { translate } from '@waldur/i18n';
 import { AvailableOfferingCard } from '@waldur/proposals/AvailableOfferingCard';

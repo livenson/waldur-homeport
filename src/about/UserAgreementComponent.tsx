@@ -1,8 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import Markdown from 'markdown-to-jsx';
 import { FunctionComponent } from 'react';
-
-import { userAgreementsList } from '@waldur/api';
+import { userAgreementsList } from 'waldur-js-client';
 
 import { LoadingSpinner } from '../core/LoadingSpinner';
 import { translate } from '../i18n';

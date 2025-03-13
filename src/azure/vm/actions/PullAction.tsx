@@ -1,4 +1,5 @@
-import { azureVirtualmachinesPull } from '@waldur/api';
+import { azureVirtualmachinesPull } from 'waldur-js-client';
+
 import { PullActionItem } from '@waldur/resource/actions/PullActionItem';
 import { ActionItemType } from '@waldur/resource/actions/types';
 

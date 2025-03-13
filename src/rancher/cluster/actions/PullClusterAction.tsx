@@ -1,6 +1,6 @@
 import { useSelector } from 'react-redux';
+import { rancherClustersPull } from 'waldur-js-client';
 
-import { rancherClustersPull } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { PullActionItem } from '@waldur/resource/actions/PullActionItem';
 import { ActionItemType } from '@waldur/resource/actions/types';

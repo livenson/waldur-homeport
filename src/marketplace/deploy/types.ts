@@ -1,4 +1,5 @@
-import { PublicOfferingDetails } from '@waldur/api';
+import { PublicOfferingDetails } from 'waldur-js-client';
+
 import {
   VStepperFormStep,
   VStepperFormStepProps,

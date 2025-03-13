@@ -2,8 +2,8 @@ import { useQuery } from '@tanstack/react-query';
 import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
+import { proposalPublicCallsRetrieve } from 'waldur-js-client';
 
-import { proposalPublicCallsRetrieve } from '@waldur/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { VStepperFormStepProps } from '@waldur/form/VStepperFormStep';

@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
+import { openstackTenantsCreateNetwork } from 'waldur-js-client';
 
-import { openstackTenantsCreateNetwork } from '@waldur/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import {

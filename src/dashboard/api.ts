@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon';
+import { dailyQuotasRetrieve, InvoiceCost } from 'waldur-js-client';
 
-import { dailyQuotasRetrieve, InvoiceCost } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { parseDate } from '@waldur/core/dateUtils';
 import { defaultCurrency } from '@waldur/core/formatCurrency';

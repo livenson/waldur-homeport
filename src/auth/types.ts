@@ -1,4 +1,4 @@
-import { IdentityProvider } from '@waldur/api';
+import { IdentityProvider } from 'waldur-js-client';
 
 interface SAML2AuthConfiguration {
   ENABLE_SINGLE_LOGOUT: boolean;
