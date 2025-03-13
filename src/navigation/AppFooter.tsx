@@ -2,7 +2,7 @@ import { ArrowCircleUp } from '@phosphor-icons/react';
 import { FunctionComponent, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 
-import { versionRetrieve } from '@waldur/api/sdk.gen';
+import { versionRetrieve } from '@waldur/api';
 import { ENV } from '@waldur/configs/default';
 import { format } from '@waldur/core/ErrorMessageFormatter';
 import { lazyComponent } from '@waldur/core/lazyComponent';
