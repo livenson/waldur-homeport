@@ -22,17 +22,33 @@ export const UpgradeNotificationDialog: FunctionComponent<
       <p>
         {translate('Waldur {version} is now available.', {
           version,
-        })}{' '}
-        {translate('Visit')}{' '}
-        <a
-          href="https://docs.waldur.com/latest/about/CHANGELOG/"
-          target="_blank"
-          rel="noreferrer"
-        >
-          docs.waldur.com
-        </a>{' '}
-        {translate('to get more information about how to perform the upgrade.')}
+        })}
       </p>
+      <p>
+        {translate(
+          'Your Waldur installation needs to be upgraded. For upgrade instructions, please visit:',
+        )}
+      </p>
+      <ul>
+        <li>
+          <a
+            href="https://docs.waldur.com/latest/admin-guide/deployment/helm/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {translate('For Helm-based deployments')}
+          </a>
+        </li>
+        <li>
+          <a
+            href="https://docs.waldur.com/latest/admin-guide/deployment/docker-compose/"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {translate('For Docker Compose deployments')}
+          </a>
+        </li>
+      </ul>
     </div>
     <div className="modal-footer d-block px-4 pb-4">
       <CloseDialogButton
