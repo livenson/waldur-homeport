@@ -736,7 +736,7 @@ export const SettingsDescription = [
       },
       {
         key: 'ENABLE_STRICT_CHECK_ACCEPTING_INVITATION',
-        description: translate('If this is true and user email is pre-validated then accepting invitation to only do that if user\'s email and email of the invitation fully match.'),
+        description: translate('If true, user email in Waldur database and in invitatation must strictly match.'),
         default: false,
         type: 'boolean',
       },
