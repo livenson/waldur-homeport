@@ -2727,10 +2727,6 @@
     "description": "administration/organizations/OrganizationCreditsList.tsx, administration/routes.ts, customer/credits/ProjectCreditsList.tsx, customer/routes.ts",
     "message": "Credit management"
   },
-  "Credit usage history": {
-    "description": "customer/credits/CreditUsageDialog.tsx",
-    "message": "Credit usage history"
-  },
   "Credit usage": {
     "description": "customer/credits/CreditUsageButton.tsx",
     "message": "Credit usage"
@@ -4419,6 +4415,14 @@
     "description": "vmware/deploy/FormAdvancedOptionsStep.tsx",
     "message": "Folder"
   },
+  "For Docker Compose deployments": {
+    "description": "navigation/UpgradeNotificationDialog.tsx",
+    "message": "For Docker Compose deployments"
+  },
+  "For Helm-based deployments": {
+    "description": "navigation/UpgradeNotificationDialog.tsx",
+    "message": "For Helm-based deployments"
+  },
   "Force destroy {name} instance": {
     "description": "openstack/openstack-instance/actions/ForceDestroyDialog.tsx",
     "message": "Force destroy {name} instance"
@@ -4915,10 +4919,6 @@
     "description": "marketplace/UserSecretOptionsForm.tsx",
     "message": "If defined, will be set as a password for all offering users"
   },
-  "If this is true and user email is pre-validated then accepting invitation to only do that if user's email and email of the invitation fully match.": {
-    "description": "SettingsDescription.ts",
-    "message": "If this is true and user email is pre-validated then accepting invitation to only do that if user's email and email of the invitation fully match."
-  },
   "If true, notify users about resource changes from Marketplace perspective. Can generate duplicate events if plugins also log": {
     "description": "SettingsDescription.ts",
     "message": "If true, notify users about resource changes from Marketplace perspective. Can generate duplicate events if plugins also log"
@@ -4926,6 +4926,10 @@
   "If true, offering users are created automatically when a user is added to the project with active offering resources or when a new offering resource is created.": {
     "description": "marketplace/UserPluginOptionsForm.tsx",
     "message": "If true, offering users are created automatically when a user is added to the project with active offering resources or when a new offering resource is created."
+  },
+  "If true, user email in Waldur database and in invitatation must strictly match.": {
+    "description": "SettingsDescription.ts",
+    "message": "If true, user email in Waldur database and in invitatation must strictly match."
   },
   "If true, users with staff role are notified when request for order approval is generated": {
     "description": "SettingsDescription.ts",
@@ -6228,7 +6232,7 @@
     "message": "Modified"
   },
   "Month": {
-    "description": "customer/credits/CreditUsageDialog.tsx",
+    "description": "customer/credits/CreditUsageDialog.tsx, customer/credits/CreditUsageFilter.tsx",
     "message": "Month"
   },
   "Monthly cost": {
@@ -6723,6 +6727,10 @@
     "description": "proposals/proposal/create/resource-requests-step/FormResourceRequestsStep.tsx",
     "message": "No resources available in the current project. Start by adding or managing resources to get started."
   },
+  "No resources": {
+    "description": "customer/credits/CreditUsageFilter.tsx",
+    "message": "No resources"
+  },
   "No result found": {
     "description": "navigation/header/search/SearchPopover.tsx",
     "message": "No result found"
@@ -7080,7 +7088,7 @@
     "message": "Offering(s)"
   },
   "Offering": {
-    "description": "administration/roles/PermissionOptions.tsx, customer/credits/CreditUsageDialog.tsx, invoices/details/InvoiceItemsFilter.tsx, invoices/details/InvoiceItemsTable.tsx, marketplace/aggregate-limits/AggregateLimitsExpandableRow.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/deploy/steps/FormDetailsOverviewStep.tsx, marketplace/offerings/PriceList.tsx, marketplace/orders/list/MarketplaceOrdersListFilter.tsx, marketplace/orders/list/OrdersListExpandableRow.tsx, marketplace/resources/list/AllResourcesFilter.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/OfferingFilter.tsx, marketplace/resources/list/ProjectResourcesAllFilter.tsx, marketplace/resources/list/ProviderResourcesFilter.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/utils.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx, marketplace/service-providers/OfferingPermissionCreateDialog.tsx, marketplace/service-providers/OfferingPermissionsList.tsx, marketplace/service-providers/ProviderCampaignResourceExpandable.tsx, marketplace/service-providers/ProviderOfferingUsersFilter.tsx, marketplace/service-providers/ProviderOfferingUsersList.tsx, marketplace/service-providers/ProviderProjectResourcesList.tsx, marketplace-remote/ProjectUpdateRequestsList.tsx, navigation/header/confirmation-drawer/PendingConsumerOrders.tsx, navigation/header/confirmation-drawer/PendingProviderOrders.tsx, openstack/openstack-tenant/actions/MigrateTenantDialog.tsx, permissions/constants.tsx, proposals/offering-requests/OfferingRequestsList.tsx, proposals/offering-requests/OfferingRequestsTableFilter.tsx, proposals/proposal/create/ResourceRequestsSummary.tsx, proposals/proposal/create/resource-requests-step/FormResourceRequestsStep.tsx, proposals/proposal/create/resource-requests-step/ProposalResourcesFilter.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestWizardFormSecondPage.tsx, proposals/update/offerings/WizardFormSecondPage.tsx, reporting/plan-usage/PlanUsageDialog.tsx, reporting/plan-usage/PlanUsageFilter.tsx, reporting/plan-usage/PlanUsageList.tsx, reporting/resource-usage/ResourceUsageFilter.tsx, reporting/resource-usage/ResourceUsageList.tsx, user/UserOfferingList.tsx, user/affiliations/SummaryResourcesTable.tsx",
+    "description": "administration/roles/PermissionOptions.tsx, customer/credits/CreditUsageDialog.tsx, customer/credits/CreditUsageFilter.tsx, invoices/details/InvoiceItemsFilter.tsx, invoices/details/InvoiceItemsTable.tsx, marketplace/aggregate-limits/AggregateLimitsExpandableRow.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/deploy/steps/FormDetailsOverviewStep.tsx, marketplace/offerings/PriceList.tsx, marketplace/orders/list/MarketplaceOrdersListFilter.tsx, marketplace/orders/list/OrdersListExpandableRow.tsx, marketplace/resources/list/AllResourcesFilter.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/OfferingFilter.tsx, marketplace/resources/list/ProjectResourcesAllFilter.tsx, marketplace/resources/list/ProviderResourcesFilter.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/utils.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx, marketplace/service-providers/OfferingPermissionCreateDialog.tsx, marketplace/service-providers/OfferingPermissionsList.tsx, marketplace/service-providers/ProviderCampaignResourceExpandable.tsx, marketplace/service-providers/ProviderOfferingUsersFilter.tsx, marketplace/service-providers/ProviderOfferingUsersList.tsx, marketplace/service-providers/ProviderProjectResourcesList.tsx, marketplace-remote/ProjectUpdateRequestsList.tsx, navigation/header/confirmation-drawer/PendingConsumerOrders.tsx, navigation/header/confirmation-drawer/PendingProviderOrders.tsx, openstack/openstack-tenant/actions/MigrateTenantDialog.tsx, permissions/constants.tsx, proposals/offering-requests/OfferingRequestsList.tsx, proposals/offering-requests/OfferingRequestsTableFilter.tsx, proposals/proposal/create/ResourceRequestsSummary.tsx, proposals/proposal/create/resource-requests-step/FormResourceRequestsStep.tsx, proposals/proposal/create/resource-requests-step/ProposalResourcesFilter.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestWizardFormSecondPage.tsx, proposals/update/offerings/WizardFormSecondPage.tsx, reporting/plan-usage/PlanUsageDialog.tsx, reporting/plan-usage/PlanUsageFilter.tsx, reporting/plan-usage/PlanUsageList.tsx, reporting/resource-usage/ResourceUsageFilter.tsx, reporting/resource-usage/ResourceUsageList.tsx, user/UserOfferingList.tsx, user/affiliations/SummaryResourcesTable.tsx",
     "message": "Offering"
   },
   "Offerings count": {
@@ -9532,7 +9540,7 @@
     "message": "Resource {type} process"
   },
   "Resource": {
-    "description": "customer/credits/CreditUsageDialog.tsx, events/ExpandableEventDetailsTable.tsx, issues/create/IssueDetailsStepLabel.tsx, marketplace/orders/list/OrdersListExpandableRow.tsx, marketplace/robot-accounts/ProviderRobotAccountList.tsx, navigation/header/confirmation-drawer/PendingConsumerOrders.tsx, navigation/header/confirmation-drawer/PendingProviderOrders.tsx",
+    "description": "customer/credits/CreditUsageDialog.tsx, customer/credits/CreditUsageFilter.tsx, events/ExpandableEventDetailsTable.tsx, issues/create/IssueDetailsStepLabel.tsx, marketplace/orders/list/OrdersListExpandableRow.tsx, marketplace/robot-accounts/ProviderRobotAccountList.tsx, navigation/header/confirmation-drawer/PendingConsumerOrders.tsx, navigation/header/confirmation-drawer/PendingProviderOrders.tsx",
     "message": "Resource"
   },
   "Resources import has failed.": {
@@ -10322,6 +10330,10 @@
   "Select request type...": {
     "description": "issues/create/TypeField.tsx",
     "message": "Select request type..."
+  },
+  "Select resource...": {
+    "description": "customer/credits/CreditUsageFilter.tsx",
+    "message": "Select resource..."
   },
   "Select resources to import from {offering_name} to {organization_project}": {
     "description": "marketplace/resources/import/ResourceImportDialog.tsx",
@@ -12046,6 +12058,10 @@
   "Total paid": {
     "description": "invoices/list/AgreementInfo.tsx",
     "message": "Total paid"
+  },
+  "Total price": {
+    "description": "customer/credits/CreditUsageDialog.tsx",
+    "message": "Total price"
   },
   "Total published offerings": {
     "description": "marketplace/service-providers/dashboard/ProviderWidgets.tsx",
@@ -14243,10 +14259,6 @@
     "description": "quotas/constants.ts",
     "message": "Virtual machines count"
   },
-  "Visit": {
-    "description": "navigation/UpgradeNotificationDialog.tsx",
-    "message": "Visit"
-  },
   "Volume extension has been scheduled.": {
     "description": "openstack/openstack-volume/actions/ExtendDialog.tsx",
     "message": "Volume extension has been scheduled."
@@ -14384,7 +14396,7 @@
     "message": "YAML has been updated."
   },
   "Year": {
-    "description": "customer/credits/CreditUsageDialog.tsx",
+    "description": "customer/credits/CreditUsageDialog.tsx, customer/credits/CreditUsageFilter.tsx",
     "message": "Year"
   },
   "Yearly estimate": {
@@ -14538,6 +14550,10 @@
   "Your FreeIPA has been synced successfully.": {
     "description": "freeipa/SyncProfile.tsx",
     "message": "Your FreeIPA has been synced successfully."
+  },
+  "Your Waldur installation needs to be upgraded. For upgrade instructions, please visit:": {
+    "description": "navigation/UpgradeNotificationDialog.tsx",
+    "message": "Your Waldur installation needs to be upgraded. For upgrade instructions, please visit:"
   },
   "Your account is not part of any organization. Your view will be restricted.": {
     "description": "auth/PermissionLayout.tsx",
@@ -14951,10 +14967,6 @@
     "description": "booking/components/BusinessHoursGroup.tsx",
     "message": "till"
   },
-  "to get more information about how to perform the upgrade.": {
-    "description": "navigation/UpgradeNotificationDialog.tsx",
-    "message": "to get more information about how to perform the upgrade."
-  },
   "token will not timeout": {
     "description": "user/api-key/UserTokenLifetime.tsx, user/support/utils.ts",
     "message": "token will not timeout"
@@ -15086,6 +15098,10 @@
   "{count} users": {
     "description": "invitations/actions/create/BulkUpload.tsx",
     "message": "{count} users"
+  },
+  "{customerName} credit usage history": {
+    "description": "customer/credits/CreditUsageDialog.tsx",
+    "message": "{customerName} credit usage history"
   },
   "{from}-{to} of {all} items": {
     "description": "table/TablePagination.tsx",
