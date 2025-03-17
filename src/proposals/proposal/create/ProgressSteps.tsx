@@ -25,7 +25,7 @@ const getSortedSteps = (proposal: Proposal) => [
       },
   {
     label: translate('Review'),
-    state: ['in_review', 'submitted', 'in_revision'],
+    state: ['in_review', 'submitted'],
     variant: 'primary',
   },
   {

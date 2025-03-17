@@ -30,11 +30,9 @@ const linkToProposalDetails = (proposalUuid, callManagerUuid) =>
 
 export const ProposalRowActions = ({ row, refetch }) => {
   const isStaff = useSelector(isStaffSelector);
-  const isRejectButtonDisabled = ![
-    'submitted',
-    'in_review',
-    'in_revision',
-  ].includes(row.state);
+  const isRejectButtonDisabled = !['submitted', 'in_review'].includes(
+    row.state,
+  );
 
   const dispatch = useDispatch();
 
