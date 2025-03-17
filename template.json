@@ -5039,10 +5039,6 @@
     "description": "proposals/utils.ts",
     "message": "In review"
   },
-  "In revision": {
-    "description": "proposals/utils.ts",
-    "message": "In revision"
-  },
   "In the format of GUID": {
     "description": "azure/provider/AzureForm.tsx",
     "message": "In the format of GUID"

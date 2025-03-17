@@ -21,7 +21,6 @@ export type ProposalState =
   | 'draft'
   | 'submitted'
   | 'in_review'
-  | 'in_revision'
   | 'accepted'
   | 'rejected'
   | 'canceled';

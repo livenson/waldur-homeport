@@ -6,7 +6,6 @@ const stateColorMapping = {
   draft: 'default',
   submitted: 'warning',
   in_review: 'warning',
-  in_revision: 'default',
   accepted: 'primary',
   rejected: 'danger',
   canceled: 'danger',
