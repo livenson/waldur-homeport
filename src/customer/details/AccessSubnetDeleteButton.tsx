@@ -5,8 +5,8 @@ import { AccessSubnet, accessSubnetsDestroy } from 'waldur-js-client';
 
 import { translate, formatJsxTemplate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
+import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
-import { RowActionButton } from '@waldur/table/ActionButton';
 
 interface AccessSubnetDeleteButtonProps {
   row: AccessSubnet;
@@ -48,13 +48,13 @@ export const AccessSubnetDeleteButton = (
   }, [dispatch, props]);
 
   return (
-    <RowActionButton
+    <ActionItem
       title={translate('Remove')}
       action={openDialog}
-      variant="outline-danger"
-      pending={removing}
+      disabled={removing}
       iconNode={<Trash />}
-      size="sm"
+      className="text-danger"
+      iconColor="danger"
     />
   );
 };

@@ -9,8 +9,7 @@ import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
 
 import { AccessSubnetCreateButton } from './AccessSubnetCreateButton';
-import { AccessSubnetDeleteButton } from './AccessSubnetDeleteButton';
-import { AccessSubnetEditButton } from './AccessSubnetEditButton';
+import { AccessSubnetRowActions } from './AccessSubnetRowActions';
 
 export const CustomerAccessControlPanel: FunctionComponent<
   CustomerEditPanelProps
@@ -53,10 +52,7 @@ export const CustomerAccessControlPanel: FunctionComponent<
         </>
       }
       rowActions={({ row }) => (
-        <>
-          <AccessSubnetEditButton row={row} refetch={tableProps.fetch} />
-          <AccessSubnetDeleteButton row={row} refetch={tableProps.fetch} />
-        </>
+        <AccessSubnetRowActions row={row} refetch={tableProps.fetch} />
       )}
     />
   );
