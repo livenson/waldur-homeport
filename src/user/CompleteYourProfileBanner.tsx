@@ -14,7 +14,7 @@ export const CompleteYourProfileBanner = () => (
         />
         <p className="mb-0">
           <strong>{translate('Complete your profile.')}</strong>{' '}
-          <span className="text-grey-500">
+          <span className="text-gray-500">
             {translate(
               'Please ensure that all your mandatory profile information is complete.',
             )}

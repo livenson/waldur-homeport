@@ -60,7 +60,7 @@ export const UserRemovalMessageDialog: FunctionComponent<
         )}
         iconNode={<Trash weight="bold" />}
         iconColor="danger"
-        bodyClassName="text-grey-500 pt-2"
+        bodyClassName="text-gray-500 pt-2"
         footer={
           <>
             <Button
@@ -94,7 +94,7 @@ export const UserRemovalMessageDialog: FunctionComponent<
       })}
       iconNode={<Trash weight="bold" />}
       iconColor="danger"
-      bodyClassName="text-grey-500 pt-2"
+      bodyClassName="text-gray-500 pt-2"
       footer={<CancelButton label={translate('OK')} />}
     >
       <p>

@@ -78,7 +78,7 @@ export const InvoiceItemExpandableRow: FC<OwnProps> = (props) => {
                         <WarningCircle
                           weight="bold"
                           size={16}
-                          className="text-grey-400"
+                          className="text-gray-400"
                         />
                       </td>
                     </OverlayTrigger>

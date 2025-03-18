@@ -50,7 +50,7 @@ export const Field: FunctionComponent<FieldProps> = (props) =>
       </Col>
       <Col
         sm={props.isStuck ? undefined : props.valueCol || 9}
-        className={classNames('text-grey-500', props.valueClass)}
+        className={classNames('text-gray-500', props.valueClass)}
       >
         {props.value || props.children || DASH_ESCAPE_CODE}
         {props.helpText && (
