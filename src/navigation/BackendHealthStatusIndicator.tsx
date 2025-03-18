@@ -2,7 +2,6 @@ import { CheckCircle, XCircle } from '@phosphor-icons/react';
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
-import { client } from 'waldur-js-client/client.gen';
 
 import { ENV } from '@waldur/core/config';
 import { lazyComponent } from '@waldur/core/lazyComponent';
@@ -15,15 +14,13 @@ const BackendHealthStatusDialog = lazyComponent(() =>
 );
 
 export const getBackendHealthStatus = async () => {
-  const response = await client.get({
-    baseUrl: ENV.apiEndpoint,
-    url: '/health-check/',
-    headers: {
-      Accept: 'application/json',
-    },
-    throwOnError: false,
+  const headers = new Headers();
+  headers.append('Accept', 'application/json');
+
+  const response = await fetch(`${ENV.apiEndpoint}health-check/`, {
+    headers,
   });
-  return (response.data || response.error) as Record<string, string>;
+  return await response.json();
 };
 
 export const isWorking = (data: Record<string, string>): boolean => {
