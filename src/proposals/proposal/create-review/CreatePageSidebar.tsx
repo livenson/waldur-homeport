@@ -51,7 +51,7 @@ export const CreatePageSidebar: FC<CreatePageSidebarProps> = ({
             {isRejecting && <LoadingSpinnerIcon className="me-1" />}
             {translate('Send back')}
           </Button>
-          <TosNotification className="text-center text-grey-500 mt-2" />
+          <TosNotification className="text-center text-gray-500 mt-2" />
         </>
       )}
     </>

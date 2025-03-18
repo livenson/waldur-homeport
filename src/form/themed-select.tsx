@@ -45,7 +45,7 @@ export const FilterSelectClearIndicator = (props: ClearIndicatorProps) => {
       <div
         style={{ padding: '0px 5px', marginRight: '7px', cursor: 'pointer' }}
       >
-        <X size={20} weight="bold" className="text-grey-500" />
+        <X size={20} weight="bold" className="text-gray-500" />
       </div>
     </div>
   );
@@ -54,7 +54,7 @@ export const FilterSelectClearIndicator = (props: ClearIndicatorProps) => {
 export const FilterSelectControl = ({ children, ...props }: ControlProps) => (
   <components.Control {...props}>
     {!(props.hasValue && props.selectProps.components.SingleValue) && (
-      <MagnifyingGlass size={20} weight="bold" className="text-grey-500 ms-3" />
+      <MagnifyingGlass size={20} weight="bold" className="text-gray-500 ms-3" />
     )}
     {children}
   </components.Control>

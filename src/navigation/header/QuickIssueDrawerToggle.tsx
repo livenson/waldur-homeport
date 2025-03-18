@@ -27,7 +27,7 @@ export const QuickIssueDrawerToggle: React.FC = () => {
       <button
         id="quick-issue-toggle"
         type="button"
-        className="btn btn-icon btn-icon-grey-500 btn-active-secondary w-35px h-35px w-md-40px h-md-40px"
+        className="btn btn-icon btn-icon-gray-500 btn-active-secondary w-35px h-35px w-md-40px h-md-40px"
         onClick={openDrawer}
       >
         <span className="svg-icon" title={translate('Requests')}>

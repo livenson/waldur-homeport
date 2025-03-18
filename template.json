@@ -7267,10 +7267,6 @@
     "description": "openstack/OpenStackForm.tsx",
     "message": "Openstack API TLS certificate"
   },
-  "Openstack API TLS certificate.": {
-    "description": "openstack/OpenStackForm.tsx",
-    "message": "Openstack API TLS certificate."
-  },
   "Operating system options": {
     "description": "openstack/openstack-instance/deploy/FormImageStep.tsx",
     "message": "Operating system options"

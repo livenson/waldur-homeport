@@ -95,7 +95,7 @@ const AllResultsTabContent = ({
               onClick={addCurrentPageFavorite}
             >
               <span className="svg-icon svg-icon-2">
-                <Plus />
+                <Plus weight="bold" />
               </span>
               {translate('Add current page')}
             </Button>

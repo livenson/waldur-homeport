@@ -88,7 +88,7 @@
     content: ' ';
     height: 1px;
     display: block;
-    background: if(isDarkMode(), $grey-400, $primary-700);
+    background: if(isDarkMode(), $gray-400, $primary-700);
     margin: 0 get($aside-config, margin-x);
   }
 }
@@ -131,7 +131,7 @@ $dark-show-more-active-icon: $gray-800;
 // Resources filter
 $dark-badge-color: $gray-800;
 $dark-badge-bg: $gray-100;
-$dark-badge-border: $grey-400;
+$dark-badge-border: $gray-400;
 
 $custom-aside: (
   dark: (
@@ -166,13 +166,13 @@ $custom-aside: (
         $dark-add-resource-state-color,
         $gray-600
       ),
-    show-more-color: if(isDarkMode(), $dark-show-more-color, $grey-500),
+    show-more-color: if(isDarkMode(), $dark-show-more-color, $gray-500),
     show-more-active-icon: if(
         isDarkMode(),
         $dark-show-more-active-icon,
         $gray-600
       ),
-    filter-label: if(isDarkMode(), $dark-show-more-color, $grey-500),
+    filter-label: if(isDarkMode(), $dark-show-more-color, $gray-500),
     filter-badge-color: if(isDarkMode(), $dark-badge-color, $gray-700),
     filter-badge-bg: if(isDarkMode(), $dark-badge-bg, transparent),
     filter-badge-border: if(isDarkMode(), $dark-badge-border, $gray-300),

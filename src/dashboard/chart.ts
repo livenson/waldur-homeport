@@ -1,5 +1,8 @@
 import { EChartsOption } from 'echarts';
 
+import { ENV } from '@waldur/core/config';
+import { DEFAULT_PRIMARY_COLORS } from '@waldur/core/constants';
+import { generateBrandColors } from '@waldur/core/generateColors';
 import { ThemeName } from '@waldur/theme/types';
 
 import { LINE_CHART_COLOR } from './constants';
@@ -170,6 +173,9 @@ export const getRingChartOptions = (
   theme: ThemeName,
 ): EChartsOption => {
   const emptySpace = (props.max || 100) - props.value;
+  const brand =
+    ENV.plugins.WALDUR_CORE.BRAND_COLOR || DEFAULT_PRIMARY_COLORS[600];
+  const brandColors = generateBrandColors(brand);
   return {
     tooltip: {
       trigger: 'item',
@@ -194,7 +200,10 @@ export const getRingChartOptions = (
       right: 0,
       bottom: 0,
     },
-    color: theme === 'light' ? ['#307300', '#e6f0e3'] : ['#78bf69', '#2b3d2f'],
+    color:
+      theme === 'light'
+        ? [brand, brandColors[100]]
+        : [brandColors[200], brandColors[950]],
     series: [
       {
         type: 'pie',
@@ -226,11 +235,11 @@ export const getRingChartOptions = (
             value: emptySpace,
             label: { show: false },
             itemStyle: {
-              color: theme === 'light' ? '#e6f0e3' : '#2b3d2f',
+              color: theme === 'light' ? brandColors[100] : brandColors[900],
             },
             emphasis: {
               itemStyle: {
-                color: theme === 'light' ? '#e6f0e3' : '#2b3d2f',
+                color: theme === 'light' ? brandColors[100] : brandColors[900],
               },
             },
           },

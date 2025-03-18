@@ -18,34 +18,34 @@
 
     > th {
       font-size: 12px;
-      color: $grey-500;
+      color: $gray-500;
       font-weight: 500;
       white-space: nowrap;
 
       svg {
-        color: $grey-400;
+        color: $gray-400;
       }
       &.sorting-column .sorting-buttons > button {
         &:hover svg {
-          color: $grey-500;
+          color: $gray-500;
         }
         &.active svg {
-          color: $primary;
+          color: $brand;
         }
       }
       &.filter-column > button {
         &:hover svg {
-          color: $grey-500;
+          color: $gray-500;
         }
         &.show svg {
-          color: $primary;
+          color: $brand;
         }
       }
     }
   }
 
   tbody > tr > td {
-    color: $grey-500;
+    color: $gray-500;
   }
 
   &:not(.px-0) {
@@ -138,13 +138,13 @@
         border-radius: 5px;
 
         svg {
-          color: $grey-400;
+          color: $gray-400;
         }
         &:hover {
           background: $light;
 
           svg {
-            color: $grey-500;
+            color: $gray-500;
           }
         }
       }
@@ -171,7 +171,7 @@
     position: sticky;
     right: 0;
     z-index: 2;
-    background-color: if(isDarkMode(), $primary-50, $gray-50);
+    background-color: if(isDarkMode(), $brand-50, $gray-50);
   }
   td.pinned {
     background-color: $card-bg;
@@ -360,15 +360,15 @@
 
     .page-item {
       .page-link {
-        color: $grey-500;
+        color: $gray-500;
         width: 40px;
         height: 40px;
       }
       .page-link:focus,
       .page-link:hover,
       &.active .page-link {
-        color: if(isDarkMode(), $primary-600, $primary);
-        background-color: if(isDarkMode(), $primary-50, $primary-100);
+        color: if(isDarkMode(), $brand-600, $brand);
+        background-color: if(isDarkMode(), $brand-50, $brand-100);
       }
     }
 

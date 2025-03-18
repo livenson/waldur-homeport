@@ -59,10 +59,10 @@
 
 // Placeholder colors
 .placeholder-gray-400 {
-  @include placeholder($grey-400);
+  @include placeholder($gray-400);
 }
 .placeholder-gray-500 {
-  @include placeholder($grey-500);
+  @include placeholder($gray-500);
 }
 .placeholder-gray-700 {
   @include placeholder($gray-700);

@@ -126,7 +126,7 @@
   background-color: $gray-100;
 
   &.has-bullet::before {
-    background-color: $grey-500;
+    background-color: $gray-500;
   }
-  @include svg-icon-color($grey-500);
+  @include svg-icon-color($gray-500);
 }

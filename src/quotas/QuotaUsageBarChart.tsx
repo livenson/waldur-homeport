@@ -88,7 +88,7 @@ export const QuotaUsageBarChart: FunctionComponent<QuotaUsageBarChartProps> = (
             >
               <ProgressBar>
                 <ProgressBar
-                  variant="success"
+                  variant="primary"
                   now={(quota.usage * 100) / quota.limit}
                   key={1}
                 />

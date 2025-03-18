@@ -57,7 +57,7 @@ export const ReadOnlyFormControl: FunctionComponent<
         label={tooltip}
         placement="left"
       >
-        <Question size={20} weight="bold" className="text-grey-500" />
+        <Question size={20} weight="bold" className="text-gray-500" />
       </Tip>
     </div>
   ) : (
