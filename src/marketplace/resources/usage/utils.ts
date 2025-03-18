@@ -285,7 +285,13 @@ export const getComponentsAndUsages = async (
           page,
           resource_uuid,
           date_after,
-          field: ['component_type', 'usage', 'billing_period'],
+          field: [
+            'component_type',
+            'usage',
+            'billing_period',
+            'username',
+            'measured_unit',
+          ],
         },
       }),
     );
