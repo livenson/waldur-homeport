@@ -2,18 +2,18 @@ import { useCallback } from 'react';
 import { Modal } from 'react-bootstrap';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { reduxForm } from 'redux-form';
-import { CustomerUser } from 'waldur-js-client';
+import {
+  customersAddUser,
+  customersDeleteUser,
+  customersUpdateUser,
+  CustomerUser,
+} from 'waldur-js-client';
 
 import { SubmitButton } from '@waldur/auth/SubmitButton';
 import { FormContainer } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
-import {
-  addCustomerUser,
-  deleteCustomerUser,
-  updateCustomerUser,
-} from '@waldur/permissions/api';
 import { Role } from '@waldur/permissions/types';
 import { getCustomerRoles } from '@waldur/permissions/utils';
 import { ExpirationTimeGroup } from '@waldur/project/team/ExpirationTimeGroup';
@@ -47,25 +47,31 @@ const savePermissions = async (
 ) => {
   if (resolve.customer) {
     if (resolve.customer.role_name === formData.role.name) {
-      await updateCustomerUser({
-        customer: customer.uuid,
-        user: resolve.customer.uuid,
-        role: formData.role.name,
-        expiration_time: formData.expiration_time,
+      await customersUpdateUser({
+        path: { uuid: customer.uuid },
+        body: {
+          user: resolve.customer.uuid,
+          role: formData.role.name,
+          expiration_time: formData.expiration_time,
+        },
       });
     } else {
       if (resolve.customer.role_name) {
-        await deleteCustomerUser({
-          customer: customer.uuid,
-          user: resolve.customer.uuid,
-          role: resolve.customer.role_name,
+        await customersDeleteUser({
+          path: { uuid: customer.uuid },
+          body: {
+            user: resolve.customer.uuid,
+            role: resolve.customer.role_name,
+          },
         });
       }
-      await addCustomerUser({
-        customer: customer.uuid,
-        user: resolve.customer.uuid,
-        role: formData.role.name,
-        expiration_time: formData.expiration_time,
+      await customersAddUser({
+        path: { uuid: customer.uuid },
+        body: {
+          user: resolve.customer.uuid,
+          role: formData.role.name,
+          expiration_time: formData.expiration_time,
+        },
       });
     }
   }

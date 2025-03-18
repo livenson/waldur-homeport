@@ -1,8 +1,8 @@
-import Axios from 'axios';
 import React from 'react';
 import { useAsyncFn, useBoolean } from 'react-use';
 import { marketplaceResourcesRetrieve } from 'waldur-js-client';
 
+import { get } from '@waldur/core/api';
 import {
   CustomerResourceActions,
   StaffActions,
@@ -18,8 +18,10 @@ interface ActionButtonResourceProps {
 }
 
 async function loadData(url: string) {
-  const response = await Axios.get(url);
-  const resource = response.data;
+  const resource = await get<{
+    resource_type;
+    marketplace_resource_uuid;
+  }>(url);
   const resourceTypeActions = getActions(resource.resource_type);
   let staffActions = [];
   let customerResourceActions = [];

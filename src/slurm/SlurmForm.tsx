@@ -1,7 +1,7 @@
 import { get } from 'lodash-es';
 import { FunctionComponent } from 'react';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { CopyToClipboardButton } from '@waldur/core/CopyToClipboardButton';
 import { required } from '@waldur/core/validators';
 import { StringField } from '@waldur/form';

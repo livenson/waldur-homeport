@@ -1,4 +1,4 @@
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { translate } from '@waldur/i18n';
 import { DetailsOverviewStep } from '@waldur/marketplace/deploy/steps/constants';
 import { FormFinalConfigurationStep } from '@waldur/marketplace/deploy/steps/FormFinalConfigurationStep';

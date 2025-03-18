@@ -10,9 +10,9 @@ import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { Select } from '@waldur/form/themed-select';
 import { translate } from '@waldur/i18n';
 
-import { getComponentsAndUsages } from '../usage/api';
 import { ResourceUsageTabsContainer } from '../usage/ResourceUsageTabsContainer';
 import { UsageExportDropdown } from '../usage/UsageExportDropdown';
+import { getComponentsAndUsages } from '../usage/utils';
 import { getUsageHistoryPeriodOptions } from '../usage/utils';
 
 export const UsageCard = ({ resource }) => {

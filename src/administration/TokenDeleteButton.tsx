@@ -1,12 +1,11 @@
 import { Trash } from '@phosphor-icons/react';
 import { useDispatch } from 'react-redux';
-import { AuthToken } from 'waldur-js-client';
+import { AuthToken, authTokensDestroy } from 'waldur-js-client';
 
+import { getUUID } from '@waldur/core/utils';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
-
-import { deleteToken } from './api';
 
 export const TokenDeleteButton = ({
   row,
@@ -34,9 +33,8 @@ export const TokenDeleteButton = ({
     } catch {
       return;
     }
-    deleteToken(row.url).then(() => {
-      refetch();
-    });
+    await authTokensDestroy({ path: { user_id: getUUID(row.url) } });
+    refetch();
   };
   return (
     <ActionItem

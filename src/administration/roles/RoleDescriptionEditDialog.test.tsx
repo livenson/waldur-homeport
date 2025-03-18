@@ -3,14 +3,14 @@ import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { rolesUpdateDescriptionsUpdate } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 
-import { getRoles } from './api';
 import { RoleDescriptionEditDialog } from './RoleDescriptionEditDialog';
+import { getRoles } from './utils';
 
 // Mock dependencies
 
-vi.mock('./api');
+vi.mock('./utils');
 
 vi.mock('waldur-js-client');
 

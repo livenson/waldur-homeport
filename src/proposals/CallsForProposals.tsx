@@ -1,6 +1,6 @@
 import { FunctionComponent } from 'react';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { Link } from '@waldur/core/Link';
 import { LandingHeroSection } from '@waldur/dashboard/hero/LandingHeroSection';
 import { NewbiesGuideNotification } from '@waldur/dashboard/hero/NewbiesGuideNotification';

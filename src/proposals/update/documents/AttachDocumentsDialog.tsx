@@ -1,6 +1,8 @@
 import { useCallback, useState } from 'react';
 import { Field, reduxForm } from 'redux-form';
+import { proposalProtectedCallsAttachDocuments } from 'waldur-js-client';
 
+import { formDataOptions } from '@waldur/core/api';
 import { ACCEPTED_FILE_TYPES } from '@waldur/core/constants';
 import { format } from '@waldur/core/ErrorMessageFormatter';
 import { FormContainer, StringField, SubmitButton } from '@waldur/form';
@@ -13,7 +15,6 @@ import { translate } from '@waldur/i18n';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { useModal } from '@waldur/modal/hooks';
 import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
-import { attachDocuments } from '@waldur/proposals/update/documents/api';
 import { useNotify } from '@waldur/store/hooks';
 
 interface AttachDocumentsFormData {
@@ -65,23 +66,14 @@ export const AttachDocumentsDialog = reduxForm<
       if (pendingFiles.length) {
         await Promise.allSettled(
           pendingFiles.map((pending, index) =>
-            attachDocuments(
-              call,
-              pending.file,
-              descriptions[index],
-              (progress) => {
-                setPendingFiles((prev) => {
-                  const itemIndex = prev.findIndex(
-                    (f) => f.key === pending.key,
-                  );
-                  const item = prev[itemIndex];
-                  item.progress = progress;
-                  const newPending = prev.filter((f) => f.key !== pending.key);
-                  newPending.splice(itemIndex, 0, item);
-                  return newPending;
-                });
+            proposalProtectedCallsAttachDocuments({
+              path: { uuid: call.uuid },
+              body: {
+                documents: pending.file as any,
+                description: descriptions[index],
               },
-            )
+              ...formDataOptions,
+            })
               .then(() => {
                 setPendingFiles((prev) =>
                   prev.filter((f) => f.key !== pending.key),

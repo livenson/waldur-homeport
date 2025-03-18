@@ -2,7 +2,7 @@ import { FunctionComponent, useCallback, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { formatDate } from '@waldur/core/dateUtils';
 import { FinancialReportSendButton } from '@waldur/customer/list/FinancialReportSendButton';
 import { translate } from '@waldur/i18n';

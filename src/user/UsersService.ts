@@ -1,27 +1,34 @@
-import Axios from 'axios';
 import { User } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { getRoles } from '@waldur/administration/roles/utils';
+import { initApiClient } from '@waldur/core/api';
 import { get } from '@waldur/core/api';
+import { ENV } from '@waldur/core/config';
 import store from '@waldur/store/store';
 import { setCurrentUser } from '@waldur/workspace/actions';
 import { getUser } from '@waldur/workspace/selectors';
 import {
   setImpersonatedUserUuid,
   clearImpersonatedUserUuid,
+  getImpersonatedUserUuid,
 } from '@waldur/workspace/WorkspaceStorage';
 
-export const getCurrentUser = (config?) =>
-  get<User>('/users/me/', config).then((response) => response.data);
+export const getCurrentUser = async () => {
+  const user = await get<User>('/users/me/');
+  if (ENV.roles.length === 0) {
+    ENV.roles = await getRoles();
+  }
+  return user;
+};
 
 export const setImpersonationData = (userUuid) => {
-  Axios.defaults.headers['X-IMPERSONATED-USER-UUID'] = userUuid;
   setImpersonatedUserUuid(userUuid);
+  initApiClient();
 };
 
 export const clearImpersonationData = () => {
-  delete Axios.defaults.headers['X-IMPERSONATED-USER-UUID'];
   clearImpersonatedUserUuid();
+  initApiClient();
 };
 
 class UsersServiceClass {
@@ -31,9 +38,7 @@ class UsersServiceClass {
       return Promise.resolve(cached);
     }
     return getCurrentUser().then((user) => {
-      const isImpersonated = Boolean(
-        Axios.defaults.headers['X-IMPERSONATED-USER-UUID'],
-      );
+      const isImpersonated = Boolean(getImpersonatedUserUuid());
       store.dispatch(setCurrentUser(user, isImpersonated));
       return user;
     });

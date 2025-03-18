@@ -1,16 +1,13 @@
-import { useCallback } from 'react';
 import { Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
-import { CustomerUser } from 'waldur-js-client';
-import { Project } from 'waldur-js-client';
+import { CustomerUser, Project, projectsAddUser } from 'waldur-js-client';
 
 import { SubmitButton } from '@waldur/auth/SubmitButton';
 import { FormContainer } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
-import { addProjectUser } from '@waldur/permissions/api';
 import { Role } from '@waldur/permissions/types';
 import { ExpirationTimeGroup } from '@waldur/project/team/ExpirationTimeGroup';
 import { RoleGroup } from '@waldur/project/team/RoleGroup';
@@ -36,19 +33,6 @@ interface AddProjectUserDialogOwnProps {
   resolve: AddProjectUserDialogResolve;
 }
 
-const savePermissions = async (
-  formData: AddProjectUserDialogFormData,
-  resolve: AddProjectUserDialogResolve,
-) => {
-  await addProjectUser({
-    project: formData.project.uuid,
-    user: resolve.customer.uuid,
-    role: formData.role.name,
-    expiration_time: formData.expiration_time,
-  });
-  await resolve.refetch();
-};
-
 export const AddProjectUserDialog = reduxForm<
   AddProjectUserDialogFormData,
   AddProjectUserDialogOwnProps
@@ -57,22 +41,27 @@ export const AddProjectUserDialog = reduxForm<
 })(({ submitting, handleSubmit, resolve }) => {
   const dispatch = useDispatch();
 
-  const saveUser = useCallback(
-    async (formData) => {
-      try {
-        await savePermissions(formData, resolve);
-        dispatch(closeModalDialog());
-      } catch (error) {
-        dispatch(
-          showErrorResponse(error, translate('Unable to update permission.')),
-        );
-      }
-    },
-    [dispatch, resolve],
-  );
-
   return (
-    <form onSubmit={handleSubmit(saveUser)}>
+    <form
+      onSubmit={handleSubmit(async (formData) => {
+        try {
+          await projectsAddUser({
+            path: { uuid: formData.project.uuid },
+            body: {
+              user: resolve.customer.uuid,
+              role: formData.role.name,
+              expiration_time: formData.expiration_time,
+            },
+          });
+          await resolve.refetch();
+          dispatch(closeModalDialog());
+        } catch (error) {
+          dispatch(
+            showErrorResponse(error, translate('Unable to update permission.')),
+          );
+        }
+      })}
+    >
       <Modal.Header>
         <Modal.Title>{translate('Add project role')}</Modal.Title>
       </Modal.Header>

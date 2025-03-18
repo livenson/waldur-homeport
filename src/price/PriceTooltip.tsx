@@ -1,7 +1,7 @@
 import { WarningCircle } from '@phosphor-icons/react';
 import { FC } from 'react';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { Tip } from '@waldur/core/Tooltip';
 import { translate } from '@waldur/i18n';
 

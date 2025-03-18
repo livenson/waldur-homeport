@@ -3,7 +3,11 @@ import { FunctionComponent } from 'react';
 import { ButtonGroup } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useAsyncFn } from 'react-use';
-import { rancherServicesDestroy } from 'waldur-js-client';
+import {
+  rancherServicesDestroy,
+  rancherServicesYamlRetrieve,
+  rancherServicesYamlUpdate,
+} from 'waldur-js-client';
 
 import { translate } from '@waldur/i18n';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
@@ -29,7 +33,12 @@ export const ServiceActions: FunctionComponent<{ service }> = ({ service }) => {
 
   return (
     <ButtonGroup>
-      <ViewYAMLButton resource={service} disabled={disabled} />
+      <ViewYAMLButton
+        yamlRetrieve={rancherServicesYamlRetrieve}
+        yamlUpdate={rancherServicesYamlUpdate}
+        resource={service}
+        disabled={disabled}
+      />
       <ActionButton
         title={translate('Delete')}
         action={deleteCallback}

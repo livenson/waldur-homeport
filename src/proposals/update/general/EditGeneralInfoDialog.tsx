@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { SubmissionError, reduxForm } from 'redux-form';
 import { proposalProtectedCallsPartialUpdate } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { required } from '@waldur/core/validators';
 import { SelectField, SubmitButton } from '@waldur/form';
 import { FormContainer } from '@waldur/form/FormContainer';

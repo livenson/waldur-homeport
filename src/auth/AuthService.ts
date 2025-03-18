@@ -1,6 +1,6 @@
-import Axios from 'axios';
 import { apiAuthPassword } from 'waldur-js-client';
 
+import { initApiClient } from '@waldur/core/api';
 import { router } from '@waldur/router';
 import store from '@waldur/store/store';
 import {
@@ -14,7 +14,7 @@ import { getToken, removeToken, setToken } from './TokenStorage';
 
 export function setAuthHeader(token) {
   setToken(token);
-  Axios.defaults.headers.Authorization = 'Token ' + token;
+  initApiClient();
 }
 
 export function loginSuccess(response) {
@@ -73,7 +73,6 @@ export function redirectOnSuccess() {
 export function clearAuthCache() {
   store.dispatch(setCurrentUser(undefined));
   clearImpersonationData();
-  delete Axios.defaults.headers.Authorization;
   removeToken();
 }
 

@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { Invitation, UserInvitationsListData } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { CopyToClipboardButton } from '@waldur/core/CopyToClipboardButton';
 import { formatDate } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';

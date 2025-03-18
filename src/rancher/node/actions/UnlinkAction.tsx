@@ -2,7 +2,7 @@ import { LinkBreak } from '@phosphor-icons/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { rancherNodesUnlinkOpenstack } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';

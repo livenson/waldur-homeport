@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { useAsync } from 'react-use';
 import { supportIssuesRetrieve } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { formatDateTime, formatRelative } from '@waldur/core/dateUtils';
 import { ExternalLink } from '@waldur/core/ExternalLink';
 import { FormattedHtml } from '@waldur/core/FormattedHtml';

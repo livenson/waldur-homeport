@@ -5,6 +5,8 @@ import { useAsyncFn } from 'react-use';
 import {
   rancherWorkloadsDestroy,
   rancherWorkloadsRedeploy,
+  rancherWorkloadsYamlRetrieve,
+  rancherWorkloadsYamlUpdate,
 } from 'waldur-js-client';
 
 import { translate } from '@waldur/i18n';
@@ -41,7 +43,12 @@ export const WorkloadActions: FunctionComponent<{ workload }> = ({
 
   return (
     <>
-      <ViewYAMLButton resource={workload} disabled={disabled} />
+      <ViewYAMLButton
+        yamlRetrieve={rancherWorkloadsYamlRetrieve}
+        yamlUpdate={rancherWorkloadsYamlUpdate}
+        resource={workload}
+        disabled={disabled}
+      />
       <RowActionButton
         title={translate('Redeploy')}
         action={redeployCallback}

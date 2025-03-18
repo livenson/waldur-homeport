@@ -3,7 +3,7 @@ import { Fragment, useCallback, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { Field } from 'redux-form';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { Tip } from '@waldur/core/Tooltip';
 import { usePagination } from '@waldur/core/usePagination';
 import { email, required } from '@waldur/core/validators';

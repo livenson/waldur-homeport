@@ -3,12 +3,12 @@ import { Modal, Stack } from 'react-bootstrap';
 import { Field, Form } from 'react-final-form';
 import { rolesUpdateDescriptionsUpdate } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { CancelButton, StringField, SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { useModal } from '@waldur/modal/hooks';
 
-import { getRoles } from './api';
+import { getRoles } from './utils';
 
 export const RoleDescriptionEditDialog = ({ resolve: { row, refetch } }) => {
   const { closeDialog } = useModal();

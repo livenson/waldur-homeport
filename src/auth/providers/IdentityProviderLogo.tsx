@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import WaldurLogo from '@waldur/images/logo.svg';
 
 import {

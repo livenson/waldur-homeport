@@ -3,7 +3,7 @@ import { Form, Stack } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { change, Field, formValueSelector, isSubmitting } from 'redux-form';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { AwesomeCheckboxField } from '@waldur/form/AwesomeCheckboxField';
 import { translate } from '@waldur/i18n';
 import { ProjectGroup } from '@waldur/issues/create/ProjectGroup';

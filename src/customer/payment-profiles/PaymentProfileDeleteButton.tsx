@@ -2,13 +2,14 @@ import { Trash } from '@phosphor-icons/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { paymentProfilesDestroy } from 'waldur-js-client';
 
-import { getCustomer as getCustomerApi } from '@waldur/customer/api';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog, waitForConfirmation } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
 import { setCurrentCustomer } from '@waldur/workspace/actions';
 import { getCustomer } from '@waldur/workspace/selectors';
+
+import { getCustomer as getCustomerApi } from '../utils';
 
 export const PaymentProfileDeleteButton = (props) => {
   const dispatch = useDispatch();

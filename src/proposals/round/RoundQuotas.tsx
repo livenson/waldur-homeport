@@ -3,7 +3,7 @@ import { Col, Row } from 'react-bootstrap';
 import { useMediaQuery } from 'react-responsive';
 import { ProtectedRound } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { translate } from '@waldur/i18n';
 import { QuotaCell } from '@waldur/marketplace/resources/details/QuotaCell';
 

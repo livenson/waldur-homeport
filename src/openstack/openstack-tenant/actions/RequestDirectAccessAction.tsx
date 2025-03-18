@@ -1,6 +1,6 @@
 import { TerminalWindow } from '@phosphor-icons/react';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { DialogActionItem } from '@waldur/resource/actions/DialogActionItem';

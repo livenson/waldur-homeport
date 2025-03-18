@@ -1,7 +1,7 @@
 import classNames from 'classnames';
 import { FC, PropsWithChildren } from 'react';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 
 interface LandingHeroSectionProps {
   title: string;

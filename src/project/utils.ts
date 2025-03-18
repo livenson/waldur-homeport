@@ -5,11 +5,11 @@ import {
 
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { getCostPolicyActionOptions } from '@waldur/customer/cost-policies/utils';
-import { formatCostChart, getTeamSizeChart } from '@waldur/dashboard/api';
 import {
   getLineChartOptions,
   getLineChartOptionsWithAxis,
 } from '@waldur/dashboard/chart';
+import { formatCostChart, getTeamSizeChart } from '@waldur/dashboard/utils';
 import { translate } from '@waldur/i18n';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';

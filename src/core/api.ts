@@ -1,31 +1,94 @@
 import { formDataBodySerializer, RequestResult } from '@hey-api/client-fetch';
-import Axios, {
-  AxiosPromise,
-  AxiosRequestConfig,
-  AxiosResponse,
-  Method,
-} from 'axios';
+import Qs from 'qs';
+import { client } from 'waldur-js-client/client.gen';
 
-import { ENV } from '@waldur/configs/default';
+import { setRedirect } from '@waldur/auth/AuthRedirectStorage';
+import { localLogout } from '@waldur/auth/AuthService';
+import { getToken } from '@waldur/auth/TokenStorage';
+import { ENV } from '@waldur/core/config';
+import { cleanObject } from '@waldur/core/utils';
+import { getLanguageKey } from '@waldur/i18n/LanguageStorage';
+import { router } from '@waldur/router';
+import { getImpersonatedUserUuid } from '@waldur/workspace/WorkspaceStorage';
+
+const querySerializer = (params) =>
+  Qs.stringify(params, { arrayFormat: 'repeat' });
+
+export function initApiClient() {
+  const headers = {
+    Accept: 'application/json',
+  };
+  if (getImpersonatedUserUuid()) {
+    headers['X-IMPERSONATED-USER-UUID'] = getImpersonatedUserUuid();
+  }
+  if (getLanguageKey()) {
+    headers['Accept-Language'] = getLanguageKey();
+  }
+  client.setConfig({
+    auth: () => (getToken() ? 'Token ' + getToken() : undefined),
+    baseUrl: ENV.apiEndpoint,
+    throwOnError: true,
+    headers,
+    querySerializer,
+  });
+}
+
+client.interceptors.response.use((response) => {
+  if (
+    response?.status === 401 &&
+    response.url !== ENV.apiEndpoint + 'api-auth/password/'
+  ) {
+    if (router.globals.transition) {
+      const target = router.globals.transition.targetState();
+      setRedirect({
+        toState: target.name(),
+        toParams: target.params(),
+      });
+    } else if (router.globals.$current.name === 'login') {
+      setRedirect(router.globals.params as any);
+    } else if (router.globals.$current.name) {
+      setRedirect({
+        toState: router.globals.$current.name,
+        toParams: router.globals.params
+          ? cleanObject(router.globals.params)
+          : undefined,
+      });
+    }
+    localLogout();
+  }
+  return response;
+});
+
+export const getIconUrl = (name: string) =>
+  `${ENV.apiEndpoint}api/icons/${name}/`;
 
 export const fixURL = (endpoint: string) =>
-  endpoint.startsWith('http') ? endpoint : `${ENV.apiEndpoint}api${endpoint}`;
+  endpoint.startsWith('http')
+    ? endpoint
+    : `${ENV.apiEndpoint}${endpoint.startsWith('/api') ? '' : 'api'}${endpoint}`;
 
-export const parseResultCount = (response: AxiosResponse): number => {
-  const resultCount =
-    response.headers['x-result-count'] ||
-    (response.headers as any).get('x-result-count');
-  return parseInt(resultCount, 10);
-};
-
-export const fetchResultCount = (result): number =>
+export const fetchResultCount = (result: Awaited<RequestResult>): number =>
   parseInt(result.response.headers.get('x-result-count'), 10);
 
-export function get<T = {}>(
-  endpoint: string,
-  options?: AxiosRequestConfig,
-): AxiosPromise<T> {
-  return Axios.get(fixURL(endpoint), options);
+export async function get<T = any>(endpoint: string): Promise<T> {
+  const response = await fetch(
+    fixURL(endpoint),
+    getToken()
+      ? {
+          headers: { Authorization: `Token ${getToken()}` },
+        }
+      : {},
+  );
+  const contentType = response.headers
+    .get('content-type')
+    .toLowerCase()
+    .split(';')[0]
+    .trim();
+  if (contentType === 'application/json') {
+    return await response.json();
+  } else {
+    return (await response.blob()) as T;
+  }
 }
 
 export function parseSelectData<TData = {}>(
@@ -37,41 +100,13 @@ export function parseSelectData<TData = {}>(
   };
 }
 
-export function post<T = {}>(
-  endpoint: string,
-  data?: any,
-  options?: AxiosRequestConfig,
-): AxiosPromise<T> {
-  return Axios.post(fixURL(endpoint), data, options);
-}
-
-export function sendForm<T = {}>(
-  method: Method,
-  url: string,
-  options,
-  onUploadProgress?: (progress: number) => void,
-): AxiosPromise<T> {
-  const data = new FormData();
-  for (const name of Object.keys(options)) {
-    if (options[name] !== undefined) {
-      const option = options[name] === null ? '' : options[name];
-      data.append(name, option);
-    }
-  }
-  return Axios.request({
-    method,
-    url,
-    data,
-    transformRequest: (x) => x,
-    headers: onUploadProgress
-      ? { 'Content-Type': 'multipart/form-data' }
-      : { 'Content-Type': undefined },
-    onUploadProgress: (progressEvent) => {
-      if (!onUploadProgress) return;
-      const progress = Math.round(
-        (progressEvent.loaded * 100) / (progressEvent.total || 1),
-      );
-      onUploadProgress(progress);
+export async function post(endpoint: string, data?: object) {
+  await fetch(fixURL(endpoint), {
+    method: 'POST',
+    body: data ? JSON.stringify(data) : undefined,
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: `Token ${getToken()}`,
     },
   });
 }
@@ -129,3 +164,32 @@ export const fileSerializer = (image) => {
     return undefined;
   }
 };
+
+export function getNextPageNumber(link: string): number {
+  if (link) {
+    const parts = Qs.parse(link.split('/?')[1]);
+    if (parts && typeof parts.page === 'string') {
+      return parseInt(parts.page, 10);
+    }
+  } else {
+    return null;
+  }
+}
+
+export const parseNextPage = (result) =>
+  getNextPageNumber(getNextPageUrl(result.response));
+
+export const count = (url: string, query?) =>
+  client
+    .head({
+      url,
+      query,
+      parseAs: 'text',
+      security: [
+        {
+          name: 'Authorization',
+          type: 'apiKey',
+        },
+      ],
+    })
+    .then(fetchResultCount);

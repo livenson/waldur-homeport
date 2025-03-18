@@ -5,7 +5,6 @@ import { paymentProfilesCreate, paymentProfilesEnable } from 'waldur-js-client';
 
 import { AwesomeCheckbox } from '@waldur/core/AwesomeCheckbox';
 import { required } from '@waldur/core/validators';
-import { getCustomer as getCustomerApi } from '@waldur/customer/api';
 import { ADD_PAYMENT_PROFILE_FORM_ID } from '@waldur/customer/payment-profiles/constants';
 import { getPaymentProfileTypeOptions } from '@waldur/customer/payment-profiles/utils';
 import {
@@ -24,6 +23,8 @@ import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { setCurrentCustomer } from '@waldur/workspace/actions';
 import { getCustomer } from '@waldur/workspace/selectors';
+
+import { getCustomer as getCustomerApi } from '../utils';
 
 const PaymentProfileCreate = (props) => {
   const [isFixedPrice, setIsFixedPrice] = useState(false);

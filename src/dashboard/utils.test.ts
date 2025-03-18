@@ -1,7 +1,7 @@
 import { DateTime } from 'luxon';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
-import * as api from './api';
+import * as api from './utils';
 
 vi.mock('@waldur/core/formatCurrency', () => ({
   defaultCurrency: (val) => `EUR${val}`,

@@ -4,7 +4,6 @@ import { reduxForm } from 'redux-form';
 import { paymentProfilesPartialUpdate } from 'waldur-js-client';
 
 import { required } from '@waldur/core/validators';
-import { getCustomer as getCustomerApi } from '@waldur/customer/api';
 import { EDIT_PAYMENT_PROFILE_FORM_ID } from '@waldur/customer/payment-profiles/constants';
 import {
   getInitialValues,
@@ -26,6 +25,8 @@ import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
 import { setCurrentCustomer } from '@waldur/workspace/actions';
 import { getCustomer } from '@waldur/workspace/selectors';
+
+import { getCustomer as getCustomerApi } from '../utils';
 
 const PaymentProfileUpdateDialog: FunctionComponent<any> = (props) => {
   const dispatch = useDispatch();

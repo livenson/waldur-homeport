@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { BroadcastMessage } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 import { ExpandableContainer } from '@waldur/table/ExpandableContainer';

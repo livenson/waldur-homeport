@@ -1,7 +1,7 @@
 import { useCurrentStateAndParams } from '@uirouter/react';
 import { FunctionComponent } from 'react';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { LandingHeroSection } from '@waldur/dashboard/hero/LandingHeroSection';
 import { translate } from '@waldur/i18n';
 import { useFullPage } from '@waldur/navigation/context';

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { useAsync } from 'react-use';
 import { billingTotalCostRetrieve } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { ServiceProvider } from '@waldur/marketplace/types';

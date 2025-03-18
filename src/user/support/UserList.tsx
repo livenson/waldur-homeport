@@ -5,7 +5,7 @@ import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
 import { User, UsersListData } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { Link } from '@waldur/core/Link';
 import { Tip } from '@waldur/core/Tooltip';

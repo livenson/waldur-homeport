@@ -1,6 +1,11 @@
 import { FunctionComponent, useMemo } from 'react';
 import { ButtonGroup } from 'react-bootstrap';
-import { RancherCluster, RancherHpa } from 'waldur-js-client';
+import {
+  RancherCluster,
+  RancherHpa,
+  rancherHpasYamlRetrieve,
+  rancherHpasYamlUpdate,
+} from 'waldur-js-client';
 
 import { formatDate } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
@@ -79,7 +84,11 @@ export const ClusterHPAList: FunctionComponent<{
           title: translate('Actions'),
           render: ({ row }) => (
             <ButtonGroup>
-              <ViewYAMLButton resource={row} />
+              <ViewYAMLButton
+                yamlRetrieve={rancherHpasYamlRetrieve}
+                yamlUpdate={rancherHpasYamlUpdate}
+                resource={row}
+              />
               <HPAUpdateButton hpa={row} />
               <HPADeleteButton hpa={row} />
             </ButtonGroup>

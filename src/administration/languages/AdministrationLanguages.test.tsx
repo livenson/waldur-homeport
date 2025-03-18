@@ -3,12 +3,12 @@ import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import { overrideSettings } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 
 import { AdministrationLanguages } from './AdministrationLanguages';
 
 // Mock dependencies
-vi.mock('@waldur/configs/default', () => ({
+vi.mock('@waldur/core/config', () => ({
   ENV: {
     plugins: {
       WALDUR_CORE: {

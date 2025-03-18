@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { projectsDestroy } from 'waldur-js-client';
 import { Project } from 'waldur-js-client';
 
-import { getCustomer as getCustomerApi } from '@waldur/customer/api';
+import { getCustomer as getCustomerApi } from '@waldur/customer/utils';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { PermissionEnum } from '@waldur/permissions/enums';

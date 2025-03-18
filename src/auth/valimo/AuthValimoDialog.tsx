@@ -11,7 +11,7 @@ import {
   authValimoResult,
 } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { wait } from '@waldur/core/utils';
 import { InputField } from '@waldur/form/InputField';
 import { translate } from '@waldur/i18n';

@@ -1,6 +1,6 @@
 import { useMemo } from 'react';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 
 export const useAuthFeatures = () => {
   const methods = useMemo<Record<string, boolean>>(

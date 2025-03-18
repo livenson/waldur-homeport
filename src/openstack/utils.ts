@@ -1,6 +1,6 @@
 import ipRegex from 'ip-regex';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { required } from '@waldur/core/validators';
 import { translate } from '@waldur/i18n';
 import { ActionContext } from '@waldur/resource/actions/types';

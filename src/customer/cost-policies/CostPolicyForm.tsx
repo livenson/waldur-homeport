@@ -7,7 +7,7 @@ import {
   invoiceItemsProjectCostsForPeriodRetrieve,
 } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { required } from '@waldur/core/validators';
 import {
