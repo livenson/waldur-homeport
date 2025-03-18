@@ -3,7 +3,7 @@ import { Field, Form } from 'react-final-form';
 import { featureValues } from 'waldur-js-client';
 
 import { TelemetryExampleButton } from '@waldur/administration/TelemetryExampleButton';
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { FeaturesDescription } from '@waldur/features/FeaturesDescription';
 import { TelemetryFeatures } from '@waldur/FeaturesEnums';
 import { AwesomeCheckboxField } from '@waldur/form/AwesomeCheckboxField';

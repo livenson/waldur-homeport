@@ -7,8 +7,8 @@ import {
   proposalReviewsCreate,
 } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
 import { getAllPages } from '@waldur/core/api';
+import { ENV } from '@waldur/core/config';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { required } from '@waldur/core/validators';

@@ -1,7 +1,7 @@
 import MatomoTracker from '@jonkoops/matomo-tracker';
 import * as Sentry from '@sentry/react';
 
-import { ENV } from './configs/default';
+import { ENV } from './core/config';
 import { LanguageUtilsService } from './i18n/LanguageUtilsService';
 import { attachTransitions } from './transitions';
 

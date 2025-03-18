@@ -3,7 +3,7 @@ import { Button, Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { IssueTypeEnum } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { translate, formatJsxTemplate } from '@waldur/i18n';
 import { sendIssueCreateRequest } from '@waldur/issues/create/utils';
 import { ISSUE_IDS } from '@waldur/issues/types/constants';

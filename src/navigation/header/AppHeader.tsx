@@ -2,7 +2,7 @@ import { List } from '@phosphor-icons/react';
 import { FunctionComponent } from 'react';
 import { useSelector } from 'react-redux';
 
-import { fixURL } from '@waldur/core/api';
+import { getIconUrl } from '@waldur/core/api';
 import { Link } from '@waldur/core/Link';
 import DefaultLogo from '@waldur/images/logo.svg';
 import { hasSupport as hasSupportSelector } from '@waldur/issues/hooks';
@@ -36,7 +36,7 @@ export const AppHeader: FunctionComponent<AppHeaderProps> = ({
 }) => {
   const pageTitle = useSelector(getTitle);
   const user = useUser();
-  const imageUrl = fixURL('/icons/sidebar_logo_mobile/');
+  const imageUrl = getIconUrl('sidebar_logo_mobile');
 
   const hasSupport = useSelector(hasSupportSelector);
 

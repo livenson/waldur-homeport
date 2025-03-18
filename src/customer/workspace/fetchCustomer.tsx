@@ -1,10 +1,11 @@
 import { Transition } from '@uirouter/react';
 import { customerCreditsList } from 'waldur-js-client';
 
-import { getCustomer } from '@waldur/customer/api';
 import { router } from '@waldur/router';
 import store from '@waldur/store/store';
 import { setCurrentCustomer } from '@waldur/workspace/actions';
+
+import { getCustomer } from '../utils';
 
 export async function fetchCustomer(transition: Transition) {
   const customerId = transition.params()?.uuid;

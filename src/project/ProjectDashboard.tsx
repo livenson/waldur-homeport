@@ -3,8 +3,13 @@ import { useRouter } from '@uirouter/react';
 import { FunctionComponent } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import { projectCreditsList, projectsStatsRetrieve } from 'waldur-js-client';
+import {
+  projectCreditsList,
+  projectsListUsersList,
+  projectsStatsRetrieve,
+} from 'waldur-js-client';
 
+import { parseSelectData } from '@waldur/core/api';
 import { Panel } from '@waldur/core/Panel';
 import { CreditStatusWidget } from '@waldur/customer/dashboard/CreditStatusWidget';
 import { COMMON_WIDGET_HEIGHT } from '@waldur/dashboard/constants';
@@ -14,7 +19,6 @@ import { MarketplaceFeatures } from '@waldur/FeaturesEnums';
 import { translate } from '@waldur/i18n';
 import { useCreateInvitation } from '@waldur/invitations/actions/useCreateInvitation';
 import { AggregateLimitWidget } from '@waldur/marketplace/aggregate-limits/AggregateLimitWidget';
-import { fetchSelectProjectUsers } from '@waldur/permissions/api';
 import { useUser } from '@waldur/workspace/hooks';
 import { getProject } from '@waldur/workspace/selectors';
 
@@ -93,7 +97,20 @@ export const ProjectDashboard: FunctionComponent<{}> = () => {
         )}
         <Col md={6} sm={12} className="mb-5" style={COMMON_WIDGET_HEIGHT}>
           <TeamWidget
-            api={() => fetchSelectProjectUsers(project.uuid, { page_size: 5 })}
+            api={() =>
+              projectsListUsersList({
+                path: { uuid: project.uuid },
+                query: {
+                  field: [
+                    'user_uuid',
+                    'user_full_name',
+                    'user_email',
+                    'role_name',
+                  ],
+                  page_size: 5,
+                },
+              }).then(parseSelectData)
+            }
             scope={project}
             chartData={teamData}
             showChart

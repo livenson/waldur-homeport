@@ -1,6 +1,6 @@
 import { reduxForm, SubmissionError } from 'redux-form';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { format } from '@waldur/core/ErrorMessageFormatter';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';

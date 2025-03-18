@@ -3,7 +3,7 @@ import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { ConstanceSettings, overrideSettingsRetrieve } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import FormTable from '@waldur/form/FormTable';
 import { translate } from '@waldur/i18n';

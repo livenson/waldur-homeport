@@ -16,8 +16,8 @@ import { formatRole } from '@waldur/permissions/utils';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { getCustomer } from '@waldur/workspace/selectors';
 
-import { getCategories, getChecklists } from './api';
 import { Category } from './types';
+import { getCategories, getChecklists } from './utils';
 
 const formatRolesList = (roles) =>
   roles.length === 0 ? 'N/A' : roles.map((role) => formatRole(role)).join(', ');

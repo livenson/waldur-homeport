@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { LandingHeroSection } from '@waldur/dashboard/hero/LandingHeroSection';
 import { NewbiesGuideNotification } from '@waldur/dashboard/hero/NewbiesGuideNotification';
 import { translate } from '@waldur/i18n';

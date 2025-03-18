@@ -8,8 +8,8 @@ import {
   usersRetrieve,
 } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
-import { countChecklists } from '@waldur/marketplace-checklist/api';
+import { ENV } from '@waldur/core/config';
+import { countChecklists } from '@waldur/marketplace-checklist/utils';
 import { isSupport, isStaff, isOwner } from '@waldur/workspace/selectors';
 
 import { UserDetailsDialog } from './support/UserDetailsDialog';

@@ -16,7 +16,7 @@ RUN mkdir -p /app/build-info && echo "$COMMIT_INFO" > /app/build-info/COMMIT_INF
 ARG VERSION=latest
 ARG ASSET_PATH="/"
 ENV VITE_API_URL="__API_URL__"
-RUN sed -i "s/buildId: 'develop'/buildId: '$VERSION'/" src/configs/default.ts
+RUN sed -i "s/buildId: 'develop'/buildId: '$VERSION'/" src/core/config.ts
 ENV NODE_OPTIONS --max-old-space-size=32768
 RUN yarn vite build --base=$ASSET_PATH
 

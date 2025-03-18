@@ -1,10 +1,10 @@
-import Axios from 'axios';
 import { marketplaceResourcesRetrieve, Resource } from 'waldur-js-client';
+
+import { get } from '@waldur/core/api';
 
 export async function loadData(url: string) {
   try {
-    const response = await Axios.get(url);
-    const resource = response.data;
+    const resource = await get<{ marketplace_resource_uuid }>(url);
     let marketplaceResource: Resource;
     if (resource.marketplace_resource_uuid) {
       marketplaceResource = await marketplaceResourcesRetrieve({

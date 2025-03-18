@@ -1,17 +1,15 @@
-import Axios from 'axios';
 import {
+  LexisLinksListData,
   marketplaceCategoriesList,
   marketplaceCategoryGroupsList,
   MarketplaceCategoryGroupsListData,
-  marketplaceComponentUsagesList,
-  MarketplaceComponentUsagesListData,
-  marketplaceProviderResourcesOfferingForSubresourcesList,
+  MarketplaceOrdersListData,
+  MarketplaceRobotAccountsListData,
   marketplaceServiceProvidersList,
   MarketplaceServiceProvidersListData,
 } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
-import { getAllPages, parseResultCount, post } from '@waldur/core/api';
+import { getAllPages, count } from '@waldur/core/api';
 import { ServiceProvider } from '@waldur/marketplace/types';
 
 export const getCategoryGroups = (
@@ -24,28 +22,6 @@ export const getCategoryGroups = (
 export const getCategories = () =>
   getAllPages((page) => marketplaceCategoriesList({ query: { page } }));
 
-export const getComponentUsages = (
-  resource_uuid: string,
-  date_after?: string,
-  query?: MarketplaceComponentUsagesListData['query'],
-) =>
-  getAllPages((page) =>
-    marketplaceComponentUsagesList({
-      query: { page, resource_uuid, date_after, ...query },
-    }),
-  );
-
-export const getSubResourcesOfferings = (uuid: string) =>
-  marketplaceProviderResourcesOfferingForSubresourcesList({
-    path: { uuid },
-  }).then((r) => r.data);
-
-export const updateOfferingState = (offeringUuid, action, reason) =>
-  post(
-    `/marketplace-provider-offerings/${offeringUuid}/${action}/`,
-    reason && { paused_reason: reason },
-  ).then((response) => response.data);
-
 export const getServiceProviderByCustomer = async (
   query: MarketplaceServiceProvidersListData['query'],
 ) => {
@@ -53,30 +29,12 @@ export const getServiceProviderByCustomer = async (
   return (response.data[0] as ServiceProvider) ?? null;
 };
 
-export const moveResource = (resourceUuid: string, projectUrl: string) =>
-  post(`/marketplace-resources/${resourceUuid}/move_resource/`, {
-    project: {
-      url: projectUrl,
-    },
-  });
+export const countOrders = (query?: MarketplaceOrdersListData['query']) =>
+  count('/api/marketplace-orders/', query);
 
-export const countOrders = (params) =>
-  Axios.request({
-    method: 'HEAD',
-    url: ENV.apiEndpoint + 'api/marketplace-orders/',
-    params,
-  }).then(parseResultCount);
+export const countRobotAccounts = (
+  query: MarketplaceRobotAccountsListData['query'],
+) => count('/api/marketplace-robot-accounts/', query);
 
-export const countRobotAccounts = (params) =>
-  Axios.request({
-    method: 'HEAD',
-    url: ENV.apiEndpoint + 'api/marketplace-robot-accounts/',
-    params,
-  }).then(parseResultCount);
-
-export const countLexisLinks = (params?) =>
-  Axios.request({
-    method: 'HEAD',
-    url: ENV.apiEndpoint + 'api/lexis-links/',
-    params,
-  }).then(parseResultCount);
+export const countLexisLinks = (query?: LexisLinksListData['query']) =>
+  count('/api/lexis-links/', query);

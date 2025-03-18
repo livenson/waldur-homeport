@@ -5,7 +5,7 @@ import { useSelector } from 'react-redux';
 import { formValueSelector } from 'redux-form';
 import { invoicesGrowthRetrieve } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { EChart } from '@waldur/core/EChart';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';

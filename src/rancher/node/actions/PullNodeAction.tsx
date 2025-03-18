@@ -1,7 +1,7 @@
 import { useSelector } from 'react-redux';
 import { rancherNodesPull } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { PullActionItem } from '@waldur/resource/actions/PullActionItem';
 import { ActionItemType } from '@waldur/resource/actions/types';
 import { getUser } from '@waldur/workspace/selectors';

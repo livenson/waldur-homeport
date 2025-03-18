@@ -3,7 +3,7 @@ import { Accordion, Card } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
 import { PermissionOptions } from '@waldur/administration/roles/PermissionOptions';
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { translate } from '@waldur/i18n';
 import { openModalDialog } from '@waldur/modal/actions';
 import { ModalDialog } from '@waldur/modal/ModalDialog';

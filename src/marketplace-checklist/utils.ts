@@ -1,12 +1,10 @@
-import Axios from 'axios';
 import {
-  marketplaceChecklistsCategoriesList,
   marketplaceChecklistsCategoriesChecklistsList,
+  marketplaceChecklistsCategoriesList,
   marketplaceChecklistsList,
 } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
-import { getAllPages, parseResultCount } from '@waldur/core/api';
+import { count, getAllPages } from '@waldur/core/api';
 
 export const getCategories = () =>
   getAllPages((page) =>
@@ -23,8 +21,4 @@ export const getChecklists = (category_uuid?: string) =>
       : marketplaceChecklistsList({ query: { page } }),
   );
 
-export const countChecklists = () =>
-  Axios.request({
-    method: 'HEAD',
-    url: ENV.apiEndpoint + 'api/marketplace-checklists/',
-  }).then(parseResultCount);
+export const countChecklists = () => count('/api/marketplace-checklists/');

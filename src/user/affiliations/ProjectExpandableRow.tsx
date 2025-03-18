@@ -4,9 +4,9 @@ import { Nav, Tab } from 'react-bootstrap';
 import { Project } from 'waldur-js-client';
 
 import { getResourcesCount } from '@waldur/administration/api';
+import { count } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';
 import { getStates } from '@waldur/marketplace/resources/list/ResourceStateFilter';
-import { getProjectUsersCount } from '@waldur/project/team/api';
 import { ExpandableContainer } from '@waldur/table/ExpandableContainer';
 
 import { TableTabsContainer } from '../../customer/list/TableTabsContainer';
@@ -26,15 +26,13 @@ export const ProjectExpandableRow: FC<OwnProps> = (props) => {
         queryKey: ['resourcesCount', props.row.uuid],
         queryFn: () =>
           getResourcesCount({
-            params: {
-              project_uuid: props.row.uuid,
-              state: getStates().map((state) => state.value),
-            },
+            project_uuid: props.row.uuid,
+            state: getStates().map((state) => state.value),
           }),
       },
       {
         queryKey: ['teamCount', props.row.uuid],
-        queryFn: () => getProjectUsersCount(props.row.uuid),
+        queryFn: () => count(`/api/projects/${props.row.uuid}/list_users/`),
       },
     ],
   });

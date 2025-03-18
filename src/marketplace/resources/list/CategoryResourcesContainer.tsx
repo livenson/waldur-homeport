@@ -17,7 +17,6 @@ export const CategoryResourcesContainer: React.FC = () => {
     () =>
       marketplaceCategoriesRetrieve({
         path: { uuid: category_uuid },
-        // @ts-ignore
         query: { field: ['columns', 'title'] },
       }).then((response) => response.data),
     [category_uuid],

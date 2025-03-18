@@ -13,8 +13,8 @@ import { getAllPages } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
 
-import { getChecklists } from './api';
 import { Checklist, Answer, ChecklistStats, Question } from './types';
+import { getChecklists } from './utils';
 
 const useChecklistSelector = (categoryId?: string) => {
   const [checklistOptions, setChecklistOptions] = useState([]);

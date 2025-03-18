@@ -316,7 +316,7 @@
     "message": "Active to"
   },
   "Active": {
-    "description": "administration/announcements/AnnouncementFilter.tsx, administration/roles/RolesList.tsx, administration/users/FreeIPAUsersList.tsx, customer/utils.ts, invitations/GroupInvitationsList.tsx, marketplace/offerings/list/OfferingStateCell.tsx, marketplace/offerings/list/OfferingStateFilter.tsx, marketplace/offerings/update/plans/PlansSection.tsx, marketplace/service-providers/ProviderCampaignStateFilter.tsx, project/utils.ts, proposals/utils.ts, user/support/UserList.tsx, user/support/UserStatus.tsx, user/support/utils.ts",
+    "description": "administration/announcements/AnnouncementFilter.tsx, administration/roles/RolesList.tsx, administration/users/FreeIPAUsersList.tsx, invitations/GroupInvitationsList.tsx, invitations/tabs.ts, marketplace/offerings/list/OfferingStateCell.tsx, marketplace/offerings/list/OfferingStateFilter.tsx, marketplace/offerings/update/plans/PlansSection.tsx, marketplace/service-providers/ProviderCampaignStateFilter.tsx, project/utils.ts, proposals/utils.ts, user/support/UserList.tsx, user/support/UserStatus.tsx, user/support/utils.ts",
     "message": "Active"
   },
   "Add Waldur user SSH keys to the FreeIPA profile": {
@@ -2408,7 +2408,7 @@
     "message": "Cores"
   },
   "Cost ({currency})": {
-    "description": "dashboard/api.ts",
+    "description": "dashboard/utils.ts",
     "message": "Cost ({currency})"
   },
   "Cost estimation": {
@@ -4024,7 +4024,7 @@
     "message": "Estimate usage of {component}"
   },
   "Estimated cost": {
-    "description": "administration/organizations/OrganizationCostPoliciesList.tsx, customer/list/CustomerList.tsx, dashboard/api.ts, invoices/list/EstimatedCost.tsx, marketplace/service-providers/OrganizationProjectsExpandable.tsx, marketplace/service-providers/ProviderOfferingsList.tsx, marketplace/service-providers/ProviderOrganizationsList.tsx, marketplace/service-providers/ProviderUserCustomersList.tsx, project/ProjectsList.tsx, project/details/ProjectDetailsDialog.tsx",
+    "description": "administration/organizations/OrganizationCostPoliciesList.tsx, customer/list/CustomerList.tsx, dashboard/utils.ts, invoices/list/EstimatedCost.tsx, marketplace/service-providers/OrganizationProjectsExpandable.tsx, marketplace/service-providers/ProviderOfferingsList.tsx, marketplace/service-providers/ProviderOrganizationsList.tsx, marketplace/service-providers/ProviderUserCustomersList.tsx, project/ProjectsList.tsx, project/details/ProjectDetailsDialog.tsx",
     "message": "Estimated cost"
   },
   "Estimated monthly fee will change from {old_estimate} to {new_estimate}. VAT is not included.": {
@@ -4032,7 +4032,7 @@
     "message": "Estimated monthly fee will change from {old_estimate} to {new_estimate}. VAT is not included."
   },
   "Estimated revenue": {
-    "description": "marketplace/offerings/details/OfferingDetailsStatistics.tsx, marketplace/service-providers/dashboard/api.ts",
+    "description": "marketplace/offerings/details/OfferingDetailsStatistics.tsx, marketplace/service-providers/dashboard/utils.ts",
     "message": "Estimated revenue"
   },
   "Ethernet type": {
@@ -4644,7 +4644,7 @@
     "message": "Group invitation"
   },
   "Group invitations": {
-    "description": "customer/routes.ts, customer/utils.ts, invitations/GroupInvitationsFilter.tsx",
+    "description": "customer/routes.ts, invitations/GroupInvitationsFilter.tsx, invitations/tabs.ts",
     "message": "Group invitations"
   },
   "Group": {
@@ -5328,7 +5328,7 @@
     "message": "Invitations management"
   },
   "Invitations": {
-    "description": "administration/InvitationList.tsx, administration/routes.ts, customer/routes.ts, customer/utils.ts, invitations/InvitationsList.tsx, project/routes.ts, project/utils.ts, proposals/team/InvitationsList.tsx, proposals/team/TeamSection.tsx",
+    "description": "administration/InvitationList.tsx, administration/routes.ts, customer/routes.ts, invitations/InvitationsList.tsx, invitations/tabs.ts, project/routes.ts, project/utils.ts, proposals/team/InvitationsList.tsx, proposals/team/TeamSection.tsx",
     "message": "Invitations"
   },
   "Invite by email": {
@@ -9760,7 +9760,7 @@
     "message": "Reviews in final states are not editable"
   },
   "Reviews": {
-    "description": "customer/routes.ts, customer/utils.ts, navigation/sidebar/CallPublicMenu.tsx, proposals/review/CustomerReviewsList.tsx, proposals/routes.ts, proposals/update/rounds/CallRoundsList.tsx",
+    "description": "customer/routes.ts, invitations/tabs.ts, navigation/sidebar/CallPublicMenu.tsx, proposals/review/CustomerReviewsList.tsx, proposals/routes.ts, proposals/update/rounds/CallRoundsList.tsx",
     "message": "Reviews"
   },
   "Revoke": {
@@ -10784,7 +10784,7 @@
     "message": "Show end date field in project create dialog."
   },
   "Show error trace": {
-    "description": "ErrorView.tsx",
+    "description": "ErrorView.tsx, LoadingScreen.tsx",
     "message": "Show error trace"
   },
   "Show error": {
@@ -11408,7 +11408,7 @@
     "message": "Team members"
   },
   "Team": {
-    "description": "customer/routes.ts, customer/team/CustomerUsersList.tsx, dashboard/TeamWidget.tsx, dashboard/api.ts, invitations/GroupInvitationsList.tsx, invitations/InvitationsList.tsx, marketplace/routes.ts, project/ProjectUsersBadge.tsx, project/routes.ts, project/team/InvitationsList.tsx, project/team/ProjectUsersList.tsx, proposals/routes.ts, proposals/update/CallUpdateContainer.tsx, user/affiliations/OrganizationExpandableRow.tsx, user/affiliations/ProjectExpandableRow.tsx",
+    "description": "customer/routes.ts, customer/team/CustomerUsersList.tsx, dashboard/TeamWidget.tsx, dashboard/utils.ts, invitations/GroupInvitationsList.tsx, invitations/InvitationsList.tsx, marketplace/routes.ts, project/ProjectUsersBadge.tsx, project/routes.ts, project/team/InvitationsList.tsx, project/team/ProjectUsersList.tsx, proposals/routes.ts, proposals/update/CallUpdateContainer.tsx, user/affiliations/OrganizationExpandableRow.tsx, user/affiliations/ProjectExpandableRow.tsx",
     "message": "Team"
   },
   "Technical code used by accounting software.": {
@@ -15284,11 +15284,11 @@
     "message": "{user} has requested termination of {resource_name} with active plan \"{plan_name}\"."
   },
   "{value} at {date}, estimated": {
-    "description": "dashboard/api.ts",
+    "description": "dashboard/utils.ts",
     "message": "{value} at {date}, estimated"
   },
   "{value} at {date}": {
-    "description": "dashboard/api.ts",
+    "description": "dashboard/utils.ts",
     "message": "{value} at {date}"
   },
   "{verboseName} has been updated.": {

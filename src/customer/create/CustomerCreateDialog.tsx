@@ -4,13 +4,12 @@ import { FC, useCallback } from 'react';
 import { Form } from 'react-final-form';
 import { useDispatch, useSelector } from 'react-redux';
 import { reset, SubmissionError } from 'redux-form';
-import { customersCreate } from 'waldur-js-client';
+import { customersAddUser, customersCreate } from 'waldur-js-client';
 
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
-import { addCustomerUser } from '@waldur/permissions/api';
 import { RoleEnum } from '@waldur/permissions/enums';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { getCurrentUser } from '@waldur/user/UsersService';
@@ -41,10 +40,12 @@ export const CustomerCreateDialog: FC<OwnProps> = ({ resolve }) => {
         });
         const customer = response.data;
         if (resolve.role === constants.ROLES.provider) {
-          await addCustomerUser({
-            customer: customer.uuid,
-            role: RoleEnum.CUSTOMER_OWNER,
-            user: user.uuid,
+          await customersAddUser({
+            path: { uuid: customer.uuid },
+            body: {
+              role: RoleEnum.CUSTOMER_OWNER,
+              user: user.uuid,
+            },
           });
         }
         dispatch(showSuccess(translate('Organization has been created.')));

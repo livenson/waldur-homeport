@@ -3,7 +3,11 @@ import { FunctionComponent } from 'react';
 import { ButtonGroup } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useAsyncFn } from 'react-use';
-import { rancherIngressesDestroy } from 'waldur-js-client';
+import {
+  rancherIngressesDestroy,
+  rancherIngressesYamlRetrieve,
+  rancherIngressesYamlUpdate,
+} from 'waldur-js-client';
 
 import { translate } from '@waldur/i18n';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
@@ -29,7 +33,12 @@ export const IngressActions: FunctionComponent<{ ingress }> = ({ ingress }) => {
 
   return (
     <ButtonGroup>
-      <ViewYAMLButton resource={ingress} disabled={disabled} />
+      <ViewYAMLButton
+        yamlRetrieve={rancherIngressesYamlRetrieve}
+        yamlUpdate={rancherIngressesYamlUpdate}
+        resource={ingress}
+        disabled={disabled}
+      />
       <ActionButton
         title={translate('Delete')}
         action={deleteCallback}

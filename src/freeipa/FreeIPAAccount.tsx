@@ -4,7 +4,7 @@ import { useDispatch } from 'react-redux';
 import { useAsyncFn, useEffectOnce } from 'react-use';
 import { freeipaProfilesList } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { router } from '@waldur/router';

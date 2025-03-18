@@ -1,13 +1,13 @@
 import { EChartsOption } from 'echarts';
 import { DateTime } from 'luxon';
 import {
+  marketplaceComponentUsagesList,
   SlurmAllocationUserUsage,
   slurmAllocationUserUsageList,
 } from 'waldur-js-client';
 
 import { getAllPages } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';
-import { getComponentUsages } from '@waldur/marketplace/common/api';
 import { getChartSpec, palette } from '@waldur/slurm/details/constants';
 
 import { Period, Usage } from './types';
@@ -215,7 +215,11 @@ export const loadCharts = async (
   if (!allocationUrl || !resourceUuid) {
     return;
   }
-  const componentUsages = await getComponentUsages(resourceUuid);
+  const componentUsages = await getAllPages((page) =>
+    marketplaceComponentUsagesList({
+      query: { page, resource_uuid: resourceUuid },
+    }),
+  );
   const periodUsages = {};
   componentUsages.forEach((component) => {
     const period = DateTime.fromISO(component.billing_period).toFormat(

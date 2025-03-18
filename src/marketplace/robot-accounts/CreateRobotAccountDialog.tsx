@@ -2,8 +2,8 @@ import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { marketplaceRobotAccountsCreate, usersList } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
 import { parseSelectData } from '@waldur/core/api';
+import { ENV } from '@waldur/core/config';
 import {
   LATIN_NAME_PATTERN,
   returnReactSelectAsyncPaginateObject,

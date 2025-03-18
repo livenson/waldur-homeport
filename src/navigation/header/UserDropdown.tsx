@@ -1,7 +1,7 @@
 import { FunctionComponent } from 'react';
 
-import { ENV } from '@waldur/configs/default';
 import Avatar from '@waldur/core/Avatar';
+import { ENV } from '@waldur/core/config';
 import { ImagePlaceholder } from '@waldur/core/ImagePlaceholder';
 import { Link } from '@waldur/core/Link';
 import { translate } from '@waldur/i18n';

@@ -3,8 +3,8 @@ import {
   MarketplaceResourcesListData,
 } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
 import { parseSelectData } from '@waldur/core/api';
+import { ENV } from '@waldur/core/config';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
 import { getStates } from '@waldur/marketplace/resources/list/ResourceStateFilter';
 import { INSTANCE_TYPE, TENANT_TYPE } from '@waldur/openstack/constants';
@@ -15,8 +15,8 @@ const tenantSerializer = ({ name, backend_id, project_name }) => ({
 });
 
 export const fetchOpenstackOptions = async (
-  query,
-  type,
+  query: string,
+  type: string,
   prevOptions,
   currentPage: number,
   customerId,

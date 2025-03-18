@@ -2,7 +2,7 @@ import { useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { lexisLinksCreate } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';

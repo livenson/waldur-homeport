@@ -1,10 +1,10 @@
 import { Trash } from '@phosphor-icons/react';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { marketplaceProviderOfferingsDeleteUser } from 'waldur-js-client';
 
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
-import { deleteOfferingPermission } from '@waldur/permissions/api';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
@@ -39,10 +39,12 @@ export const OfferingPermissionRemoveButton: React.FC<
       return;
     }
     try {
-      await deleteOfferingPermission({
-        offering: props.row.offering_uuid,
-        user: props.row.user_uuid,
-        role: props.row.role_name,
+      await marketplaceProviderOfferingsDeleteUser({
+        path: { uuid: props.row.offering_uuid },
+        body: {
+          user: props.row.user_uuid,
+          role: props.row.role_name,
+        },
       });
       dispatch(showSuccess(translate('Permission has been revoked.')));
       await props.refetch();

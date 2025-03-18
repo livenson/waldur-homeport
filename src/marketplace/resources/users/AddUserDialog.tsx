@@ -4,8 +4,8 @@ import { useDispatch } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { marketplaceResourceUsersCreate, usersList } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
 import { parseSelectData } from '@waldur/core/api';
+import { ENV } from '@waldur/core/config';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
 import { required } from '@waldur/core/validators';
 import { SubmitButton } from '@waldur/form';

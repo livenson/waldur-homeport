@@ -1,12 +1,11 @@
-import Axios from 'axios';
 import { usersList, UsersListData } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
-import { fixURL, parseResultCount, parseSelectData } from '@waldur/core/api';
+import { count, parseSelectData } from '@waldur/core/api';
+import { ENV } from '@waldur/core/config';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
 
 export const usersAutocomplete = async (
-  query: Partial<UsersListData['query']>,
+  query: UsersListData['query'],
   prevOptions,
   currentPage: number,
 ) => {
@@ -34,7 +33,5 @@ export const usersAutocomplete = async (
   );
 };
 
-export const getCustomerUsersCount = (customerUuid) =>
-  Axios.head(fixURL(`/customers/${customerUuid}/users/`)).then(
-    parseResultCount,
-  );
+export const getCustomerUsersCount = (customerUuid: string) =>
+  count(`/api/customers/${customerUuid}/users/`);

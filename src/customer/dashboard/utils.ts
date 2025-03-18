@@ -1,11 +1,11 @@
 import { invoicesList } from 'waldur-js-client';
 
-import { formatCostChart, getTeamSizeChart } from '@waldur/dashboard/api';
 import {
   getLineChartOptions,
   getLineChartOptionsWithAxis,
 } from '@waldur/dashboard/chart';
 import { Scope, Chart, InvoiceSummary } from '@waldur/dashboard/types';
+import { formatCostChart, getTeamSizeChart } from '@waldur/dashboard/utils';
 import { getActiveFixedPricePaymentProfile } from '@waldur/invoices/details/utils';
 
 async function getCustomerCostChart(customer: Scope): Promise<Chart> {

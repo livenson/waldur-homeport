@@ -1,6 +1,6 @@
 import { User } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 
 import { PermissionRequest, RoleType } from './types';
 

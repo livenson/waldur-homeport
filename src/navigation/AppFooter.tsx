@@ -3,7 +3,7 @@ import { FunctionComponent, useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { versionRetrieve } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { format } from '@waldur/core/ErrorMessageFormatter';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { Tip } from '@waldur/core/Tooltip';

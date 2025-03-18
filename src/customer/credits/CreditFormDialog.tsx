@@ -3,7 +3,7 @@ import { Accordion, Form } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { formValueSelector, reduxForm } from 'redux-form';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { EChart } from '@waldur/core/EChart';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { LoadingErred } from '@waldur/core/LoadingErred';
@@ -24,7 +24,7 @@ import {
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
 
-import { getCustomerCostChartData } from '../dashboard/api';
+import { getCustomerCostChartData } from '../dashboard/utils';
 
 import { useMinimalConsumptionFields } from './constants';
 import { CustomerCreditFormData } from './types';

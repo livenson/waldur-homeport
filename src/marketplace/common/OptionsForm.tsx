@@ -21,11 +21,12 @@ import {
   parseIntField,
 } from '@waldur/marketplace/common/utils';
 import { INSTANCE_TYPE, TENANT_TYPE } from '@waldur/openstack/constants';
-import { fetchOpenstackOptions } from '@waldur/support/api';
 import { getCustomer } from '@waldur/workspace/selectors';
 import { Customer } from '@waldur/workspace/types';
 
 import { Offering } from '../types';
+
+import { fetchOpenstackOptions } from './fetchOpenstackOptions';
 
 interface OptionsFormProps {
   options: Offering['options'];

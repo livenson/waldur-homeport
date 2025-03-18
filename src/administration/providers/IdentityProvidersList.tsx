@@ -11,7 +11,7 @@ import {
   SETTINGS_FREEIPA_GROUP_NAME,
   TARA_IDP,
 } from '@waldur/auth/providers/constants';
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';

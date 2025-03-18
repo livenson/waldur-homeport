@@ -4,13 +4,14 @@ import { connect, useDispatch } from 'react-redux';
 import { reduxForm, SubmissionError } from 'redux-form';
 import {
   supportTemplatesCreate,
+  supportTemplatesCreateAttachments,
   supportTemplatesDeleteAttachments,
   supportTemplatesRetrieve,
   supportTemplatesUpdate,
 } from 'waldur-js-client';
 
-import { attachDocumentsToIssueTemplate } from '@waldur/administration/api';
 import { IssueTemplateTypeOptions } from '@waldur/administration/utils';
+import { formDataOptions } from '@waldur/core/api';
 import { ACCEPTED_FILE_TYPES } from '@waldur/core/constants';
 import {
   FormContainer,
@@ -139,18 +140,13 @@ export const IssueTemplateForm = connect<
       try {
         await Promise.all(
           pendingFiles.map(async (file) => {
-            await attachDocumentsToIssueTemplate(
-              templateUuid,
-              file.file,
-              file.file.name,
-              (progress) => {
-                setPendingFiles((prev) =>
-                  prev.map((f) =>
-                    f.key === file.key ? { ...f, progress } : f,
-                  ),
-                );
+            await supportTemplatesCreateAttachments({
+              path: { uuid: templateUuid },
+              body: {
+                attachments: [file.file],
               },
-            );
+              ...formDataOptions,
+            });
 
             setPendingFiles((prev) => prev.filter((f) => f.key !== file.key));
             setAttachments((prev) => [

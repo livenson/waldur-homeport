@@ -5,12 +5,13 @@ import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
 import { CustomersUsersListData, CustomerUser } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
 import Avatar from '@waldur/core/Avatar';
+import { ENV } from '@waldur/core/config';
 import { formatDate } from '@waldur/core/dateUtils';
 import { CUSTOMER_USERS_LIST_FILTER_FORM_ID } from '@waldur/customer/team/constants';
 import { CustomerUsersListExpandableRow } from '@waldur/customer/team/CustomerUsersListExpandableRow';
 import { translate } from '@waldur/i18n';
+import { useTeamTableTabs } from '@waldur/invitations/tabs';
 import { createFetcher } from '@waldur/table/api';
 import { DASH_ESCAPE_CODE } from '@waldur/table/constants';
 import Table from '@waldur/table/Table';
@@ -21,8 +22,6 @@ import {
   getCustomer,
   isOwnerOrStaff as isOwnerOrStaffSelector,
 } from '@waldur/workspace/selectors';
-
-import { useTeamTableTabs } from '../utils';
 
 import { CustomerPermissionsLogButton } from './CustomerPermissionsLogButton';
 import { CustomerUserRowActions } from './CustomerUserRowActions';

@@ -70,7 +70,6 @@ export const ProjectsList = () => {
       title: translate('Name'),
       orderField: 'name',
       render: ({ row }) => (
-        // @ts-ignore
         <ProjectLink row={row} onClick={() => onClickDetails(row)} />
       ),
       copyField: (row) => row.name,

@@ -10,12 +10,11 @@ import {
   PublicOfferingDetails,
 } from 'waldur-js-client';
 
-import { getNextPageUrl } from '@waldur/core/api';
+import { parseNextPage } from '@waldur/core/api';
 import { required } from '@waldur/core/validators';
 import { VStepperFormStepCard } from '@waldur/form/VStepperFormStep';
 import { translate } from '@waldur/i18n';
 import { isExperimentalUiComponentsVisible } from '@waldur/marketplace/utils';
-import { getNextPageNumber } from '@waldur/table/api';
 import { getProject } from '@waldur/workspace/selectors';
 
 import { FormStepProps } from '../types';
@@ -44,7 +43,7 @@ const loadData: QueryFunction<DataPage> = async (context) => {
   });
   return {
     data: result.data,
-    nextPage: getNextPageNumber(getNextPageUrl(result.response)),
+    nextPage: parseNextPage(result),
   };
 };
 

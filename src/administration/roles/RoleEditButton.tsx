@@ -3,13 +3,13 @@ import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { RoleModifyRequest, rolesUpdate } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n/translate';
 import { closeModalDialog, openModalDialog } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 
-import { getRoles } from './api';
+import { getRoles } from './utils';
 
 const RoleEditDialog = lazyComponent(() =>
   import('./RoleEditDialog').then((module) => ({

@@ -2,7 +2,7 @@ import { PencilSimpleLine } from '@phosphor-icons/react';
 import { useSelector, useDispatch } from 'react-redux';
 import { marketplaceResourcesPartialUpdate } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { openModalDialog } from '@waldur/modal/actions';

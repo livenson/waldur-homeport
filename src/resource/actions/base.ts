@@ -1,7 +1,7 @@
 import { CoreStates as ResourceState } from 'waldur-js-client';
 import { ResourceState as MarketplaceResourceState } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { LATIN_NAME_PATTERN } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';
 

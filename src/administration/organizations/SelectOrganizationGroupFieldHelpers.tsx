@@ -1,7 +1,7 @@
 import { FC } from 'react';
 import { components } from 'react-select';
 
-import { organizationGroupAutocomplete } from '@waldur/customer/list/api';
+import { organizationGroupAutocomplete } from '@waldur/customer/list/autcompletes';
 import { RIGHT_ARROW_HTML } from '@waldur/customer/list/constants';
 import { translate } from '@waldur/i18n';
 

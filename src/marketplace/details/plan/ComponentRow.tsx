@@ -2,7 +2,7 @@ import { Question } from '@phosphor-icons/react';
 import React, { PropsWithChildren } from 'react';
 import { useSelector } from 'react-redux';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { defaultCurrency, formatCurrency } from '@waldur/core/formatCurrency';
 import { Tip } from '@waldur/core/Tooltip';
 import FormTable from '@waldur/form/FormTable';

@@ -1,8 +1,9 @@
 import { UserCirclePlus } from '@phosphor-icons/react';
 import { reduxForm } from 'redux-form';
 
+import { post } from '@waldur/core/api';
 import { required } from '@waldur/core/validators';
-import { usersAutocomplete } from '@waldur/customer/team/api';
+import { usersAutocomplete } from '@waldur/customer/team/utils';
 import { FormContainer, SubmitButton } from '@waldur/form';
 import { AsyncSelectField } from '@waldur/form/AsyncSelectField';
 import { translate } from '@waldur/i18n';
@@ -15,7 +16,6 @@ import { RoleGroup } from '@waldur/project/team/RoleGroup';
 import { UserListOptionInline } from '@waldur/project/team/UserListOptionInline';
 import { useNotify } from '@waldur/store/hooks';
 
-import { addScopeUser } from './api';
 import { AddUserDialogProps } from './types';
 
 const FORM_ID = 'AddUserDialog';
@@ -50,12 +50,12 @@ export const AddUserDialog = reduxForm<
 
   const saveUser = async (formData: AddUserDialogFormData) => {
     try {
-      await addScopeUser({
-        scope: scope.url,
+      await post(`${scope.url}add_user/`, {
         user: formData.user.uuid,
         expiration_time: formData.expiration_time,
         role: roles && roles.length === 1 ? roles[0] : formData.role.name,
       });
+
       await refetch();
       showSuccess('User has been added.');
       closeDialog();

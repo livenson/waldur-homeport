@@ -3,7 +3,7 @@ import { useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 
 import * as AuthService from '@waldur/auth/AuthService';
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { Link } from '@waldur/core/Link';
 import { isFeatureVisible } from '@waldur/features/connect';
 import { MarketplaceFeatures } from '@waldur/FeaturesEnums';

@@ -3,8 +3,8 @@ import { useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { overrideSettings } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
 import { formDataOptions } from '@waldur/core/api';
+import { ENV } from '@waldur/core/config';
 import { SelectField, SubmitButton, TextField } from '@waldur/form';
 import { AwesomeCheckboxField } from '@waldur/form/AwesomeCheckboxField';
 import { FormContainer } from '@waldur/form/FormContainer';

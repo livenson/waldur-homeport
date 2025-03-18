@@ -1,6 +1,6 @@
 import { Resource } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 import { BooleanField } from '@waldur/table/BooleanField';

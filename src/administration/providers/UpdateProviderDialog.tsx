@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { identityProvidersUpdate, overrideSettings } from 'waldur-js-client';
 
 import { FREEIPA_IDP } from '@waldur/auth/providers/constants';
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';

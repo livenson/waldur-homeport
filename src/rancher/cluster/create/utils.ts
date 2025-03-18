@@ -9,8 +9,8 @@ import {
   rancherClusterTemplatesList,
 } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
 import { getAllPages } from '@waldur/core/api';
+import { ENV } from '@waldur/core/config';
 import { translate } from '@waldur/i18n';
 import { ORDER_FORM_ID } from '@waldur/marketplace/details/constants';
 import {

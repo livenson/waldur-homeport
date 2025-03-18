@@ -7,8 +7,8 @@ import {
   ProposalPublicCallsListData,
 } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
 import { parseSelectData } from '@waldur/core/api';
+import { ENV } from '@waldur/core/config';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
 import { FieldError } from '@waldur/form';
 import { AsyncPaginate } from '@waldur/form/themed-select';

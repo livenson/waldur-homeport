@@ -7,7 +7,7 @@ import { useContext, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import { useEffectOnce } from 'react-use';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { isFeatureVisible } from '@waldur/features/connect';
 import { router } from '@waldur/router';
 import store from '@waldur/store/store';
