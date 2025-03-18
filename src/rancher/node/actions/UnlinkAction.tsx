@@ -52,7 +52,7 @@ export const UnlinkAction: ActionItemType = ({ resource, refetch }) => {
         title={translate('Unlink instance')}
         action={callback}
         staff
-        iconNode={<LinkBreak />}
+        iconNode={<LinkBreak weight="bold" />}
       />
     );
   }

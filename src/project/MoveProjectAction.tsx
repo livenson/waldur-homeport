@@ -37,7 +37,7 @@ export const MoveProjectAction = ({
       title={translate('Move project')}
       action={callback}
       disabled={!isStaff}
-      iconNode={<ArrowsOutCardinal />}
+      iconNode={<ArrowsOutCardinal weight="bold" />}
     />
   );
 };

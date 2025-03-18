@@ -43,7 +43,7 @@ export const UserAgreementDeleteButton: FC<{ row; refetch }> = ({
     <ActionItem
       title={translate('Delete')}
       action={action}
-      iconNode={<Trash />}
+      iconNode={<Trash weight="bold" />}
       size="sm"
       disabled={removing}
       className="text-danger"

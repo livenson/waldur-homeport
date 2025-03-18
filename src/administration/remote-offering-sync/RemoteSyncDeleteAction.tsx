@@ -50,7 +50,7 @@ export const RemoteSyncDeleteAction = (props: RemoteSyncActionProps) => {
       className="text-danger"
       iconColor="danger"
       action={mutate}
-      iconNode={<Trash />}
+      iconNode={<Trash weight="bold" />}
       disabled={isLoading}
     />
   );

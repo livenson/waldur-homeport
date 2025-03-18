@@ -33,7 +33,7 @@ export const KubeconfigFileAction: ActionItemType = ({ resource }) => {
       modalComponent={RancherClusterKubeconfigDialog}
       resource={resource}
       validators={validators}
-      iconNode={<FileCode />}
+      iconNode={<FileCode weight="bold" />}
     />
   );
 };

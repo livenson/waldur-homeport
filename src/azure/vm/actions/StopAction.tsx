@@ -18,6 +18,6 @@ export const StopAction: ActionItemType = ({ resource, refetch }) => (
     validators={validators}
     apiMethod={(id) => azureVirtualmachinesStop({ path: { uuid: id } })}
     refetch={refetch}
-    iconNode={<Stop />}
+    iconNode={<Stop weight="bold" />}
   />
 );

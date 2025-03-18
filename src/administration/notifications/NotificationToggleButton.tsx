@@ -47,7 +47,13 @@ export const NotificationToggleButton: FunctionComponent<{
     <ActionItem
       action={callback}
       title={row.enabled ? translate('Disable') : translate('Enable')}
-      iconNode={row.enabled ? <BellSimple /> : <BellSimpleSlash />}
+      iconNode={
+        row.enabled ? (
+          <BellSimple weight="bold" />
+        ) : (
+          <BellSimpleSlash weight="bold" />
+        )
+      }
       size="sm"
       className={row.enabled ? 'text-warning' : 'text-success'}
       iconColor={row.enabled ? 'warning' : 'success'}

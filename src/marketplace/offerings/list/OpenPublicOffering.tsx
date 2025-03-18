@@ -19,7 +19,7 @@ export const OpenPublicOffering = ({
     }}
   >
     <span className="svg-icon svg-icon-2">
-      <ShoppingCart />
+      <ShoppingCart weight="bold" />
     </span>
     {translate('Open public page')}
   </Dropdown.Item>

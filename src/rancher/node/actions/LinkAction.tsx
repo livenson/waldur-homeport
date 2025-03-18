@@ -26,7 +26,7 @@ export const LinkAction: ActionItemType = ({ resource, refetch }) => {
         resource={resource}
         extraResolve={{ refetch }}
         staff
-        iconNode={<LinkSimple />}
+        iconNode={<LinkSimple weight="bold" />}
       />
     );
   }

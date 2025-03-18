@@ -37,7 +37,7 @@ export const DestroyAction: ActionItemType = ({ resource, refetch }) => (
     resource={resource}
     modalComponent={DestroyDialog}
     extraResolve={{ refetch }}
-    iconNode={<FileX />}
+    iconNode={<FileX weight="bold" />}
     iconColor="danger"
   />
 );

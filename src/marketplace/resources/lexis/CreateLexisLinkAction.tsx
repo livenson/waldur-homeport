@@ -45,6 +45,6 @@ export const CreateLexisLinkAction: FC<CreateLexisLinkActionProps> = ({
   ) {
     return null;
   } else {
-    return <ActionItem {...props} iconNode={<LinkSimple />} />;
+    return <ActionItem {...props} iconNode={<LinkSimple weight="bold" />} />;
   }
 };

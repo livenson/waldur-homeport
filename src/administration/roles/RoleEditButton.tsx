@@ -43,7 +43,7 @@ export const RoleEditButton = ({ row, refetch }) => {
   return (
     <ActionItem
       title={translate('Edit role')}
-      iconNode={<PencilSimple />}
+      iconNode={<PencilSimple weight="bold" />}
       action={openRoleEditDialog}
     />
   );

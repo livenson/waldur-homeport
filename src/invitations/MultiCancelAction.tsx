@@ -80,7 +80,7 @@ export const MultiCancelAction = ({ rows, refetch }) => {
     <ActionItem
       title={translate('Cancel')}
       action={callback}
-      iconNode={<Prohibit />}
+      iconNode={<Prohibit weight="bold" />}
       disabled={disabled}
       tooltip={tooltip}
     />

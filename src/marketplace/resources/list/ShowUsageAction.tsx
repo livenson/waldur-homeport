@@ -29,7 +29,7 @@ export const ShowUsageAction = ({ resource }: { resource: Resource }) => {
   return (
     <ActionItem
       title={translate('Show usage')}
-      iconNode={<ChartPie />}
+      iconNode={<ChartPie weight="bold" />}
       action={() =>
         callback({
           ...resource,

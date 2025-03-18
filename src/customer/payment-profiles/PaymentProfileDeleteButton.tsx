@@ -46,7 +46,7 @@ export const PaymentProfileDeleteButton = (props) => {
     <ActionItem
       title={translate('Delete')}
       action={openDialog}
-      iconNode={<Trash />}
+      iconNode={<Trash weight="bold" />}
       className="text-danger"
       iconColor="danger"
       {...props.tooltipAndDisabledAttributes}

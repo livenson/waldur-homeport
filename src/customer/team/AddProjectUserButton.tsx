@@ -46,7 +46,7 @@ export const AddProjectUserButton: React.FC<AddProjectUserButtonProps> = ({
     <ActionButton
       action={callback}
       title={translate('Add')}
-      iconNode={<PlusCircle />}
+      iconNode={<PlusCircle weight="bold" />}
     />
   );
 };

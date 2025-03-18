@@ -34,7 +34,7 @@ export const MultiDeleteAction = ({ rows, refetch }) => {
     <ActionItem
       title={translate('Delete')}
       action={callback}
-      iconNode={<Trash />}
+      iconNode={<Trash weight="bold" />}
       disabled={!user.is_staff}
       tooltip={tooltip}
     />

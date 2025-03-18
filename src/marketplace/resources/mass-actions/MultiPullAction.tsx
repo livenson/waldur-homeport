@@ -71,7 +71,7 @@ export const MultiPullAction = ({ rows, refetch }) => {
       title={translate('Pull')}
       action={callback}
       disabled={validResources.length !== rows.length}
-      iconNode={<GitPullRequest />}
+      iconNode={<GitPullRequest weight="bold" />}
     />
   );
 };

@@ -76,7 +76,7 @@ export const DestroyActionItem: <T extends { uuid: string }>(
       title={translate('Destroy')}
       action={callback}
       className="text-danger"
-      iconNode={<FileX />}
+      iconNode={<FileX weight="bold" />}
       iconColor="danger"
       {...validationState}
     />

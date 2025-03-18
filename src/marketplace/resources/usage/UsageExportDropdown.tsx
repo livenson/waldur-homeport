@@ -96,17 +96,17 @@ export const UsageExportDropdown = (props: UsageExportDropdownProps) => {
       <ActionItem
         title={translate('PDF')}
         action={() => exportUsages('pdf')}
-        iconNode={<Printer />}
+        iconNode={<Printer weight="bold" />}
       />
       <ActionItem
         title={translate('CSV')}
         action={() => exportUsages('csv')}
-        iconNode={<FileCsv />}
+        iconNode={<FileCsv weight="bold" />}
       />
       <ActionItem
         title={translate('Excel')}
         action={() => exportUsages('excel')}
-        iconNode={<FileXls />}
+        iconNode={<FileXls weight="bold" />}
       />
     </DropdownButton>
   );

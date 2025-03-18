@@ -53,8 +53,8 @@ export const DeleteOfferingButton = ({ row, refetch }) => {
         handleDeleteConfirmation();
       }}
     >
-      <span className="svg-icon svg-icon-2">
-        <Trash />
+      <span className="svg-icon svg-icon-2 svg-icon-danger">
+        <Trash weight="bold" />
       </span>
       {translate('Delete')}
     </Dropdown.Item>

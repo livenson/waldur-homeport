@@ -45,7 +45,7 @@ export const UpdateAccessPoliciesAction = ({ plan, refetch }) => {
   return (
     <ActionItem
       title={translate('Update access policies')}
-      iconNode={<Users />}
+      iconNode={<Users weight="bold" />}
       action={callback}
       disabled={disabled}
       tooltip={tooltip}

@@ -18,6 +18,6 @@ export const StartAction: ActionItemType = ({ resource, refetch }) => (
     validators={validators}
     apiMethod={(id) => azureVirtualmachinesStart({ path: { uuid: id } })}
     refetch={refetch}
-    iconNode={<Play />}
+    iconNode={<Play weight="bold" />}
   />
 );

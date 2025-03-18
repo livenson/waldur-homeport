@@ -36,7 +36,7 @@ export const PaymentProfileEnableButton = (props) => {
     <ActionItem
       title={translate('Enable')}
       action={callback}
-      iconNode={<Play />}
+      iconNode={<Play weight="bold" />}
       {...props.tooltipAndDisabledAttributes}
     />
   );

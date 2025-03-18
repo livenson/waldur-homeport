@@ -54,8 +54,9 @@ export const ProviderOfferingUserDeleteButton: FC<{
     canDeleteOfferingUser && (
       <ActionItem
         title={translate('Delete')}
-        iconNode={<Trash />}
+        iconNode={<Trash weight="bold" />}
         className="text-danger"
+        iconColor="danger"
         action={handleDelete}
       />
     )

@@ -41,7 +41,8 @@ export const MultiDestroyAction = ({ rows, refetch }) => {
       title={translate('Destroy')}
       action={callback}
       disabled={validResources.length !== rows.length}
-      iconNode={<X />}
+      iconNode={<X weight="bold" />}
+      iconColor="danger"
       className="text-danger"
     />
   );

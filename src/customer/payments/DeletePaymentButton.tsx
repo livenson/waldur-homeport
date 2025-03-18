@@ -40,7 +40,7 @@ export const DeletePaymentButton = ({ row: payment }) => {
           );
         }
       }}
-      iconNode={<Trash />}
+      iconNode={<Trash weight="bold" />}
       disabled={!user.is_staff}
       tooltip={
         !user.is_staff

@@ -40,7 +40,7 @@ export const TokenDeleteButton = ({
     <ActionItem
       title={translate('Remove')}
       action={openDialog}
-      iconNode={<Trash />}
+      iconNode={<Trash weight="bold" />}
       size="sm"
       className="text-danger"
       iconColor="danger"

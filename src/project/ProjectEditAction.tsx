@@ -31,7 +31,7 @@ export const ProjectEditAction = ({ project }: { project: Project }) => {
       action={() =>
         router.stateService.go('project-manage', { uuid: project.uuid })
       }
-      iconNode={<Pen />}
+      iconNode={<Pen weight="bold" />}
     />
   );
 };

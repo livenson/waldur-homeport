@@ -51,7 +51,7 @@ export const UserRemoveButton: React.FC<UserRemoveButtonProps> = ({
     <ActionItem
       action={callback}
       title={translate('Remove')}
-      iconNode={<Trash />}
+      iconNode={<Trash weight="bold" />}
       iconColor="danger"
       className="text-danger"
     />

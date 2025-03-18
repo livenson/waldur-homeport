@@ -49,7 +49,8 @@ export const CategoryDeleteAction = (props: CategoryDeleteActionProps) => {
       title={translate('Remove')}
       className="text-danger"
       action={openDialog}
-      iconNode={<Trash />}
+      iconNode={<Trash weight="bold" />}
+      iconColor="danger"
       disabled={removing}
     />
   );

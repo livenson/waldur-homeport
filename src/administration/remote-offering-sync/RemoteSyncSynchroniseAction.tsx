@@ -28,7 +28,7 @@ export const RemoteSyncSynchroniseAction = (props: RemoteSyncActionProps) => {
     <ActionItem
       title={translate('Synchronise')}
       action={mutate}
-      iconNode={<GearSix />}
+      iconNode={<GearSix weight="bold" />}
       disabled={isLoading}
     />
   );

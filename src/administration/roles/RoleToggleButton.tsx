@@ -38,7 +38,13 @@ export const RoleToggleButton: FunctionComponent<{
     <ActionItem
       action={callback}
       title={row.is_active ? translate('Disable') : translate('Enable')}
-      iconNode={row.is_active ? <XSquare /> : <CheckSquare />}
+      iconNode={
+        row.is_active ? (
+          <XSquare weight="bold" />
+        ) : (
+          <CheckSquare weight="bold" />
+        )
+      }
     />
   );
 };

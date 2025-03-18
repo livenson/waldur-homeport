@@ -55,7 +55,7 @@ export const HookRemoveButton: FC<HookRemoveButtonProps> = ({
       title={translate('Remove')}
       action={action}
       disabled={removing}
-      iconNode={<Trash />}
+      iconNode={<Trash weight="bold" />}
       size="sm"
       className="text-danger"
       iconColor="danger"

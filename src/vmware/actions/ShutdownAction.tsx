@@ -20,6 +20,6 @@ export const ShutdownAction: ActionItemType = ({ resource, refetch }) => (
       vmwareVirtualMachineShutdownGuest({ path: { uuid: id } })
     }
     refetch={refetch}
-    iconNode={<Power />}
+    iconNode={<Power weight="bold" />}
   />
 );
