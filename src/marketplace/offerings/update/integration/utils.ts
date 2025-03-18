@@ -1,6 +1,7 @@
 import { set, unset } from 'lodash-es';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
+import { SubmissionError } from 'redux-form';
 import {
   marketplaceProviderOfferingsUpdateIntegration,
   OfferingIntegrationUpdateRequest,
@@ -10,7 +11,7 @@ import {
 import { flattenObject } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
-import { showErrorResponse, showSuccess } from '@waldur/store/notify';
+import { showError, showSuccess } from '@waldur/store/notify';
 
 export const SCRIPT_ROWS = [
   { label: translate('Script language'), type: 'language' },
@@ -73,9 +74,8 @@ export const useUpdateOfferingIntegration = (
         if (refetch) await refetch();
         dispatch(closeModalDialog());
       } catch (error) {
-        dispatch(
-          showErrorResponse(error, translate('Unable to update offering.')),
-        );
+        dispatch(showError(translate('Unable to update offering.')));
+        throw new SubmissionError(error);
       }
     },
     [dispatch, offering, refetch],
