@@ -1,7 +1,7 @@
 import { get, pick } from 'lodash-es';
 import { useCallback, useEffect } from 'react';
 import { connect, useDispatch } from 'react-redux';
-import { Field, SubmissionError, change, reduxForm } from 'redux-form';
+import { Field, change, reduxForm } from 'redux-form';
 
 import { SubmitButton } from '@waldur/form';
 import { FormContainer } from '@waldur/form/FormContainer';
@@ -41,16 +41,9 @@ export const EditFieldDialog = connect<{}, {}, { resolve: EditOfferingProps }>(
 
     const processRequest = useCallback(
       (values: FormData, dispatch) => {
-        return props.resolve
-          .callback(values, dispatch)
-          .then(() => {
-            dispatch(closeModalDialog());
-          })
-          .catch((e) => {
-            if (e.response && e.response.status === 400) {
-              throw new SubmissionError(e.response.data);
-            }
-          });
+        return props.resolve.callback(values, dispatch).then(() => {
+          dispatch(closeModalDialog());
+        });
       },
       [props.resolve.callback],
     );
