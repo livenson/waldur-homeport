@@ -58,7 +58,7 @@ export const UnlinkActionItem: FC<{ resource }> = ({ resource }) => {
       action={callback}
       className="text-danger"
       staff
-      iconNode={<LinkBreak />}
+      iconNode={<LinkBreak weight="bold" />}
       iconColor="danger"
     />
   );

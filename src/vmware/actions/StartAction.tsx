@@ -21,6 +21,6 @@ export const StartAction: ActionItemType = ({ resource, refetch }) => (
     validators={validators}
     apiMethod={(id) => vmwareVirtualMachineStart({ path: { uuid: id } })}
     refetch={refetch}
-    iconNode={<Play />}
+    iconNode={<Play weight="bold" />}
   />
 );

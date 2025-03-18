@@ -40,7 +40,8 @@ export const CancelOrderButton: FC<CancelOrderButtonProps> = (props) => {
           title={translate('Cancel')}
           action={callback}
           disabled={loading}
-          iconNode={<Prohibit />}
+          iconNode={<Prohibit weight="bold" />}
+          iconColor="danger"
         />
       )}
     </>

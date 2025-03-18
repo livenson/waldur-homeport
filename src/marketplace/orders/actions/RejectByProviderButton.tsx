@@ -73,7 +73,8 @@ export const RejectByProviderButton: FunctionComponent<
       title={translate('Reject')}
       action={mutate}
       disabled={isLoading}
-      iconNode={<Prohibit />}
+      iconNode={<Prohibit weight="bold" />}
+      iconColor="danger"
     />
   );
 };

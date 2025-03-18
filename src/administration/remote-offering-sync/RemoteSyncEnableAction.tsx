@@ -44,7 +44,13 @@ export const RemoteSyncEnableAction = (props: RemoteSyncActionProps) => {
     <ActionItem
       title={props.row.is_active ? translate('Disable') : translate('Enable')}
       action={mutate}
-      iconNode={props.row.is_active ? <XCircle /> : <CheckCircle />}
+      iconNode={
+        props.row.is_active ? (
+          <XCircle weight="bold" />
+        ) : (
+          <CheckCircle weight="bold" />
+        )
+      }
       disabled={isLoading}
     />
   );

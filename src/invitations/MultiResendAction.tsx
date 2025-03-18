@@ -83,7 +83,7 @@ export const MultiResendAction = ({ rows, refetch }) => {
     <ActionItem
       title={translate('Resend')}
       action={callback}
-      iconNode={<Share />}
+      iconNode={<Share weight="bold" />}
       disabled={disabled}
       tooltip={tooltip}
     />

@@ -27,7 +27,7 @@ export const SyncResourceAction = ({ resource, ...rest }) => {
       title={translate('Synchronise')}
       action={callback}
       {...rest}
-      iconNode={<ArrowsClockwise />}
+      iconNode={<ArrowsClockwise weight="bold" />}
     />
   ) : null;
 };

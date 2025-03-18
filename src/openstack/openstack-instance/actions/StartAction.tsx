@@ -38,6 +38,6 @@ export const StartAction: ActionItemType = ({ resource, ...rest }) => (
     {...getProps()}
     resource={resource}
     {...rest}
-    iconNode={<Play />}
+    iconNode={<Play weight="bold" />}
   />
 );

@@ -1,4 +1,4 @@
-import { Clock } from '@phosphor-icons/react';
+import { CalendarBlank } from '@phosphor-icons/react';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   marketplaceProviderResourcesSetEndDateByStaff,
@@ -55,7 +55,7 @@ export const EditResourceEndDateByStaffAction = ({
       title={translate('Set termination date')}
       action={callback}
       staff
-      iconNode={<Clock />}
+      iconNode={<CalendarBlank weight="bold" />}
     />
   ) : null;
 };

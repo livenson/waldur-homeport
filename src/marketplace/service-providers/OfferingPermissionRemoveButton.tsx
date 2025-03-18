@@ -56,7 +56,7 @@ export const OfferingPermissionRemoveButton: React.FC<
     <ActionItem
       action={callback}
       title={translate('Revoke')}
-      iconNode={<Trash />}
+      iconNode={<Trash weight="bold" />}
       className="text-danger"
       iconColor="danger"
     />

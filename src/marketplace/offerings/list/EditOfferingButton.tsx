@@ -42,7 +42,7 @@ export const EditOfferingButton = ({
       }}
     >
       <span className="svg-icon svg-icon-2">
-        <PencilSimple />
+        <PencilSimple weight="bold" />
       </span>
       {translate('Edit')}
     </Dropdown.Item>

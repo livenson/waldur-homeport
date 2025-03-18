@@ -21,7 +21,7 @@ export const RequestDirectAccessAction: ActionItemType = ({
       title={translate('Request direct access')}
       modalComponent={RequestDirectAccessDialog}
       resource={resource}
-      iconNode={<TerminalWindow />}
+      iconNode={<TerminalWindow weight="bold" />}
       {...rest}
     />
   ) : null;

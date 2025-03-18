@@ -43,7 +43,7 @@ export const CancelTerminationOrderButton = ({
         title={translate('Cancel')}
         action={mutate}
         disabled={isLoading}
-        iconNode={<Prohibit />}
+        iconNode={<Prohibit weight="bold" />}
         size="sm"
       />
     );

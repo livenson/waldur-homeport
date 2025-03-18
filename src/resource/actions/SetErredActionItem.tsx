@@ -80,7 +80,7 @@ export const SetErredActionItem: FC<{
       title={translate('Set as erred')}
       action={callback}
       className="text-danger"
-      iconNode={<CloudX />}
+      iconNode={<CloudX weight="bold" />}
       iconColor="danger"
     />
   );

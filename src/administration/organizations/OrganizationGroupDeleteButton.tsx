@@ -48,7 +48,7 @@ export const OrganizationGroupDeleteButton = (
     <ActionItem
       title={translate('Remove')}
       action={openDialog}
-      iconNode={<Trash />}
+      iconNode={<Trash weight="bold" />}
       disabled={removing}
       size="sm"
       className="text-danger"

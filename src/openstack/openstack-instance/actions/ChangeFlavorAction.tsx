@@ -35,6 +35,6 @@ export const ChangeFlavorAction: ActionItemType = ({ resource, refetch }) => (
     validators={validators}
     resource={resource}
     extraResolve={{ refetch }}
-    iconNode={<Swap />}
+    iconNode={<Swap weight="bold" />}
   />
 );

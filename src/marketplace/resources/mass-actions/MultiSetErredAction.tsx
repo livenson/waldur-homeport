@@ -36,7 +36,8 @@ export const MultiSetErredAction = ({ rows, refetch }) => {
       title={translate('Set erred')}
       action={callback}
       className="text-danger"
-      iconNode={<CloudX />}
+      iconNode={<CloudX weight="bold" />}
+      iconColor="danger"
       staff
     />
   );

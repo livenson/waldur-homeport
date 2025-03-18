@@ -38,6 +38,6 @@ export const StopAction: ActionItemType = ({ resource, ...rest }) => (
     {...getProps()}
     resource={resource}
     {...rest}
-    iconNode={<Stop />}
+    iconNode={<Stop weight="bold" />}
   />
 );

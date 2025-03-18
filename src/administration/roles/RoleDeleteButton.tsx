@@ -36,7 +36,7 @@ export const RoleDeleteButton = ({ row, refetch }) => {
       action={openDialog}
       disabled={row.users_count > 0}
       tooltip={translate('Users should be revoked before role is removed.')}
-      iconNode={<Trash />}
+      iconNode={<Trash weight="bold" />}
     />
   );
 };

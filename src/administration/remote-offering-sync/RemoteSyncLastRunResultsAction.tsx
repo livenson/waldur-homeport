@@ -33,7 +33,7 @@ export const RemoteSyncLastRunResultsAction = (
     <ActionItem
       title={translate('Show results of last run')}
       action={openDialog}
-      iconNode={<Eye />}
+      iconNode={<Eye weight="bold" />}
     />
   );
 };

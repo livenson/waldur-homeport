@@ -32,7 +32,7 @@ export const OrganizationGroupDetailsButton: FunctionComponent<
   return (
     <ActionItem
       title={translate('Details')}
-      iconNode={<Eye />}
+      iconNode={<Eye weight="bold" />}
       action={() => dispatch(openOrganizationGroupsDialog(props.row))}
       size="sm"
     />

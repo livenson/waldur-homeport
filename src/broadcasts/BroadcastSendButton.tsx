@@ -22,7 +22,7 @@ export const BroadcastSendButton = ({ row, refetch }) => {
     <ActionItem
       action={callback}
       title={translate('Send')}
-      iconNode={<Share />}
+      iconNode={<Share weight="bold" />}
       size="sm"
     />
   );

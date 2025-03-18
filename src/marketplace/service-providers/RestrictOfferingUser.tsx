@@ -51,7 +51,13 @@ export const RestrictOfferingUserButton: FC<{
           ? translate('Unrestrict')
           : translate('Restrict')
       }
-      iconNode={props.row.is_restricted ? <Check /> : <Prohibit />}
+      iconNode={
+        props.row.is_restricted ? (
+          <Check weight="bold" />
+        ) : (
+          <Prohibit weight="bold" />
+        )
+      }
     />
   );
 };

@@ -18,6 +18,6 @@ export const RebootAction: ActionItemType = ({ resource, refetch }) => (
     validators={validators}
     apiMethod={(id) => vmwareVirtualMachineRebootGuest({ path: { uuid: id } })}
     refetch={refetch}
-    iconNode={<ArrowClockwise />}
+    iconNode={<ArrowClockwise weight="bold" />}
   />
 );

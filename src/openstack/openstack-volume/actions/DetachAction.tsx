@@ -25,6 +25,6 @@ export const DetachAction: ActionItemType = ({ resource, refetch }) => (
     validators={validators}
     refetch={refetch}
     important
-    iconNode={<Plugs />}
+    iconNode={<Plugs weight="bold" />}
   />
 );
