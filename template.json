@@ -2252,7 +2252,7 @@
     "message": "Component"
   },
   "Components": {
-    "description": "marketplace/aggregate-limits/AllComponentsDialog.tsx, marketplace/offerings/OfferingPublicUIView.tsx, marketplace/offerings/details/PublicOfferingComponents.tsx, marketplace/offerings/details/policies/OfferingUsagePolicies.tsx, marketplace/offerings/update/components/ComponentsSection.tsx, marketplace/offerings/update/utils.ts, marketplace/orders/details/OrderMetadataTab.tsx, marketplace/resources/details/ResourceComponentsDialog.tsx, proposals/offering-requests/OfferingRequestsListExpandableRow.tsx",
+    "description": "marketplace/aggregate-limits/AllComponentsDialog.tsx, marketplace/offerings/OfferingPublicUIView.tsx, marketplace/offerings/details/PublicOfferingComponentsTable.tsx, marketplace/offerings/details/policies/OfferingUsagePolicies.tsx, marketplace/offerings/update/components/ComponentsSection.tsx, marketplace/offerings/update/utils.ts, marketplace/orders/details/OrderMetadataTab.tsx, marketplace/resources/details/ResourceComponentsDialog.tsx, proposals/offering-requests/OfferingRequestsListExpandableRow.tsx",
     "message": "Components"
   },
   "Compute generation": {
