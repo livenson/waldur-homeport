@@ -24,4 +24,5 @@ export interface InvoiceItemsFilterData {
   provider: ServiceProvider;
   project: Project;
   offering: Offering;
+  conceal_compensation_items: boolean;
 }
