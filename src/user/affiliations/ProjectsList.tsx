@@ -38,6 +38,9 @@ const mapStateToFilter = createSelector(
     ) {
       filter.customer = stateFilter.organization.map((x) => x.uuid).join(',');
     }
+    if (stateFilter && stateFilter.conceal_ended_projects) {
+      filter.conceal_ended_projects = stateFilter.conceal_ended_projects;
+    }
     filter.user_uuid = user.uuid;
     return filter;
   },
