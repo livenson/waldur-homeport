@@ -8,6 +8,7 @@ import { getUUID } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';
 import { PriceTooltip } from '@waldur/price/PriceTooltip';
 import { ResourceLink } from '@waldur/resource/ResourceLink';
+import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
 import { getCustomer } from '@waldur/workspace/selectors';
@@ -51,6 +52,9 @@ const useFilters = () => {
       if (filterValues.offering) {
         filter.offering_uuid = filterValues.offering.uuid;
       }
+      if (filterValues.conceal_compensation_items) {
+        filter.conceal_compensation_items = 'true';
+      }
     }
     return filter;
   }, [filterValues]);
@@ -68,34 +72,34 @@ export const InvoiceItemsTable: FC<InvoiceItemsTableProps> = ({
   const filter = useFilters();
   const customer = useSelector(getCustomer);
 
+  const fetchItems = useMemo(() => {
+    return createFetcher(`invoices/${invoice.uuid}/items`);
+  }, [invoice.uuid]);
+
   const tableProps = useTable({
     table: 'invoiceItems-' + invoice.uuid,
-    fetchData: (request) => {
-      const query = String(request.filter.query || '').trim();
-      const providerUuid = request.filter?.provider_uuid;
-      const projectUuid = request.filter?.project_uuid;
-      const offeringUuid = request.filter?.offering_uuid;
-
-      const rows = groupInvoiceItems(invoice.items).filter(
-        (item) =>
-          (!query || item.resource_name.includes(query)) &&
-          (!providerUuid || item.service_provider_uuid === providerUuid) &&
-          (!projectUuid || item.project_uuid === projectUuid) &&
-          (!offeringUuid || item.offering_uuid === offeringUuid),
-      );
+    fetchData: async (request) => {
+      const response = await fetchItems(request);
+      const rows = groupInvoiceItems(response.rows);
 
       if (setTotalFiltered) {
-        if (query || providerUuid || projectUuid || offeringUuid) {
-          const totalFiltered = invoiceView
-            ? rows.reduce((acc, item) => acc + item.total, 0)
-            : rows.reduce((acc, item) => acc + item.price, 0);
-          setTotalFiltered(totalFiltered);
-        } else {
-          setTotalFiltered(null);
-        }
+        const totalFiltered = rows.reduce((acc, row) => {
+          const rowValue = invoiceView
+            ? row.items.reduce(
+                (itemAcc, item) => itemAcc + parseFloat(item.total || '0'),
+                0,
+              )
+            : row.items.reduce(
+                (itemAcc, item) =>
+                  itemAcc + parseFloat(String(item.price || '0')),
+                0,
+              );
+          return acc + rowValue;
+        }, 0);
+        setTotalFiltered(totalFiltered);
       }
 
-      return Promise.resolve({ rows });
+      return { rows };
     },
     queryField: 'query',
     filter,
@@ -186,7 +190,6 @@ export const InvoiceItemsTable: FC<InvoiceItemsTableProps> = ({
         formatPeriod({ year: invoice.year, month: invoice.month })
       }
       hasQuery={true}
-      hideRefresh
       minHeight="auto"
       tableActions={<InvoiceDetailActions invoice={invoice} />}
       expandableRowClassName="py-2 pe-2"
@@ -194,6 +197,7 @@ export const InvoiceItemsTable: FC<InvoiceItemsTableProps> = ({
         <InvoiceItemExpandableRow
           row={row}
           invoice={invoice}
+          items={row.items}
           showPrice={showPrice}
           showVat={showVat}
           refresh={refreshInvoiceItems}
