@@ -9,17 +9,10 @@ import { isExperimentalUiComponentsVisible } from '@waldur/marketplace/utils';
 import { useFullPage } from '@waldur/navigation/context';
 import { CallsAvailableOfferingsList } from '@waldur/proposals/CallsAvailableOfferingsList';
 import { CallsForProposalsList } from '@waldur/proposals/CallsForProposalsList';
-import { useTheme } from '@waldur/theme/useTheme';
 
 export const CallsForProposals: FunctionComponent = () => {
   useFullPage();
   const showExperimentalUiComponents = isExperimentalUiComponentsVisible();
-
-  const { theme } = useTheme();
-  const sidebarTheme = ENV.plugins.WALDUR_CORE.SIDEBAR_STYLE || 'dark';
-
-  const darkButtons =
-    theme === 'light' && ['accent', 'light'].includes(sidebarTheme);
 
   return (
     <>
@@ -39,19 +32,13 @@ export const CallsForProposals: FunctionComponent = () => {
         <div className="d-flex justify-content-center gap-5">
           <Link
             state="calls-for-proposals-all-available-offerings"
-            className={
-              'btn btn-outline w-200px ' +
-              ('btn-outline-' + (darkButtons ? 'dark' : 'white'))
-            }
+            className="btn btn-outline w-200px btn-outline-default"
           >
             {translate('Available offerings')}
           </Link>
           <Link
             state="calls-for-proposals-all-calls"
-            className={
-              'btn w-200px ' +
-              (darkButtons ? 'btn-dark' : 'btn-white btn-active-text-dark')
-            }
+            className="btn w-200px btn-primary"
           >
             {translate('See all calls')}
           </Link>
