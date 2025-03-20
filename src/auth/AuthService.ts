@@ -59,12 +59,8 @@ export function redirectOnSuccess() {
     if (!href) {
       return router.stateService.go('profile.details', { reload: true });
     }
-    return router.stateService.go(redirect.toState, redirect.toParams, {
-      reload: true,
-      custom: {
-        fallbackState: 'profile.details',
-      },
-    });
+    // TODO: Use router.stateService.go(redirect.toState, redirect.toParams) instead
+    document.location = href;
   } else {
     return router.stateService.go('profile.details', { reload: true });
   }
