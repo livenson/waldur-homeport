@@ -73,7 +73,7 @@ export const UserDelete = ({ user }: { user: User }) => {
         </Button>
       }
     >
-      <ul className="text-grey-500 mb-7">
+      <ul className="text-gray-500 mb-7">
         {user.agreement_date && (
           <li>
             <TermsOfService agreementDate={user.agreement_date} />

@@ -46,6 +46,27 @@ $white-3: #fff3;
 $white-6: #fff6;
 $white-8: #fff8;
 
+// Brand
+$brand-50: if(isDarkMode(), var(--waldur-brand-900), var(--waldur-brand-50));
+$brand-200: if(isDarkMode(), var(--waldur-brand-700), var(--waldur-brand-200));
+$brand-500: if(isDarkMode(), var(--waldur-brand-400), var(--waldur-brand-500));
+$brand-700: if(isDarkMode(), var(--waldur-brand-200), var(--waldur-brand-700));
+$brand-200-rgb: if(
+  isDarkMode(),
+  var(--waldur-brand-700-rgb),
+  var(--waldur-brand-200-rgb)
+);
+$brand-300-rgb: if(
+  isDarkMode(),
+  var(--waldur-brand-600-rgb),
+  var(--waldur-brand-300-rgb)
+);
+$brand-700-rgb: if(
+  isDarkMode(),
+  var(--waldur-brand-200-rgb),
+  var(--waldur-brand-700-rgb)
+);
+
 // Success
 $success-50: if(isDarkMode(), #054f31, #ecfdf3);
 $success-200: if(isDarkMode(), #027a48, #a6f4c5);
@@ -149,6 +170,7 @@ $theme-dark-inverse-colors: (
 
 // 50 colors
 $theme-50-colors: (
+  'brand': $brand-50,
   'gray': $gray-50,
   'primary': $primary-50,
   'secondary': $secondary-light,
@@ -165,6 +187,7 @@ $theme-50-colors: (
 
 // 200 colors
 $theme-200-colors: (
+  'brand': $brand-200,
   'gray': $gray-200,
   'primary': $primary-200,
   'secondary': $secondary-active,
@@ -181,6 +204,7 @@ $theme-200-colors: (
 
 // 500 colors
 $theme-500-colors: (
+  'brand': $brand-500,
   'gray': $gray-500,
   'primary': $primary-500,
   'secondary': $secondary-dark,
@@ -197,6 +221,7 @@ $theme-500-colors: (
 
 // 700 colors
 $theme-700-colors: (
+  'brand': $brand-700,
   'gray': $gray-700,
   'primary': $primary-700,
   'secondary': $secondary-dark,
@@ -229,7 +254,9 @@ $form-check-input-width: 1.539rem !default;
 $form-check-input-width-sm: 1.231rem !default;
 $form-check-input-bg-size: 70% 70% !default;
 $form-check-input-border-radius: 0.287em !default;
-$form-check-input-focus-box-shadow: 0 0 0 4px rgba($primary-300, 0.25) !default;
+$form-check-input-focus-box-shadow: 0 0 0 4px rgba($brand-300-rgb, 0.25) !default;
+$form-check-input-checked-bg-color: $brand-50 !default;
+$form-check-input-indeterminate-bg-color: $brand-50 !default;
 
 // Switch
 $form-switch-width: 3.386rem !default;

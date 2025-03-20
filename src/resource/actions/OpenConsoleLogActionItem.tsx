@@ -40,7 +40,7 @@ export const OpenConsoleLogActionItem: <T extends { uuid: string }>(
     <ActionItem
       title={translate('Show console log')}
       action={callback}
-      iconNode={<CodeBlock />}
+      iconNode={<CodeBlock weight="bold" />}
       {...validationState}
     />
   );

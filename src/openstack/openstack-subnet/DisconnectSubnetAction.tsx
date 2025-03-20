@@ -16,6 +16,6 @@ export const DisconnectSubnetAction: ActionItemType = ({
     resource={resource}
     validators={[validateState('OK')]}
     refetch={refetch}
-    iconNode={<Plugs />}
+    iconNode={<Plugs weight="bold" />}
   />
 );

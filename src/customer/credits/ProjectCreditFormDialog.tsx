@@ -5,7 +5,7 @@ import { useSelector, connect } from 'react-redux';
 import { formValueSelector, reduxForm } from 'redux-form';
 import { customerCreditsList } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { EChart } from '@waldur/core/EChart';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';

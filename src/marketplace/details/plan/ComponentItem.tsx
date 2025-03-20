@@ -2,7 +2,7 @@ import { Question } from '@phosphor-icons/react';
 import React from 'react';
 import { useSelector } from 'react-redux';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { formatCurrency } from '@waldur/core/formatCurrency';
 import { Tip } from '@waldur/core/Tooltip';
 import { getActiveFixedPricePaymentProfile } from '@waldur/invoices/details/utils';

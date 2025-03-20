@@ -18,6 +18,6 @@ export const SuspendAction: ActionItemType = ({ resource, refetch }) => (
     validators={validators}
     apiMethod={(id) => vmwareVirtualMachineSuspend({ path: { uuid: id } })}
     refetch={refetch}
-    iconNode={<PauseCircle />}
+    iconNode={<PauseCircle weight="bold" />}
   />
 );

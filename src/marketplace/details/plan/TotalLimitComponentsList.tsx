@@ -2,7 +2,7 @@ import { Question } from '@phosphor-icons/react';
 import { FunctionComponent } from 'react';
 import { Table } from 'react-bootstrap';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { formatCurrency } from '@waldur/core/formatCurrency';
 import { Tip } from '@waldur/core/Tooltip';
 import { isFeatureVisible } from '@waldur/features/connect';

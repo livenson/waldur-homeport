@@ -4,8 +4,8 @@ import { Col, Stack } from 'react-bootstrap';
 import { CustomerCredit, ProjectCredit } from 'waldur-js-client';
 import { Project } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
 import { Badge } from '@waldur/core/Badge';
+import { ENV } from '@waldur/core/config';
 import { formatDate } from '@waldur/core/dateUtils';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { LoadingErred } from '@waldur/core/LoadingErred';

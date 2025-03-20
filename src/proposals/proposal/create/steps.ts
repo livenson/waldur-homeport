@@ -1,4 +1,4 @@
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { VStepperFormStep } from '@waldur/form/VStepperFormStep';
 import { translate } from '@waldur/i18n';
 

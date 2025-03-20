@@ -3708,15 +3708,6 @@ axe-core@^4.10.0:
   resolved "https://registry.npmjs.org/axe-core/-/axe-core-4.10.2.tgz"
   integrity sha512-RE3mdQ7P3FRSe7eqCWoeQ/Z9QXrtniSjp1wUjt5nRC3WIpz5rSCve6o3fsZ2aCpJtrZjSZgjwXAoTO5k4tEI0w==
 
-axios@1.7.8:
-  version "1.7.8"
-  resolved "https://registry.npmjs.org/axios/-/axios-1.7.8.tgz"
-  integrity sha512-Uu0wb7KNqK2t5K+YQyVCLM76prD5sRFjKHbJYCP1J7JFGEQ6nN7HWn9+04LAeiJ3ji54lgS/gZCH1oxyrf1SPw==
-  dependencies:
-    follow-redirects "^1.15.6"
-    form-data "^4.0.0"
-    proxy-from-env "^1.1.0"
-
 axios@^1.7.9:
   version "1.7.9"
   resolved "https://registry.npmjs.org/axios/-/axios-1.7.9.tgz"
@@ -7849,10 +7840,10 @@ markdown-table@^3.0.0:
   resolved "https://registry.npmjs.org/markdown-table/-/markdown-table-3.0.4.tgz"
   integrity sha512-wiYz4+JrLyb/DqW2hkFJxP7Vd7JuTDm77fvbM8VfEQdmSMqcImWeeRbHwZjBjIFki/VaMK2BhFi7oUUZeM5bqw==
 
-markdown-to-jsx@7.4.0:
-  version "7.4.0"
-  resolved "https://registry.npmjs.org/markdown-to-jsx/-/markdown-to-jsx-7.4.0.tgz"
-  integrity sha512-zilc+MIkVVXPyTb4iIUTIz9yyqfcWjszGXnwF9K/aiBWcHXFcmdEMTkG01/oQhwSCH7SY1BnG6+ev5BzWmbPrg==
+markdown-to-jsx@^7.7.4:
+  version "7.7.4"
+  resolved "https://registry.yarnpkg.com/markdown-to-jsx/-/markdown-to-jsx-7.7.4.tgz#507d17c15af72ddf970fca84a95f0243244fcfa9"
+  integrity sha512-1bSfXyBKi+EYS3YY+e0Csuxf8oZ3decdfhOav/Z7Wrk89tjudyL5FOmwZQUoy0/qVXGUl+6Q3s2SWtpDEWITfQ==
 
 matchmediaquery@^0.4.2:
   version "0.4.2"
@@ -11853,10 +11844,10 @@ wait-on@8.0.2:
     minimist "^1.2.8"
     rxjs "^7.8.1"
 
-waldur-js-client@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.yarnpkg.com/waldur-js-client/-/waldur-js-client-1.0.0.tgz#ccc6416d45cc4faf5c72f88694533d614ca39c13"
-  integrity sha512-XzOo6q1efbMikmcIcUe0/RU8s+IuxS/q3NjiSEiftmYtbfww1HEVvA63Xcg3cKpJlDIxGKQP0Pq+/cPnGrtzXw==
+waldur-js-client@^1.0.4-dev.2:
+  version "1.0.4-dev.2"
+  resolved "https://registry.yarnpkg.com/waldur-js-client/-/waldur-js-client-1.0.4-dev.2.tgz#905eee50ea24f190b6a881621c591e12b3ff99ba"
+  integrity sha512-PpxeWg2jG0lYGc92V/mPM596ffSTzsftPjlQd04iRfuidK1Xuxw3pKVVAKEYqYXzKvNbnSsPuWEXfPiCeRESuw==
   dependencies:
     "@hey-api/client-fetch" "^0.8.3"
 

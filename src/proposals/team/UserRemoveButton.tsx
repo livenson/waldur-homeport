@@ -2,13 +2,12 @@ import { Trash } from '@phosphor-icons/react';
 import React from 'react';
 import { useDispatch } from 'react-redux';
 
+import { post } from '@waldur/core/api';
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { GenericPermission } from '@waldur/permissions/types';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
-
-import { deleteScopeUser } from './api';
 
 interface UserRemoveButtonProps {
   permission: GenericPermission;
@@ -36,8 +35,7 @@ export const UserRemoveButton: React.FC<UserRemoveButtonProps> = ({
       return;
     }
     try {
-      await deleteScopeUser({
-        scope: scope.url,
+      await post(`${scope.url}delete_user/`, {
         user: permission.user_uuid,
         role: permission.role_name,
       });
@@ -53,7 +51,7 @@ export const UserRemoveButton: React.FC<UserRemoveButtonProps> = ({
     <ActionItem
       action={callback}
       title={translate('Remove')}
-      iconNode={<Trash />}
+      iconNode={<Trash weight="bold" />}
       iconColor="danger"
       className="text-danger"
     />

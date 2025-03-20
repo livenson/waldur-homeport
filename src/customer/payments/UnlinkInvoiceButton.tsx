@@ -37,7 +37,7 @@ export const UnlinkInvoiceButton = ({ row: payment }) => {
     <ActionItem
       title={translate('Unlink invoice')}
       action={callback}
-      iconNode={<FileText />}
+      iconNode={<FileText weight="bold" />}
       disabled={!user.is_staff}
       tooltip={
         !user.is_staff

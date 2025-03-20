@@ -21,6 +21,6 @@ export const StopAction: ActionItemType = ({ resource, refetch }) => (
     validators={validators}
     apiMethod={(id) => vmwareVirtualMachineStop({ path: { uuid: id } })}
     refetch={refetch}
-    iconNode={<Stop />}
+    iconNode={<Stop weight="bold" />}
   />
 );

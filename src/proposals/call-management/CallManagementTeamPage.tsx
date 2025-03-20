@@ -1,7 +1,7 @@
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { renderRoleExpirationDate } from '@waldur/customer/team/CustomerUsersList';
 import { translate } from '@waldur/i18n';
 import { GenericPermission } from '@waldur/permissions/types';

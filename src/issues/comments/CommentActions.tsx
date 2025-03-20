@@ -5,9 +5,9 @@ import { useDispatch, useSelector } from 'react-redux';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { openModalDialog, waitForConfirmation } from '@waldur/modal/actions';
+import { getUser } from '@waldur/workspace/selectors';
 
 import { issueCommentsDelete } from './actions';
-import { getUser } from './selectors';
 
 const CommentFormDialog = lazyComponent(() =>
   import('./CommentFormDialog').then((module) => ({

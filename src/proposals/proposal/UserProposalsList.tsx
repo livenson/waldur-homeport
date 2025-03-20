@@ -50,7 +50,11 @@ const ViewProposalAction = ({ row }) => {
     });
   };
   return (
-    <ActionItem title={translate('View')} action={action} iconNode={<Eye />} />
+    <ActionItem
+      title={translate('View')}
+      action={action}
+      iconNode={<Eye weight="bold" />}
+    />
   );
 };
 

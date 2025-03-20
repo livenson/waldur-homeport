@@ -32,7 +32,7 @@ export const UserImpersonateButton: FunctionComponent<{ row }> = ({ row }) => {
     <ActionItem
       title={translate('Impersonate')}
       action={mutate}
-      iconNode={<Eye />}
+      iconNode={<Eye weight="bold" />}
       disabled={isLoading || !row.has_active_session}
       tooltip={
         !row.has_active_session &&

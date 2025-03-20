@@ -3,7 +3,7 @@ import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { Link } from '@waldur/core/Link';
 import { LandingHeroSection } from '@waldur/dashboard/hero/LandingHeroSection';
 import { translate } from '@waldur/i18n';

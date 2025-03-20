@@ -38,6 +38,6 @@ export const RestartAction: ActionItemType = ({ resource, ...rest }) => (
     {...getProps()}
     resource={resource}
     {...rest}
-    iconNode={<ArrowClockwise />}
+    iconNode={<ArrowClockwise weight="bold" />}
   />
 );

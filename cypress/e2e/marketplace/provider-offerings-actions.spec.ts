@@ -5,6 +5,9 @@ describe('Offerings list actions in Provider dashboard page', () => {
       .intercept('GET', '/api/customers/6983ac22f2bb469189311ab21e493359/', {
         fixture: 'customers/alice.json',
       })
+      .intercept('GET', 'api/customer-credits/**', {
+        data: [],
+      })
       .intercept('GET', '/api/marketplace-service-providers/**/stat/', {
         fixture: 'marketplace/service_providers_stat.json',
       })

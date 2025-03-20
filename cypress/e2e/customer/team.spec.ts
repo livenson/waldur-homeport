@@ -32,6 +32,9 @@ describe('Team', () => {
       .intercept('GET', '/api/customers/6983ac22f2bb469189311ab21e493359/', {
         fixture: 'customers/alice.json',
       })
+      .intercept('GET', 'api/customer-credits/**', {
+        data: [],
+      })
       .intercept('GET', '/api/marketplace-orders/**', [])
       .intercept(
         'GET',

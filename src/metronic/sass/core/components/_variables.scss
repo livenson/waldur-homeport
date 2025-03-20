@@ -11,18 +11,15 @@ $gray-50: if(isDarkMode(), #161b26, #f9fafb) !default; // Custom variable
 $gray-100: if(isDarkMode(), #1f242f, #f2f4f7) !default;
 $gray-200: if(isDarkMode(), #333741, #e4e7ec) !default;
 $gray-300: if(isDarkMode(), #61646c, #d0d5dd) !default;
-$gray-400: if(isDarkMode(), #507359, #b5b5c3) !default;
-$gray-500: if(isDarkMode(), #e0f2da, #a1a5b7) !default;
+$gray-400: if(isDarkMode(), #85888e, #98a2b3) !default;
+$gray-500: if(isDarkMode(), #94969c, #667085) !default;
 $gray-600: if(isDarkMode(), #cecfd2, #475467) !default;
 $gray-700: if(isDarkMode(), #ececed, #344054) !default;
 $gray-800: if(isDarkMode(), #f0f1f1, #182230) !default;
 $gray-900: if(isDarkMode(), #f5f5f6, #101828) !default;
 $gray-950: if(isDarkMode(), #fafafa, #0c111d) !default; // Custom variable
 
-// Temporary gray colors (based on DS)
-$grey-400: if(isDarkMode(), #85888e, #98a2b3) !default; // Custom variable
-$grey-500: if(isDarkMode(), #94969c, #667085) !default; // Custom variable
-$text-muted: $grey-500 !default;
+$text-muted: $gray-500 !default;
 
 // Dark Mode
 $dark-mode-page-bg-color: $gray-50 !default;
@@ -41,6 +38,32 @@ $grays: (
   '800': $gray-800,
   '900': $gray-900,
 ) !default; // Custom variable
+
+// Brand
+$brand-50: if(isDarkMode(), var(--waldur-brand-900), var(--waldur-brand-50));
+$brand-100: if(isDarkMode(), var(--waldur-brand-800), var(--waldur-brand-100));
+$brand-200: if(isDarkMode(), var(--waldur-brand-700), var(--waldur-brand-200));
+$brand-300: if(isDarkMode(), var(--waldur-brand-600), var(--waldur-brand-300));
+$brand-400: if(isDarkMode(), var(--waldur-brand-500), var(--waldur-brand-400));
+$brand-500: if(isDarkMode(), var(--waldur-brand-400), var(--waldur-brand-500));
+$brand-600: if(isDarkMode(), var(--waldur-brand-300), var(--waldur-brand-600));
+$brand-700: if(isDarkMode(), var(--waldur-brand-200), var(--waldur-brand-700));
+$brand-800: if(isDarkMode(), var(--waldur-brand-100), var(--waldur-brand-800));
+$brand-900: if(isDarkMode(), var(--waldur-brand-50), var(--waldur-brand-900));
+$brand: $brand-600;
+$brand-active: $brand-700;
+$brand-light: $brand-50;
+$brand-inverse: #ffffff;
+$brand-rgb: if(
+  isDarkMode(),
+  var(--waldur-brand-300-rgb),
+  var(--waldur-brand-600-rgb)
+);
+$brand-50-rgb: if(
+  isDarkMode(),
+  var(--waldur-brand-900-rgb),
+  var(--waldur-brand-50-rgb)
+);
 
 // Bootstrap custom colors
 $blue: #009ef6 !default;
@@ -223,8 +246,8 @@ $theme-colors: (
   'gray-100': $gray-100,
   'gray-200': $gray-200,
   'gray-300': $gray-300,
-  'grey-400': $grey-400,
-  'grey-500': $grey-500,
+  'gray-400': $gray-400,
+  'gray-500': $gray-500,
   'gray-600': $gray-600,
   'gray-700': $gray-700,
   'gray-800': $gray-800,
@@ -238,6 +261,7 @@ $theme-colors: (
 // Hover colors
 $theme-active-colors: (
   'white': $white-active,
+  'brand': $brand-active,
   // custom color type
   'primary': $primary-active,
   'secondary': $secondary-active,
@@ -256,6 +280,7 @@ $theme-active-colors: (
 // Inverse colors
 $theme-inverse-colors: (
   'white': $white-inverse,
+  'brand': $brand-inverse,
   'primary': $primary-inverse,
   'secondary': $secondary-inverse,
   'light': $light-inverse,
@@ -272,6 +297,7 @@ $theme-inverse-colors: (
 
 // Light colors
 $theme-light-colors: (
+  'brand': $brand-light,
   'primary': $primary-light,
   'success': $success-light,
   'info': $info-light,
@@ -287,7 +313,7 @@ $theme-light-colors: (
 // Text colors
 $theme-text-colors: (
   'white': $white,
-  'brand': var(--waldur-brand-color),
+  'brand': $brand,
   'primary': $primary,
   'primary-200': $primary-200,
   'primary-300': $primary-300,
@@ -311,9 +337,6 @@ $theme-text-colors: (
   'gray-700': $gray-700,
   'gray-800': $gray-800,
   'gray-900': $gray-900,
-  // temporary gray colors
-  'grey-400': $grey-400,
-  'grey-500': $grey-500,
 ) !default; // Custom variable
 
 // Options
@@ -437,9 +460,9 @@ $body-text-align: null !default;
 // Links
 //
 // Style anchor elements.
-$link-color: if(isDarkMode(), $primary-400, $primary) !default;
+$link-color: if(isDarkMode(), $brand-400, $brand) !default;
 $link-decoration: none !default;
-$link-hover-color: darken($link-color, 15%) !default;
+$link-hover-color: if(isDarkMode(), $brand-500, $brand-700) !default;
 $link-hover-decoration: underline !default;
 // Darken percentage for links with `.text-*` class (e.g. `.text-success`)
 $emphasized-link-hover-darken-percentage: 15% !default;
@@ -882,13 +905,15 @@ $form-check-input-focus-box-shadow: none !default;
 $form-check-input-checked-color: $component-active-bg !default;
 $form-check-input-checked-bg-color: $primary-50 !default;
 $form-check-input-checked-border-color: $component-active-bg !default;
-$form-check-input-checked-bg-image: url("data:image/svg+xml,<svg width='12' height='9' viewBox='0 0 12 9' fill='none' xmlns='http://www.w3.org/2000/svg'><path d='M11 1.25L4.125 8.125L1 5' stroke='#{$form-check-input-checked-color}' stroke-width='1.6666' stroke-linecap='round' stroke-linejoin='round'/></svg>") !default;
-$form-check-radio-checked-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='-4 -4 8 8'><circle r='2' fill='#{$form-check-input-checked-color}'/></svg>") !default;
+$form-check-input-checked-bg-image: var(--checkbox-bg) !default;
+$form-check-radio-checked-bg-image: var(--radio-bg) !default;
 
 $form-check-input-indeterminate-color: $component-active-bg !default;
 $form-check-input-indeterminate-bg-color: $primary-50 !default;
 $form-check-input-indeterminate-border-color: $component-active-bg !default;
-$form-check-input-indeterminate-bg-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 20 20'><path fill='none' stroke='#{$form-check-input-indeterminate-color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3' d='M6 10h8'/></svg>") !default;
+$form-check-input-indeterminate-bg-image: var(
+  --checkbox-indeterminate-bg
+) !default;
 
 $form-check-input-disabled-opacity: 0.5 !default;
 $form-check-label-disabled-opacity: $form-check-input-disabled-opacity !default;

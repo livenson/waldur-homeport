@@ -2,18 +2,18 @@ import { useCallback } from 'react';
 import { Modal } from 'react-bootstrap';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { reduxForm } from 'redux-form';
-import { Project } from 'waldur-js-client';
+import {
+  Project,
+  projectsAddUser,
+  projectsDeleteUser,
+  projectsUpdateUser,
+} from 'waldur-js-client';
 
 import { SubmitButton } from '@waldur/auth/SubmitButton';
 import { FormContainer } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
-import {
-  addProjectUser,
-  deleteProjectUser,
-  updateProjectUser,
-} from '@waldur/permissions/api';
 import { GenericPermission, Role } from '@waldur/permissions/types';
 import { getProjectRoles } from '@waldur/permissions/utils';
 import { showErrorResponse } from '@waldur/store/notify';
@@ -47,23 +47,29 @@ const savePermissions = async (
 ) => {
   if (resolve.permission) {
     if (resolve.permission.role_name === formData.role.name) {
-      await updateProjectUser({
-        project: project.uuid,
-        user: resolve.permission.user_uuid,
-        role: formData.role.name,
-        expiration_time: formData.expiration_time,
+      await projectsUpdateUser({
+        path: { uuid: project.uuid },
+        body: {
+          user: resolve.permission.user_uuid,
+          role: formData.role.name,
+          expiration_time: formData.expiration_time,
+        },
       });
     } else {
-      await deleteProjectUser({
-        project: project.uuid,
-        user: resolve.permission.user_uuid,
-        role: resolve.permission.role_name,
+      await projectsDeleteUser({
+        path: { uuid: project.uuid },
+        body: {
+          user: resolve.permission.user_uuid,
+          role: resolve.permission.role_name,
+        },
       });
-      await addProjectUser({
-        project: project.uuid,
-        user: resolve.permission.user_uuid,
-        role: formData.role.name,
-        expiration_time: formData.expiration_time,
+      await projectsAddUser({
+        path: { uuid: project.uuid },
+        body: {
+          user: resolve.permission.user_uuid,
+          role: formData.role.name,
+          expiration_time: formData.expiration_time,
+        },
       });
     }
   }

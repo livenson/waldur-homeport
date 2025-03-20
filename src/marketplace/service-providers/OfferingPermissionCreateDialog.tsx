@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import { Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
+import { marketplaceProviderOfferingsAddUser } from 'waldur-js-client';
 
 import { SubmitButton } from '@waldur/auth/SubmitButton';
 import { FormContainer } from '@waldur/form';
@@ -11,12 +12,11 @@ import { translate } from '@waldur/i18n';
 import { providerOfferingsAutocomplete } from '@waldur/marketplace/common/autocompletes';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
-import { addOfferingPermission } from '@waldur/permissions/api';
 import { RoleEnum } from '@waldur/permissions/enums';
 import { showErrorResponse } from '@waldur/store/notify';
 import { getCustomer } from '@waldur/workspace/selectors';
 
-import { usersAutocomplete } from '../../customer/team/api';
+import { usersAutocomplete } from '../../customer/team/utils';
 
 export const OfferingPermissionCreateDialog = reduxForm<
   {},
@@ -29,11 +29,13 @@ export const OfferingPermissionCreateDialog = reduxForm<
   const saveUser = useCallback(
     async (formData) => {
       try {
-        await addOfferingPermission({
-          role: RoleEnum.OFFERING_MANAGER,
-          offering: formData.offering.uuid,
-          user: formData.user.uuid,
-          expiration_time: formData.expiration_time,
+        await marketplaceProviderOfferingsAddUser({
+          path: { uuid: formData.offering.uuid },
+          body: {
+            role: RoleEnum.OFFERING_MANAGER,
+            user: formData.user.uuid,
+            expiration_time: formData.expiration_time,
+          },
         });
         dispatch(closeModalDialog());
         await fetch();

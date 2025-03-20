@@ -13,6 +13,6 @@ export const ConnectSubnetAction: ActionItemType = ({ resource, refetch }) => (
     resource={resource}
     validators={[validateState('OK')]}
     refetch={refetch}
-    iconNode={<PlugsConnected />}
+    iconNode={<PlugsConnected weight="bold" />}
   />
 );

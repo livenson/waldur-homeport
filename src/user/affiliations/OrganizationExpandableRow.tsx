@@ -2,11 +2,10 @@ import { useQueries } from '@tanstack/react-query';
 import { FC } from 'react';
 import { Nav, Tab } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
+import { ProjectsListData } from 'waldur-js-client';
 
-import {
-  getProjectsCount,
-  getResourcesCount,
-} from '@waldur/administration/api';
+import { getResourcesCount } from '@waldur/administration/api';
+import { count } from '@waldur/core/api';
 import { Badge } from '@waldur/core/Badge';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
@@ -18,7 +17,7 @@ import { getUser } from '@waldur/workspace/selectors';
 import { Customer } from '@waldur/workspace/types';
 
 import { TableTabsContainer } from '../../customer/list/TableTabsContainer';
-import { getCustomerUsersCount } from '../../customer/team/api';
+import { getCustomerUsersCount } from '../../customer/team/utils';
 
 import { SummaryOrganizationProjects } from './SummaryOrganizationProjects';
 import { SummaryResourcesTable } from './SummaryResourcesTable';
@@ -51,16 +50,16 @@ export const OrganizationExpandableRow: FC<OwnProps> = (props) => {
       {
         queryKey: ['projectsCount', props.row.uuid],
         queryFn: () =>
-          getProjectsCount({ params: { customer: props.row.uuid } }),
+          count(`/api/projects/`, {
+            customer: [props.row.uuid],
+          } satisfies ProjectsListData['query']),
       },
       {
         queryKey: ['resourcesCount', props.row.uuid],
         queryFn: () =>
           getResourcesCount({
-            params: {
-              customer_uuid: props.row.uuid,
-              state: getStates().map((state) => state.value),
-            },
+            customer_uuid: props.row.uuid,
+            state: getStates().map((state) => state.value),
           }),
       },
       ...(canListUsers

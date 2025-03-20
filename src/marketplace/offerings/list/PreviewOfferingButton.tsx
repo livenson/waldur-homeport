@@ -42,7 +42,7 @@ export const PreviewOfferingButton = ({
       }}
     >
       <span className="svg-icon svg-icon-2">
-        <Eye />
+        <Eye weight="bold" />
       </span>
       {translate('Preview order form')}
     </Dropdown.Item>

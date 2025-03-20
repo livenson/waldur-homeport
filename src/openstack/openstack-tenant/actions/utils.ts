@@ -9,8 +9,8 @@ import {
   openstackTenantsCreateServerGroup,
 } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
 import { getAllPages } from '@waldur/core/api';
+import { ENV } from '@waldur/core/config';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import {

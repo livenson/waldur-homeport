@@ -2,7 +2,7 @@ import { FunctionComponent } from 'react';
 import { Form, InputGroup, OverlayTrigger, Tooltip } from 'react-bootstrap';
 import { Field, WrappedFieldProps } from 'redux-form';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { FieldError, StringField } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 

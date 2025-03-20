@@ -35,7 +35,8 @@ export const MultiUnlinkAction = ({ rows, refetch }) => {
       action={callback}
       className="text-danger"
       staff
-      iconNode={<LinkBreak />}
+      iconNode={<LinkBreak weight="bold" />}
+      iconColor="danger"
     />
   );
 };

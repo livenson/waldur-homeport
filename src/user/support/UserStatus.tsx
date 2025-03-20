@@ -82,7 +82,7 @@ export const UserStatus = ({ user }: { user: User }) => {
         />
       }
     >
-      <ul className="text-grey-500">
+      <ul className="text-gray-500">
         <li>{translate('Temporarily block account')}</li>
         <li>{translate('This action will disable account access')}</li>
         <li>

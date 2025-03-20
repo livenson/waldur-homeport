@@ -43,7 +43,7 @@ const ShowSecurityGroupsButton = (props: ShowSecurityGroupsButtonProps) => {
       <ActionItem
         title={translate('Show rules')}
         action={callback}
-        iconNode={<Eye />}
+        iconNode={<Eye weight="bold" />}
       />
     </ActionsDropdownComponent>
   );

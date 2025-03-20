@@ -1,24 +1,59 @@
 import { useQuery } from '@tanstack/react-query';
-import { VmwareCluster } from 'waldur-js-client';
+import {
+  VmwareCluster,
+  vmwareClustersList,
+  vmwareDatastoresList,
+  vmwareFoldersList,
+} from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { getAllPages } from '@waldur/core/api';
+import { ENV } from '@waldur/core/config';
 import { FormContainer, SelectField } from '@waldur/form';
 import { VStepperFormStepCard } from '@waldur/form/VStepperFormStep';
 import { translate } from '@waldur/i18n';
 import { FormStepProps } from '@waldur/marketplace/deploy/types';
-
-import { loadVMwareAdvancedOptions } from '../api';
 
 export const FormAdvancedOptionsStep = (props: FormStepProps) => {
   const advancedMode = !ENV.plugins.WALDUR_VMWARE.BASIC_MODE;
 
   const { data, isLoading } = useQuery(
     ['vmware-advanced-options', props.offering.uuid],
-    () =>
-      loadVMwareAdvancedOptions({
-        customer_uuid: props.offering.customer_uuid,
-        settings_uuid: props.offering.scope_uuid,
-      }),
+    async () => {
+      const [clusters, datastores, folders] = await Promise.all([
+        getAllPages((page) =>
+          vmwareClustersList({
+            query: {
+              page,
+              settings_uuid: props.offering.scope_uuid,
+              customer_uuid: props.offering.customer_uuid,
+            },
+          }),
+        ),
+        getAllPages((page) =>
+          vmwareDatastoresList({
+            query: {
+              page,
+              settings_uuid: props.offering.scope_uuid,
+              customer_uuid: props.offering.customer_uuid,
+            },
+          }),
+        ),
+        getAllPages((page) =>
+          vmwareFoldersList({
+            query: {
+              page,
+              settings_uuid: props.offering.scope_uuid,
+              customer_uuid: props.offering.customer_uuid,
+            },
+          }),
+        ),
+      ]);
+      return {
+        clusters,
+        datastores,
+        folders,
+      };
+    },
     { staleTime: 3 * 60 * 1000 },
   );
 

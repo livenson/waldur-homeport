@@ -8,7 +8,7 @@ import { ResourceUsageTabsContainer } from '@waldur/marketplace/resources/usage/
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
 
-import { getComponentsAndUsages } from './api';
+import { getComponentsAndUsages } from './utils';
 
 interface ResourceUsageDialogProps {
   resolve: {

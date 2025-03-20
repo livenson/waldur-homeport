@@ -57,7 +57,7 @@ export const DateField: FunctionComponent<any> = (props) => {
         </button>
       ) : (
         <span
-          className="svg-icon svg-icon-2 svg-icon-grey-500"
+          className="svg-icon svg-icon-2 svg-icon-gray-500"
           style={{
             position: 'absolute',
             right: 12,

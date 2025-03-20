@@ -40,7 +40,7 @@ export const DeleteConfirmationDialog: React.FC<
       title={title}
       iconNode={<WarningCircle weight="bold" />}
       iconColor="danger"
-      bodyClassName="text-grey-500 pt-2"
+      bodyClassName="text-gray-500 pt-2"
       footer={
         <>
           <Button

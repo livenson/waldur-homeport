@@ -72,7 +72,8 @@ export const ApproveByProviderButton: FunctionComponent<
       title={translate('Approve')}
       action={mutate}
       disabled={isLoading}
-      iconNode={<Check />}
+      iconNode={<Check weight="bold" />}
+      iconColor="success"
     />
   );
 };

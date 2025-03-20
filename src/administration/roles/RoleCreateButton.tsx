@@ -2,12 +2,12 @@ import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { rolesCreate } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
 import { AddButton } from '@waldur/core/AddButton';
+import { ENV } from '@waldur/core/config';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { closeModalDialog, openModalDialog } from '@waldur/modal/actions';
 
-import { getRoles } from './api';
+import { getRoles } from './utils';
 
 const RoleCreateDialog = lazyComponent(() =>
   import('./RoleCreateDialog').then((module) => ({

@@ -64,7 +64,7 @@ export const PullActionItem: <T extends { uuid: string; backend_id?: string }>(
       {...buttonProps}
       as={props.as}
       staff={props.staff}
-      iconNode={<ArrowsClockwise />}
+      iconNode={<ArrowsClockwise weight="bold" />}
     />
   );
 };

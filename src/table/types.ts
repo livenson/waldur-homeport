@@ -1,12 +1,12 @@
-import { AxiosRequestConfig } from 'axios';
 import React, { ReactNode } from 'react';
 import { ColProps } from 'react-bootstrap';
 import { BaseFieldProps } from 'redux-form';
 
 import { TableFiltersGroup } from './TableFilterService';
 
-interface RequestConfigExtended extends AxiosRequestConfig {
+interface RequestConfigExtended extends RequestInit {
   staleTime?: number;
+  params?: Record<string, any>;
 }
 
 export interface TableRequest {

@@ -26,7 +26,7 @@ export const DeleteMigrationAction = ({ resource, refetch }) => {
     <ActionItem
       title={translate('Remove')}
       action={openDialog}
-      iconNode={<Trash />}
+      iconNode={<Trash weight="bold" />}
       size="sm"
     />
   );

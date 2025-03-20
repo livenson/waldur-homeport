@@ -38,7 +38,7 @@ export const SubmitReportAction: ActionItemType = ({
     <DialogActionItem
       validators={validators}
       title={translate('Submit report')}
-      iconNode={<FileText />}
+      iconNode={<FileText weight="bold" />}
       modalComponent={SubmitReportDialog}
       dialogSize="xl"
       resource={marketplaceResource || resource}

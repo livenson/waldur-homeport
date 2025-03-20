@@ -3,6 +3,7 @@ import {
   Project,
   Customer as SdkCustomer,
   CustomerCredit,
+  Resource,
 } from 'waldur-js-client';
 export { User, Project, PaymentProfile, Payment } from 'waldur-js-client';
 
@@ -22,5 +23,5 @@ export interface WorkspaceState {
   impersonatorUser: User;
   customer?: Customer;
   project?: Project;
-  resource?;
+  resource?: Resource;
 }

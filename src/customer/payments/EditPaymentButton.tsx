@@ -27,7 +27,7 @@ export const EditPaymentButton = ({ row: payment }) => {
           }),
         )
       }
-      iconNode={<PencilSimple />}
+      iconNode={<PencilSimple weight="bold" />}
       disabled={!user.is_staff}
       tooltip={
         !user.is_staff

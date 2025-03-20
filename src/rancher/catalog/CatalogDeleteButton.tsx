@@ -3,7 +3,7 @@ import { FunctionComponent, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { rancherCatalogsDestroy } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';

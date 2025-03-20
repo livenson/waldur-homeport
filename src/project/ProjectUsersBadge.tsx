@@ -3,11 +3,12 @@ import classNames from 'classnames';
 import { FC, PropsWithChildren } from 'react';
 import { Col, Row } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
+import { projectsListUsersList } from 'waldur-js-client';
 
+import { getAllPages } from '@waldur/core/api';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
-import { fetchAllProjectUsers } from '@waldur/permissions/api';
 import { getProjectRoles } from '@waldur/permissions/utils';
 import { getProject } from '@waldur/workspace/selectors';
 
@@ -46,7 +47,16 @@ export const ProjectUsersBadge = (props: OwnProps) => {
     refetch,
   } = useQuery(
     ['ProjectTeam', project?.uuid],
-    () => fetchAllProjectUsers(project.uuid),
+    () =>
+      getAllPages((page) =>
+        projectsListUsersList({
+          path: { uuid: project.uuid },
+          query: {
+            page,
+            field: ['user_uuid', 'user_full_name', 'user_email', 'role_name'],
+          },
+        }),
+      ),
     { staleTime: 3 * 60 * 1000, enabled: Boolean(project?.uuid) },
   );
 

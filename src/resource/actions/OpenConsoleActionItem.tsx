@@ -34,7 +34,7 @@ export const OpenConsoleActionItem: <T extends { uuid: string }>(
       title={translate('Open console')}
       action={callback}
       staff={staff}
-      iconNode={<Terminal />}
+      iconNode={<Terminal weight="bold" />}
       {...validationState}
     />
   );

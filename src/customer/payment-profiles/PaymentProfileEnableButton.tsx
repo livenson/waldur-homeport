@@ -2,12 +2,13 @@ import { Play } from '@phosphor-icons/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { paymentProfilesEnable } from 'waldur-js-client';
 
-import { getCustomer as getCustomerApi } from '@waldur/customer/api';
 import { translate } from '@waldur/i18n';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { setCurrentCustomer } from '@waldur/workspace/actions';
 import { getCustomer } from '@waldur/workspace/selectors';
+
+import { getCustomer as getCustomerApi } from '../utils';
 
 export const PaymentProfileEnableButton = (props) => {
   const dispatch = useDispatch();
@@ -35,7 +36,7 @@ export const PaymentProfileEnableButton = (props) => {
     <ActionItem
       title={translate('Enable')}
       action={callback}
-      iconNode={<Play />}
+      iconNode={<Play weight="bold" />}
       {...props.tooltipAndDisabledAttributes}
     />
   );

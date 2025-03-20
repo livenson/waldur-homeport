@@ -42,7 +42,7 @@ vi.mock('@waldur/features/FeaturesDescription', () => ({
     },
   ],
 }));
-vi.mock('@waldur/configs/default', () => ({
+vi.mock('@waldur/core/config', () => ({
   ENV: {
     FEATURES: {
       billing: {

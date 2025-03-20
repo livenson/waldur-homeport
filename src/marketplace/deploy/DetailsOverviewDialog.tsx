@@ -9,7 +9,7 @@ import { formatDate } from '@waldur/core/dateUtils';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { formatPhoneNumber } from '@waldur/core/utils';
-import { getCustomer } from '@waldur/customer/api';
+import { getCustomer } from '@waldur/customer/utils';
 import FormTable from '@waldur/form/FormTable';
 import { translate } from '@waldur/i18n';
 import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
@@ -33,7 +33,7 @@ const withCopy = (value) => {
           value={value}
           size={20}
           className="mb-0 mt-0"
-          buttonClassName="text-grey-500"
+          buttonClassName="text-gray-500"
         />
       )}
     </div>

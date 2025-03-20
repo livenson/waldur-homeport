@@ -2,7 +2,7 @@ import { UsersThree } from '@phosphor-icons/react';
 import { FC, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { openModalDialog } from '@waldur/modal/actions';

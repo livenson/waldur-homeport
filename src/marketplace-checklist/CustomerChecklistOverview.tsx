@@ -9,9 +9,9 @@ import { Select } from '@waldur/form/themed-select';
 import { translate } from '@waldur/i18n';
 import { getCustomer } from '@waldur/workspace/selectors';
 
-import { getChecklists, getCategories, countChecklists } from './api';
 import { StatsTable } from './StatsTable';
 import { Checklist } from './types';
+import { getChecklists, getCategories, countChecklists } from './utils';
 
 const loadData = async () => {
   const checklistCount = await countChecklists();

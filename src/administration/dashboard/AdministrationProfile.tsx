@@ -5,8 +5,8 @@ import { Card, Col, Form, Row, Stack } from 'react-bootstrap';
 import { useAsync } from 'react-use';
 import { usersList, versionRetrieve } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
-import { fixURL, parseSelectData } from '@waldur/core/api';
+import { getIconUrl, parseSelectData } from '@waldur/core/api';
+import { ENV } from '@waldur/core/config';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { SymbolsGroup } from '@waldur/customer/dashboard/SymbolsGroup';
 import { DashboardHeroLogo } from '@waldur/dashboard/hero/DashboardHeroLogo';
@@ -24,7 +24,7 @@ export const AdministrationProfile = ({
 }: AdministrationProfileProps) => {
   const router = useRouter();
 
-  const image = fixURL('/icons/login_logo/');
+  const image = getIconUrl('login_logo');
   const website = ENV.plugins.WALDUR_CORE.HOMEPORT_URL;
   const email = ENV.plugins.WALDUR_CORE.SITE_EMAIL;
   const phone = ENV.plugins.WALDUR_CORE.SITE_PHONE;

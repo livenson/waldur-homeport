@@ -2,7 +2,7 @@ import { useCallback, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { userInvitationsCreate } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';

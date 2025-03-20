@@ -4,7 +4,7 @@ import { FunctionComponent, useState } from 'react';
 import { Button, Form } from 'react-bootstrap';
 import { IssueTypeEnum, supportIssuesCreate } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { CancelButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { ISSUE_IDS } from '@waldur/issues/types/constants';
@@ -60,7 +60,7 @@ export const UserRemovalMessageDialog: FunctionComponent<
         )}
         iconNode={<Trash weight="bold" />}
         iconColor="danger"
-        bodyClassName="text-grey-500 pt-2"
+        bodyClassName="text-gray-500 pt-2"
         footer={
           <>
             <Button
@@ -94,7 +94,7 @@ export const UserRemovalMessageDialog: FunctionComponent<
       })}
       iconNode={<Trash weight="bold" />}
       iconColor="danger"
-      bodyClassName="text-grey-500 pt-2"
+      bodyClassName="text-gray-500 pt-2"
       footer={<CancelButton label={translate('OK')} />}
     >
       <p>

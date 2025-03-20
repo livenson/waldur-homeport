@@ -34,7 +34,8 @@ export const OrderUnlinkButton = ({ row, refetch }) => {
       title={translate('Unlink')}
       className="text-danger"
       action={callback}
-      iconNode={<Trash />}
+      iconNode={<Trash weight="bold" />}
+      iconColor="danger"
     />
   );
 };

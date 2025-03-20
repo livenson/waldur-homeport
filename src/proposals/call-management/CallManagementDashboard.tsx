@@ -102,11 +102,7 @@ export const CallManagementDashboard = () => {
                 <StatisticsCard
                   title={translate('Pending proposals')}
                   value={data.pending_proposals}
-                  to={getProposalState([
-                    'in_review',
-                    'in_revision',
-                    'submitted',
-                  ])}
+                  to={getProposalState(['in_review', 'submitted'])}
                 />
               </Col>
               <Col md={6} lg={3}>

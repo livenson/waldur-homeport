@@ -32,7 +32,7 @@ export const BroadcastTemplateDeleteButton = ({ row, refetch }) => {
     <ActionItem
       title={translate('Remove')}
       action={openDialog}
-      iconNode={<Trash />}
+      iconNode={<Trash weight="bold" />}
       size="sm"
       iconColor="danger"
       className="text-danger"

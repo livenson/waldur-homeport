@@ -9,7 +9,6 @@ import { Badge } from '@waldur/core/Badge';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { CustomerPermissionsLogButton } from '@waldur/customer/team/CustomerPermissionsLogButton';
 import { TeamDropdownActions } from '@waldur/customer/team/TeamDropdownActions';
-import { useTeamTableTabs } from '@waldur/customer/utils';
 import { translate } from '@waldur/i18n';
 import { GROUP_INVITATIONS_FILTER_FORM_ID } from '@waldur/invitations/constants';
 import { GroupInvitationRowActions } from '@waldur/invitations/GroupInvitationRowActions';
@@ -21,6 +20,8 @@ import { useTable } from '@waldur/table/useTable';
 import { RoleField } from '@waldur/user/affiliations/RoleField';
 import { exportRoleField } from '@waldur/user/affiliations/RolePopover';
 import { getCustomer } from '@waldur/workspace/selectors';
+
+import { useTeamTableTabs } from './tabs';
 
 const mapStateToFilter = createSelector(
   getCustomer,

@@ -98,10 +98,6 @@ export const getProposalStateOptions = () =>
       value: 'in_review',
     },
     {
-      label: translate('In revision'),
-      value: 'in_revision',
-    },
-    {
       label: translate('Accepted'),
       value: 'accepted',
     },

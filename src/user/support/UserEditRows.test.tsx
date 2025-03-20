@@ -3,7 +3,7 @@ import { Provider } from 'react-redux';
 import configureStore from 'redux-mock-store';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import * as features from '@waldur/features/connect';
 import * as config from '@waldur/store/config';
 
@@ -15,7 +15,7 @@ vi.mock('@waldur/i18n', () => ({
 }));
 
 vi.mock('@waldur/features/connect');
-vi.mock('@waldur/configs/default', () => ({
+vi.mock('@waldur/core/config', () => ({
   ENV: {
     plugins: {
       WALDUR_CORE: {

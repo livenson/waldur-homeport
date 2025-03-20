@@ -18,6 +18,6 @@ export const ResetAction: ActionItemType = ({ resource, refetch }) => (
     validators={validators}
     apiMethod={(id) => vmwareVirtualMachineReset({ path: { uuid: id } })}
     refetch={refetch}
-    iconNode={<ArrowsClockwise />}
+    iconNode={<ArrowsClockwise weight="bold" />}
   />
 );

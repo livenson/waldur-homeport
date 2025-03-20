@@ -2,7 +2,7 @@ import { useEffect, FunctionComponent } from 'react';
 import { Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { translate } from '@waldur/i18n';
 import { openIssueCreateDialog } from '@waldur/issues/create/actions';
 import { ISSUE_IDS } from '@waldur/issues/types/constants';

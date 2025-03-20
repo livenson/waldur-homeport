@@ -67,7 +67,7 @@ $dark-bg-subitem: $gray-200;
 $dark-bg-subitem-2: $gray-300;
 $dark-badge-color: $gray-300;
 $dark-badge-bg: $gray-800;
-$dark-badge-border: $grey-400;
+$dark-badge-border: $gray-400;
 $dark-accordion-active: $gray-100;
 $dark-sub-accordion-active: $gray-200;
 $dark-footer-separator: $gray-300;
@@ -95,9 +95,9 @@ $asides: (
   ),
   light: (
     title: if(isDarkMode(), $dark-title, $gray-700),
-    icon: if(isDarkMode(), $dark-icon, $grey-500),
-    arrow: if(isDarkMode(), $dark-arrow, $grey-400),
-    arrow-state: if(isDarkMode(), $dark-arrow-state, $grey-500),
+    icon: if(isDarkMode(), $dark-icon, $gray-500),
+    arrow: if(isDarkMode(), $dark-arrow, $gray-400),
+    arrow-state: if(isDarkMode(), $dark-arrow-state, $gray-500),
     bg-hover: if(isDarkMode(), $dark-bg-hover, $gray-50),
     bg-active: if(isDarkMode(), $dark-bg-active, $gray-100),
     bg-subitem: if(isDarkMode(), $dark-bg-subitem, $gray-200),

@@ -6,13 +6,13 @@ import {
 
 import { parseDate } from '@waldur/core/dateUtils';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
+import { getScopeChartOptions } from '@waldur/dashboard/chart';
+import { Chart } from '@waldur/dashboard/types';
 import {
   padMissingValues,
   DateValuePair,
   formatCostChartLabel,
-} from '@waldur/dashboard/api';
-import { getScopeChartOptions } from '@waldur/dashboard/chart';
-import { Chart } from '@waldur/dashboard/types';
+} from '@waldur/dashboard/utils';
 import { translate } from '@waldur/i18n';
 import { ServiceProvider } from '@waldur/marketplace/types';
 
@@ -66,8 +66,6 @@ async function getProviderCharts(provider: ServiceProvider): Promise<Chart[]> {
       },
       query: {
         page_size: 12,
-        // @ts-ignore
-        field: ['year', 'month', 'total'],
       },
     })
   ).data;

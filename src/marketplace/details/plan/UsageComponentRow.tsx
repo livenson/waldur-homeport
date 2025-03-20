@@ -3,7 +3,7 @@ import { FC, useCallback } from 'react';
 import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { defaultCurrency, formatCurrency } from '@waldur/core/formatCurrency';
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import FormTable from '@waldur/form/FormTable';

@@ -32,7 +32,7 @@ export const ForceDestroyAction: ActionItemType = ({ resource, refetch }) => (
     className="text-danger"
     resource={resource}
     extraResolve={{ refetch }}
-    iconNode={<X />}
+    iconNode={<X weight="bold" />}
     iconColor="danger"
   />
 );

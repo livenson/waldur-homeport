@@ -26,7 +26,7 @@ export const IssueTemplateDeleteAction = ({ row, refetch }) => {
     <ActionItem
       title={translate('Remove')}
       action={openDialog}
-      iconNode={<Trash />}
+      iconNode={<Trash weight="bold" />}
       className="text-danger"
       iconColor="danger"
       size="sm"

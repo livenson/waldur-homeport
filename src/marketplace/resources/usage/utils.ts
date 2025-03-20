@@ -1,5 +1,12 @@
 import { DateTime } from 'luxon';
+import {
+  PublicOfferingDetails,
+  marketplaceResourcesOfferingRetrieve,
+  marketplaceComponentUserUsagesList,
+  marketplaceComponentUsagesList,
+} from 'waldur-js-client';
 
+import { getAllPages } from '@waldur/core/api';
 import { parseDate } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 import { getAccountingTypeOptions } from '@waldur/marketplace/offerings/update/components/ComponentAccountingTypeField';
@@ -225,4 +232,74 @@ export const getTableData = (
         usage: Number(usage.usage),
       };
     });
+};
+
+const getUsageBasedOfferingComponents = (components: OfferingComponent[]) => {
+  return components
+    .filter((component) =>
+      // Allow to report usage for limit-based components
+      ['usage', 'limit'].includes(component.billing_type),
+    )
+    .sort((a, b) => a.name.localeCompare(b.name));
+};
+
+export const getComponentsAndUsages = async (
+  resource_uuid: string,
+  months: number,
+) => {
+  if (!resource_uuid) {
+    return { components: null, usages: null, userUsages: null };
+  }
+
+  let offering: PublicOfferingDetails;
+  try {
+    offering = await marketplaceResourcesOfferingRetrieve({
+      path: { uuid: resource_uuid },
+    }).then((response) => response.data);
+  } catch (error) {
+    throw new Error(`Error while getting offering, ${error.message}`);
+  }
+
+  const components = getUsageBasedOfferingComponents(offering.components);
+
+  const date_after = months
+    ? DateTime.now().startOf('month').minus({ months }).toFormat('yyyy-MM-dd')
+    : undefined;
+
+  let usages: ComponentUsage[];
+  let userUsages: ComponentUserUsage[];
+  try {
+    usages = await getAllPages((page) =>
+      marketplaceComponentUsagesList({
+        query: {
+          page,
+          resource_uuid,
+          date_after,
+          field: ['type', 'usage', 'billing_period'],
+        },
+      }),
+    );
+    userUsages = await getAllPages((page) =>
+      marketplaceComponentUserUsagesList({
+        query: {
+          page,
+          resource_uuid,
+          date_after,
+          field: [
+            'component_type',
+            'usage',
+            'billing_period',
+            'username',
+            'measured_unit',
+          ],
+        },
+      }),
+    );
+  } catch (error) {
+    throw new Error(
+      `Error while getting usages for resource: ${resource_uuid}, ${error.message}`,
+    );
+  }
+
+  return { components, usages, userUsages };
 };

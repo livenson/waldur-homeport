@@ -2,7 +2,7 @@ import { ArrowDown, ArrowUp, Minus } from '@phosphor-icons/react';
 import { FunctionComponent, useMemo } from 'react';
 import { Card, Col, Row } from 'react-bootstrap';
 
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { parseDate } from '@waldur/core/dateUtils';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { Link } from '@waldur/core/Link';

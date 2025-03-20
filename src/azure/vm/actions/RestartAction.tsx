@@ -18,6 +18,6 @@ export const RestartAction: ActionItemType = ({ resource, refetch }) => (
     validators={validators}
     apiMethod={(id) => azureVirtualmachinesRestart({ path: { uuid: id } })}
     refetch={refetch}
-    iconNode={<ArrowClockwise />}
+    iconNode={<ArrowClockwise weight="bold" />}
   />
 );

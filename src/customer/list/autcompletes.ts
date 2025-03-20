@@ -1,24 +1,25 @@
-import { apiAuthSaml2ProvidersList } from 'waldur-js-client';
+import { organizationGroupsList } from 'waldur-js-client';
 
-import { ENV } from '@waldur/configs/default';
 import { parseSelectData } from '@waldur/core/api';
+import { ENV } from '@waldur/core/config';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
 
-export const getSaml2IdentityProviders = async (
-  name: string,
+export const organizationGroupAutocomplete = async (
+  query: string,
   prevOptions,
-  currentPage: number,
+  { page },
 ) => {
-  const response = await apiAuthSaml2ProvidersList({
+  const response = await organizationGroupsList({
     query: {
-      name,
-      page: currentPage,
+      name: query,
+      page: page,
       page_size: ENV.pageSize,
+      o: 'name',
     },
   });
   return returnReactSelectAsyncPaginateObject(
     parseSelectData(response),
     prevOptions,
-    currentPage,
+    page,
   );
 };

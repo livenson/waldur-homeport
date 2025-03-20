@@ -1,11 +1,14 @@
 import { Trash } from '@phosphor-icons/react';
 import React from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { CustomerUser } from 'waldur-js-client';
+import {
+  customersDeleteUser,
+  CustomerUser,
+  projectsDeleteUser,
+} from 'waldur-js-client';
 
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
-import { deleteCustomerUser, deleteProjectUser } from '@waldur/permissions/api';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
@@ -48,18 +51,22 @@ export const UserRemoveButton: React.FC<UserRemoveButtonProps> = ({
     try {
       await Promise.all(
         customer.projects.map((project) =>
-          deleteProjectUser({
-            project: project.uuid,
-            user: customer.uuid,
-            role: project.role_name,
+          projectsDeleteUser({
+            path: { uuid: project.uuid },
+            body: {
+              user: customer.uuid,
+              role: project.role_name,
+            },
           }),
         ),
       );
       if (customer.role_name) {
-        await deleteCustomerUser({
-          customer: currentCustomer.uuid,
-          user: customer.uuid,
-          role: customer.role_name,
+        await customersDeleteUser({
+          path: { uuid: currentCustomer.uuid },
+          body: {
+            user: customer.uuid,
+            role: customer.role_name,
+          },
         });
       }
       await refetch();

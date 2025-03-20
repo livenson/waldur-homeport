@@ -14,7 +14,7 @@ export const ExecuteMigrationAction: FC<TenantActionProps> = ({
 }) => (
   <AsyncActionItem
     title={translate('Execute')}
-    iconNode={<Airplane />}
+    iconNode={<Airplane weight="bold" />}
     resource={resource}
     apiMethod={(uuid) => openstackMigrationsRun({ path: { uuid } })}
     refetch={refetch}

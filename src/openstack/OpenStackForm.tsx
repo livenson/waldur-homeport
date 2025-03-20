@@ -3,7 +3,7 @@ import { FunctionComponent } from 'react';
 
 import { CheckOrX } from '@waldur/core/CheckOrX';
 import { required } from '@waldur/core/validators';
-import { StringField, SecretField } from '@waldur/form';
+import { StringField, SecretField, TextField } from '@waldur/form';
 import { AwesomeCheckboxField } from '@waldur/form/AwesomeCheckboxField';
 import FormTable from '@waldur/form/FormTable';
 import { translate } from '@waldur/i18n';
@@ -54,6 +54,11 @@ const fields = [
     ),
     component: StringField,
     fieldProps: { required: true, validate: required },
+  },
+  {
+    label: translate('Openstack API TLS certificate'),
+    key: 'secret_options.openstack_api_tls_certificate',
+    component: TextField,
   },
   {
     label: translate('Verify server certificate'),

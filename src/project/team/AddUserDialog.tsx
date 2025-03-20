@@ -1,23 +1,28 @@
 import { Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { formValueSelector, reduxForm } from 'redux-form';
+import {
+  callManagingOrganisationsAddUser,
+  customersAddUser,
+  customersUsersList,
+  CustomersUsersListData,
+  marketplaceServiceProvidersAddUser,
+  projectsAddUser,
+} from 'waldur-js-client';
 
 import { SubmitButton } from '@waldur/auth/SubmitButton';
+import { parseSelectData } from '@waldur/core/api';
+import { ENV } from '@waldur/core/config';
+import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
 import { required } from '@waldur/core/validators';
-import { usersAutocomplete } from '@waldur/customer/team/api';
 import { OrganizationProjectSelectField } from '@waldur/customer/team/OrganizationProjectSelectField';
+import { usersAutocomplete } from '@waldur/customer/team/utils';
 import { FormContainer } from '@waldur/form';
 import { AsyncSelectField } from '@waldur/form/AsyncSelectField';
 import { AwesomeCheckboxField } from '@waldur/form/AwesomeCheckboxField';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
-import {
-  addCallOrganizationUser,
-  addCustomerUser,
-  addProjectUser,
-  addServiceProviderUser,
-} from '@waldur/permissions/api';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';
 import { Role, RoleType } from '@waldur/permissions/types';
@@ -29,7 +34,6 @@ import { useUser } from '@waldur/workspace/hooks';
 import { getCustomer, getProject } from '@waldur/workspace/selectors';
 import { Project, User } from '@waldur/workspace/types';
 
-import { customerUsersAutocomplete } from './api';
 import { ExpirationTimeGroup } from './ExpirationTimeGroup';
 import { RoleGroup } from './RoleGroup';
 import { UserListOptionInline } from './UserListOptionInline';
@@ -48,6 +52,28 @@ interface AddUserDialogProps {
   level?: RoleType;
   title?: string;
 }
+
+const customerUsersAutocomplete = async (
+  customerUuid: string,
+  query: CustomersUsersListData['query'],
+  prevOptions,
+  currentPage: number,
+) => {
+  const response = await customersUsersList({
+    path: { uuid: customerUuid },
+    query: {
+      o: 'concatenated_name',
+      ...query,
+      page: currentPage,
+      page_size: ENV.pageSize,
+    },
+  });
+  return returnReactSelectAsyncPaginateObject(
+    parseSelectData(response),
+    prevOptions,
+    currentPage,
+  );
+};
 
 const showAllUsersSelector = (state: RootState) =>
   formValueSelector(FORM_ID)(state, FIELD_ID);
@@ -75,13 +101,17 @@ export const AddUserDialog = reduxForm<
   const saveUser = async (formData: AddUserDialogFormData) => {
     if (formData.role.content_type === 'project') {
       try {
-        await addProjectUser({
-          user: formData.user.uuid,
-          project: formData.project
-            ? formData.project.uuid
-            : currentProject.uuid,
-          expiration_time: formData.expiration_time,
-          role: formData.role.name,
+        await projectsAddUser({
+          path: {
+            uuid: formData.project
+              ? formData.project.uuid
+              : currentProject.uuid,
+          },
+          body: {
+            user: formData.user.uuid,
+            expiration_time: formData.expiration_time,
+            role: formData.role.name,
+          },
         });
         await refetch();
         dispatch(showSuccess('User has been added to project.'));
@@ -91,11 +121,13 @@ export const AddUserDialog = reduxForm<
       }
     } else if (formData.role.content_type === 'customer') {
       try {
-        await addCustomerUser({
-          customer: currentCustomer.uuid,
-          user: formData.user.uuid,
-          role: formData.role.name,
-          expiration_time: formData.expiration_time,
+        await customersAddUser({
+          path: { uuid: currentCustomer.uuid },
+          body: {
+            user: formData.user.uuid,
+            role: formData.role.name,
+            expiration_time: formData.expiration_time,
+          },
         });
         if (currentUser.uuid === formData.user.uuid) {
           const newUser = await getCurrentUser();
@@ -109,11 +141,13 @@ export const AddUserDialog = reduxForm<
       }
     } else if (formData.role.content_type === 'call_organizer') {
       try {
-        await addCallOrganizationUser({
-          uuid: currentCustomer.call_managing_organization_uuid,
-          user: formData.user.uuid,
-          role: formData.role.name,
-          expiration_time: formData.expiration_time,
+        await callManagingOrganisationsAddUser({
+          path: { uuid: currentCustomer.call_managing_organization_uuid },
+          body: {
+            user: formData.user.uuid,
+            role: formData.role.name,
+            expiration_time: formData.expiration_time,
+          },
         });
         if (currentUser.uuid === formData.user.uuid) {
           const newUser = await getCurrentUser();
@@ -127,11 +161,13 @@ export const AddUserDialog = reduxForm<
       }
     } else if (formData.role.content_type === 'service_provider') {
       try {
-        await addServiceProviderUser({
-          uuid: currentCustomer.service_provider_uuid,
-          user: formData.user.uuid,
-          role: formData.role.name,
-          expiration_time: formData.expiration_time,
+        await marketplaceServiceProvidersAddUser({
+          path: { uuid: currentCustomer.service_provider_uuid },
+          body: {
+            user: formData.user.uuid,
+            role: formData.role.name,
+            expiration_time: formData.expiration_time,
+          },
         });
         if (currentUser.uuid === formData.user.uuid) {
           const newUser = await getCurrentUser();

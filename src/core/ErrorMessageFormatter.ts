@@ -1,4 +1,4 @@
-import { ENV } from '@waldur/configs/default';
+import { ENV } from '@waldur/core/config';
 import { translate } from '@waldur/i18n';
 
 const formatErrorObject = (error) =>
@@ -20,10 +20,6 @@ export const format = (error, parseResponse?) => {
 
   See also: https://fetch.spec.whatwg.org/#concept-filtered-response
   */
-
-  if (error && error.isAxiosError) {
-    error = error.response;
-  }
 
   if (!error || error.status === -1) {
     return translate(
