@@ -19,7 +19,7 @@ const PureProjectsListFilter = () => (
       />
     </TableFilterItem>
     <TableFilterItem
-      title={translate('Conceal ended projects')}
+      title={translate('Conceal finished projects')}
       name="conceal_ended_projects"
       badgeValue={(value) => (value ? translate('Yes') : translate('No'))}
       ellipsis={false}
@@ -28,7 +28,7 @@ const PureProjectsListFilter = () => (
         name="conceal_ended_projects"
         component={(fieldProps) => (
           <AwesomeCheckbox
-            label={translate('Conceal ended projects')}
+            label={translate('Conceal finished projects')}
             value={fieldProps.input.value}
             onChange={(value) => fieldProps.input.onChange(value)}
           />
