@@ -117,7 +117,7 @@ export const IssueDetailsTab = ({
           label={translate(
             'Issue is general and not tied to any specific organization, project, or resource',
           )}
-          disabled={Boolean(context.scope)}
+          disabled={context.scope !== user && Boolean(context.scope)}
         />
       </Form.Group>
       <Stack direction="horizontal" gap={3}>

@@ -67,8 +67,10 @@ export const states: StateDeclaration[] = [
     name: 'profile.issues',
     url: 'issues/',
     component: lazyComponent(() =>
-      import('./UserIssuesList').then((module) => ({
-        default: module.UserIssuesList,
+      import(
+        '@waldur/navigation/header/quick-issue-drawer/UserIssuesTable'
+      ).then((module) => ({
+        default: module.UserIssuesTable,
       })),
     ),
     data: {

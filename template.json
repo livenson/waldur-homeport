@@ -1651,6 +1651,10 @@
     "description": "rancher/catalog/CatalogCreateDialog.tsx",
     "message": "Branch"
   },
+  "Brand color is used for button background.": {
+    "description": "SettingsDescription.ts",
+    "message": "Brand color is used for button background."
+  },
   "Branding": {
     "description": "SettingsDescription.ts, administration/routes.ts, administration/settings/AdministrationBranding.tsx",
     "message": "Branding"
@@ -4750,10 +4754,6 @@
   "Helpdesk integration status": {
     "description": "administration/TelemetryExampleDialog.tsx",
     "message": "Helpdesk integration status"
-  },
-  "Hex color definition is used in HomePort landing page for login button.": {
-    "description": "SettingsDescription.ts",
-    "message": "Hex color definition is used in HomePort landing page for login button."
   },
   "Hide diff": {
     "description": "rancher/cluster/ViewYAMLDialog.tsx",
