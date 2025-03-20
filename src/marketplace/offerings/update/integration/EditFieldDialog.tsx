@@ -41,7 +41,7 @@ export const EditFieldDialog = connect<{}, {}, { resolve: EditOfferingProps }>(
 
     const processRequest = useCallback(
       (values: FormData, dispatch) => {
-        return props.resolve.callback(values, dispatch).then(() => {
+        return props.resolve.callback(values).then(() => {
           dispatch(closeModalDialog());
         });
       },

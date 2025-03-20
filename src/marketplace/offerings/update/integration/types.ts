@@ -23,7 +23,7 @@ export interface EditOfferingProps
   title?: string;
   scope: any;
   name: string;
-  callback(formData, dispatch): Promise<any>;
+  callback(formData): Promise<any>;
   fieldComponent: React.ComponentType;
   hideLabel?: boolean;
   fieldProps?: Record<string, any>;
@@ -37,6 +37,6 @@ export interface OfferingEditPanelProps {
 
 export interface OfferingEditPanelFormProps {
   offering: ProviderOfferingDetails;
-  callback(formData, dispatch): Promise<any>;
+  callback(formData): Promise<any>;
   title?: string;
 }
