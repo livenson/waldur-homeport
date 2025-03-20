@@ -37,41 +37,33 @@ const generateRadioSvgUrl = (color) => {
 };
 
 function initCssVariables() {
-  if (ENV.plugins.WALDUR_CORE.BRAND_COLOR) {
-    const brand600 = ENV.plugins.WALDUR_CORE.BRAND_COLOR;
-    document.documentElement.style.setProperty(
-      '--waldur-brand-color',
-      brand600,
-    );
-    const brandRgb = hexToRgb(brand600);
-    document.documentElement.style.setProperty(
-      `--waldur-brand-color-rgb`,
-      brandRgb,
-    );
+  const brand600 = ENV.plugins.WALDUR_CORE.BRAND_COLOR || '#307300';
+  document.documentElement.style.setProperty('--waldur-brand-color', brand600);
+  const brandRgb = hexToRgb(brand600);
+  document.documentElement.style.setProperty(
+    `--waldur-brand-color-rgb`,
+    brandRgb,
+  );
 
-    const brandColors = generateBrandColors(brand600);
+  const brandColors = generateBrandColors(brand600);
 
-    Object.entries(brandColors).forEach(([key, color]) => {
-      document.documentElement.style.setProperty(
-        `--waldur-brand-${key}`,
-        color,
-      );
-    });
+  Object.entries(brandColors).forEach(([key, color]) => {
+    document.documentElement.style.setProperty(`--waldur-brand-${key}`, color);
+  });
 
-    // Generate checkbox & radio bg
-    document.documentElement.style.setProperty(
-      '--checkbox-bg',
-      generateCheckboxSvgUrl(brand600),
-    );
-    document.documentElement.style.setProperty(
-      '--checkbox-indeterminate-bg',
-      generateCheckboxIndeterminateSvgUrl(brand600),
-    );
-    document.documentElement.style.setProperty(
-      '--radio-bg',
-      generateRadioSvgUrl(brand600),
-    );
-  }
+  // Generate checkbox & radio bg
+  document.documentElement.style.setProperty(
+    '--checkbox-bg',
+    generateCheckboxSvgUrl(brand600),
+  );
+  document.documentElement.style.setProperty(
+    '--checkbox-indeterminate-bg',
+    generateCheckboxIndeterminateSvgUrl(brand600),
+  );
+  document.documentElement.style.setProperty(
+    '--radio-bg',
+    generateRadioSvgUrl(brand600),
+  );
 }
 
 export let MatomoInstance: MatomoTracker = null;
