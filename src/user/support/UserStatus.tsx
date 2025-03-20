@@ -56,10 +56,10 @@ export const UserStatus = ({ user }: { user: User }) => {
           is_active: !isActive,
         },
       });
-      queryClient.setQueryData(['User', user.uuid], {
+      queryClient.setQueryData(['User', user.uuid], (user: User) => ({
         ...user,
         is_active: !isActive,
-      });
+      }));
       if (isActive) {
         showSuccess(translate('User has been deactivated.'));
       } else {
