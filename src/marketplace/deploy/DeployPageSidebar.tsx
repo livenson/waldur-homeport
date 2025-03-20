@@ -17,7 +17,7 @@ import { formErrorsSelector, formSubmitErrorsSelector } from './utils';
 interface DeployPageSidebarProps extends SidebarProps {
   offering: PublicOfferingDetails;
   updateMode?: boolean;
-  cartItem?: OrderResponse;
+  order?: OrderResponse;
 }
 
 export const DeployPageSidebar = (props: DeployPageSidebarProps) => {
@@ -44,7 +44,7 @@ export const DeployPageSidebar = (props: DeployPageSidebarProps) => {
       <CheckoutSummaryComponent
         offering={
           props.updateMode
-            ? { ...props.offering, uuid: props.cartItem.uuid }
+            ? { ...props.offering, uuid: props.order.uuid }
             : props.offering
         }
         updateMode={props.updateMode}

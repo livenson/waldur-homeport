@@ -13,7 +13,7 @@ import { useComponentsDetailPrices } from './utils';
 
 interface OrderSummaryPlanRowsProps {
   priceData: PricesData;
-  customer: Customer;
+  customer: Pick<Customer, 'name' | 'uuid' | 'url' | 'payment_profiles'>;
   hasTotal?: boolean;
 }
 

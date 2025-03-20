@@ -22,8 +22,8 @@ import {
 } from '@waldur/marketplace/common/utils';
 import { INSTANCE_TYPE, TENANT_TYPE } from '@waldur/openstack/constants';
 import { getCustomer } from '@waldur/workspace/selectors';
-import { Customer } from '@waldur/workspace/types';
 
+import { DeployFormData } from '../deploy/types';
 import { Offering } from '../types';
 
 import { fetchOpenstackOptions } from './fetchOpenstackOptions';
@@ -31,7 +31,7 @@ import { fetchOpenstackOptions } from './fetchOpenstackOptions';
 interface OptionsFormProps {
   options: Offering['options'];
   submitting?: boolean;
-  customer?: Customer;
+  customer?: DeployFormData['customer'];
 }
 
 export const OptionsForm = ({

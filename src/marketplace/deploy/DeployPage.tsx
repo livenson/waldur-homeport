@@ -32,6 +32,7 @@ import {
 import { DeployForm } from './DeployForm';
 import { DeployPageActions } from './DeployPageActions';
 import { DeployPageSidebar } from './DeployPageSidebar';
+import { DeployFormData } from './types';
 import {
   formCustomerSelector,
   formProjectSelector,
@@ -45,18 +46,9 @@ interface DeployPageProps {
   limits?: string[];
   updateMode?: boolean;
   previewMode?: boolean;
-  cartItem?: OrderResponse;
+  order?: OrderResponse;
   plan?: Plan;
   initialLimits?: AttributesType;
-}
-
-interface DeployFormData {
-  project?: { name; uuid; url };
-  customer?;
-  offering?;
-  attributes?: AttributesType;
-  limits?;
-  plan?;
 }
 
 export const BaseDeployPage = ({
@@ -69,7 +61,7 @@ export const BaseDeployPage = ({
 
   const marketplaceFilters = useSelector(getMarketplaceFilters);
 
-  const isEdit = useMemo(() => Boolean(props.cartItem), [props]);
+  const isEdit = useMemo(() => Boolean(props.order), [props]);
 
   const customer = useSelector(formCustomerSelector);
   const project = useSelector(formProjectSelector);
@@ -135,6 +127,7 @@ export const BaseDeployPage = ({
         name: selectedOffering.customer_name,
         uuid: selectedOffering.customer_uuid,
         url: selectedOffering.customer,
+        payment_profiles: [],
       };
     }
 
@@ -177,7 +170,7 @@ export const BaseDeployPage = ({
         props.change('plan', plans[0]);
       }
     }
-  }, [selectedOffering, plans]);
+  }, [selectedOffering, plans, project]);
 
   const [lastY, setLastY] = useState(0);
   const [completedSteps, setCompletedSteps] = useState<boolean[]>(
@@ -314,7 +307,7 @@ export const BaseDeployPage = ({
               offering={selectedOffering}
               completedSteps={completedSteps}
               updateMode={props.updateMode}
-              cartItem={props.cartItem}
+              order={props.order}
             />
           </SidebarLayout.Sidebar>
         </SidebarLayout.Container>

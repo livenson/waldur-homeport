@@ -7,7 +7,6 @@ import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { isFeatureVisible } from '@waldur/features/connect';
 import { MarketplaceFeatures } from '@waldur/FeaturesEnums';
 import { ORDER_FORM_ID } from '@waldur/marketplace/details/constants';
-import { Customer } from '@waldur/workspace/types';
 
 import { DeployPageTotalCard } from '../deploy/DeployPageTotalCard';
 import {
@@ -19,9 +18,8 @@ import { orderFormDataSelector } from '../utils';
 
 import { OrderSubmitButton } from './OrderSubmitButton';
 import { OrderSummaryPlanRows } from './plan/OrderSummaryPlanRows';
-import { PricesData } from './plan/types';
 import { pricesSelector, useComponentsDetailPrices } from './plan/utils';
-import { OfferingFormData, OrderSummaryProps } from './types';
+import { OrderSummaryProps } from './types';
 
 export const SummaryTable: FC<OrderSummaryProps> = (props) => {
   return (
@@ -67,13 +65,6 @@ const PureOrderSummary: FC<OrderSummaryProps> = (props) =>
     <OrderCheckout {...props} />
   );
 
-interface OrderSummaryStateProps {
-  customer: Customer;
-  prices: PricesData;
-  formData: OfferingFormData;
-  formValid: boolean;
-}
-
 const mapStateToProps = (state, ownProps) => ({
   customer: formCustomerSelector(state),
   prices: pricesSelector(state, ownProps),
@@ -85,7 +76,7 @@ const mapStateToProps = (state, ownProps) => ({
 });
 
 export const OrderSummary = connect<
-  OrderSummaryStateProps,
+  ReturnType<typeof mapStateToProps>,
   {},
   { offering: PublicOfferingDetails; onlyDetails?: boolean }
 >(mapStateToProps)(PureOrderSummary);

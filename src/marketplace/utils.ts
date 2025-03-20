@@ -15,9 +15,10 @@ import { type RootState } from '@waldur/store/reducers';
 import { getUser } from '@waldur/workspace/selectors';
 
 import { getCategoryItems } from './category/utils';
+import { DeployFormData } from './deploy/types';
 
 export const orderFormDataSelector = (state: RootState) =>
-  (getFormValues(ORDER_FORM_ID)(state) || {}) as any;
+  (getFormValues(ORDER_FORM_ID)(state) || {}) as DeployFormData;
 
 export const orderFormAttributesSelector = (state: RootState) => {
   const formData = orderFormDataSelector(state);

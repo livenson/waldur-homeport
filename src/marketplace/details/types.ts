@@ -3,24 +3,18 @@ import { Project } from 'waldur-js-client';
 
 import { Offering, Plan } from '@waldur/marketplace/types';
 
+import { DeployFormData } from '../deploy/types';
+
 import { PricesData } from './plan/types';
 
 export interface Limits {
   [key: string]: number;
 }
 
-export interface OfferingFormData {
-  plan?: Plan;
-  attributes?: { [key: string]: any };
-  project?: Project;
-  limits?: Limits;
-  customer?: any;
-}
-
 export interface OrderSummaryProps {
   offering: PublicOfferingDetails;
   prices?: PricesData;
-  formData: OfferingFormData;
+  formData: DeployFormData;
   formValid?: boolean;
   errors?: any;
   isSubmitting?: boolean;
