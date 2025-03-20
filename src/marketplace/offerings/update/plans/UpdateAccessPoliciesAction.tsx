@@ -4,7 +4,6 @@ import { useDispatch } from 'react-redux';
 
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
-import { useOrganizationGroups } from '@waldur/marketplace/common/utils';
 import { openModalDialog } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 
@@ -15,27 +14,14 @@ const SetAccessPolicyDialog = lazyComponent(() =>
 );
 
 export const UpdateAccessPoliciesAction = ({ plan, refetch }) => {
-  const {
-    data: organizationGroups,
-    isLoading,
-    isError,
-    disabled,
-    tooltip,
-    refetch: refetchGroups,
-  } = useOrganizationGroups();
-
   const dispatch = useDispatch();
   const callback = useCallback(
     () =>
       dispatch(
         openModalDialog(SetAccessPolicyDialog, {
           resolve: {
-            organizationGroups,
-            loading: isLoading,
-            error: isError,
             plan,
             refetch,
-            refetchGroups,
           },
         }),
       ),
@@ -47,8 +33,6 @@ export const UpdateAccessPoliciesAction = ({ plan, refetch }) => {
       title={translate('Update access policies')}
       iconNode={<Users weight="bold" />}
       action={callback}
-      disabled={disabled}
-      tooltip={tooltip}
     />
   );
 };

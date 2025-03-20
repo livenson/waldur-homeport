@@ -1,4 +1,4 @@
-import { FunctionComponent } from 'react';
+import { FunctionComponent, useMemo } from 'react';
 import { Field } from 'redux-form';
 import { OrganizationGroup } from 'waldur-js-client';
 
@@ -24,37 +24,42 @@ export const SetAccessPolicyFormContainer: FunctionComponent<
       }),
   });
 
-  const columns = [
-    {
-      title: translate('Name'),
-      render: ({ row }) => row.name,
-    },
-    {
-      title: translate('Parent'),
-      render: ({ row }) => row.parent_name || DASH_ESCAPE_CODE,
-    },
-    {
-      title: translate('Select'),
-      render: ({ row }) => (
-        <Field
-          name={row.uuid}
-          type="checkbox"
-          component="input"
-          parse={(value) => !!value}
-          format={(value) => !!value}
-          props={{
-            disabled: submitting,
-          }}
-        />
-      ),
-      className: 'text-center',
-    },
-  ];
+  const columns = useMemo(
+    () => [
+      {
+        title: translate('Name'),
+        render: ({ row }) => row.name,
+      },
+      {
+        title: translate('Parent'),
+        render: ({ row }) => row.parent_name || DASH_ESCAPE_CODE,
+      },
+      {
+        title: translate('Select'),
+        render: ({ row }) => (
+          <Field
+            name={row.uuid}
+            type="checkbox"
+            component="input"
+            parse={(value) => !!value}
+            format={(value) => !!value}
+            props={{
+              disabled: submitting,
+            }}
+          />
+        ),
+        className: 'text-center',
+      },
+    ],
+    [submitting],
+  );
 
   return (
     <Table
       {...tableProps}
       columns={columns}
+      hasHeaders={false}
+      hasActionBar={false}
       verboseName={translate('Organization groups')}
     />
   );
