@@ -16,9 +16,7 @@ import {
   VMwareVirtualMachineActions,
 } from '@waldur/vmware/actions';
 
-import { SetErredActionItem } from './SetErredActionItem';
 import { ActionConfiguration, ActionItemType } from './types';
-import { UnlinkActionItem } from './UnlinkActionItem';
 
 const actions: Record<string, ActionItemType[]> = {};
 
@@ -26,9 +24,7 @@ const register = (config: ActionConfiguration) => {
   actions[config.type] = config.actions;
 };
 
-export const getActions = (type) => {
-  return [...(actions[type] || []), UnlinkActionItem, SetErredActionItem];
-};
+export const getActions = (type) => actions[type] || [];
 
 register(AzureSqlServerActions);
 register(AzureVirtualMachineActions);
