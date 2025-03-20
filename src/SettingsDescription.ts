@@ -271,8 +271,8 @@ export const SettingsDescription = [
       },
       {
         key: 'BRAND_COLOR',
-        description: translate('Hex color definition is used in HomePort landing page for login button.'),
-        default: '#3a8500',
+        description: translate('Brand color is used for button background.'),
+        default: '#307300',
         type: 'color_field',
       },
       {
