@@ -23,10 +23,10 @@ import {
 import { INSTANCE_TYPE, TENANT_TYPE } from '@waldur/openstack/constants';
 import { getCustomer } from '@waldur/workspace/selectors';
 
-import { DeployFormData } from '../deploy/types';
 import { Offering } from '../types';
 
 import { fetchOpenstackOptions } from './fetchOpenstackOptions';
+import { DeployFormData } from './types';
 
 interface OptionsFormProps {
   options: Offering['options'];

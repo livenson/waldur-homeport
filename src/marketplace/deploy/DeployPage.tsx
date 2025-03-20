@@ -20,6 +20,7 @@ import { calculateSystemVolumeSize } from '@waldur/openstack/openstack-instance/
 import { MARKETPLACE_RANCHER } from '@waldur/rancher/cluster/create/constants';
 
 import { getOrderFormComponent } from '../common/registry';
+import { DeployFormData } from '../common/types';
 import { PageBarProvider } from '../context';
 import { ORDER_FORM_ID } from '../details/constants';
 import { getMarketplaceFilters } from '../landing/filter/store/selectors';
@@ -32,7 +33,6 @@ import {
 import { DeployForm } from './DeployForm';
 import { DeployPageActions } from './DeployPageActions';
 import { DeployPageSidebar } from './DeployPageSidebar';
-import { DeployFormData } from './types';
 import {
   formCustomerSelector,
   formProjectSelector,

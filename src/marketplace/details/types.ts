@@ -3,7 +3,7 @@ import { Project } from 'waldur-js-client';
 
 import { Offering, Plan } from '@waldur/marketplace/types';
 
-import { DeployFormData } from '../deploy/types';
+import { DeployFormData } from '../common/types';
 
 import { PricesData } from './plan/types';
 

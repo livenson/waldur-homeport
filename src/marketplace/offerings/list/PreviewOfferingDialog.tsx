@@ -3,7 +3,7 @@ import { compose } from 'redux';
 import { reduxForm } from 'redux-form';
 
 import { translate } from '@waldur/i18n';
-import { DeployFormData } from '@waldur/marketplace/deploy/types';
+import { DeployFormData } from '@waldur/marketplace/common/types';
 import { ORDER_FORM_ID } from '@waldur/marketplace/details/constants';
 import { PureOfferingConfiguratorProps } from '@waldur/marketplace/details/types';
 import {

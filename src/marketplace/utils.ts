@@ -15,7 +15,7 @@ import { type RootState } from '@waldur/store/reducers';
 import { getUser } from '@waldur/workspace/selectors';
 
 import { getCategoryItems } from './category/utils';
-import { DeployFormData } from './deploy/types';
+import { DeployFormData } from './common/types';
 
 export const orderFormDataSelector = (state: RootState) =>
   (getFormValues(ORDER_FORM_ID)(state) || {}) as DeployFormData;
