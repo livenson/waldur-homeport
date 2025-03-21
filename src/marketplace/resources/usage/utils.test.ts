@@ -38,7 +38,14 @@ describe('ResourceUsageChart', () => {
       },
     ] as ComponentUsage[];
 
-    const result = getEChartOptions(component, usages, [], 1, '#1f77b4');
+    const result = getEChartOptions(
+      component,
+      usages,
+      [],
+      1,
+      '#1f77b4',
+      vi.fn(),
+    );
 
     // Verify that only RAM usage is included
     expect(result.series[0].data).toHaveLength(1);
@@ -76,7 +83,14 @@ describe('ResourceUsageChart', () => {
     ] as ComponentUsage[];
 
     // Only show last 2 months
-    const result = getEChartOptions(component, usages, [], 2, '#1f77b4');
+    const result = getEChartOptions(
+      component,
+      usages,
+      [],
+      2,
+      '#1f77b4',
+      vi.fn(),
+    );
 
     // Verify that only last 2 months of data are included
     expect(result.series[0].data).toHaveLength(2);
@@ -171,6 +185,7 @@ describe('ResourceUsageChart', () => {
       userUsages,
       1,
       '#1f77b4',
+      vi.fn(),
     );
     const tooltipFormatter = result.tooltip.formatter;
     const tooltipParams = [
