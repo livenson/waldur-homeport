@@ -42,9 +42,17 @@ export const TeamSection: FC<
     }),
     [props.roles],
   );
+
+  const url =
+    props.roleTypes?.[0] === 'proposal'
+      ? 'proposal-proposals/' + props.scope.uuid + '/list_users'
+      : props.roleTypes?.[0] === 'call'
+        ? 'proposal-protected-calls/' + props.scope.uuid + '/list_users'
+        : undefined;
+
   const usersTable = useTable({
     table: `UserList${props.title}`,
-    fetchData: createFetcher(`${props.scope.url}list_users/`),
+    fetchData: createFetcher(url),
     filter: usersFilter,
     onFetch(rows) {
       if (props.change) {
