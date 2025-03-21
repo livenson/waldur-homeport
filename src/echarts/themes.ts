@@ -98,6 +98,9 @@ function registerDarkTheme() {
         },
       },
     },
+    axisPointer: {
+      label: { backgroundColor: '#505050' },
+    },
     dataZoom: {
       textStyle: {
         color: contrastColor,

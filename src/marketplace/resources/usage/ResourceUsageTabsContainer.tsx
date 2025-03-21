@@ -59,7 +59,6 @@ export const ResourceUsageTabsContainer: FunctionComponent<
           useEndAsStart: true,
         })}
         displayMode={displayMode}
-        hasExport
       />
     </>
   );
