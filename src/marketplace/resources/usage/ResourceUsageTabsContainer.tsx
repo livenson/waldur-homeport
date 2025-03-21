@@ -32,17 +32,17 @@ interface ResourceUsageTabsContainerProps {
 export const ResourceUsageTabsContainer: FunctionComponent<
   ResourceUsageTabsContainerProps
 > = ({ resource, data, months, hideHeader, displayMode, users }) => {
-  const userUsages = useMemo(
-    () =>
+  const userUsages = useMemo(() => {
+    const records =
       users?.length && data?.userUsages
         ? data.userUsages.filter((usage) =>
             users.some(
               (user) => usage.username === user.offering_user_username,
             ),
           )
-        : data?.userUsages,
-    [data, users],
-  );
+        : data?.userUsages;
+    return (records || []).sort((a, b) => a.username.localeCompare(b.username));
+  }, [data, users]);
 
   return (
     <>

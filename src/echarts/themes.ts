@@ -207,7 +207,7 @@ function registerLightTheme() {
     },
 
     tooltip: {
-      backgroundColor: 'rgba(0,0,0,0.6)',
+      backgroundColor: 'rgba(0, 0, 0, 0.9)',
       textStyle: {
         color: '#fff',
       },
