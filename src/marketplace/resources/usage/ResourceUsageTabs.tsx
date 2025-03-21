@@ -30,6 +30,7 @@ export const ResourceUsageTabs: FunctionComponent<ResourceUsageTabsProps> = (
       id="resource-usage-component-tabs"
       unmountOnExit
       mountOnEnter
+      className="nav-line-tabs icon-align"
     >
       {props.components.map((component, index: number) => (
         <Tab
@@ -39,7 +40,7 @@ export const ResourceUsageTabs: FunctionComponent<ResourceUsageTabsProps> = (
                 id={`tab-${index}-tooltip`}
                 label={getBillingTypeLabel(component.billing_type)}
               >
-                <Question />
+                <Question size={18} weight="bold" className="text-muted" />
               </Tip>{' '}
               {component.name}
             </>

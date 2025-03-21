@@ -27,25 +27,6 @@ const formatChart = (
   usages: RowData[],
   serieName: string = undefined,
 ) => ({
-  toolbox: {
-    feature: {
-      saveAsImage: {
-        title: translate('Save'),
-        name: `components-usage-chart-${DateTime.now().toISODate()}`,
-        show: true,
-      },
-      dataView: {
-        title: translate('View data'),
-        show: true,
-        lang: [
-          translate('Data view'),
-          translate('Turn off'),
-          translate('Refresh'),
-        ],
-        readOnly: true,
-      },
-    },
-  },
   tooltip: {
     trigger: 'axis',
     axisPointer: {
