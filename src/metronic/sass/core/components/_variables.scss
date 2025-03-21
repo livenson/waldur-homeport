@@ -40,6 +40,7 @@ $grays: (
 ) !default; // Custom variable
 
 // Brand
+$brand-25: if(isDarkMode(), var(--waldur-brand-950), var(--waldur-brand-25));
 $brand-50: if(isDarkMode(), var(--waldur-brand-900), var(--waldur-brand-50));
 $brand-100: if(isDarkMode(), var(--waldur-brand-800), var(--waldur-brand-100));
 $brand-200: if(isDarkMode(), var(--waldur-brand-700), var(--waldur-brand-200));
@@ -50,6 +51,7 @@ $brand-600: if(isDarkMode(), var(--waldur-brand-300), var(--waldur-brand-600));
 $brand-700: if(isDarkMode(), var(--waldur-brand-200), var(--waldur-brand-700));
 $brand-800: if(isDarkMode(), var(--waldur-brand-100), var(--waldur-brand-800));
 $brand-900: if(isDarkMode(), var(--waldur-brand-50), var(--waldur-brand-900));
+$brand-950: if(isDarkMode(), var(--waldur-brand-25), var(--waldur-brand-950));
 $brand: $brand-600;
 $brand-active: $brand-700;
 $brand-light: $brand-50;
@@ -59,11 +61,95 @@ $brand-rgb: if(
   var(--waldur-brand-300-rgb),
   var(--waldur-brand-600-rgb)
 );
+$brand-25-rgb: if(
+  isDarkMode(),
+  var(--waldur-brand-950-rgb),
+  var(--waldur-brand-25-rgb)
+);
 $brand-50-rgb: if(
   isDarkMode(),
   var(--waldur-brand-900-rgb),
   var(--waldur-brand-50-rgb)
 );
+$brand-100-rgb: if(
+  isDarkMode(),
+  var(--waldur-brand-800-rgb),
+  var(--waldur-brand-100-rgb)
+);
+$brand-200-rgb: if(
+  isDarkMode(),
+  var(--waldur-brand-700-rgb),
+  var(--waldur-brand-200-rgb)
+);
+$brand-300-rgb: if(
+  isDarkMode(),
+  var(--waldur-brand-600-rgb),
+  var(--waldur-brand-300-rgb)
+);
+$brand-400-rgb: if(
+  isDarkMode(),
+  var(--waldur-brand-500-rgb),
+  var(--waldur-brand-400-rgb)
+);
+$brand-500-rgb: if(
+  isDarkMode(),
+  var(--waldur-brand-400-rgb),
+  var(--waldur-brand-500-rgb)
+);
+$brand-600-rgb: if(
+  isDarkMode(),
+  var(--waldur-brand-300-rgb),
+  var(--waldur-brand-600-rgb)
+);
+$brand-700-rgb: if(
+  isDarkMode(),
+  var(--waldur-brand-200-rgb),
+  var(--waldur-brand-700-rgb)
+);
+$brand-800-rgb: if(
+  isDarkMode(),
+  var(--waldur-brand-100-rgb),
+  var(--waldur-brand-800-rgb)
+);
+$brand-900-rgb: if(
+  isDarkMode(),
+  var(--waldur-brand-50-rgb),
+  var(--waldur-brand-900-rgb)
+);
+$brand-950-rgb: if(
+  isDarkMode(),
+  var(--waldur-brand-25-rgb),
+  var(--waldur-brand-950-rgb)
+);
+
+// Brand colors map
+$brands: (
+  '25': $brand-25,
+  '50': $brand-50,
+  '100': $brand-100,
+  '200': $brand-200,
+  '300': $brand-300,
+  '400': $brand-400,
+  '500': $brand-500,
+  '600': $brand-600,
+  '700': $brand-700,
+  '800': $brand-800,
+  '900': $brand-900,
+) !default;
+
+$brands-rgb: (
+  '25': $brand-25-rgb,
+  '50': $brand-50-rgb,
+  '100': $brand-100-rgb,
+  '200': $brand-200-rgb,
+  '300': $brand-300-rgb,
+  '400': $brand-400-rgb,
+  '500': $brand-500-rgb,
+  '600': $brand-600-rgb,
+  '700': $brand-700-rgb,
+  '800': $brand-800-rgb,
+  '900': $brand-900-rgb,
+) !default;
 
 // Bootstrap custom colors
 $blue: #009ef6 !default;
@@ -168,6 +254,7 @@ $warning-inverse: $white !default; // Custom variable
 // Danger colors
 $danger-500: if(isDarkMode(), #f97066, #f04438) !default;
 $danger-600: #d92d20 !default; // Bootstrap variable
+$danger-700: if(isDarkMode(), #fecdca, #b42318) !default; // Bootstrap variable
 $danger: #f64e60 !default; // Bootstrap variable
 $danger-active: #ee2d41 !default; // Custom variable
 $danger-light: if(isDarkMode(), #3a2434, #ffe2e5) !default; // Custom variable
@@ -325,6 +412,7 @@ $theme-text-colors: (
   'info': $info,
   'warning': if(isDarkMode(), $warning-500, $warning),
   'danger': if(isDarkMode(), $danger-500, $danger),
+  'danger-700': $danger-700,
   'dark': $dark,
   'dark-always': $dark-always,
   'muted': $text-muted,

@@ -4,8 +4,9 @@ import { useSelector } from 'react-redux';
 import { getFormValues, InjectedFormProps, reduxForm } from 'redux-form';
 
 import { SubmitButton } from '@waldur/auth/SubmitButton';
-import { WizardStepIndicator } from '@waldur/form/WizardStepIndicator';
+import { ProgressStep } from '@waldur/core/ProgressSteps';
 import { translate } from '@waldur/i18n';
+import { StepsList } from '@waldur/marketplace/common/StepsList';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 
 import './wizard.scss';
@@ -16,7 +17,7 @@ export interface WizardFormStepProps
   onSubmit(formData, dispatch, formProps): Promise<any> | void;
   submitLabel: string;
   submitDisabled?: boolean;
-  steps: string[];
+  steps: ProgressStep[];
   step: number;
   onPrev(): void;
   onStep?(step: number): void;
@@ -47,18 +48,18 @@ const WizardFormPure: FC<WizardFormProps> = (props) => {
       </Modal.Header>
       <Modal.Body>
         <div className="wizard-big wizard-body clearfix">
-          <WizardStepIndicator
+          <StepsList
             steps={props.steps}
-            activeStep={props.step}
-            onSelect={(step) => {
+            value={props.steps[props.step]}
+            onClick={(_, index) => {
               if (!props.onStep || props.submitDisabled) return;
-              if (step > props.step) {
+              if (index > props.step) {
                 props.submit();
                 if (props.valid) {
-                  props.onStep(step);
+                  props.onStep(index);
                 }
               } else {
-                props.onStep(step);
+                props.onStep(index);
               }
             }}
           />

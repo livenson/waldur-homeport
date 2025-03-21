@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import { proposalProtectedCallsOfferingsSet } from 'waldur-js-client';
 
 import { fixURL } from '@waldur/core/api';
+import { ProgressStep } from '@waldur/core/ProgressSteps';
 import { WizardFormContainer } from '@waldur/form/WizardFormContainer';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
@@ -26,10 +27,18 @@ const WizardForms = [
   WizardFormThirdPage,
 ];
 
-const steps = [
-  translate('Select offering'),
-  translate('Configure request'),
-  translate('Submit'),
+const steps: ProgressStep[] = [
+  {
+    key: 'offering',
+    label: translate('Select offering'),
+    completed: false,
+  },
+  {
+    key: 'configure',
+    label: translate('Configure request'),
+    completed: false,
+  },
+  { key: 'submit', label: translate('Submit'), completed: false },
 ];
 
 export const CallOfferingCreateDialog: FC<CallOfferingCreateDialogProps> = (

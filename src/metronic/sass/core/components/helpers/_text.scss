@@ -4,8 +4,9 @@
 
 // Text colors
 @each $name, $color in $theme-text-colors {
-  @if ($name == primary) {
-    $color: $brand;
+  $brandColor: get-brand-color($name);
+  @if ($brandColor) {
+    $color: $brandColor;
   }
   // Base color
   .text-#{$name} {

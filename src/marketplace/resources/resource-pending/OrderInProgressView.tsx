@@ -105,7 +105,7 @@ const getSteps = (resource: Resource) => {
               : translate('Resource successfully updated'),
         ],
     completed: isStep4Completed,
-    variant: order.state === 'done' ? 'success' : 'danger',
+    variant: order.state === 'done' ? 'primary' : 'danger',
   });
   return steps;
 };

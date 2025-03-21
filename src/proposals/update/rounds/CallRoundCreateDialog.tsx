@@ -7,6 +7,7 @@ import {
 } from 'waldur-js-client';
 
 import { parseDate } from '@waldur/core/dateUtils';
+import { ProgressStep } from '@waldur/core/ProgressSteps';
 import { WizardFormContainer } from '@waldur/form/WizardFormContainer';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
@@ -30,10 +31,22 @@ const WizardForms = [
   WizardFormThirdPage,
 ];
 
-const steps = [
-  translate('Submission'),
-  translate('Review'),
-  translate('Allocation'),
+const steps: ProgressStep[] = [
+  {
+    key: 'submission',
+    label: translate('Submission'),
+    completed: false,
+  },
+  {
+    key: 'review',
+    label: translate('Review'),
+    completed: false,
+  },
+  {
+    key: 'allocation',
+    label: translate('Allocation'),
+    completed: false,
+  },
 ];
 
 const validate = (values: ProtectedRoundRequest) => {

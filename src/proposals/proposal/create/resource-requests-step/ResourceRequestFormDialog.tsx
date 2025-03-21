@@ -6,6 +6,7 @@ import {
   proposalProposalsResourcesSet,
 } from 'waldur-js-client';
 
+import { ProgressStep } from '@waldur/core/ProgressSteps';
 import { WizardFormContainer } from '@waldur/form/WizardFormContainer';
 import { translate } from '@waldur/i18n';
 import { Offering } from '@waldur/marketplace/types';
@@ -35,10 +36,14 @@ const WizardForms = [
   ResourceRequestWizardFormThirdPage,
 ];
 
-const steps = [
-  translate('Select offering'),
-  translate('Configure request'),
-  translate('Additional configuration'),
+const steps: ProgressStep[] = [
+  { key: 'offering', label: translate('Select offering'), completed: false },
+  { key: 'configure', label: translate('Configure request'), completed: false },
+  {
+    key: 'additional',
+    label: translate('Additional configuration'),
+    completed: false,
+  },
 ];
 
 export const ResourceRequestFormDialog: FC<OwnProps> = (props) => {
