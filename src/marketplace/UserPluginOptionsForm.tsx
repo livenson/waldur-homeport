@@ -148,7 +148,7 @@ export const UserPluginOptionsForm: FunctionComponent<
       disabled={!canCreateUser}
       actions={
         <FieldEditButton
-          title={props.title}
+          title={field.label}
           scope={props.offering}
           name={field.key}
           callback={props.callback}

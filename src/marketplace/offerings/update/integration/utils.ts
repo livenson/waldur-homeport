@@ -1,4 +1,3 @@
-import { set, unset } from 'lodash-es';
 import { useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { SubmissionError } from 'redux-form';
@@ -8,7 +7,6 @@ import {
   ProviderOfferingDetails,
 } from 'waldur-js-client';
 
-import { flattenObject } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { showError, showSuccess } from '@waldur/store/notify';
@@ -46,27 +44,10 @@ export const useUpdateOfferingIntegration = (
   const dispatch = useDispatch();
   const update = useCallback(
     async (formData: OfferingIntegrationUpdateRequest) => {
-      const payload = {
-        service_attributes: offering.service_attributes,
-        secret_options: offering.secret_options,
-        plugin_options: offering.plugin_options,
-        backend_id: offering.backend_id,
-      };
-      // Replace edited field(s)
-      const flattenKeys = flattenObject(formData);
-      Object.entries(flattenKeys).map(([key, value]) => {
-        if (Array.isArray(value) && value.length === 0) {
-          unset(payload, key);
-        } else if (value || [0, false].includes(value)) {
-          set(payload, key, value);
-        } else {
-          unset(payload, key);
-        }
-      });
       try {
         await marketplaceProviderOfferingsUpdateIntegration({
           path: { uuid: offering.uuid },
-          body: payload,
+          body: formData,
         });
         dispatch(
           showSuccess(translate('Offering has been updated successfully.')),
