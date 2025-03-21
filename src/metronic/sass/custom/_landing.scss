@@ -45,13 +45,13 @@ $bg-height: 232px;
     &.bg-mode-light {
       background-color: $white;
       &::before {
-        background-color: rgba($white, 0.4);
+        background-color: rgba($white, 0.6);
       }
     }
     &.bg-mode-accent {
-      background-color: $primary-50;
+      background-color: var(--waldur-brand-50-rgb);
       &::before {
-        background-color: rgba($primary-50, 0.4);
+        background-color: rgba(var(--waldur-brand-100-rgb), 0.6);
       }
     }
   }
