@@ -27,14 +27,12 @@ const steps: ProgressStep[] = [
     key: 'details',
     label: <IssueDetailsStepLabel />,
     description: [translate('Define issue type and context')],
-    variant: 'primary',
     completed: true,
   },
   {
     key: 'description',
     label: translate('Description'),
     description: [translate('Add title, description, and attachments')],
-    variant: 'primary',
     completed: false,
   },
 ];

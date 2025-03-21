@@ -6,7 +6,7 @@
   @if ($isNotBrand) {
     --bg-color: #{red($color)}, #{green($color)}, #{blue($color)};
   } @else if ($colorRgb) {
-    --bg-color: $colorRgb !important;
+    --bg-color: #{$colorRgb} !important;
   }
   background-color: $color !important;
 }
@@ -20,8 +20,9 @@
     null;
 
   $altColorRgb: null;
-  @if ($color == 'primary') {
-    $altColorRgb: $brand-rgb;
+  $brandColor: get-brand-color($color, true);
+  @if ($brandColor) {
+    $altColorRgb: $brandColor;
   } @else if ($color == 'secondary') {
     $altColorRgb: $brand-50-rgb;
   }
@@ -43,7 +44,7 @@
       --bg-color: #{red($value)}, #{green($value)}, #{blue($value)} !important;
     } @else if ($altColorRgb) {
       background-color: rgb($altColorRgb) !important;
-      --bg-color: $altColorRgb !important;
+      --bg-color: #{$altColorRgb} !important;
     }
 
     &.hoverable:hover {

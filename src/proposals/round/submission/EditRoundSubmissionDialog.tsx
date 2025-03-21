@@ -61,7 +61,9 @@ export const EditRoundSubmissionDialog: FC<EditRoundSubmissionDialogProps> = (
       title={translate('Edit round submission')}
       submitLabel={translate('Edit')}
       onSubmit={submit}
-      steps={[translate('Submission')]}
+      steps={[
+        { key: 'submission', label: translate('Submission'), completed: false },
+      ]}
       wizardForms={[WizardFormFirstPage]}
       initialValues={{
         timezone: DateTime.local().zoneName,

@@ -55,7 +55,9 @@ export const EditRoundAllocationDialog: FC<EditRoundAllocationDialogProps> = (
       title={translate('Edit round allocation')}
       onSubmit={submit}
       submitLabel={translate('Edit')}
-      steps={[translate('Allocation')]}
+      steps={[
+        { key: 'allocation', label: translate('Allocation'), completed: false },
+      ]}
       wizardForms={[WizardFormThirdPage]}
       initialValues={{
         deciding_entity: initialValues.deciding_entity,

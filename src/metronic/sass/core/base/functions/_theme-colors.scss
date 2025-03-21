@@ -78,3 +78,25 @@
   }
   @return get($theme-700-colors, $key);
 }
+
+@function get-brand-color($name, $rgb: false) {
+  @if ($name == primary) {
+    @if ($rgb) {
+      @return $brand-rgb;
+    } @else {
+      @return $brand;
+    }
+  } @else if (str-slice($name, 1, 7) == 'primary') {
+    $suffix: str-slice($name, 9);
+
+    @if $rgb and map-has-key($brands-rgb, $suffix) {
+      @return map-get($brands-rgb, $suffix);
+    } @else if not $rgb and map-has-key($brands, $suffix) {
+      @return map-get($brands, $suffix);
+    } @else {
+      @error "Brand color with suffix #{$suffix} not found in \$brands map.";
+    }
+  }
+
+  @return null;
+}
