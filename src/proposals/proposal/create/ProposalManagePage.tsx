@@ -1,5 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useCurrentStateAndParams } from '@uirouter/react';
+import { useSelector } from 'react-redux';
 import {
   proposalProposalsRetrieve,
   proposalReviewsList,
@@ -13,6 +14,7 @@ import { translate } from '@waldur/i18n';
 import { PageBarProvider } from '@waldur/marketplace/context';
 import { useTitle } from '@waldur/navigation/title';
 import { Proposal } from '@waldur/proposals/types';
+import { getUser } from '@waldur/workspace/selectors';
 
 import { ProposalDetails } from '../ProposalDetails';
 
@@ -42,6 +44,10 @@ export const ProposalManagePage = () => {
       refetchOnWindowFocus: false,
     },
   );
+  const user = useSelector(getUser);
+
+  const hasPermissionToSubmit =
+    user.is_staff || user.uuid === proposal.created_by_uuid;
 
   const { data: reviews, isLoading: isLoadingReviews } = useQuery(
     ['ProposalReviews', proposal_uuid],
@@ -68,7 +74,7 @@ export const ProposalManagePage = () => {
           <ProgressSteps proposal={proposal} bgClass="bg-body" />
         </div>
       </SidebarLayout.Header>
-      {proposal.state === 'draft' ? (
+      {proposal.state === 'draft' && hasPermissionToSubmit ? (
         <ProposalSubmissionStep
           proposal={proposal}
           refetch={refetch}
