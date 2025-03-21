@@ -5,10 +5,11 @@
 @mixin setBgColor($isNotBrand, $color, $colorRgb) {
   @if ($isNotBrand) {
     --bg-color: #{red($color)}, #{green($color)}, #{blue($color)};
+    background-color: $color !important;
   } @else if ($colorRgb) {
     --bg-color: #{$colorRgb} !important;
+    background-color: rgb(#{$colorRgb}) !important;
   }
-  background-color: $color !important;
 }
 
 // Background theme light colors
