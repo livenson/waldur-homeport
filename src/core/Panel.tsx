@@ -8,6 +8,7 @@ interface PanelProps {
   actions?: React.ReactNode;
   className?: string;
   bodyClassName?: string;
+  titleClassName?: string;
   cardBordered?: boolean;
 }
 
@@ -17,6 +18,7 @@ export const Panel: React.FC<PropsWithChildren<PanelProps>> = ({
   children,
   className,
   bodyClassName,
+  titleClassName,
   cardBordered,
   actions,
 }) => (
@@ -27,7 +29,7 @@ export const Panel: React.FC<PropsWithChildren<PanelProps>> = ({
     {title && (
       <Card.Header>
         <Card.Title>
-          <h3>{title}</h3>
+          <h3 className={titleClassName}>{title}</h3>
         </Card.Title>
         <div className="card-toolbar">{actions}</div>
       </Card.Header>

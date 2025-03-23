@@ -1,5 +1,6 @@
 import { DownloadSimple } from '@phosphor-icons/react';
 import { FunctionComponent } from 'react';
+import { Button } from 'react-bootstrap';
 import { useAsync } from 'react-use';
 import {
   marketplacePlanComponentsList,
@@ -11,8 +12,6 @@ import { getAllPages } from '@waldur/core/api';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import exportExcel from '@waldur/table/exporters/excel';
-
-import './ExportFullPriceList.scss';
 
 interface ExportFullPriceListProps {
   offering: PublicOfferingDetails;
@@ -70,6 +69,7 @@ export const ExportFullPriceList: FunctionComponent<
     });
     return components;
   }, [offering]);
+
   return (
     <div className="exportFullPriceList">
       {loading ? (
@@ -77,16 +77,15 @@ export const ExportFullPriceList: FunctionComponent<
       ) : error ? (
         <>{translate('Unable to load full price list')}</>
       ) : components ? (
-        <button
-          className="text-anchor exportFullPriceList__download"
-          type="button"
+        <Button
+          variant="outline btn-outline-default"
           onClick={() => onExport(offering.name, components)}
         >
           <span className="svg-icon svg-icon-2">
-            <DownloadSimple />
-          </span>{' '}
+            <DownloadSimple weight="bold" />
+          </span>
           {translate('Download full price list')}
-        </button>
+        </Button>
       ) : null}
     </div>
   );

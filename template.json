@@ -96,7 +96,7 @@
     "message": "A name of the shared volume to store scripts"
   },
   "A one-time fee applied on activation.": {
-    "description": "marketplace/details/plan/PlanDetailsList.tsx, marketplace/details/plan/PlanDetailsTable.tsx",
+    "description": "marketplace/details/plan/PlanDetailsTable.tsx",
     "message": "A one-time fee applied on activation."
   },
   "A profile has been created.": {
@@ -528,7 +528,7 @@
     "message": "Additional space to apply to storage quota to be used by snapshots."
   },
   "Additionally service provider can charge for usage of the following components": {
-    "description": "marketplace/details/plan/PlanDetailsList.tsx, marketplace/details/plan/PlanDetailsTable.tsx",
+    "description": "marketplace/details/plan/PlanDetailsTable.tsx",
     "message": "Additionally service provider can charge for usage of the following components"
   },
   "Address": {
@@ -634,10 +634,6 @@
   "All pages": {
     "description": "table/ExportDialog.tsx",
     "message": "All pages"
-  },
-  "All plans comes with": {
-    "description": "marketplace/offerings/details/PublicOfferingPricing.tsx",
-    "message": "All plans comes with"
   },
   "All ports": {
     "description": "openstack/openstack-security-groups/rule-editor/PortRangeField.tsx",
@@ -1463,10 +1459,6 @@
     "description": "marketplace/routes.ts, proposals/CallsAvailableOfferingsList.tsx, proposals/CallsAvailableOfferingsPage.tsx, proposals/CallsForProposals.tsx, proposals/routes.ts",
     "message": "Available offerings"
   },
-  "Available plans": {
-    "description": "marketplace/offerings/details/PublicOfferingPricing.tsx",
-    "message": "Available plans"
-  },
   "Available quota usage: {usage}": {
     "description": "quotas/QuotaUsageBarChart.tsx",
     "message": "Available quota usage: {usage}"
@@ -1562,14 +1554,6 @@
   "Before removing organization, please make sure that all projects are removed.": {
     "description": "customer/details/CustomerRemovePanel.tsx",
     "message": "Before removing organization, please make sure that all projects are removed."
-  },
-  "Billed monthly": {
-    "description": "marketplace/offerings/details/PublicOfferingPricing.tsx",
-    "message": "Billed monthly"
-  },
-  "Billed yearly (20% discount)": {
-    "description": "marketplace/offerings/details/PublicOfferingPricing.tsx",
-    "message": "Billed yearly (20% discount)"
   },
   "Billing actions": {
     "description": "openstack/openstack-instance/OpenStackInstanceActions.tsx, openstack/openstack-tenant/OpenstackTenantActions.tsx, openstack/openstack-volume/OpenStackVolumeActions.tsx, slurm/SlurmAllocationActions.tsx",
@@ -2240,7 +2224,7 @@
     "message": "Component has been removed."
   },
   "Component name": {
-    "description": "marketplace/details/plan/LimitlessComponentsTable.tsx, marketplace/details/plan/PlanDetailsList.tsx, marketplace/details/plan/PlanDetailsTable.tsx, marketplace/details/plan/TotalLimitComponentsList.tsx, marketplace/details/plan/TotalLimitComponentsTable.tsx",
+    "description": "marketplace/details/plan/LimitlessComponentsTable.tsx, marketplace/details/plan/PlanDetailsTable.tsx, marketplace/details/plan/TotalLimitComponentsTable.tsx",
     "message": "Component name"
   },
   "Component usage chart": {
@@ -2376,7 +2360,7 @@
     "message": "Contact info"
   },
   "Contact vendor": {
-    "description": "marketplace/offerings/details/PublicOfferingGetHelp.tsx, marketplace/offerings/details/PublicOfferingPricing.tsx",
+    "description": "marketplace/offerings/details/PublicOfferingGetHelp.tsx",
     "message": "Contact vendor"
   },
   "Contact": {
@@ -3172,7 +3156,7 @@
     "message": "Deploy Longhorn block storage after cluster is deployed"
   },
   "Deploy": {
-    "description": "marketplace/category/PublicOfferingsList.tsx, marketplace/offerings/DeployButton.tsx, marketplace/offerings/details/PublicOfferingPricingPlanItem.tsx",
+    "description": "marketplace/category/PublicOfferingsList.tsx, marketplace/offerings/DeployButton.tsx",
     "message": "Deploy"
   },
   "Deployment ID": {
@@ -4232,11 +4216,11 @@
     "message": "Features"
   },
   "Fee applied according to the maximum value reported by service provider over the whole active state of resource.": {
-    "description": "marketplace/details/plan/PlanDetailsList.tsx, marketplace/details/plan/PlanDetailsTable.tsx",
+    "description": "marketplace/details/plan/PlanDetailsTable.tsx",
     "message": "Fee applied according to the maximum value reported by service provider over the whole active state of resource."
   },
   "Fee applied each time this plan is activated.": {
-    "description": "marketplace/details/plan/PlanDetailsList.tsx, marketplace/details/plan/PlanDetailsTable.tsx",
+    "description": "marketplace/details/plan/PlanDetailsTable.tsx",
     "message": "Fee applied each time this plan is activated."
   },
   "Feedback": {
@@ -7511,10 +7495,6 @@
     "description": "project/OECD_FOS_2007_CODES.ts",
     "message": "Other natural sciences"
   },
-  "Other requirements?": {
-    "description": "marketplace/offerings/details/PublicOfferingPricing.tsx",
-    "message": "Other requirements?"
-  },
   "Other social sciences": {
     "description": "project/OECD_FOS_2007_CODES.ts",
     "message": "Other social sciences"
@@ -7932,7 +7912,7 @@
     "message": "Planned quota usage: {usage}"
   },
   "Plans": {
-    "description": "marketplace/offerings/OfferingDetailsUIView.tsx, marketplace/offerings/details/PlanUsageList.tsx, marketplace/offerings/update/utils.ts",
+    "description": "marketplace/offerings/OfferingDetailsUIView.tsx, marketplace/offerings/details/PlanUsageList.tsx, marketplace/offerings/details/PublicOfferingPricing.tsx, marketplace/offerings/update/utils.ts",
     "message": "Plans"
   },
   "Please add a comment for the \"{name}\"": {
@@ -8212,7 +8192,7 @@
     "message": "Price per month"
   },
   "Price per unit": {
-    "description": "marketplace/common/BillingPeriod.tsx, marketplace/details/plan/LimitlessComponentsTable.tsx, marketplace/details/plan/TotalLimitComponentsList.tsx, marketplace/details/plan/TotalLimitComponentsTable.tsx",
+    "description": "marketplace/common/BillingPeriod.tsx, marketplace/details/plan/LimitlessComponentsTable.tsx, marketplace/details/plan/TotalLimitComponentsTable.tsx",
     "message": "Price per unit"
   },
   "Price per year": {
@@ -8236,7 +8216,7 @@
     "message": "Pricing tier"
   },
   "Pricing": {
-    "description": "marketplace/offerings/OfferingPublicUIView.tsx, marketplace/offerings/details/PublicOfferingPricing.tsx",
+    "description": "marketplace/offerings/OfferingPublicUIView.tsx",
     "message": "Pricing"
   },
   "Primary accent": {
@@ -8854,10 +8834,6 @@
   "Recipients": {
     "description": "broadcasts/RecipientsField.tsx",
     "message": "Recipients"
-  },
-  "Recommended": {
-    "description": "marketplace/offerings/details/PublicOfferingPricingPlanItem.tsx",
-    "message": "Recommended"
   },
   "Record notification has been sent to organization owners.": {
     "description": "invoices/list/SendNotificationButton.tsx",
@@ -10544,7 +10520,7 @@
     "message": "Service provider API secret code has been generated."
   },
   "Service provider can charge for usage of the following components": {
-    "description": "marketplace/details/plan/PlanDetailsList.tsx, marketplace/details/plan/PlanDetailsTable.tsx",
+    "description": "marketplace/details/plan/PlanDetailsTable.tsx",
     "message": "Service provider can charge for usage of the following components"
   },
   "Service provider can report up to the requested amount over the whole active state of resource.": {
@@ -11216,7 +11192,7 @@
     "message": "Subscription ID"
   },
   "Subtotal": {
-    "description": "invoices/details/InvoiceDetails.tsx, invoices/list/MonthOverview.tsx, marketplace/details/plan/TotalLimitComponentsList.tsx, marketplace/details/plan/TotalLimitComponentsTable.tsx",
+    "description": "invoices/details/InvoiceDetails.tsx, invoices/list/MonthOverview.tsx, marketplace/details/plan/TotalLimitComponentsTable.tsx",
     "message": "Subtotal"
   },
   "Suggest name": {
@@ -12088,7 +12064,7 @@
     "message": "Total storage"
   },
   "Total": {
-    "description": "customer/cost-policies/CostPolicyForm.tsx, customer/cost-policies/utils.ts, customer/dashboard/CreditStatusWidget.tsx, invoices/details/BillingRecordDetails.tsx, invoices/details/InvoiceDetails.tsx, invoices/details/InvoiceItemExpandableRow.tsx, invoices/details/InvoiceItemsTable.tsx, invoices/details/ResourceLimitPeriodsTable.tsx, invoices/list/BillingRecordsList.tsx, invoices/list/InvoicesList.tsx, invoices/list/MonthOverview.tsx, marketplace/deploy/DeployPageTotalCard.tsx, marketplace/details/plan/ComponentRow.tsx, marketplace/details/plan/OrderSummaryPlanRows.tsx, marketplace/details/plan/PlanDetailsList.tsx, marketplace/details/plan/PlanDetailsTable.tsx, marketplace/details/plan/PlanDetailsTable2.tsx, marketplace/details/plan/TotalLimitComponentsList.tsx, marketplace/details/plan/TotalLimitComponentsTable.tsx, marketplace/details/plan/UsageComponentRow.tsx, marketplace/resources/change-limits/ComponentTotalRow.tsx, reporting/invoices/utils.ts",
+    "description": "customer/cost-policies/CostPolicyForm.tsx, customer/cost-policies/utils.ts, customer/dashboard/CreditStatusWidget.tsx, invoices/details/BillingRecordDetails.tsx, invoices/details/InvoiceDetails.tsx, invoices/details/InvoiceItemExpandableRow.tsx, invoices/details/InvoiceItemsTable.tsx, invoices/details/ResourceLimitPeriodsTable.tsx, invoices/list/BillingRecordsList.tsx, invoices/list/InvoicesList.tsx, invoices/list/MonthOverview.tsx, marketplace/deploy/DeployPageTotalCard.tsx, marketplace/details/plan/ComponentRow.tsx, marketplace/details/plan/OrderSummaryPlanRows.tsx, marketplace/details/plan/PlanDetailsTable.tsx, marketplace/details/plan/PlanDetailsTable2.tsx, marketplace/details/plan/TotalLimitComponentsTable.tsx, marketplace/details/plan/UsageComponentRow.tsx, marketplace/resources/change-limits/ComponentTotalRow.tsx, reporting/invoices/utils.ts",
     "message": "Total"
   },
   "Tracked using UTC timezone, displayed with your browser’s timezone.": {
