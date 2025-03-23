@@ -10128,7 +10128,7 @@
     "message": "See less"
   },
   "See more": {
-    "description": "booking/offering/BookingResourceListItem.tsx, marketplace/landing/CategoriesList.tsx",
+    "description": "booking/offering/BookingResourceListItem.tsx, marketplace/landing/CategoriesList.tsx, marketplace/resources/usage/utils.ts",
     "message": "See more"
   },
   "See our {guide}.": {
