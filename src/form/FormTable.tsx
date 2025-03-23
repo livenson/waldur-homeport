@@ -69,7 +69,7 @@ const FormTableItem: FC<FormTableItemProps> = ({ actions, ...props }) => {
           </th>
         ) : i === 0 && props.label ? (
           <th className="title col-md-3" rowSpan={titleRowSpan}>
-            {props.label}:{' '}
+            {props.label}{' '}
             {Boolean(props.tooltip) &&
               wrapTooltip(
                 props.tooltip,
