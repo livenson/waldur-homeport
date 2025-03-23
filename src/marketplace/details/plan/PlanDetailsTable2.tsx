@@ -2,7 +2,7 @@ import { WarningCircle } from '@phosphor-icons/react';
 import { FunctionComponent, useMemo, useState } from 'react';
 import { Nav, Tab } from 'react-bootstrap';
 import { connect, useSelector } from 'react-redux';
-import { PublicOfferingDetails } from 'waldur-js-client';
+import { BasePublicPlan, PublicOfferingDetails } from 'waldur-js-client';
 
 import { AwesomeCheckbox } from '@waldur/core/AwesomeCheckbox';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
@@ -16,7 +16,6 @@ import {
   formSubmitErrorsSelector,
 } from '@waldur/marketplace/deploy/utils';
 import { Limits } from '@waldur/marketplace/details/types';
-import { Plan } from '@waldur/marketplace/types';
 import { PriceTooltip } from '@waldur/price/PriceTooltip';
 import { getCustomer } from '@waldur/workspace/selectors';
 
@@ -312,7 +311,7 @@ const PureDetailsTable: FunctionComponent<PlanDetailsTableProps> = (props) => {
 
 interface PlanDetailsTable2 {
   offering: PublicOfferingDetails;
-  plan?: Plan;
+  plan?: BasePublicPlan;
   limits?: Limits;
   viewMode?: boolean;
 }

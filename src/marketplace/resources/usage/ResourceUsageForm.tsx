@@ -39,7 +39,7 @@ export interface ResourceUsageFormProps extends InjectedFormProps {
 
 const SummaryField = ({ label, value }) => (
   <span>
-    <strong className="text-grey-700">{label}</strong>: {value}
+    <strong className="text-gray-700">{label}</strong>: {value}
   </span>
 );
 
