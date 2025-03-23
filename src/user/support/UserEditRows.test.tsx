@@ -91,7 +91,9 @@ describe('UserEditRows', () => {
     it('shows native name when feature is enabled', () => {
       vi.mocked(config.getNativeNameVisible).mockReturnValue(true);
       renderComponent();
-      expect(screen.getByText('Native name')).toBeInTheDocument();
+      expect(
+        screen.getByRole('columnheader', { name: /native name/i }),
+      ).toBeInTheDocument();
     });
 
     it('hides native name when feature is disabled', () => {
