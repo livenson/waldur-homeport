@@ -1,8 +1,12 @@
-import { User } from 'waldur-js-client';
+import {
+  Options,
+  User,
+  usersMeRetrieve,
+  UsersMeRetrieveData,
+} from 'waldur-js-client';
 
 import { getRoles } from '@waldur/administration/roles/utils';
 import { initApiClient } from '@waldur/core/api';
-import { get } from '@waldur/core/api';
 import { ENV } from '@waldur/core/config';
 import store from '@waldur/store/store';
 import { setCurrentUser } from '@waldur/workspace/actions';
@@ -13,8 +17,10 @@ import {
   getImpersonatedUserUuid,
 } from '@waldur/workspace/WorkspaceStorage';
 
-export const getCurrentUser = async () => {
-  const user = await get<User>('/users/me/');
+export const getCurrentUser = async (
+  options?: Options<UsersMeRetrieveData>,
+) => {
+  const user = await usersMeRetrieve(options).then((response) => response.data);
   if (ENV.roles.length === 0) {
     ENV.roles = await getRoles();
   }

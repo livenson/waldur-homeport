@@ -86,7 +86,7 @@ export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
 
   useEffect(() => {
     if (AuthService.isAuthenticated() && !currentUser) {
-      getCurrentUser().then((user) => {
+      getCurrentUser({ throwOnError: false }).then((user) => {
         dispatch(setCurrentUser(user));
       });
     }
