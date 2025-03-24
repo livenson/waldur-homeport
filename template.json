@@ -2064,11 +2064,11 @@
     "message": "Client ID"
   },
   "Client organization": {
-    "description": "marketplace/orders/list/OrdersTableComponent.tsx, marketplace/resources/details/utils.tsx, marketplace/resources/list/ProviderResourcesFilter.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/usage/ResourceMetaInfo.tsx, marketplace/resources/usage/ResourceUsageForm.tsx, reporting/resource-usage/ResourceUsageList.tsx",
+    "description": "marketplace/orders/list/OrdersTableComponent.tsx, marketplace/resources/details/utils.tsx, marketplace/resources/list/ProviderResourcesFilter.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/usage/ResourceMetaInfo.tsx, marketplace/resources/usage/ResourceUsageForm.tsx, reporting/resource-usage/ResourceUsageList.tsx, reporting/resource-usage/UserUsageList.tsx",
     "message": "Client organization"
   },
   "Client project": {
-    "description": "marketplace/resources/details/utils.tsx, marketplace/resources/usage/ResourceMetaInfo.tsx, marketplace/resources/usage/ResourceUsageForm.tsx, reporting/resource-usage/ResourceUsageList.tsx",
+    "description": "marketplace/resources/details/utils.tsx, marketplace/resources/usage/ResourceMetaInfo.tsx, marketplace/resources/usage/ResourceUsageForm.tsx, reporting/resource-usage/ResourceUsageList.tsx, reporting/resource-usage/UserUsageList.tsx",
     "message": "Client project"
   },
   "Client secret": {
@@ -2180,7 +2180,7 @@
     "message": "Comment prefix with user info."
   },
   "Comment": {
-    "description": "invitations/PermissionRequestActionDialog.tsx, invitations/UserPermissionRequestsList.tsx, issues/feedback/SupportFeedback.tsx, issues/feedback/SupportFeedbackListExpandableRow.tsx, marketplace-remote/ReviewDialog.tsx, proposals/proposal/create-review/CommentFormDialog.tsx, reporting/resource-usage/ResourceUsageList.tsx, user/UserPermissionRequestsList.tsx",
+    "description": "invitations/PermissionRequestActionDialog.tsx, invitations/UserPermissionRequestsList.tsx, issues/feedback/SupportFeedback.tsx, issues/feedback/SupportFeedbackListExpandableRow.tsx, marketplace-remote/ReviewDialog.tsx, proposals/proposal/create-review/CommentFormDialog.tsx, reporting/resource-usage/ResourceUsageList.tsx, reporting/resource-usage/UserUsageList.tsx, user/UserPermissionRequestsList.tsx",
     "message": "Comment"
   },
   "Comments": {
@@ -2960,7 +2960,7 @@
     "message": "Date joined"
   },
   "Date of reporting": {
-    "description": "reporting/resource-usage/ResourceUsageList.tsx",
+    "description": "reporting/resource-usage/ResourceUsageList.tsx, reporting/resource-usage/UserUsageList.tsx",
     "message": "Date of reporting"
   },
   "Date": {
@@ -6716,7 +6716,7 @@
     "message": "No resources available in the current project. Start by adding or managing resources to get started."
   },
   "No resources": {
-    "description": "customer/credits/CreditUsageFilter.tsx",
+    "description": "resource/ResourceAutocomplete.tsx",
     "message": "No resources"
   },
   "No result found": {
@@ -7076,7 +7076,7 @@
     "message": "Offering(s)"
   },
   "Offering": {
-    "description": "administration/roles/PermissionOptions.tsx, customer/credits/CreditUsageDialog.tsx, customer/credits/CreditUsageFilter.tsx, invoices/details/InvoiceItemsFilter.tsx, invoices/details/InvoiceItemsTable.tsx, marketplace/aggregate-limits/AggregateLimitsExpandableRow.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/deploy/steps/FormDetailsOverviewStep.tsx, marketplace/offerings/PriceList.tsx, marketplace/orders/list/MarketplaceOrdersListFilter.tsx, marketplace/orders/list/OrdersListExpandableRow.tsx, marketplace/resources/list/AllResourcesFilter.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/OfferingFilter.tsx, marketplace/resources/list/ProjectResourcesAllFilter.tsx, marketplace/resources/list/ProviderResourcesFilter.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/utils.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx, marketplace/service-providers/OfferingPermissionCreateDialog.tsx, marketplace/service-providers/OfferingPermissionsList.tsx, marketplace/service-providers/ProviderCampaignResourceExpandable.tsx, marketplace/service-providers/ProviderOfferingUsersFilter.tsx, marketplace/service-providers/ProviderOfferingUsersList.tsx, marketplace/service-providers/ProviderProjectResourcesList.tsx, marketplace-remote/ProjectUpdateRequestsList.tsx, navigation/header/confirmation-drawer/PendingConsumerOrders.tsx, navigation/header/confirmation-drawer/PendingProviderOrders.tsx, openstack/openstack-tenant/actions/MigrateTenantDialog.tsx, permissions/constants.tsx, proposals/offering-requests/OfferingRequestsList.tsx, proposals/offering-requests/OfferingRequestsTableFilter.tsx, proposals/proposal/create/ResourceRequestsSummary.tsx, proposals/proposal/create/resource-requests-step/FormResourceRequestsStep.tsx, proposals/proposal/create/resource-requests-step/ProposalResourcesFilter.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestWizardFormSecondPage.tsx, proposals/update/offerings/WizardFormSecondPage.tsx, reporting/plan-usage/PlanUsageDialog.tsx, reporting/plan-usage/PlanUsageFilter.tsx, reporting/plan-usage/PlanUsageList.tsx, reporting/resource-usage/ResourceUsageFilter.tsx, reporting/resource-usage/ResourceUsageList.tsx, user/UserOfferingList.tsx, user/affiliations/SummaryResourcesTable.tsx",
+    "description": "administration/roles/PermissionOptions.tsx, customer/credits/CreditUsageDialog.tsx, customer/credits/CreditUsageFilter.tsx, invoices/details/InvoiceItemsFilter.tsx, invoices/details/InvoiceItemsTable.tsx, marketplace/aggregate-limits/AggregateLimitsExpandableRow.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/deploy/steps/FormDetailsOverviewStep.tsx, marketplace/offerings/PriceList.tsx, marketplace/orders/list/MarketplaceOrdersListFilter.tsx, marketplace/orders/list/OrdersListExpandableRow.tsx, marketplace/resources/list/AllResourcesFilter.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/OfferingFilter.tsx, marketplace/resources/list/ProjectResourcesAllFilter.tsx, marketplace/resources/list/ProviderResourcesFilter.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/utils.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx, marketplace/service-providers/OfferingPermissionCreateDialog.tsx, marketplace/service-providers/OfferingPermissionsList.tsx, marketplace/service-providers/ProviderCampaignResourceExpandable.tsx, marketplace/service-providers/ProviderOfferingUsersFilter.tsx, marketplace/service-providers/ProviderOfferingUsersList.tsx, marketplace/service-providers/ProviderProjectResourcesList.tsx, marketplace-remote/ProjectUpdateRequestsList.tsx, navigation/header/confirmation-drawer/PendingConsumerOrders.tsx, navigation/header/confirmation-drawer/PendingProviderOrders.tsx, openstack/openstack-tenant/actions/MigrateTenantDialog.tsx, permissions/constants.tsx, proposals/offering-requests/OfferingRequestsList.tsx, proposals/offering-requests/OfferingRequestsTableFilter.tsx, proposals/proposal/create/ResourceRequestsSummary.tsx, proposals/proposal/create/resource-requests-step/FormResourceRequestsStep.tsx, proposals/proposal/create/resource-requests-step/ProposalResourcesFilter.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestWizardFormSecondPage.tsx, proposals/update/offerings/WizardFormSecondPage.tsx, reporting/plan-usage/PlanUsageDialog.tsx, reporting/plan-usage/PlanUsageFilter.tsx, reporting/plan-usage/PlanUsageList.tsx, reporting/resource-usage/ResourceUsageFilter.tsx, reporting/resource-usage/ResourceUsageList.tsx, reporting/resource-usage/UserUsageList.tsx, user/UserOfferingList.tsx, user/affiliations/SummaryResourcesTable.tsx",
     "message": "Offering"
   },
   "Offerings count": {
@@ -7868,7 +7868,7 @@
     "message": "Plan capacity"
   },
   "Plan component name": {
-    "description": "reporting/resource-usage/ResourceUsageList.tsx",
+    "description": "reporting/resource-usage/ResourceUsageList.tsx, reporting/resource-usage/UserUsageList.tsx",
     "message": "Plan component name"
   },
   "Plan description": {
@@ -9456,7 +9456,7 @@
     "message": "Resource metadata"
   },
   "Resource name": {
-    "description": "invoices/details/InvoiceItemsTable.tsx, reporting/resource-usage/ResourceUsageList.tsx",
+    "description": "invoices/details/InvoiceItemsTable.tsx, reporting/resource-usage/ResourceUsageList.tsx, reporting/resource-usage/UserUsageList.tsx",
     "message": "Resource name"
   },
   "Resource options": {
@@ -9520,7 +9520,7 @@
     "message": "Resource usage for {resourceName}"
   },
   "Resource usage": {
-    "description": "marketplace/resources/usage/ResourceCreateUsageDialog.test.tsx, marketplace/resources/usage/ResourceCreateUsageDialog.tsx",
+    "description": "marketplace/resources/usage/ResourceCreateUsageDialog.test.tsx, marketplace/resources/usage/ResourceCreateUsageDialog.tsx, reporting/utils.ts",
     "message": "Resource usage"
   },
   "Resource {type} process": {
@@ -9528,7 +9528,7 @@
     "message": "Resource {type} process"
   },
   "Resource": {
-    "description": "customer/credits/CreditUsageDialog.tsx, customer/credits/CreditUsageFilter.tsx, events/ExpandableEventDetailsTable.tsx, issues/create/IssueDetailsStepLabel.tsx, marketplace/orders/list/OrdersListExpandableRow.tsx, marketplace/robot-accounts/ProviderRobotAccountList.tsx, navigation/header/confirmation-drawer/PendingConsumerOrders.tsx, navigation/header/confirmation-drawer/PendingProviderOrders.tsx",
+    "description": "customer/credits/CreditUsageDialog.tsx, customer/credits/CreditUsageFilter.tsx, events/ExpandableEventDetailsTable.tsx, issues/create/IssueDetailsStepLabel.tsx, marketplace/orders/list/OrdersListExpandableRow.tsx, marketplace/robot-accounts/ProviderRobotAccountList.tsx, navigation/header/confirmation-drawer/PendingConsumerOrders.tsx, navigation/header/confirmation-drawer/PendingProviderOrders.tsx, reporting/resource-usage/ResourceUsageFilter.tsx",
     "message": "Resource"
   },
   "Resources import has failed.": {
@@ -10320,7 +10320,7 @@
     "message": "Select request type..."
   },
   "Select resource...": {
-    "description": "customer/credits/CreditUsageFilter.tsx",
+    "description": "resource/ResourceAutocomplete.tsx",
     "message": "Select resource..."
   },
   "Select resources to import from {offering_name} to {organization_project}": {
@@ -13780,7 +13780,7 @@
     "message": "Usage-based"
   },
   "Usages": {
-    "description": "reporting/resource-usage/ResourceUsageList.tsx",
+    "description": "reporting/resource-usage/ResourceUsageList.tsx, reporting/resource-usage/UserUsageList.tsx",
     "message": "Usages"
   },
   "Use an existing namespace": {
@@ -13927,6 +13927,10 @@
     "description": "user/support/UserDetailsTable.tsx, user/support/UserEditRows.tsx",
     "message": "User type"
   },
+  "User usage": {
+    "description": "reporting/utils.ts",
+    "message": "User usage"
+  },
   "User username": {
     "description": "administration/users/FreeIPAUsersList.tsx",
     "message": "User username"
@@ -14036,7 +14040,7 @@
     "message": "Username prefix"
   },
   "Username": {
-    "description": "administration/TokensList.tsx, administration/users/FreeIPAUsersList.tsx, auth/SigninForm.tsx, customer/team/CustomerUsersList.tsx, customer/team/UserGroup.tsx, freeipa/FreeIPAAccountEdit.tsx, freeipa/UsernameGroup.tsx, marketplace/offerings/details/CreateOfferingUserDialog.tsx, marketplace/resources/details/utils.tsx, marketplace/robot-accounts/CreateRobotAccountDialog.tsx, marketplace/robot-accounts/ProviderRobotAccountList.tsx, marketplace/robot-accounts/RobotAccountList.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx, openstack/OpenStackForm.tsx, openstack/openstack-tenant/OpenStackTenantSummary.tsx, project/team/ProjectUsersList.tsx, project/team/UserGroup.tsx, rancher/catalog/CatalogCreateDialog.tsx, rancher/cluster/users/ClusterUsersList.tsx, slurm/SlurmForm.tsx, slurm/details/AllocationUsersTable.tsx, user/UserOfferingList.tsx, user/support/UserDetailsTable.tsx, user/support/UserList.tsx, vmware/VMwareForm.tsx",
+    "description": "administration/TokensList.tsx, administration/users/FreeIPAUsersList.tsx, auth/SigninForm.tsx, customer/team/CustomerUsersList.tsx, customer/team/UserGroup.tsx, freeipa/FreeIPAAccountEdit.tsx, freeipa/UsernameGroup.tsx, marketplace/offerings/details/CreateOfferingUserDialog.tsx, marketplace/resources/details/utils.tsx, marketplace/robot-accounts/CreateRobotAccountDialog.tsx, marketplace/robot-accounts/ProviderRobotAccountList.tsx, marketplace/robot-accounts/RobotAccountList.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx, openstack/OpenStackForm.tsx, openstack/openstack-tenant/OpenStackTenantSummary.tsx, project/team/ProjectUsersList.tsx, project/team/UserGroup.tsx, rancher/catalog/CatalogCreateDialog.tsx, rancher/cluster/users/ClusterUsersList.tsx, reporting/resource-usage/UserUsageList.tsx, slurm/SlurmForm.tsx, slurm/details/AllocationUsersTable.tsx, user/UserOfferingList.tsx, user/support/UserDetailsTable.tsx, user/support/UserList.tsx, vmware/VMwareForm.tsx",
     "message": "Username"
   },
   "Usernames can contain letters (a-z), numbers (0-9), dashes (-), underscores (_) and periods (.).": {
@@ -14160,7 +14164,7 @@
     "message": "Value should not be negative."
   },
   "Value": {
-    "description": "marketplace/offerings/update/integration/EnvironmentVariablePanel.tsx, marketplace/resources/KeyValueTable.tsx, marketplace/resources/usage/utils.ts, rancher/cluster/apps/ApplicationDetailsDialog.tsx, reporting/quotas/CustomerQuotasList.tsx, reporting/resource-usage/ResourceUsageList.tsx",
+    "description": "marketplace/offerings/update/integration/EnvironmentVariablePanel.tsx, marketplace/resources/KeyValueTable.tsx, marketplace/resources/usage/utils.ts, rancher/cluster/apps/ApplicationDetailsDialog.tsx, reporting/quotas/CustomerQuotasList.tsx, reporting/resource-usage/ResourceUsageList.tsx, reporting/resource-usage/UserUsageList.tsx",
     "message": "Value"
   },
   "Vendor support pages": {
