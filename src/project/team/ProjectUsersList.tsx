@@ -83,12 +83,14 @@ export const ProjectUsersList = ({ hideTabs = false }) => {
           ),
           id: 'member',
           keys: ['user_full_name', 'user_username', 'user_image'],
+          copyField: (row) => row.user_full_name,
         },
         {
           title: translate('Email'),
           render: ({ row }) => row.user_email || DASH_ESCAPE_CODE,
           id: 'user_email',
           keys: ['user_email'],
+          copyField: (row) => row.user_email,
         },
         {
           title: translate('Username'),

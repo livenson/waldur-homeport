@@ -29,10 +29,12 @@ export const ProviderTeamPage = () => {
     {
       title: translate('User'),
       render: ({ row }) => <>{row.user_full_name || row.user_username}</>,
+      copyField: (row) => row.user_full_name || row.user_username,
     },
     {
       title: translate('Email'),
       render: ({ row }) => <>{row.user_email}</>,
+      copyField: (row) => row.user_email,
     },
     {
       title: translate('Role expiration'),
