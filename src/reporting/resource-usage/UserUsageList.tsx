@@ -1,69 +1,33 @@
 import { FC } from 'react';
 import { useSelector } from 'react-redux';
-import { getFormValues } from 'redux-form';
-import { createSelector } from 'reselect';
-import {
-  ComponentUsage,
-  MarketplaceComponentUsagesListData,
-} from 'waldur-js-client';
+import { ComponentUserUsage } from 'waldur-js-client';
 
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
-import { getStartAndEndDatesOfMonth } from '@waldur/issues/utils';
+import { ResourceLink } from '@waldur/resource/ResourceLink';
 import { createFetcher } from '@waldur/table/api';
-import { ExpandableContainer } from '@waldur/table/ExpandableContainer';
 import Table from '@waldur/table/Table';
 import { Column } from '@waldur/table/types';
 import { useTable } from '@waldur/table/useTable';
 
 import { usageTableTabs } from '../utils';
 
-import { FORM_ID, ResourceUsageFilter } from './ResourceUsageFilter';
+import { ResourceUsageFilter } from './ResourceUsageFilter';
+import { mapStateToFilter, UsageExpandableRow } from './ResourceUsageList';
 
-export const UsageExpandableRow = ({ row }) => (
-  <ExpandableContainer>
-    <p>
-      <strong>{translate('Comment')}</strong>: {row.description || 'N/A'}
-    </p>
-  </ExpandableContainer>
-);
-
-export const mapStateToFilter = createSelector(
-  getFormValues(FORM_ID),
-  (usageFilter: any) => {
-    const filter: MarketplaceComponentUsagesListData['query'] = {};
-    if (usageFilter) {
-      if (usageFilter.accounting_period) {
-        const { start } = getStartAndEndDatesOfMonth(
-          usageFilter.accounting_period.value,
-        );
-        filter.billing_period = start;
-      }
-      if (usageFilter.organization) {
-        filter.customer_uuid = usageFilter.organization.uuid;
-      }
-      if (usageFilter.project) {
-        filter.project_uuid = usageFilter.project.uuid;
-      }
-      if (usageFilter.offering) {
-        filter.offering_uuid = usageFilter.offering.uuid;
-      }
-      if (usageFilter.resource) {
-        filter.resource_uuid = usageFilter.resource.uuid;
-      }
-    }
-    return filter;
-  },
-);
-
-export const ResourceUsageList: FC = () => {
+export const UserUsageList: FC = () => {
   const filter = useSelector(mapStateToFilter);
   const props = useTable({
-    table: 'ResourceUsageReports',
-    fetchData: createFetcher('marketplace-component-usages'),
+    table: 'UserUsageReports',
+    fetchData: createFetcher('marketplace-component-user-usages'),
     filter,
   });
-  const columns: Array<Column<ComponentUsage>> = [
+  const columns: Array<Column<ComponentUserUsage>> = [
+    {
+      title: translate('Username'),
+      render: ({ row }) => <>{row.username}</>,
+      export: 'username',
+    },
     {
       title: translate('Client organization'),
       render: ({ row }) => <>{row.customer_name}</>,
@@ -96,7 +60,9 @@ export const ResourceUsageList: FC = () => {
     },
     {
       title: translate('Resource name'),
-      render: ({ row }) => <>{row.resource_name}</>,
+      render: ({ row }) => (
+        <ResourceLink uuid={row.resource_uuid} label={row.resource_name} />
+      ),
       filter: 'resource',
       inlineFilter: (row) => ({
         name: row.resource_name,
@@ -106,8 +72,8 @@ export const ResourceUsageList: FC = () => {
     },
     {
       title: translate('Plan component name'),
-      render: ({ row }) => <>{row.name}</>,
-      export: 'name',
+      render: ({ row }) => <>{row.component_type}</>,
+      export: 'component_type',
     },
     {
       title: translate('Date of reporting'),

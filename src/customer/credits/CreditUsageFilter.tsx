@@ -2,14 +2,10 @@ import { DateTime } from 'luxon';
 import Select from 'react-select';
 import { reduxForm, Field, InjectedFormProps } from 'redux-form';
 
-import {
-  AsyncPaginate,
-  REACT_SELECT_TABLE_FILTER,
-} from '@waldur/form/themed-select';
+import { REACT_SELECT_TABLE_FILTER } from '@waldur/form/themed-select';
 import { translate } from '@waldur/i18n';
-import { resourceAutocomplete } from '@waldur/marketplace/common/autocompletes';
 import { OfferingAutocomplete } from '@waldur/marketplace/offerings/details/OfferingAutocomplete';
-import { formatResourceShort } from '@waldur/marketplace/utils';
+import { ResourceAutocomplete } from '@waldur/resource/ResourceAutocomplete';
 import { TableFilterItem } from '@waldur/table/TableFilterItem';
 
 interface CreditUsageFilterOwnProps {
@@ -76,31 +72,9 @@ const CreditUsageFilterComponent = (
         name="resource"
         badgeValue={(value) => value?.name}
       >
-        <Field
-          name="resource"
-          component={(fieldProps) => (
-            <AsyncPaginate
-              placeholder={translate('Select resource...')}
-              loadOptions={(query, prevOptions, { page }) =>
-                resourceAutocomplete(
-                  {
-                    customer_uuid: props.customerUUID,
-                    name: query,
-                    field: ['name', 'url', 'uuid', 'offering_name'],
-                  },
-                  prevOptions,
-                  page,
-                )
-              }
-              getOptionValue={(option) => option.uuid}
-              getOptionLabel={(option) => formatResourceShort(option)}
-              value={fieldProps.input.value}
-              onChange={(value) => fieldProps.input.onChange(value)}
-              noOptionsMessage={() => translate('No resources')}
-              isClearable={true}
-              {...REACT_SELECT_TABLE_FILTER}
-            />
-          )}
+        <ResourceAutocomplete
+          params={{ customer_uuid: props.customerUUID }}
+          reactSelectProps={REACT_SELECT_TABLE_FILTER}
         />
       </TableFilterItem>
       <TableFilterItem
