@@ -11,9 +11,9 @@ import { ResourceUsageTabs } from '@waldur/marketplace/resources/usage/ResourceU
 
 interface ResourceUsageTabsContainerProps {
   resource: {
-    name: string;
-    resource_uuid: string;
-    offering_uuid: string;
+    name?: string;
+    resource_uuid?: string;
+    offering_uuid?: string;
     customer_name?: string;
     project_name?: string;
     backend_id?: string;

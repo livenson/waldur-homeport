@@ -16,14 +16,14 @@ import { parseResponse } from '@waldur/table/api';
 import { InfiniteList } from './InfiniteList';
 import useOnScreen from './useOnScreen';
 
-interface DataPage {
+export interface DataPage {
   data: any[];
   nextPage?: number;
 }
 
-const loadData: QueryFunction<DataPage> = async (context) => {
+export const loadData: QueryFunction<DataPage> = async (context) => {
   const response = await parseResponse(
-    context.meta.api as any,
+    `api${context.meta.api}`,
     {
       page: context.pageParam,
       ...(context.meta.params as any),

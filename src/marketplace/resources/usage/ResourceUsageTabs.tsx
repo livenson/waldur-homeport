@@ -11,7 +11,7 @@ import { ComponentUsage, ComponentUserUsage } from './types';
 import { getBillingTypeLabel } from './utils';
 
 interface ResourceUsageTabsProps {
-  resource?: { name };
+  resource?: { name?: string };
   components: OfferingComponent[];
   usages: ComponentUsage[];
   userUsages?: ComponentUserUsage[];

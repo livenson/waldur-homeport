@@ -12,35 +12,16 @@ import { OfferingComponent } from '@waldur/marketplace/types';
 import { OfferingLimits } from './types';
 
 const transformLimits = (func, limits: OfferingLimits): OfferingLimits => {
+  const entries = Object.entries(limits);
   const minValues = func(
-    Object.keys(limits).reduce(
-      (rv, key) => ({
-        ...rv,
-        [key]: limits[key].min,
-      }),
-      {},
-    ),
+    Object.fromEntries(entries.map(([key, val]) => [key, val.min])),
   );
-
   const maxValues = func(
-    Object.keys(limits).reduce(
-      (rv, key) => ({
-        ...rv,
-        [key]: limits[key].max,
-      }),
-      {},
-    ),
+    Object.fromEntries(entries.map(([key, val]) => [key, val.max])),
   );
 
-  return Object.keys(limits).reduce(
-    (rv, key) => ({
-      ...rv,
-      [key]: {
-        min: minValues[key],
-        max: maxValues[key],
-      },
-    }),
-    {},
+  return Object.fromEntries(
+    entries.map(([key]) => [key, { min: minValues[key], max: maxValues[key] }]),
   );
 };
 
@@ -52,16 +33,17 @@ const parseLimitValues = (
   return transformLimits(limitParser, limits);
 };
 
-const parseComponentLimits = (components: OfferingComponent[]) =>
-  components.reduce(
-    (result, component) => ({
-      ...result,
-      [component.type]: {
+const parseComponentLimits = (
+  components: OfferingComponent[],
+): OfferingLimits =>
+  Object.fromEntries(
+    components.map((component) => [
+      component.type,
+      {
         min: component.min_value,
         max: component.max_value,
       },
-    }),
-    {},
+    ]),
   );
 
 export const parseOfferingLimits = (

@@ -38,7 +38,7 @@ const getConfirmationText = (resource) => {
   }
 };
 
-export const DestroyActionItem: <T extends { uuid: string }>(
+export const DestroyActionItem: <T extends { uuid?: string }>(
   props: DestroyActionItemProps<T>,
 ) => ReactElement = ({
   resource,

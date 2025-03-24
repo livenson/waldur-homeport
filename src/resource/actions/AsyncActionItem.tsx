@@ -19,7 +19,7 @@ export interface AsyncActionItemProps<T>
   refetch?(): void;
 }
 
-export const AsyncActionItem: <T extends { uuid: string; name?: string }>(
+export const AsyncActionItem: <T extends { uuid?: string; name?: string }>(
   props: AsyncActionItemProps<T>,
 ) => ReactElement = ({
   resource,

@@ -13,7 +13,7 @@ import { showSuccess, showErrorResponse } from '@waldur/store/notify';
 
 export const ViewYAMLDialog = reduxForm<
   { yaml: string },
-  { resolve: { resource: { uuid: string }; yamlRetrieve; yamlUpdate } }
+  { resolve: { resource: { uuid?: string }; yamlRetrieve; yamlUpdate } }
 >({ form: 'ViewYAMLDialog' })(({ resolve, handleSubmit, submitting }) => {
   const dispatch = useDispatch();
 

@@ -2,12 +2,12 @@ import { FC, useCallback } from 'react';
 import { useDispatch } from 'react-redux';
 import { proposalProtectedCallsOfferingsSet } from 'waldur-js-client';
 
-import { fixURL } from '@waldur/core/api';
+import { ENV } from '@waldur/core/config';
 import { ProgressStep } from '@waldur/core/ProgressSteps';
 import { WizardFormContainer } from '@waldur/form/WizardFormContainer';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
-import { CallOfferingFormData, Call } from '@waldur/proposals/types';
+import { Call, CallOfferingFormData } from '@waldur/proposals/types';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
 import { WizardFormFirstPage } from './WizardFormFirstPage';
@@ -48,9 +48,7 @@ export const CallOfferingCreateDialog: FC<CallOfferingCreateDialogProps> = (
   const createRound = useCallback(
     async (formData: CallOfferingFormData, _dispatch, formProps) => {
       try {
-        const updated_plan_url = fixURL(
-          `/marketplace-plans/${formData.plan.uuid}/`,
-        );
+        const updated_plan_url = `${ENV.apiEndpoint}api/marketplace-plans/${formData.plan.uuid}/`;
         await proposalProtectedCallsOfferingsSet({
           path: { uuid: props.resolve.call.uuid },
           body: {

@@ -17,7 +17,7 @@ const UserUsagesDialog = lazyComponent(() =>
 );
 
 interface ResourceUsageChartProps {
-  resource?: { name };
+  resource?: { name?: string };
   offeringComponent: OfferingComponent;
   usages: ComponentUsage[];
   userUsages?: ComponentUserUsage[];

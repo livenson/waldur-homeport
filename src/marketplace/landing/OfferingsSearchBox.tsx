@@ -2,7 +2,6 @@ import { PlusCircle } from '@phosphor-icons/react';
 import { FC, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 
-import { fixURL } from '@waldur/core/api';
 import { AsyncSearchBox } from '@waldur/core/AsyncSearchBox';
 import { Image } from '@waldur/core/Image';
 import { ImagePlaceholder } from '@waldur/core/ImagePlaceholder';
@@ -95,7 +94,7 @@ export const OfferingsSearchBox = () => {
 
   return (
     <AsyncSearchBox
-      api={fixURL('/marketplace-public-offerings/')}
+      api="/marketplace-public-offerings/"
       queryField="keyword"
       params={params}
       RowComponent={OfferingListItem}

@@ -13,9 +13,11 @@ export const UserRoleGroup = ({
   onClick,
 }: {
   role?: Role;
-  users: Pick<
-    GenericPermission,
-    'user_full_name' | 'user_username' | 'user_email' | 'role_name'
+  users: Partial<
+    Pick<
+      GenericPermission,
+      'user_full_name' | 'user_username' | 'user_email' | 'role_name'
+    >
   >[];
   altLabel?: string;
   max?: number;

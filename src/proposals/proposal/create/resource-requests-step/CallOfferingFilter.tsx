@@ -6,7 +6,7 @@ import { translate } from '@waldur/i18n';
 import { CallOffering } from '@waldur/proposals/types';
 
 export const CallOfferingFilter: React.FC<{
-  options: Pick<CallOffering, 'offering_name' | 'offering_uuid'>[];
+  options: Partial<Pick<CallOffering, 'offering_name' | 'offering_uuid'>>[];
 }> = ({ options }) => (
   <Field
     name="offering"

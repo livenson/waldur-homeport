@@ -8,17 +8,16 @@ import { ExpandableContainer } from '@waldur/table/ExpandableContainer';
 export const RobotAccountExpandable: FC<{ row: RobotAccountDetails }> = ({
   row,
 }) => {
-  const groupedKeys = useMemo<Record<string, SshKey[]>>(
-    () =>
-      row.user_keys.reduce((result, item) => {
-        if (!result[item.user_uuid]) {
-          result[item.user_uuid] = [];
-        }
-        result[item.user_uuid].push(item);
-        return result;
-      }, {}),
-    [row],
-  );
+  const groupedKeys = useMemo<Record<string, SshKey[]>>(() => {
+    const groups = {};
+    row.user_keys.forEach((key) => {
+      if (!groups[key.user_uuid]) {
+        groups[key.user_uuid] = [];
+      }
+      groups[key.user_uuid].push(key);
+    });
+    return groups;
+  }, [row]);
   return (
     <ExpandableContainer>
       {row.users.length > 0 ? (

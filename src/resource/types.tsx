@@ -5,10 +5,10 @@ export { OpenStackPort as Port } from 'waldur-js-client';
 export { CoreStates as ResourceState } from 'waldur-js-client';
 
 export interface BaseResource {
-  name: string;
-  state: ResourceState;
+  name?: string;
+  state?: ResourceState;
   runtime_state?: string;
-  uuid: string;
+  uuid?: string;
   url?: string;
   backend_id?: string;
   description?: string;
@@ -24,14 +24,14 @@ export interface BaseResource {
   marketplace_category_uuid?: string;
   marketplace_category_name?: string;
   marketplace_category_icon?: string;
-  project_uuid: string;
+  project_uuid?: string;
   quotas?: Quota[];
   resource_type?: string;
 }
 
 export interface Resource extends BaseResource {
-  resource_type: string;
-  service_settings_state: string;
+  resource_type?: string;
+  service_settings_state?: string;
   service_settings_error_message?: string;
   error_message?: string;
   action?: string;

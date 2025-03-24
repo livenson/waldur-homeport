@@ -7842,7 +7842,7 @@ markdown-table@^3.0.0:
 
 markdown-to-jsx@^7.7.4:
   version "7.7.4"
-  resolved "https://registry.yarnpkg.com/markdown-to-jsx/-/markdown-to-jsx-7.7.4.tgz#507d17c15af72ddf970fca84a95f0243244fcfa9"
+  resolved "https://registry.npmjs.org/markdown-to-jsx/-/markdown-to-jsx-7.7.4.tgz"
   integrity sha512-1bSfXyBKi+EYS3YY+e0Csuxf8oZ3decdfhOav/Z7Wrk89tjudyL5FOmwZQUoy0/qVXGUl+6Q3s2SWtpDEWITfQ==
 
 matchmediaquery@^0.4.2:
@@ -11844,10 +11844,10 @@ wait-on@8.0.2:
     minimist "^1.2.8"
     rxjs "^7.8.1"
 
-waldur-js-client@^1.0.4-dev.7:
-  version "1.0.4-dev.7"
-  resolved "https://registry.yarnpkg.com/waldur-js-client/-/waldur-js-client-1.0.4-dev.7.tgz#342401b053c29771afa58da271a0a937fd4911aa"
-  integrity sha512-/IIsrO1l10dnFa6jJlrcnCJ65KixzUuLmILs9EXpoHjiZkUbtYL5duJk2AAI1IUEi9/Zq9u0ciRwAXgS0kUsxA==
+waldur-js-client@^1.0.4-dev.8:
+  version "1.0.4-dev.8"
+  resolved "https://registry.yarnpkg.com/waldur-js-client/-/waldur-js-client-1.0.4-dev.8.tgz#b28a9b8c4e35f891dd414f19e13887222a432584"
+  integrity sha512-bZxIT1Hsd03aWwyIVSPQVLWuyVrtfv5wdOcWMH6mURoC8WVzF8RUvX9rZohPU7j89/46zgnvnqcJcdCi8oKOQw==
   dependencies:
     "@hey-api/client-fetch" "^0.8.3"
 

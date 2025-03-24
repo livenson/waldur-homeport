@@ -66,8 +66,13 @@ const formatLimits = (limits: Limits, componentMap: ComponentMap) =>
     .map((key) => formatComponent(limits, componentMap, key))
     .join(', ');
 
-const getComponentMap = (components: OfferingComponent[]): ComponentMap =>
-  components.reduce((r, c) => ({ ...r, [c.type]: c }), {});
+const getComponentMap = (components: OfferingComponent[]): ComponentMap => {
+  const result: ComponentMap = {};
+  for (const c of components) {
+    result[c.type] = c;
+  }
+  return result;
+};
 
 export const getUpdateSummary = (ctx: Context) => {
   let msg;

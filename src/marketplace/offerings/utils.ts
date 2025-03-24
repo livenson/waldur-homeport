@@ -26,17 +26,17 @@ export const articleCodeValidator = (value: string) => {
   }
 };
 
-export const getDefaultLimits = (offering: Offering): Record<string, number> =>
-  offering.components.reduce(
-    (acc, component) =>
-      component.default_limit
-        ? {
-            ...acc,
-            [component.type]: component.default_limit,
-          }
-        : acc,
-    {},
-  );
+export const getDefaultLimits = (
+  offering: Offering,
+): Record<string, number> => {
+  const limits: Record<string, number> = {};
+  for (const component of offering.components) {
+    if (component.default_limit) {
+      limits[component.type] = component.default_limit;
+    }
+  }
+  return limits;
+};
 
 export const scrollToSectionById = (section: string, extraOffset = 180) => {
   const el = document.getElementById(section);

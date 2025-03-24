@@ -19,7 +19,7 @@ interface AsyncActionButtonProps<T> {
   refetch?(): void;
 }
 
-export const AsyncActionButton: <T extends { uuid: string }>(
+export const AsyncActionButton: <T extends { uuid?: string }>(
   props: AsyncActionButtonProps<T>,
 ) => ReactElement = ({ resource, apiMethod, validators, refetch, ...rest }) => {
   const validationState = useValidators(validators, resource);

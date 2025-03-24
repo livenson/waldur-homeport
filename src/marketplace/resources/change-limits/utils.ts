@@ -46,12 +46,11 @@ export async function loadData(resource_uuid): Promise<FetchedData> {
   );
   const usages = limitParser(resource.current_usages);
   const resourceLimits = limitParser(resource.limits);
-  const limits: Record<string, number> = components.reduce(
-    (result, component) => ({
-      ...result,
-      [component.type]: resourceLimits[component.type],
-    }),
-    {},
+  const limits: Record<string, number> = Object.fromEntries(
+    components.map((component) => [
+      component.type,
+      resourceLimits[component.type],
+    ]),
   );
   const offeringLimits = parseOfferingLimits(offering);
   return {

@@ -55,7 +55,7 @@ const usePull = ({
   } as ActionItemProps;
 };
 
-export const PullActionItem: <T extends { uuid: string; backend_id?: string }>(
+export const PullActionItem: <T extends { uuid?: string; backend_id?: string }>(
   props: PullActionItemProps<T>,
 ) => ReactElement = (props) => {
   const buttonProps = usePull(props);

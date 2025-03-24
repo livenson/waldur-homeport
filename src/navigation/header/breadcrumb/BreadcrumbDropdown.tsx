@@ -1,5 +1,5 @@
 import { FunnelSimple } from '@phosphor-icons/react';
-import { QueryFunction, useInfiniteQuery } from '@tanstack/react-query';
+import { useInfiniteQuery } from '@tanstack/react-query';
 import { debounce } from 'lodash-es';
 import { ComponentType, FC, useCallback, useState } from 'react';
 import { Button } from 'react-bootstrap';
@@ -7,38 +7,18 @@ import { useSelector } from 'react-redux';
 import { useBoolean } from 'react-use';
 import { Field, getFormValues } from 'redux-form';
 
+import { DataPage, loadData } from '@waldur/core/AsyncSearchBox';
 import { InfiniteList } from '@waldur/core/InfiniteList';
 import { isEmpty } from '@waldur/core/utils';
 import { FilterBox } from '@waldur/form/FilterBox';
 import { Form } from '@waldur/form/Form';
 import { translate } from '@waldur/i18n';
-import { parseResponse } from '@waldur/table/api';
 
 import { HeaderButtonBullet } from '../HeaderButtonBullet';
 
 import { FilterSelect } from './FilterSelect';
 
 const FILTERS_FORM_ID = 'BreadcrumbsFiltersForm';
-
-interface DataPage {
-  data: any[];
-  nextPage?: number;
-}
-
-const loadData: QueryFunction<DataPage> = async (context) => {
-  const response = await parseResponse(
-    context.meta.api as any,
-    {
-      page: context.pageParam,
-      ...(context.meta.params as any),
-    },
-    { signal: context.signal },
-  );
-  return {
-    data: response.rows,
-    nextPage: response.nextPage,
-  };
-};
 
 interface BreadcrumbDropdownProps {
   api: string;

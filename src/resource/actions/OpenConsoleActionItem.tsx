@@ -16,7 +16,7 @@ interface OpenConsoleActionItemProps<T> {
   staff?: boolean;
 }
 
-export const OpenConsoleActionItem: <T extends { uuid: string }>(
+export const OpenConsoleActionItem: <T extends { uuid?: string }>(
   props: OpenConsoleActionItemProps<T>,
 ) => ReactElement = ({ resource, apiMethod, validators, staff }) => {
   const dispatch = useDispatch();
