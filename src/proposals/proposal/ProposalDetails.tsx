@@ -5,7 +5,7 @@ import { FormSteps } from '@waldur/form/FormSteps';
 import { SidebarLayout } from '@waldur/form/SidebarLayout';
 import { translate } from '@waldur/i18n';
 
-import { UsersListSummary } from '../team/UsersListSummary';
+import { ProposalUsersListSummary } from '../team/ProposalUsersListSummary';
 import { Proposal, ProposalReview } from '../types';
 
 import { ProjectDetailsSummary } from './create/ProjectDetailsSummary';
@@ -47,11 +47,7 @@ export const ProposalDetails = ({
         <ProjectDetailsSummary proposal={proposal} reviews={reviews} />
         <ResourceRequestsSummary proposal={proposal} reviews={reviews} />
         <div id="step-team">
-          <UsersListSummary
-            scope={proposal}
-            title={translate('Proposal')}
-            reviews={reviews}
-          />
+          <ProposalUsersListSummary scope={proposal} reviews={reviews} />
         </div>
       </SidebarLayout.Body>
       <SidebarLayout.Sidebar transparent>
