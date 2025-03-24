@@ -7,10 +7,12 @@ import { FieldReviewComments } from '../proposal/create-review/FieldReviewCommen
 
 import { UsersList } from './UsersList';
 
-export const UsersListSummary: FC<{ scope; title; reviews? }> = (props) => {
+export const ProposalUsersListSummary: FC<{ scope; reviews? }> = (props) => {
   const usersTable = useTable({
-    table: `UserList${props.title}`,
-    fetchData: createFetcher(`${props.scope.url}list_users`),
+    table: `ProposalUsersList`,
+    fetchData: createFetcher(
+      `proposal-proposals/${props.scope.uuid}/list_users`,
+    ),
   });
   return (
     <UsersList
