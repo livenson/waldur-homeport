@@ -119,6 +119,7 @@ export const CustomerUsersList: FunctionComponent<{ filters? }> = ({
           export: 'full_name',
           id: 'member',
           keys: ['full_name', 'username', 'image'],
+          copyField: (row) => row.full_name,
         },
         {
           title: translate('Email'),
@@ -126,6 +127,7 @@ export const CustomerUsersList: FunctionComponent<{ filters? }> = ({
           export: 'email',
           id: 'email',
           keys: ['email'],
+          copyField: (row) => row.email,
         },
         {
           title: translate('Username'),

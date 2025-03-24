@@ -24,10 +24,12 @@ export const RoundReviewersList: FC<RoundReviewersListProps> = (props) => {
         {
           title: translate('Full name'),
           render: ({ row }) => <>{row.full_name || '-'} </>,
+          copyField: (row) => row.full_name,
         },
         {
           title: translate('Email'),
           render: ({ row }) => <>{row.email || '-'} </>,
+          copyField: (row) => row.email,
         },
         {
           title: translate('Proposals in progress'),

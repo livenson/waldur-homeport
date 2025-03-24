@@ -35,10 +35,12 @@ const ProviderUsersList = (props) => {
         {
           title: translate('Full name'),
           render: ({ row }) => <>{renderFieldOrDash(row.full_name)}</>,
+          copyField: (row) => row.full_name,
         },
         {
           title: translate('Email'),
           render: ({ row }) => <>{renderFieldOrDash(row.email)}</>,
+          copyField: (row) => row.email,
         },
         {
           title: translate('Status'),

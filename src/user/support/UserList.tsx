@@ -202,6 +202,7 @@ export const UserList: FunctionComponent = () => {
       orderField: 'full_name',
       keys: ['full_name'],
       id: 'full_name',
+      copyField: (row) => row.full_name,
     },
     {
       title: translate('Email'),
@@ -209,6 +210,7 @@ export const UserList: FunctionComponent = () => {
       orderField: 'email',
       keys: ['email'],
       id: 'email',
+      copyField: (row) => row.email,
     },
     {
       title: translate('Phone number'),

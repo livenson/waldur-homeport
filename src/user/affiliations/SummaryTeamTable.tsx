@@ -90,6 +90,7 @@ export const SummaryTeamTable: FC<OwnProps> = ({ scope, context }) => {
               </p>
             </div>
           ),
+          copyField: (row) => getValue(row, 'full_name'),
           orderField:
             (context === 'organization' && 'concatenated_name') ||
             (context === 'project' && 'full_name'),
@@ -97,6 +98,7 @@ export const SummaryTeamTable: FC<OwnProps> = ({ scope, context }) => {
         {
           title: translate('Email'),
           render: ({ row }) => getValue(row, 'email') || DASH_ESCAPE_CODE,
+          copyField: (row) => getValue(row, 'email'),
         },
         {
           title:
