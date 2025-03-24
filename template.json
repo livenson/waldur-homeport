@@ -3911,6 +3911,10 @@
     "description": "openstack/utils.ts",
     "message": "Enter private IPv4 CIDR."
   },
+  "Enter scope name": {
+    "description": "user/affiliations/UserAffiliationsFilter.tsx",
+    "message": "Enter scope name"
+  },
   "Enter the cost threshold (e.g. 1000 EUR)": {
     "description": "customer/cost-policies/CostPolicyForm.tsx, marketplace/offerings/details/policies/PolicyCreateForm.tsx",
     "message": "Enter the cost threshold (e.g. 1000 EUR)"
@@ -10000,11 +10004,11 @@
     "message": "Schedules have been updated successfully."
   },
   "Scope name": {
-    "description": "invitations/InvitationExpandableRow.tsx, user/affiliations/UserAffiliationsList.tsx",
+    "description": "invitations/InvitationExpandableRow.tsx, user/affiliations/UserAffiliationsFilter.tsx, user/affiliations/UserAffiliationsList.tsx",
     "message": "Scope name"
   },
   "Scope type": {
-    "description": "administration/InvitationList.tsx, invitations/InvitationExpandableRow.tsx, invitations/InvitationScopeTypeFilter.tsx, user/affiliations/UserAffiliationsList.tsx",
+    "description": "administration/InvitationList.tsx, invitations/InvitationExpandableRow.tsx, invitations/InvitationScopeTypeFilter.tsx, user/affiliations/UserAffiliationsFilter.tsx, user/affiliations/UserAffiliationsList.tsx",
     "message": "Scope type"
   },
   "Scope": {
@@ -10334,6 +10338,10 @@
   "Select saved filter": {
     "description": "table/SavedFilterSelect.tsx",
     "message": "Select saved filter"
+  },
+  "Select scope type": {
+    "description": "user/affiliations/UserAffiliationsFilter.tsx",
+    "message": "Select scope type"
   },
   "Select security groups...": {
     "description": "openstack/openstack-backup/actions/BackupRestoreDialog.tsx, openstack/openstack-instance/actions/update-security-groups/UpdateSecurityGroupsForm.tsx",
