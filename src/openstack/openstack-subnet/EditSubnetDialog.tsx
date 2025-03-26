@@ -12,17 +12,10 @@ export const EditSubnetDialog: FC<ActionDialogProps> = ({
   resolve: { resource, refetch },
 }) => {
   const fields = getFields();
-  fields.push(
-    {
-      name: 'cidr',
-      label: translate('Internal network mask (CIDR)'),
-      type: 'string',
-    },
-    {
-      name: 'allocation_pools',
-      component: InternalNetworkAllocationPool,
-    },
-  );
+  fields.push({
+    name: 'allocation_pools',
+    component: InternalNetworkAllocationPool,
+  });
   return (
     <UpdateResourceDialog
       fields={fields}
@@ -34,7 +27,6 @@ export const EditSubnetDialog: FC<ActionDialogProps> = ({
         disable_gateway: resource.disable_gateway,
         host_routes: resource.host_routes,
         dns_nameservers: resource.dns_nameservers,
-        cidr: resource.cidr,
         allocation_pools: resource.allocation_pools,
       }}
       updateResource={(uuid, body) =>
