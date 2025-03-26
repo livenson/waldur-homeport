@@ -44,12 +44,20 @@ const mapStateToFilter = createSelector(
   },
 );
 
-export const ProjectUsersList = ({ hideTabs = false }) => {
+export const ProjectUsersList = ({
+  hideTabs = false,
+  projectId,
+}: {
+  hideTabs?: boolean;
+  projectId?: string;
+}) => {
   const filter = useSelector(mapStateToFilter);
   const project = useSelector(getProject);
   const tableProps = useTable({
     table: 'project-users',
-    fetchData: createFetcher(`projects/${project.uuid}/list_users`),
+    fetchData: createFetcher(
+      `projects/${project?.uuid || projectId}/list_users`,
+    ),
     queryField: 'search_string',
     filter,
     mandatoryFields,
@@ -117,8 +125,16 @@ export const ProjectUsersList = ({ hideTabs = false }) => {
       hasQuery={true}
       tableActions={
         <>
-          <ProjectPermissionsLogButton />
-          <TeamDropdownActions project={project} refetch={tableProps.fetch} />
+          <ProjectPermissionsLogButton projectId={projectId} />
+          <TeamDropdownActions
+            project={
+              project ||
+              ({
+                uuid: projectId,
+              } as any)
+            }
+            refetch={tableProps.fetch}
+          />
         </>
       }
       title={translate('Team')}

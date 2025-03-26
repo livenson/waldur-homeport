@@ -134,8 +134,14 @@ export const ResourceDetailsContainer: FunctionComponent<{}> = () => {
   );
 
   const openTeamModal = useCallback(() => {
-    dispatch(openModalDialog(ProjectUsersList, { size: 'xl', hideTabs: true }));
-  }, []);
+    dispatch(
+      openModalDialog(ProjectUsersList, {
+        size: 'xl',
+        hideTabs: true,
+        projectId: data?.resource?.project_uuid,
+      }),
+    );
+  }, [data]);
 
   useToolbarActions(
     <ProjectUsersBadge
@@ -143,6 +149,7 @@ export const ResourceDetailsContainer: FunctionComponent<{}> = () => {
       max={3}
       className="col-auto align-items-center me-10"
       onClick={openTeamModal}
+      projectId={data?.resource?.project_uuid}
     />,
     [openTeamModal],
   );
