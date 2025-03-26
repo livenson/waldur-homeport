@@ -24,7 +24,7 @@ export const UserTableActions = ({ refetch }) => {
   return (
     <Button onClick={openDialog} className="me-3">
       <span className="svg-icon svg-icon-2">
-        <Plus />
+        <Plus weight="bold" />
       </span>{' '}
       {translate('Add user')}
     </Button>

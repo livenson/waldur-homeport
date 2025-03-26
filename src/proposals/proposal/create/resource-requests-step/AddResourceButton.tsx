@@ -38,7 +38,7 @@ export const AddResourceButton = ({
   return (
     <ActionButton
       title={translate('Add resource')}
-      iconNode={<PlusCircle />}
+      iconNode={<PlusCircle weight="bold" />}
       action={openAddResourceDialog}
     />
   );

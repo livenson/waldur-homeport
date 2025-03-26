@@ -74,7 +74,7 @@ export const EditVarsDialog = connect<{}, {}, OwnProps>((_, ownProps) => ({
                 onClick={() => nestedProps.fields.push({})}
               >
                 <span className="svg-icon svg-icon-2">
-                  <PlusCircle />
+                  <PlusCircle weight="bold" />
                 </span>
               </Button>
             </Modal.Header>

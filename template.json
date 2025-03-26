@@ -8496,7 +8496,7 @@
     "message": "Proposal updated successfully"
   },
   "Proposal": {
-    "description": "permissions/constants.tsx, proposals/proposal/CustomerProposalsList.tsx, proposals/proposal/ProposalDetails.tsx, proposals/proposal/UserProposalsList.tsx, proposals/review/CustomerReviewsList.tsx, proposals/review/UserReviewsList.tsx",
+    "description": "permissions/constants.tsx, proposals/proposal/CustomerProposalsList.tsx, proposals/proposal/UserProposalsList.tsx, proposals/review/CustomerReviewsList.tsx, proposals/review/UserReviewsList.tsx",
     "message": "Proposal"
   },
   "Proposals in progress": {
@@ -10008,7 +10008,7 @@
     "message": "Scope name"
   },
   "Scope type": {
-    "description": "administration/InvitationList.tsx, invitations/InvitationExpandableRow.tsx, invitations/InvitationScopeTypeFilter.tsx, user/affiliations/UserAffiliationsFilter.tsx, user/affiliations/UserAffiliationsList.tsx",
+    "description": "administration/InvitationList.tsx, invitations/InvitationExpandableRow.tsx, invitations/InvitationScopeTypeFilter.tsx, user/affiliations/UserAffiliationsList.tsx",
     "message": "Scope type"
   },
   "Scope": {
@@ -10338,10 +10338,6 @@
   "Select saved filter": {
     "description": "table/SavedFilterSelect.tsx",
     "message": "Select saved filter"
-  },
-  "Select scope type": {
-    "description": "user/affiliations/UserAffiliationsFilter.tsx",
-    "message": "Select scope type"
   },
   "Select security groups...": {
     "description": "openstack/openstack-backup/actions/BackupRestoreDialog.tsx, openstack/openstack-instance/actions/update-security-groups/UpdateSecurityGroupsForm.tsx",

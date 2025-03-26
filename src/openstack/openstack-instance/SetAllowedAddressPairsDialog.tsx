@@ -65,7 +65,7 @@ const PairRow = ({ pair, onRemove }) => (
 const PairAddButton = ({ onClick }) => (
   <Button variant="default" onClick={onClick}>
     <span className="svg-icon svg-icon-2">
-      <Plus />
+      <Plus weight="bold" />
     </span>{' '}
     {translate('Add pair')}
   </Button>

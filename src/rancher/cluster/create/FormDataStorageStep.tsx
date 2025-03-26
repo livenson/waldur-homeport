@@ -80,7 +80,7 @@ const renderDataVolumeRows = ({
             }
           >
             <span className="svg-icon svg-icon-2">
-              <Plus />
+              <Plus weight="bold" />
             </span>
             {translate('Add data volume')}
           </Button>

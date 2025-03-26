@@ -67,7 +67,7 @@ export const FormSSHPublicKeysField = ({ change, ...props }: OwnProps) => {
           onClick={openFormDialog}
         >
           <span className="svg-icon svg-icon-2">
-            <PlusCircle />
+            <PlusCircle weight="bold" />
           </span>
           {translate('Create new')}
         </Button>

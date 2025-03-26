@@ -167,7 +167,7 @@ export const FormCloudStep = (props: FormStepProps) => {
             <div className="d-flex gap-10 justify-content-end">
               <Button variant="light" className="text-nowrap" size="sm">
                 <span className="svg-icon svg-icon-2">
-                  <Plus />
+                  <Plus weight="bold" />
                 </span>
                 {translate('New cloud')}
               </Button>

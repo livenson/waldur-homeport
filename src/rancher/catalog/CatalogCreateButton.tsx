@@ -26,7 +26,7 @@ export const CatalogCreateButton: FC<{ cluster }> = ({ cluster }) => {
     <ActionButton
       title={translate('Create')}
       action={() => dispatch(createCatalogDialog(cluster))}
-      iconNode={<PlusCircle />}
+      iconNode={<PlusCircle weight="bold" />}
     />
   );
 };

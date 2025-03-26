@@ -175,7 +175,7 @@ const renderNodeRows = ({ fields, flavors }: any) => {
       )}
       <Button variant="light" className="text-nowrap" onClick={addRow}>
         <span className="svg-icon svg-icon-2">
-          <Plus />
+          <Plus weight="bold" />
         </span>
         {translate('Add')}
       </Button>

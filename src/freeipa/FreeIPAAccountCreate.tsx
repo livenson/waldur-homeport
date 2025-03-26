@@ -77,7 +77,7 @@ export const FreeIPAAccountCreate = reduxForm<
           <div className="pull-right">
             <SubmitButton submitting={submitting} invalid={invalid}>
               <span className="svg-icon svg-icon-2">
-                <Plus />
+                <Plus weight="bold" />
               </span>{' '}
               {translate('Create')}
             </SubmitButton>

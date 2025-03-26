@@ -26,7 +26,7 @@ export const HPACreateButton: FunctionComponent<{
     <ActionButton
       title={translate('Create')}
       action={callback}
-      iconNode={<PlusCircle />}
+      iconNode={<PlusCircle weight="bold" />}
     />
   );
 };
