@@ -185,7 +185,7 @@ export const TableColumnButton: FC<TableProps> = ({
       variant="outline-default"
       className="btn-outline btn-icon"
     >
-      <span className="svg-icon svg-icon-1">
+      <span className="svg-icon svg-icon-2">
         <Gear weight="bold" />
       </span>
     </Button>

@@ -26,7 +26,7 @@ export const CreateFloatingIpAction: FC<TenantActionProps> = ({
 }) => (
   <AsyncActionButton
     title={translate('Create')}
-    iconNode={<PlusCircle />}
+    iconNode={<PlusCircle weight="bold" />}
     resource={resource}
     validators={validators}
     apiMethod={(uuid) => openstackTenantsCreateFloatingIp({ path: { uuid } })}

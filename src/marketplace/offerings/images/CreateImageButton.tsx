@@ -43,7 +43,7 @@ export const CreateImageButton = (props: CreateImageButtonProps) => {
   return (
     <ActionButton
       title={translate('Add image')}
-      iconNode={<PlusCircle />}
+      iconNode={<PlusCircle weight="bold" />}
       action={callback}
     />
   );

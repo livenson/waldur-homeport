@@ -32,7 +32,7 @@ export const AttachVolumeAction: FC<AttachVolumeActionProps> = ({
 }) => (
   <DialogActionButton
     title={translate('Attach volume')}
-    iconNode={<PlusCircle />}
+    iconNode={<PlusCircle weight="bold" />}
     modalComponent={AttachVolumeDialog}
     resource={resource}
     validators={validators}

@@ -143,7 +143,7 @@ const renderEmails = ({ fields }: any) => (
         <ActionButton
           title={translate('Add email')}
           action={() => fields.push()}
-          iconNode={<PlusCircle />}
+          iconNode={<PlusCircle weight="bold" />}
           variant="primary"
         />
       </Col>

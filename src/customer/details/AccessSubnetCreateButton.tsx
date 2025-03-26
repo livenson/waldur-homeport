@@ -23,7 +23,7 @@ export const AccessSubnetCreateButton = ({ refetch, customer_url }) => {
           size: 'md',
         })
       }
-      iconNode={<PlusCircle />}
+      iconNode={<PlusCircle weight="bold" />}
       variant="primary"
     />
   );

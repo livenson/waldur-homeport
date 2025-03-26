@@ -32,7 +32,7 @@ export const CreateOfferingUserButton = ({ offering, onSuccess }) => {
   return (
     <ActionButton
       title={translate('Create')}
-      iconNode={<PlusCircle />}
+      iconNode={<PlusCircle weight="bold" />}
       action={() =>
         dispatch(
           openModalDialog(CreateOfferingUserDialog, {

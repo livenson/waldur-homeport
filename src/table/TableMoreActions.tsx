@@ -27,7 +27,7 @@ export const TableMoreActions: FunctionComponent<TableMoreActionsProps> = ({
         data-kt-menu-placement="bottom-end"
         data-kt-menu-attach="parent"
       >
-        <span className="svg-icon svg-icon-1">
+        <span className="svg-icon svg-icon-2">
           <DotsThreeVertical weight="bold" />
         </span>
       </Button>

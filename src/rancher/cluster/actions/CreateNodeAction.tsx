@@ -19,7 +19,7 @@ export const CreateNodeAction: FC<{ resource: RancherCluster }> = ({
   !ENV.plugins.WALDUR_RANCHER.READ_ONLY_MODE && Boolean(resource.tenant) ? (
     <DialogActionButton
       title={translate('Create node')}
-      iconNode={<PlusCircle />}
+      iconNode={<PlusCircle weight="bold" />}
       modalComponent={CreateNodeDialog}
       resource={resource}
     />

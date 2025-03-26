@@ -25,7 +25,7 @@ export const CreateBackupAction: FC<CreateBackupActionProps> = ({
 }) => (
   <DialogActionButton
     title={translate('Create')}
-    iconNode={<PlusCircle />}
+    iconNode={<PlusCircle weight="bold" />}
     modalComponent={CreateBackupDialog}
     formId={RESOURCE_ACTION_FORM}
     resource={resource}

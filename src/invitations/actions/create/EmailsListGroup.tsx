@@ -158,7 +158,7 @@ export const EmailsListGroup = ({
             onClick={addRow}
           >
             <div className="svg-icon svg-icon-2">
-              <Plus />
+              <Plus weight="bold" />
             </div>
             {fields.length > 0
               ? translate('Add another user')
