@@ -89,6 +89,9 @@ export const CountrySelectorDialog: FunctionComponent<CountrySelectorProps> = ({
         );
   }, [query]);
 
+  const isDirty =
+    JSON.stringify(selectedCountries.sort()) !==
+    JSON.stringify(initialValue.sort());
   return (
     <ModalDialog
       title={translate('Available countries')}
@@ -98,6 +101,7 @@ export const CountrySelectorDialog: FunctionComponent<CountrySelectorProps> = ({
           <Button
             className="btn btn-primary flex-grow-1"
             onClick={saveCountryOptions}
+            disabled={!isDirty}
           >
             {translate('Save')}
           </Button>
