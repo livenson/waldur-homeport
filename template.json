@@ -351,6 +351,10 @@
     "description": "customer/credits/CreditFormDialog.tsx",
     "message": "Add allocation credit"
   },
+  "Add allocation pool": {
+    "description": "openstack/openstack-subnet/AllocationPoolsField.tsx",
+    "message": "Add allocation pool"
+  },
   "Add another user": {
     "description": "invitations/actions/create/EmailsListGroup.tsx",
     "message": "Add another user"
@@ -3047,6 +3051,10 @@
     "description": "marketplace/deploy/steps/BoxRadioField.tsx",
     "message": "Default"
   },
+  "Define IP range that will be used for automatic assignment to instances.": {
+    "description": "openstack/openstack-subnet/AllocationPoolsField.tsx",
+    "message": "Define IP range that will be used for automatic assignment to instances."
+  },
   "Define issue type and context": {
     "description": "issues/create/IssueCreateForm.tsx",
     "message": "Define issue type and context"
@@ -3810,6 +3818,22 @@
   "Encountered an empty component": {
     "description": "openstack/openstack-instance/actions/EditDialog.tsx, openstack/openstack-instance/utils.ts",
     "message": "Encountered an empty component"
+  },
+  "End IP is not a valid IPv4 address": {
+    "description": "openstack/openstack-network/utils.tsx",
+    "message": "End IP is not a valid IPv4 address"
+  },
+  "End IP is not within the CIDR range": {
+    "description": "openstack/openstack-network/utils.tsx",
+    "message": "End IP is not within the CIDR range"
+  },
+  "End IP must be greater than or equal to Start IP": {
+    "description": "openstack/openstack-network/utils.tsx",
+    "message": "End IP must be greater than or equal to Start IP"
+  },
+  "End IP": {
+    "description": "openstack/openstack-subnet/AllocationPoolsField.tsx",
+    "message": "End IP"
   },
   "End date of the agreement is {date}.": {
     "description": "invoices/list/AgreementInfo.tsx",
@@ -5204,7 +5228,7 @@
     "message": "Internal network ID"
   },
   "Internal network allocation pool": {
-    "description": "openstack/deploy/FormInternalNetworkStep.tsx, openstack/openstack-network/InternalNetworkAllocationPool.tsx",
+    "description": "openstack/deploy/FormInternalNetworkStep.tsx, openstack/openstack-subnet/AllocationPoolsField.tsx",
     "message": "Internal network allocation pool"
   },
   "Internal network mask (CIDR)": {
@@ -6582,6 +6606,10 @@
   "No active round": {
     "description": "proposals/PublicCallExpandableRow.tsx",
     "message": "No active round"
+  },
+  "No allocation pools defined. Default pool will be used.": {
+    "description": "openstack/openstack-subnet/AllocationPoolsField.tsx",
+    "message": "No allocation pools defined. Default pool will be used."
   },
   "No association": {
     "description": "auth/PermissionLayout.tsx",
@@ -8455,10 +8483,6 @@
     "description": "customer/payments/PaymentCreateDialog.tsx, customer/payments/PaymentUpdateDialog.tsx, customer/payments/PaymentsList.tsx, invoices/list/MarkAsPaidDialog.tsx",
     "message": "Proof"
   },
-  "Propagated": {
-    "description": "marketplace/service-providers/ProviderOfferingUsersList.tsx",
-    "message": "Propagated"
-  },
   "Proposal created successfully": {
     "description": "proposals/proposal/create/AddProposalDialog.tsx",
     "message": "Proposal created successfully"
@@ -9056,7 +9080,7 @@
     "message": "Remove organization"
   },
   "Remove": {
-    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerManageContainer.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, form/DateField.tsx, form/WideImageField.tsx, invoices/details/InvoiceItemDelete.tsx, issues/comments/CommentActions.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/offerings/RemoveButton.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/update/ImageUploadField.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, openstack/openstack-tenant/IpAddressList.tsx, openstack/openstack-tenant/StaticRoutesTable.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, project/ProjectManageContainer.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestItemActions.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/documents/RemoveDocumentButton.tsx, user/hooks/HookRemoveButton.tsx, user/keys/KeyRemoveButton.tsx",
+    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerManageContainer.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, form/DateField.tsx, form/WideImageField.tsx, invoices/details/InvoiceItemDelete.tsx, issues/comments/CommentActions.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/offerings/RemoveButton.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/update/ImageUploadField.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx, openstack/openstack-subnet/AllocationPoolsField.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, openstack/openstack-tenant/IpAddressList.tsx, openstack/openstack-tenant/StaticRoutesTable.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, project/ProjectManageContainer.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestItemActions.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/documents/RemoveDocumentButton.tsx, user/hooks/HookRemoveButton.tsx, user/keys/KeyRemoveButton.tsx",
     "message": "Remove"
   },
   "Removed organizations cannot be restored!": {
@@ -11015,6 +11039,18 @@
     "description": "administration/dashboard/AdministrationProfile.tsx, navigation/header/UserDropdown.tsx, user/support/UserList.tsx, user/support/utils.ts",
     "message": "Staff"
   },
+  "Start IP is not a valid IPv4 address": {
+    "description": "openstack/openstack-network/utils.tsx",
+    "message": "Start IP is not a valid IPv4 address"
+  },
+  "Start IP is not within the CIDR range": {
+    "description": "openstack/openstack-network/utils.tsx",
+    "message": "Start IP is not within the CIDR range"
+  },
+  "Start IP": {
+    "description": "openstack/openstack-subnet/AllocationPoolsField.tsx",
+    "message": "Start IP"
+  },
   "Start date": {
     "description": "marketplace/service-providers/ProviderCampaignsList.tsx, project/ProjectCard.tsx, project/ProjectsList.tsx, project/create/StartDateGroup.tsx, project/details/ProjectDetailsDialog.tsx, project/manage/ProjectGeneral.tsx, proposals/details/CallRoundsList.tsx, proposals/round/submission/RoundSubmissionSection.tsx, proposals/update/rounds/CallRoundsList.tsx, proposals/update/rounds/WizardFormFirstPage.tsx, user/affiliations/ProjectsList.tsx",
     "message": "Start date"
@@ -12047,6 +12083,10 @@
     "description": "rancher/cluster/create/RancherClusterCheckoutSummary.tsx",
     "message": "Total number of nodes"
   },
+  "Total of {label}": {
+    "description": "marketplace/resources/usage/UsageExportDropdown.tsx",
+    "message": "Total of {label}"
+  },
   "Total paid": {
     "description": "invoices/list/AgreementInfo.tsx",
     "message": "Total paid"
@@ -12072,7 +12112,7 @@
     "message": "Total storage"
   },
   "Total": {
-    "description": "customer/cost-policies/CostPolicyForm.tsx, customer/cost-policies/utils.ts, customer/dashboard/CreditStatusWidget.tsx, invoices/details/BillingRecordDetails.tsx, invoices/details/InvoiceDetails.tsx, invoices/details/InvoiceItemExpandableRow.tsx, invoices/details/InvoiceItemsTable.tsx, invoices/details/ResourceLimitPeriodsTable.tsx, invoices/list/BillingRecordsList.tsx, invoices/list/InvoicesList.tsx, invoices/list/MonthOverview.tsx, marketplace/deploy/DeployPageTotalCard.tsx, marketplace/details/plan/ComponentRow.tsx, marketplace/details/plan/OrderSummaryPlanRows.tsx, marketplace/details/plan/PlanDetailsTable.tsx, marketplace/details/plan/PlanDetailsTable2.tsx, marketplace/details/plan/TotalLimitComponentsTable.tsx, marketplace/details/plan/UsageComponentRow.tsx, marketplace/resources/change-limits/ComponentTotalRow.tsx, reporting/invoices/utils.ts",
+    "description": "customer/cost-policies/CostPolicyForm.tsx, customer/cost-policies/utils.ts, customer/dashboard/CreditStatusWidget.tsx, invoices/details/BillingRecordDetails.tsx, invoices/details/InvoiceDetails.tsx, invoices/details/InvoiceItemExpandableRow.tsx, invoices/details/InvoiceItemsTable.tsx, invoices/details/ResourceLimitPeriodsTable.tsx, invoices/list/BillingRecordsList.tsx, invoices/list/InvoicesList.tsx, invoices/list/MonthOverview.tsx, marketplace/deploy/DeployPageTotalCard.tsx, marketplace/details/plan/ComponentRow.tsx, marketplace/details/plan/OrderSummaryPlanRows.tsx, marketplace/details/plan/PlanDetailsTable.tsx, marketplace/details/plan/PlanDetailsTable2.tsx, marketplace/details/plan/TotalLimitComponentsTable.tsx, marketplace/details/plan/UsageComponentRow.tsx, marketplace/resources/change-limits/ComponentTotalRow.tsx, marketplace/resources/usage/ResourceUsageTable.tsx, marketplace/resources/usage/UsageExportDropdown.tsx, reporting/invoices/utils.ts",
     "message": "Total"
   },
   "Tracked using UTC timezone, displayed with your browser’s timezone.": {
@@ -14040,7 +14080,7 @@
     "message": "Username prefix"
   },
   "Username": {
-    "description": "administration/TokensList.tsx, administration/users/FreeIPAUsersList.tsx, auth/SigninForm.tsx, customer/team/CustomerUsersList.tsx, customer/team/UserGroup.tsx, freeipa/FreeIPAAccountEdit.tsx, freeipa/UsernameGroup.tsx, marketplace/offerings/details/CreateOfferingUserDialog.tsx, marketplace/resources/details/utils.tsx, marketplace/robot-accounts/CreateRobotAccountDialog.tsx, marketplace/robot-accounts/ProviderRobotAccountList.tsx, marketplace/robot-accounts/RobotAccountList.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx, openstack/OpenStackForm.tsx, openstack/openstack-tenant/OpenStackTenantSummary.tsx, project/team/ProjectUsersList.tsx, project/team/UserGroup.tsx, rancher/catalog/CatalogCreateDialog.tsx, rancher/cluster/users/ClusterUsersList.tsx, reporting/resource-usage/UserUsageList.tsx, slurm/SlurmForm.tsx, slurm/details/AllocationUsersTable.tsx, user/UserOfferingList.tsx, user/support/UserDetailsTable.tsx, user/support/UserList.tsx, vmware/VMwareForm.tsx",
+    "description": "administration/TokensList.tsx, administration/users/FreeIPAUsersList.tsx, auth/SigninForm.tsx, customer/team/CustomerUsersList.tsx, customer/team/UserGroup.tsx, freeipa/FreeIPAAccountEdit.tsx, freeipa/UsernameGroup.tsx, marketplace/offerings/details/CreateOfferingUserDialog.tsx, marketplace/resources/details/utils.tsx, marketplace/resources/usage/ResourceUsageTable.tsx, marketplace/resources/usage/UsageExportDropdown.tsx, marketplace/robot-accounts/CreateRobotAccountDialog.tsx, marketplace/robot-accounts/ProviderRobotAccountList.tsx, marketplace/robot-accounts/RobotAccountList.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx, openstack/OpenStackForm.tsx, openstack/openstack-tenant/OpenStackTenantSummary.tsx, project/team/ProjectUsersList.tsx, project/team/UserGroup.tsx, rancher/catalog/CatalogCreateDialog.tsx, rancher/cluster/users/ClusterUsersList.tsx, reporting/resource-usage/UserUsageList.tsx, slurm/SlurmForm.tsx, slurm/details/AllocationUsersTable.tsx, user/UserOfferingList.tsx, user/support/UserDetailsTable.tsx, user/support/UserList.tsx, vmware/VMwareForm.tsx",
     "message": "Username"
   },
   "Usernames can contain letters (a-z), numbers (0-9), dashes (-), underscores (_) and periods (.).": {

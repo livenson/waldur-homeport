@@ -1,7 +1,9 @@
-import { FileCsv, FilePng, FileXls, Printer } from '@phosphor-icons/react';
+import { FileCsv, FileXls, Printer, FilePng } from '@phosphor-icons/react';
 import { init } from 'echarts';
+import { sum } from 'lodash-es';
 import { useCallback } from 'react';
 import { DropdownButton } from 'react-bootstrap';
+import { ProjectUser } from 'waldur-js-client';
 
 import { ENV } from '@waldur/core/config';
 import { translate } from '@waldur/i18n';
@@ -12,7 +14,12 @@ import exportAs from '@waldur/table/exporters';
 import { ExportData } from '@waldur/table/exporters/types';
 
 import { ComponentUsage, ComponentUserUsage } from './types';
-import { getEChartOptions, getFormattedUsages, getUsagePeriods } from './utils';
+import {
+  getFormattedUsages,
+  getTotalUsagePeriod,
+  getUsagePeriods,
+  getEChartOptions,
+} from './utils';
 
 export interface UsageExportDropdownProps {
   resource: {
@@ -23,6 +30,7 @@ export interface UsageExportDropdownProps {
     usages: ComponentUsage[];
     userUsages: ComponentUserUsage[];
   };
+  users: ProjectUser[];
   months: number;
 }
 
@@ -110,16 +118,22 @@ export const useUsageExport = (props: UsageExportDropdownProps) => {
       const userUsages = props.data.userUsages;
       const components = props.data.components;
 
+      const hasUserStats = Boolean(userUsages?.length);
       const exportData: ExportData = {
         fields: [],
         data: [],
       };
       // Prepare headers
-      exportData.fields = [translate('Date')].concat(
-        props.data.components.map(
-          (c) => c.name + (c.measured_unit ? '/' + c.measured_unit : ''),
-        ),
-      );
+      exportData.fields = [
+        hasUserStats ? translate('Username') : null,
+        translate('Date'),
+      ]
+        .concat(
+          props.data.components.map(
+            (c) => c.name + (c.measured_unit ? '/' + c.measured_unit : ''),
+          ),
+        )
+        .filter(Boolean);
 
       // Prepare data
       const { labels, periods } = getUsagePeriods(usages, props.months);
@@ -133,20 +147,65 @@ export const useUsageExport = (props: UsageExportDropdownProps) => {
         ),
       );
 
-      labels.forEach((label, index) => {
+      labels.forEach((label, monthIndex) => {
         const hasUsage = allFormattedUsages.some((compUsages) =>
-          Number(compUsages[index]?.value),
+          Number(compUsages[monthIndex]?.value),
         );
         if (hasUsage) {
-          const record: any[] = [label];
+          if (hasUserStats) {
+            // For each user, if has usage for at least one component per month, add it
+            props.users.forEach((user) => {
+              const hasUserUsage = allFormattedUsages.some((compUsages) =>
+                compUsages[monthIndex]?.details.some(
+                  (uu) =>
+                    uu.username === user.offering_user_username &&
+                    Number(uu.usage),
+                ),
+              );
+
+              if (hasUserUsage) {
+                const userRecord: any[] = [user.offering_user_username, label];
+                userRecord.push(
+                  ...allFormattedUsages.map((compUsages) => {
+                    const userUsage = compUsages[monthIndex]?.details.find(
+                      (uu) => uu.username === user.offering_user_username,
+                    );
+                    return userUsage?.usage || '0';
+                  }),
+                );
+                exportData.data.push(userRecord);
+              }
+            });
+          }
+
+          // Add Total of month
+          const record: any[] = hasUserStats
+            ? [translate('Total of {label}', { label }), label]
+            : [label];
           record.push(
             ...allFormattedUsages.map(
-              (compUsages) => compUsages[index]?.value || 'N/A',
+              (compUsages) => compUsages[monthIndex]?.value || 'N/A',
             ),
           );
           exportData.data.push(record);
         }
       });
+
+      if (exportData.data?.length > 0) {
+        // Add total for all months
+        const totalPeriod = getTotalUsagePeriod(usages);
+
+        const totalRecord: any[] = hasUserStats
+          ? [translate('Total'), totalPeriod]
+          : [translate('Total')];
+        totalRecord.push(
+          ...allFormattedUsages.map(
+            (compUsages) =>
+              sum(compUsages.map((usage) => Number(usage?.value))) || 'N/A',
+          ),
+        );
+        exportData.data.push(totalRecord);
+      }
 
       if (!exportData.data.length) {
         showError(translate('Chart is empty'));
