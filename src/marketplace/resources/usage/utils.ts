@@ -30,7 +30,7 @@ const formatChart = (
   labels: string[],
   usages: RowData[],
   serieName: string = undefined,
-  openDialog: (details) => void,
+  openDialog?: (details) => void,
 ) => ({
   tooltip: {
     trigger: 'axis',
@@ -76,7 +76,8 @@ const formatChart = (
         `${
           description ? `<br/>${translate('Description')}: ${description}` : ''
         }`;
-      const hasMoreBtn = details?.length > MAX_SHOW_ITEMS + 1;
+      const hasMoreBtn =
+        details?.length > MAX_SHOW_ITEMS + 1 && Boolean(openDialog);
       if (details?.length) {
         tooltip += `<br/><b>${translate('Details')}:</b><br/>`;
         tooltip += `<ul class="mb-0">`;
@@ -199,7 +200,7 @@ export const getEChartOptions = (
   userUsages: ComponentUserUsage[],
   months: number,
   color: string,
-  openDialog: (userUsage: ComponentUserUsage[]) => void,
+  openDialog?: (userUsage: ComponentUserUsage[]) => void,
 ) => {
   const { labels, periods } = getUsagePeriods(usages, months);
   const formattedUsages = getFormattedUsages(
