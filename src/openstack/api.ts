@@ -7,8 +7,8 @@ import {
   OpenstackSecurityGroupsListData,
   openstackSubnetsList,
   OpenstackSubnetsListData,
-  OpenstackVolumesListData,
   openstackVolumeTypesList,
+  OpenstackVolumeTypesListData,
 } from 'waldur-js-client';
 
 import { getAllPages } from '@waldur/core/api';
@@ -28,7 +28,7 @@ export const loadSecurityGroups = (
     openstackSecurityGroupsList({ query: { page, ...query } }),
   );
 
-export const loadVolumeTypes = (query: OpenstackVolumesListData['query']) =>
+export const loadVolumeTypes = (query: OpenstackVolumeTypesListData['query']) =>
   getAllPages((page) =>
     openstackVolumeTypesList({ query: { page, ...query } }),
   );

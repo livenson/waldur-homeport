@@ -4,6 +4,7 @@ import { Form } from 'react-bootstrap';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { Field, FieldArray, formValueSelector, reduxForm } from 'redux-form';
 import {
+  Offering,
   openstackMigrationsCreate,
   openstackNetworksList,
 } from 'waldur-js-client';
@@ -29,7 +30,8 @@ import { VolumeTypesTable } from './VolumeTypesTable';
 
 const selector = formValueSelector(RESOURCE_ACTION_FORM);
 
-const offeringSelector = (state: RootState) => selector(state, 'offering');
+const offeringSelector = (state: RootState): Offering =>
+  selector(state, 'offering');
 
 export const MigrateTenantDialog = connect<
   {},
@@ -104,7 +106,7 @@ export const MigrateTenantDialog = connect<
             tenant_uuid: resource.uuid,
           });
           const destinationVolumeTypes = await loadVolumeTypes({
-            service_settings_uuid: offering.scope_uuid,
+            settings_uuid: offering.scope_uuid,
           });
           const networks = (
             await openstackNetworksList({
