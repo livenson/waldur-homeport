@@ -11,6 +11,7 @@ import { parseDate } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 import { getAccountingTypeOptions } from '@waldur/marketplace/offerings/update/components/ComponentAccountingTypeField';
 import { OfferingComponent } from '@waldur/marketplace/types';
+import { DASH_ESCAPE_CODE } from '@waldur/table/constants';
 
 import { ComponentUsage, ComponentUserUsage } from './types';
 
@@ -249,7 +250,7 @@ export const getBillingTypeLabel = (value) =>
   getAccountingTypeOptions().find((option) => option.value === value)?.label ||
   'N/A';
 
-export const getTableData = (
+export const getUsageTableData = (
   component: OfferingComponent,
   usages: ComponentUsage[],
 ) => {
@@ -261,6 +262,41 @@ export const getTableData = (
         usage: Number(usage.usage),
       };
     });
+};
+
+export const getUserUsageTableData = (
+  component: OfferingComponent,
+  userUsages: ComponentUserUsage[],
+) => {
+  return userUsages
+    .filter((usage) => usage.component_type === component.type)
+    .map((usage) => {
+      return {
+        username: usage.username,
+        date: parseDate(usage.billing_period).toFormat('MM/yyyy'),
+        usage: Number(usage.usage),
+      };
+    });
+};
+
+export const getTotalUsagePeriod = (
+  usages: ComponentUsage[],
+  component?: OfferingComponent,
+) => {
+  const dateObjects = usages
+    .filter((record) => (component ? record.type === component.type : true))
+    .map((record) => parseDate(record.billing_period));
+
+  if (!dateObjects.length) return DASH_ESCAPE_CODE;
+
+  const minDate = dateObjects.reduce((a, b) => (a < b ? a : b));
+  const maxDate = dateObjects.reduce((a, b) => (a > b ? a : b));
+
+  const _period = minDate.toFormat('MM/yyyy');
+  if (minDate !== maxDate) {
+    return _period + ` - ${maxDate.toFormat('MM/yyyy')}`;
+  }
+  return _period;
 };
 
 const getUsageBasedOfferingComponents = (components: OfferingComponent[]) => {

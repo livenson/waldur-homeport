@@ -111,6 +111,7 @@ export const UsageCard = ({ resource }) => {
           <UsageExportDropdown
             resource={resourceRef}
             data={value}
+            users={team}
             months={period}
           />
           <Button
