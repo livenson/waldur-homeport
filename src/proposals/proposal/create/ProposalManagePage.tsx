@@ -47,7 +47,7 @@ export const ProposalManagePage = () => {
   const user = useSelector(getUser);
 
   const hasPermissionToSubmit =
-    user.is_staff || user.uuid === proposal.created_by_uuid;
+    user.is_staff || (proposal && user.uuid === proposal.created_by_uuid);
 
   const { data: reviews, isLoading: isLoadingReviews } = useQuery(
     ['ProposalReviews', proposal_uuid],
