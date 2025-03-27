@@ -1,6 +1,9 @@
 import { FunctionComponent, useMemo } from 'react';
 import { ButtonGroup } from 'react-bootstrap';
-import { OpenStackFloatingIp } from 'waldur-js-client';
+import {
+  OpenStackFloatingIp,
+  OpenstackFloatingIpsListData,
+} from 'waldur-js-client';
 
 import { Link } from '@waldur/core/Link';
 import { translate } from '@waldur/i18n';
@@ -18,7 +21,7 @@ import { PullFloatingIpsAction } from '../openstack-tenant/actions/PullFloatingI
 export const FloatingIpsList: FunctionComponent<{ resourceScope }> = ({
   resourceScope,
 }) => {
-  const filter = useMemo(
+  const filter = useMemo<OpenstackFloatingIpsListData['query']>(
     () => ({
       tenant_uuid: resourceScope.uuid,
       field: [
@@ -78,6 +81,7 @@ export const FloatingIpsList: FunctionComponent<{ resourceScope }> = ({
         },
       ]}
       verboseName={translate('floating IPs')}
+      title={translate('Floating IPs')}
       tableActions={
         <ButtonGroup>
           <PullFloatingIpsAction resource={resourceScope} />

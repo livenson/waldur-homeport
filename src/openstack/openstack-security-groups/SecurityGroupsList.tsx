@@ -78,6 +78,7 @@ export const SecurityGroupsList: FunctionComponent<{ resourceScope }> = ({
           export: false,
         },
       ]}
+      title={translate('Security groups')}
       expandableRow={SecurityGroupRulesList}
       enableExport={true}
       rowActions={({ row }) => (

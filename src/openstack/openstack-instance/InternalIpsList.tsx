@@ -58,6 +58,7 @@ export const InternalIpsList: FunctionComponent<{
           ),
         },
       ]}
+      title={translate('Ports')}
       verboseName={translate('ports')}
       tableActions={
         <UpdateInternalIpsAction

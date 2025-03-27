@@ -57,6 +57,7 @@ export const ServerGroupsList: FunctionComponent<{ resourceScope }> = ({
           className: 'col-sm-2',
         },
       ]}
+      title={translate('Server groups')}
       verboseName={translate('server groups')}
       initialSorting={{ field: 'name', mode: 'asc' }}
       showPageSizeSelector={true}

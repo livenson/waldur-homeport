@@ -74,6 +74,7 @@ export const TenantPortsList: FunctionComponent<{ resourceScope }> = ({
         <ResourceRowActions resource={row} refetch={props.fetch} />
       )}
       expandableRow={ExpandablePortRow}
+      title={translate('Ports')}
       verboseName={translate('ports')}
     />
   );

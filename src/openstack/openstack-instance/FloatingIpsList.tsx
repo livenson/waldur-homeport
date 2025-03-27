@@ -49,6 +49,7 @@ export const FloatingIpsList: FunctionComponent<{
           render: ({ row }) => row.subnet_cidr,
         },
       ]}
+      title={translate('Floating IPs')}
       verboseName={translate('floating IPs')}
       tableActions={
         <UpdateFloatingIpsActionButton
