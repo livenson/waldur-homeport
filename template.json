@@ -7535,6 +7535,10 @@
     "description": "marketplace/referral/ReferralsList.tsx",
     "message": "PID"
   },
+  "PNG": {
+    "description": "marketplace/resources/usage/UsageExportDropdown.tsx",
+    "message": "PNG"
+  },
   "Page is not found. You've either entered invalid URL or trying to reach disabled feature.": {
     "description": "error/InvalidRoutePage.tsx",
     "message": "Page is not found. You've either entered invalid URL or trying to reach disabled feature."
