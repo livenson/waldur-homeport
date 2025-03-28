@@ -27,6 +27,10 @@ export const GLAuthConfigButton: FC<{
       enabled
         ? marketplaceProviderOfferingsGlauthUsersConfigRetrieve({
             path: { uuid: offering.uuid },
+            parseAs: 'text',
+            headers: {
+              Accept: 'text/plain',
+            },
           }).then((response) => response.data)
         : null,
     { refetchOnWindowFocus: false, staleTime: 5 * 60 * 1000 },
