@@ -21,6 +21,10 @@ export const format = (error, parseResponse?) => {
   See also: https://fetch.spec.whatwg.org/#concept-filtered-response
   */
 
+  if (Object.prototype.hasOwnProperty.call(error, 'message')) {
+    return error.message;
+  }
+
   if (!error || error.status === -1) {
     return translate(
       'Unfortunately, connection to server has failed. Please check if you can connect to {apiEndpoint} from your browser and contact support if the error continues.',
