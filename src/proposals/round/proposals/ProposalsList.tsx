@@ -21,9 +21,9 @@ interface RoundProposalsListProps {
 export const ProposalsList: FC<RoundProposalsListProps> = (props) => {
   const tableProps = useTable({
     table: 'RoundProposalsList',
-    fetchData: createFetcher(
-      `proposal-protected-calls/${props.call.uuid}/rounds/${props.round.uuid}`,
-    ),
+    fetchData: createFetcher('proposal-proposals', {
+      params: { round: props.round.uuid },
+    }),
     queryField: 'name',
   });
 
@@ -51,9 +51,9 @@ export const ProposalsList: FC<RoundProposalsListProps> = (props) => {
         },
       ]}
       title={translate('Proposals')}
+      hasQuery
       verboseName={translate('Proposals')}
       expandableRow={ProposalExpandableRow}
-      hasQuery={true}
       rowActions={({ row }) => (
         <ProposalRowActions
           row={{

@@ -1,8 +1,10 @@
+import { Eye } from '@phosphor-icons/react';
 import React, { useState } from 'react';
 import { Button, Modal } from 'react-bootstrap';
 
 import { StringField } from '@waldur/form/StringField';
 import { translate } from '@waldur/i18n';
+import { ActionItem } from '@waldur/resource/actions/ActionItem';
 
 interface ProposalReviewsDetailButtonProps {
   row: any;
@@ -23,7 +25,12 @@ export const ProposalReviewsDetailButton: React.FC<
 
   return (
     <div>
-      <Button onClick={() => openModal()}>{translate('Details')}</Button>
+      <ActionItem
+        action={() => openModal()}
+        title={translate('Details')}
+        iconNode={<Eye weight="bold" />}
+        size="sm"
+      />
       <Modal show={showModal} onHide={closeModal}>
         <Modal.Header closeButton>
           <Modal.Title>{translate('Review details')}</Modal.Title>
