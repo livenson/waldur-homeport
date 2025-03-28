@@ -57,6 +57,7 @@ export const MigrateTenantDialog = connect<
         try {
           await openstackMigrationsCreate({
             body: {
+              name: formData.name,
               src_resource: resource.marketplace_resource_uuid,
               dst_offering: formData.offering.uuid,
               dst_plan: formData.plan.uuid,

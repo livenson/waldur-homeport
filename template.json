@@ -4412,7 +4412,7 @@
     "message": "Flavors regex"
   },
   "Flavors": {
-    "description": "openstack/openstack-tenant/tabs.ts, reporting/openstack/FlavorsList.tsx, reporting/openstack/VmTypeOverview.tsx",
+    "description": "openstack/openstack-tenant/TenantFlavorsList.tsx, openstack/openstack-tenant/tabs.ts, reporting/openstack/FlavorsList.tsx, reporting/openstack/VmTypeOverview.tsx",
     "message": "Flavors"
   },
   "Floating IP count": {
@@ -4428,7 +4428,7 @@
     "message": "Floating IPs update has been scheduled."
   },
   "Floating IPs": {
-    "description": "marketplace/resources/details/openstack-instance/InstanceMainComponent.tsx, openstack/openstack-instance/tabs.ts, openstack/openstack-tenant/tabs.ts",
+    "description": "marketplace/resources/details/openstack-instance/InstanceMainComponent.tsx, openstack/openstack-floating-ips/FloatingIpsList.tsx, openstack/openstack-instance/FloatingIpsList.tsx, openstack/openstack-instance/tabs.ts, openstack/openstack-tenant/tabs.ts",
     "message": "Floating IPs"
   },
   "Folder": {
@@ -4992,7 +4992,7 @@
     "message": "Image: "
   },
   "Images": {
-    "description": "SettingsDescription.ts, administration/settings/AdministrationBranding.tsx, marketplace/details/OfferingTabs.tsx, marketplace/offerings/OfferingEditUIView.tsx, marketplace/offerings/OfferingPublicUIView.tsx, marketplace/offerings/details/PublicOfferingImages.tsx, marketplace/offerings/images/OfferingImagesList.tsx, openstack/openstack-tenant/tabs.ts, reporting/openstack/VmTypeOverview.tsx, vmware/deploy/FormTemplateStep.tsx",
+    "description": "SettingsDescription.ts, administration/settings/AdministrationBranding.tsx, marketplace/details/OfferingTabs.tsx, marketplace/offerings/OfferingEditUIView.tsx, marketplace/offerings/OfferingPublicUIView.tsx, marketplace/offerings/details/PublicOfferingImages.tsx, marketplace/offerings/images/OfferingImagesList.tsx, openstack/openstack-tenant/TenantImagesList.tsx, openstack/openstack-tenant/tabs.ts, reporting/openstack/VmTypeOverview.tsx, vmware/deploy/FormTemplateStep.tsx",
     "message": "Images"
   },
   "Impact field name": {
@@ -6472,7 +6472,7 @@
     "message": "Networking"
   },
   "Networks": {
-    "description": "openstack/openstack-backup/actions/BackupRestoreDialog.tsx, openstack/openstack-instance/OpenstackInstanceDetails.tsx, openstack/openstack-tenant/actions/MigrateTenantDialog.tsx, openstack/openstack-tenant/tabs.ts",
+    "description": "openstack/openstack-backup/actions/BackupRestoreDialog.tsx, openstack/openstack-instance/OpenstackInstanceDetails.tsx, openstack/openstack-network/TenantNetworksList.tsx, openstack/openstack-tenant/actions/MigrateTenantDialog.tsx, openstack/openstack-tenant/tabs.ts",
     "message": "Networks"
   },
   "New announcement has been created.": {
@@ -8132,7 +8132,7 @@
     "message": "Port"
   },
   "Ports": {
-    "description": "openstack/openstack-tenant/tabs.ts",
+    "description": "openstack/openstack-instance/InternalIpsList.tsx, openstack/openstack-tenant/TenantPortsList.tsx, openstack/openstack-tenant/tabs.ts",
     "message": "Ports"
   },
   "Positive": {
@@ -9768,7 +9768,7 @@
     "message": "Reviews in final states are not editable"
   },
   "Reviews": {
-    "description": "customer/routes.ts, invitations/tabs.ts, navigation/sidebar/CallPublicMenu.tsx, proposals/review/CustomerReviewsList.tsx, proposals/routes.ts, proposals/update/rounds/CallRoundsList.tsx",
+    "description": "customer/routes.ts, invitations/tabs.ts, navigation/sidebar/CallPublicMenu.tsx, proposals/review/CustomerReviewsList.tsx, proposals/round/proposals/ProposalExpandableRow.tsx, proposals/routes.ts, proposals/update/rounds/CallRoundsList.tsx",
     "message": "Reviews"
   },
   "Revoke": {
@@ -9888,7 +9888,7 @@
     "message": "Rounds"
   },
   "Routers": {
-    "description": "openstack/openstack-tenant/tabs.ts",
+    "description": "openstack/openstack-tenant/TenantRoutersList.tsx, openstack/openstack-tenant/tabs.ts",
     "message": "Routers"
   },
   "Rows per page": {
@@ -10504,7 +10504,7 @@
     "message": "Server group creation has been scheduled."
   },
   "Server groups": {
-    "description": "openstack/openstack-tenant/tabs.ts",
+    "description": "openstack/openstack-server-groups/ServerGroupsList.tsx, openstack/openstack-tenant/tabs.ts",
     "message": "Server groups"
   },
   "Server": {
@@ -10976,7 +10976,7 @@
     "message": "Snapshots count"
   },
   "Snapshots": {
-    "description": "openstack/openstack-instance/tabs.ts, openstack/openstack-tenant/tabs.ts, openstack/openstack-volume/tabs.ts",
+    "description": "openstack/openstack-instance/tabs.ts, openstack/openstack-snapshot/TenantSnapshotsList.tsx, openstack/openstack-tenant/tabs.ts, openstack/openstack-volume/tabs.ts",
     "message": "Snapshots"
   },
   "Social and economic geography": {
@@ -11228,7 +11228,7 @@
     "message": "Subnets mapping"
   },
   "Subnets": {
-    "description": "customer/details/CustomerDetailsPanel.tsx, customer/details/EditFieldDialog.tsx, openstack/openstack-network/TenantNetworksList.tsx, openstack/openstack-tenant/actions/MigrateTenantDialog.tsx, openstack/openstack-tenant/tabs.ts",
+    "description": "customer/details/CustomerDetailsPanel.tsx, customer/details/EditFieldDialog.tsx, openstack/openstack-network/TenantNetworksList.tsx, openstack/openstack-subnet/TenantSubnetsList.tsx, openstack/openstack-tenant/actions/MigrateTenantDialog.tsx, openstack/openstack-tenant/tabs.ts",
     "message": "Subnets"
   },
   "Subscription ID": {
@@ -14336,7 +14336,7 @@
     "message": "Volumes count"
   },
   "Volumes": {
-    "description": "openstack/openstack-instance/tabs.ts, openstack/openstack-tenant/tabs.ts",
+    "description": "openstack/openstack-instance/tabs.ts, openstack/openstack-tenant/tabs.ts, openstack/openstack-volume/InstanceVolumesList.tsx, openstack/openstack-volume/TenantVolumesList.tsx",
     "message": "Volumes"
   },
   "Waiting for support": {
@@ -15038,6 +15038,10 @@
   "volume snapshot": {
     "description": "openstack/openstack-snapshot/EditDialog.tsx",
     "message": "volume snapshot"
+  },
+  "volume types": {
+    "description": "openstack/openstack-volume/TenantVolumeTypesList.tsx",
+    "message": "volume types"
   },
   "volumes": {
     "description": "openstack/openstack-volume/InstanceVolumesList.tsx, openstack/openstack-volume/TenantVolumesList.tsx",
