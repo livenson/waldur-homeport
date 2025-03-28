@@ -70,7 +70,7 @@ export const MigrateTenantDialog = connect<
                   dst_cidr: type.destination,
                 })),
                 skip_connection_extnet: formData.skip_connection_extnet,
-                networks: formData.networks.map(({ value }) => value),
+                networks: formData.networks?.map(({ value }) => value),
               },
             },
           });
