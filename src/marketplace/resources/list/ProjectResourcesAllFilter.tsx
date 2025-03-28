@@ -1,6 +1,5 @@
-import { FunctionComponent } from 'react';
-import { useSelector } from 'react-redux';
-import { Field, getFormValues, reduxForm } from 'redux-form';
+import { FunctionComponent, useMemo } from 'react';
+import { Field, reduxForm } from 'redux-form';
 import { Project } from 'waldur-js-client';
 
 import {
@@ -26,6 +25,8 @@ import { RuntimeStateFilter } from './RuntimeStateFilter';
 interface ProjectResourcesAllFilterProps {
   hasProjectFilter?: boolean;
   hasCustomerFilter?: boolean;
+  customer?: Customer;
+  project?: Project;
   change?: any;
   initialValues?: any;
 }
@@ -34,9 +35,15 @@ const PureProjectResourcesAllFilter: FunctionComponent<
   ProjectResourcesAllFilterProps
 > = (props) => {
   useSyncInitialFiltersToURL(props.initialValues);
-  const formValues = useSelector(
-    getFormValues(PROJECT_RESOURCES_ALL_FILTER_FORM_ID),
-  ) as { project: Project; organization: Customer };
+
+  const offeringFilter = useMemo(
+    () => ({
+      project_uuid: props.project?.uuid,
+      allowed_customer_uuid: props.customer?.uuid,
+    }),
+    [props.project, props.customer],
+  );
+
   return (
     <>
       <TableFilterItem
@@ -47,6 +54,7 @@ const PureProjectResourcesAllFilter: FunctionComponent<
         <OfferingAutocomplete
           providerOfferings={false}
           reactSelectProps={REACT_SELECT_TABLE_FILTER}
+          offeringFilter={offeringFilter}
         />
       </TableFilterItem>
       <TableFilterItem
@@ -65,10 +73,7 @@ const PureProjectResourcesAllFilter: FunctionComponent<
         name="category"
         badgeValue={(value) => value?.title}
       >
-        <CategoryFilter
-          project={formValues?.project}
-          customer={formValues?.organization}
-        />
+        <CategoryFilter project={props.project} customer={props.customer} />
       </TableFilterItem>
       {props.hasCustomerFilter ? (
         <TableFilterItem
