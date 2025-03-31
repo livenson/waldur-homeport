@@ -8,7 +8,7 @@ import { DestroyActionItem } from '@waldur/resource/actions/DestroyActionItem';
 import { ActionItemType } from '@waldur/resource/actions/types';
 
 const validators = [
-  validateState('OK', 'Erred'),
+  validateState('OK', 'ERRED'),
   validateRuntimeState('POWERED_OFF'),
 ];
 

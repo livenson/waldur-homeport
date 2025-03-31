@@ -24,7 +24,7 @@ const hasBackendId = (ctx: ActionContext) =>
     ? undefined
     : translate('Resource does not have backend ID.');
 
-const validators = [validateState('OK', 'Erred'), hasBackendId];
+const validators = [validateState('OK', 'ERRED'), hasBackendId];
 
 const usePull = ({
   resource,

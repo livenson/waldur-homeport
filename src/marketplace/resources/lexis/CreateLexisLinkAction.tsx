@@ -17,7 +17,7 @@ const CreateLexisLinkDialog = lazyComponent(() =>
   })),
 );
 
-const validators = [validateState('OK', 'Erred')];
+const validators = [validateState('OK', 'ERRED')];
 
 interface CreateLexisLinkActionProps {
   resource: any;

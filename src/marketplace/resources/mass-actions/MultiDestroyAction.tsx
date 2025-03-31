@@ -11,7 +11,7 @@ export const MultiDestroyAction = ({ rows, refetch }) => {
   const dispatch = useDispatch();
 
   const validResources = useMemo(
-    () => rows.filter((resource) => ['OK', 'Erred'].includes(resource.state)),
+    () => rows.filter((resource) => ['OK', 'ERRED'].includes(resource.state)),
     [rows],
   );
   const callback = useCallback(async () => {

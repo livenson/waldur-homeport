@@ -37,7 +37,7 @@ export const MultiPullAction = ({ rows, refetch }) => {
   const validResources = useMemo(
     () =>
       resources.filter((resource) =>
-        ['OK', 'Erred'].includes(resource.backend_metadata.state),
+        ['OK', 'ERRED'].includes(resource.backend_metadata.state),
       ),
     [resources],
   );

@@ -18,7 +18,7 @@ const SubmitReportDialog = lazyComponent(() =>
   })),
 );
 
-const validators = [validateState('OK', 'Erred'), validateStaffAction];
+const validators = [validateState('OK', 'ERRED'), validateStaffAction];
 
 export const SubmitReportAction: ActionItemType = ({
   resource,

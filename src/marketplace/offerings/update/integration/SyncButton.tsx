@@ -32,7 +32,7 @@ export const SyncButton = ({ offering, refetch }) => {
     queryKey: ['SyncButton', offering.scope],
     queryFn: refetch,
     enabled: Boolean(
-      offering.scope_state && !['OK', 'Erred'].includes(offering.scope_state),
+      offering.scope_state && !['OK', 'ERRED'].includes(offering.scope_state),
     ),
     refetchInterval: 5000,
   });
@@ -47,7 +47,7 @@ export const SyncButton = ({ offering, refetch }) => {
     return null;
   }
 
-  const enabled = ['OK', 'Erred'].includes(offering.scope_state);
+  const enabled = ['OK', 'ERRED'].includes(offering.scope_state);
 
   return (
     <Button

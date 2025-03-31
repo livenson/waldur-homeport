@@ -25,7 +25,7 @@ const getConfirmationText = (resource) => {
     name: resource.name.toUpperCase(),
     resourceType: formatResourceType(resource) || 'resource',
   };
-  if (resource.state === 'Erred') {
+  if (resource.state === 'ERRED') {
     return translate(
       'Are you sure you want to delete a {name} {resourceType} in an Erred state? A cleanup attempt will be performed if you choose so. ',
       context,

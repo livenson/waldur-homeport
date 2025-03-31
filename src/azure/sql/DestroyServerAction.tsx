@@ -5,7 +5,7 @@ import { validateState } from '@waldur/resource/actions/base';
 import { DestroyActionItem } from '@waldur/resource/actions/DestroyActionItem';
 import { ActionItemType } from '@waldur/resource/actions/types';
 
-const validators = [validateState('OK', 'Erred')];
+const validators = [validateState('OK', 'ERRED')];
 
 export const DestroyServerAction: ActionItemType = ({ resource, refetch }) => (
   <DestroyActionItem
