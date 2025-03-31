@@ -14,16 +14,17 @@ import { UserAddButton } from './UserAddButton';
 
 export const CallManagementTeamPage = () => {
   const customer = useSelector(getCustomer);
-  const url = `${ENV.apiEndpoint}api/call-managing-organisations/${customer.call_managing_organization_uuid}/`;
+  const scopeFilter = `${ENV.apiEndpoint}api/call-managing-organisations/${customer.call_managing_organization_uuid}/`;
+  const fetchUrl = `call-managing-organisations/${customer.call_managing_organization_uuid}/list_users`;
   const usersFilter = useMemo(
     () => ({
-      scope: url,
+      scope: scopeFilter,
     }),
-    [url],
+    [scopeFilter],
   );
   const tableProps = useTable({
     table: `CallManagementTeamPage/${customer.call_managing_organization_uuid}`,
-    fetchData: createFetcher(`${url}list_users`),
+    fetchData: createFetcher(fetchUrl),
     filter: usersFilter,
     queryField: 'search_string',
   });
