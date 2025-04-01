@@ -5196,7 +5196,7 @@
     "message": "Instances count"
   },
   "Instances": {
-    "description": "openstack/openstack-tenant/tabs.ts",
+    "description": "openstack/openstack-tenant/TenantInstancesList.tsx, openstack/openstack-tenant/tabs.ts",
     "message": "Instances"
   },
   "Integration settings": {

@@ -85,7 +85,7 @@ export const TenantInstancesList: FunctionComponent<{ resourceScope }> = ({
           render: ({ row }) => <ResourceState resource={row} />,
         },
       ]}
-      title={translate('instances')}
+      title={translate('Instances')}
       verboseName={translate('instances')}
       tableActions={
         <AddResourceButton
