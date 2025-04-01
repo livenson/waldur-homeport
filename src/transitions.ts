@@ -99,6 +99,36 @@ export function attachTransitions() {
       ),
   );
 
+  // Check resolvers before entering to a state
+  router.transitionService.onBefore({}, (transition) => {
+    const toState = transition.to();
+
+    const getAllStates = (state) => {
+      const states = [];
+      while (state) {
+        states.push(state);
+        state = state.parent
+          ? transition.router.stateRegistry.get(state.parent)
+          : null;
+      }
+      return states;
+    };
+
+    // Get all parent states
+    const states = getAllStates(toState);
+
+    // check need for fetchCustomer
+    const needsCustomer = states.some((state) =>
+      Array.isArray(state.resolve)
+        ? state.resolve?.some((resolver) => resolver.token === 'fetchCustomer')
+        : false,
+    );
+
+    if (!needsCustomer) return;
+
+    return transition.injector().getAsync('fetchCustomer');
+  });
+
   router.transitionService.onStart(
     {
       to: (state) =>
