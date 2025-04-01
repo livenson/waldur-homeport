@@ -49,9 +49,12 @@ export const AdministrationBranding = () => {
 
   const getItemValue = useCallback(
     (item) => {
-      return item.type === 'country_list_field'
-        ? data?.COUNTRIES
-        : ENV.plugins.WALDUR_CORE[item.key];
+      const value =
+        item.type === 'country_list_field'
+          ? data?.COUNTRIES
+          : ENV.plugins.WALDUR_CORE[item.key];
+      if (value === false) return value;
+      return value || ' ';
     },
     [data?.COUNTRIES],
   );
@@ -76,7 +79,7 @@ export const AdministrationBranding = () => {
                   <FieldRow
                     item={item}
                     key={item.key}
-                    value={getItemValue(item) || ' '}
+                    value={getItemValue(item)}
                     onEdit={
                       item.type === 'country_list_field'
                         ? openCountryDialog
