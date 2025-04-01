@@ -61,6 +61,7 @@ export const ResourceDetailsHero = ({
               scope={scope}
               refetch={refetch}
               labeled
+              drop="down"
             />
           </div>
         }
