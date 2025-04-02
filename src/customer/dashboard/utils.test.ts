@@ -1,6 +1,6 @@
 import { vi, describe, it, expect, afterEach, beforeEach } from 'vitest';
 
-import { formatCostChart } from '@waldur/dashboard/utils';
+import { formatOrganizationCostChart } from '@waldur/dashboard/utils';
 
 vi.mock('@waldur/core/config', () => ({
   ENV: {
@@ -22,24 +22,31 @@ describe('Customer dashboard chart API', () => {
       {
         year: 2018,
         month: 10,
-        price: 300,
+        price: '300',
+        incurred_costs: 400,
+        compensations: -100,
       },
       {
         year: 2018,
         month: 9,
-        price: 200,
+        price: '200',
+        incurred_costs: 200,
+        compensations: 0,
       },
       {
         year: 2018,
         month: 8,
-        price: 100,
+        price: '100',
+        incurred_costs: 120,
+        compensations: -20,
       },
     ];
     vi.setSystemTime(new Date(2018, 9, 16));
-    const chart = formatCostChart(invoices);
+    const chart = formatOrganizationCostChart(invoices);
 
     expect(chart.current).toEqual('EUR 300.00');
     expect(chart.data.length).toEqual(12);
+
     expect(chart.data[chart.data.length - 1].label).toEqual(
       'EUR 300.00 at 2018-10-31, estimated',
     );
@@ -47,6 +54,26 @@ describe('Customer dashboard chart API', () => {
       'EUR 200.00 at 2018-09-01',
     );
     expect(chart.data[chart.data.length - 4].label).toEqual(
+      'EUR 0.00 at 2018-07-01',
+    );
+
+    expect(chart.incurred[chart.incurred.length - 1].label).toEqual(
+      'EUR 400.00 at 2018-10-31, estimated',
+    );
+    expect(chart.incurred[chart.incurred.length - 2].label).toEqual(
+      'EUR 200.00 at 2018-09-01',
+    );
+    expect(chart.incurred[chart.incurred.length - 4].label).toEqual(
+      'EUR 0.00 at 2018-07-01',
+    );
+
+    expect(chart.compensation[chart.compensation.length - 1].label).toEqual(
+      'EUR 100.00 at 2018-10-31, estimated',
+    );
+    expect(chart.compensation[chart.compensation.length - 2].label).toEqual(
+      'EUR 0.00 at 2018-09-01',
+    );
+    expect(chart.compensation[chart.compensation.length - 4].label).toEqual(
       'EUR 0.00 at 2018-07-01',
     );
   });

@@ -19,7 +19,7 @@ import {
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
-import { loadChart } from '@waldur/project/utils';
+import { useProjectCostChart } from '@waldur/project/utils';
 import { getCustomer } from '@waldur/workspace/selectors';
 
 import { OrganizationProjectSelectField } from '../team/OrganizationProjectSelectField';
@@ -75,15 +75,11 @@ export const ProjectCreditFormDialog = connect(
     );
 
     const {
-      data: dataChart,
+      options: chartOptions,
       isLoading: isLoadingChart,
       error: errorChart,
       refetch: refetchChart,
-    } = useQuery(
-      ['ProjectDashboardChart', project?.uuid, true],
-      () => (isEdit && project ? loadChart(project, true) : null),
-      { staleTime: 5 * 60 * 1000 },
-    );
+    } = useProjectCostChart(project);
 
     const exceeds = useMemo(
       () => lessThanOrEqual(Number(organizationCredit?.value ?? 0)),
@@ -158,8 +154,8 @@ export const ProjectCreditFormDialog = connect(
                   <Accordion.Body>
                     {errorChart ? (
                       <LoadingErred loadData={refetchChart} />
-                    ) : dataChart?.options ? (
-                      <EChart options={dataChart.options} height="150px" />
+                    ) : chartOptions ? (
+                      <EChart options={chartOptions} height="150px" />
                     ) : null}
                   </Accordion.Body>
                 </Accordion.Item>

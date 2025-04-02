@@ -2207,6 +2207,10 @@
     "description": "invoices/details/InvoiceItemCompensationDialog.tsx",
     "message": "Compensation has been created."
   },
+  "Compensation": {
+    "description": "dashboard/utils.ts",
+    "message": "Compensation"
+  },
   "Complete all required sections: {sections} and {lastSection} to proceed.": {
     "description": "proposals/proposal/create/ProposalSidebar.tsx",
     "message": "Complete all required sections: {sections} and {lastSection} to proceed."
@@ -2428,7 +2432,7 @@
     "message": "Cost threshold"
   },
   "Cost": {
-    "description": "customer/list/CustomerList.tsx, invoices/list/InvoicesStatsList.tsx, marketplace/details/plan/ComponentRow.tsx, marketplace/details/plan/UsageComponentRow.tsx, marketplace/offerings/expandable/utils.ts",
+    "description": "customer/list/CustomerList.tsx, dashboard/utils.ts, invoices/list/InvoicesStatsList.tsx, marketplace/details/plan/ComponentRow.tsx, marketplace/details/plan/UsageComponentRow.tsx, marketplace/offerings/expandable/utils.ts",
     "message": "Cost"
   },
   "Costs": {
@@ -2707,6 +2711,10 @@
     "description": "invoices/details/InvoiceItemExpandableRow.tsx",
     "message": "Credit compensation."
   },
+  "Credit consumption": {
+    "description": "dashboard/utils.ts",
+    "message": "Credit consumption"
+  },
   "Credit deleted successfully.": {
     "description": "customer/credits/DeleteCreditButton.tsx, customer/credits/ProjectDeleteCreditButton.tsx",
     "message": "Credit deleted successfully."
@@ -2730,6 +2738,10 @@
   "Credit usage": {
     "description": "customer/credits/CreditUsageButton.tsx",
     "message": "Credit usage"
+  },
+  "Credit used": {
+    "description": "dashboard/chart.ts, dashboard/utils.ts",
+    "message": "Credit used"
   },
   "Credit": {
     "description": "administration/organizations/OrganizationCostPoliciesList.tsx, project/utils.ts",
@@ -2766,6 +2778,10 @@
   "Current agreement number: {value}.": {
     "description": "customer/details/CustomerErrorDialog.tsx",
     "message": "Current agreement number: {value}."
+  },
+  "Current balance": {
+    "description": "customer/dashboard/CustomerDashboardCredit.tsx, project/ProjectDashboardCredit.tsx",
+    "message": "Current balance"
   },
   "Current bank account: {value}.": {
     "description": "customer/details/CustomerErrorDialog.tsx",
@@ -2806,6 +2822,10 @@
   "Current month": {
     "description": "customer/cost-policies/CostPolicyForm.tsx",
     "message": "Current month"
+  },
+  "Current month’s cost": {
+    "description": "customer/dashboard/CustomerDashboardChart.tsx, project/ProjectDashboardCostLimits.tsx",
+    "message": "Current month’s cost"
   },
   "Current name: {value}.": {
     "description": "customer/details/CustomerErrorDialog.tsx",
@@ -4043,6 +4063,10 @@
     "description": "marketplace/details/plan/EstimateUsageComponentDialog.tsx",
     "message": "Estimate usage of {component}"
   },
+  "Estimated compensation": {
+    "description": "dashboard/utils.ts",
+    "message": "Estimated compensation"
+  },
   "Estimated cost": {
     "description": "administration/organizations/OrganizationCostPoliciesList.tsx, customer/list/CustomerList.tsx, dashboard/utils.ts, invoices/list/EstimatedCost.tsx, marketplace/service-providers/OrganizationProjectsExpandable.tsx, marketplace/service-providers/ProviderOfferingsList.tsx, marketplace/service-providers/ProviderOrganizationsList.tsx, marketplace/service-providers/ProviderUserCustomersList.tsx, project/ProjectsList.tsx, project/details/ProjectDetailsDialog.tsx",
     "message": "Estimated cost"
@@ -5082,6 +5106,10 @@
   "Incorrect organization details": {
     "description": "customer/details/CustomerErrorDialog.tsx",
     "message": "Incorrect organization details"
+  },
+  "Incurred": {
+    "description": "dashboard/utils.ts",
+    "message": "Incurred"
   },
   "Index allows to reorder columns": {
     "description": "marketplace/category/admin/ColumnRow.tsx",
@@ -12704,7 +12732,7 @@
     "message": "Unable to load data"
   },
   "Unable to load data.": {
-    "description": "core/LoadingErred.tsx, customer/list/TotalCostComponent.tsx, freeipa/FreeIPAAccount.tsx, invoices/details/BillingDetails.tsx, issues/IssueDetails.tsx, issues/create/IssueDescriptionTab.tsx, marketplace/resources/change-limits/ChangeLimitsBody.tsx, marketplace/resources/change-plan/ChangePlanDialog.tsx, project/ProjectDashboardCostLimits.tsx, rancher/cluster/actions/RancherClusterKubeconfigDialog.tsx, rancher/cluster/create/CreateNodeDialog.tsx, rancher/template/CatalogTemplateContainer.tsx, rancher/template/SecretField.tsx, resource/actions/AsyncActionDialog.tsx, resource/actions/ResourceActionDialog.tsx, user/dashboard/UserDashboard.tsx, user/hooks/HookDetailsDialog.tsx",
+    "description": "core/LoadingErred.tsx, customer/dashboard/CustomerDashboardCredit.tsx, customer/list/TotalCostComponent.tsx, freeipa/FreeIPAAccount.tsx, invoices/details/BillingDetails.tsx, issues/IssueDetails.tsx, issues/create/IssueDescriptionTab.tsx, marketplace/resources/change-limits/ChangeLimitsBody.tsx, marketplace/resources/change-plan/ChangePlanDialog.tsx, project/ProjectDashboardCostLimits.tsx, project/ProjectDashboardCredit.tsx, rancher/cluster/actions/RancherClusterKubeconfigDialog.tsx, rancher/cluster/create/CreateNodeDialog.tsx, rancher/template/CatalogTemplateContainer.tsx, rancher/template/SecretField.tsx, resource/actions/AsyncActionDialog.tsx, resource/actions/ResourceActionDialog.tsx, user/dashboard/UserDashboard.tsx, user/hooks/HookDetailsDialog.tsx",
     "message": "Unable to load data."
   },
   "Unable to load detail.": {
@@ -15076,7 +15104,7 @@
     "message": "{category} resources"
   },
   "{changes} vs last month": {
-    "description": "customer/dashboard/CustomerDashboardChart.tsx, dashboard/TeamWidget.tsx, project/ProjectDashboardCostLimits.tsx",
+    "description": "dashboard/TeamWidget.tsx",
     "message": "{changes} vs last month"
   },
   "{count} countries selected": {

@@ -24,7 +24,7 @@ import {
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
 
-import { getCustomerCostChartData } from '../dashboard/utils';
+import { useCustomerCostChart } from '../dashboard/utils';
 
 import { useMinimalConsumptionFields } from './constants';
 import { CustomerCreditFormData } from './types';
@@ -46,8 +46,7 @@ export const CreditFormDialog = reduxForm<
   );
   const { data, isLoading, error, refetch } = useQuery(
     ['customerDashboardCharts', customer?.uuid, true],
-    () =>
-      isEdit && customer ? getCustomerCostChartData(customer, true) : null,
+    () => (isEdit && customer ? useCustomerCostChart(customer) : null),
     { staleTime: 5 * 60 * 1000 },
   );
   const CONSUMPTION_FIELDS = useMinimalConsumptionFields(

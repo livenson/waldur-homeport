@@ -1,16 +1,30 @@
+import { SeriesOption } from 'echarts';
 import { DateTime } from 'luxon';
-import { dailyQuotasRetrieve, InvoiceCost } from 'waldur-js-client';
+import { dailyQuotasRetrieve, Invoice, InvoiceCost } from 'waldur-js-client';
 
 import { ENV } from '@waldur/core/config';
+import { DEFAULT_PRIMARY_COLORS } from '@waldur/core/constants';
 import { parseDate } from '@waldur/core/dateUtils';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
+import { generateBrandColors } from '@waldur/core/generateColors';
 import { translate } from '@waldur/i18n';
 
-import { Chart, ChartData, Scope } from './types';
+import {
+  getCostWidgetChartOptions,
+  getCreditWidgetChartOptions,
+} from './chart';
+import { Chart, ChartData, CostChart, CreditChart, Scope } from './types';
 
 export interface DateValuePair {
   date: DateTime | string;
   value: number;
+}
+
+interface DateCostPair {
+  date: DateTime | string;
+  value: number;
+  compensation: number;
+  incurred: number;
 }
 
 const formatTeamSizeChart = (values: number[] = []): Chart => {
@@ -58,7 +72,10 @@ export async function getTeamSizeChart(scope: Scope): Promise<Chart> {
   return formatTeamSizeChart(values[quota]);
 }
 
-export const padMissingValues = (items: DateValuePair[]): DateValuePair[] =>
+export const padMissingValues = <T extends DateValuePair>(
+  items: T[],
+  dataKeys = ['value'],
+): T[] =>
   Array.from({ length: 12 }, (_, index) => {
     const date = DateTime.now()
       .startOf('month')
@@ -69,16 +86,17 @@ export const padMissingValues = (items: DateValuePair[]): DateValuePair[] =>
         item.date.year === date.year &&
         item.date.month === date.month,
     );
-    return {
-      date,
-      value: item ? item.value : 0,
-    };
+    const dataItem: any = { date };
+    dataKeys.forEach((key) => {
+      dataItem[key] = item?.[key] || 0;
+    });
+    return dataItem;
   });
 
 export const formatCostChartLabel = (
   value: number,
   date: DateTime,
-  isEstimate: boolean,
+  isEstimate: boolean = false,
 ): string => {
   let template = translate('{value} at {date}');
   if (isEstimate) {
@@ -90,7 +108,73 @@ export const formatCostChartLabel = (
   });
 };
 
-export const formatCostChart = (invoices: InvoiceCost[]): Chart => {
+export const formatOrganizationCostChart = (invoices: Invoice[]): CostChart => {
+  const items: DateCostPair[] = invoices.map((invoice) => ({
+    value: Number(invoice.price),
+    incurred: Number(invoice.incurred_costs),
+    compensation: Number(invoice.compensations) * -1,
+    date: DateTime.fromObject({ year: invoice.year, month: invoice.month }),
+  }));
+  return getFormattedCostChart(items);
+};
+
+export const formatProjectCostChart = (invoices: InvoiceCost[]): CostChart => {
+  const items: DateCostPair[] = invoices.map((invoice) => ({
+    value: Number(invoice.price),
+    incurred: Number(invoice['incurred']), // FIX this in the InvoiceCost type
+    compensation: Number(invoice['compensation']) * -1, // FIX this in the InvoiceCost type
+    date: DateTime.fromObject({ year: invoice.year, month: invoice.month }),
+  }));
+  return getFormattedCostChart(items);
+};
+
+const getFormattedCostChart = (items: DateCostPair[]): CostChart => {
+  items.reverse();
+  items = padMissingValues(items, ['value', 'incurred', 'compensation']);
+  let total = 0;
+  const data = [];
+  const incurred = [];
+  const compensation = [];
+  items.forEach((item, index) => {
+    total += item.value;
+    const isEstimate = index === items.length - 1;
+    const date = isEstimate
+      ? DateTime.now().endOf('month')
+      : parseDate(item.date);
+    data.push({
+      label: formatCostChartLabel(item.value, date, isEstimate),
+      value: item.value,
+      xAxisValue: date.monthShort,
+    });
+    incurred.push({
+      label: formatCostChartLabel(item.incurred, date, isEstimate),
+      value: item.incurred,
+      xAxisValue: date.monthShort,
+    });
+    compensation.push({
+      label: formatCostChartLabel(item.compensation, date, isEstimate),
+      value: item.compensation,
+      xAxisValue: date.monthShort,
+    });
+  });
+
+  return {
+    title: translate('Cost'),
+    data,
+    incurred,
+    compensation,
+    current: defaultCurrency(items[items.length - 1].value),
+    total,
+    yAxisLabel: translate('Cost ({currency})', {
+      currency: ENV.plugins.WALDUR_CORE.CURRENCY_NAME,
+    }),
+  };
+};
+
+const formatCreditChart = (
+  invoices: InvoiceCost[],
+  creditValue: string | number,
+): CreditChart => {
   let items: DateValuePair[] = invoices.map((invoice) => ({
     value: Number(invoice.price),
     date: DateTime.fromObject({ year: invoice.year, month: invoice.month }),
@@ -99,36 +183,136 @@ export const formatCostChart = (invoices: InvoiceCost[]): Chart => {
   items.reverse();
   items = padMissingValues(items);
   let total = 0;
-  const data = items.map((item, index) => {
+  const data = []; // As 'used' in the chart
+  const remaining = [];
+  items.forEach((item) => {
     total += item.value;
-    const isEstimate = index === items.length - 1;
-    const date = isEstimate
-      ? DateTime.now().endOf('month')
-      : parseDate(item.date);
-    return {
-      label: formatCostChartLabel(item.value, date, isEstimate),
+    const date = parseDate(item.date);
+    data.push({
+      label: formatCostChartLabel(item.value, date),
       value: item.value,
       xAxisValue: date.monthShort,
-    };
+    });
+    const remainingCredit = Number(creditValue ?? 0) - item.value;
+    remaining.push({
+      label: formatCostChartLabel(remainingCredit, date),
+      value: remainingCredit,
+      xAxisValue: date.monthShort,
+    });
   });
 
-  const lastMonths = items.slice(-2);
-  let changesPercent = 0;
-  const lastMonthCost = Number(lastMonths[0].value);
-  const currentMonthCost = Number(lastMonths[1].value);
-  if (lastMonthCost || lastMonthCost === 0) {
-    changesPercent =
-      ((currentMonthCost - lastMonthCost) / Math.abs(lastMonthCost)) * 100;
-  }
+  return {
+    title: translate('Credit consumption'),
+    data,
+    remaining,
+    current: defaultCurrency(remaining[remaining.length - 1].value), // As remaining credit
+    total,
+    yAxisLabel: translate('Credit used'),
+  };
+};
+
+export const getCreditChartAndOptions = (
+  invoiceCosts: InvoiceCost[],
+  creditValue: string | number,
+) => {
+  const chart = formatCreditChart(invoiceCosts, creditValue);
+
+  const brand =
+    ENV.plugins.WALDUR_CORE.BRAND_COLOR || DEFAULT_PRIMARY_COLORS[600];
+  const brandColors = generateBrandColors(brand);
+
+  const series: SeriesOption[] = [
+    {
+      name: translate('Credit used'),
+      type: 'bar',
+      data: chart.data as any,
+      color: brandColors[300],
+    },
+    // {
+    //   name: translate('Remaining credit'),
+    //   type: 'line',
+    //   yAxisIndex: 1,
+    //   data: chart.remaining as any,
+    //   color: '#D0D5DD',
+    //   smooth: true,
+    //   showSymbol: false,
+    //   areaStyle: {
+    //     color: new graphic.LinearGradient(0, 0, 0, 1, [
+    //       {
+    //         offset: 0,
+    //         color: 'rgba(170, 170, 170, 0.6)',
+    //       },
+    //       {
+    //         offset: 1,
+    //         color: 'rgba(170, 170, 170, 0)',
+    //       },
+    //     ]),
+    //   },
+    // },
+  ];
 
   return {
-    title: translate('Estimated cost'),
-    data,
-    current: defaultCurrency(items[items.length - 1].value),
-    total,
-    changes: changesPercent,
-    yAxisLabel: translate('Cost ({currency})', {
-      currency: ENV.plugins.WALDUR_CORE.CURRENCY_NAME,
-    }),
+    chart,
+    options: getCreditWidgetChartOptions(
+      series,
+      chart.data.map((datum) => datum.xAxisValue),
+    ),
+  };
+};
+
+export const getCostChartAndOptions = (
+  chart: CostChart,
+  hlines?: Array<{ label; value }>,
+) => {
+  const brand =
+    ENV.plugins.WALDUR_CORE.BRAND_COLOR || DEFAULT_PRIMARY_COLORS[600];
+  const brandColors = generateBrandColors(brand);
+
+  const hasCompensations =
+    chart.compensation?.length > 0 &&
+    chart.compensation.some((item) => Number(item.value) !== 0);
+
+  const series: SeriesOption[] = [
+    {
+      name: translate('Incurred'),
+      type: 'bar',
+      stack: 'cost',
+      data: chart.incurred.slice(0, chart.incurred.length - 1),
+      color: brandColors[600],
+    },
+    hasCompensations && {
+      name: translate('Compensation'),
+      type: 'bar',
+      stack: 'compensation',
+      data: chart.compensation.slice(0, chart.compensation.length - 1),
+      color: brandColors[300],
+    },
+    {
+      name: translate('Estimated cost'),
+      type: 'bar',
+      stack: 'cost',
+      data: Array.from({ length: chart.incurred.length - 1 }).concat(
+        chart.incurred[chart.incurred.length - 1],
+      ),
+      color: '#98a2b3', // gray-400
+    },
+    hasCompensations && {
+      name: translate('Estimated compensation'),
+      type: 'bar',
+      stack: 'compensation',
+      data: Array.from({ length: chart.compensation.length - 1 }).concat(
+        chart.compensation[chart.compensation.length - 1],
+      ),
+      color: '#d0d5dd', // gray-300
+    },
+  ].filter(Boolean) as SeriesOption[];
+
+  return {
+    chart,
+    options: getCostWidgetChartOptions(
+      series,
+      hlines,
+      chart.data.map((datum) => datum.xAxisValue),
+    ),
   };
 };

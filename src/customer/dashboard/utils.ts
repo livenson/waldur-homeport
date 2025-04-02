@@ -1,53 +1,105 @@
-import { invoicesList } from 'waldur-js-client';
+import { useQuery } from '@tanstack/react-query';
+import { useMemo } from 'react';
+import { InvoiceCost, invoicesList } from 'waldur-js-client';
 
+import { getLineChartOptions } from '@waldur/dashboard/chart';
+import { Scope } from '@waldur/dashboard/types';
 import {
-  getLineChartOptions,
-  getLineChartOptionsWithAxis,
-} from '@waldur/dashboard/chart';
-import { Scope, Chart, InvoiceSummary } from '@waldur/dashboard/types';
-import { formatCostChart, getTeamSizeChart } from '@waldur/dashboard/utils';
+  formatOrganizationCostChart,
+  getCostChartAndOptions,
+  getCreditChartAndOptions,
+  getTeamSizeChart,
+} from '@waldur/dashboard/utils';
 import { getActiveFixedPricePaymentProfile } from '@waldur/invoices/details/utils';
+import { Customer } from '@waldur/workspace/types';
 
-async function getCustomerCostChart(customer: Scope): Promise<Chart> {
+async function getCustomerCostData(customer: Scope) {
   if (!getActiveFixedPricePaymentProfile(customer.payment_profiles)) {
     const invoices = await invoicesList({
       query: {
         customer: customer.url,
         page_size: 12,
-        field: ['year', 'month', 'price'],
+        field: ['year', 'month', 'price', 'compensations', 'incurred_costs'],
       },
     });
-    const costChart = formatCostChart(invoices.data as any as InvoiceSummary[]);
-    return costChart;
+
+    return invoices.data;
   }
   return null;
 }
 
-export async function getCustomerCostChartData(
-  customer: Scope,
-  withAxis = false,
-) {
-  const costChart = await getCustomerCostChart(customer);
-  return costChart
-    ? {
-        chart: costChart,
-        options: withAxis
-          ? getLineChartOptionsWithAxis(costChart)
-          : getLineChartOptions(costChart),
-      }
-    : null;
+export function useCustomerCostChart(customer: Scope) {
+  const { data, isLoading, error, refetch } = useQuery(
+    ['CustomerCostData', customer.url],
+    () => getCustomerCostData(customer),
+    {
+      staleTime: 5 * 60 * 1000,
+    },
+  );
+
+  const chartData = useMemo(() => {
+    if (!data) return { chart: null, options: null };
+
+    const costChart = formatOrganizationCostChart(data);
+    return getCostChartAndOptions(costChart);
+  }, [data]);
+
+  return { ...chartData, isLoading, error, refetch };
 }
 
-export const loadSummary = async (customer) => {
-  const costChartData = await getCustomerCostChartData(customer);
-  const teamChart = await getTeamSizeChart(customer);
+export function useCustomerCreditChart(customer: Customer) {
+  const {
+    data: invoices,
+    isLoading,
+    error,
+    refetch,
+  } = useQuery(
+    ['CustomerCostData', customer.url],
+    () => getCustomerCostData(customer),
+    {
+      staleTime: 5 * 60 * 1000,
+    },
+  );
+
+  const chartData = useMemo(() => {
+    if (!customer.credit) return { chart: null, options: null };
+    const invoiceCosts: InvoiceCost[] = (invoices || []).map((invoice) => ({
+      year: invoice.year,
+      month: invoice.month,
+      price: Number(invoice.price),
+    }));
+    return getCreditChartAndOptions(invoiceCosts, customer.credit?.value);
+  }, [invoices, customer]);
+
   return {
-    costChart: costChartData,
-    teamChart: teamChart
-      ? {
-          chart: teamChart,
-          options: getLineChartOptions(teamChart),
-        }
-      : null,
+    credit: customer.credit,
+    isLoading,
+    error,
+    refetch,
+    chart: chartData.chart,
+    options: chartData.options,
   };
+}
+
+export const useCustomerTeamChart = (customer) => {
+  const { data, isLoading, error, refetch } = useQuery(
+    ['CustomerTeamChart', customer.url],
+    () => getTeamSizeChart(customer),
+    {
+      staleTime: 5 * 60 * 1000,
+    },
+  );
+
+  const chartData = useMemo(
+    () =>
+      data
+        ? {
+            chart: data,
+            options: getLineChartOptions(data),
+          }
+        : {},
+    [data],
+  );
+
+  return { ...chartData, isLoading, error, refetch };
 };
