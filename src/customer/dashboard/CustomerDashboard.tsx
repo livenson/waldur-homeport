@@ -14,8 +14,8 @@ import {
   isOwnerOrStaff,
 } from '@waldur/workspace/selectors';
 
-import { CreditStatusWidget } from './CreditStatusWidget';
 import { CustomerDashboardChart } from './CustomerDashboardChart';
+import { CustomerDashboardCredit } from './CustomerDashboardCredit';
 import { CustomerProfile } from './CustomerProfile';
 
 export const CustomerDashboard: FunctionComponent = () => {
@@ -65,17 +65,7 @@ export const CustomerDashboard: FunctionComponent = () => {
                 />
               </Col>
               {Boolean(customer.credit) && (
-                <Col
-                  md={6}
-                  sm={12}
-                  className="mb-5"
-                  style={COMMON_WIDGET_HEIGHT}
-                >
-                  <CreditStatusWidget
-                    credit={customer.credit}
-                    type="organization"
-                  />
-                </Col>
+                <CustomerDashboardCredit customer={customer} className="mb-5" />
               )}
             </Row>
           )}

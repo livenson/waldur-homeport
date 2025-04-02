@@ -6,6 +6,9 @@ import * as api from './utils';
 vi.mock('@waldur/core/formatCurrency', () => ({
   defaultCurrency: (val) => `EUR${val}`,
 }));
+vi.mock('@waldur/core/config', () => ({
+  ENV: { plugins: { WALDUR_CORE: { BRAND_COLOR: '#12B76A' } } },
+}));
 
 describe('Dashboard chart API', () => {
   beforeEach(() => {
