@@ -10,7 +10,7 @@ import { CostPolicyForm } from './CostPolicyForm';
 import { CostPolicyFormData, CostPolicyType } from './types';
 
 interface CostPolicyFormDialogProps {
-  onSubmit(formData: CostPolicyFormData): void;
+  submitFn(formData: CostPolicyFormData): void;
   type: CostPolicyType;
   formId: string;
   initialValues?: any;
@@ -28,7 +28,7 @@ export const CostPolicyFormDialog = connect(
     const isEdit = Boolean(props.initialValues);
 
     return (
-      <form onSubmit={props.handleSubmit(props.onSubmit)}>
+      <form onSubmit={props.handleSubmit(props.submitFn)}>
         <MetronicModalDialog
           title={isEdit ? translate('Edit policy') : translate('New policy')}
           footer={

@@ -29,7 +29,7 @@ import { ProjectCreditFormData } from './types';
 
 interface ProjectCreditFormDialogProps {
   formId: string;
-  onSubmit(formData: ProjectCreditFormData): void;
+  submitFn(formData: ProjectCreditFormData): void;
   initialValues: any;
 }
 
@@ -96,7 +96,7 @@ export const ProjectCreditFormDialog = connect(
     );
 
     return (
-      <form onSubmit={props.handleSubmit(props.onSubmit)}>
+      <form onSubmit={props.handleSubmit(props.submitFn)}>
         <MetronicModalDialog
           title={
             isEdit

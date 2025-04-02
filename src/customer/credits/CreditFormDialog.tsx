@@ -30,7 +30,7 @@ import { useMinimalConsumptionFields } from './constants';
 import { CustomerCreditFormData } from './types';
 
 interface CreditFormDialogProps {
-  onSubmit(formData: CustomerCreditFormData): void;
+  submitFn(formData: CustomerCreditFormData): void;
 }
 
 export const CreditFormDialog = reduxForm<
@@ -56,7 +56,7 @@ export const CreditFormDialog = reduxForm<
   );
 
   return (
-    <form onSubmit={props.handleSubmit(props.onSubmit)}>
+    <form onSubmit={props.handleSubmit(props.submitFn)}>
       <MetronicModalDialog
         title={
           isEdit ? translate('Edit credit') : translate('Add allocation credit')

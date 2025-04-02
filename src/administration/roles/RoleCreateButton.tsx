@@ -21,7 +21,7 @@ export const RoleCreateButton = ({ refetch }) => {
     () =>
       dispatch(
         openModalDialog(RoleCreateDialog, {
-          onSubmit: async (formData) => {
+          submitFn: async (formData) => {
             await rolesCreate({ body: formData });
             ENV.roles = await getRoles();
             dispatch(closeModalDialog());

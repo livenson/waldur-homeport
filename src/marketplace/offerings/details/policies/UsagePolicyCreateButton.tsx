@@ -36,7 +36,7 @@ export const UsagePolicyCreateButton = ({
         openModalDialog(PolicyCreateDialog, {
           size: 'lg',
           formId: OFFERING_POLICY_FORM,
-          onSubmit: async (formData: OfferingUsagePolicyFormData) => {
+          submitFn: async (formData: OfferingUsagePolicyFormData) => {
             try {
               await marketplaceOfferingUsagePoliciesCreate({ body: formData });
               dispatch(closeModalDialog());

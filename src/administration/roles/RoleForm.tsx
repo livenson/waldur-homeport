@@ -9,11 +9,11 @@ import { ROLE_TYPES } from '../../permissions/constants';
 
 import { PermissionField } from './PermissionField';
 
-export const RoleForm = reduxForm<{}, { onSubmit; onCancel; role? }>({
+export const RoleForm = reduxForm<{}, { submitFn; onCancel; role? }>({
   form: 'RoleForm',
 })((props) => {
   return (
-    <form onSubmit={props.handleSubmit(props.onSubmit)}>
+    <form onSubmit={props.handleSubmit(props.submitFn)}>
       <FormContainer submitting={props.submitting}>
         <StringField
           name="name"

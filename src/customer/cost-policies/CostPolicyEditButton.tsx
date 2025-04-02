@@ -83,7 +83,7 @@ export const CostPolicyEditButton = ({
         openModalDialog(CostPolicyFormDialog, {
           size: 'lg',
           formId: 'CostPolicyEditForm',
-          onSubmit: (formData) => {
+          submitFn: (formData) => {
             return submit(row.uuid, formData, type).then(() => {
               dispatch(closeModalDialog());
               refetch();
