@@ -70,7 +70,7 @@ export const CostPolicyCreateButton = ({
         openModalDialog(CostPolicyFormDialog, {
           size: 'lg',
           formId: 'CostPolicyCreateForm',
-          onSubmit: (formData) => {
+          submitFn: (formData) => {
             return submit(formData, type).then(() => {
               dispatch(closeModalDialog());
               refetch();

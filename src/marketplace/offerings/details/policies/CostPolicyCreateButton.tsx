@@ -36,7 +36,7 @@ export const CostPolicyCreateButton = ({
         openModalDialog(PolicyCreateDialog, {
           size: 'lg',
           formId: OFFERING_POLICY_FORM,
-          onSubmit: async (formData: OfferingCostPolicyFormData) => {
+          submitFn: async (formData: OfferingCostPolicyFormData) => {
             try {
               await marketplaceOfferingEstimatedCostPoliciesCreate({
                 body: formData,

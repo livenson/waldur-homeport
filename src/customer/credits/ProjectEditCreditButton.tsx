@@ -32,7 +32,7 @@ export const ProjectEditCreditButton = ({ row, refetch }) => {
         },
         ...getCreditInitialValues(row),
       },
-      onSubmit: async (formData) => {
+      submitFn: async (formData) => {
         try {
           await projectCreditsUpdate({
             path: { uuid: row.uuid },

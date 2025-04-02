@@ -26,7 +26,7 @@ export const RoleEditButton = ({ row, refetch }) => {
           resolve: {
             row,
           },
-          onSubmit: async (formData: RoleModifyRequest) => {
+          submitFn: async (formData: RoleModifyRequest) => {
             await rolesUpdate({ path: { uuid: row.uuid }, body: formData });
             ENV.roles = await getRoles();
             dispatch(closeModalDialog());

@@ -14,7 +14,7 @@ import {
 } from './types';
 
 interface PolicyCreateDialogProps {
-  onSubmit(
+  submitFn(
     formData: OfferingCostPolicyFormData | OfferingUsagePolicyFormData,
   ): void;
   type: OfferingPolicyType;
@@ -30,7 +30,7 @@ export const PolicyCreateDialog = reduxForm<
   form: OFFERING_POLICY_FORM,
 })((props) => {
   return (
-    <form onSubmit={props.handleSubmit(props.onSubmit)}>
+    <form onSubmit={props.handleSubmit(props.submitFn)}>
       <MetronicModalDialog
         title={
           props.type === 'usage'

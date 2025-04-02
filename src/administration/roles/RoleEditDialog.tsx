@@ -6,7 +6,7 @@ import { translate } from '@waldur/i18n';
 import { RoleForm } from './RoleForm';
 
 interface RoleEditDialogProps {
-  onSubmit(payload): void;
+  submitFn(payload): void;
   onCancel(): void;
   resolve: { row };
 }
