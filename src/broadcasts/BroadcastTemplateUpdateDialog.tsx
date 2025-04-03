@@ -8,6 +8,7 @@ import {
 
 import { BroadcastTemplateForm } from '@waldur/broadcasts/BroadcastTemplateForm';
 import { BROADCAST_TEMPLATE_CREATE_FORM_ID } from '@waldur/broadcasts/constants';
+import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
@@ -57,11 +58,16 @@ export const BroadcastTemplateUpdateDialog = connect(
     );
 
     return (
-      <ModalDialog title={translate('Update a broadcast template')}>
-        <form onSubmit={handleSubmit(callback)}>
+      <form onSubmit={handleSubmit(callback)}>
+        <ModalDialog
+          title={translate('Update a broadcast template')}
+          footer={
+            <SubmitButton submitting={submitting} label={translate('Save')} />
+          }
+        >
           <BroadcastTemplateForm submitting={submitting} />
-        </form>
-      </ModalDialog>
+        </ModalDialog>
+      </form>
     );
   }),
 );

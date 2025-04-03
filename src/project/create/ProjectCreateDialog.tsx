@@ -9,7 +9,7 @@ import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { useModal } from '@waldur/modal/hooks';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { useNotify } from '@waldur/store/hooks';
 import { Customer } from '@waldur/workspace/types';
 
@@ -87,7 +87,7 @@ export const ProjectCreateDialog = ({
       initialValues={{ customer }}
       render={({ handleSubmit, submitting, invalid, dirty, values }) => (
         <form onSubmit={handleSubmit}>
-          <MetronicModalDialog
+          <ModalDialog
             title={translate('Create project')}
             subtitle={translate(
               'Provide the required information to set up a new project.',
@@ -117,7 +117,7 @@ export const ProjectCreateDialog = ({
               <EndDateGroup create />
               <ImageGroup create />
             </div>
-          </MetronicModalDialog>
+          </ModalDialog>
         </form>
       )}
     />

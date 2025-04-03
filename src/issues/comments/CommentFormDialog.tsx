@@ -13,7 +13,7 @@ import { FormContainer, SubmitButton, TextField } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { showErrorResponse } from '@waldur/store/notify';
 
 import * as actions from './actions';
@@ -66,7 +66,7 @@ const PureCommentFormDialog: FC<CommentFormDialogProps> = (props) => {
 
   return (
     <form onSubmit={props.handleSubmit(onSubmit)}>
-      <MetronicModalDialog
+      <ModalDialog
         title={
           props.isEdit ? translate('Change comment') : translate('Add comment')
         }
@@ -95,7 +95,7 @@ const PureCommentFormDialog: FC<CommentFormDialogProps> = (props) => {
             autoFocus
           />
         </FormContainer>
-      </MetronicModalDialog>
+      </ModalDialog>
     </form>
   );
 };

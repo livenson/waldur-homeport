@@ -1,4 +1,4 @@
-import { Modal } from 'react-bootstrap';
+import { UserPlus } from '@phosphor-icons/react';
 import { useDispatch, useSelector } from 'react-redux';
 import { formValueSelector, reduxForm } from 'redux-form';
 import {
@@ -23,6 +23,7 @@ import { AwesomeCheckboxField } from '@waldur/form/AwesomeCheckboxField';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';
 import { Role, RoleType } from '@waldur/permissions/types';
@@ -37,6 +38,7 @@ import { Project, User } from '@waldur/workspace/types';
 import { ExpirationTimeGroup } from './ExpirationTimeGroup';
 import { RoleGroup } from './RoleGroup';
 import { UserListOptionInline } from './UserListOptionInline';
+
 const FORM_ID = 'AddUserDialog';
 const FIELD_ID = 'showAllUsers';
 
@@ -187,10 +189,19 @@ export const AddUserDialog = reduxForm<
 
   return (
     <form onSubmit={handleSubmit(saveUser)}>
-      <Modal.Header>
-        <Modal.Title>{title || translate('Add user')}</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
+      <ModalDialog
+        title={title || translate('Add user')}
+        footer={
+          <>
+            <CloseDialogButton />
+            <SubmitButton submitting={submitting} invalid={invalid}>
+              {translate('Add role')}
+            </SubmitButton>
+          </>
+        }
+        iconNode={<UserPlus weight="bold" />}
+        iconColor="success"
+      >
         <FormContainer submitting={submitting}>
           <AsyncSelectField
             name="user"
@@ -237,13 +248,7 @@ export const AddUserDialog = reduxForm<
           )}
           <ExpirationTimeGroup />
         </FormContainer>
-      </Modal.Body>
-      <Modal.Footer>
-        <SubmitButton submitting={submitting} invalid={invalid}>
-          {translate('Add role')}
-        </SubmitButton>
-        <CloseDialogButton />
-      </Modal.Footer>
+      </ModalDialog>
     </form>
   );
 });

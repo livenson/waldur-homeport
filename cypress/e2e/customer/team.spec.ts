@@ -112,6 +112,7 @@ describe('Team', () => {
       .get('.modal [class*="-control"]')
       .first()
       .click(0, 0, { force: true })
+      .click()
 
       .get('.modal button')
       .contains('Save')

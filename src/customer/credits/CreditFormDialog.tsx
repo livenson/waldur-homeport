@@ -22,7 +22,7 @@ import {
   organizationAutocomplete,
 } from '@waldur/marketplace/common/autocompletes';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 
 import { useCustomerCostChart } from '../dashboard/utils';
 
@@ -56,7 +56,7 @@ export const CreditFormDialog = reduxForm<
 
   return (
     <form onSubmit={props.handleSubmit(props.submitFn)}>
-      <MetronicModalDialog
+      <ModalDialog
         title={
           isEdit ? translate('Edit credit') : translate('Add allocation credit')
         }
@@ -158,7 +158,7 @@ export const CreditFormDialog = reduxForm<
             <FieldError error={props.error} />
           </Form.Group>
         </FormContainer>
-      </MetronicModalDialog>
+      </ModalDialog>
     </form>
   );
 });

@@ -132,13 +132,12 @@ export const BroadcastFooter = ({
   );
 
   return (
-    <Modal.Footer>
+    <Modal.Footer className="border-0 pt-0 gap-2">
       {step === 0 ? (
         <>
           <CloseDialogButton />
           <Button
             onClick={handleSubmit(saveAsDraft)}
-            className="ms-3"
             variant="secondary"
             disabled={disabled}
           >
@@ -149,7 +148,6 @@ export const BroadcastFooter = ({
           </Button>
           <Button
             onClick={handleSubmit(saveAsTemplate)}
-            className="ms-3"
             variant="secondary"
             disabled={disabled}
           >
@@ -158,7 +156,7 @@ export const BroadcastFooter = ({
             </span>{' '}
             {translate('Save as a template')}
           </Button>
-          <Button onClick={() => setStep(1)} className="ms-3">
+          <Button onClick={() => setStep(1)}>
             <span className="svg-icon svg-icon-2">
               <ArrowRight />
             </span>{' '}
@@ -175,7 +173,6 @@ export const BroadcastFooter = ({
           </Button>
           <Button
             onClick={handleSubmit(saveAsDraft)}
-            className="ms-3"
             variant="secondary"
             disabled={disabled}
           >
@@ -184,11 +181,7 @@ export const BroadcastFooter = ({
             </span>{' '}
             {translate('Save as draft')}
           </Button>
-          <Button
-            disabled={disabled}
-            className="ms-3"
-            onClick={handleSubmit(saveAndSend)}
-          >
+          <Button disabled={disabled} onClick={handleSubmit(saveAndSend)}>
             <span className="svg-icon svg-icon-2">
               <Share />
             </span>{' '}

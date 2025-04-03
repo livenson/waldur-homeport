@@ -1,5 +1,4 @@
 import { useCallback } from 'react';
-import { Modal } from 'react-bootstrap';
 import { connect, useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import {
@@ -15,6 +14,7 @@ import { FormContainer } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { Role } from '@waldur/permissions/types';
 import { getProjectRoles } from '@waldur/permissions/utils';
 import { ExpirationTimeGroup } from '@waldur/project/team/ExpirationTimeGroup';
@@ -105,23 +105,24 @@ export const EditProjectUserDialog = connect(
 
     return (
       <form onSubmit={handleSubmit(saveUser)}>
-        <Modal.Header>
-          <Modal.Title>{translate('Edit project member')}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
+        <ModalDialog
+          title={translate('Edit project member')}
+          footer={
+            <>
+              <CloseDialogButton />
+              <SubmitButton submitting={submitting}>
+                {translate('Save')}
+              </SubmitButton>
+            </>
+          }
+        >
           <FormContainer submitting={submitting}>
             <UserGroup permission={resolve.customer} />
             <ProjectGroup project={resolve.project} />
             <RoleGroup types={['project']} />
             <ExpirationTimeGroup disabled={submitting} />
           </FormContainer>
-        </Modal.Body>
-        <Modal.Footer>
-          <SubmitButton submitting={submitting}>
-            {translate('Save')}
-          </SubmitButton>
-          <CloseDialogButton />
-        </Modal.Footer>
+        </ModalDialog>
       </form>
     );
   }),

@@ -1,5 +1,4 @@
 import { useCallback } from 'react';
-import { Modal } from 'react-bootstrap';
 import { connect, useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { marketplaceProviderOfferingsUpdateOverview } from 'waldur-js-client';
@@ -14,6 +13,7 @@ import MarkdownEditor from '@waldur/form/MarkdownEditor';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
 import { OVERVIEW_FORM_ID } from './constants';
@@ -56,10 +56,18 @@ export const EditOverviewDialog = connect(
     );
     return (
       <form onSubmit={props.handleSubmit(update)}>
-        <Modal.Header>
-          <Modal.Title>{props.resolve.attribute.title}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
+        <ModalDialog
+          title={props.resolve.attribute.title}
+          footer={
+            <>
+              <CloseDialogButton />
+              <SubmitButton
+                submitting={props.submitting}
+                label={translate('Update')}
+              />
+            </>
+          }
+        >
           <FormContainer
             {...props}
             className={
@@ -79,14 +87,7 @@ export const EditOverviewDialog = connect(
               />
             )}
           </FormContainer>
-        </Modal.Body>
-        <Modal.Footer>
-          <SubmitButton
-            submitting={props.submitting}
-            label={translate('Update')}
-          />
-          <CloseDialogButton />
-        </Modal.Footer>
+        </ModalDialog>
       </form>
     );
   }),

@@ -8,7 +8,7 @@ import { FormContainer } from '@waldur/form/FormContainer';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 
 import { EDIT_INTEGRATION_FORM_ID } from './constants';
 import { EditOfferingProps } from './types';
@@ -50,7 +50,7 @@ export const EditFieldDialog = connect<{}, {}, { resolve: EditOfferingProps }>(
 
     return (
       <form onSubmit={props.handleSubmit(processRequest)}>
-        <MetronicModalDialog
+        <ModalDialog
           title={props.resolve.title}
           subtitle={props.resolve.description}
           headerLess={!props.resolve.title}
@@ -78,7 +78,7 @@ export const EditFieldDialog = connect<{}, {}, { resolve: EditOfferingProps }>(
               {...props.resolve.fieldProps}
             />
           </FormContainer>
-        </MetronicModalDialog>
+        </ModalDialog>
       </form>
     );
   }),

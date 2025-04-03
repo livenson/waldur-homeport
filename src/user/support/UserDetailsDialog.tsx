@@ -10,7 +10,7 @@ import { isFeatureVisible } from '@waldur/features/connect';
 import { UserFeatures } from '@waldur/FeaturesEnums';
 import { translate } from '@waldur/i18n';
 import { UserChecklist } from '@waldur/marketplace-checklist/UserChecklist';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { renderFieldOrDash } from '@waldur/table/utils';
 import { UserEvents } from '@waldur/user/dashboard/UserEvents';
 import { KeysList } from '@waldur/user/keys/KeysList';
@@ -35,7 +35,7 @@ export const UserDetailsDialog: FunctionComponent<UserDetailsDialogProps> = ({
 }) => {
   const currentUser = useSelector(getUser) as User;
   return (
-    <MetronicModalDialog
+    <ModalDialog
       title={translate('User details of {fullName}', {
         fullName: renderFieldOrDash(user?.full_name),
       })}
@@ -88,6 +88,6 @@ export const UserDetailsDialog: FunctionComponent<UserDetailsDialogProps> = ({
           ) : null}
         </Tabs>
       ) : null}
-    </MetronicModalDialog>
+    </ModalDialog>
   );
 };

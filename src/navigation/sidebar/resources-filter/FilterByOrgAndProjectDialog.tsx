@@ -10,7 +10,7 @@ import { OrganizationAutocomplete } from '@waldur/marketplace/orders/Organizatio
 import { ProjectFilter } from '@waldur/marketplace/resources/list/ProjectFilter';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { Customer } from '@waldur/workspace/types';
 
 import { useOrganizationAndProjectFiltersForResources } from './utils';
@@ -55,7 +55,7 @@ export const FilterByOrgAndProjectDialog = reduxForm<FormData>({
 
   return (
     <form onSubmit={props.handleSubmit(apply)}>
-      <MetronicModalDialog
+      <ModalDialog
         title={translate('Filter by organization/project')}
         subtitle={translate(
           'Filter results by chosen organization and project',
@@ -76,7 +76,7 @@ export const FilterByOrgAndProjectDialog = reduxForm<FormData>({
             isDisabled={!formValues?.organization?.uuid}
           />
         </div>
-      </MetronicModalDialog>
+      </ModalDialog>
     </form>
   );
 });

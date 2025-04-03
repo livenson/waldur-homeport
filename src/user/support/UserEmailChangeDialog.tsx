@@ -5,7 +5,7 @@ import { User } from 'waldur-js-client';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 
 import { useEmailChange } from './useEmailChange';
 
@@ -16,7 +16,7 @@ export const UserEmailChangeDialog: FunctionComponent<{
     useEmailChange(user);
 
   return (
-    <MetronicModalDialog
+    <ModalDialog
       title={translate('Email')}
       subtitle={translate(
         'Provide an email address for communication and recovery',
@@ -68,6 +68,6 @@ export const UserEmailChangeDialog: FunctionComponent<{
           {translate('Synchronized from identity provider')}
         </Form.Text>
       )}
-    </MetronicModalDialog>
+    </ModalDialog>
   );
 };

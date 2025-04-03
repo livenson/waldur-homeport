@@ -2,7 +2,7 @@ import { useCallback, useState } from 'react';
 import { reduxForm } from 'redux-form';
 
 import { translate } from '@waldur/i18n';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 
 import { INVITATION_CREATE_FORM_ID } from '../constants';
 import { GroupInviteRow, InvitationContext } from '../types';
@@ -77,7 +77,7 @@ export const InvitationCreateDialog = reduxForm<{}, OwnProps>({
 
   return (
     <form onSubmit={handleSubmit(submit)} className="invitation-create-dialog">
-      <MetronicModalDialog
+      <ModalDialog
         title={translate('Invite by email')}
         subtitle={translate(
           "We'll email them instructions and a link to accept the invitation.",
@@ -106,7 +106,7 @@ export const InvitationCreateDialog = reduxForm<{}, OwnProps>({
             <CustomMessageWrapper />
           ) : null}
         </div>
-      </MetronicModalDialog>
+      </ModalDialog>
     </form>
   );
 });

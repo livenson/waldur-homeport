@@ -27,9 +27,6 @@ export const RoleCreateButton = ({ refetch }) => {
             dispatch(closeModalDialog());
             refetch();
           },
-          onCancel: () => {
-            dispatch(closeModalDialog());
-          },
         }),
       ),
     [dispatch],

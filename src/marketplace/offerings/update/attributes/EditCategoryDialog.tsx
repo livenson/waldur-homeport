@@ -1,5 +1,4 @@
 import { useQuery } from '@tanstack/react-query';
-import { Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { change, Field, reduxForm } from 'redux-form';
 import { marketplaceProviderOfferingsUpdateDescription } from 'waldur-js-client';
@@ -12,6 +11,7 @@ import { translate } from '@waldur/i18n';
 import { getCategories } from '@waldur/marketplace/common/api';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
 import { CATEGORY_FORM_ID } from './constants';
@@ -63,10 +63,19 @@ export const EditCategoryDialog = reduxForm<FormData, OwnProps>({
 
   return (
     <form onSubmit={handleSubmit(submitRequest)}>
-      <Modal.Header>
-        <Modal.Title>{translate('Edit category')}</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
+      <ModalDialog
+        title={translate('Edit category')}
+        footer={
+          <>
+            <CloseDialogButton />
+            <SubmitButton
+              disabled={invalid}
+              submitting={submitting}
+              label={translate('Save')}
+            />
+          </>
+        }
+      >
         {queryData.isLoading ? (
           <LoadingSpinner />
         ) : queryData.isError ? (
@@ -83,15 +92,7 @@ export const EditCategoryDialog = reduxForm<FormData, OwnProps>({
             validate={required}
           />
         )}
-      </Modal.Body>
-      <Modal.Footer>
-        <CloseDialogButton />
-        <SubmitButton
-          disabled={invalid}
-          submitting={submitting}
-          label={translate('Save')}
-        />
-      </Modal.Footer>
+      </ModalDialog>
     </form>
   );
 });

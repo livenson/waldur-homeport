@@ -9,7 +9,7 @@ import { CancelButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { ISSUE_IDS } from '@waldur/issues/types/constants';
 import { useModal } from '@waldur/modal/hooks';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { useNotify } from '@waldur/store/hooks';
 
 interface UserRemovalMessageDialogProps {
@@ -53,7 +53,7 @@ export const UserRemovalMessageDialog: FunctionComponent<
         handleSubmit();
       }}
     >
-      <MetronicModalDialog
+      <ModalDialog
         title={translate('Account deletion')}
         subtitle={translate(
           'Why would you want to go away? Help us become better please!',
@@ -85,10 +85,10 @@ export const UserRemovalMessageDialog: FunctionComponent<
             onChange={(event) => setReason(event.target.value)}
           />
         </Form.Group>
-      </MetronicModalDialog>
+      </ModalDialog>
     </form>
   ) : (
-    <MetronicModalDialog
+    <ModalDialog
       title={translate('Request account removal for {userName}.', {
         userName,
       })}
@@ -107,6 +107,6 @@ export const UserRemovalMessageDialog: FunctionComponent<
           'Please note that request should specify user name and provide a reason.',
         )}
       </p>
-    </MetronicModalDialog>
+    </ModalDialog>
   );
 };

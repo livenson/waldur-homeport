@@ -8,7 +8,7 @@ import { Project } from 'waldur-js-client';
 import { SubmitButton } from '@waldur/auth/SubmitButton';
 import { translate } from '@waldur/i18n';
 import { GROUP_INVITATION_CREATE_FORM_ID } from '@waldur/invitations/actions/constants';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { Role } from '@waldur/permissions/types';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { getCustomer } from '@waldur/workspace/selectors';
@@ -61,7 +61,7 @@ export const GroupInvitationCreateDialog = reduxForm<
 
   return (
     <form onSubmit={handleSubmit(createInvitation)}>
-      <MetronicModalDialog
+      <ModalDialog
         title={translate('Create group invitation')}
         iconNode={<UsersThree weight="bold" />}
         iconColor="success"
@@ -82,7 +82,7 @@ export const GroupInvitationCreateDialog = reduxForm<
           </SubmitButton>
         </div>
         <InvitationLinkField invitation={invitation} />
-      </MetronicModalDialog>
+      </ModalDialog>
     </form>
   );
 });

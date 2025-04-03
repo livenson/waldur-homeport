@@ -9,7 +9,7 @@ import { FilterBox } from '@waldur/form/FilterBox';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { OrganizationAutocomplete } from '@waldur/marketplace/orders/OrganizationAutocomplete';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { DataLoader } from '@waldur/navigation/sidebar/marketplace-popup/DataLoader';
 import { sidebarResourcesFilterSelector } from '@waldur/navigation/sidebar/resources-filter/utils';
 
@@ -61,7 +61,7 @@ export const ResourceImportDialog = connect((state) => ({
 
     return (
       <Form onSubmit={props.handleSubmit(handleSubmit)}>
-        <MetronicModalDialog
+        <ModalDialog
           title={translate('Import resource')}
           subtitle={
             <>
@@ -184,7 +184,7 @@ export const ResourceImportDialog = connect((state) => ({
               </div>
             )}
           </div>
-        </MetronicModalDialog>
+        </ModalDialog>
       </Form>
     );
   }),

@@ -1,5 +1,5 @@
 import { FunctionComponent, useMemo } from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { IssueTypeEnum } from 'waldur-js-client';
 
@@ -8,6 +8,7 @@ import { translate, formatJsxTemplate } from '@waldur/i18n';
 import { sendIssueCreateRequest } from '@waldur/issues/create/utils';
 import { ISSUE_IDS } from '@waldur/issues/types/constants';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { getUser } from '@waldur/workspace/selectors';
 
 export const CustomerErrorDialog: FunctionComponent<{ resolve }> = ({
@@ -233,42 +234,41 @@ export const CustomerErrorDialog: FunctionComponent<{ resolve }> = ({
     sendIssueCreateRequest(payload, dispatch, resolve.refetch);
   };
   return (
-    <>
-      <Modal.Header>
-        <Modal.Title>{translate('Incorrect organization details')}</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
-        {ENV.plugins.WALDUR_SUPPORT.ENABLED ? (
-          <div>
-            <p>
-              <b>{translate('Preview changes')}</b>
-            </p>
-            {description.map((part, index) => (
-              <p key={index}>{part}</p>
-            ))}
-          </div>
-        ) : (
-          translate(
-            'To correct details of your organization, please send an email to {supportEmail} highlighting the errors in current details. Thank you!',
-            {
-              supportEmail: (
-                <a href={`mailto:${ENV.plugins.WALDUR_CORE.SITE_EMAIL}`}>
-                  {ENV.plugins.WALDUR_CORE.SITE_EMAIL}
-                </a>
-              ),
-            },
-            formatJsxTemplate,
-          )
-        )}
-      </Modal.Body>
-      <Modal.Footer>
-        {ENV.plugins.WALDUR_SUPPORT.ENABLED && (
-          <Button onClick={onCreateIssue} variant="primary">
-            {translate('Propose changes')}
-          </Button>
-        )}
-        <CloseDialogButton />
-      </Modal.Footer>
-    </>
+    <ModalDialog
+      title={translate('Incorrect organization details')}
+      footer={
+        <>
+          <CloseDialogButton />
+          {ENV.plugins.WALDUR_SUPPORT.ENABLED && (
+            <Button onClick={onCreateIssue} variant="primary">
+              {translate('Propose changes')}
+            </Button>
+          )}
+        </>
+      }
+    >
+      {ENV.plugins.WALDUR_SUPPORT.ENABLED ? (
+        <div>
+          <p>
+            <b>{translate('Preview changes')}</b>
+          </p>
+          {description.map((part, index) => (
+            <p key={index}>{part}</p>
+          ))}
+        </div>
+      ) : (
+        translate(
+          'To correct details of your organization, please send an email to {supportEmail} highlighting the errors in current details. Thank you!',
+          {
+            supportEmail: (
+              <a href={`mailto:${ENV.plugins.WALDUR_CORE.SITE_EMAIL}`}>
+                {ENV.plugins.WALDUR_CORE.SITE_EMAIL}
+              </a>
+            ),
+          },
+          formatJsxTemplate,
+        )
+      )}
+    </ModalDialog>
   );
 };

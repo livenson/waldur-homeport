@@ -49,7 +49,7 @@ export const BroadcastForm = ({
       />
       <FormName>
         {({ form }) => (
-          <Modal.Body className="scroll-y mx-5 mx-xl-15 my-7">
+          <Modal.Body className="scroll-y border-0">
             {step === 0 ? (
               <FormContainer submitting={submitting} clearOnUnmount={false}>
                 <AsyncSelectField

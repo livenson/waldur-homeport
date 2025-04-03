@@ -12,7 +12,7 @@ import { formatPhoneNumber } from '@waldur/core/utils';
 import { getCustomer } from '@waldur/customer/utils';
 import FormTable from '@waldur/form/FormTable';
 import { translate } from '@waldur/i18n';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { renderFieldOrDash } from '@waldur/table/utils';
 import { Customer } from '@waldur/workspace/types';
 
@@ -96,7 +96,7 @@ export const DetailsOverviewDialog: FC<{
   );
 
   return (
-    <MetronicModalDialog
+    <ModalDialog
       title={translate('Resource details overview')}
       subtitle={translate(
         'View key details about the organization, project, offering, and provider for your resource.',
@@ -193,6 +193,6 @@ export const DetailsOverviewDialog: FC<{
           ) : null}
         </Tabs>
       )}
-    </MetronicModalDialog>
+    </ModalDialog>
   );
 };

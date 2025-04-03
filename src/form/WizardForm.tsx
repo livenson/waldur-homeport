@@ -1,5 +1,5 @@
 import { FC, ReactNode, useEffect } from 'react';
-import { Button, Modal } from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { getFormValues, InjectedFormProps, reduxForm } from 'redux-form';
 
@@ -8,6 +8,7 @@ import { ProgressStep } from '@waldur/core/ProgressSteps';
 import { translate } from '@waldur/i18n';
 import { StepsList } from '@waldur/marketplace/common/StepsList';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 
 import './wizard.scss';
 
@@ -43,10 +44,31 @@ const WizardFormPure: FC<WizardFormProps> = (props) => {
 
   return (
     <form className="wizard" onSubmit={props.handleSubmit(props.onSubmit)}>
-      <Modal.Header closeButton className="without-border">
-        <Modal.Title className="h2 fw-bolder">{props.title}</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
+      <ModalDialog
+        title={props.title}
+        footer={
+          <>
+            {props.step == 0 ? (
+              <CloseDialogButton className="min-w-125px" />
+            ) : (
+              <Button
+                variant="secondary"
+                className="min-w-125px"
+                onClick={props.onPrev}
+              >
+                {translate('Previous')}
+              </Button>
+            )}
+            <SubmitButton
+              submitting={props.submitting}
+              label={props.submitLabel}
+              invalid={props.submitDisabled}
+              className="min-w-125px"
+            />
+          </>
+        }
+        closeButton
+      >
         <div className="wizard-big wizard-body clearfix">
           <StepsList
             steps={props.steps}
@@ -69,26 +91,7 @@ const WizardFormPure: FC<WizardFormProps> = (props) => {
               : props.children}
           </div>
         </div>
-      </Modal.Body>
-      <Modal.Footer>
-        {props.step == 0 ? (
-          <CloseDialogButton className="min-w-125px" />
-        ) : (
-          <Button
-            variant="secondary"
-            className="min-w-125px"
-            onClick={props.onPrev}
-          >
-            {translate('Previous')}
-          </Button>
-        )}
-        <SubmitButton
-          submitting={props.submitting}
-          label={props.submitLabel}
-          invalid={props.submitDisabled}
-          className="min-w-125px"
-        />
-      </Modal.Footer>
+      </ModalDialog>
     </form>
   );
 };

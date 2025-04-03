@@ -18,7 +18,7 @@ import {
 } from '@waldur/form';
 import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { useProjectCostChart } from '@waldur/project/utils';
 import { getCustomer } from '@waldur/workspace/selectors';
 
@@ -93,7 +93,7 @@ export const ProjectCreditFormDialog = connect(
 
     return (
       <form onSubmit={props.handleSubmit(props.submitFn)}>
-        <MetronicModalDialog
+        <ModalDialog
           title={
             isEdit
               ? translate('Edit project credit')
@@ -165,7 +165,7 @@ export const ProjectCreditFormDialog = connect(
               <FieldError error={props.error} />
             </Form.Group>
           </FormContainer>
-        </MetronicModalDialog>
+        </ModalDialog>
       </form>
     );
   }),

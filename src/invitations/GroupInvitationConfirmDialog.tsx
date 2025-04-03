@@ -1,5 +1,4 @@
 import { useCallback, FunctionComponent } from 'react';
-import { Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
 import { userGroupInvitationsRetrieve } from 'waldur-js-client';
@@ -7,6 +6,7 @@ import { userGroupInvitationsRetrieve } from 'waldur-js-client';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 
 import { GroupInvitationButtons } from './GroupinvitationButtons';
 import { GroupInvitationErrorMessage } from './GroupInvitationErrorMessage';
@@ -38,34 +38,32 @@ export const GroupInvitationConfirmDialog: FunctionComponent<{
   const invitation = asyncResult.value;
 
   return (
-    <>
-      <Modal.Header>{translate('Request permission')}</Modal.Header>
-      <Modal.Body>
-        {asyncResult.loading && (
-          <>
-            <LoadingSpinner />
-            <p className="text-center">
-              {translate(
-                'Please give us a moment to validate your invitation.',
-              )}
-            </p>
-          </>
-        )}
-        {!asyncResult.loading &&
-          (asyncResult.error ? (
-            <GroupInvitationErrorMessage dismiss={dismiss} />
-          ) : (
-            <GroupInvitationMessage invitation={invitation} />
-          ))}
-      </Modal.Body>
-      <Modal.Footer>
-        {!asyncResult.loading && !asyncResult.error && (
+    <ModalDialog
+      title={translate('Request permission')}
+      footer={
+        !asyncResult.loading &&
+        !asyncResult.error && (
           <GroupInvitationButtons
             dismiss={dismiss}
             submitRequest={submitRequest}
           />
-        )}
-      </Modal.Footer>
-    </>
+        )
+      }
+    >
+      {asyncResult.loading && (
+        <>
+          <LoadingSpinner />
+          <p className="text-center">
+            {translate('Please give us a moment to validate your invitation.')}
+          </p>
+        </>
+      )}
+      {!asyncResult.loading &&
+        (asyncResult.error ? (
+          <GroupInvitationErrorMessage dismiss={dismiss} />
+        ) : (
+          <GroupInvitationMessage invitation={invitation} />
+        ))}
+    </ModalDialog>
   );
 };

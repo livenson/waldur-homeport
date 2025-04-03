@@ -1,10 +1,10 @@
 import { useMemo } from 'react';
-import { Modal } from 'react-bootstrap';
 import { User, UsersListData } from 'waldur-js-client';
 
 import { FREEIPA_IDP } from '@waldur/auth/providers/constants';
 import { CancelButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { createFetcher } from '@waldur/table/api';
 import { BooleanField } from '@waldur/table/BooleanField';
 import Table from '@waldur/table/Table';
@@ -57,21 +57,17 @@ const ProviderUsersList = (props) => {
 };
 
 export const ProviderUsersDialog = (props) => (
-  <>
-    <Modal.Header>
-      <Modal.Title>
-        {translate('Users from {provider}', { provider: props.resolve.type })}
-      </Modal.Title>
-    </Modal.Header>
-    <Modal.Body>
-      {props.resolve.type === FREEIPA_IDP ? (
-        <FreeIPAUsersList />
-      ) : (
-        <ProviderUsersList {...props} />
-      )}
-    </Modal.Body>
-    <Modal.Footer>
-      <CancelButton label={translate('OK')} />
-    </Modal.Footer>
-  </>
+  <ModalDialog
+    title={translate('Users from {provider}', {
+      provider: props.resolve.type,
+    })}
+    footer={<CancelButton label={translate('OK')} />}
+    closeButton
+  >
+    {props.resolve.type === FREEIPA_IDP ? (
+      <FreeIPAUsersList />
+    ) : (
+      <ProviderUsersList {...props} />
+    )}
+  </ModalDialog>
 );

@@ -1,4 +1,3 @@
-import { Modal } from 'react-bootstrap';
 import { Field, Form } from 'react-final-form';
 import { useDispatch } from 'react-redux';
 import { userAgreementsPartialUpdate } from 'waldur-js-client';
@@ -6,6 +5,7 @@ import { userAgreementsPartialUpdate } from 'waldur-js-client';
 import { FormGroup, SubmitButton, TextField } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { showSuccess } from '@waldur/store/notify';
 
 interface UserAgreementsEditDialogOwnProps {
@@ -41,10 +41,12 @@ export const UserAgreementsEditDialog = ({
       initialValues={resolve.initialValues}
       render={({ handleSubmit, submitting }) => (
         <form onSubmit={handleSubmit}>
-          <Modal.Header closeButton className="without-border">
-            <h2 className="fw-bolder">{translate('Edit user agreement')}</h2>
-          </Modal.Header>
-          <Modal.Body>
+          <ModalDialog
+            title={translate('Edit user agreement')}
+            footer={
+              <SubmitButton submitting={submitting} label={translate('Save')} />
+            }
+          >
             <Field
               name="content"
               component={FormGroup as any}
@@ -56,12 +58,7 @@ export const UserAgreementsEditDialog = ({
             >
               <TextField style={{ height: '520px' }} />
             </Field>
-          </Modal.Body>
-          <Modal.Footer>
-            <div className="mb-5 text-end">
-              <SubmitButton submitting={submitting} label={translate('Save')} />
-            </div>
-          </Modal.Footer>
+          </ModalDialog>
         </form>
       )}
     />

@@ -2,7 +2,7 @@ import React from 'react';
 import { PublicOfferingDetails } from 'waldur-js-client';
 
 import { translate } from '@waldur/i18n';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 
 import { getCheckoutSummaryComponent } from '../common/registry';
 
@@ -19,7 +19,7 @@ export const OrderSummaryDialog: React.FC<OrderSummaryDialogProps> = (
     getCheckoutSummaryComponent(props.offering.type) || OrderSummary;
 
   return (
-    <MetronicModalDialog
+    <ModalDialog
       title={translate('Summary')}
       subtitle={translate(
         'Review the details of your order, before confirming',
@@ -27,6 +27,6 @@ export const OrderSummaryDialog: React.FC<OrderSummaryDialogProps> = (
       closeButton
     >
       <CheckoutSummaryComponent offering={props.offering} onlyDetails />
-    </MetronicModalDialog>
+    </ModalDialog>
   );
 };

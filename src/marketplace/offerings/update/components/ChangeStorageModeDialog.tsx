@@ -1,5 +1,4 @@
 import { FC } from 'react';
-import { Button, Modal } from 'react-bootstrap';
 import { Field, Form } from 'react-final-form';
 import {
   marketplaceProviderOfferingsUpdateIntegration,
@@ -7,9 +6,12 @@ import {
   StorageModeEnum,
 } from 'waldur-js-client';
 
+import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { Option } from '@waldur/marketplace/common/registry';
+import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { useModal } from '@waldur/modal/hooks';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { useNotify } from '@waldur/store/hooks';
 
 interface ChangeStorageModeDialogProps {
@@ -50,10 +52,18 @@ export const ChangeStorageModeDialog: FC<ChangeStorageModeDialogProps> = (
       initialValues={{ storage_mode: props.resolve.currentMode }}
       render={({ handleSubmit, submitting }) => (
         <form onSubmit={handleSubmit}>
-          <Modal.Header>
-            <Modal.Title>{translate('Change storage mode')}</Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
+          <ModalDialog
+            title={translate('Change storage mode')}
+            footer={
+              <>
+                <CloseDialogButton />
+                <SubmitButton
+                  submitting={submitting}
+                  label={translate('Save')}
+                />
+              </>
+            }
+          >
             <Field name="storage_mode">
               {({ input }) => (
                 <select {...input} className="form-control">
@@ -65,15 +75,7 @@ export const ChangeStorageModeDialog: FC<ChangeStorageModeDialogProps> = (
                 </select>
               )}
             </Field>
-          </Modal.Body>
-          <Modal.Footer>
-            <Button variant="secondary" onClick={() => closeDialog()}>
-              {translate('Cancel')}
-            </Button>
-            <Button variant="primary" type="submit" disabled={submitting}>
-              {translate('Save')}
-            </Button>
-          </Modal.Footer>
+          </ModalDialog>
         </form>
       )}
     />

@@ -1,4 +1,3 @@
-import { Modal } from 'react-bootstrap';
 import { connect } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { marketplacePlansUpdatePrices } from 'waldur-js-client';
@@ -7,6 +6,7 @@ import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { Offering, OfferingComponent, Plan } from '@waldur/marketplace/types';
 import { useModal } from '@waldur/modal/hooks';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { useNotify } from '@waldur/store/hooks';
 
 import { EDIT_PLAN_FORM_ID } from './constants';
@@ -70,26 +70,25 @@ export const EditPlanPricesDialog = connect<
 
     return (
       <form onSubmit={props.handleSubmit(update)}>
-        <Modal.Header>
-          <Modal.Title>
-            {props.resolve.plan.resources_count > 0
+        <ModalDialog
+          title={
+            props.resolve.plan.resources_count > 0
               ? translate('Edit prices for next month')
-              : translate('Edit prices for current month')}
-          </Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
+              : translate('Edit prices for current month')
+          }
+          footer={
+            <SubmitButton
+              disabled={props.invalid}
+              submitting={props.submitting}
+              label={translate('Save')}
+            />
+          }
+        >
           <PricesTable
             components={props.resolve.offering.components}
             plan={props.resolve.plan}
           />
-        </Modal.Body>
-        <Modal.Footer>
-          <SubmitButton
-            disabled={props.invalid}
-            submitting={props.submitting}
-            label={translate('Save')}
-          />
-        </Modal.Footer>
+        </ModalDialog>
       </form>
     );
   }),

@@ -1,5 +1,5 @@
 import { useEffect, useCallback } from 'react';
-import { Form, InputGroup, Modal } from 'react-bootstrap';
+import { Form, InputGroup } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { Field, reduxForm, change } from 'redux-form';
 import { OpenStackVolume, openstackVolumesExtend } from 'waldur-js-client';
@@ -14,6 +14,7 @@ import {
 } from '@waldur/marketplace/common/utils';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
 
 interface VolumeExtendDialogOwnProps {
@@ -64,10 +65,15 @@ export const VolumeExtendDialog = reduxForm<
   );
   return (
     <form onSubmit={handleSubmit(extendVolume)}>
-      <Modal.Header>
-        <Modal.Title>{translate('Extend OpenStack volume')}</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
+      <ModalDialog
+        title={translate('Extend OpenStack volume')}
+        footer={
+          <>
+            <CloseDialogButton />
+            <SubmitButton submitting={submitting} label={translate('Submit')} />
+          </>
+        }
+      >
         <p>
           <strong>{translate('Volume name')}:</strong> {resource.name}
         </p>
@@ -93,11 +99,7 @@ export const VolumeExtendDialog = reduxForm<
             <InputGroup.Text>{translate('GB')}</InputGroup.Text>
           </InputGroup>
         </Form.Group>
-      </Modal.Body>
-      <Modal.Footer>
-        <CloseDialogButton />
-        <SubmitButton submitting={submitting} label={translate('Submit')} />
-      </Modal.Footer>
+      </ModalDialog>
     </form>
   );
 });

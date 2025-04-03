@@ -1,6 +1,5 @@
 import { useQueryClient } from '@tanstack/react-query';
 import { useCallback } from 'react';
-import { Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { marketplaceProviderOfferingsCreateOfferingComponent } from 'waldur-js-client';
@@ -10,6 +9,7 @@ import { translate } from '@waldur/i18n';
 import { PROVIDER_OFFERING_DATA_QUERY_KEY } from '@waldur/marketplace/offerings/constants';
 import { OfferingData } from '@waldur/marketplace/offerings/OfferingEditUIView';
 import { closeModalDialog } from '@waldur/modal/actions';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
 import { formatComponent } from '../../store/utils';
@@ -64,19 +64,18 @@ export const AddComponentDialog = reduxForm<
   );
   return (
     <form onSubmit={props.handleSubmit(update)}>
-      <Modal.Header>
-        <Modal.Title>{translate('Add component')}</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
+      <ModalDialog
+        title={translate('Add component')}
+        footer={
+          <SubmitButton
+            disabled={props.invalid}
+            submitting={props.submitting}
+            label={translate('Create')}
+          />
+        }
+      >
         <ComponentForm />
-      </Modal.Body>
-      <Modal.Footer>
-        <SubmitButton
-          disabled={props.invalid}
-          submitting={props.submitting}
-          label={translate('Create')}
-        />
-      </Modal.Footer>
+      </ModalDialog>
     </form>
   );
 });
