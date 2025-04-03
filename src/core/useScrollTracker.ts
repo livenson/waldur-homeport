@@ -1,5 +1,5 @@
 import { throttle } from 'lodash-es';
-import { useCallback, useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 
 interface useScrollTrackerProps {
   sectionIds: string[];
@@ -10,10 +10,13 @@ interface useScrollTrackerProps {
 
 const useScrollTracker = (props: useScrollTrackerProps) => {
   const [activeSection, setActiveSection] = useState(null);
-  const sections = useRef([]);
 
   const handleScroll = useCallback(
     throttle(() => {
+      const sections = props.sectionIds
+        .map((id) => document.getElementById(id))
+        .filter(Boolean);
+
       const scrollBottom = window.scrollY + window.innerHeight;
       const scrollTop = window.scrollY;
       const thresholdBottom = scrollBottom - props.offset;
@@ -21,12 +24,12 @@ const useScrollTracker = (props: useScrollTrackerProps) => {
       let newActiveSection = null;
       let maxOverlapPercentage = 0;
 
-      sections.current.forEach((section, index) => {
+      sections.forEach((section, index) => {
         const sectionOffsetTop = section.offsetTop;
         const sectionHeight = section.offsetHeight;
         const sectionOffsetBottom = sectionOffsetTop + sectionHeight;
 
-        const isLastIndex = index === sections.current?.length - 1;
+        const isLastIndex = index === sections?.length - 1;
 
         if (props.trackSide === 'area') {
           // To determine which section is active, we calculate the largest area covered by the sections as a percentage.
@@ -65,13 +68,10 @@ const useScrollTracker = (props: useScrollTrackerProps) => {
 
       setActiveSection(newActiveSection);
     }, 100),
-    [props.trackSide, props.offset, setActiveSection, sections],
+    [props.trackSide, props.offset, props.sectionIds, setActiveSection],
   );
 
   useEffect(() => {
-    sections.current = props.sectionIds
-      .map((id) => document.getElementById(id))
-      .filter(Boolean);
     handleScroll();
   }, [props.sectionIds]);
 
