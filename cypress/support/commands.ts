@@ -290,7 +290,9 @@ Cypress.Commands.add('mockUser', (userName) => {
       fixture: `users/${userData}`,
     })
     .intercept('GET', '/api/roles/**', { fixture: 'roles.json' })
-    .intercept('GET', '/api/marketplace-categories/**', [])
+    .intercept('GET', '/api/marketplace-categories/**', {
+      fixture: 'marketplace/categories.json',
+    })
     .intercept('GET', '/api/marketplace-category-groups/**', [])
     .intercept('GET', '/api/marketplace-global-categories/**', [])
     .intercept('GET', '/api/admin-announcements/**', []);

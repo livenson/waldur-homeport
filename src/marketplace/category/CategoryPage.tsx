@@ -26,7 +26,7 @@ export const CategoryPage: FunctionComponent = () => {
     params: { category_uuid },
   } = useCurrentStateAndParams();
   const category = useQuery({
-    queryKey: ['CategoryPage', category_uuid],
+    queryKey: ['CategoryData', category_uuid],
     queryFn: () =>
       marketplaceCategoriesRetrieve({ path: { uuid: category_uuid } }).then(
         (response) => response.data,
