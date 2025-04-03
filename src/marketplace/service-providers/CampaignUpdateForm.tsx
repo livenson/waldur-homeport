@@ -37,7 +37,7 @@ export const CampaignUpdateForm = enhance(({ submitting, step, setStep }) => (
       onSelect={setStep}
     />
     <form>
-      <Modal.Body className="scroll-y mx-5 mx-xl-15 my-7">
+      <Modal.Body className="scroll-y">
         {step === 0 ? (
           <FormContainer submitting={submitting} clearOnUnmount={false}>
             <StringField

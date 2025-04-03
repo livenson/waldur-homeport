@@ -1,7 +1,7 @@
 import { SignIn } from '@phosphor-icons/react';
 import { useRouter } from '@uirouter/react';
 import { useState } from 'react';
-import { Form, InputGroup, Modal } from 'react-bootstrap';
+import { Form, InputGroup } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useMountedState } from 'react-use';
 import { reduxForm, Field } from 'redux-form';
@@ -16,6 +16,7 @@ import { wait } from '@waldur/core/utils';
 import { InputField } from '@waldur/form/InputField';
 import { translate } from '@waldur/i18n';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { showErrorResponse, showError } from '@waldur/store/notify';
 import { UsersService } from '@waldur/user/UsersService';
 
@@ -100,10 +101,20 @@ export const AuthValimoDialog = reduxForm({ form: 'AuthValimoDialog' })(({
 
   return (
     <form onSubmit={handleSubmit(authenticateValimo)}>
-      <Modal.Header>
-        <Modal.Title>{translate('Authenticate using Mobile ID')}</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
+      <ModalDialog
+        title={translate('Authenticate using Mobile ID')}
+        footer={
+          <>
+            <CloseDialogButton />
+            <SubmitButton invalid={invalid} submitting={submitting}>
+              <span className="svg-icon svg-icon-2">
+                <SignIn />
+              </span>{' '}
+              {translate('Sign in')}
+            </SubmitButton>
+          </>
+        }
+      >
         <Form.Group>
           <Form.Label>{translate('Mobile phone number')}</Form.Label>
           <InputGroup>
@@ -125,16 +136,7 @@ export const AuthValimoDialog = reduxForm({ form: 'AuthValimoDialog' })(({
             <p>{challengeCode}</p>
           </Form.Group>
         )}
-      </Modal.Body>
-      <Modal.Footer>
-        <SubmitButton invalid={invalid} submitting={submitting}>
-          <span className="svg-icon svg-icon-2">
-            <SignIn />
-          </span>{' '}
-          {translate('Sign in')}
-        </SubmitButton>
-        <CloseDialogButton />
-      </Modal.Footer>
+      </ModalDialog>
     </form>
   );
 });

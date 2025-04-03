@@ -1,5 +1,4 @@
 import { useCallback } from 'react';
-import { Modal } from 'react-bootstrap';
 import { Form } from 'react-final-form';
 import { useDispatch } from 'react-redux';
 import { identityProvidersUpdate, overrideSettings } from 'waldur-js-client';
@@ -9,6 +8,7 @@ import { ENV } from '@waldur/core/config';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
 import { ProviderForm } from './ProviderForm';
@@ -68,27 +68,25 @@ export const UpdateProviderDialog = ({
       initialValues={resolve.provider}
       render={({ handleSubmit, submitting, invalid }) => (
         <form onSubmit={handleSubmit}>
-          <Modal.Header>
-            <Modal.Title>
-              {translate('Update identity provider: {provider}', {
-                provider: resolve.type,
-              })}
-            </Modal.Title>
-          </Modal.Header>
-          <Modal.Body>
+          <ModalDialog
+            title={translate('Update identity provider: {provider}', {
+              provider: resolve.type,
+            })}
+            footer={
+              <SubmitButton
+                disabled={invalid}
+                submitting={submitting}
+                label={translate('Save')}
+              />
+            }
+            closeButton
+          >
             {resolve.type === FREEIPA_IDP ? (
               <ProviderFreeIPAForm />
             ) : (
               <ProviderForm />
             )}
-          </Modal.Body>
-          <Modal.Footer>
-            <SubmitButton
-              disabled={invalid}
-              submitting={submitting}
-              label={translate('Save')}
-            />
-          </Modal.Footer>
+          </ModalDialog>
         </form>
       )}
     />

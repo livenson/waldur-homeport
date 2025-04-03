@@ -32,9 +32,6 @@ export const RoleEditButton = ({ row, refetch }) => {
             dispatch(closeModalDialog());
             refetch();
           },
-          onCancel: () => {
-            dispatch(closeModalDialog());
-          },
         }),
       ),
     [dispatch],

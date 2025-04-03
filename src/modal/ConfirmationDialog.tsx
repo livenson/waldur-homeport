@@ -6,7 +6,7 @@ import { useDispatch } from 'react-redux';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 
-import { MetronicModalDialog } from './MetronicModalDialog';
+import { ModalDialog } from './ModalDialog';
 import { ConfirmationDialogType } from './types';
 
 interface ConfirmationDialogProps {
@@ -52,7 +52,7 @@ export const ConfirmationDialog: React.FC<ConfirmationDialogProps> = ({
   };
 
   return (
-    <MetronicModalDialog
+    <ModalDialog
       title={title}
       iconNode={iconNode || <WarningCircle weight="bold" />}
       iconColor={type}
@@ -77,6 +77,6 @@ export const ConfirmationDialog: React.FC<ConfirmationDialogProps> = ({
       }
     >
       {body}
-    </MetronicModalDialog>
+    </ModalDialog>
   );
 };

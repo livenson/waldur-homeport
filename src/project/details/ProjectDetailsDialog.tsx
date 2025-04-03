@@ -6,7 +6,7 @@ import { formatDate } from '@waldur/core/dateUtils';
 import { FieldWithCopy } from '@waldur/core/FieldWithCopy';
 import FormTable from '@waldur/form/FormTable';
 import { translate } from '@waldur/i18n';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 
 import { ProjectCostField } from '../ProjectCostField';
 
@@ -14,7 +14,7 @@ export const ProjectDetailsDialog: FC<{
   project: Project;
 }> = ({ project }) => {
   return (
-    <MetronicModalDialog
+    <ModalDialog
       title={translate('Project details for {name}', { name: project.name })}
       subtitle={translate('Project owned by {name}', {
         name: project.customer_name,
@@ -57,6 +57,6 @@ export const ProjectDetailsDialog: FC<{
           value={<FieldWithCopy value={ProjectCostField({ row: project })} />}
         />
       </FormTable>
-    </MetronicModalDialog>
+    </ModalDialog>
   );
 };

@@ -1,6 +1,6 @@
 import { Info } from '@phosphor-icons/react';
 import { useCallback } from 'react';
-import { Col, Modal, Row } from 'react-bootstrap';
+import { Col, Row } from 'react-bootstrap';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { getFormValues, reduxForm } from 'redux-form';
 import { marketplaceProviderOfferingsUpdateOverview } from 'waldur-js-client';
@@ -11,6 +11,7 @@ import { FormContainer, SubmitButton, TextField } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
 import { GETTING_STARTED_FORM_ID } from './constants';
@@ -56,10 +57,18 @@ export const EditGettingStartedDialog = connect(
     const formValues = useSelector(formValuesSelector) as any;
     return (
       <form onSubmit={props.handleSubmit(update)}>
-        <Modal.Header>
-          <Modal.Title>{translate('Getting started instructions')}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
+        <ModalDialog
+          title={translate('Getting started instructions')}
+          footer={
+            <>
+              <CloseDialogButton />
+              <SubmitButton
+                submitting={props.submitting}
+                label={translate('Update')}
+              />
+            </>
+          }
+        >
           <Row>
             <Col md={12} lg={8} className="d-flex flex-column">
               <div className="flex-grow-1 min-h-225px">
@@ -104,14 +113,7 @@ export const EditGettingStartedDialog = connect(
               />
             </Col>
           </Row>
-        </Modal.Body>
-        <Modal.Footer>
-          <SubmitButton
-            submitting={props.submitting}
-            label={translate('Update')}
-          />
-          <CloseDialogButton />
-        </Modal.Footer>
+        </ModalDialog>
       </form>
     );
   }),

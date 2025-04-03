@@ -11,7 +11,7 @@ import { EDUTEAMS_IDP, TARA_IDP } from '@waldur/auth/providers/constants';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
 import { ProviderForm } from './ProviderForm';
@@ -70,7 +70,7 @@ export const CreateProviderDialog = (props) => {
       }}
       render={({ handleSubmit, submitting, invalid }) => (
         <form onSubmit={handleSubmit}>
-          <MetronicModalDialog
+          <ModalDialog
             title={translate('Add identity provider')}
             iconNode={<PlusCircle weight="bold" />}
             iconColor="success"
@@ -83,7 +83,7 @@ export const CreateProviderDialog = (props) => {
             }
           >
             <ProviderForm />
-          </MetronicModalDialog>
+          </ModalDialog>
         </form>
       )}
     />

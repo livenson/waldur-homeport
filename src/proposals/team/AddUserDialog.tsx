@@ -9,7 +9,7 @@ import { AsyncSelectField } from '@waldur/form/AsyncSelectField';
 import { translate } from '@waldur/i18n';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { useModal } from '@waldur/modal/hooks';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { Role } from '@waldur/permissions/types';
 import { ExpirationTimeGroup } from '@waldur/project/team/ExpirationTimeGroup';
 import { RoleGroup } from '@waldur/project/team/RoleGroup';
@@ -66,7 +66,7 @@ export const AddUserDialog = reduxForm<
 
   return (
     <form onSubmit={handleSubmit(saveUser)}>
-      <MetronicModalDialog
+      <ModalDialog
         title={translate('Add member')}
         subtitle={translate(
           'Select a user to assign a role within the project.',
@@ -102,7 +102,7 @@ export const AddUserDialog = reduxForm<
           {roles && roles.length === 1 ? null : <RoleGroup types={roleTypes} />}
           <ExpirationTimeGroup />
         </FormContainer>
-      </MetronicModalDialog>
+      </ModalDialog>
     </form>
   );
 });

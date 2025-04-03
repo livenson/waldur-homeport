@@ -7,7 +7,7 @@ import { StepsList } from '@waldur/marketplace/common/StepsList';
 import { useWizard } from '@waldur/marketplace/offerings/import/useWizard';
 import { WizardButtons } from '@waldur/marketplace/offerings/import/WizardButtons';
 import { WizardTabs } from '@waldur/marketplace/offerings/import/WizardTabs';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 
 import { IssueCreateButtonProps } from '../list/IssueCreateButton';
 
@@ -49,7 +49,7 @@ export const IssueCreateForm = reduxForm<IssueFormData, OwnProps>({
 
   return (
     <form onSubmit={handleSubmit(onCreateIssue)}>
-      <MetronicModalDialog
+      <ModalDialog
         title={translate('Create request')}
         subtitle={translate(
           'Use this modal to describe your problem or request, so our support team can assist you.',
@@ -82,7 +82,7 @@ export const IssueCreateForm = reduxForm<IssueFormData, OwnProps>({
           mountOnEnter={true}
           context={resolve}
         />
-      </MetronicModalDialog>
+      </ModalDialog>
     </form>
   );
 });

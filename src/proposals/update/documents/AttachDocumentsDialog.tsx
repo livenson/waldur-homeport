@@ -14,7 +14,7 @@ import { UploadContainer } from '@waldur/form/upload/UploadContainer';
 import { translate } from '@waldur/i18n';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { useModal } from '@waldur/modal/hooks';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { useNotify } from '@waldur/store/hooks';
 
 interface AttachDocumentsFormData {
@@ -134,7 +134,7 @@ export const AttachDocumentsDialog = reduxForm<
 
   return (
     <form onSubmit={handleSubmit(callback)}>
-      <MetronicModalDialog
+      <ModalDialog
         title={translate('Add call attachments')}
         footer={
           <>
@@ -182,7 +182,7 @@ export const AttachDocumentsDialog = reduxForm<
             />
           ))}
         </FormContainer>
-      </MetronicModalDialog>
+      </ModalDialog>
     </form>
   );
 });

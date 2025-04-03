@@ -1,3 +1,4 @@
+import { PlusCircle } from '@phosphor-icons/react';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from '@uirouter/react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -20,6 +21,7 @@ import { translate } from '@waldur/i18n';
 import { getCategories } from '@waldur/marketplace/common/api';
 import { getCreatableOfferings } from '@waldur/marketplace/common/registry';
 import { closeModalDialog } from '@waldur/modal/actions';
+import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { getCustomer } from '@waldur/workspace/selectors';
@@ -88,7 +90,21 @@ export const OfferingCreateDialog = reduxForm<
   }
   return (
     <form onSubmit={handleSubmit(saveOffering)}>
-      <ModalDialog title={translate('New offering')}>
+      <ModalDialog
+        title={translate('New offering')}
+        footer={
+          <>
+            <CloseDialogButton />
+            <SubmitButton
+              submitting={submitting}
+              disabled={invalid}
+              label={translate('Create')}
+            />
+          </>
+        }
+        iconNode={<PlusCircle weight="bold" />}
+        iconColor="success"
+      >
         <FormContainer submitting={submitting}>
           <StringField
             name="name"
@@ -114,14 +130,9 @@ export const OfferingCreateDialog = reduxForm<
             options={data.offeringTypes}
             isClearable={false}
             validate={required}
+            spaceless
           />
         </FormContainer>
-        <SubmitButton
-          className="btn btn-primary btn-sm me-2"
-          submitting={submitting}
-          disabled={invalid}
-          label={translate('Create')}
-        />
       </ModalDialog>
     </form>
   );

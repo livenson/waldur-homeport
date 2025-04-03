@@ -6,7 +6,7 @@ import { SubmitButton, TextField } from '@waldur/form';
 import { FormContainer } from '@waldur/form/FormContainer';
 import { translate } from '@waldur/i18n';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 
 interface OwnProps {
   resolve: { title?; onSubmit; value? };
@@ -24,7 +24,7 @@ export const CommentFormDialog = connect<{}, {}, OwnProps>((_, ownProps) => ({
   })((props) => {
     return (
       <form onSubmit={props.handleSubmit(props.resolve.onSubmit)}>
-        <MetronicModalDialog
+        <ModalDialog
           title={
             props.resolve.title
               ? translate('Comment about "{name}"', {
@@ -65,7 +65,7 @@ export const CommentFormDialog = connect<{}, {}, OwnProps>((_, ownProps) => ({
               spaceless
             />
           </FormContainer>
-        </MetronicModalDialog>
+        </ModalDialog>
       </form>
     );
   }),

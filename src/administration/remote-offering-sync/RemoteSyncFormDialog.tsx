@@ -28,7 +28,7 @@ import { FormGroup } from '@waldur/marketplace/offerings/FormGroup';
 import { Category, ServiceProvider } from '@waldur/marketplace/types';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { useModal } from '@waldur/modal/hooks';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { useNotify } from '@waldur/store/hooks';
 
 import { CategoryMappingRulesField } from './CategoryMappingRulesField';
@@ -221,7 +221,7 @@ const RemoteSyncRenderer = ({
 
   return (
     <form onSubmit={handleSubmit}>
-      <MetronicModalDialog
+      <ModalDialog
         title={
           isEdit
             ? translate('Edit remote synchronization')
@@ -312,7 +312,7 @@ const RemoteSyncRenderer = ({
           label={translate('Enable synchronization')}
           className="text-gray-700"
         />
-      </MetronicModalDialog>
+      </ModalDialog>
     </form>
   );
 };

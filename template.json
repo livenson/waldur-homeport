@@ -679,10 +679,6 @@
     "description": "customer/credits/CreditFormDialog.tsx, customer/credits/ProjectCreditFormDialog.tsx",
     "message": "Allocate credit ({currency})"
   },
-  "Allocated\nto projects": {
-    "description": "customer/dashboard/CreditStatusWidget.tsx",
-    "message": "Allocated\nto projects"
-  },
   "Allocated credit": {
     "description": "customer/credits/constants.tsx",
     "message": "Allocated credit"
@@ -690,10 +686,6 @@
   "Allocated offerings": {
     "description": "proposals/round/RoundQuotas.tsx",
     "message": "Allocated offerings"
-  },
-  "Allocated": {
-    "description": "customer/dashboard/CreditStatusWidget.tsx",
-    "message": "Allocated"
   },
   "Allocation date": {
     "description": "proposals/round/allocation/RoundAllocationSection.tsx, proposals/update/rounds/RoundExpandableRow.tsx, proposals/update/rounds/WizardFormThirdPage.tsx",
@@ -1856,7 +1848,7 @@
     "message": "Cancel request"
   },
   "Cancel": {
-    "description": "administration/roles/RoleDescriptionEditDialog.tsx, administration/roles/RoleForm.tsx, form/InsertLinkPopover.tsx, form/WideImageField.tsx, invitations/GroupInvitationCancelButton.tsx, invitations/GroupinvitationButtons.tsx, invitations/MultiCancelAction.tsx, invitations/actions/InvitationCancelButton.tsx, marketplace/details/CustomerField.tsx, marketplace/landing/MarketplaceLandingFilter.tsx, marketplace/offerings/update/components/ChangeStorageModeDialog.tsx, marketplace/orders/actions/CancelTerminationOrderButton.tsx, marketplace/orders/details/CancelOrderButton.tsx, marketplace/service-providers/ServiceProviderManagement.tsx, modal/CloseDialogButton.tsx, modal/DeleteConfirmationDialog.tsx, table/TableFilterActions.tsx, table/TableFilterItem.tsx, user/support/UserRemovalMessageDialog.tsx, user/support/UserStatus.tsx",
+    "description": "administration/roles/RoleDescriptionEditDialog.tsx, form/InsertLinkPopover.tsx, form/WideImageField.tsx, invitations/GroupInvitationCancelButton.tsx, invitations/GroupinvitationButtons.tsx, invitations/MultiCancelAction.tsx, invitations/actions/InvitationCancelButton.tsx, marketplace/details/CustomerField.tsx, marketplace/landing/MarketplaceLandingFilter.tsx, marketplace/orders/actions/CancelTerminationOrderButton.tsx, marketplace/orders/details/CancelOrderButton.tsx, marketplace/service-providers/ServiceProviderManagement.tsx, modal/CloseDialogButton.tsx, modal/DeleteConfirmationDialog.tsx, table/TableFilterActions.tsx, table/TableFilterItem.tsx, user/support/UserRemovalMessageDialog.tsx, user/support/UserStatus.tsx",
     "message": "Cancel"
   },
   "Canceled": {
@@ -2728,7 +2720,7 @@
     "message": "Credit has been updated."
   },
   "Credit is overallocated": {
-    "description": "customer/dashboard/CreditStatusWidget.tsx",
+    "description": "customer/dashboard/CustomerDashboardCredit.tsx",
     "message": "Credit is overallocated"
   },
   "Credit management": {
@@ -2752,7 +2744,7 @@
     "message": "Credits available for this organization: {currency} {credits}"
   },
   "Credits": {
-    "description": "administration/organizations/OrganizationCreditsList.tsx, customer/credits/ProjectCreditsList.tsx, customer/dashboard/CreditStatusWidget.tsx",
+    "description": "administration/organizations/OrganizationCreditsList.tsx, customer/credits/ProjectCreditsList.tsx",
     "message": "Credits"
   },
   "Current VAT code: {value}.": {
@@ -3668,7 +3660,7 @@
     "message": "Edit the issue template"
   },
   "Edit user agreement": {
-    "description": "administration/agreements/UserAgreementsEditDialog.tsx",
+    "description": "administration/agreements/UserAgreementsEditDialog.tsx, administration/providers/ProviderDetailsDialog.tsx",
     "message": "Edit user agreement"
   },
   "Edit {name}": {
@@ -3860,7 +3852,7 @@
     "message": "End date of the agreement is {date}."
   },
   "End date": {
-    "description": "booking/deploy/CustomRangeDatePicker.tsx, customer/credits/constants.tsx, customer/dashboard/CreditStatusWidget.tsx, customer/payment-profiles/PaymentProfileCreateDialog.tsx, customer/payment-profiles/PaymentProfileUpdateDialog.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/service-providers/OrganizationProjectsExpandable.tsx, marketplace/service-providers/ProviderCampaignsList.tsx, marketplace-remote/ProjectUpdateRequestExpandable.tsx, project/ProjectCard.tsx, project/ProjectsList.tsx, project/create/EndDateGroup.tsx, project/details/ProjectDetailsDialog.tsx, project/manage/ProjectGeneral.tsx, user/affiliations/ProjectsList.tsx",
+    "description": "booking/deploy/CustomRangeDatePicker.tsx, customer/credits/constants.tsx, customer/payment-profiles/PaymentProfileCreateDialog.tsx, customer/payment-profiles/PaymentProfileUpdateDialog.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/service-providers/OrganizationProjectsExpandable.tsx, marketplace/service-providers/ProviderCampaignsList.tsx, marketplace-remote/ProjectUpdateRequestExpandable.tsx, project/ProjectCard.tsx, project/ProjectsList.tsx, project/create/EndDateGroup.tsx, project/details/ProjectDetailsDialog.tsx, project/manage/ProjectGeneral.tsx, user/affiliations/ProjectsList.tsx",
     "message": "End date"
   },
   "End date:": {
@@ -4050,14 +4042,6 @@
   "Esimated price per month": {
     "description": "reporting/quotas/constants.tsx",
     "message": "Esimated price per month"
-  },
-  "Estimate for the\ncurrent month": {
-    "description": "customer/dashboard/CreditStatusWidget.tsx",
-    "message": "Estimate for the\ncurrent month"
-  },
-  "Estimate for the current month": {
-    "description": "customer/dashboard/CreditStatusWidget.tsx",
-    "message": "Estimate for the current month"
   },
   "Estimate usage of {component}": {
     "description": "marketplace/details/plan/EstimateUsageComponentDialog.tsx",
@@ -10028,7 +10012,7 @@
     "message": "Save summary"
   },
   "Save": {
-    "description": "administration/FeaturesList.tsx, administration/agreements/UserAgreementCreateDialog.tsx, administration/agreements/UserAgreementsEditDialog.tsx, administration/languages/AdministrationLanguages.tsx, administration/notifications/NotificationForm.tsx, administration/providers/UpdateProviderDialog.tsx, administration/remote-offering-sync/RemoteSyncFormDialog.tsx, administration/roles/RoleDescriptionEditDialog.tsx, administration/roles/RoleForm.tsx, administration/settings/CountrySelector.tsx, broadcasts/BroadcastSaveAsTemplateDialog.tsx, broadcasts/BroadcastTemplateForm.tsx, customer/details/CustomerMediaPanel.tsx, customer/team/AddProjectUserDialog.tsx, customer/team/EditProjectUserDialog.tsx, customer/team/EditUserDialog.tsx, form/InsertLinkPopover.tsx, map/SetLocationDialog.tsx, marketplace/offerings/actions/SetAccessPolicyDialogForm.tsx, marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx, marketplace/offerings/expandable/utils.ts, marketplace/offerings/update/attributes/EditAttributeDialog.tsx, marketplace/offerings/update/attributes/EditCategoryDialog.tsx, marketplace/offerings/update/components/ChangeStorageModeDialog.tsx, marketplace/offerings/update/components/EditComponentDialog.tsx, marketplace/offerings/update/integration/EditLexisLinkIntegrationDialog.tsx, marketplace/offerings/update/integration/EditScriptDialog.tsx, marketplace/offerings/update/integration/EditVarsDialog.tsx, marketplace/offerings/update/options/EditOptionDialog.tsx, marketplace/offerings/update/plans/EditPlanDescriptionDialog.tsx, marketplace/offerings/update/plans/EditPlanPricesDialog.tsx, marketplace/offerings/update/plans/EditPlanQuotasDialog.tsx, marketplace/resources/actions/EditResourceEndDateDialog.tsx, marketplace/resources/actions/MoveResourceDialog.tsx, marketplace/resources/mass-actions/MultiMoveDialog.tsx, marketplace-checklist/ChecklistCustomer.tsx, project/MoveProjectDialog.tsx, project/manage/ProjectAvatar.tsx, project/team/EditUserDialog.tsx, proposals/update/documents/AttachDocumentsDialog.tsx, proposals/update/general/EditGeneralInfoDialog.tsx, reporting/invoices/utils.ts, table/SaveFilterDialog.tsx, user/support/UserEditAvatarFormItem.tsx",
+    "description": "administration/FeaturesList.tsx, administration/agreements/UserAgreementCreateDialog.tsx, administration/agreements/UserAgreementsEditDialog.tsx, administration/languages/AdministrationLanguages.tsx, administration/notifications/NotificationUpdateDialog.tsx, administration/providers/UpdateProviderDialog.tsx, administration/remote-offering-sync/RemoteSyncFormDialog.tsx, administration/roles/RoleCreateDialog.tsx, administration/roles/RoleDescriptionEditDialog.tsx, administration/roles/RoleEditDialog.tsx, administration/settings/CountrySelector.tsx, broadcasts/BroadcastSaveAsTemplateDialog.tsx, broadcasts/BroadcastTemplateCreateDialog.tsx, broadcasts/BroadcastTemplateUpdateDialog.tsx, customer/details/CustomerMediaPanel.tsx, customer/team/AddProjectUserDialog.tsx, customer/team/EditProjectUserDialog.tsx, customer/team/EditUserDialog.tsx, form/InsertLinkPopover.tsx, map/SetLocationDialog.tsx, marketplace/offerings/actions/SetAccessPolicyDialogForm.tsx, marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx, marketplace/offerings/expandable/utils.ts, marketplace/offerings/update/attributes/EditAttributeDialog.tsx, marketplace/offerings/update/attributes/EditCategoryDialog.tsx, marketplace/offerings/update/components/ChangeStorageModeDialog.tsx, marketplace/offerings/update/components/EditComponentDialog.tsx, marketplace/offerings/update/integration/EditLexisLinkIntegrationDialog.tsx, marketplace/offerings/update/integration/EditScriptDialog.tsx, marketplace/offerings/update/integration/EditVarsDialog.tsx, marketplace/offerings/update/options/EditOptionDialog.tsx, marketplace/offerings/update/plans/EditPlanDescriptionDialog.tsx, marketplace/offerings/update/plans/EditPlanPricesDialog.tsx, marketplace/offerings/update/plans/EditPlanQuotasDialog.tsx, marketplace/resources/actions/EditResourceEndDateDialog.tsx, marketplace/resources/actions/MoveResourceDialog.tsx, marketplace/resources/mass-actions/MultiMoveDialog.tsx, marketplace-checklist/ChecklistCustomer.tsx, project/MoveProjectDialog.tsx, project/manage/ProjectAvatar.tsx, project/team/EditUserDialog.tsx, proposals/update/documents/AttachDocumentsDialog.tsx, proposals/update/general/EditGeneralInfoDialog.tsx, reporting/invoices/utils.ts, table/SaveFilterDialog.tsx, user/support/UserEditAvatarFormItem.tsx",
     "message": "Save"
   },
   "Saved filters": {
@@ -12140,7 +12124,7 @@
     "message": "Total storage"
   },
   "Total": {
-    "description": "customer/cost-policies/CostPolicyForm.tsx, customer/cost-policies/utils.ts, customer/dashboard/CreditStatusWidget.tsx, invoices/details/BillingRecordDetails.tsx, invoices/details/InvoiceDetails.tsx, invoices/details/InvoiceItemExpandableRow.tsx, invoices/details/InvoiceItemsTable.tsx, invoices/details/ResourceLimitPeriodsTable.tsx, invoices/list/BillingRecordsList.tsx, invoices/list/InvoicesList.tsx, invoices/list/MonthOverview.tsx, marketplace/deploy/DeployPageTotalCard.tsx, marketplace/details/plan/ComponentRow.tsx, marketplace/details/plan/OrderSummaryPlanRows.tsx, marketplace/details/plan/PlanDetailsTable.tsx, marketplace/details/plan/PlanDetailsTable2.tsx, marketplace/details/plan/TotalLimitComponentsTable.tsx, marketplace/details/plan/UsageComponentRow.tsx, marketplace/resources/change-limits/ComponentTotalRow.tsx, marketplace/resources/usage/ResourceUsageTable.tsx, marketplace/resources/usage/UsageExportDropdown.tsx, reporting/invoices/utils.ts",
+    "description": "customer/cost-policies/CostPolicyForm.tsx, customer/cost-policies/utils.ts, invoices/details/BillingRecordDetails.tsx, invoices/details/InvoiceDetails.tsx, invoices/details/InvoiceItemExpandableRow.tsx, invoices/details/InvoiceItemsTable.tsx, invoices/details/ResourceLimitPeriodsTable.tsx, invoices/list/BillingRecordsList.tsx, invoices/list/InvoicesList.tsx, invoices/list/MonthOverview.tsx, marketplace/deploy/DeployPageTotalCard.tsx, marketplace/details/plan/ComponentRow.tsx, marketplace/details/plan/OrderSummaryPlanRows.tsx, marketplace/details/plan/PlanDetailsTable.tsx, marketplace/details/plan/PlanDetailsTable2.tsx, marketplace/details/plan/TotalLimitComponentsTable.tsx, marketplace/details/plan/UsageComponentRow.tsx, marketplace/resources/change-limits/ComponentTotalRow.tsx, marketplace/resources/usage/ResourceUsageTable.tsx, marketplace/resources/usage/UsageExportDropdown.tsx, reporting/invoices/utils.ts",
     "message": "Total"
   },
   "Tracked using UTC timezone, displayed with your browser’s timezone.": {
@@ -12754,10 +12738,6 @@
   "Unable to load health information": {
     "description": "administration/dashboard/AdministrationDashboard.tsx, support/dashboard/SupportDashboard.tsx",
     "message": "Unable to load health information"
-  },
-  "Unable to load identity provider details": {
-    "description": "administration/providers/ProviderDetailsDialog.tsx",
-    "message": "Unable to load identity provider details"
   },
   "Unable to load identity providers.": {
     "description": "auth/LoginColumn.tsx",
@@ -15094,10 +15074,6 @@
   "{agent} - {status}. Last request: {time}": {
     "description": "marketplace/offerings/details/ConnectionStatusIndicator.tsx",
     "message": "{agent} - {status}. Last request: {time}"
-  },
-  "{amount} spent last month": {
-    "description": "customer/dashboard/CreditStatusWidget.tsx",
-    "message": "{amount} spent last month"
   },
   "{category} resources": {
     "description": "marketplace/resources/list/CategoryResourcesList.tsx",

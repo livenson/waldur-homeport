@@ -1,5 +1,5 @@
+import { PlusCircle } from '@phosphor-icons/react';
 import { useCallback } from 'react';
-import { Modal } from 'react-bootstrap';
 import { connect, useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import { marketplacePlansCreate } from 'waldur-js-client';
@@ -7,6 +7,7 @@ import { marketplacePlansCreate } from 'waldur-js-client';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
 import { formatPlan } from '../../store/utils';
@@ -56,19 +57,20 @@ export const AddPlanDialog = connect<{}, {}, { resolve: { plan? } }>(
 
     return (
       <form onSubmit={props.handleSubmit(update)}>
-        <Modal.Header>
-          <Modal.Title>{translate('Add plan')}</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>
+        <ModalDialog
+          title={translate('Add plan')}
+          footer={
+            <SubmitButton
+              disabled={props.invalid}
+              submitting={props.submitting}
+              label={translate('Create')}
+            />
+          }
+          iconNode={<PlusCircle weight="bold" />}
+          iconColor="success"
+        >
           <PlanForm />
-        </Modal.Body>
-        <Modal.Footer>
-          <SubmitButton
-            disabled={props.invalid}
-            submitting={props.submitting}
-            label={translate('Create')}
-          />
-        </Modal.Footer>
+        </ModalDialog>
       </form>
     );
   }),

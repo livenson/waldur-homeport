@@ -4,7 +4,7 @@ import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { Offering } from '@waldur/marketplace/types';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 
 import { PolicyCreateForm } from './PolicyCreateForm';
 import {
@@ -31,7 +31,7 @@ export const PolicyCreateDialog = reduxForm<
 })((props) => {
   return (
     <form onSubmit={props.handleSubmit(props.submitFn)}>
-      <MetronicModalDialog
+      <ModalDialog
         title={
           props.type === 'usage'
             ? translate('New usage policy')
@@ -50,7 +50,7 @@ export const PolicyCreateDialog = reduxForm<
         }
       >
         <PolicyCreateForm {...props} />
-      </MetronicModalDialog>
+      </ModalDialog>
     </form>
   );
 });

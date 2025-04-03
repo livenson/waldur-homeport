@@ -1,5 +1,4 @@
 import { useCallback } from 'react';
-import { Modal } from 'react-bootstrap';
 import { connect, useDispatch } from 'react-redux';
 import { compose } from 'redux';
 import { Field, reduxForm } from 'redux-form';
@@ -11,6 +10,7 @@ import { DateTimeField } from '@waldur/form/DateTimeField';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
 import { UPDATE_OFFERING_PERMISSION_EXPIRATION_TIME_FORM_ID } from './constants';
@@ -43,14 +43,19 @@ const PureUpdateOfferingPermissionExpirationTimeDialog = (props) => {
   );
   return (
     <form onSubmit={props.handleSubmit(update)}>
-      <Modal.Header>
-        <Modal.Title>
-          {translate('Update permission of {name}', {
-            name: props.resolve.permission.offering_name,
-          })}
-        </Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
+      <ModalDialog
+        title={translate('Update permission of {name}', {
+          name: props.resolve.permission.offering_name,
+        })}
+        footer={
+          <>
+            <CloseDialogButton />
+            <SubmitButton submitting={props.submitting}>
+              {translate('Update')}
+            </SubmitButton>
+          </>
+        }
+      >
         <FormContainer submitting={props.submitting}>
           <Field
             name="expiration_time"
@@ -58,13 +63,7 @@ const PureUpdateOfferingPermissionExpirationTimeDialog = (props) => {
             component={DateTimeField}
           />
         </FormContainer>
-      </Modal.Body>
-      <Modal.Footer>
-        <SubmitButton submitting={props.submitting}>
-          {translate('Update')}
-        </SubmitButton>
-        <CloseDialogButton />
-      </Modal.Footer>
+      </ModalDialog>
     </form>
   );
 };

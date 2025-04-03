@@ -4,6 +4,7 @@ import { Form } from 'react-final-form';
 import { useDispatch } from 'react-redux';
 import { notificationMessagesTemplatesOverride } from 'waldur-js-client';
 
+import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
@@ -54,19 +55,28 @@ export const NotificationUpdateDialog = ({ resolve }) => {
   );
 
   return (
-    <ModalDialog title={translate('Update a notification')}>
-      <Form
-        onSubmit={onSubmit}
-        initialValues={{ templates: resolve.notification.templates }}
-        mutators={{
-          ...arrayMutators,
-        }}
-        render={({ handleSubmit, submitting }) => (
-          <form onSubmit={handleSubmit}>
+    <Form
+      onSubmit={onSubmit}
+      initialValues={{ templates: resolve.notification.templates }}
+      mutators={{
+        ...arrayMutators,
+      }}
+      render={({ handleSubmit, submitting, pristine }) => (
+        <form onSubmit={handleSubmit}>
+          <ModalDialog
+            title={translate('Update a notification')}
+            footer={
+              <SubmitButton
+                submitting={submitting}
+                disabled={pristine}
+                label={translate('Save')}
+              />
+            }
+          >
             <NotificationForm submitting={submitting} />
-          </form>
-        )}
-      />
-    </ModalDialog>
+          </ModalDialog>
+        </form>
+      )}
+    />
   );
 };

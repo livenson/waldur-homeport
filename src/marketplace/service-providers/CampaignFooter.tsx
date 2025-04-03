@@ -83,35 +83,27 @@ export const CampaignFooter = ({
   );
 
   return (
-    <Modal.Footer>
+    <Modal.Footer className="border-0 pt-0 gap-2">
       {step === 0 ? (
-        <Button onClick={() => setStep(1)} className="ms-3">
+        <Button onClick={() => setStep(1)}>
           <span className="svg-icon svg-icon-2">
-            <CaretRight />
+            <CaretRight weight="bold" />
           </span>{' '}
           {translate('Continue')}
         </Button>
       ) : (
         <>
           {!isUpdate ? (
-            <Button
-              disabled={disabled}
-              className="ms-3"
-              onClick={handleSubmit(saveAndSend)}
-            >
+            <Button disabled={disabled} onClick={handleSubmit(saveAndSend)}>
               <span className="svg-icon svg-icon-2">
-                <PaperPlaneTilt />
+                <PaperPlaneTilt weight="bold" />
               </span>{' '}
               {translate('Create a campaign')}
             </Button>
           ) : (
-            <Button
-              disabled={disabled}
-              className="ms-3"
-              onClick={handleSubmit(saveAndUpdate)}
-            >
+            <Button disabled={disabled} onClick={handleSubmit(saveAndUpdate)}>
               <span className="svg-icon svg-icon-2">
-                <PaperPlaneTilt />
+                <PaperPlaneTilt weight="bold" />
               </span>{' '}
               {translate('Update a campaign')}
             </Button>

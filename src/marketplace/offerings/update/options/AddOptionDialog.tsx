@@ -1,5 +1,4 @@
 import { useCallback } from 'react';
-import { Modal } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
 import {
@@ -10,6 +9,7 @@ import {
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 
 import { formatOption } from '../../store/utils';
@@ -67,19 +67,19 @@ export const AddOptionDialog = reduxForm<
 
   return (
     <form onSubmit={props.handleSubmit(update)}>
-      <Modal.Header>
-        <Modal.Title>{translate('Add option')}</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
+      <ModalDialog
+        title={translate('Add option')}
+        footer={
+          <SubmitButton
+            disabled={props.invalid}
+            submitting={props.submitting}
+            label={translate('Create')}
+          />
+        }
+        closeButton
+      >
         <OptionForm resourceType={props.resolve.type} />
-      </Modal.Body>
-      <Modal.Footer>
-        <SubmitButton
-          disabled={props.invalid}
-          submitting={props.submitting}
-          label={translate('Create')}
-        />
-      </Modal.Footer>
+      </ModalDialog>
     </form>
   );
 });

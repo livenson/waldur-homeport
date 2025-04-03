@@ -1,5 +1,4 @@
 import { useCallback } from 'react';
-import { Modal } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { Field, reduxForm } from 'redux-form';
 import { marketplaceProviderOfferingsAddUser } from 'waldur-js-client';
@@ -12,6 +11,7 @@ import { translate } from '@waldur/i18n';
 import { providerOfferingsAutocomplete } from '@waldur/marketplace/common/autocompletes';
 import { closeModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { RoleEnum } from '@waldur/permissions/enums';
 import { showErrorResponse } from '@waldur/store/notify';
 import { getCustomer } from '@waldur/workspace/selectors';
@@ -49,10 +49,17 @@ export const OfferingPermissionCreateDialog = reduxForm<
   );
   return (
     <form onSubmit={handleSubmit(saveUser)}>
-      <Modal.Header>
-        <Modal.Title>{translate('Grant permission')}</Modal.Title>
-      </Modal.Header>
-      <Modal.Body>
+      <ModalDialog
+        title={translate('Grant permission')}
+        footer={
+          <>
+            <CloseDialogButton />
+            <SubmitButton submitting={submitting}>
+              {translate('Submit')}
+            </SubmitButton>
+          </>
+        }
+      >
         <FormContainer submitting={submitting}>
           <AsyncSelectField
             name="user"
@@ -84,13 +91,7 @@ export const OfferingPermissionCreateDialog = reduxForm<
             component={DateTimeField}
           />
         </FormContainer>
-      </Modal.Body>
-      <Modal.Footer>
-        <CloseDialogButton />
-        <SubmitButton submitting={submitting}>
-          {translate('Submit')}
-        </SubmitButton>
-      </Modal.Footer>
+      </ModalDialog>
     </form>
   );
 });

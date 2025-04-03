@@ -2,7 +2,7 @@ import { FC, useMemo } from 'react';
 import { FormLabel } from 'react-bootstrap';
 
 import { translate } from '@waldur/i18n';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { ProposalReview } from '@waldur/proposals/types';
 
 import { FieldReviewComments } from '../create-review/FieldReviewComments';
@@ -24,10 +24,7 @@ export const ProposalReviewDialog: FC<ProposalReviewDialogProps> = ({
   }, [reviews]);
 
   return (
-    <MetronicModalDialog
-      title={translate('Proposal review details')}
-      closeButton
-    >
+    <ModalDialog title={translate('Proposal review details')} closeButton>
       <FormLabel className="mb-0">{translate('Rate')}</FormLabel>
       <div className="d-flex align-items-center flex-grow-1 flex-wrap gap-4">
         <RateStars value={overallScore} className="mb-4" />
@@ -45,6 +42,6 @@ export const ProposalReviewDialog: FC<ProposalReviewDialogProps> = ({
         hasScore
         space={0}
       />
-    </MetronicModalDialog>
+    </ModalDialog>
   );
 };

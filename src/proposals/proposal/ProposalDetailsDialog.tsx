@@ -8,7 +8,7 @@ import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import FormTable from '@waldur/form/FormTable';
 import { translate } from '@waldur/i18n';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { Proposal } from '@waldur/proposals/types';
 
 import { EndingField } from '../EndingField';
@@ -38,10 +38,7 @@ export const ProposalDetailsDialog: FC<ProposalDetailsDialogProps> = ({
   );
 
   return (
-    <MetronicModalDialog
-      title={translate('Proposal details overview')}
-      closeButton
-    >
+    <ModalDialog title={translate('Proposal details overview')} closeButton>
       {isLoading ? (
         <LoadingSpinner />
       ) : error ? (
@@ -85,6 +82,6 @@ export const ProposalDetailsDialog: FC<ProposalDetailsDialogProps> = ({
           </Tab>
         </Tabs>
       )}
-    </MetronicModalDialog>
+    </ModalDialog>
   );
 };

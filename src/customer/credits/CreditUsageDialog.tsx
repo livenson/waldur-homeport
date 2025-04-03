@@ -10,7 +10,7 @@ import {
 import { parseDate } from '@waldur/core/dateUtils';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { translate } from '@waldur/i18n';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
@@ -108,7 +108,7 @@ export const CreditUsageDialog: FC<CreditUsageDialogProps> = (props) => {
   );
 
   return (
-    <MetronicModalDialog headerLess bodyClassName="p-0">
+    <ModalDialog headerLess bodyClassName="p-0">
       <Table<InvoiceItem>
         {...tableProps}
         columns={[
@@ -162,6 +162,6 @@ export const CreditUsageDialog: FC<CreditUsageDialogProps> = (props) => {
         initialPageSize={5}
         footer={footer}
       />
-    </MetronicModalDialog>
+    </ModalDialog>
   );
 };

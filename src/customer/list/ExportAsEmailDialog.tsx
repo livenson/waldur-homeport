@@ -1,6 +1,6 @@
 import { PlusCircle, Trash } from '@phosphor-icons/react';
 import { DateTime } from 'luxon';
-import { Col, Form, Modal, Row } from 'react-bootstrap';
+import { Col, Form, Row } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
 import { useAsync } from 'react-use';
 import { Field, FieldArray, reduxForm } from 'redux-form';
@@ -18,6 +18,7 @@ import { SubmitButton } from '@waldur/form';
 import { EmailField } from '@waldur/form/EmailField';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { ActionButton } from '@waldur/table/ActionButton';
 
@@ -87,7 +88,16 @@ export const ExportAsEmailDialog = reduxForm<{}, any>({
 
   return (
     <form onSubmit={handleSubmit(submit)}>
-      <Modal.Body className="p-12">
+      <ModalDialog
+        title={translate('Send report')}
+        footer={
+          <SubmitButton
+            submitting={submitting}
+            label={translate('Send report')}
+          />
+        }
+        closeButton
+      >
         <Row>
           <Col md={12} lg={8} className="d-flex flex-column">
             <div>
@@ -99,15 +109,10 @@ export const ExportAsEmailDialog = reduxForm<{}, any>({
               <AccountingPeriodField options={data.accountingPeriods} />
             </div>
 
-            <div className="mt-4">
-              <SubmitButton
-                submitting={submitting}
-                label={translate('Send report')}
-              />
-            </div>
+            <div className="mt-4" />
           </Col>
         </Row>
-      </Modal.Body>
+      </ModalDialog>
     </form>
   );
 });

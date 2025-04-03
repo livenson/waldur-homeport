@@ -1,5 +1,5 @@
 import { useCallback, useState } from 'react';
-import { Button, Col, Modal, Row } from 'react-bootstrap';
+import { Button, Col, Row } from 'react-bootstrap';
 import { connect, useDispatch, useSelector } from 'react-redux';
 import { Field, getFormValues, initialize, reduxForm } from 'redux-form';
 import {
@@ -15,6 +15,8 @@ import { SubmitButton, SelectField } from '@waldur/form';
 import { MonacoField } from '@waldur/form/MonacoField';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog } from '@waldur/modal/actions';
+import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import {
   showError,
   showErrorResponse,
@@ -141,37 +143,49 @@ export const EditScriptDialog = connect<{}, {}, OwnProps>((_, ownProps) => ({
 
     return (
       <form>
-        <Modal.Header>
-          <Modal.Title>{props.resolve.label}</Modal.Title>
-          {props.resolve.type !== 'language' ? (
-            props.resolve.offering.secret_options.language ? (
-              <Button
-                variant="secondary"
-                onClick={handleSaveAndRunScriptButtonClick}
-                disabled={executing}
-              >
-                {executing && (
-                  <>
-                    <LoadingSpinnerIcon className="me-1" />{' '}
-                  </>
-                )}
-                {translate('Save & dry run script')}
-              </Button>
-            ) : (
-              <Tip
-                label={translate(
-                  'Please select a script language to use dry-run',
-                )}
-                id="resource-action-dialog-disabled-tooltip"
-              >
-                <Button variant="secondary" disabled>
+        <ModalDialog
+          title={props.resolve.label}
+          actions={
+            props.resolve.type !== 'language' ? (
+              props.resolve.offering.secret_options.language ? (
+                <Button
+                  variant="secondary"
+                  onClick={handleSaveAndRunScriptButtonClick}
+                  disabled={executing}
+                >
+                  {executing && (
+                    <>
+                      <LoadingSpinnerIcon className="me-1" />{' '}
+                    </>
+                  )}
                   {translate('Save & dry run script')}
                 </Button>
-              </Tip>
-            )
-          ) : null}
-        </Modal.Header>
-        <Modal.Body>
+              ) : (
+                <Tip
+                  label={translate(
+                    'Please select a script language to use dry-run',
+                  )}
+                  id="resource-action-dialog-disabled-tooltip"
+                >
+                  <Button variant="secondary" disabled>
+                    {translate('Save & dry run script')}
+                  </Button>
+                </Tip>
+              )
+            ) : null
+          }
+          footer={
+            <>
+              <CloseDialogButton />
+              <SubmitButton
+                disabled={props.invalid}
+                submitting={props.submitting}
+                label={translate('Save')}
+                onClick={handleSaveButtonClick}
+              />
+            </>
+          }
+        >
           {props.resolve.type === 'language' ? (
             <Field
               name="script"
@@ -208,15 +222,7 @@ export const EditScriptDialog = connect<{}, {}, OwnProps>((_, ownProps) => ({
               </Col>
             </Row>
           )}
-        </Modal.Body>
-        <Modal.Footer>
-          <SubmitButton
-            disabled={props.invalid}
-            submitting={props.submitting}
-            label={translate('Save')}
-            onClick={handleSaveButtonClick}
-          />
-        </Modal.Footer>
+        </ModalDialog>
       </form>
     );
   }),

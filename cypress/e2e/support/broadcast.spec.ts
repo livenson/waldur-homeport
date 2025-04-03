@@ -57,9 +57,10 @@ describe('Broadcast', () => {
         .type('Test')
         .get('textarea[name="body"]')
         .type('Test')
-        .get('.modal-footer > .ms-3.btn.btn-primary')
+        .get('.modal-footer > .btn.btn-primary')
+        .contains('Select recipients')
         .click()
-        .get('.modal-footer > .ms-3.btn.btn-primary')
+        .get('.modal-footer > .btn.btn-primary')
         .contains('Send now')
         .click();
       cy.get('tbody').find('tr').eq(0).should('exist').contains('Test');

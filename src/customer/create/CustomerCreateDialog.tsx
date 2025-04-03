@@ -9,7 +9,7 @@ import { customersAddUser, customersCreate } from 'waldur-js-client';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { RoleEnum } from '@waldur/permissions/enums';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { getCurrentUser } from '@waldur/user/UsersService';
@@ -71,7 +71,7 @@ export const CustomerCreateDialog: FC<OwnProps> = ({ resolve }) => {
       onSubmit={createOrganization}
       render={({ handleSubmit, submitting, invalid }) => (
         <form onSubmit={handleSubmit}>
-          <MetronicModalDialog
+          <ModalDialog
             title={translate('Create an organization')}
             subtitle={translate(
               'Provide the required information to create a new organization.',
@@ -91,7 +91,7 @@ export const CustomerCreateDialog: FC<OwnProps> = ({ resolve }) => {
             }
           >
             <CustomerCreateForm />
-          </MetronicModalDialog>
+          </ModalDialog>
         </form>
       )}
     />

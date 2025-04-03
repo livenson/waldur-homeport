@@ -1,7 +1,7 @@
 import { FC, useMemo } from 'react';
 
 import { OfferingComponent } from '@waldur/marketplace/types';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 
 import { ComponentUserUsage } from './types';
 
@@ -21,7 +21,7 @@ export const UserUsagesDialog: FC<UserUsagesDialogProps> = ({
   );
 
   return (
-    <MetronicModalDialog
+    <ModalDialog
       title={component.name + ': ' + sumUsages + ' ' + component.measured_unit}
       closeButton
     >
@@ -32,6 +32,6 @@ export const UserUsagesDialog: FC<UserUsagesDialogProps> = ({
           </li>
         ))}
       </ul>
-    </MetronicModalDialog>
+    </ModalDialog>
   );
 };

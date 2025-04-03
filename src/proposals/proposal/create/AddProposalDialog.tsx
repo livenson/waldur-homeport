@@ -9,7 +9,7 @@ import { FormContainer } from '@waldur/form/FormContainer';
 import { StringField } from '@waldur/form/StringField';
 import { translate } from '@waldur/i18n';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
-import { MetronicModalDialog } from '@waldur/modal/MetronicModalDialog';
+import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { Call } from '@waldur/proposals/types';
 import { useNotify } from '@waldur/store/hooks';
 import { UsersService } from '@waldur/user/UsersService';
@@ -50,7 +50,7 @@ export const AddProposalDialog = reduxForm<
 
   return (
     <form onSubmit={props.handleSubmit(processRequest)}>
-      <MetronicModalDialog
+      <ModalDialog
         title={translate('Create proposal')}
         footer={
           <>
@@ -75,7 +75,7 @@ export const AddProposalDialog = reduxForm<
             validate={required}
           />
         </FormContainer>
-      </MetronicModalDialog>
+      </ModalDialog>
     </form>
   );
 });
