@@ -45,6 +45,7 @@ export const ProposalDetailsOverviewStep = (props: VStepperFormStepProps) => {
   const proposal: Proposal = props.params.proposal;
   return (
     <VStepperFormStepCard
+      id={props.id}
       title={translate('Details overview')}
       actions={<DetailsOverviewButton proposal={proposal} />}
     >
