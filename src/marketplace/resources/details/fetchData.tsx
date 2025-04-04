@@ -1,7 +1,6 @@
 import {
   marketplaceResourcesDetailsRetrieve,
   marketplaceResourcesOfferingRetrieve,
-  marketplaceResourcesRetrieve,
   PublicOfferingDetails,
   Resource,
 } from 'waldur-js-client';
@@ -256,16 +255,12 @@ export const getResourceTabs = ({
   return tabs;
 };
 
-export const fetchData = async (resourceId) => {
-  const resource = await marketplaceResourcesRetrieve({
-    path: { uuid: resourceId },
-  }).then((r) => r.data);
-
+export const fetchData = async (resource: Resource) => {
   let scope;
   if (resource.scope) {
     scope = (
       await marketplaceResourcesDetailsRetrieve({
-        path: { uuid: resourceId },
+        path: { uuid: resource.uuid },
       })
     ).data;
   }
@@ -285,7 +280,6 @@ export const fetchData = async (resourceId) => {
   });
 
   return {
-    resource,
     scope,
     components,
     offering,
