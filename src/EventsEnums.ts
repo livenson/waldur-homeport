@@ -114,6 +114,7 @@ export const ProvidersEnum = {
   marketplace_resource_update_requested: 'marketplace_resource_update_requested',
   resource_robot_account_created: 'resource_robot_account_created',
   resource_robot_account_deleted: 'resource_robot_account_deleted',
+  resource_robot_account_state_changed: 'resource_robot_account_state_changed',
   resource_robot_account_updated: 'resource_robot_account_updated',
 };
 
@@ -220,6 +221,7 @@ export const ResourcesEnum = {
   resource_retype_succeeded: 'resource_retype_succeeded',
   resource_robot_account_created: 'resource_robot_account_created',
   resource_robot_account_deleted: 'resource_robot_account_deleted',
+  resource_robot_account_state_changed: 'resource_robot_account_state_changed',
   resource_robot_account_updated: 'resource_robot_account_updated',
   resource_start_failed: 'resource_start_failed',
   resource_start_scheduled: 'resource_start_scheduled',
