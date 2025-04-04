@@ -10,6 +10,7 @@ import {
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 import { getStartAndEndDatesOfMonth } from '@waldur/issues/utils';
+import { ResourceLink } from '@waldur/resource/ResourceLink';
 import { createFetcher } from '@waldur/table/api';
 import { ExpandableContainer } from '@waldur/table/ExpandableContainer';
 import Table from '@waldur/table/Table';
@@ -65,6 +66,18 @@ export const ResourceUsageList: FC = () => {
   });
   const columns: Array<Column<ComponentUsage>> = [
     {
+      title: translate('Resource name'),
+      render: ({ row }) => (
+        <ResourceLink uuid={row.resource_uuid} label={row.resource_name} />
+      ),
+      filter: 'resource',
+      inlineFilter: (row) => ({
+        name: row.resource_name,
+        uuid: row.resource_uuid,
+      }),
+      export: 'resource_name',
+    },
+    {
       title: translate('Client organization'),
       render: ({ row }) => <>{row.customer_name}</>,
       filter: 'organization',
@@ -93,16 +106,6 @@ export const ResourceUsageList: FC = () => {
         uuid: row.offering_uuid,
       }),
       export: 'offering_name',
-    },
-    {
-      title: translate('Resource name'),
-      render: ({ row }) => <>{row.resource_name}</>,
-      filter: 'resource',
-      inlineFilter: (row) => ({
-        name: row.resource_name,
-        uuid: row.resource_uuid,
-      }),
-      export: 'resource_name',
     },
     {
       title: translate('Plan component name'),
