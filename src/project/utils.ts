@@ -111,7 +111,7 @@ export function useProjectCreditChart(project: Project) {
     () =>
       projectCreditsList({
         query: { project_uuid: project?.uuid },
-      }).then((r) => r.data[0]),
+      }).then((response) => response.data.length > 0 && response.data[0]),
     { refetchOnWindowFocus: false, staleTime: 60 * 1000 },
   );
 
