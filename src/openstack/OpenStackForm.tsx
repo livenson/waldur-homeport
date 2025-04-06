@@ -76,6 +76,7 @@ export const OpenStackForm: FunctionComponent<OfferingEditPanelFormProps> = (
       key={field.key}
       label={field.label}
       description={field.description}
+      required={field.fieldProps?.required}
       value={
         field.component === SecretField ? (
           <PlainSecretField value={get(props.offering, field.key)} />
@@ -90,6 +91,7 @@ export const OpenStackForm: FunctionComponent<OfferingEditPanelFormProps> = (
           title={field.label}
           scope={props.offering}
           name={field.key}
+          description={field.description}
           callback={props.callback}
           fieldComponent={field.component}
           hideLabel={field.hideLabel}

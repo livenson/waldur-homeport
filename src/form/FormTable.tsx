@@ -19,6 +19,7 @@ export interface FormTableItemProps {
   disabled?: boolean;
   className?: string;
   descriptionClassName?: string;
+  required?: boolean;
 }
 
 const FormTableItem: FC<FormTableItemProps> = ({ actions, ...props }) => {
@@ -37,6 +38,7 @@ const FormTableItem: FC<FormTableItemProps> = ({ actions, ...props }) => {
           >
             <div className="title fw-bolder">
               {props.label}
+              {props.required && <span className="text-danger ms-1">*</span>}
               {Boolean(props.tooltip) &&
                 wrapTooltip(
                   props.tooltip,
@@ -69,7 +71,8 @@ const FormTableItem: FC<FormTableItemProps> = ({ actions, ...props }) => {
           </th>
         ) : i === 0 && props.label ? (
           <th className="title col-md-3" rowSpan={titleRowSpan}>
-            {props.label}{' '}
+            {props.label}
+            {props.required && <span className="text-danger ms-1">*</span>}{' '}
             {Boolean(props.tooltip) &&
               wrapTooltip(
                 props.tooltip,

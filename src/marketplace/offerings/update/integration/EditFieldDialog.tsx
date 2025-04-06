@@ -75,6 +75,7 @@ export const EditFieldDialog = connect<{}, {}, { resolve: EditOfferingProps }>(
               label={props.resolve.label}
               hideLabel={props.resolve.hideLabel}
               tooltip={props.resolve.warnTooltip}
+              required={props.resolve.required}
               {...props.resolve.fieldProps}
             />
           </FormContainer>

@@ -70,6 +70,7 @@ export const FormGroup: FC<PropsWithChildren<FormGroupProps>> = (props) => {
     },
     isInvalid: meta.touched && !!meta.error,
   };
+
   const labelNode = !hideLabel && (
     <Form.Label className={classNames({ required })}>
       {tooltip && !tooltipEnd && (
@@ -80,7 +81,8 @@ export const FormGroup: FC<PropsWithChildren<FormGroupProps>> = (props) => {
       {label}
     </Form.Label>
   );
-  const main = (
+
+  const mainContent = (
     <div
       className={classNames(
         {
@@ -109,10 +111,13 @@ export const FormGroup: FC<PropsWithChildren<FormGroupProps>> = (props) => {
         labelNode
       )}
       {cloneElement(children as any, newProps)}
-      {description && <Form.Text>{description}</Form.Text>}
+      {description && (
+        <Form.Text className="text-muted">{description}</Form.Text>
+      )}
       {meta.touched && <FieldError error={meta.error} />}
     </div>
   );
+
   if (actions) {
     return (
       <div
@@ -121,10 +126,10 @@ export const FormGroup: FC<PropsWithChildren<FormGroupProps>> = (props) => {
           containerClassName,
         )}
       >
-        {main}
+        {mainContent}
         {actions}
       </div>
     );
   }
-  return main;
+  return mainContent;
 };
