@@ -95,8 +95,10 @@ const FormTableItem: FC<FormTableItemProps> = ({ actions, ...props }) => {
           <td className="value col-md" colSpan={props.label ? undefined : 2}>
             {row}
           </td>
-        ) : null}
-        <td className="col-md-auto col-actions">{actions}</td>
+        ) : (
+          <td className="value col-md" />
+        )}
+        <td className="col-md-auto col-actions text-end">{actions}</td>
       </tr>
     ),
   );
