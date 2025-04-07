@@ -3288,7 +3288,7 @@
     "message": "Details overview"
   },
   "Details": {
-    "description": "administration/organizations/OrganizationGroupDetailsButton.tsx, administration/providers/ProviderCard.tsx, customer/details/CustomerBillingPanel.tsx, customer/details/CustomerDetailsPanel.tsx, customer/details/CustomerMarketplacePanel.tsx, customer/list/OrganizationCard.tsx, invoices/list/MonthOverview.tsx, marketplace/aggregate-limits/AggregateLimitWidget.tsx, marketplace/common/ViewOfferingButton.tsx, marketplace/referral/ReferralDetailsButton.tsx, marketplace/resources/details/fetchData.tsx, marketplace/resources/details/openstack-instance/InstanceMainComponent.tsx, marketplace/resources/details/popup/ResourceDetailsDialog.tsx, marketplace/resources/usage/utils.ts, project/ProjectCard.tsx, project/manage/ProjectGeneral.tsx, proposals/CallCard.tsx, proposals/round/proposals/ProposalReviewsDetailButton.tsx, rancher/cluster/apps/ApplicationDetailsButton.tsx, resource/summary/ResourceSummaryButton.tsx, resource/summary/ResourceSummaryModal.tsx, user/UserDetailsButton.tsx, user/support/UserDetailsButton.tsx, user/support/UserDetailsDialog.tsx, vmware/tabs.ts",
+    "description": "administration/organizations/OrganizationGroupDetailsButton.tsx, administration/providers/ProviderCard.tsx, customer/dashboard/CustomerDashboardCredit.tsx, customer/details/CustomerBillingPanel.tsx, customer/details/CustomerDetailsPanel.tsx, customer/details/CustomerMarketplacePanel.tsx, customer/list/OrganizationCard.tsx, invoices/list/MonthOverview.tsx, marketplace/aggregate-limits/AggregateLimitWidget.tsx, marketplace/common/ViewOfferingButton.tsx, marketplace/referral/ReferralDetailsButton.tsx, marketplace/resources/details/fetchData.tsx, marketplace/resources/details/openstack-instance/InstanceMainComponent.tsx, marketplace/resources/details/popup/ResourceDetailsDialog.tsx, marketplace/resources/usage/utils.ts, project/ProjectCard.tsx, project/ProjectDashboardCredit.tsx, project/manage/ProjectGeneral.tsx, proposals/CallCard.tsx, proposals/round/proposals/ProposalReviewsDetailButton.tsx, rancher/cluster/apps/ApplicationDetailsButton.tsx, resource/summary/ResourceSummaryButton.tsx, resource/summary/ResourceSummaryModal.tsx, user/UserDetailsButton.tsx, user/support/UserDetailsButton.tsx, user/support/UserDetailsDialog.tsx, vmware/tabs.ts",
     "message": "Details"
   },
   "Device ID": {
@@ -3672,7 +3672,7 @@
     "message": "Edit {title}"
   },
   "Edit": {
-    "description": "administration/announcements/AnnouncementForm.tsx, administration/organizations/OrganizationGroupForm.tsx, administration/providers/ProviderCard.tsx, customer/cost-policies/CostPolicyEditButton.tsx, customer/cost-policies/CostPolicyFormDialog.tsx, customer/credits/EditCreditButton.tsx, customer/credits/ProjectCreditFormDialog.tsx, customer/credits/ProjectEditCreditButton.tsx, customer/list/OrganizationCard.tsx, customer/payments/EditPaymentButton.tsx, customer/team/EditProjectUserButton.tsx, customer/team/UserEditButton.tsx, form/EditAction.tsx, form/EditButton.tsx, marketplace/category/admin/CategoryEditDialog.tsx, marketplace/category/admin/GroupFromDialog.tsx, marketplace/deploy/DeployPage.tsx, marketplace/offerings/OfferingViewHero.tsx, marketplace/offerings/list/EditOfferingButton.tsx, marketplace/offerings/list/OfferingActions.test.tsx, marketplace/offerings/update/plans/EditPlanDescriptionButton.tsx, marketplace/resources/actions/EditAction.tsx, openstack/openstack-backup/actions/EditAction.tsx, openstack/openstack-instance/actions/EditAction.tsx, openstack/openstack-network/actions/EditNetworkAction.tsx, openstack/openstack-security-groups/EditAction.tsx, openstack/openstack-snapshot/EditAction.tsx, openstack/openstack-subnet/EditSubnetAction.tsx, openstack/openstack-tenant/actions/EditAction.tsx, openstack/openstack-volume/actions/EditAction.tsx, organization/OrganizationUIView.tsx, project/ProjectCard.tsx, project/ProjectContainer.tsx, project/ProjectEditAction.tsx, proposals/call-management/CallFormDialog.tsx, proposals/details/CallTabs.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestFormDialog.tsx, proposals/round/allocation/EditAllocationInfoButton.tsx, proposals/round/allocation/EditRoundAllocationDialog.tsx, proposals/round/review/EditReviewInfoButton.tsx, proposals/round/review/EditRoundReviewDialog.tsx, proposals/round/submission/EditRoundSubmissionDialog.tsx, proposals/round/submission/EditSubmissionInfoButton.tsx, proposals/update/general/EditGeneralInfoButton.tsx, rancher/cluster/hpas/HPAUpdateButton.tsx, slurm/EditAction.tsx, user/dashboard/UserProfileHero.tsx, vmware/actions/EditAction.tsx",
+    "description": "administration/announcements/AnnouncementForm.tsx, administration/organizations/OrganizationGroupForm.tsx, administration/providers/ProviderCard.tsx, customer/cost-policies/CostPolicyEditButton.tsx, customer/cost-policies/CostPolicyFormDialog.tsx, customer/credits/EditCreditButton.tsx, customer/credits/ProjectCreditFormDialog.tsx, customer/credits/ProjectEditCreditButton.tsx, customer/list/OrganizationCard.tsx, customer/payments/EditPaymentButton.tsx, customer/team/EditProjectUserButton.tsx, customer/team/UserEditButton.tsx, form/EditAction.tsx, form/EditButton.tsx, marketplace/category/admin/CategoryEditDialog.tsx, marketplace/category/admin/GroupFromDialog.tsx, marketplace/deploy/DeployPage.tsx, marketplace/offerings/OfferingViewHero.tsx, marketplace/offerings/list/EditOfferingButton.tsx, marketplace/offerings/list/OfferingActions.test.tsx, marketplace/offerings/update/plans/EditPlanDescriptionButton.tsx, marketplace/resources/actions/EditAction.tsx, openstack/openstack-backup/actions/EditAction.tsx, openstack/openstack-instance/actions/EditAction.tsx, openstack/openstack-network/actions/EditNetworkAction.tsx, openstack/openstack-security-groups/EditAction.tsx, openstack/openstack-snapshot/EditAction.tsx, openstack/openstack-subnet/EditSubnetAction.tsx, openstack/openstack-tenant/actions/EditAction.tsx, openstack/openstack-volume/actions/EditAction.tsx, organization/OrganizationUIView.tsx, project/ProjectCard.tsx, project/ProjectContainer.tsx, project/ProjectEditAction.tsx, proposals/call-management/CallFormDialog.tsx, proposals/details/CallTabs.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestFormDialog.tsx, proposals/round/allocation/EditAllocationInfoButton.tsx, proposals/round/allocation/EditRoundAllocationDialog.tsx, proposals/round/proposals/RoundTabs.tsx, proposals/round/review/EditReviewInfoButton.tsx, proposals/round/review/EditRoundReviewDialog.tsx, proposals/round/submission/EditRoundSubmissionDialog.tsx, proposals/round/submission/EditSubmissionInfoButton.tsx, proposals/update/general/EditGeneralInfoButton.tsx, rancher/cluster/hpas/HPAUpdateButton.tsx, slurm/EditAction.tsx, user/dashboard/UserProfileHero.tsx, vmware/actions/EditAction.tsx",
     "message": "Edit"
   },
   "Educational sciences": {
@@ -5988,7 +5988,7 @@
     "message": "Manage security groups"
   },
   "Manage": {
-    "description": "marketplace/offerings/OfferingViewHero.tsx, user/UserManageContainer.tsx",
+    "description": "marketplace/offerings/OfferingViewHero.tsx, proposals/round/proposals/RoundTabs.tsx, user/UserManageContainer.tsx",
     "message": "Manage"
   },
   "Management offering": {
@@ -8708,7 +8708,7 @@
     "message": "Public key"
   },
   "Public": {
-    "description": "marketplace/offerings/OfferingViewHero.tsx, proposals/details/CallTabs.tsx",
+    "description": "marketplace/offerings/OfferingViewHero.tsx, proposals/details/CallTabs.tsx, proposals/round/proposals/RoundTabs.tsx",
     "message": "Public"
   },
   "Publication date": {
@@ -15135,10 +15135,6 @@
     "description": "invitations/actions/create/BulkUpload.tsx",
     "message": "{count} users"
   },
-  "{customerName} credit usage history": {
-    "description": "customer/credits/CreditUsageDialog.tsx",
-    "message": "{customerName} credit usage history"
-  },
   "{from}-{to} of {all} items": {
     "description": "table/TablePagination.tsx",
     "message": "{from}-{to} of {all} items"
@@ -15262,6 +15258,10 @@
   "{role} ({name})": {
     "description": "user/support/UserList.tsx",
     "message": "{role} ({name})"
+  },
+  "{scopeName} credit usage history": {
+    "description": "customer/credits/CreditUsageDialog.tsx",
+    "message": "{scopeName} credit usage history"
   },
   "{sender} has invited you to join {name} {type} in {role} role.": {
     "description": "invitations/formatInvitation.ts",
