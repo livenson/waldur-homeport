@@ -137,11 +137,13 @@ export interface TableDropdownItem {
   isMobileAction?: boolean;
 }
 
-export type DropdownActionItemType<T = any> = React.ComponentType<{
-  row?: T;
-  refetch?(): void;
-  as?: React.ComponentType;
-}>;
+export type DropdownActionItemType<T = any> = React.ComponentType<
+  {
+    row?: T;
+    refetch?(): void;
+    as?: React.ComponentType;
+  } & Record<string, any>
+>;
 
 export interface TableProps<RowType = any> extends TableState {
   table?: string;

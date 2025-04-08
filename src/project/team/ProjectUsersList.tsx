@@ -46,17 +46,19 @@ const mapStateToFilter = createSelector(
 
 export const ProjectUsersList = ({
   hideTabs = false,
-  projectId,
+  projectUuid,
+  customerUuid,
 }: {
   hideTabs?: boolean;
-  projectId?: string;
+  projectUuid?: string;
+  customerUuid?: string;
 }) => {
   const filter = useSelector(mapStateToFilter);
   const project = useSelector(getProject);
   const tableProps = useTable({
     table: 'project-users',
     fetchData: createFetcher(
-      `projects/${project?.uuid || projectId}/list_users`,
+      `projects/${project?.uuid || projectUuid}/list_users`,
     ),
     queryField: 'search_string',
     filter,
@@ -125,12 +127,12 @@ export const ProjectUsersList = ({
       hasQuery={true}
       tableActions={
         <>
-          <ProjectPermissionsLogButton projectId={projectId} />
+          <ProjectPermissionsLogButton projectId={projectUuid} />
           <TeamDropdownActions
             project={
               project ||
               ({
-                uuid: projectId,
+                uuid: projectUuid,
               } as any)
             }
             refetch={tableProps.fetch}
@@ -139,7 +141,14 @@ export const ProjectUsersList = ({
       }
       title={translate('Team')}
       verboseName={translate('Team members')}
-      rowActions={ProjectPermisionActions}
+      rowActions={({ row, fetch }) => (
+        <ProjectPermisionActions
+          row={row}
+          fetch={fetch}
+          projectUuid={projectUuid}
+          customerUuid={customerUuid}
+        />
+      )}
       filters={<ProjectUsersListFilter />}
       hasOptionalColumns
     />

@@ -25,9 +25,9 @@ import { fetchData, getResourceTabs } from './fetchData';
 import { ResourceBreadcrumbPopover } from './ResourceBreadcrumbPopover';
 import { ResourceDetailsHero } from './ResourceDetailsHero';
 
-const ProjectUsersList = lazyComponent(() =>
-  import('@waldur/project/team/ProjectUsersList').then((module) => ({
-    default: module.ProjectUsersList,
+const ResourceTeamDialog = lazyComponent(() =>
+  import('./ResourceTeamDialog').then((module) => ({
+    default: module.ResourceTeamDialog,
   })),
 );
 
@@ -206,10 +206,9 @@ export const ResourceDetailsContainer: FunctionComponent<{}> = () => {
 
   const openTeamModal = useCallback(() => {
     dispatch(
-      openModalDialog(ProjectUsersList, {
+      openModalDialog(ResourceTeamDialog, {
         size: 'xl',
-        hideTabs: true,
-        projectId: resource?.project_uuid,
+        resolve: { resource },
       }),
     );
   }, [resource]);
