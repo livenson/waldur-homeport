@@ -9896,7 +9896,7 @@
     "message": "Round"
   },
   "Rounds": {
-    "description": "proposals/details/PublicCallDetailsContainer.tsx, proposals/round/RoundUIView.tsx, proposals/update/CallUpdateContainer.tsx, proposals/update/rounds/CallRoundsList.tsx",
+    "description": "proposals/details/CallRoundsList.tsx, proposals/details/PublicCallDetailsContainer.tsx, proposals/round/RoundUIView.tsx, proposals/update/CallUpdateContainer.tsx, proposals/update/rounds/CallRoundsList.tsx",
     "message": "Rounds"
   },
   "Routers": {
@@ -14946,10 +14946,6 @@
   "roles": {
     "description": "administration/roles/RolesList.tsx, marketplace/resources/users/ResourceUsersList.tsx",
     "message": "roles"
-  },
-  "rounds": {
-    "description": "proposals/details/CallRoundsList.tsx",
-    "message": "rounds"
   },
   "routers": {
     "description": "openstack/openstack-tenant/TenantRoutersList.tsx",
