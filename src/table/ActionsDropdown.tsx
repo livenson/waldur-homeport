@@ -18,6 +18,7 @@ interface ActionsDropdownProps {
   actions?: DropdownActionItemType[];
   row?: any;
   refetch?(): void;
+  data?: Record<string, any>;
 }
 
 interface TableDropdownToggleProps {
@@ -116,6 +117,7 @@ export const ActionsDropdown: FunctionComponent<
   children,
   row,
   refetch,
+  data = {},
   ...rest
 }) => (
   <ActionsDropdownComponent {...rest}>
@@ -134,7 +136,12 @@ export const ActionsDropdown: FunctionComponent<
       ) : actions ? (
         <>
           {actions.map((ActionComponent, index) => (
-            <ActionComponent key={index} row={row} refetch={refetch} />
+            <ActionComponent
+              key={index}
+              row={row}
+              refetch={refetch}
+              {...data}
+            />
           ))}
         </>
       ) : (
