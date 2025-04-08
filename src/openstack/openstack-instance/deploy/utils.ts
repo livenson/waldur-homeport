@@ -1,7 +1,7 @@
 import { useQuery } from '@tanstack/react-query';
 import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
-import { OpenStackFlavor, PublicOfferingDetails } from 'waldur-js-client';
+import { PublicOfferingDetails } from 'waldur-js-client';
 
 import { orderFormAttributesSelector } from '@waldur/marketplace/utils';
 import { loadVolumeTypes } from '@waldur/openstack/api';
@@ -11,12 +11,6 @@ import {
   getQuotas,
 } from '@waldur/openstack/openstack-instance/utils';
 import { parseQuotas, parseQuotasUsage } from '@waldur/openstack/utils';
-import { type RootState } from '@waldur/store/reducers';
-
-export const formFlavorSelector = (state: RootState) => {
-  const formAttrs = orderFormAttributesSelector(state);
-  return formAttrs.flavor as OpenStackFlavor;
-};
 
 export const getOfferingLimit = (
   offering: PublicOfferingDetails,

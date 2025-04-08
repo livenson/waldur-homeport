@@ -11659,6 +11659,10 @@
     "description": "SettingsDescription.ts",
     "message": "The image used in marketplace order header."
   },
+  "The image's minimum RAM is over the flavor RAM": {
+    "description": "openstack/openstack-instance/deploy/FormHardwareConfigurationStep.tsx",
+    "message": "The image's minimum RAM is over the flavor RAM"
+  },
   "The invoice has been marked as paid.": {
     "description": "invoices/list/MarkAsPaidDialog.tsx",
     "message": "The invoice has been marked as paid."
@@ -14310,6 +14314,10 @@
   "Volume name": {
     "description": "openstack/openstack-volume/actions/ExtendDialog.tsx, openstack/openstack-volume/deploy/steps.ts",
     "message": "Volume name"
+  },
+  "Volume size is not enough for minimum disk of flavor and image. (min disk: {value} GB)": {
+    "description": "openstack/openstack-instance/deploy/FormAbstractVolumeFields.tsx",
+    "message": "Volume size is not enough for minimum disk of flavor and image. (min disk: {value} GB)"
   },
   "Volume size": {
     "description": "openstack/openstack-instance/deploy/FormAbstractVolumeFields.tsx, rancher/cluster/create/VolumeSizeGroup.tsx",

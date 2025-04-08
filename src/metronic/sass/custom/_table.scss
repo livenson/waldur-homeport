@@ -110,13 +110,13 @@
 
       .error-mark {
         position: absolute;
-        left: 0.7rem;
-        margin-top: 1px;
+        left: 0;
         line-height: 1;
 
-        i {
+        i,
+        svg {
           color: if(isDarkMode(), $danger, $warning);
-          font-size: 1.5rem;
+          font-size: 24px;
         }
       }
     }
