@@ -19,6 +19,15 @@ import { getOfferingLimit, useQuotasData, useVolumeDataLoader } from './utils';
 
 const DEFAULT_STORAGE_LIMIT_MB = 10240 * 1024;
 
+const defaultSizeOptions = [
+  { label: '20', value: 20 },
+  { label: '50', value: 50 },
+  { label: '100', value: 100 },
+  { label: '200', value: 200 },
+];
+
+const formatVolumeSize = (v) => (v ? v / 1024 : '');
+
 export const FormAbstractVolumeFields = (
   props: FormStepProps & {
     typeField;
@@ -26,6 +35,7 @@ export const FormAbstractVolumeFields = (
     title;
     helpText?;
     optional;
+    minSize?: number;
   },
 ) => {
   const [fieldsEnabled, setFieldsEnabled] = useState(!props.optional);
@@ -35,6 +45,21 @@ export const FormAbstractVolumeFields = (
   const volumeType: VolumeTypeChoice = useSelector((state) =>
     formValueSelector(ORDER_FORM_ID)(state, props.typeField),
   );
+  const volumeSize: number = useSelector((state) =>
+    formValueSelector(ORDER_FORM_ID)(state, props.sizeField),
+  );
+
+  const extendedSizeOptions = useMemo(() => {
+    const options = [...defaultSizeOptions];
+    [props.minSize, volumeSize].forEach((size) => {
+      const formattedSize = formatVolumeSize(size);
+      const exists = options.find((opt) => opt.value === formattedSize);
+      if (formattedSize && !exists) {
+        options.push({ label: String(formattedSize), value: formattedSize });
+      }
+    });
+    return options;
+  }, [props.minSize, volumeSize]);
 
   const hideVolumeTypeSelector = isFeatureVisible(
     OpenstackFeatures.hide_volume_type_selector,
@@ -72,6 +97,12 @@ export const FormAbstractVolumeFields = (
 
   const exceeds = useCallback(
     (value: number) => {
+      if (props.minSize && props.minSize > 0 && value < props.minSize) {
+        return translate(
+          'Volume size is not enough for minimum disk of flavor and image. (min disk: {value} GB)',
+          { value: formatVolumeSize(props.minSize) },
+        );
+      }
       if (limit === -1) {
         return;
       }
@@ -82,7 +113,7 @@ export const FormAbstractVolumeFields = (
         return translate('Quota usage exceeds available limit.');
       }
     },
-    [limit, usage, quotaName],
+    [limit, usage, quotaName, props.minSize],
   );
 
   return (
@@ -123,7 +154,7 @@ export const FormAbstractVolumeFields = (
           component={FormGroup}
           validate={!fieldsEnabled ? undefined : [required, exceeds]}
           label={translate('Volume size') + ' (GB)'}
-          format={(v) => (v ? v / 1024 : '')}
+          format={formatVolumeSize}
           normalize={(v) => Number(v) * 1024}
           required
           space={5}
@@ -139,12 +170,7 @@ export const FormAbstractVolumeFields = (
           <SelectField
             creatable
             simpleValue
-            options={[
-              { label: '20', value: 20 },
-              { label: '50', value: 50 },
-              { label: '100', value: 100 },
-              { label: '200', value: 200 },
-            ]}
+            options={extendedSizeOptions}
             isDisabled={!fieldsEnabled}
           />
         </Field>
