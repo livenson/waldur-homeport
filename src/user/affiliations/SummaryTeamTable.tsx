@@ -48,7 +48,10 @@ interface OwnProps {
 
 export const SummaryTeamTable: FC<OwnProps> = ({ scope, context }) => {
   const props = useTable({
-    table: context === 'organization' ? 'customer-users' : 'project-users',
+    table:
+      (context === 'organization' ? 'customer-users' : 'project-users') +
+      '-' +
+      scope.uuid,
     fetchData:
       context === 'organization'
         ? createFetcher(`customers/${scope.uuid}/users`)
