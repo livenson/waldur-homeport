@@ -683,10 +683,6 @@
     "description": "customer/credits/constants.tsx",
     "message": "Allocated credit"
   },
-  "Allocated offerings": {
-    "description": "proposals/round/RoundQuotas.tsx",
-    "message": "Allocated offerings"
-  },
   "Allocation date": {
     "description": "proposals/round/allocation/RoundAllocationSection.tsx, proposals/update/rounds/RoundExpandableRow.tsx, proposals/update/rounds/WizardFormThirdPage.tsx",
     "message": "Allocation date"
@@ -3852,7 +3848,7 @@
     "message": "End date of the agreement is {date}."
   },
   "End date": {
-    "description": "booking/deploy/CustomRangeDatePicker.tsx, customer/credits/constants.tsx, customer/payment-profiles/PaymentProfileCreateDialog.tsx, customer/payment-profiles/PaymentProfileUpdateDialog.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/service-providers/OrganizationProjectsExpandable.tsx, marketplace/service-providers/ProviderCampaignsList.tsx, marketplace-remote/ProjectUpdateRequestExpandable.tsx, project/ProjectCard.tsx, project/ProjectsList.tsx, project/create/EndDateGroup.tsx, project/details/ProjectDetailsDialog.tsx, project/manage/ProjectGeneral.tsx, user/affiliations/ProjectsList.tsx",
+    "description": "booking/deploy/CustomRangeDatePicker.tsx, customer/credits/constants.tsx, customer/payment-profiles/PaymentProfileCreateDialog.tsx, customer/payment-profiles/PaymentProfileUpdateDialog.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/service-providers/OrganizationProjectsExpandable.tsx, marketplace/service-providers/ProviderCampaignsList.tsx, marketplace-remote/ProjectUpdateRequestExpandable.tsx, project/ProjectCard.tsx, project/ProjectsList.tsx, project/create/EndDateGroup.tsx, project/details/ProjectDetailsDialog.tsx, project/manage/ProjectGeneral.tsx, proposals/round/RoundPageHeaderBody.tsx, user/affiliations/ProjectsList.tsx",
     "message": "End date"
   },
   "End date:": {
@@ -7240,7 +7236,7 @@
     "message": "Open public page"
   },
   "Open round ends": {
-    "description": "proposals/details/CallDetailsHeaderBody.tsx, proposals/round/RoundPageHeaderBody.tsx",
+    "description": "proposals/details/CallDetailsHeaderBody.tsx",
     "message": "Open round ends"
   },
   "Open round started": {
@@ -9759,10 +9755,6 @@
     "description": "marketplace-remote/BaseProjectUpdateRequestsList.tsx, marketplace-remote/ProjectUpdateRequestsList.tsx, user/UserPermissionRequestsList.tsx",
     "message": "Reviewed by"
   },
-  "Reviewed": {
-    "description": "proposals/round/RoundQuotas.tsx",
-    "message": "Reviewed"
-  },
   "Reviewer {number}": {
     "description": "proposals/proposal/create-review/FieldReviewComments.tsx",
     "message": "Reviewer {number}"
@@ -9892,7 +9884,7 @@
     "message": "Round strategy"
   },
   "Round": {
-    "description": "proposals/proposal/CustomerProposalsList.tsx, proposals/proposal/ProposalDetailsDialog.tsx, proposals/review/CustomerReviewsList.tsx, proposals/review/UserReviewsList.tsx, proposals/round/RoundPageHero.tsx",
+    "description": "proposals/proposal/CustomerProposalsList.tsx, proposals/proposal/ProposalDetailsDialog.tsx, proposals/review/CustomerReviewsList.tsx, proposals/review/UserReviewsList.tsx",
     "message": "Round"
   },
   "Rounds": {
@@ -11064,7 +11056,7 @@
     "message": "Start IP"
   },
   "Start date": {
-    "description": "marketplace/service-providers/ProviderCampaignsList.tsx, project/ProjectCard.tsx, project/ProjectsList.tsx, project/create/StartDateGroup.tsx, project/details/ProjectDetailsDialog.tsx, project/manage/ProjectGeneral.tsx, proposals/details/CallRoundsList.tsx, proposals/round/submission/RoundSubmissionSection.tsx, proposals/update/rounds/CallRoundsList.tsx, proposals/update/rounds/WizardFormFirstPage.tsx, user/affiliations/ProjectsList.tsx",
+    "description": "marketplace/service-providers/ProviderCampaignsList.tsx, project/ProjectCard.tsx, project/ProjectsList.tsx, project/create/StartDateGroup.tsx, project/details/ProjectDetailsDialog.tsx, project/manage/ProjectGeneral.tsx, proposals/details/CallRoundsList.tsx, proposals/round/RoundPageHeaderBody.tsx, proposals/round/submission/RoundSubmissionSection.tsx, proposals/update/rounds/CallRoundsList.tsx, proposals/update/rounds/WizardFormFirstPage.tsx, user/affiliations/ProjectsList.tsx",
     "message": "Start date"
   },
   "Start date:": {
@@ -11184,7 +11176,7 @@
     "message": "Submission"
   },
   "Submissions": {
-    "description": "proposals/call-management/CallExpandableRow.tsx, proposals/round/RoundQuotas.tsx",
+    "description": "proposals/call-management/CallExpandableRow.tsx",
     "message": "Submissions"
   },
   "Submit job": {
@@ -11738,14 +11730,6 @@
   "The role has been enabled": {
     "description": "administration/roles/RoleToggleButton.tsx",
     "message": "The role has been enabled"
-  },
-  "The round has ended on: ": {
-    "description": "proposals/round/RoundPageHeaderBody.tsx",
-    "message": "The round has ended on: "
-  },
-  "The round will be open on: ": {
-    "description": "proposals/round/RoundPageHeaderBody.tsx",
-    "message": "The round will be open on: "
   },
   "The user's {field} is required": {
     "description": "user/support/UserEditRows.tsx",

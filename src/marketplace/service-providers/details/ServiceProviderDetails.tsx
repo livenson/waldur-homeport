@@ -1,7 +1,7 @@
 import { FunctionComponent, useMemo } from 'react';
 import { Stack } from 'react-bootstrap';
 
-import { PublicDashboardHero2 } from '@waldur/dashboard/hero/PublicDashboardHero2';
+import { PublicDashboardHero } from '@waldur/dashboard/hero/PublicDashboardHero';
 import { isFeatureVisible } from '@waldur/features/connect';
 import { MarketplaceFeatures } from '@waldur/FeaturesEnums';
 import { translate } from '@waldur/i18n';
@@ -57,7 +57,7 @@ const getProviderPageTabs = (data): PageBarTab[] => {
 
 const ProviderDetailsHero: FunctionComponent<ProviderDetailsProps> = (data) => {
   return (
-    <PublicDashboardHero2
+    <PublicDashboardHero
       hideQuickSection
       cardBordered
       logo={data.provider.customer_image}
@@ -78,7 +78,7 @@ const ProviderDetailsHero: FunctionComponent<ProviderDetailsProps> = (data) => {
         value={data.provider.description}
         isStuck={true}
       />
-    </PublicDashboardHero2>
+    </PublicDashboardHero>
   );
 };
 

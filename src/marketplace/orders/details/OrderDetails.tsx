@@ -1,6 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
 
-import { PublicDashboardHero2 } from '@waldur/dashboard/hero/PublicDashboardHero2';
+import { PublicDashboardHero } from '@waldur/dashboard/hero/PublicDashboardHero';
 import { translate } from '@waldur/i18n';
 import { RefreshButton } from '@waldur/marketplace/common/RefreshButton';
 import { getFormLimitParser } from '@waldur/marketplace/common/registry';
@@ -85,7 +85,7 @@ interface OrderDetailsProps {
 }
 
 const PageHero = ({ data, isRefetching }) => (
-  <PublicDashboardHero2
+  <PublicDashboardHero
     className="container-fluid my-5"
     cardBordered
     logo={data.offering.thumbnail}
@@ -105,7 +105,7 @@ const PageHero = ({ data, isRefetching }) => (
     }
   >
     <OrderDetailsHeaderBody order={data.order} />
-  </PublicDashboardHero2>
+  </PublicDashboardHero>
 );
 
 export const OrderDetails: FunctionComponent<OrderDetailsProps> = (data) => {
