@@ -1,8 +1,6 @@
 import { CoreStates as ResourceState } from 'waldur-js-client';
 
 import { Quota } from '@waldur/quotas/types';
-export { OpenStackPort as Port } from 'waldur-js-client';
-export { CoreStates as ResourceState } from 'waldur-js-client';
 
 export interface BaseResource {
   name?: string;
