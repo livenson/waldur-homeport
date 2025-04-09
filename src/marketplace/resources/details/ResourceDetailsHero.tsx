@@ -4,7 +4,7 @@ import {
   Resource,
 } from 'waldur-js-client';
 
-import { PublicDashboardHero2 } from '@waldur/dashboard/hero/PublicDashboardHero2';
+import { PublicDashboardHero } from '@waldur/dashboard/hero/PublicDashboardHero';
 import { RefreshButton } from '@waldur/marketplace/common/RefreshButton';
 import { INSTANCE_TYPE, VOLUME_TYPE } from '@waldur/openstack/constants';
 import { formatResourceType } from '@waldur/resource/utils';
@@ -42,7 +42,7 @@ export const ResourceDetailsHero = ({
       ) : resource.creation_order ? (
         <OrderErredView resource={resource} />
       ) : null}
-      <PublicDashboardHero2
+      <PublicDashboardHero
         containerClassName="container-fluid my-5"
         cardBordered
         logo={getMarketplaceResourceLogo(resource)}
@@ -76,7 +76,7 @@ export const ResourceDetailsHero = ({
         }
       >
         <ResourceDetailsHeaderBody resource={resource} offering={offering} />
-      </PublicDashboardHero2>
+      </PublicDashboardHero>
     </>
   );
 };
