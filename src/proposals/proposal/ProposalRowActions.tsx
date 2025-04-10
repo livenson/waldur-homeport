@@ -9,11 +9,13 @@ import {
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { openModalDialog, waitForConfirmation } from '@waldur/modal/actions';
+import { PermissionEnum } from '@waldur/permissions/enums';
+import { hasPermission } from '@waldur/permissions/hasPermission';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { router } from '@waldur/router';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { ActionsDropdownComponent } from '@waldur/table/ActionsDropdown';
-import { isStaff as isStaffSelector } from '@waldur/workspace/selectors';
+import { getUser } from '@waldur/workspace/selectors';
 
 const CreateReviewDialog = lazyComponent(() =>
   import('./create-review/CreateReviewDialog').then((module) => ({
@@ -29,7 +31,12 @@ const linkToProposalDetails = (proposalUuid, callManagerUuid) =>
   });
 
 export const ProposalRowActions = ({ row, refetch }) => {
-  const isStaff = useSelector(isStaffSelector);
+  const user = useSelector(getUser);
+  const canCreateReview = hasPermission(user, {
+    permission: PermissionEnum.MANAGE_PROPOSAL_REVIEW,
+    scopeId: row.call_uuid,
+  });
+
   const isRejectButtonDisabled = !['submitted', 'in_review'].includes(
     row.state,
   );
@@ -94,7 +101,7 @@ export const ProposalRowActions = ({ row, refetch }) => {
         action={() => linkToProposalDetails(row.uuid, row.call_manager_uuid)}
         iconNode={<Eye weight="bold" />}
       />
-      {isStaff && (
+      {canCreateReview && (
         <ActionItem
           title={translate('Create review')}
           action={() => openCreateReviewDialog(row)}
