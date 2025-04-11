@@ -2,7 +2,7 @@ import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { OfferingConfiguration } from '@waldur/marketplace/common/types';
 
-import { MARKETPLACE_RANCHER } from './constants';
+import { MANAGED_RANCHER, MARKETPLACE_RANCHER } from './constants';
 
 const RancherClusterCheckoutSummary = lazyComponent(() =>
   import('./RancherClusterCheckoutSummary').then((module) => ({
@@ -17,6 +17,18 @@ const RancherPluginOptionsForm = lazyComponent(() =>
 const RancherOrderForm = lazyComponent(() =>
   import('./RancherOrderForm').then((module) => ({
     default: module.RancherOrderForm,
+  })),
+);
+
+const ManagedRancherPluginOptionsForm = lazyComponent(() =>
+  import('./ManagedRancherPluginOptionsForm').then((module) => ({
+    default: module.ManagedRancherPluginOptionsForm,
+  })),
+);
+
+const ManagedRancherSecretOptionsForm = lazyComponent(() =>
+  import('./ManagedRancherSecretOptionsForm').then((module) => ({
+    default: module.ManagedRancherSecretOptionsForm,
   })),
 );
 
@@ -63,4 +75,23 @@ export const RancherOffering: OfferingConfiguration = {
   providerType: 'Rancher',
   serializer,
   allowToUpdateService: true,
+};
+
+export const ManagedRancherOffering: OfferingConfiguration = {
+  type: MANAGED_RANCHER,
+  get label() {
+    return translate('Managed Rancher cluster');
+  },
+  pluginOptionsForm: ManagedRancherPluginOptionsForm,
+  secretOptionsForm: ManagedRancherSecretOptionsForm,
+  secretOptionsSerializer: ({ customer_uuid, ...formData }) => ({
+    ...formData,
+    customer_uuid: customer_uuid ? customer_uuid.uuid : undefined,
+  }),
+  pluginOptionsSerializer: ({ openstack_offering_uuid_list, ...formData }) => ({
+    ...formData,
+    openstack_offering_uuid_list: openstack_offering_uuid_list
+      ? openstack_offering_uuid_list.map((offering) => offering.uuid)
+      : [],
+  }),
 };
