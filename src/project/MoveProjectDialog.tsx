@@ -26,6 +26,7 @@ export const MoveProjectDialog: FunctionComponent<{
           path: { uuid: project.uuid },
           body: {
             customer: formData.organization.organization.url,
+            preserve_permissions: false,
           },
         });
         dispatch(
