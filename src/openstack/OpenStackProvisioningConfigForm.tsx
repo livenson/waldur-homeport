@@ -1,16 +1,17 @@
-import { get } from 'lodash-es';
 import { FC } from 'react';
 
 import { NumberField, StringField } from '@waldur/form';
-import FormTable from '@waldur/form/FormTable';
 import { translate } from '@waldur/i18n';
-import { FieldEditButton } from '@waldur/marketplace/offerings/update/integration/FieldEditButton';
+import {
+  DefaultOfferingEditPanel,
+  OfferingEditField,
+} from '@waldur/marketplace/offerings/update/DefaultOfferingEditPanel';
 import { OfferingEditPanelFormProps } from '@waldur/marketplace/offerings/update/integration/types';
 
 import { OpenStackPluginOptionsForm } from './OpenStackPluginOptionsForm';
 import { OpenStackSecretOptionsForm } from './OpenStackSecretOptionsForm';
 
-const openStackFields = [
+const openStackFields: OfferingEditField[] = [
   {
     label: translate('Availability zone'),
     description: translate(
@@ -78,23 +79,7 @@ export const OpenStackProvisioningConfigForm: FC<OfferingEditPanelFormProps> = (
   props,
 ) => (
   <>
-    {openStackFields.map((field) => (
-      <FormTable.Item
-        key={field.key}
-        label={field.label}
-        value={get(props.offering, field.key, 'N/A')}
-        description={field.description}
-        actions={
-          <FieldEditButton
-            title={field.label}
-            scope={props.offering}
-            name={field.key}
-            callback={props.callback}
-            fieldComponent={field.component}
-          />
-        }
-      />
-    ))}
+    <DefaultOfferingEditPanel fields={openStackFields} {...props} />
     <OpenStackSecretOptionsForm {...props} />
     <OpenStackPluginOptionsForm {...props} />
   </>
