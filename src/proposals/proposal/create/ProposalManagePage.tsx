@@ -23,8 +23,6 @@ import { ProposalHeader } from './ProposalHeader';
 import { ProposalSubmissionStep } from './ProposalSubmissionStep';
 
 export const ProposalManagePage = () => {
-  useTitle(translate('Update proposal'));
-
   const {
     params: { proposal_uuid },
   } = useCurrentStateAndParams();
@@ -44,6 +42,13 @@ export const ProposalManagePage = () => {
       refetchOnWindowFocus: false,
     },
   );
+
+  const title =
+    proposal?.state === 'draft'
+      ? translate('Update proposal')
+      : translate('View proposal');
+  useTitle(title);
+
   const user = useSelector(getUser);
 
   const hasPermissionToSubmit =
