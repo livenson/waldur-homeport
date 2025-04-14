@@ -6,7 +6,6 @@ import { PublicDashboardHero } from '@waldur/dashboard/hero/PublicDashboardHero'
 import { getCallStatus } from '@waldur/proposals/utils';
 import { getCustomer } from '@waldur/workspace/selectors';
 
-import { CallProposalsButton } from '../CallProposalsButton';
 import { CallDetailsHeaderBody } from '../details/CallDetailsHeaderBody';
 import { Call } from '../types';
 
@@ -42,7 +41,6 @@ export const CallUpdateHero: FC<CallUpdateHeroProps> = ({ call, refetch }) => {
       quickActions={
         <div className="d-flex flex-column flex-wrap gap-2">
           <CallActions call={call} refetch={refetch} />
-          <CallProposalsButton call={call} />
         </div>
       }
       quickBody={
