@@ -60,6 +60,7 @@ export const InternalIpsList: FunctionComponent<{
       ]}
       title={translate('Ports')}
       verboseName={translate('ports')}
+      showPageSizeSelector
       tableActions={
         <UpdateInternalIpsAction
           resource={resourceScope}

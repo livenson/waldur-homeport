@@ -74,6 +74,7 @@ export const TenantNetworksList: FunctionComponent<{ resourceScope }> = ({
       ]}
       verboseName={translate('networks')}
       title={translate('Networks')}
+      showPageSizeSelector
       tableActions={
         <CreateNetworkAction resource={resourceScope} refetch={props.fetch} />
       }

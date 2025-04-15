@@ -48,6 +48,7 @@ export const ClusterProjectList: FunctionComponent<{
         },
       ]}
       verboseName={translate('projects')}
+      showPageSizeSelector
       expandableRow={ProjectExpandableRow}
     />
   );

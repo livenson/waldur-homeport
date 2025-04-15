@@ -65,6 +65,7 @@ export const TenantSnapshotsList: FunctionComponent<{ resourceScope }> = ({
       title={translate('Snapshots')}
       verboseName={translate('snapshots')}
       hasQuery={false}
+      showPageSizeSelector
     />
   );
 };

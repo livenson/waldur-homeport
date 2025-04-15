@@ -67,6 +67,7 @@ export const ClusterApplicationsList: FunctionComponent<{
         },
       ]}
       verboseName={translate('applications')}
+      showPageSizeSelector
     />
   );
 };

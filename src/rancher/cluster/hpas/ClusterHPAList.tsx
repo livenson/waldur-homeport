@@ -96,6 +96,7 @@ export const ClusterHPAList: FunctionComponent<{
         },
       ]}
       verboseName={translate('horizontal pod autoscalers')}
+      showPageSizeSelector
       tableActions={<HPACreateButton cluster={resourceScope} />}
     />
   );

@@ -74,6 +74,7 @@ export const ClusterUsersList: FunctionComponent<{
       ]}
       verboseName={translate('users')}
       hasQuery={true}
+      showPageSizeSelector
     />
   );
 };

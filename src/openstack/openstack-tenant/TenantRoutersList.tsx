@@ -67,6 +67,7 @@ export const TenantRoutersList: FunctionComponent<{ resourceScope }> = ({
       rowActions={({ row }) => <SetRoutersButton router={row} />}
       expandableRow={({ row }) => <ResourceSummary resource={row} />}
       hasQuery={true}
+      showPageSizeSelector
     />
   );
 };

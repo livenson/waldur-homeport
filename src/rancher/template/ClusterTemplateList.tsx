@@ -63,6 +63,7 @@ export const ClusterTemplatesList: FunctionComponent<{
       ]}
       verboseName={translate('application templates')}
       hasQuery={true}
+      showPageSizeSelector
     />
   );
 };
