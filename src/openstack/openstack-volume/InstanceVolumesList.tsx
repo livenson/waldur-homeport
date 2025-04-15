@@ -65,6 +65,7 @@ export const InstanceVolumesList: FunctionComponent<{ resourceScope }> = ({
       }
       title={translate('Volumes')}
       verboseName={translate('volumes')}
+      showPageSizeSelector
       rowActions={({ row }) => (
         <ModalActionsRouter
           url={row.url}

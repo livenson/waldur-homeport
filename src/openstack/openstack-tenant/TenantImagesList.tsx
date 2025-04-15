@@ -67,6 +67,7 @@ export const TenantImagesList: FunctionComponent<{ resourceScope }> = ({
       title={translate('Images')}
       hasQuery={true}
       hasOptionalColumns
+      showPageSizeSelector
     />
   );
 };

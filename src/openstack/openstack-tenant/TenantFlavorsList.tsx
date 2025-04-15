@@ -71,6 +71,7 @@ export const TenantFlavorsList: FunctionComponent<{ resourceScope }> = ({
       verboseName={translate('flavors')}
       hasQuery={true}
       hasOptionalColumns
+      showPageSizeSelector
     />
   );
 };

@@ -59,6 +59,7 @@ export const ClusterCatalogList: FunctionComponent<{ resourceScope }> = ({
       {...props}
       columns={columns}
       verboseName={translate('catalogues')}
+      showPageSizeSelector
       tableActions={<CatalogCreateButton cluster={resourceScope} />}
       rowActions={({ row }) =>
         row.scope_type === 'cluster' ? (

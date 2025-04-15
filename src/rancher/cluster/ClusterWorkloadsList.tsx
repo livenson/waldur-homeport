@@ -54,6 +54,7 @@ export const ClusterWorkloadsList: FunctionComponent<{ resourceScope }> = ({
         },
       ]}
       verboseName={translate('workloads')}
+      showPageSizeSelector
       rowActions={({ row }) => <WorkloadActions workload={row} />}
     />
   );

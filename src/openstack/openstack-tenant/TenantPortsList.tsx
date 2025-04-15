@@ -76,6 +76,7 @@ export const TenantPortsList: FunctionComponent<{ resourceScope }> = ({
       expandableRow={ExpandablePortRow}
       title={translate('Ports')}
       verboseName={translate('ports')}
+      showPageSizeSelector
     />
   );
 };

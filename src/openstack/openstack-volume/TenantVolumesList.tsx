@@ -73,6 +73,7 @@ export const TenantVolumesList: FunctionComponent<{ resourceScope }> = ({
       }
       title={translate('Volumes')}
       verboseName={translate('volumes')}
+      showPageSizeSelector
       expandableRow={({ row }) => <ResourceSummary resource={row} />}
       rowActions={({ row }) => (
         <ModalActionsRouter

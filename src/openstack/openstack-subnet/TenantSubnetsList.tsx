@@ -72,6 +72,7 @@ export const TenantSubnetsList: FunctionComponent<{ resourceScope }> = ({
       ]}
       title={translate('Subnets')}
       verboseName={translate('subnets')}
+      showPageSizeSelector
       rowActions={({ row }) => (
         <ActionButtonResource url={row.url} refetch={props.fetch} />
       )}

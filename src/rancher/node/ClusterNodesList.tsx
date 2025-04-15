@@ -66,6 +66,7 @@ export const ClusterNodesList: FunctionComponent<{
         },
       ]}
       verboseName={translate('Kubernetes nodes')}
+      showPageSizeSelector
       tableActions={<CreateNodeAction resource={resourceScope} />}
       rowActions={({ row }) => (
         <ActionButtonResource url={row.url} refetch={props.fetch} />

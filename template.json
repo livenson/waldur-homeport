@@ -5547,6 +5547,10 @@
     "description": "marketplace/resources/details/fetchData.tsx, slurm/details/AllocationJobsTable.tsx",
     "message": "Jobs"
   },
+  "Keep existing project permissions when moving to a new organization": {
+    "description": "project/MoveProjectDialog.tsx",
+    "message": "Keep existing project permissions when moving to a new organization"
+  },
   "Keep forever": {
     "description": "openstack/openstack-backup/BackupsList.tsx",
     "message": "Keep forever"
@@ -8194,6 +8198,10 @@
   "Prefix to be appended to all usernames created in FreeIPA by Waldur": {
     "description": "SettingsDescription.ts",
     "message": "Prefix to be appended to all usernames created in FreeIPA by Waldur"
+  },
+  "Preserve project permissions": {
+    "description": "project/MoveProjectDialog.tsx",
+    "message": "Preserve project permissions"
   },
   "Preview changes": {
     "description": "customer/details/CustomerErrorDialog.tsx",
@@ -14302,6 +14310,10 @@
   "View policy": {
     "description": "project/CostPoliciesDetailsDialog.tsx",
     "message": "View policy"
+  },
+  "View proposal": {
+    "description": "proposals/proposal/create/ProposalManagePage.tsx",
+    "message": "View proposal"
   },
   "View summary": {
     "description": "marketplace/details/OrderSummaryButton.tsx",

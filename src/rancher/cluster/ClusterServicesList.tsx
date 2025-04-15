@@ -77,6 +77,7 @@ export const ClusterServicesList: FunctionComponent<{
         },
       ]}
       verboseName={translate('services')}
+      showPageSizeSelector
       tableActions={<ImportYAMLButton cluster_id={resourceScope.uuid} />}
     />
   );
