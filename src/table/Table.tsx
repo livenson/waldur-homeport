@@ -420,12 +420,7 @@ class TableClass<RowType = any> extends React.Component<TableProps<RowType>> {
     } else if (
       prevProps.pagination.pageSize !== this.props.pagination.pageSize
     ) {
-      if (
-        this.props.pagination.pageSize * this.props.pagination.currentPage >=
-        this.props.pagination.resultCount
-      ) {
-        this.props.resetPagination();
-      }
+      this.props.resetPagination();
       this.props.fetch();
     } else if (prevProps.query !== this.props.query) {
       this.props.resetPagination();
