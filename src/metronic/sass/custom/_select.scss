@@ -111,12 +111,30 @@
       align-items: center;
       column-gap: 0.5rem;
 
+      &--is-selected,
       &--is-focused {
         color: $dark;
         background-color: $gray-50;
 
         &:active {
           background-color: $gray-200;
+        }
+      }
+
+      &--is-selected {
+        // Add border-top only for the first selected option in a group
+        &:not(:first-child) {
+          &:not(
+              .metronic-select__option--is-selected
+                + .metronic-select__option--is-selected
+            ) {
+            border-top: 1px solid $border-color;
+          }
+        }
+
+        // Add border-top only for the first unselected option after a group
+        + :not(.metronic-select__option--is-selected) {
+          border-top: 1px solid $border-color;
         }
       }
     }
@@ -130,14 +148,6 @@
             flex-grow: 1;
           }
 
-          &--is-selected {
-            color: $dark;
-            background-color: $gray-50;
-
-            &:active {
-              background-color: $gray-200;
-            }
-          }
           &--is-selected::after {
             display: block;
             width: 16px;
@@ -156,10 +166,6 @@
       .metronic-select__option {
         column-gap: 12px;
 
-        &--is-selected {
-          color: $dark;
-          background-color: transparent;
-        }
         &--is-focused {
           background-color: $gray-50;
         }

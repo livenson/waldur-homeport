@@ -102,7 +102,11 @@ const PureProjectResourcesAllFilter: FunctionComponent<
       >
         <RuntimeStateFilter />
       </TableFilterItem>
-      <TableFilterItem title={translate('State')} name="state">
+      <TableFilterItem
+        title={translate('State')}
+        name="state"
+        instantApply={false}
+      >
         <ResourceStateFilter />
       </TableFilterItem>
       <TableFilterItem

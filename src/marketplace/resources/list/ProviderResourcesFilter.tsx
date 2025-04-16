@@ -72,7 +72,11 @@ const PureProviderResourcesFilter: FunctionComponent<StateProps> = (props) => {
       >
         <CategoryFilter />
       </TableFilterItem>
-      <TableFilterItem title={translate('State')} name="state">
+      <TableFilterItem
+        title={translate('State')}
+        name="state"
+        instantApply={false}
+      >
         <ResourceStateFilter />
       </TableFilterItem>
       <TableFilterItem
