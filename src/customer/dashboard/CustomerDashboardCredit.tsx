@@ -57,7 +57,7 @@ export const CustomerDashboardCredit = ({
   }
 
   return (
-    <Col md={6} sm={12} className={className} style={COMMON_WIDGET_HEIGHT}>
+    <Col md={12} sm={12} className={className} style={COMMON_WIDGET_HEIGHT}>
       <WidgetCard
         cardTitle={
           <>
