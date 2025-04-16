@@ -2084,7 +2084,7 @@
     "message": "Close rounds"
   },
   "Close": {
-    "description": "administration/TelemetryExampleDialog.tsx, booking/components/BookingResourceDetailsDialog.tsx, broadcasts/RecipientsListDialog.tsx, marketplace/aggregate-limits/AllComponentsDialog.tsx, marketplace/details/plan/EstimateUsageComponentDialog.tsx, marketplace/offerings/images/ImageDetailsDialog.tsx, marketplace/offerings/update/integration/GLAuthConfigDialog.tsx, marketplace/referral/OfferingReferralsDialog.tsx, marketplace/resources/details/ResourceTeamDialog.tsx, marketplace/resources/usage/ResourceShowUsageDialog.tsx, marketplace/service-providers/ProviderProjectResourcesDialog.tsx, navigation/UpgradeNotificationDialog.tsx, proposals/round/proposals/ProposalReviewsDetailButton.tsx, resource/summary/ResourceMetadataDialog.tsx, resource/summary/ResourceSummaryModal.tsx",
+    "description": "administration/TelemetryExampleDialog.tsx, booking/components/BookingResourceDetailsDialog.tsx, broadcasts/RecipientsListDialog.tsx, marketplace/details/plan/EstimateUsageComponentDialog.tsx, marketplace/offerings/images/ImageDetailsDialog.tsx, marketplace/offerings/update/integration/GLAuthConfigDialog.tsx, marketplace/referral/OfferingReferralsDialog.tsx, marketplace/resources/details/ResourceTeamDialog.tsx, marketplace/resources/usage/ResourceShowUsageDialog.tsx, marketplace/service-providers/ProviderProjectResourcesDialog.tsx, navigation/UpgradeNotificationDialog.tsx, proposals/round/proposals/ProposalReviewsDetailButton.tsx, resource/summary/ResourceMetadataDialog.tsx, resource/summary/ResourceSummaryModal.tsx",
     "message": "Close"
   },
   "Closed issues (this month)": {
@@ -2236,7 +2236,7 @@
     "message": "Component"
   },
   "Components": {
-    "description": "marketplace/aggregate-limits/AllComponentsDialog.tsx, marketplace/offerings/OfferingPublicUIView.tsx, marketplace/offerings/details/PublicOfferingComponentsTable.tsx, marketplace/offerings/details/policies/OfferingUsagePolicies.tsx, marketplace/offerings/update/components/ComponentsSection.tsx, marketplace/offerings/update/utils.ts, marketplace/orders/details/OrderMetadataTab.tsx, marketplace/resources/details/ResourceComponentsDialog.tsx, proposals/offering-requests/OfferingRequestsListExpandableRow.tsx",
+    "description": "marketplace/offerings/OfferingPublicUIView.tsx, marketplace/offerings/details/PublicOfferingComponentsTable.tsx, marketplace/offerings/details/policies/OfferingUsagePolicies.tsx, marketplace/offerings/update/components/ComponentsSection.tsx, marketplace/offerings/update/utils.ts, marketplace/orders/details/OrderMetadataTab.tsx, marketplace/resources/details/ResourceComponentsDialog.tsx, proposals/offering-requests/OfferingRequestsListExpandableRow.tsx",
     "message": "Components"
   },
   "Compute generation": {
@@ -2806,6 +2806,10 @@
   "Current limit": {
     "description": "marketplace/resources/change-limits/ChangeLimitsComponent.tsx",
     "message": "Current limit"
+  },
+  "Current month's usage": {
+    "description": "marketplace/aggregate-limits/AggregateLimitWidget.tsx",
+    "message": "Current month's usage"
   },
   "Current month": {
     "description": "customer/cost-policies/CostPolicyForm.tsx",
@@ -5704,11 +5708,11 @@
     "message": "Limit usage"
   },
   "Limit": {
-    "description": "marketplace/aggregate-limits/AggregateLimitDetailsDialog.tsx, marketplace/offerings/details/PlanUsageList.tsx, marketplace/offerings/details/policies/ComponentLimitsField.tsx, marketplace/orders/details/LimitsSection.tsx, project/utils.ts, reporting/plan-usage/PlanUsageList.tsx",
+    "description": "marketplace/aggregate-limits/AggregateLimitDetailsDialog.tsx, marketplace/aggregate-limits/utils.ts, marketplace/offerings/details/PlanUsageList.tsx, marketplace/offerings/details/policies/ComponentLimitsField.tsx, marketplace/orders/details/LimitsSection.tsx, project/utils.ts, reporting/plan-usage/PlanUsageList.tsx",
     "message": "Limit"
   },
   "Limit-based": {
-    "description": "marketplace/offerings/update/components/ComponentAccountingTypeField.tsx",
+    "description": "marketplace/aggregate-limits/utils.ts, marketplace/offerings/update/components/ComponentAccountingTypeField.tsx",
     "message": "Limit-based"
   },
   "Limits": {
@@ -10860,7 +10864,7 @@
     "message": "Show less"
   },
   "Show more": {
-    "description": "marketplace/aggregate-limits/AggregateLimitsShowMoreButton.tsx, marketplace/resources/details/ResourceShowMoreComponents.tsx",
+    "description": "marketplace/resources/details/ResourceShowMoreComponents.tsx",
     "message": "Show more"
   },
   "Show offering": {
@@ -12675,6 +12679,14 @@
     "description": "marketplace/resources/actions/ActionsPopover.tsx, resource/actions/ResourceActionComponent.tsx, table/ActionsDropdown.tsx",
     "message": "Unable to load actions"
   },
+  "Unable to load aggregate limits for this customer": {
+    "description": "marketplace/aggregate-limits/AggregateLimitWidget.tsx",
+    "message": "Unable to load aggregate limits for this customer"
+  },
+  "Unable to load aggregate limits for this project": {
+    "description": "marketplace/aggregate-limits/AggregateLimitWidget.tsx",
+    "message": "Unable to load aggregate limits for this project"
+  },
   "Unable to load announcements": {
     "description": "navigation/header/Announcements.tsx",
     "message": "Unable to load announcements"
@@ -13848,11 +13860,11 @@
     "message": "Usage reports"
   },
   "Usage": {
-    "description": "marketplace/aggregate-limits/AggregateLimitDetailsDialog.tsx, marketplace/resources/change-limits/ChangeLimitsComponent.tsx, marketplace/resources/details/fetchData.tsx, reporting/plan-usage/PlanUsageDialog.tsx, slurm/details/utils.ts",
+    "description": "marketplace/aggregate-limits/AggregateLimitDetailsDialog.tsx, marketplace/aggregate-limits/utils.ts, marketplace/resources/change-limits/ChangeLimitsComponent.tsx, marketplace/resources/details/fetchData.tsx, reporting/plan-usage/PlanUsageDialog.tsx, slurm/details/utils.ts",
     "message": "Usage"
   },
   "Usage-based": {
-    "description": "marketplace/offerings/update/components/ComponentAccountingTypeField.tsx",
+    "description": "marketplace/aggregate-limits/utils.ts, marketplace/offerings/update/components/ComponentAccountingTypeField.tsx",
     "message": "Usage-based"
   },
   "Usages": {
@@ -14284,7 +14296,7 @@
     "message": "View YAML"
   },
   "View all": {
-    "description": "core/StatisticsCard.tsx, proposals/CallsAvailableOfferingsList.tsx, proposals/CallsForProposalsList.tsx",
+    "description": "core/StatisticsCard.tsx, marketplace/aggregate-limits/AggregateLimitWidget.tsx, proposals/CallsAvailableOfferingsList.tsx, proposals/CallsForProposalsList.tsx",
     "message": "View all"
   },
   "View detailed information about a user, including its permissions and contact details": {
@@ -14506,6 +14518,10 @@
   "You are going to cancel invitation by {name}. This action cannot be undone.": {
     "description": "invitations/GroupInvitationCancelButton.tsx",
     "message": "You are going to cancel invitation by {name}. This action cannot be undone."
+  },
+  "You are viewing the chart in log scale mode.": {
+    "description": "marketplace/aggregate-limits/AggregateLimitWidget.tsx",
+    "message": "You are viewing the chart in log scale mode."
   },
   "You can add a message to be attached to the invitation email the users receive.": {
     "description": "invitations/actions/create/CustomMessageWrapper.tsx",
