@@ -520,7 +520,7 @@
     "message": "Additional account description invisible to user"
   },
   "Additional configuration": {
-    "description": "proposals/proposal/create/resource-requests-step/ResourceRequestFormDialog.tsx, support/deploy-steps.ts",
+    "description": "proposals/proposal/create/resource-requests-step/ResourceRequestFormDialog.tsx, rancher/cluster/create/managed-steps.ts, support/deploy-steps.ts",
     "message": "Additional configuration"
   },
   "Additional quotas": {
@@ -2124,7 +2124,7 @@
     "message": "Cluster IP"
   },
   "Cluster name": {
-    "description": "rancher/cluster/create/steps.ts",
+    "description": "rancher/cluster/create/managed-steps.ts, rancher/cluster/create/steps.ts",
     "message": "Cluster name"
   },
   "Cluster roles": {
@@ -2380,7 +2380,7 @@
     "message": "Contract sum"
   },
   "Control plane": {
-    "description": "rancher/cluster/create/FormNodesStep.tsx, rancher/cluster/create/NodeRoleField.tsx",
+    "description": "rancher/cluster/create/NodeRoleField.tsx, rancher/cluster/create/RANCHER_NODE_ROLES.tsx",
     "message": "Control plane"
   },
   "Copied!": {
@@ -2944,11 +2944,11 @@
     "message": "Data volume should have at least {size} GB."
   },
   "Data volume size": {
-    "description": "openstack/openstack-instance/OpenstackInstanceDetails.tsx",
+    "description": "openstack/openstack-instance/OpenstackInstanceDetails.tsx, rancher/cluster/create/ManagedFormNodesStep.tsx",
     "message": "Data volume size"
   },
   "Data volume type": {
-    "description": "openstack/openstack-instance/OpenstackInstanceDetails.tsx",
+    "description": "openstack/openstack-instance/OpenstackInstanceDetails.tsx, rancher/cluster/create/ManagedFormNodesStep.tsx",
     "message": "Data volume type"
   },
   "Data volume": {
@@ -3172,7 +3172,7 @@
     "message": "Deny"
   },
   "Deploy Longhorn block storage after cluster is deployed": {
-    "description": "rancher/cluster/create/FormOptionalServicesStep.tsx",
+    "description": "rancher/cluster/create/InstallLonghornField.tsx",
     "message": "Deploy Longhorn block storage after cluster is deployed"
   },
   "Deploy": {
@@ -4344,7 +4344,7 @@
     "message": "Filters"
   },
   "Final configuration": {
-    "description": "booking/deploy/steps.ts, marketplace/deploy/steps/FormFinalConfigurationStep.tsx, openstack/deploy/steps.ts, openstack/openstack-instance/deploy/steps.ts, openstack/openstack-volume/deploy/steps.ts, rancher/cluster/create/steps.ts, slurm/deploy/steps.ts, support/deploy-steps.ts, vmware/deploy/steps.ts",
+    "description": "booking/deploy/steps.ts, marketplace/deploy/steps/FormFinalConfigurationStep.tsx, openstack/deploy/steps.ts, openstack/openstack-instance/deploy/steps.ts, openstack/openstack-volume/deploy/steps.ts, rancher/cluster/create/managed-steps.ts, rancher/cluster/create/steps.ts, slurm/deploy/steps.ts, support/deploy-steps.ts, vmware/deploy/steps.ts",
     "message": "Final configuration"
   },
   "Find solution": {
@@ -4528,7 +4528,7 @@
     "message": "Full price list of {offeringName} offering"
   },
   "GB": {
-    "description": "openstack/openstack-volume/actions/ExtendDialog.tsx, rancher/cluster/create/SystemVolumeSizeGroup.tsx, rancher/cluster/create/VolumeSizeGroup.tsx, vmware/deploy/FormMemoryStep.tsx",
+    "description": "openstack/openstack-volume/actions/ExtendDialog.tsx, rancher/cluster/create/FormOptionalServicesStep.tsx, rancher/cluster/create/ManagedFormNodesStep.tsx, rancher/cluster/create/SystemVolumeSizeGroup.tsx, rancher/cluster/create/VolumeSizeGroup.tsx, vmware/deploy/FormMemoryStep.tsx",
     "message": "GB"
   },
   "GLAuth configuration for {offering}": {
@@ -5944,8 +5944,12 @@
     "message": "Logs"
   },
   "Longhorn is a lightweight, reliable, and powerful distributed block storage system for Kubernetes.": {
-    "description": "rancher/cluster/create/FormOptionalServicesStep.tsx",
+    "description": "rancher/cluster/create/InstallLonghornField.tsx",
     "message": "Longhorn is a lightweight, reliable, and powerful distributed block storage system for Kubernetes."
+  },
+  "Longhorn volume size": {
+    "description": "rancher/cluster/create/FormOptionalServicesStep.tsx",
+    "message": "Longhorn volume size"
   },
   "MAC address (optional)": {
     "description": "openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx",
@@ -6008,7 +6012,7 @@
     "message": "Managed Rancher cluster"
   },
   "Management offering": {
-    "description": "rancher/cluster/create/steps.ts",
+    "description": "rancher/cluster/create/managed-steps.ts, rancher/cluster/create/steps.ts",
     "message": "Management offering"
   },
   "Managers": {
@@ -6943,6 +6947,10 @@
     "description": "rancher/cluster/create/RancherClusterCheckoutSummary.tsx",
     "message": "Number of etcd nodes"
   },
+  "Number of nodes": {
+    "description": "rancher/cluster/create/ManagedFormNodesStep.tsx",
+    "message": "Number of nodes"
+  },
   "Number of offerings": {
     "description": "administration/TelemetryExampleDialog.tsx",
     "message": "Number of offerings"
@@ -7283,6 +7291,14 @@
     "description": "reporting/openstack/ImagesList.tsx",
     "message": "OpenStack Images"
   },
+  "OpenStack flavor name for server node": {
+    "description": "rancher/cluster/create/ManagedRancherPluginOptionsForm.tsx",
+    "message": "OpenStack flavor name for server node"
+  },
+  "OpenStack flavor": {
+    "description": "rancher/cluster/create/ManagedFormNodesStep.tsx",
+    "message": "OpenStack flavor"
+  },
   "OpenStack instance has been unlinked from Rancher node.": {
     "description": "rancher/node/actions/UnlinkAction.tsx",
     "message": "OpenStack instance has been unlinked from Rancher node."
@@ -7294,6 +7310,10 @@
   "OpenStack networks has been created.": {
     "description": "openstack/openstack-tenant/actions/CreateNetworkDialog.tsx",
     "message": "OpenStack networks has been created."
+  },
+  "OpenStack offering": {
+    "description": "rancher/cluster/create/ManagedFormOpenStackOfferingStep.tsx, rancher/cluster/create/managed-steps.ts",
+    "message": "OpenStack offering"
   },
   "OpenStack offerings": {
     "description": "rancher/cluster/create/ManagedRancherPluginOptionsForm.tsx",
@@ -7310,6 +7330,14 @@
   "OpenStack subnet": {
     "description": "openstack/openstack-subnet/EditSubnetDialog.tsx",
     "message": "OpenStack subnet"
+  },
+  "OpenStack system volume size for server node": {
+    "description": "rancher/cluster/create/ManagedRancherPluginOptionsForm.tsx",
+    "message": "OpenStack system volume size for server node"
+  },
+  "OpenStack system volume type for server node": {
+    "description": "rancher/cluster/create/ManagedRancherPluginOptionsForm.tsx",
+    "message": "OpenStack system volume type for server node"
   },
   "OpenStack tenant": {
     "description": "openstack/marketplace.ts, openstack/openstack-tenant/actions/EditDialog.tsx",
@@ -7340,7 +7368,7 @@
     "message": "Option has been updated successfully."
   },
   "Optional": {
-    "description": "rancher/cluster/create/FormOptionalServicesStep.tsx, rancher/cluster/create/steps.ts",
+    "description": "rancher/cluster/create/FormOptionalServicesStep.tsx, rancher/cluster/create/managed-steps.ts, rancher/cluster/create/steps.ts",
     "message": "Optional"
   },
   "Optionally disable creation of user groups in FreeIPA matching Waldur structure": {
@@ -14463,8 +14491,12 @@
     "description": "marketplace/category/admin/ColumnsList.tsx",
     "message": "Widget"
   },
+  "Worker nodes hardware configuration": {
+    "description": "rancher/cluster/create/ManagedFormNodesStep.tsx, rancher/cluster/create/managed-steps.ts",
+    "message": "Worker nodes hardware configuration"
+  },
   "Worker": {
-    "description": "rancher/cluster/create/FormNodesStep.tsx, rancher/cluster/create/NodeRoleField.tsx",
+    "description": "rancher/cluster/create/NodeRoleField.tsx, rancher/cluster/create/RANCHER_NODE_ROLES.tsx",
     "message": "Worker"
   },
   "Workload": {
@@ -14800,7 +14832,7 @@
     "message": "estimated"
   },
   "etcd": {
-    "description": "rancher/cluster/create/FormNodesStep.tsx, rancher/cluster/create/NodeRoleField.tsx, rancher/node/NodeRoleField.tsx",
+    "description": "rancher/cluster/create/NodeRoleField.tsx, rancher/cluster/create/RANCHER_NODE_ROLES.tsx, rancher/node/NodeRoleField.tsx",
     "message": "etcd"
   },
   "events": {

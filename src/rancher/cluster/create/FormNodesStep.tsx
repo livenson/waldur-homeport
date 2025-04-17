@@ -4,8 +4,7 @@ import { Fragment, useCallback } from 'react';
 import { Button, Form, FormCheck } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { arrayPush, arrayRemoveAll, Field, FieldArray } from 'redux-form';
-import { rancherClusterTemplatesList } from 'waldur-js-client';
-import { OpenStackFlavor } from 'waldur-js-client';
+import { OpenStackFlavor, rancherClusterTemplatesList } from 'waldur-js-client';
 
 import { getAllPages } from '@waldur/core/api';
 import { required } from '@waldur/core/validators';
@@ -20,6 +19,7 @@ import { waitForConfirmation } from '@waldur/modal/actions';
 
 import { NODES_FIELD_ARRAY } from './constants';
 import { LonghornWorkerWarning } from './LonghornWorkerWarning';
+import { RANCHER_NODE_ROLES } from './RANCHER_NODE_ROLES';
 import {
   filterFlavors,
   formTenantSelector,
@@ -27,12 +27,6 @@ import {
 } from './utils';
 
 import './FormNodesStep.scss';
-
-const nodeRoles = [
-  { name: 'etcd', label: translate('etcd') },
-  { name: 'controlplane', label: translate('Control plane') },
-  { name: 'worker', label: translate('Worker') },
-];
 
 const filterFlavor = (node, flavor) => {
   if (node.min_ram) {
@@ -141,7 +135,7 @@ const renderNodeRows = ({ fields, flavors }: any) => {
                             name={`${node}.roles`}
                             groupName={`${node}.roles`}
                             component={CheckboxGroup}
-                            options={nodeRoles}
+                            options={RANCHER_NODE_ROLES}
                             groupClassName="d-flex justify-content-around node-roles"
                             validate={required}
                           />

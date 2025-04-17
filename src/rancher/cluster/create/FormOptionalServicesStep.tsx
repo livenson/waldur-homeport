@@ -1,13 +1,25 @@
+import { useSelector } from 'react-redux';
 import { Field } from 'redux-form';
 
-import { ExternalLink } from '@waldur/core/ExternalLink';
-import { FormGroup } from '@waldur/form';
-import { AwesomeCheckboxField } from '@waldur/form/AwesomeCheckboxField';
+import { required } from '@waldur/core/validators';
 import { VStepperFormStepCard } from '@waldur/form/VStepperFormStep';
 import { translate } from '@waldur/i18n';
+import {
+  formatIntField,
+  parseIntField,
+} from '@waldur/marketplace/common/utils';
 import { FormStepProps } from '@waldur/marketplace/deploy/types';
+import { offeringSelector } from '@waldur/marketplace/details/selectors';
+import { FormGroup } from '@waldur/marketplace/offerings/FormGroup';
+
+import { InstallLonghornField } from './InstallLonghornField';
+import { IntegerUnitField } from './IntegerUnitField';
 
 export const FormOptionalServicesStep = (props: FormStepProps) => {
+  const enabled: boolean = useSelector((state) =>
+    offeringSelector(state, 'attributes.install_longhorn'),
+  );
+
   return (
     <VStepperFormStepCard
       title={translate('Optional')}
@@ -15,25 +27,19 @@ export const FormOptionalServicesStep = (props: FormStepProps) => {
       disabled={props.disabled}
       disabledTooltip={props.disabledTooltip}
     >
-      <Field
-        name="attributes.install_longhorn"
-        component={FormGroup}
-        hideLabel={true}
-        description={
-          <ExternalLink
-            label={translate(
-              'Longhorn is a lightweight, reliable, and powerful distributed block storage system for Kubernetes.',
-            )}
-            url="https://longhorn.io/docs/"
+      <InstallLonghornField />
+      {enabled ? (
+        <FormGroup label={translate('Longhorn volume size')} required={true}>
+          <Field
+            name="attributes.longhorn_volume_size"
+            units={translate('GB')}
+            component={IntegerUnitField}
+            parse={parseIntField}
+            format={formatIntField}
+            validate={required}
           />
-        }
-      >
-        <AwesomeCheckboxField
-          label={translate(
-            'Deploy Longhorn block storage after cluster is deployed',
-          )}
-        />
-      </Field>
+        </FormGroup>
+      ) : null}
     </VStepperFormStepCard>
   );
 };
