@@ -38,9 +38,13 @@ export const managedDeployOfferingSteps: OfferingConfigurationFormStep[] = [
   {
     label: translate('Worker nodes hardware configuration'),
     id: 'step-nodes',
-    fields: ['attributes.nodes'],
+    fields: [
+      'attributes.worker_nodes_count',
+      'attributes.worker_nodes_flavor',
+      'attributes.worker_nodes_data_volume_size',
+      'attributes.worker_nodes_data_volume_type',
+    ],
     required: true,
-    requiredFields: ['attributes.nodes'],
     component: ManagedFormNodesStep,
   },
   {

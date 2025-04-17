@@ -1,11 +1,11 @@
-import { flatMapDeep, range } from 'lodash-es';
+import { OpenStackFlavor, OpenStackVolumeType } from 'waldur-js-client';
 
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { OfferingConfiguration } from '@waldur/marketplace/common/types';
+import { Offering } from '@waldur/marketplace/types';
 
 import { MANAGED_RANCHER, MARKETPLACE_RANCHER } from './constants';
-import { RANCHER_NODE_ROLES } from './RANCHER_NODE_ROLES';
 
 const RancherClusterCheckoutSummary = lazyComponent(() =>
   import('./RancherClusterCheckoutSummary').then((module) => ({
@@ -73,13 +73,25 @@ const standaloneRancherOrderSerializer = ({
   tenant: tenant ? tenant.url : undefined,
 });
 
-const managedRancherOrderSerializer = ({ nodes }) => ({
-  nodes: flatMapDeep(RANCHER_NODE_ROLES, (role) =>
-    range(nodes[role.name]?.count).map(() => ({
-      flavor_name: nodes[role.name]?.flavor?.name,
-      roles: [role.name],
-      system_volume_size: nodes[role.name]?.system_volume_size * 1024,
-    })),
+interface ManagedRancherOrderFormData {
+  worker_nodes_count: number;
+  worker_nodes_flavor: OpenStackFlavor;
+  worker_nodes_data_volume_size: number;
+  worker_nodes_data_volume_type: OpenStackVolumeType;
+  openstack_offerings: Offering[];
+  install_longhorn: boolean;
+  longhorn_volume_size: number;
+}
+
+const managedRancherOrderSerializer = (
+  formData: ManagedRancherOrderFormData,
+) => ({
+  ...formData,
+  worker_nodes_flavor_name: formData.worker_nodes_flavor?.name,
+  worker_nodes_data_volume_type_name:
+    formData.worker_nodes_data_volume_type?.name,
+  openstack_offering_uuid_list: formData.openstack_offerings?.map(
+    ({ uuid }) => uuid,
   ),
 });
 
