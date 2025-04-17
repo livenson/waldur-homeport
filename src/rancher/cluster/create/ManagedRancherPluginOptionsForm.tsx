@@ -1,9 +1,15 @@
 import { FunctionComponent } from 'react';
-import { marketplacePublicOfferingsList } from 'waldur-js-client';
+import {
+  marketplacePublicOfferingsList,
+  OpenStackFlavor,
+  openstackFlavorsList,
+  openstackVolumeTypesList,
+} from 'waldur-js-client';
 
 import { parseSelectData } from '@waldur/core/api';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
 import { AsyncSelectField } from '@waldur/form/AsyncSelectField';
+import { BoxNumberField } from '@waldur/form/BoxNumberField';
 import { translate } from '@waldur/i18n';
 import {
   DefaultOfferingEditPanel,
@@ -38,6 +44,56 @@ const fields: OfferingEditField[] = [
       getOptionKey: ({ uuid }) => uuid,
       isMulti: true,
     },
+  },
+  {
+    label: translate('OpenStack flavor name for server node'),
+    key: 'plugin_options.managed_rancher_server_flavor_name',
+    component: AsyncSelectField,
+    fieldProps: {
+      loadOptions: (query, prevOptions, currentPage) =>
+        openstackFlavorsList({
+          query: {
+            name: query,
+            page: currentPage,
+            field: ['name', 'uuid'],
+          },
+        }).then((response) =>
+          returnReactSelectAsyncPaginateObject(
+            parseSelectData(response),
+            prevOptions,
+            currentPage,
+          ),
+        ),
+      getOptionLabel: ({ name }: OpenStackFlavor) => name,
+      getOptionKey: ({ uuid }: OpenStackFlavor) => uuid,
+    },
+  },
+  {
+    label: translate('OpenStack system volume type for server node'),
+    key: 'plugin_options.managed_rancher_system_volume_type_name',
+    component: AsyncSelectField,
+    fieldProps: {
+      loadOptions: (query, prevOptions, currentPage) =>
+        openstackVolumeTypesList({
+          query: {
+            name: query,
+            page: currentPage,
+          },
+        }).then((response) =>
+          returnReactSelectAsyncPaginateObject(
+            parseSelectData(response),
+            prevOptions,
+            currentPage,
+          ),
+        ),
+      getOptionLabel: ({ name }: OpenStackFlavor) => name,
+      getOptionKey: ({ uuid }: OpenStackFlavor) => uuid,
+    },
+  },
+  {
+    label: translate('OpenStack system volume size for server node'),
+    key: 'plugin_options.managed_rancher_system_volume_size_gb',
+    component: BoxNumberField,
   },
 ];
 

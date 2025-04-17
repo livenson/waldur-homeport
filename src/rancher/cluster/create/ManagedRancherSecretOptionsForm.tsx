@@ -4,7 +4,7 @@ import { customersList } from 'waldur-js-client';
 import { parseSelectData } from '@waldur/core/api';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
 import { required } from '@waldur/core/validators';
-import { SecretField, StringField } from '@waldur/form';
+import { SecretField, StringField, TextField } from '@waldur/form';
 import { AsyncSelectField } from '@waldur/form/AsyncSelectField';
 import { translate } from '@waldur/i18n';
 import {
@@ -57,6 +57,11 @@ const fields: OfferingEditField[] = [
     key: 'secret_options.password',
     component: SecretField,
     fieldProps: { required: true, validate: required },
+  },
+  {
+    label: translate('Cloud init template'),
+    key: 'secret_options.cloud_init_template',
+    component: TextField,
   },
 ];
 
