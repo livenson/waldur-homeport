@@ -215,7 +215,7 @@ export const TableHeader: FC<TableHeaderProps> = ({
           </th>
         ) : null}
         {expandableRow && (
-          <th data-testid="all-rows-expander">
+          <th data-testid="all-rows-expander" style={{ width: '10px' }}>
             <Button
               variant="flush"
               className={classNames('btn-no-focus', toggledAll ? 'active' : '')}
