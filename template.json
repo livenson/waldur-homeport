@@ -691,6 +691,10 @@
     "description": "slurm/deploy/steps.ts",
     "message": "Allocation name"
   },
+  "Allocation pool": {
+    "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx",
+    "message": "Allocation pool"
+  },
   "Allocation pools": {
     "description": "openstack/openstack-subnet/OpenStackSubNetSummary.tsx",
     "message": "Allocation pools"
@@ -1111,10 +1115,6 @@
     "description": "customer/details/CustomerCallManagerPanel.tsx",
     "message": "Are you sure you want to prohibit this organization from managing calls?"
   },
-  "Are you sure you want to pull {count} resources?": {
-    "description": "marketplace/resources/mass-actions/MultiPullAction.tsx",
-    "message": "Are you sure you want to pull {count} resources?"
-  },
   "Are you sure you want to reject the proposal: {name}?": {
     "description": "proposals/proposal/ProposalRowActions.tsx",
     "message": "Are you sure you want to reject the proposal: {name}?"
@@ -1202,6 +1202,10 @@
   "Are you sure you want to submit this review for the {name} proposal?": {
     "description": "proposals/proposal/create-review/ProposalReviewCreatePage.tsx",
     "message": "Are you sure you want to submit this review for the {name} proposal?"
+  },
+  "Are you sure you want to synchronise {count} resources?": {
+    "description": "marketplace/resources/mass-actions/MultiPullAction.tsx",
+    "message": "Are you sure you want to synchronise {count} resources?"
   },
   "Are you sure you want to unlink the order?": {
     "description": "marketplace/orders/actions/OrderUnlinkButton.tsx",
@@ -1724,7 +1728,7 @@
     "message": "By"
   },
   "CIDR": {
-    "description": "customer/details/AccessSubnetForm.tsx, customer/details/CustomerAccessControlPanel.tsx, openstack/openstack-subnet/OpenStackSubNetSummary.tsx, openstack/openstack-subnet/TenantSubnetsList.tsx",
+    "description": "customer/details/AccessSubnetForm.tsx, customer/details/CustomerAccessControlPanel.tsx, openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx, openstack/openstack-subnet/OpenStackSubNetSummary.tsx, openstack/openstack-subnet/TenantSubnetsList.tsx",
     "message": "CIDR"
   },
   "CPU limit (hours)": {
@@ -2395,6 +2399,10 @@
     "description": "form/InsertLinkPopover.tsx",
     "message": "Copied!"
   },
+  "Copy ports connected to instances": {
+    "description": "openstack/openstack-tenant/MigrationExpandableRow.tsx, openstack/openstack-tenant/actions/MigrateTenantDialog.tsx",
+    "message": "Copy ports connected to instances"
+  },
   "Copy to clipboard": {
     "description": "core/CopyToClipboard.tsx, core/CopyToClipboardButton.tsx, form/InsertLinkPopover.tsx, marketplace/common/CopyToClipboard.tsx, openstack/openstack-instance/actions/update-floating-ips/FloatingIpRow.tsx, table/exporters/constants.ts",
     "message": "Copy to clipboard"
@@ -2870,6 +2878,14 @@
   "Current type": {
     "description": "openstack/openstack-volume/actions/RetypeDialog.tsx",
     "message": "Current type"
+  },
+  "Custom IP configuration": {
+    "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx",
+    "message": "Custom IP configuration"
+  },
+  "Custom IP": {
+    "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx",
+    "message": "Custom IP"
   },
   "Custom Scripts": {
     "description": "SettingsDescription.ts, administration/custom-scripts/AdministrationCustomScripts.tsx, administration/routes.ts",
@@ -3935,6 +3951,10 @@
     "description": "map/LocationContainer.tsx",
     "message": "Enter address..."
   },
+  "Enter custom IP": {
+    "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx",
+    "message": "Enter custom IP"
+  },
   "Enter custom message": {
     "description": "invitations/actions/create/CustomMessageWrapper.tsx",
     "message": "Enter custom message"
@@ -4560,7 +4580,7 @@
     "message": "Gateway IP of this subnet"
   },
   "Gateway IP": {
-    "description": "openstack/openstack-subnet/OpenStackSubNetSummary.tsx",
+    "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx, openstack/openstack-subnet/OpenStackSubNetSummary.tsx",
     "message": "Gateway IP"
   },
   "Gateway": {
@@ -4891,6 +4911,10 @@
     "description": "events/ExpandableEventDetailsTable.tsx, openstack/openstack-instance/FloatingIpsList.tsx, openstack/openstack-instance/InternalIpsList.tsx, openstack/openstack-tenant/IpAddressList.tsx, openstack/openstack-tenant/TenantPortsList.tsx, user/api-key/AuthenticationEvents.tsx",
     "message": "IP address"
   },
+  "IP is outside of subnet CIDR": {
+    "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx",
+    "message": "IP is outside of subnet CIDR"
+  },
   "IP protocol": {
     "description": "openstack/openstack-security-groups/SecurityGroupRuleHeader.tsx, openstack/openstack-security-groups/rule-editor/RulesHeader.tsx",
     "message": "IP protocol"
@@ -4898,6 +4922,10 @@
   "IP version": {
     "description": "openstack/openstack-subnet/OpenStackSubNetSummary.tsx",
     "message": "IP version"
+  },
+  "IPs is outside the allocation pool": {
+    "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx",
+    "message": "IPs is outside the allocation pool"
   },
   "Icon": {
     "description": "marketplace/category/admin/GroupFromDialog.tsx, rancher/template/CatalogTemplateList.tsx",
@@ -7583,6 +7611,10 @@
     "description": "administration/dashboard/AdminStatistics.tsx, administration/organizations/OrganizationGroupOrganizationsList.tsx, administration/routes.ts, broadcasts/BroadcastExpandableRow.tsx, broadcasts/BroadcastForm.tsx, broadcasts/RecipientsList.tsx, customer/list/CustomerList.tsx, marketplace/offerings/OfferingDetailsUIView.tsx, marketplace/offerings/expandable/OfferingCustomersList.tsx, marketplace/resources/details/ResourceDetailsContainer.tsx, marketplace/service-providers/ProviderOrganizationsList.tsx, marketplace/service-providers/ProviderUserCustomersList.tsx, marketplace/service-providers/utils.ts, navigation/header/search/SearchPopover.tsx, navigation/sidebar/OrganizationsListMenu.tsx, organization/OrganizationUIView.tsx, project/ProjectContainer.tsx, proposals/round/RoundUIView.tsx, proposals/utils.ts, user/affiliations/OrganizationsList.tsx",
     "message": "Organizations"
   },
+  "Other (manual input)": {
+    "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx",
+    "message": "Other (manual input)"
+  },
   "Other agricultural sciences": {
     "description": "project/OECD_FOS_2007_CODES.ts",
     "message": "Other agricultural sciences"
@@ -8826,10 +8858,6 @@
   "Pull usage": {
     "description": "marketplace/offerings/update/integration/RemoteActions.tsx",
     "message": "Pull usage"
-  },
-  "Pull": {
-    "description": "marketplace/resources/mass-actions/MultiPullAction.tsx",
-    "message": "Pull"
   },
   "Pulling quotas": {
     "description": "resource/state/constants.ts",
@@ -11039,6 +11067,10 @@
     "description": "openstack/OpenStackPackageDetails.tsx, openstack/openstack-tenant/actions/MigrateTenantDialog.tsx",
     "message": "Skip connection to external network"
   },
+  "Skip connection to extnet": {
+    "description": "openstack/openstack-tenant/MigrationExpandableRow.tsx",
+    "message": "Skip connection to extnet"
+  },
   "Skip floating IP assignment": {
     "description": "openstack/openstack-backup/actions/utils.tsx, openstack/openstack-instance/utils.ts",
     "message": "Skip floating IP assignment"
@@ -11400,7 +11432,7 @@
     "message": "Synchronisation has been successful."
   },
   "Synchronise": {
-    "description": "administration/remote-offering-sync/RemoteSyncSynchroniseAction.tsx, marketplace/resources/actions/SyncResourceAction.tsx, openstack/openstack-tenant/actions/PullFloatingIpsAction.tsx, openstack/openstack-tenant/actions/PullSecurityGroupsAction.tsx, openstack/openstack-tenant/actions/PullServerGroupsAction.tsx, resource/actions/PullActionItem.tsx",
+    "description": "administration/remote-offering-sync/RemoteSyncSynchroniseAction.tsx, marketplace/resources/actions/SyncResourceAction.tsx, marketplace/resources/mass-actions/MultiPullAction.tsx, openstack/openstack-tenant/actions/PullFloatingIpsAction.tsx, openstack/openstack-tenant/actions/PullSecurityGroupsAction.tsx, openstack/openstack-tenant/actions/PullServerGroupsAction.tsx, resource/actions/PullActionItem.tsx",
     "message": "Synchronise"
   },
   "Synchronize": {
@@ -14832,7 +14864,7 @@
     "message": "e.g. This organization is irrelevant"
   },
   "e.g.": {
-    "description": "administration/remote-offering-sync/RemoteSyncFormDialog.tsx, customer/create/CustomerCreateForm.tsx, invitations/actions/InvitationLinkField.tsx, marketplace/offerings/import/CredentialsTab.tsx, table/SaveFilterDialog.tsx",
+    "description": "administration/remote-offering-sync/RemoteSyncFormDialog.tsx, customer/create/CustomerCreateForm.tsx, invitations/actions/InvitationLinkField.tsx, marketplace/offerings/import/CredentialsTab.tsx, openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx, table/SaveFilterDialog.tsx",
     "message": "e.g."
   },
   "error message: {errorMessage}": {

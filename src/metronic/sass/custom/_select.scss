@@ -16,7 +16,7 @@
       &--is-disabled {
         background-color: if(isDarkMode(), $gray-100, $gray-200);
         .metronic-select__placeholder {
-          color: if(isDarkMode(), $gray-300, $gray-700);
+          color: if(isDarkMode(), $gray-300, $gray-500);
         }
       }
     }
@@ -28,7 +28,7 @@
     }
 
     &__placeholder {
-      color: $gray-700;
+      color: $gray-500;
     }
 
     &__indicator {
