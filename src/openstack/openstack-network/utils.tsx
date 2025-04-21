@@ -72,6 +72,21 @@ const longToIp = (long: number): IPv4Address => {
   };
 };
 
+export const getIPsInRange = (startIp, endIp) => {
+  if (!startIp || !endIp) {
+    return [];
+  }
+  const start = ipToLong(parseIPv4(startIp));
+  const end = ipToLong(parseIPv4(endIp));
+  const result = [];
+
+  for (let i = start; i <= end; i++) {
+    result.push(longToIp(i).toString());
+  }
+
+  return result;
+};
+
 const getNetworkAddress = (ip: IPv4Address, prefix: number): IPv4Address => {
   const mask = ~((1 << (32 - prefix)) - 1);
   return longToIp(ipToLong(ip) & mask);
@@ -102,7 +117,7 @@ export const getDefaultAllocationPool = (cidr: string) => {
   };
 };
 
-const isIPInRange = (ip: string, cidr: string): boolean => {
+export const isIPInRange = (ip: string, cidr: string): boolean => {
   const ipObject = parseIPv4(ip);
   const cidrObject = parseCIDR(cidr);
 
