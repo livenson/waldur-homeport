@@ -78,7 +78,7 @@ interface ManagedRancherOrderFormData {
   worker_nodes_flavor: OpenStackFlavor;
   worker_nodes_data_volume_size: number;
   worker_nodes_data_volume_type: OpenStackVolumeType;
-  openstack_offerings: Offering[];
+  openstack_offering: Offering;
   install_longhorn: boolean;
   longhorn_volume_size: number;
 }
@@ -90,9 +90,9 @@ const managedRancherOrderSerializer = (
   worker_nodes_flavor_name: formData.worker_nodes_flavor?.name,
   worker_nodes_data_volume_type_name:
     formData.worker_nodes_data_volume_type?.name,
-  openstack_offering_uuid_list: formData.openstack_offerings?.map(
-    ({ uuid }) => uuid,
-  ),
+  openstack_offering_uuid_list: formData.openstack_offering
+    ? [formData.openstack_offering.uuid]
+    : undefined,
 });
 
 export const RancherOffering: OfferingConfiguration = {
@@ -125,10 +125,10 @@ export const ManagedRancherOffering: OfferingConfiguration = {
     ...formData,
     openstack_offering_uuid_list: formData.openstack_offering_uuid_list
       ? formData.openstack_offering_uuid_list.map((offering) => offering.uuid)
-      : [],
+      : undefined,
     managed_rancher_server_flavor_name:
       formData.managed_rancher_server_flavor_name?.name,
-    managed_rancher_system_volume_type_name:
-      formData.managed_rancher_system_volume_type_name?.name,
+    managed_rancher_server_system_volume_type_name:
+      formData.managed_rancher_server_system_volume_type_name?.name,
   }),
 };

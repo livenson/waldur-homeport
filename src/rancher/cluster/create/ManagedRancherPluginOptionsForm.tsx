@@ -70,7 +70,7 @@ const fields: OfferingEditField[] = [
   },
   {
     label: translate('OpenStack system volume type for server node'),
-    key: 'plugin_options.managed_rancher_system_volume_type_name',
+    key: 'plugin_options.managed_rancher_server_system_volume_type_name',
     component: AsyncSelectField,
     fieldProps: {
       loadOptions: (query, prevOptions, currentPage) =>
@@ -92,7 +92,7 @@ const fields: OfferingEditField[] = [
   },
   {
     label: translate('OpenStack system volume size for server node'),
-    key: 'plugin_options.managed_rancher_system_volume_size_gb',
+    key: 'plugin_options.managed_rancher_server_system_volume_size_gb',
     component: BoxNumberField,
   },
 ];

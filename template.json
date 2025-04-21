@@ -2395,6 +2395,10 @@
     "description": "form/InsertLinkPopover.tsx",
     "message": "Copied!"
   },
+  "Copy ports connected to instances": {
+    "description": "openstack/openstack-tenant/MigrationExpandableRow.tsx, openstack/openstack-tenant/actions/MigrateTenantDialog.tsx",
+    "message": "Copy ports connected to instances"
+  },
   "Copy to clipboard": {
     "description": "core/CopyToClipboard.tsx, core/CopyToClipboardButton.tsx, form/InsertLinkPopover.tsx, marketplace/common/CopyToClipboard.tsx, openstack/openstack-instance/actions/update-floating-ips/FloatingIpRow.tsx, table/exporters/constants.ts",
     "message": "Copy to clipboard"
@@ -11038,6 +11042,10 @@
   "Skip connection to external network": {
     "description": "openstack/OpenStackPackageDetails.tsx, openstack/openstack-tenant/actions/MigrateTenantDialog.tsx",
     "message": "Skip connection to external network"
+  },
+  "Skip connection to extnet": {
+    "description": "openstack/openstack-tenant/MigrationExpandableRow.tsx",
+    "message": "Skip connection to extnet"
   },
   "Skip floating IP assignment": {
     "description": "openstack/openstack-backup/actions/utils.tsx, openstack/openstack-instance/utils.ts",
