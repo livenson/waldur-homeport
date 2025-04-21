@@ -169,7 +169,7 @@ export const CategoryResourcesList: FunctionComponent<OwnProps> = (
       render: ({ row }) => CategoryColumnField({ row, column }),
       id: `category-${column.index}`,
       keys: ['backend_metadata', `category-${column.index}`],
-      export: (row) => CategoryColumnField({ row, column }),
+      export: (row) => CategoryColumnField({ row, column, for_export: true }),
     });
   });
   columns.push({
