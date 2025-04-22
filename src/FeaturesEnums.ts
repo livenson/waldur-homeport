@@ -30,6 +30,7 @@ export enum OpenstackFeatures {
 export enum ProjectFeatures {
   estimated_cost = 'project.estimated_cost',
   oecd_fos_2007_code = 'project.oecd_fos_2007_code',
+  show_credit_in_create_dialog = 'project.show_credit_in_create_dialog',
   show_description_in_create_dialog = 'project.show_description_in_create_dialog',
   show_end_date_in_create_dialog = 'project.show_end_date_in_create_dialog',
   show_image_in_create_dialog = 'project.show_image_in_create_dialog',

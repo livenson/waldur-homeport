@@ -97,6 +97,10 @@ export const FeaturesDescription: FeatureSection[] = [
         description: translate('Enable OECD code.'),
       },
       {
+        key: 'show_credit_in_create_dialog',
+        description: translate('Show credit field in project create dialog.'),
+      },
+      {
         key: 'show_description_in_create_dialog',
         description: translate('Show description field in project create dialog.'),
       },
