@@ -34,6 +34,7 @@ export const KubeconfigFileAction: ActionItemType = ({ resource }) => {
       resource={resource}
       validators={validators}
       iconNode={<FileCode weight="bold" />}
+      staff
     />
   );
 };
