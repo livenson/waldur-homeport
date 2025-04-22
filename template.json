@@ -1856,7 +1856,7 @@
     "message": "Cancel request"
   },
   "Cancel": {
-    "description": "administration/roles/RoleDescriptionEditDialog.tsx, form/InsertLinkPopover.tsx, form/WideImageField.tsx, invitations/GroupInvitationCancelButton.tsx, invitations/GroupinvitationButtons.tsx, invitations/MultiCancelAction.tsx, invitations/actions/InvitationCancelButton.tsx, marketplace/details/CustomerField.tsx, marketplace/landing/MarketplaceLandingFilter.tsx, marketplace/orders/actions/CancelTerminationOrderButton.tsx, marketplace/orders/details/CancelOrderButton.tsx, marketplace/service-providers/ServiceProviderManagement.tsx, modal/CloseDialogButton.tsx, modal/DeleteConfirmationDialog.tsx, table/TableFilterActions.tsx, table/TableFilterItem.tsx, user/support/UserRemovalMessageDialog.tsx, user/support/UserStatus.tsx",
+    "description": "administration/roles/RoleDescriptionEditDialog.tsx, form/InsertLinkPopover.tsx, form/WideImageField.tsx, invitations/GroupInvitationCancelButton.tsx, invitations/GroupinvitationButtons.tsx, invitations/MultiCancelAction.tsx, invitations/actions/InvitationCancelButton.tsx, marketplace/details/CustomerField.tsx, marketplace/landing/MarketplaceLandingFilter.tsx, marketplace/offerings/update/integration/EditScriptDialog.tsx, marketplace/orders/actions/CancelTerminationOrderButton.tsx, marketplace/orders/details/CancelOrderButton.tsx, marketplace/service-providers/ServiceProviderManagement.tsx, modal/CloseDialogButton.tsx, modal/DeleteConfirmationDialog.tsx, table/TableFilterActions.tsx, table/TableFilterItem.tsx, user/support/UserRemovalMessageDialog.tsx, user/support/UserStatus.tsx",
     "message": "Cancel"
   },
   "Canceled": {
@@ -2147,6 +2147,10 @@
     "description": "rancher/cluster/tabs.ts, vmware/VMwareVirtualMachineSummary.tsx, vmware/deploy/FormAdvancedOptionsStep.tsx",
     "message": "Cluster"
   },
+  "Code editor": {
+    "description": "marketplace/offerings/update/integration/EditScriptDialog.tsx",
+    "message": "Code editor"
+  },
   "Code is too short.": {
     "description": "marketplace/offerings/utils.ts",
     "message": "Code is too short."
@@ -2308,7 +2312,7 @@
     "message": "Confirm your review"
   },
   "Confirm": {
-    "description": "administration/settings/ConfigurationEditDialog.tsx, customer/credits/CreditFormDialog.tsx, customer/credits/ProjectCreditFormDialog.tsx, customer/details/EditFieldDialog.tsx, issues/comments/CommentFormDialog.tsx, marketplace/details/CustomerField.tsx, marketplace/offerings/import/WizardButtons.tsx, marketplace/offerings/update/integration/EditFieldDialog.tsx, project/manage/EditFieldDialog.tsx, proposals/proposal/create-review/CommentFormDialog.tsx",
+    "description": "administration/settings/ConfigurationEditDialog.tsx, customer/credits/CreditFormDialog.tsx, customer/credits/ProjectCreditFormDialog.tsx, customer/details/EditFieldDialog.tsx, issues/comments/CommentFormDialog.tsx, marketplace/details/CustomerField.tsx, marketplace/offerings/import/WizardButtons.tsx, marketplace/offerings/update/integration/EditFieldDialog.tsx, marketplace/offerings/update/integration/EditScriptLanguageDialog.tsx, project/manage/EditFieldDialog.tsx, proposals/proposal/create-review/CommentFormDialog.tsx",
     "message": "Confirm"
   },
   "Confirmation notification template": {
@@ -2350,6 +2354,10 @@
   "Console domain override": {
     "description": "openstack/OpenStackProvisioningConfigForm.tsx",
     "message": "Console domain override"
+  },
+  "Console output": {
+    "description": "marketplace/offerings/update/integration/EditScriptDialog.tsx",
+    "message": "Console output"
   },
   "Console type": {
     "description": "openstack/OpenStackProvisioningConfigForm.tsx",
@@ -3363,6 +3371,14 @@
     "description": "administration/hooks/HooksList.tsx, administration/providers/ProviderCard.tsx, customer/payment-profiles/PaymentProfileList.tsx, user/hooks/HooksList.tsx, user/support/utils.ts",
     "message": "Disabled"
   },
+  "Discard and exit": {
+    "description": "marketplace/offerings/update/integration/EditScriptDialog.tsx",
+    "message": "Discard and exit"
+  },
+  "Discard and switch": {
+    "description": "marketplace/offerings/update/integration/EditScriptDialog.tsx",
+    "message": "Discard and switch"
+  },
   "Disconnect subnet": {
     "description": "openstack/openstack-subnet/DisconnectSubnetAction.tsx",
     "message": "Disconnect subnet"
@@ -3422,6 +3438,10 @@
   "Do not render prices in order details.": {
     "description": "features/FeaturesDescription.ts",
     "message": "Do not render prices in order details."
+  },
+  "Do you want to save or discard changes?": {
+    "description": "marketplace/offerings/update/integration/EditScriptDialog.tsx",
+    "message": "Do you want to save or discard changes?"
   },
   "Do you want to submit permission request?": {
     "description": "invitations/GroupInvitationMessage.tsx",
@@ -3494,6 +3514,14 @@
   "Dry run offering script": {
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Dry run offering script"
+  },
+  "Dry run script": {
+    "description": "marketplace/offerings/update/integration/ScriptEditorHeader.tsx",
+    "message": "Dry run script"
+  },
+  "Dry run": {
+    "description": "marketplace/offerings/update/integration/ScriptEditorHeader.tsx",
+    "message": "Dry run"
   },
   "Due date": {
     "description": "invoices/details/InvoiceDetails.tsx, invoices/list/InvoicesList.tsx",
@@ -3647,6 +3675,10 @@
     "description": "administration/remote-offering-sync/RemoteSyncFormDialog.tsx",
     "message": "Edit remote synchronization"
   },
+  "Edit resource options": {
+    "description": "marketplace/offerings/update/integration/ScriptEditorHeader.tsx",
+    "message": "Edit resource options"
+  },
   "Edit resource request": {
     "description": "proposals/proposal/create/resource-requests-step/ResourceRequestFormDialog.tsx",
     "message": "Edit resource request"
@@ -3658,6 +3690,10 @@
   "Edit role": {
     "description": "administration/roles/RoleEditButton.tsx, administration/roles/RoleEditDialog.tsx",
     "message": "Edit role"
+  },
+  "Edit roles": {
+    "description": "marketplace/offerings/update/integration/ScriptEditorHeader.tsx",
+    "message": "Edit roles"
   },
   "Edit round allocation": {
     "description": "proposals/round/allocation/EditRoundAllocationDialog.tsx",
@@ -3686,6 +3722,10 @@
   "Edit user agreement": {
     "description": "administration/agreements/UserAgreementsEditDialog.tsx, administration/providers/ProviderDetailsDialog.tsx",
     "message": "Edit user agreement"
+  },
+  "Edit user input": {
+    "description": "marketplace/offerings/update/integration/ScriptEditorHeader.tsx",
+    "message": "Edit user input"
   },
   "Edit {name}": {
     "description": "administration/organizations/OrganizationGroupForm.tsx",
@@ -3999,9 +4039,17 @@
     "description": "user/support/UserEditRows.tsx",
     "message": "Enter your contact number"
   },
+  "Env variables": {
+    "description": "marketplace/offerings/update/integration/ScriptEditorHeader.tsx",
+    "message": "Env variables"
+  },
   "Environment variables have been updated successfully.": {
     "description": "marketplace/offerings/update/integration/EditVarsDialog.tsx",
     "message": "Environment variables have been updated successfully."
+  },
+  "Environment variables": {
+    "description": "marketplace/offerings/update/integration/ScriptEditorHeader.tsx",
+    "message": "Environment variables"
   },
   "Environmental biotechnology": {
     "description": "project/OECD_FOS_2007_CODES.ts",
@@ -6015,6 +6063,10 @@
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Manage campaign"
   },
+  "Manage custom scripts": {
+    "description": "marketplace/offerings/update/integration/EditScriptDialog.tsx",
+    "message": "Manage custom scripts"
+  },
   "Manage offering user group": {
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Manage offering user group"
@@ -6922,6 +6974,10 @@
   "Nothing to show here": {
     "description": "marketplace/resources/list/CustomerResourcesListPlaceholder.tsx",
     "message": "Nothing to show here"
+  },
+  "Nothing to show": {
+    "description": "marketplace/offerings/update/integration/EditScriptDialog.tsx",
+    "message": "Nothing to show"
   },
   "Notification can be sent only for created invoice.": {
     "description": "invoices/list/SendNotificationButton.tsx",
@@ -9479,12 +9535,16 @@
     "description": "form/ImageField.tsx",
     "message": "Reset avatar"
   },
+  "Reset to saved": {
+    "description": "marketplace/offerings/update/integration/ScriptEditorHeader.tsx",
+    "message": "Reset to saved"
+  },
   "Reset value": {
     "description": "marketplace/offerings/update/components/OptionalNumberField.tsx",
     "message": "Reset value"
   },
   "Reset": {
-    "description": "administration/notifications/NotificationForm.tsx, vmware/actions/ResetAction.tsx",
+    "description": "administration/notifications/NotificationForm.tsx, marketplace/offerings/update/integration/ScriptEditorHeader.tsx, vmware/actions/ResetAction.tsx",
     "message": "Reset"
   },
   "Resolution SLA field name": {
@@ -9594,6 +9654,10 @@
   "Resource name": {
     "description": "invoices/details/InvoiceItemsTable.tsx, reporting/resource-usage/ResourceUsageList.tsx, reporting/resource-usage/UserUsageList.tsx",
     "message": "Resource name"
+  },
+  "Resource option": {
+    "description": "marketplace/offerings/update/integration/ScriptEditorHeader.tsx",
+    "message": "Resource option"
   },
   "Resource options": {
     "description": "marketplace/offerings/OfferingEditUIView.tsx, marketplace/offerings/update/options/OfferingResourceOptionsSection.tsx",
@@ -9944,7 +10008,7 @@
     "message": "Role name"
   },
   "Role": {
-    "description": "administration/InvitationList.tsx, customer/team/CustomerUsersListExpandableRow.tsx, invitations/GroupInvitationsList.tsx, invitations/InvitationRoleFilter.tsx, invitations/InvitationsList.tsx, invitations/actions/RoleGroup.tsx, invitations/actions/create/EmailsListGroup.tsx, marketplace/offerings/update/roles/RolesSection.tsx, marketplace/resources/users/AddUserDialog.tsx, marketplace/resources/users/ResourceUsersList.tsx, project/team/InvitationsList.tsx, project/team/ProjectUsersListFilter.tsx, project/team/RoleGroup.tsx, proposals/team/InvitationsList.tsx, proposals/team/UsersList.tsx, rancher/cluster/create/NodeRoleGroup.tsx, user/UserPermissionRequestsList.tsx, user/affiliations/PermissionDetails.tsx, user/support/UserFilter.tsx",
+    "description": "administration/InvitationList.tsx, customer/team/CustomerUsersListExpandableRow.tsx, invitations/GroupInvitationsList.tsx, invitations/InvitationRoleFilter.tsx, invitations/InvitationsList.tsx, invitations/actions/RoleGroup.tsx, invitations/actions/create/EmailsListGroup.tsx, marketplace/offerings/update/integration/ScriptEditorHeader.tsx, marketplace/offerings/update/roles/RolesSection.tsx, marketplace/resources/users/AddUserDialog.tsx, marketplace/resources/users/ResourceUsersList.tsx, project/team/InvitationsList.tsx, project/team/ProjectUsersListFilter.tsx, project/team/RoleGroup.tsx, proposals/team/InvitationsList.tsx, proposals/team/UsersList.tsx, rancher/cluster/create/NodeRoleGroup.tsx, user/UserPermissionRequestsList.tsx, user/affiliations/PermissionDetails.tsx, user/support/UserFilter.tsx",
     "message": "Role"
   },
   "Roles and permissions": {
@@ -10079,6 +10143,10 @@
     "description": "marketplace/offerings/update/integration/EditScriptDialog.tsx",
     "message": "Save & dry run script"
   },
+  "Save and exit": {
+    "description": "marketplace/offerings/update/integration/EditScriptDialog.tsx",
+    "message": "Save and exit"
+  },
   "Save as a template": {
     "description": "broadcasts/BroadcastFooter.tsx",
     "message": "Save as a template"
@@ -10092,19 +10160,23 @@
     "message": "Save as"
   },
   "Save changes": {
-    "description": "user/api-key/UserTokenLifetime.tsx",
+    "description": "marketplace/offerings/update/integration/EditScriptDialog.tsx, user/api-key/UserTokenLifetime.tsx",
     "message": "Save changes"
   },
   "Save filter": {
     "description": "table/SaveFilterDialog.tsx, table/TableFilterActions.tsx",
     "message": "Save filter"
   },
+  "Save script": {
+    "description": "marketplace/offerings/update/integration/ScriptEditorHeader.tsx",
+    "message": "Save script"
+  },
   "Save summary": {
     "description": "proposals/proposal/create-review/steps/FormSummaryStep.tsx",
     "message": "Save summary"
   },
   "Save": {
-    "description": "administration/FeaturesList.tsx, administration/agreements/UserAgreementCreateDialog.tsx, administration/agreements/UserAgreementsEditDialog.tsx, administration/languages/AdministrationLanguages.tsx, administration/notifications/NotificationUpdateDialog.tsx, administration/providers/UpdateProviderDialog.tsx, administration/remote-offering-sync/RemoteSyncFormDialog.tsx, administration/roles/RoleCreateDialog.tsx, administration/roles/RoleDescriptionEditDialog.tsx, administration/roles/RoleEditDialog.tsx, administration/settings/CountrySelector.tsx, broadcasts/BroadcastSaveAsTemplateDialog.tsx, broadcasts/BroadcastTemplateCreateDialog.tsx, broadcasts/BroadcastTemplateUpdateDialog.tsx, customer/details/CustomerMediaPanel.tsx, customer/team/AddProjectUserDialog.tsx, customer/team/EditProjectUserDialog.tsx, customer/team/EditUserDialog.tsx, form/InsertLinkPopover.tsx, map/SetLocationDialog.tsx, marketplace/offerings/actions/SetAccessPolicyDialogForm.tsx, marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx, marketplace/offerings/expandable/utils.ts, marketplace/offerings/update/attributes/EditAttributeDialog.tsx, marketplace/offerings/update/attributes/EditCategoryDialog.tsx, marketplace/offerings/update/components/ChangeStorageModeDialog.tsx, marketplace/offerings/update/components/EditComponentDialog.tsx, marketplace/offerings/update/integration/EditLexisLinkIntegrationDialog.tsx, marketplace/offerings/update/integration/EditScriptDialog.tsx, marketplace/offerings/update/integration/EditVarsDialog.tsx, marketplace/offerings/update/options/EditOptionDialog.tsx, marketplace/offerings/update/plans/EditPlanDescriptionDialog.tsx, marketplace/offerings/update/plans/EditPlanPricesDialog.tsx, marketplace/offerings/update/plans/EditPlanQuotasDialog.tsx, marketplace/resources/actions/EditResourceEndDateDialog.tsx, marketplace/resources/actions/MoveResourceDialog.tsx, marketplace/resources/mass-actions/MultiMoveDialog.tsx, marketplace-checklist/ChecklistCustomer.tsx, project/MoveProjectDialog.tsx, project/manage/ProjectAvatar.tsx, project/team/EditUserDialog.tsx, proposals/update/documents/AttachDocumentsDialog.tsx, proposals/update/general/EditGeneralInfoDialog.tsx, reporting/invoices/utils.ts, table/SaveFilterDialog.tsx, user/support/UserEditAvatarFormItem.tsx",
+    "description": "administration/FeaturesList.tsx, administration/agreements/UserAgreementCreateDialog.tsx, administration/agreements/UserAgreementsEditDialog.tsx, administration/languages/AdministrationLanguages.tsx, administration/notifications/NotificationUpdateDialog.tsx, administration/providers/UpdateProviderDialog.tsx, administration/remote-offering-sync/RemoteSyncFormDialog.tsx, administration/roles/RoleCreateDialog.tsx, administration/roles/RoleDescriptionEditDialog.tsx, administration/roles/RoleEditDialog.tsx, administration/settings/CountrySelector.tsx, broadcasts/BroadcastSaveAsTemplateDialog.tsx, broadcasts/BroadcastTemplateCreateDialog.tsx, broadcasts/BroadcastTemplateUpdateDialog.tsx, customer/details/CustomerMediaPanel.tsx, customer/team/AddProjectUserDialog.tsx, customer/team/EditProjectUserDialog.tsx, customer/team/EditUserDialog.tsx, form/InsertLinkPopover.tsx, map/SetLocationDialog.tsx, marketplace/offerings/actions/SetAccessPolicyDialogForm.tsx, marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx, marketplace/offerings/expandable/utils.ts, marketplace/offerings/update/attributes/EditAttributeDialog.tsx, marketplace/offerings/update/attributes/EditCategoryDialog.tsx, marketplace/offerings/update/components/ChangeStorageModeDialog.tsx, marketplace/offerings/update/components/EditComponentDialog.tsx, marketplace/offerings/update/integration/EditLexisLinkIntegrationDialog.tsx, marketplace/offerings/update/integration/EditVarsDialog.tsx, marketplace/offerings/update/integration/ScriptEditorHeader.tsx, marketplace/offerings/update/options/EditOptionDialog.tsx, marketplace/offerings/update/plans/EditPlanDescriptionDialog.tsx, marketplace/offerings/update/plans/EditPlanPricesDialog.tsx, marketplace/offerings/update/plans/EditPlanQuotasDialog.tsx, marketplace/resources/actions/EditResourceEndDateDialog.tsx, marketplace/resources/actions/MoveResourceDialog.tsx, marketplace/resources/mass-actions/MultiMoveDialog.tsx, marketplace-checklist/ChecklistCustomer.tsx, project/MoveProjectDialog.tsx, project/manage/ProjectAvatar.tsx, project/team/EditUserDialog.tsx, proposals/update/documents/AttachDocumentsDialog.tsx, proposals/update/general/EditGeneralInfoDialog.tsx, reporting/invoices/utils.ts, table/SaveFilterDialog.tsx, user/support/UserEditAvatarFormItem.tsx",
     "message": "Save"
   },
   "Saved filters": {
@@ -10151,10 +10223,6 @@
     "description": "marketplace-checklist/StatsTable.tsx, proposals/round/proposals/ProposalExpandableRow.tsx",
     "message": "Score"
   },
-  "Script execution result": {
-    "description": "marketplace/offerings/update/integration/EditScriptDialog.tsx",
-    "message": "Script execution result"
-  },
   "Script for creation of a resource": {
     "description": "marketplace/offerings/update/integration/utils.ts",
     "message": "Script for creation of a resource"
@@ -10175,13 +10243,13 @@
     "description": "marketplace/offerings/update/integration/EditScriptDialog.tsx",
     "message": "Script has been updated successfully."
   },
+  "Script language has been updated successfully.": {
+    "description": "marketplace/offerings/update/integration/EditScriptLanguageDialog.tsx",
+    "message": "Script language has been updated successfully."
+  },
   "Script language": {
     "description": "marketplace/offerings/update/integration/utils.ts",
     "message": "Script language"
-  },
-  "Script language: {language}": {
-    "description": "marketplace/offerings/update/integration/EditScriptDialog.tsx",
-    "message": "Script language: {language}"
   },
   "Search again": {
     "description": "marketplace/offerings/update/endpoints/OfferingEndpointsSection.tsx, marketplace/offerings/update/options/OfferingOptionsSectionPure.tsx, marketplace/offerings/update/roles/RolesSection.tsx, table/TablePlaceholder.tsx",
@@ -10212,7 +10280,7 @@
     "message": "Search for project"
   },
   "Search": {
-    "description": "core/AsyncSearchBox.tsx, navigation/header/breadcrumb/BreadcrumbDropdown.tsx, openstack/openstack-instance/deploy/FormHardwareConfigurationStep.tsx, openstack/openstack-instance/deploy/FormImageStep.tsx, table/TableColumnsButton.tsx, table/TableQuery.tsx",
+    "description": "core/AsyncSearchBox.tsx, marketplace/offerings/update/integration/ScriptEditorHeader.tsx, navigation/header/breadcrumb/BreadcrumbDropdown.tsx, openstack/openstack-instance/deploy/FormHardwareConfigurationStep.tsx, openstack/openstack-instance/deploy/FormImageStep.tsx, table/TableColumnsButton.tsx, table/TableQuery.tsx",
     "message": "Search"
   },
   "Search...": {
@@ -10526,6 +10594,10 @@
   "Select tenants...": {
     "description": "marketplace/common/OptionsForm.tsx",
     "message": "Select tenants..."
+  },
+  "Select the language to be used for the offering %NAME%´s custom scripts": {
+    "description": "marketplace/offerings/update/integration/EditScriptLanguageDialog.tsx",
+    "message": "Select the language to be used for the offering %NAME%´s custom scripts"
   },
   "Select the main research field for the project.": {
     "description": "proposals/proposal/create/ProjectDetailsStep.tsx, proposals/proposal/create/ProjectDetailsSummary.tsx",
@@ -11215,6 +11287,10 @@
     "description": "administration/InvitationList.tsx, administration/announcements/AnnouncementFilter.tsx, administration/notifications/NotificationFilter.tsx, administration/providers/ProviderUsersDialog.tsx, customer/payment-profiles/PaymentProfileList.tsx, invitations/GroupInvitationsList.tsx, invitations/InvitationsList.tsx, issues/list/IssuesFilter.tsx, issues/list/IssuesList.tsx, marketplace/offerings/OfferingBreadcrumbPopover.tsx, marketplace/offerings/details/ConnectionStatusIndicator.tsx, marketplace/offerings/update/plans/PlansSection.tsx, marketplace/resources/details/utils.tsx, marketplace/service-providers/ProviderCampaignsList.tsx, navigation/BackendHealthStatusDialog.tsx, project/team/InvitationsList.tsx, proposals/offering-requests/OfferingRequestsTableFilter.tsx, proposals/round/proposals/ProposalExpandableRow.tsx, proposals/team/InvitationsList.tsx, user/support/UserFilter.tsx, user/support/UserList.tsx",
     "message": "Status"
   },
+  "Stay on current": {
+    "description": "marketplace/offerings/update/integration/EditScriptDialog.tsx",
+    "message": "Stay on current"
+  },
   "Step": {
     "description": "marketplace/resources/import/ResourceImportDialog.tsx",
     "message": "Step"
@@ -11406,6 +11482,10 @@
   "Switch resource plan": {
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Switch resource plan"
+  },
+  "Switching scripts will discard your changes. Do you want to continue?": {
+    "description": "marketplace/offerings/update/integration/EditScriptDialog.tsx",
+    "message": "Switching scripts will discard your changes. Do you want to continue?"
   },
   "Sync profile": {
     "description": "freeipa/SyncProfile.tsx",
@@ -13479,6 +13559,10 @@
     "description": "booking/EditSchedulesDialog.tsx",
     "message": "Unable to update schedules."
   },
+  "Unable to update script language.": {
+    "description": "marketplace/offerings/update/integration/EditScriptLanguageDialog.tsx",
+    "message": "Unable to update script language."
+  },
   "Unable to update script.": {
     "description": "marketplace/offerings/update/integration/EditScriptDialog.tsx",
     "message": "Unable to update script."
@@ -13606,6 +13690,10 @@
   "Unrestrict": {
     "description": "marketplace/service-providers/RestrictOfferingUser.tsx",
     "message": "Unrestrict"
+  },
+  "Unsaved changes": {
+    "description": "marketplace/offerings/update/integration/EditScriptDialog.tsx",
+    "message": "Unsaved changes"
   },
   "Unsent": {
     "description": "invitations/GroupInvitationCancelButton.tsx",
@@ -14032,7 +14120,7 @@
     "message": "User has been updated"
   },
   "User input": {
-    "description": "marketplace/offerings/OfferingEditUIView.tsx, marketplace/offerings/update/options/OfferingOptionsSection.tsx",
+    "description": "marketplace/offerings/OfferingEditUIView.tsx, marketplace/offerings/update/integration/ScriptEditorHeader.tsx, marketplace/offerings/update/options/OfferingOptionsSection.tsx",
     "message": "User input"
   },
   "User inputs": {

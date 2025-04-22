@@ -23,7 +23,7 @@ export const DeleteConfirmationDialog: React.FC<
   DeleteConfirmationDialogProps
 > = ({ resolve: { title, body, deferred } }) => {
   const dispatch = useDispatch();
-  const closeDialog = () => dispatch(closeModalDialog());
+  const closeDialog = () => dispatch(closeModalDialog('HIDE_CONFIRM'));
 
   const handleSubmit = () => {
     deferred.resolve();
