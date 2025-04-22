@@ -2436,7 +2436,7 @@
     "message": "Cost threshold"
   },
   "Cost": {
-    "description": "customer/list/CustomerList.tsx, dashboard/utils.ts, invoices/list/InvoicesStatsList.tsx, marketplace/details/plan/ComponentRow.tsx, marketplace/details/plan/UsageComponentRow.tsx, marketplace/offerings/expandable/utils.ts",
+    "description": "customer/list/CustomerList.tsx, dashboard/utils.ts, invoices/list/InvoicesStatsList.tsx, marketplace/details/plan/ComponentRow.tsx, marketplace/details/plan/UsageComponentRow.tsx, marketplace/offerings/details/policies/PoliciesTable.tsx, marketplace/offerings/expandable/utils.ts",
     "message": "Cost"
   },
   "Costs": {
@@ -8212,7 +8212,7 @@
     "message": "Policies"
   },
   "Policy": {
-    "description": "marketplace/offerings/OfferingDetailsUIView.tsx, openstack/openstack-server-groups/ServerGroupsList.tsx, openstack/openstack-tenant/actions/CreateServerGroupForm.tsx",
+    "description": "marketplace/offerings/OfferingDetailsUIView.tsx, marketplace/offerings/details/policies/PoliciesTable.tsx, openstack/openstack-server-groups/ServerGroupsList.tsx, openstack/openstack-tenant/actions/CreateServerGroupForm.tsx",
     "message": "Policy"
   },
   "Political science": {
@@ -13932,7 +13932,7 @@
     "message": "Usage reports"
   },
   "Usage": {
-    "description": "marketplace/aggregate-limits/AggregateLimitDetailsDialog.tsx, marketplace/aggregate-limits/utils.ts, marketplace/resources/change-limits/ChangeLimitsComponent.tsx, marketplace/resources/details/fetchData.tsx, reporting/plan-usage/PlanUsageDialog.tsx, slurm/details/utils.ts",
+    "description": "marketplace/aggregate-limits/AggregateLimitDetailsDialog.tsx, marketplace/aggregate-limits/utils.ts, marketplace/offerings/details/policies/PoliciesTable.tsx, marketplace/resources/change-limits/ChangeLimitsComponent.tsx, marketplace/resources/details/fetchData.tsx, reporting/plan-usage/PlanUsageDialog.tsx, slurm/details/utils.ts",
     "message": "Usage"
   },
   "Usage-based": {
