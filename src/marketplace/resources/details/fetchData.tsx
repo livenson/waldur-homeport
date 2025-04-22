@@ -155,8 +155,8 @@ export const getResourceTabs = ({
   const showIssues = hasSupport();
   if (showIssues) {
     tabs.push({
-      key: 'tickets',
-      title: translate('Tickets'),
+      key: 'requests',
+      title: translate('Requests'),
       component: lazyComponent(() =>
         import('./ResourceIssuesCard').then((module) => ({
           default: module.ResourceIssuesCard,

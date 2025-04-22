@@ -2619,10 +2619,6 @@
     "description": "proposals/proposal/create/AddProposalDialog.tsx",
     "message": "Create proposal"
   },
-  "Create request": {
-    "description": "issues/create/IssueCreateForm.tsx",
-    "message": "Create request"
-  },
   "Create review": {
     "description": "proposals/proposal/ProposalRowActions.tsx, proposals/proposal/create-review/CreateReviewDialog.tsx, proposals/proposal/create-review/ProposalReviewCreatePage.tsx",
     "message": "Create review"
@@ -2650,6 +2646,10 @@
   "Create subnet": {
     "description": "openstack/openstack-network/actions/CreateSubnetAction.tsx, openstack/openstack-network/actions/CreateSubnetDialog.tsx",
     "message": "Create subnet"
+  },
+  "Create support request": {
+    "description": "issues/create/IssueCreateForm.tsx",
+    "message": "Create support request"
   },
   "Create": {
     "description": "administration/announcements/AnnouncementForm.tsx, administration/organizations/OrganizationGroupForm.tsx, administration/remote-offering-sync/RemoteSyncFormDialog.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, customer/cost-policies/CostPolicyFormDialog.tsx, customer/create/CustomerCreateDialog.tsx, customer/credits/CreditFormDialog.tsx, customer/details/AccessSubnetForm.tsx, freeipa/FreeIPAAccountCreate.tsx, issues/create/IssueCreateForm.tsx, issues/list/IssueCreateButton.tsx, marketplace/category/admin/CategoryEditDialog.tsx, marketplace/category/admin/GroupFromDialog.tsx, marketplace/details/OrderSubmitButton.tsx, marketplace/offerings/actions/OfferingCreateDialog.tsx, marketplace/offerings/details/CreateOfferingUserButton.tsx, marketplace/offerings/details/policies/PolicyCreateDialog.tsx, marketplace/offerings/update/components/AddComponentDialog.tsx, marketplace/offerings/update/endpoints/AddEndpointDialog.tsx, marketplace/offerings/update/options/AddOptionDialog.tsx, marketplace/offerings/update/plans/AddPlanDialog.tsx, marketplace/offerings/update/roles/AddRoleDialog.tsx, marketplace/orders/list/OrderTypeCell.tsx, marketplace/orders/list/OrderTypeFilter.tsx, marketplace/resources/details/ResourceIssuesCard.tsx, marketplace/resources/users/AddUserDialog.tsx, marketplace/service-providers/CampaignCreateButton.tsx, marketplace/service-providers/CreateProviderOfferingUserButton.tsx, openstack/openstack-instance/actions/CreateBackupAction.tsx, openstack/openstack-tenant/CreateMigrationButton.tsx, openstack/openstack-tenant/actions/CreateFloatingIpAction.tsx, openstack/openstack-tenant/actions/CreateNetworkAction.tsx, openstack/openstack-tenant/actions/CreateSecurityGroupAction.tsx, openstack/openstack-tenant/actions/CreateServerGroupAction.tsx, openstack/openstack-volume/actions/CreateSnapshotAction.tsx, project/create/ProjectCreateDialog.tsx, proposals/call-management/CallFormDialog.tsx, proposals/proposal/create/AddProposalDialog.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestFormDialog.tsx, proposals/proposal/create-review/CreateReviewDialog.tsx, proposals/update/offerings/CallOfferingCreateDialog.tsx, proposals/update/rounds/CallRoundCreateDialog.tsx, rancher/catalog/CatalogCreateButton.tsx, rancher/cluster/hpas/HPACreateButton.tsx, user/hooks/HookDetailsDialog.tsx",
@@ -9440,7 +9440,7 @@
     "message": "Requests offering code for all issues."
   },
   "Requests": {
-    "description": "customer/dashboard/CustomerActions.tsx, customer/routes.ts, issues/list/IssuesList.tsx, issues/routes.ts, navigation/header/QuickIssueDrawerToggle.tsx, navigation/header/quick-issue-drawer/UserIssuesTable.tsx, project/routes.ts",
+    "description": "customer/dashboard/CustomerActions.tsx, customer/routes.ts, issues/list/IssuesList.tsx, issues/routes.ts, marketplace/resources/details/ResourceIssuesCard.tsx, marketplace/resources/details/fetchData.tsx, navigation/header/QuickIssueDrawerToggle.tsx, navigation/header/quick-issue-drawer/UserIssuesTable.tsx, project/routes.ts",
     "message": "Requests"
   },
   "Required nodes": {
@@ -9582,10 +9582,6 @@
   "Resource is not connected to the service catalog yet.": {
     "description": "i18n/translate.tsx",
     "message": "Resource is not connected to the service catalog yet."
-  },
-  "Resource issues": {
-    "description": "marketplace/resources/details/ResourceIssuesCard.tsx",
-    "message": "Resource issues"
   },
   "Resource limits change request has been submitted.": {
     "description": "marketplace/resources/change-limits/ChangeLimitsBody.tsx",
@@ -11375,6 +11371,10 @@
     "description": "issues/events.tsx",
     "message": "Support request events"
   },
+  "Support requests": {
+    "description": "marketplace/resources/details/ResourceIssuesCard.tsx",
+    "message": "Support requests"
+  },
   "Support user": {
     "description": "user/support/utils.ts",
     "message": "Support user"
@@ -12034,10 +12034,6 @@
   "Thumbnail": {
     "description": "marketplace/offerings/images/OfferingImagesList.tsx",
     "message": "Thumbnail"
-  },
-  "Tickets": {
-    "description": "marketplace/resources/details/ResourceIssuesCard.tsx, marketplace/resources/details/fetchData.tsx",
-    "message": "Tickets"
   },
   "Time in minutes. Time in minutes while comment deletion is available <https://github.com/zammad/zammad/issues/2687/>, <https://github.com/zammad/zammad/issues/3086/>": {
     "description": "SettingsDescription.ts",
