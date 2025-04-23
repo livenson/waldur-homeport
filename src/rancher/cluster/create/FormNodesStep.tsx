@@ -18,7 +18,6 @@ import { ORDER_FORM_ID } from '@waldur/marketplace/details/constants';
 import { waitForConfirmation } from '@waldur/modal/actions';
 
 import { NODES_FIELD_ARRAY } from './constants';
-import { LonghornWorkerWarning } from './LonghornWorkerWarning';
 import { RANCHER_NODE_ROLES } from './RANCHER_NODE_ROLES';
 import {
   filterFlavors,
@@ -152,13 +151,6 @@ const renderNodeRows = ({ fields, flavors }: any) => {
                           </Button>
                         </td>
                       </tr>
-                      {typeof index === 'number' ? (
-                        <tr>
-                          <td colSpan={7}>
-                            <LonghornWorkerWarning nodeIndex={index} />
-                          </td>
-                        </tr>
-                      ) : null}
                     </Fragment>
                   );
                 })}

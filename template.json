@@ -4604,7 +4604,7 @@
     "message": "Full price list of {offeringName} offering"
   },
   "GB": {
-    "description": "openstack/openstack-volume/actions/ExtendDialog.tsx, rancher/cluster/create/FormOptionalServicesStep.tsx, rancher/cluster/create/ManagedFormNodesStep.tsx, rancher/cluster/create/SystemVolumeSizeGroup.tsx, rancher/cluster/create/VolumeSizeGroup.tsx, vmware/deploy/FormMemoryStep.tsx",
+    "description": "openstack/openstack-volume/actions/ExtendDialog.tsx, rancher/cluster/create/FormLonghornStep.tsx, rancher/cluster/create/ManagedFormNodesStep.tsx, rancher/cluster/create/SystemVolumeSizeGroup.tsx, rancher/cluster/create/VolumeSizeGroup.tsx, vmware/deploy/FormMemoryStep.tsx",
     "message": "GB"
   },
   "GLAuth configuration for {offering}": {
@@ -6032,8 +6032,12 @@
     "message": "Longhorn is a lightweight, reliable, and powerful distributed block storage system for Kubernetes."
   },
   "Longhorn volume size": {
-    "description": "rancher/cluster/create/FormOptionalServicesStep.tsx",
+    "description": "rancher/cluster/create/FormLonghornStep.tsx",
     "message": "Longhorn volume size"
+  },
+  "Longhorn": {
+    "description": "rancher/cluster/create/FormLonghornStep.tsx, rancher/cluster/create/managed-steps.ts",
+    "message": "Longhorn"
   },
   "MAC address (optional)": {
     "description": "openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx",
@@ -7458,10 +7462,6 @@
   "Option has been updated successfully.": {
     "description": "marketplace/offerings/update/options/EditOptionDialog.tsx",
     "message": "Option has been updated successfully."
-  },
-  "Optional": {
-    "description": "rancher/cluster/create/FormOptionalServicesStep.tsx, rancher/cluster/create/managed-steps.ts, rancher/cluster/create/steps.ts",
-    "message": "Optional"
   },
   "Optionally disable creation of user groups in FreeIPA matching Waldur structure": {
     "description": "SettingsDescription.ts",
@@ -10954,6 +10954,10 @@
   "Show console log": {
     "description": "resource/actions/OpenConsoleLogActionItem.tsx",
     "message": "Show console log"
+  },
+  "Show credit field in project create dialog.": {
+    "description": "features/FeaturesDescription.ts",
+    "message": "Show credit field in project create dialog."
   },
   "Show description field in project create dialog.": {
     "description": "features/FeaturesDescription.ts",

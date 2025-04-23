@@ -6,8 +6,6 @@ import { SelectControl } from '@waldur/form/SelectControl';
 import { translate } from '@waldur/i18n';
 import { FormGroup } from '@waldur/marketplace/offerings/FormGroup';
 
-import { LonghornWorkerWarning } from './LonghornWorkerWarning';
-
 const SelectFlavorField: FC<any> = (props) => (
   <SelectControl
     value={props.input.value}
@@ -18,7 +16,6 @@ const SelectFlavorField: FC<any> = (props) => (
 );
 
 interface NodeFlavorGroupProps {
-  nodeIndex?: number;
   options: any[];
 }
 
@@ -32,9 +29,6 @@ export const NodeFlavorGroup: FC<NodeFlavorGroupProps> = (props) => {
         validate={required}
         isClearable={true}
       />
-      {typeof props.nodeIndex === 'number' ? (
-        <LonghornWorkerWarning nodeIndex={props.nodeIndex} />
-      ) : null}
     </FormGroup>
   );
 };

@@ -8,21 +8,21 @@ import {
   formatIntField,
   parseIntField,
 } from '@waldur/marketplace/common/utils';
+import { orderFormSelector } from '@waldur/marketplace/deploy/selectors';
 import { FormStepProps } from '@waldur/marketplace/deploy/types';
-import { offeringSelector } from '@waldur/marketplace/details/selectors';
 import { FormGroup } from '@waldur/marketplace/offerings/FormGroup';
 
 import { InstallLonghornField } from './InstallLonghornField';
 import { IntegerUnitField } from './IntegerUnitField';
 
-export const FormOptionalServicesStep = (props: FormStepProps) => {
+export const FormLonghornStep = (props: FormStepProps) => {
   const enabled: boolean = useSelector((state) =>
-    offeringSelector(state, 'attributes.install_longhorn'),
+    orderFormSelector(state, 'attributes.install_longhorn'),
   );
 
   return (
     <VStepperFormStepCard
-      title={translate('Optional')}
+      title={translate('Longhorn')}
       id={props.id}
       disabled={props.disabled}
       disabledTooltip={props.disabledTooltip}
