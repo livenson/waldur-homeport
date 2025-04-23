@@ -679,6 +679,10 @@
     "description": "customer/credits/CreditFormDialog.tsx, customer/credits/ProjectCreditFormDialog.tsx",
     "message": "Allocate credit ({currency})"
   },
+  "Allocate credit to the project (optional)": {
+    "description": "project/create/CreditGroup.tsx",
+    "message": "Allocate credit to the project (optional)"
+  },
   "Allocated credit": {
     "description": "customer/credits/constants.tsx",
     "message": "Allocated credit"
@@ -2763,6 +2767,10 @@
     "description": "customer/credits/ProjectCreditFormDialog.tsx",
     "message": "Credits available for this organization: {currency} {credits}"
   },
+  "Credits available for this organization: {customer_credit}": {
+    "description": "project/create/CreditGroup.tsx",
+    "message": "Credits available for this organization: {customer_credit}"
+  },
   "Credits": {
     "description": "administration/organizations/OrganizationCreditsList.tsx, customer/credits/ProjectCreditsList.tsx",
     "message": "Credits"
@@ -4106,6 +4114,10 @@
   "Error traceback": {
     "description": "marketplace/resources/details/utils.tsx, marketplace/resources/resource-pending/ResourceOrderErrorDialog.tsx",
     "message": "Error traceback"
+  },
+  "Error while assigning credit to the project.": {
+    "description": "project/create/ProjectCreateDialog.tsx",
+    "message": "Error while assigning credit to the project."
   },
   "Error while deleting credit.": {
     "description": "customer/credits/DeleteCreditButton.tsx, customer/credits/ProjectDeleteCreditButton.tsx",
