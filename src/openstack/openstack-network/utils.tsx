@@ -108,7 +108,7 @@ export const getDefaultAllocationPool = (cidr: string) => {
   const networkAddress = getNetworkAddress(address, prefix);
   const broadcastAddress = getBroadcastAddress(address, prefix);
 
-  const firstUsable = longToIp(ipToLong(networkAddress) + 1);
+  const firstUsable = longToIp(ipToLong(networkAddress) + 2);
   const lastUsable = longToIp(ipToLong(broadcastAddress) - 1);
 
   return {
