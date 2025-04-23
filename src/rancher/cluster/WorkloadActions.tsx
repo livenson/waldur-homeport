@@ -10,9 +10,10 @@ import {
 } from 'waldur-js-client';
 
 import { translate } from '@waldur/i18n';
+import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
-import { RowActionButton } from '@waldur/table/ActionButton';
 import { deleteEntity } from '@waldur/table/actions';
+import { ActionsDropdownComponent } from '@waldur/table/ActionsDropdown';
 
 import { ViewYAMLButton } from './ViewYAMLButton';
 
@@ -42,27 +43,27 @@ export const WorkloadActions: FunctionComponent<{ workload }> = ({
   const disabled = redeployResult.loading || deleteResult.loading;
 
   return (
-    <>
+    <ActionsDropdownComponent>
       <ViewYAMLButton
         yamlRetrieve={rancherWorkloadsYamlRetrieve}
         yamlUpdate={rancherWorkloadsYamlUpdate}
         resource={workload}
         disabled={disabled}
       />
-      <RowActionButton
+      <ActionItem
         title={translate('Redeploy')}
         action={redeployCallback}
-        iconNode={<Swap />}
+        iconNode={<Swap weight="bold" />}
         disabled={disabled}
-        size="sm"
       />
-      <RowActionButton
+      <ActionItem
         title={translate('Delete')}
         action={deleteCallback}
-        iconNode={<Trash />}
+        iconNode={<Trash weight="bold" />}
         disabled={disabled}
-        size="sm"
+        className="text-danger"
+        iconColor="danger"
       />
-    </>
+    </ActionsDropdownComponent>
   );
 };

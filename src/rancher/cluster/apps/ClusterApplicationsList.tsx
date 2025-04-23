@@ -1,9 +1,9 @@
 import { FunctionComponent, useMemo } from 'react';
-import { ButtonGroup } from 'react-bootstrap';
 import { RancherApplication, RancherCluster } from 'waldur-js-client';
 
 import { formatDate } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
+import { ActionsDropdownComponent } from '@waldur/table/ActionsDropdown';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
@@ -12,10 +12,10 @@ import { ApplicationDeleteButton } from './ApplicationDeleteButton';
 import { ApplicationDetailsButton } from './ApplicationDetailsButton';
 
 const ApplicationActions = ({ row }) => (
-  <ButtonGroup>
+  <ActionsDropdownComponent>
     <ApplicationDetailsButton application={row} />
     <ApplicationDeleteButton application={row} />
-  </ButtonGroup>
+  </ActionsDropdownComponent>
 );
 
 export const ClusterApplicationsList: FunctionComponent<{
