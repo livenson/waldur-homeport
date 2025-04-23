@@ -196,7 +196,7 @@
     "message": "Access"
   },
   "Account deletion": {
-    "description": "user/support/UserRemovalMessageDialog.tsx",
+    "description": "user/support/UserDeleteAccount.tsx",
     "message": "Account deletion"
   },
   "Account name generation policy": {
@@ -1860,7 +1860,7 @@
     "message": "Cancel request"
   },
   "Cancel": {
-    "description": "administration/roles/RoleDescriptionEditDialog.tsx, form/InsertLinkPopover.tsx, form/WideImageField.tsx, invitations/GroupInvitationCancelButton.tsx, invitations/GroupinvitationButtons.tsx, invitations/MultiCancelAction.tsx, invitations/actions/InvitationCancelButton.tsx, marketplace/details/CustomerField.tsx, marketplace/landing/MarketplaceLandingFilter.tsx, marketplace/offerings/update/integration/EditScriptDialog.tsx, marketplace/orders/actions/CancelTerminationOrderButton.tsx, marketplace/orders/details/CancelOrderButton.tsx, marketplace/service-providers/ServiceProviderManagement.tsx, modal/CloseDialogButton.tsx, modal/DeleteConfirmationDialog.tsx, table/TableFilterActions.tsx, table/TableFilterItem.tsx, user/support/UserRemovalMessageDialog.tsx, user/support/UserStatus.tsx",
+    "description": "administration/roles/RoleDescriptionEditDialog.tsx, form/InsertLinkPopover.tsx, form/WideImageField.tsx, invitations/GroupInvitationCancelButton.tsx, invitations/GroupinvitationButtons.tsx, invitations/MultiCancelAction.tsx, invitations/actions/InvitationCancelButton.tsx, marketplace/details/CustomerField.tsx, marketplace/landing/MarketplaceLandingFilter.tsx, marketplace/offerings/update/integration/EditScriptDialog.tsx, marketplace/orders/actions/CancelTerminationOrderButton.tsx, marketplace/orders/details/CancelOrderButton.tsx, marketplace/service-providers/ServiceProviderManagement.tsx, modal/CloseDialogButton.tsx, modal/DeleteConfirmationDialog.tsx, table/TableFilterActions.tsx, table/TableFilterItem.tsx, user/support/DangerActionDialog.tsx, user/support/UserStatus.tsx",
     "message": "Cancel"
   },
   "Canceled": {
@@ -3200,7 +3200,7 @@
     "message": "Delete volumes"
   },
   "Delete": {
-    "description": "administration/agreements/UserAgreementDeleteButton.tsx, administration/remote-offering-sync/RemoteSyncDeleteAction.tsx, customer/credits/DeleteCreditButton.tsx, customer/credits/ProjectDeleteCreditButton.tsx, customer/details/CustomerRemoveDialog.tsx, customer/payment-profiles/PaymentProfileDeleteButton.tsx, customer/payments/DeletePaymentButton.tsx, invitations/InvitationDeleteButton.tsx, invitations/MultiDeleteAction.tsx, marketplace/offerings/images/DeleteImageButton.tsx, marketplace/offerings/list/DeleteOfferingButton.tsx, marketplace/offerings/list/OfferingActions.test.tsx, marketplace/offerings/update/components/DeleteComponentButton.tsx, marketplace/offerings/update/endpoints/DeleteEndpointButton.tsx, marketplace/offerings/update/options/DeleteOptionButton.tsx, marketplace/offerings/update/roles/DeleteRoleButton.tsx, marketplace/resources/users/DeleteUserButton.tsx, marketplace/service-providers/ProviderOfferingUserDeleteButton.tsx, modal/DeleteConfirmationDialog.tsx, openstack/openstack-backup/actions/NetworksList.tsx, openstack/openstack-instance/actions/update-floating-ips/FloatingIpRow.tsx, openstack/openstack-security-groups/rule-editor/ActionsField.tsx, project/DeleteAction.tsx, project/manage/ProjectDelete.tsx, rancher/catalog/CatalogDeleteButton.tsx, rancher/cluster/WorkloadActions.tsx, resource/actions/ResourceDeleteButton.tsx, user/support/UserDelete.tsx, user/support/UserRemovalMessageDialog.tsx",
+    "description": "administration/agreements/UserAgreementDeleteButton.tsx, administration/remote-offering-sync/RemoteSyncDeleteAction.tsx, customer/credits/DeleteCreditButton.tsx, customer/credits/ProjectDeleteCreditButton.tsx, customer/details/CustomerRemoveDialog.tsx, customer/payment-profiles/PaymentProfileDeleteButton.tsx, customer/payments/DeletePaymentButton.tsx, invitations/InvitationDeleteButton.tsx, invitations/MultiDeleteAction.tsx, marketplace/offerings/images/DeleteImageButton.tsx, marketplace/offerings/list/DeleteOfferingButton.tsx, marketplace/offerings/list/OfferingActions.test.tsx, marketplace/offerings/update/components/DeleteComponentButton.tsx, marketplace/offerings/update/endpoints/DeleteEndpointButton.tsx, marketplace/offerings/update/options/DeleteOptionButton.tsx, marketplace/offerings/update/roles/DeleteRoleButton.tsx, marketplace/resources/users/DeleteUserButton.tsx, marketplace/service-providers/ProviderOfferingUserDeleteButton.tsx, modal/DeleteConfirmationDialog.tsx, openstack/openstack-backup/actions/NetworksList.tsx, openstack/openstack-instance/actions/update-floating-ips/FloatingIpRow.tsx, openstack/openstack-security-groups/rule-editor/ActionsField.tsx, project/DeleteAction.tsx, project/manage/ProjectDelete.tsx, rancher/catalog/CatalogDeleteButton.tsx, rancher/cluster/WorkloadActions.tsx, resource/actions/ResourceDeleteButton.tsx, user/support/DangerActionDialog.tsx, user/support/UserDelete.tsx",
     "message": "Delete"
   },
   "Deleting PostgreSQL server will cause deletion of all databases created within server.": {
@@ -4951,6 +4951,10 @@
     "description": "user/support/UserDeleteAccount.tsx",
     "message": "I confirm that I understand the impact and want to delete my account"
   },
+  "I confirm that I understand the impact and want to remove Longhorn": {
+    "description": "rancher/cluster/ClusterLonghornTab.tsx",
+    "message": "I confirm that I understand the impact and want to remove Longhorn"
+  },
   "ID code": {
     "description": "user/support/UserDetailsTable.tsx, user/support/UserEditRows.tsx",
     "message": "ID code"
@@ -6043,12 +6047,24 @@
     "description": "rancher/cluster/create/InstallLonghornField.tsx",
     "message": "Longhorn is a lightweight, reliable, and powerful distributed block storage system for Kubernetes."
   },
+  "Longhorn is not installed.": {
+    "description": "rancher/cluster/ClusterLonghornTab.tsx",
+    "message": "Longhorn is not installed."
+  },
+  "Longhorn removal": {
+    "description": "rancher/cluster/ClusterLonghornTab.tsx",
+    "message": "Longhorn removal"
+  },
+  "Longhorn status": {
+    "description": "rancher/cluster/ClusterLonghornTab.tsx",
+    "message": "Longhorn status"
+  },
   "Longhorn volume size": {
     "description": "rancher/cluster/create/FormLonghornStep.tsx",
     "message": "Longhorn volume size"
   },
   "Longhorn": {
-    "description": "rancher/cluster/create/FormLonghornStep.tsx, rancher/cluster/create/managed-steps.ts",
+    "description": "marketplace/resources/details/fetchData.tsx, rancher/cluster/create/FormLonghornStep.tsx, rancher/cluster/create/managed-steps.ts",
     "message": "Longhorn"
   },
   "MAC address (optional)": {
@@ -7080,7 +7096,7 @@
     "message": "OECD FoS code"
   },
   "OK": {
-    "description": "administration/providers/ProviderDetailsDialog.tsx, administration/providers/ProviderUsersDialog.tsx, marketplace/resources/list/ResourceStateFilter.tsx, user/support/UserRemovalMessageDialog.tsx",
+    "description": "administration/providers/ProviderDetailsDialog.tsx, administration/providers/ProviderUsersDialog.tsx, marketplace/resources/list/ResourceStateFilter.tsx, user/support/DangerActionDialog.tsx",
     "message": "OK"
   },
   "OR": {
@@ -8003,6 +8019,10 @@
     "description": "user/support/UserDeleteAccount.tsx",
     "message": "Permanently delete your account."
   },
+  "Permanently remove Longhorn.": {
+    "description": "rancher/cluster/ClusterLonghornTab.tsx",
+    "message": "Permanently remove Longhorn."
+  },
   "Permission expires at": {
     "description": "user/affiliations/PermissionDetails.tsx",
     "message": "Permission expires at"
@@ -8180,8 +8200,12 @@
     "message": "Please note that request should specify tenant and provide a reason."
   },
   "Please note that request should specify user name and provide a reason.": {
-    "description": "user/support/UserRemovalMessageDialog.tsx",
+    "description": "user/support/UserDeleteAccount.tsx",
     "message": "Please note that request should specify user name and provide a reason."
+  },
+  "Please note that request should specify what to with the volumes.": {
+    "description": "rancher/cluster/ClusterLonghornTab.tsx",
+    "message": "Please note that request should specify what to with the volumes."
   },
   "Please open offering {offeringName} ({offeringUuid}) for editing. \nRequestor: {userName} / {userUuid}. \nService provider: {customerName} / {customerUuid}": {
     "description": "marketplace/offerings/actions/RequestActionDialog.tsx",
@@ -9247,6 +9271,10 @@
     "description": "SettingsDescription.ts",
     "message": "Remove Docker container after script execution"
   },
+  "Remove Loghorn in cluster": {
+    "description": "rancher/cluster/ClusterLonghornTab.tsx",
+    "message": "Remove Loghorn in cluster"
+  },
   "Remove avatar": {
     "description": "form/ImageField.tsx",
     "message": "Remove avatar"
@@ -9270,6 +9298,10 @@
   "Removed projects cannot be restored.": {
     "description": "project/manage/ProjectDelete.tsx",
     "message": "Removed projects cannot be restored."
+  },
+  "Removing Longhorn may result in the loss of attached volumes. Do you want to delete existing backups as well, or keep them for future use?": {
+    "description": "rancher/cluster/ClusterLonghornTab.tsx",
+    "message": "Removing Longhorn may result in the loss of attached volumes. Do you want to delete existing backups as well, or keep them for future use?"
   },
   "Removing default security group can remove egress access from the VM and block communication with Openstack metadata service.": {
     "description": "openstack/openstack-instance/deploy/FormSecurityGroupsField.tsx",
@@ -9360,7 +9392,7 @@
     "message": "Reporting"
   },
   "Request account removal for {userName}.": {
-    "description": "user/support/UserRemovalMessageDialog.tsx",
+    "description": "user/support/UserDeleteAccount.tsx",
     "message": "Request account removal for {userName}."
   },
   "Request change of limits of SLURM allocation": {
@@ -9372,7 +9404,7 @@
     "message": "Request change"
   },
   "Request deletion": {
-    "description": "user/support/UserDeleteAccount.tsx",
+    "description": "rancher/cluster/ClusterLonghornTab.tsx, user/support/UserDeleteAccount.tsx",
     "message": "Request deletion"
   },
   "Request demo": {
@@ -9411,6 +9443,10 @@
     "description": "SettingsDescription.ts",
     "message": "Request feedback field name"
   },
+  "Request for Longhorn removal has been submitted.": {
+    "description": "rancher/cluster/ClusterLonghornTab.tsx",
+    "message": "Request for Longhorn removal has been submitted."
+  },
   "Request for a change": {
     "description": "marketplace/resources/change-limits/ChangeLimitsBody.tsx, marketplace/resources/change-plan/ChangePlanDialog.tsx",
     "message": "Request for a change"
@@ -9420,7 +9456,7 @@
     "message": "Request for a termination"
   },
   "Request for account deletion has been created.": {
-    "description": "user/support/UserRemovalMessageDialog.tsx",
+    "description": "user/support/UserDeleteAccount.tsx",
     "message": "Request for account deletion has been created."
   },
   "Request has been sent": {
@@ -12088,7 +12124,7 @@
     "message": "Third"
   },
   "This action cannot be undone.": {
-    "description": "user/support/UserDelete.tsx, user/support/UserDeleteAccount.tsx",
+    "description": "rancher/cluster/ClusterLonghornTab.tsx, user/support/UserDelete.tsx, user/support/UserDeleteAccount.tsx",
     "message": "This action cannot be undone."
   },
   "This action will disable account access": {
@@ -12191,8 +12227,12 @@
     "description": "openstack/openstack-tenant/actions/RequestDirectAccessDialog.tsx",
     "message": "To get access, please send a request to {supportEmail}."
   },
+  "To remove Longhorn, please send a request to {support}.": {
+    "description": "rancher/cluster/ClusterLonghornTab.tsx",
+    "message": "To remove Longhorn, please send a request to {support}."
+  },
   "To remove account, please send a request to {support}.": {
-    "description": "user/support/UserRemovalMessageDialog.tsx",
+    "description": "user/support/UserDeleteAccount.tsx",
     "message": "To remove account, please send a request to {support}."
   },
   "To": {
@@ -12644,7 +12684,7 @@
     "message": "Unable to create remote synchronization."
   },
   "Unable to create request.": {
-    "description": "issues/create/utils.ts, user/support/UserRemovalMessageDialog.tsx",
+    "description": "issues/create/utils.ts, user/support/DangerActionDialog.tsx",
     "message": "Unable to create request."
   },
   "Unable to create robot account.": {
@@ -14628,7 +14668,7 @@
     "message": "When estimated cost reaches"
   },
   "Why would you want to go away? Help us become better please!": {
-    "description": "user/support/UserRemovalMessageDialog.tsx",
+    "description": "user/support/UserDeleteAccount.tsx",
     "message": "Why would you want to go away? Help us become better please!"
   },
   "Widget field allows to customise table cell rendering": {
@@ -15216,7 +15256,7 @@
     "message": "support requests"
   },
   "support": {
-    "description": "user/support/UserRemovalMessageDialog.tsx",
+    "description": "rancher/cluster/ClusterLonghornTab.tsx, user/support/UserDeleteAccount.tsx",
     "message": "support"
   },
   "team invitations": {
