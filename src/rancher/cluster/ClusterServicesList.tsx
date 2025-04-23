@@ -71,11 +71,8 @@ export const ClusterServicesList: FunctionComponent<{
           title: translate('State'),
           render: ({ row }) => <>{row.runtime_state}</>,
         },
-        {
-          title: translate('Actions'),
-          render: ({ row }) => <ServiceActions service={row} />,
-        },
       ]}
+      rowActions={ServiceActions}
       verboseName={translate('services')}
       showPageSizeSelector
       tableActions={<ImportYAMLButton cluster_id={resourceScope.uuid} />}

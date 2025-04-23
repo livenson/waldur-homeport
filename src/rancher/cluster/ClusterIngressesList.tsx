@@ -60,11 +60,8 @@ export const ClusterIngressesList: FunctionComponent<{ resourceScope }> = ({
           title: translate('State'),
           render: ({ row }) => <>{row.runtime_state}</>,
         },
-        {
-          title: translate('Actions'),
-          render: ({ row }) => <IngressActions ingress={row} />,
-        },
       ]}
+      rowActions={IngressActions}
       verboseName={translate('ingresses')}
       showPageSizeSelector
       tableActions={<ImportYAMLButton cluster_id={resourceScope.uuid} />}

@@ -1,5 +1,4 @@
 import { FunctionComponent, useMemo } from 'react';
-import { ButtonGroup } from 'react-bootstrap';
 import {
   RancherCluster,
   RancherHpa,
@@ -9,6 +8,7 @@ import {
 
 import { formatDate } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
+import { ActionsDropdownComponent } from '@waldur/table/ActionsDropdown';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
@@ -18,6 +18,18 @@ import { ViewYAMLButton } from '../ViewYAMLButton';
 import { HPACreateButton } from './HPACreateButton';
 import { HPADeleteButton } from './HPADeleteButton';
 import { HPAUpdateButton } from './HPAUpdateButton';
+
+const RowActions = ({ row, yamlRetrieve, yamlUpdate }) => (
+  <ActionsDropdownComponent>
+    <ViewYAMLButton
+      yamlRetrieve={yamlRetrieve}
+      yamlUpdate={yamlUpdate}
+      resource={row}
+    />
+    <HPAUpdateButton hpa={row} />
+    <HPADeleteButton hpa={row} />
+  </ActionsDropdownComponent>
+);
 
 export const ClusterHPAList: FunctionComponent<{
   resourceScope: RancherCluster;
@@ -83,15 +95,11 @@ export const ClusterHPAList: FunctionComponent<{
         {
           title: translate('Actions'),
           render: ({ row }) => (
-            <ButtonGroup>
-              <ViewYAMLButton
-                yamlRetrieve={rancherHpasYamlRetrieve}
-                yamlUpdate={rancherHpasYamlUpdate}
-                resource={row}
-              />
-              <HPAUpdateButton hpa={row} />
-              <HPADeleteButton hpa={row} />
-            </ButtonGroup>
+            <RowActions
+              yamlRetrieve={rancherHpasYamlRetrieve}
+              yamlUpdate={rancherHpasYamlUpdate}
+              row={row}
+            />
           ),
         },
       ]}
