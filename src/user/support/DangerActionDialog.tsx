@@ -12,18 +12,11 @@ import { useModal } from '@waldur/modal/hooks';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { useNotify } from '@waldur/store/hooks';
 
-interface UserRemovalMessageDialogProps {
-  resolve: {
-    userName: string;
-  };
-}
+import { DangerActionPanelProps } from './DangerActionPanelProps';
 
-export const UserRemovalMessageDialog: FunctionComponent<
-  UserRemovalMessageDialogProps
-> = (props) => {
-  const {
-    resolve: { userName },
-  } = props;
+export const DangerActionDialog: FunctionComponent<DangerActionPanelProps> = (
+  props,
+) => {
   const router = useRouter();
   const { closeDialog } = useModal();
   const { showSuccess, showErrorResponse } = useNotify();
@@ -34,11 +27,12 @@ export const UserRemovalMessageDialog: FunctionComponent<
         body: {
           type: ISSUE_IDS.CHANGE_REQUEST as IssueTypeEnum,
           description: reason,
-          summary: translate('Account deletion'),
+          summary: props.issueSummary,
           is_reported_manually: true,
+          resource: props.resource ? props.resource.name : undefined,
         },
       }).then((response) => response.data);
-      showSuccess(translate('Request for account deletion has been created.'));
+      showSuccess(props.sucessMessage);
       router.stateService.go('support.detail', { uuid: issue.uuid });
       closeDialog();
     } catch (e) {
@@ -54,10 +48,8 @@ export const UserRemovalMessageDialog: FunctionComponent<
       }}
     >
       <ModalDialog
-        title={translate('Account deletion')}
-        subtitle={translate(
-          'Why would you want to go away? Help us become better please!',
-        )}
+        title={props.dialogTitle}
+        subtitle={props.dialogSubtitle}
         iconNode={<Trash weight="bold" />}
         iconColor="danger"
         bodyClassName="text-gray-500 pt-2"
@@ -89,24 +81,13 @@ export const UserRemovalMessageDialog: FunctionComponent<
     </form>
   ) : (
     <ModalDialog
-      title={translate('Request account removal for {userName}.', {
-        userName,
-      })}
+      title={props.dialogTitle}
       iconNode={<Trash weight="bold" />}
       iconColor="danger"
       bodyClassName="text-gray-500 pt-2"
       footer={<CancelButton label={translate('OK')} />}
     >
-      <p>
-        {translate('To remove account, please send a request to {support}.', {
-          support: ENV.plugins.WALDUR_CORE.SITE_EMAIL || translate('support'),
-        })}
-      </p>
-      <p>
-        {translate(
-          'Please note that request should specify user name and provide a reason.',
-        )}
-      </p>
+      {props.fallbackMessage}
     </ModalDialog>
   );
 };

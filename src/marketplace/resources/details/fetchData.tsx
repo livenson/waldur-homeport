@@ -21,6 +21,7 @@ import {
 } from '@waldur/marketplace/common/api';
 import { PageBarTab } from '@waldur/navigation/types';
 import { INSTANCE_TYPE, TENANT_TYPE } from '@waldur/openstack/constants';
+import { MANAGED_RANCHER } from '@waldur/rancher/cluster/create/constants';
 import { getTabs } from '@waldur/resource/tabs/registry';
 import { getResourceAccessEndpoints } from '@waldur/resource/utils';
 import { SLURM_PLUGIN } from '@waldur/slurm/constants';
@@ -237,6 +238,17 @@ export const getResourceTabs = ({
         import('@waldur/openstack/openstack-tenant/TenantMigrationsList').then(
           (module) => ({ default: module.TenantMigrationsList }),
         ),
+      ),
+    });
+  }
+  if (resource.offering_type === MANAGED_RANCHER) {
+    tabs.push({
+      key: 'longhorn',
+      title: translate('Longhorn'),
+      component: lazyComponent(() =>
+        import('@waldur/rancher/cluster/ClusterLonghornTab').then((module) => ({
+          default: module.ClusterLonghornTab,
+        })),
       ),
     });
   }
