@@ -5,9 +5,10 @@ import { formatFilesize } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';
 import { CheckoutPricingRow } from '@waldur/marketplace/deploy/CheckoutPricingRow';
 import { OrderSummary } from '@waldur/marketplace/details/OrderSummary';
-import { orderFormAttributesSelector } from '@waldur/marketplace/utils';
 import { NodeRole } from '@waldur/rancher/types';
 import { type RootState } from '@waldur/store/reducers';
+
+import { formNodesSelector } from './utils';
 
 const countNodesByRole = (role: NodeRole, nodes) =>
   nodes.filter((node) => (node.roles || []).includes(role)).length;
@@ -33,11 +34,10 @@ const getTotalCores = (nodes) => sum(getFlavorField('cores', nodes));
 const getTotalRam = (nodes) => sum(getFlavorField('ram', nodes));
 
 const getStats = (state: RootState) => {
-  const attributes: any = orderFormAttributesSelector(state);
-  if (!attributes) {
+  const nodes = formNodesSelector(state);
+  if (!nodes) {
     return {};
   }
-  const nodes = attributes.nodes;
   const nodeCount = nodes.length;
   const etcdCount = countNodesByRole('etcd', nodes);
   const workerCount = countNodesByRole('worker', nodes);

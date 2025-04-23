@@ -10,7 +10,7 @@ import { FormFinalConfigurationStep } from '@waldur/marketplace/deploy/steps/For
 import { OfferingConfigurationFormStep } from '@waldur/marketplace/deploy/types';
 
 import { MANAGED_RANCHER } from './constants';
-import { FormOptionalServicesStep } from './FormOptionalServicesStep';
+import { FormLonghornStep } from './FormLonghornStep';
 import { ManagedFormNodesStep } from './ManagedFormNodesStep';
 import { ManagedFormOpenStackOfferingStep } from './ManagedFormOpenStackOfferingStep';
 import { rancherClusterName } from './utils';
@@ -48,11 +48,11 @@ export const managedDeployOfferingSteps: OfferingConfigurationFormStep[] = [
     component: ManagedFormNodesStep,
   },
   {
-    label: translate('Optional'),
-    id: 'step-optional-services',
+    label: translate('Longhorn'),
+    id: 'step-longhorn',
     fields: ['attributes.install_longhorn'],
     required: false,
-    component: FormOptionalServicesStep,
+    component: FormLonghornStep,
   },
   {
     label: translate('Additional configuration'),

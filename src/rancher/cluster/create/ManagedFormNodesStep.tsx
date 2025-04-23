@@ -16,17 +16,18 @@ import {
   formatIntField,
   parseIntField,
 } from '@waldur/marketplace/common/utils';
+import { orderFormSelector } from '@waldur/marketplace/deploy/selectors';
 import { FormStepProps } from '@waldur/marketplace/deploy/types';
-import { offeringSelector } from '@waldur/marketplace/details/selectors';
 import { FormGroup } from '@waldur/marketplace/offerings/FormGroup';
 import { Offering } from '@waldur/marketplace/types';
 import { loadVolumeTypes } from '@waldur/openstack/api';
 
 import { IntegerUnitField } from './IntegerUnitField';
+import { LonghornWorkerWarning } from './LonghornWorkerWarning';
 
 export const ManagedFormNodesStep = (props: FormStepProps) => {
   const openstackOffering: Offering = useSelector((state) =>
-    offeringSelector(state, 'attributes.openstack_offering'),
+    orderFormSelector(state, 'attributes.openstack_offering'),
   );
   const [flavors, volumeTypes] = useQueries({
     queries: [
@@ -36,7 +37,7 @@ export const ManagedFormNodesStep = (props: FormStepProps) => {
           openstackFlavorsList({
             query: {
               settings_uuid: openstackOffering.scope_uuid,
-              field: ['display_name', 'name'],
+              field: ['display_name', 'name', 'cores', 'ram'],
             },
           }).then((response) => response.data),
         enabled: !!openstackOffering,
@@ -82,6 +83,7 @@ export const ManagedFormNodesStep = (props: FormStepProps) => {
             getOptionLabel={(option: OpenStackFlavor) => option.display_name}
           />
         </FormGroup>
+        <LonghornWorkerWarning />
       </div>
       <div className="mb-2 border-bottom">
         <FormGroup label={translate('Data volume size')} required={true}>

@@ -3,7 +3,7 @@ import { useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { PublicOfferingDetails } from 'waldur-js-client';
 
-import { orderFormAttributesSelector } from '@waldur/marketplace/utils';
+import { orderFormAttributesSelector } from '@waldur/marketplace/deploy/selectors';
 import { loadVolumeTypes } from '@waldur/openstack/api';
 import {
   formatVolumeTypeChoices,
