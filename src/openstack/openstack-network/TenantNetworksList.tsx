@@ -15,8 +15,8 @@ import { CreateNetworkAction } from '../openstack-tenant/actions/CreateNetworkAc
 export const TenantNetworksList: FunctionComponent<{ resourceScope }> = ({
   resourceScope,
 }) => {
-  const filter = useMemo<OpenstackNetworksListData['query']>(
-    () => ({
+  const filter = useMemo(
+    (): OpenstackNetworksListData['query'] => ({
       tenant_uuid: resourceScope.uuid,
       field: [
         'uuid',

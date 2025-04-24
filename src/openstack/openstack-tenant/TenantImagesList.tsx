@@ -11,8 +11,8 @@ import { useTable } from '@waldur/table/useTable';
 export const TenantImagesList: FunctionComponent<{ resourceScope }> = ({
   resourceScope,
 }) => {
-  const filter = useMemo<OpenstackImagesListData['query']>(
-    () => ({
+  const filter = useMemo(
+    (): OpenstackImagesListData['query'] => ({
       tenant_uuid: resourceScope.uuid,
     }),
     [resourceScope],

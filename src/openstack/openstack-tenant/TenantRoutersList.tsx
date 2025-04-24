@@ -13,8 +13,8 @@ import { SetRoutersButton } from './SetRoutersButton';
 export const TenantRoutersList: FunctionComponent<{ resourceScope }> = ({
   resourceScope,
 }) => {
-  const filter = useMemo<OpenstackRoutersListData['query']>(
-    () => ({
+  const filter = useMemo(
+    (): OpenstackRoutersListData['query'] => ({
       tenant_uuid: resourceScope.uuid,
       field: [
         'uuid',

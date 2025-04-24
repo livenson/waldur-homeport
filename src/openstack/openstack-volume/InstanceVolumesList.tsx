@@ -18,8 +18,8 @@ import { AttachVolumeAction } from '../openstack-instance/actions/AttachVolumeAc
 export const InstanceVolumesList: FunctionComponent<{ resourceScope }> = ({
   resourceScope,
 }) => {
-  const filter = useMemo<OpenstackVolumesListData['query']>(
-    () => ({
+  const filter = useMemo(
+    (): OpenstackVolumesListData['query'] => ({
       instance_uuid: resourceScope.uuid,
     }),
     [resourceScope],

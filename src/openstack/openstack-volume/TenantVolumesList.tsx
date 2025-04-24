@@ -20,8 +20,8 @@ import { formatInstance } from './OpenStackVolumeSummary';
 export const TenantVolumesList: FunctionComponent<{ resourceScope }> = ({
   resourceScope,
 }) => {
-  const filter = useMemo<OpenstackVolumesListData['query']>(
-    () => ({
+  const filter = useMemo(
+    (): OpenstackVolumesListData['query'] => ({
       tenant_uuid: resourceScope.uuid,
     }),
     [resourceScope],

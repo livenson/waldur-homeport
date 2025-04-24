@@ -21,8 +21,8 @@ import { PullFloatingIpsAction } from '../openstack-tenant/actions/PullFloatingI
 export const FloatingIpsList: FunctionComponent<{ resourceScope }> = ({
   resourceScope,
 }) => {
-  const filter = useMemo<OpenstackFloatingIpsListData['query']>(
-    () => ({
+  const filter = useMemo(
+    (): OpenstackFloatingIpsListData['query'] => ({
       tenant_uuid: resourceScope.uuid,
       field: [
         'uuid',

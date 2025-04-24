@@ -12,8 +12,8 @@ import { ExpandablePortRow } from './ExpandablePortRow';
 export const TenantPortsList: FunctionComponent<{ resourceScope }> = ({
   resourceScope,
 }) => {
-  const filter = useMemo<OpenstackPortsListData['query']>(
-    () => ({
+  const filter = useMemo(
+    (): OpenstackPortsListData['query'] => ({
       tenant_uuid: resourceScope.uuid,
       field: [
         'uuid',

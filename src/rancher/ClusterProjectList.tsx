@@ -15,8 +15,8 @@ import { ProjectExpandableRow } from './ProjectExpandableRow';
 export const ClusterProjectList: FunctionComponent<{
   resourceScope: RancherCluster;
 }> = ({ resourceScope }) => {
-  const filter = useMemo<RancherProjectsListData['query']>(
-    () => ({
+  const filter = useMemo(
+    (): RancherProjectsListData['query'] => ({
       cluster_uuid: resourceScope.uuid,
     }),
     [resourceScope],

@@ -12,8 +12,8 @@ import { useTable } from '@waldur/table/useTable';
 export const TenantSubnetsList: FunctionComponent<{ resourceScope }> = ({
   resourceScope,
 }) => {
-  const filter = useMemo<OpenstackSubnetsListData['query']>(
-    () => ({
+  const filter = useMemo(
+    (): OpenstackSubnetsListData['query'] => ({
       tenant_uuid: resourceScope.uuid,
       field: [
         'uuid',
