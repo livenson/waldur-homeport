@@ -23,15 +23,9 @@ const RancherOrderForm = lazyComponent(() =>
   })),
 );
 
-const ManagedRancherPluginOptionsForm = lazyComponent(() =>
-  import('./ManagedRancherPluginOptionsForm').then((module) => ({
-    default: module.ManagedRancherPluginOptionsForm,
-  })),
-);
-
-const ManagedRancherSecretOptionsForm = lazyComponent(() =>
-  import('./ManagedRancherSecretOptionsForm').then((module) => ({
-    default: module.ManagedRancherSecretOptionsForm,
+const ManagedRancherProvisioningConfigurationForm = lazyComponent(() =>
+  import('./ManagedRancherProvisioningConfigurationForm').then((module) => ({
+    default: module.ManagedRancherProvisioningConfigurationForm,
   })),
 );
 
@@ -113,8 +107,7 @@ export const ManagedRancherOffering: OfferingConfiguration = {
   get label() {
     return translate('Managed Rancher cluster');
   },
-  pluginOptionsForm: ManagedRancherPluginOptionsForm,
-  secretOptionsForm: ManagedRancherSecretOptionsForm,
+  provisioningConfigForm: ManagedRancherProvisioningConfigurationForm,
   orderFormComponent: ManagedRancherOrderForm,
   serializer: managedRancherOrderSerializer,
   secretOptionsSerializer: ({ customer_uuid, ...formData }) => ({
