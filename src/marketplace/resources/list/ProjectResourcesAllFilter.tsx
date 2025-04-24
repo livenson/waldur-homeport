@@ -1,6 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
 import { Field, reduxForm } from 'redux-form';
-import { Project } from 'waldur-js-client';
+import { MarketplacePublicOfferingsListData, Project } from 'waldur-js-client';
 
 import {
   getInitialValues,
@@ -37,9 +37,11 @@ const PureProjectResourcesAllFilter: FunctionComponent<
   useSyncInitialFiltersToURL(props.initialValues);
 
   const offeringFilter = useMemo(
-    () => ({
+    (): MarketplacePublicOfferingsListData['query'] => ({
       project_uuid: props.project?.uuid,
       allowed_customer_uuid: props.customer?.uuid,
+      resource_customer_uuid: props.customer?.uuid,
+      resource_project_uuid: props.project?.uuid,
     }),
     [props.project, props.customer],
   );
