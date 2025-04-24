@@ -14835,6 +14835,10 @@
     "description": "i18n/translate.tsx",
     "message": "You have the right to request service without additional approval."
   },
+  "You must be staff to import YAML.": {
+    "description": "rancher/cluster/ImportYAMLButton.tsx",
+    "message": "You must be staff to import YAML."
+  },
   "You must be staff to modify payment profiles": {
     "description": "customer/payment-profiles/PaymentProfileList.tsx",
     "message": "You must be staff to modify payment profiles"
