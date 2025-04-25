@@ -57,7 +57,9 @@ export const TenantPortsList: FunctionComponent<{ resourceScope }> = ({
           title: translate('IP address'),
           render: ({ row }) => (
             <>
-              {row.fixed_ips.map((fip) => fip.ip_address).join(', ') || 'N/A'}
+              {row.fixed_ips && row.fixed_ips.length > 0
+                ? row.fixed_ips.map((fip) => fip.ip_address).join(', ')
+                : 'N/A'}
             </>
           ),
         },
