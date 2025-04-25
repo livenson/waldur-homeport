@@ -18,6 +18,7 @@ import { getUser } from '@waldur/workspace/selectors';
 
 import { EndingField } from '../EndingField';
 
+import { ReviewsExpandableRow } from './ReviewsExpandableRow';
 import { ReviewsRowActions } from './ReviewsRowActons';
 import { ReviewsTableFilter } from './ReviewsTableFilter';
 
@@ -63,7 +64,9 @@ export const UserReviewsList: FC = () => {
         },
         {
           title: translate('Proposal'),
-          render: ({ row }) => <>{row.proposal_name}</>,
+          render: ({ row }) => (
+            <span className="text-gray-700 fw-bold">{row.proposal_name}</span>
+          ),
           keys: ['proposal_name'],
           id: 'proposal',
         },
@@ -103,6 +106,7 @@ export const UserReviewsList: FC = () => {
       hasQuery={true}
       rowActions={ReviewsRowActions}
       filters={<ReviewsTableFilter />}
+      expandableRow={({ row }) => <ReviewsExpandableRow row={row} />}
       hasOptionalColumns
     />
   );
