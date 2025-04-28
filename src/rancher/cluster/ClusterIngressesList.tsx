@@ -5,14 +5,15 @@ import { formatDate } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
+import { TableWithPortal } from '@waldur/table/types';
 import { useTable } from '@waldur/table/useTable';
 
 import { ImportYAMLButton } from './ImportYAMLButton';
 import { IngressActions } from './IngressActions';
 
-export const ClusterIngressesList: FunctionComponent<{ resourceScope }> = ({
-  resourceScope,
-}) => {
+export const ClusterIngressesList: FunctionComponent<
+  TableWithPortal<{ resourceScope }>
+> = ({ resourceScope, portal }) => {
   const filter = useMemo(
     () => ({
       cluster_uuid: resourceScope.uuid,
@@ -24,6 +25,7 @@ export const ClusterIngressesList: FunctionComponent<{ resourceScope }> = ({
     fetchData: createFetcher('rancher-ingresses'),
     filter,
   });
+
   return (
     <Table<RancherIngress>
       {...props}
@@ -65,6 +67,10 @@ export const ClusterIngressesList: FunctionComponent<{ resourceScope }> = ({
       verboseName={translate('ingresses')}
       showPageSizeSelector
       tableActions={<ImportYAMLButton cluster_id={resourceScope.uuid} />}
+      portal={portal}
+      hasActionBar={false}
+      cardBordered={false}
+      fullWidth
     />
   );
 };
