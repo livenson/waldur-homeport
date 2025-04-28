@@ -12,6 +12,10 @@ import { FormGroup, SelectField, StringField } from '@waldur/form';
 import { BoxNumberField } from '@waldur/form/BoxNumberField';
 import { VStepperFormStepCard } from '@waldur/form/VStepperFormStep';
 import { translate } from '@waldur/i18n';
+import {
+  formatIntField,
+  parseIntField,
+} from '@waldur/marketplace/common/utils';
 import { StepCardPlaceholder } from '@waldur/marketplace/deploy/steps/StepCardPlaceholder';
 import { FormStepProps } from '@waldur/marketplace/deploy/types';
 import { ORDER_FORM_ID } from '@waldur/marketplace/details/constants';
@@ -117,6 +121,8 @@ const renderNodeRows = ({ fields, flavors }: any) => {
                             required={true}
                             min={1}
                             max={100}
+                            parse={parseIntField}
+                            format={formatIntField}
                           />
                         </td>
                         <td>

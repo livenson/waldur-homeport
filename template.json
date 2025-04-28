@@ -1283,6 +1283,14 @@
     "description": "marketplace/resources/terminate/TerminateDialog.tsx",
     "message": "Are you sure you would like to terminate resource {resourceName} from project {projectName} ({customerName})?"
   },
+  "ArgoCD K8S kubeconfig": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "ArgoCD K8S kubeconfig"
+  },
+  "ArgoCD K8S namespace": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "ArgoCD K8S namespace"
+  },
   "Article code": {
     "description": "customer/credits/CreditUsageDialog.tsx, invoices/details/InvoiceItemExpandableRow.tsx, invoices/details/InvoiceItemUpdateDialog.tsx, marketplace/offerings/ArticleCodeField.tsx",
     "message": "Article code"
@@ -5694,6 +5702,34 @@
   "Key": {
     "description": "issues/list/IssuesList.tsx, marketplace/offerings/update/integration/EnvironmentVariablePanel.tsx, marketplace/resources/KeyValueTable.tsx, rancher/cluster/apps/ApplicationDetailsDialog.tsx",
     "message": "Key"
+  },
+  "Keycloak Realm": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Keycloak Realm"
+  },
+  "Keycloak TLS verify": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Keycloak TLS verify"
+  },
+  "Keycloak URL": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Keycloak URL"
+  },
+  "Keycloak User Realm": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Keycloak User Realm"
+  },
+  "Keycloak password": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Keycloak password"
+  },
+  "Keycloak sync frequency": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Keycloak sync frequency"
+  },
+  "Keycloak username": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Keycloak username"
   },
   "Keys": {
     "description": "user/support/UserDetailsDialog.tsx",
@@ -14518,6 +14554,22 @@
   "Value": {
     "description": "marketplace/offerings/update/integration/EnvironmentVariablePanel.tsx, marketplace/resources/KeyValueTable.tsx, marketplace/resources/usage/utils.ts, rancher/cluster/apps/ApplicationDetailsDialog.tsx, reporting/quotas/CustomerQuotasList.tsx, reporting/resource-usage/ResourceUsageList.tsx, reporting/resource-usage/UserUsageList.tsx",
     "message": "Value"
+  },
+  "Vault Host": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Vault Host"
+  },
+  "Vault Port": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Vault Port"
+  },
+  "Vault TLS verify": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Vault TLS verify"
+  },
+  "Vault Token": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Vault Token"
   },
   "Vendor support pages": {
     "description": "marketplace/offerings/details/PublicOfferingGetHelp.tsx",

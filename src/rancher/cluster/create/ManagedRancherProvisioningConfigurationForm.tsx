@@ -10,10 +10,15 @@ import {
 import { parseSelectData } from '@waldur/core/api';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
 import { required } from '@waldur/core/validators';
-import { SecretField, StringField, TextField } from '@waldur/form';
+import { SecretField, StringField, TextField, NumberField } from '@waldur/form';
 import { AsyncSelectField } from '@waldur/form/AsyncSelectField';
+import { AwesomeCheckboxField } from '@waldur/form/AwesomeCheckboxField';
 import { BoxNumberField } from '@waldur/form/BoxNumberField';
 import { translate } from '@waldur/i18n';
+import {
+  formatIntField,
+  parseIntField,
+} from '@waldur/marketplace/common/utils';
 import {
   DefaultOfferingEditPanel,
   OfferingEditField,
@@ -97,6 +102,13 @@ const fields: OfferingEditField[] = [
     label: translate('OpenStack system volume size for server node'),
     key: 'plugin_options.managed_rancher_server_system_volume_size_gb',
     component: BoxNumberField,
+    fieldProps: {
+      required: true,
+      validate: required,
+      min: 1,
+      parse: parseIntField,
+      format: formatIntField,
+    },
   },
   {
     label: translate('Organization'),
@@ -145,6 +157,79 @@ const fields: OfferingEditField[] = [
   {
     label: translate('Cloud init template'),
     key: 'secret_options.cloud_init_template',
+    component: TextField,
+  },
+  {
+    label: translate('Vault Host'),
+    key: 'secret_options.vault_host',
+    component: StringField,
+  },
+  {
+    label: translate('Vault Port'),
+    key: 'secret_options.vault_port',
+    component: NumberField,
+    fieldProps: {
+      parse: parseIntField,
+      format: formatIntField,
+    },
+  },
+  {
+    label: translate('Vault Token'),
+    key: 'secret_options.vault_token',
+    component: SecretField,
+  },
+  {
+    label: translate('Vault TLS verify'),
+    key: 'secret_options.vault_tls_verify',
+    component: AwesomeCheckboxField,
+  },
+  {
+    label: translate('Keycloak URL'),
+    key: 'secret_options.keycloak_url',
+    component: StringField,
+  },
+  {
+    label: translate('Keycloak Realm'),
+    key: 'secret_options.keycloak_realm',
+    component: StringField,
+  },
+  {
+    label: translate('Keycloak User Realm'),
+    key: 'secret_options.keycloak_user_realm',
+    component: StringField,
+  },
+  {
+    label: translate('Keycloak username'),
+    key: 'secret_options.keycloak_username',
+    component: StringField,
+  },
+  {
+    label: translate('Keycloak password'),
+    key: 'secret_options.keycloak_password',
+    component: SecretField,
+  },
+  {
+    label: translate('Keycloak sync frequency'),
+    key: 'secret_options.keycloak_sync_frequency',
+    component: BoxNumberField,
+    fieldProps: {
+      parse: parseIntField,
+      format: formatIntField,
+    },
+  },
+  {
+    label: translate('Keycloak TLS verify'),
+    key: 'secret_options.keycloak_ssl_verify',
+    component: AwesomeCheckboxField,
+  },
+  {
+    label: translate('ArgoCD K8S namespace'),
+    key: 'secret_options.argocd_k8s_namespace',
+    component: StringField,
+  },
+  {
+    label: translate('ArgoCD K8S kubeconfig'),
+    key: 'secret_options.argocd_k8s_kubeconfig',
     component: TextField,
   },
 ];

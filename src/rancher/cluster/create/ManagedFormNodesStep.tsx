@@ -70,6 +70,8 @@ export const ManagedFormNodesStep = (props: FormStepProps) => {
             component={BoxNumberField}
             min={1}
             validate={[required]}
+            parse={parseIntField}
+            format={formatIntField}
           />
         </FormGroup>
       </div>
