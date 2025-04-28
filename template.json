@@ -975,10 +975,6 @@
     "description": "marketplace/offerings/update/plans/ArchivePlanButton.tsx",
     "message": "Are you sure you want to archive plan {name}?"
   },
-  "Are you sure you want to deactivate {name}?": {
-    "description": "user/support/UserStatus.tsx",
-    "message": "Are you sure you want to deactivate {name}?"
-  },
   "Are you sure you want to delete a {name} {resourceType} in an Erred state? A cleanup attempt will be performed if you choose so. ": {
     "description": "resource/actions/DestroyActionItem.tsx",
     "message": "Are you sure you want to delete a {name} {resourceType} in an Erred state? A cleanup attempt will be performed if you choose so. "
@@ -1118,6 +1114,10 @@
   "Are you sure you want to destroy {count} resources?": {
     "description": "marketplace/resources/mass-actions/MultiDestroyAction.tsx",
     "message": "Are you sure you want to destroy {count} resources?"
+  },
+  "Are you sure you want to disable {name}?": {
+    "description": "user/support/UserStatus.tsx",
+    "message": "Are you sure you want to disable {name}?"
   },
   "Are you sure you want to prohibit this organization from managing calls?": {
     "description": "customer/details/CustomerCallManagerPanel.tsx",
@@ -1274,6 +1274,14 @@
   "Are you sure you would like to terminate resource {resourceName} from project {projectName} ({customerName})?": {
     "description": "marketplace/resources/terminate/TerminateDialog.tsx",
     "message": "Are you sure you would like to terminate resource {resourceName} from project {projectName} ({customerName})?"
+  },
+  "ArgoCD K8S kubeconfig": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "ArgoCD K8S kubeconfig"
+  },
+  "ArgoCD K8S namespace": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "ArgoCD K8S namespace"
   },
   "Article code": {
     "description": "customer/credits/CreditUsageDialog.tsx, invoices/details/InvoiceItemExpandableRow.tsx, invoices/details/InvoiceItemUpdateDialog.tsx, marketplace/offerings/ArticleCodeField.tsx",
@@ -3031,14 +3039,6 @@
     "description": "invoices/details/ResourceLimitPeriodsTable.tsx",
     "message": "Days"
   },
-  "Deactivate": {
-    "description": "user/support/UserStatus.tsx",
-    "message": "Deactivate"
-  },
-  "Deactivated": {
-    "description": "user/support/UserStatus.tsx",
-    "message": "Deactivated"
-  },
   "Deactivating": {
     "description": "resource/state/constants.ts",
     "message": "Deactivating"
@@ -3376,11 +3376,11 @@
     "message": "Disable user termination in user workspace."
   },
   "Disable": {
-    "description": "administration/notifications/NotificationToggleButton.tsx, administration/remote-offering-sync/RemoteSyncEnableAction.tsx, administration/roles/RoleToggleButton.tsx",
+    "description": "administration/notifications/NotificationToggleButton.tsx, administration/remote-offering-sync/RemoteSyncEnableAction.tsx, administration/roles/RoleToggleButton.tsx, user/support/UserStatus.tsx",
     "message": "Disable"
   },
   "Disabled": {
-    "description": "administration/hooks/HooksList.tsx, administration/providers/ProviderCard.tsx, customer/payment-profiles/PaymentProfileList.tsx, user/hooks/HooksList.tsx, user/support/utils.ts",
+    "description": "administration/hooks/HooksList.tsx, administration/providers/ProviderCard.tsx, customer/payment-profiles/PaymentProfileList.tsx, user/hooks/HooksList.tsx, user/support/UserStatus.tsx, user/support/utils.ts",
     "message": "Disabled"
   },
   "Discard and exit": {
@@ -5690,6 +5690,34 @@
   "Key": {
     "description": "issues/list/IssuesList.tsx, marketplace/offerings/update/integration/EnvironmentVariablePanel.tsx, marketplace/resources/KeyValueTable.tsx, rancher/cluster/apps/ApplicationDetailsDialog.tsx",
     "message": "Key"
+  },
+  "Keycloak Realm": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Keycloak Realm"
+  },
+  "Keycloak TLS verify": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Keycloak TLS verify"
+  },
+  "Keycloak URL": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Keycloak URL"
+  },
+  "Keycloak User Realm": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Keycloak User Realm"
+  },
+  "Keycloak password": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Keycloak password"
+  },
+  "Keycloak sync frequency": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Keycloak sync frequency"
+  },
+  "Keycloak username": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Keycloak username"
   },
   "Keys": {
     "description": "user/support/UserDetailsDialog.tsx",
@@ -14167,13 +14195,13 @@
     "description": "marketplace/resources/users/AddUserDialog.tsx",
     "message": "User has been assigned successfully."
   },
-  "User has been deactivated.": {
-    "description": "user/support/UserStatus.tsx",
-    "message": "User has been deactivated."
-  },
   "User has been deleted.": {
     "description": "user/support/UserDelete.tsx",
     "message": "User has been deleted."
+  },
+  "User has been disabled.": {
+    "description": "user/support/UserStatus.tsx",
+    "message": "User has been disabled."
   },
   "User has been logged out. You will be redirected to the login page soon.": {
     "description": "auth/callbacks/AuthLogoutCompleted.tsx",
@@ -14486,6 +14514,22 @@
   "Value": {
     "description": "marketplace/offerings/update/integration/EnvironmentVariablePanel.tsx, marketplace/resources/KeyValueTable.tsx, marketplace/resources/usage/utils.ts, rancher/cluster/apps/ApplicationDetailsDialog.tsx, reporting/quotas/CustomerQuotasList.tsx, reporting/resource-usage/ResourceUsageList.tsx, reporting/resource-usage/UserUsageList.tsx",
     "message": "Value"
+  },
+  "Vault Host": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Vault Host"
+  },
+  "Vault Port": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Vault Port"
+  },
+  "Vault TLS verify": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Vault TLS verify"
+  },
+  "Vault Token": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Vault Token"
   },
   "Vendor support pages": {
     "description": "marketplace/offerings/details/PublicOfferingGetHelp.tsx",
