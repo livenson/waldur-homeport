@@ -12,6 +12,7 @@ import { ReviewViewAction } from './ReviewViewAction';
 
 export const ReviewsRowActions = ({ row, fetch }) => {
   const { state } = useCurrentStateAndParams();
+
   const user = useSelector(getUser);
   const hasReviewPermission = user.is_staff || row.reviewer_uuid === user.uuid;
   const canDelete = hasPermission(user, {
@@ -19,9 +20,10 @@ export const ReviewsRowActions = ({ row, fetch }) => {
     scopeId: row.call_uuid,
   });
   const showActions =
-    state.name === 'call-management.review-list' ||
     canDelete ||
-    (hasReviewPermission && row.state === 'created');
+    (hasReviewPermission && row.state === 'created') ||
+    state.name === 'call-management.review-list' ||
+    row.state === 'in_review';
   if (!showActions) {
     return 'N/A';
   }
@@ -31,7 +33,7 @@ export const ReviewsRowActions = ({ row, fetch }) => {
       row={row}
       refetch={fetch}
       actions={[
-        state.name === 'call-management.review-list' && ReviewViewAction,
+        ReviewViewAction,
         hasReviewPermission && ReviewItemAction,
         canDelete && ReviewDeleteAction,
       ].filter(Boolean)}

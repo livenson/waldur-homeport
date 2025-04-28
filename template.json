@@ -975,10 +975,6 @@
     "description": "marketplace/offerings/update/plans/ArchivePlanButton.tsx",
     "message": "Are you sure you want to archive plan {name}?"
   },
-  "Are you sure you want to deactivate {name}?": {
-    "description": "user/support/UserStatus.tsx",
-    "message": "Are you sure you want to deactivate {name}?"
-  },
   "Are you sure you want to delete a {name} {resourceType} in an Erred state? A cleanup attempt will be performed if you choose so. ": {
     "description": "resource/actions/DestroyActionItem.tsx",
     "message": "Are you sure you want to delete a {name} {resourceType} in an Erred state? A cleanup attempt will be performed if you choose so. "
@@ -1118,6 +1114,10 @@
   "Are you sure you want to destroy {count} resources?": {
     "description": "marketplace/resources/mass-actions/MultiDestroyAction.tsx",
     "message": "Are you sure you want to destroy {count} resources?"
+  },
+  "Are you sure you want to disable {name}?": {
+    "description": "user/support/UserStatus.tsx",
+    "message": "Are you sure you want to disable {name}?"
   },
   "Are you sure you want to prohibit this organization from managing calls?": {
     "description": "customer/details/CustomerCallManagerPanel.tsx",
@@ -2403,6 +2403,10 @@
     "description": "administration/agreements/UserAgreementCreateDialog.tsx",
     "message": "Content"
   },
+  "Continue review": {
+    "description": "proposals/review/ReviewViewAction.tsx",
+    "message": "Continue review"
+  },
   "Continue": {
     "description": "invitations/actions/create/FormButtons.tsx, marketplace/service-providers/CampaignFooter.tsx",
     "message": "Continue"
@@ -3039,14 +3043,6 @@
     "description": "invoices/details/ResourceLimitPeriodsTable.tsx",
     "message": "Days"
   },
-  "Deactivate": {
-    "description": "user/support/UserStatus.tsx",
-    "message": "Deactivate"
-  },
-  "Deactivated": {
-    "description": "user/support/UserStatus.tsx",
-    "message": "Deactivated"
-  },
   "Deactivating": {
     "description": "resource/state/constants.ts",
     "message": "Deactivating"
@@ -3384,11 +3380,11 @@
     "message": "Disable user termination in user workspace."
   },
   "Disable": {
-    "description": "administration/notifications/NotificationToggleButton.tsx, administration/remote-offering-sync/RemoteSyncEnableAction.tsx, administration/roles/RoleToggleButton.tsx",
+    "description": "administration/notifications/NotificationToggleButton.tsx, administration/remote-offering-sync/RemoteSyncEnableAction.tsx, administration/roles/RoleToggleButton.tsx, user/support/UserStatus.tsx",
     "message": "Disable"
   },
   "Disabled": {
-    "description": "administration/hooks/HooksList.tsx, administration/providers/ProviderCard.tsx, customer/payment-profiles/PaymentProfileList.tsx, user/hooks/HooksList.tsx, user/support/utils.ts",
+    "description": "administration/hooks/HooksList.tsx, administration/providers/ProviderCard.tsx, customer/payment-profiles/PaymentProfileList.tsx, user/hooks/HooksList.tsx, user/support/UserStatus.tsx, user/support/utils.ts",
     "message": "Disabled"
   },
   "Discard and exit": {
@@ -14199,13 +14195,13 @@
     "description": "marketplace/resources/users/AddUserDialog.tsx",
     "message": "User has been assigned successfully."
   },
-  "User has been deactivated.": {
-    "description": "user/support/UserStatus.tsx",
-    "message": "User has been deactivated."
-  },
   "User has been deleted.": {
     "description": "user/support/UserDelete.tsx",
     "message": "User has been deleted."
+  },
+  "User has been disabled.": {
+    "description": "user/support/UserStatus.tsx",
+    "message": "User has been disabled."
   },
   "User has been logged out. You will be redirected to the login page soon.": {
     "description": "auth/callbacks/AuthLogoutCompleted.tsx",
