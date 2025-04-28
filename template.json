@@ -1135,14 +1135,6 @@
     "description": "proposals/review/utils.tsx",
     "message": "Are you sure you want to reject the {name} proposal review?"
   },
-  "Are you sure you want to remove all selected users from project?": {
-    "description": "project/team/ProjectUsersBulkRemoveButton.tsx",
-    "message": "Are you sure you want to remove all selected users from project?"
-  },
-  "Are you sure you want to remove all selected users?": {
-    "description": "customer/team/UsersBulkRemoveButton.tsx",
-    "message": "Are you sure you want to remove all selected users?"
-  },
   "Are you sure you want to remove invoice item {name}?": {
     "description": "invoices/details/InvoiceItemDelete.tsx",
     "message": "Are you sure you want to remove invoice item {name}?"
@@ -1162,6 +1154,14 @@
   "Are you sure you want to remove this column: {title}?": {
     "description": "marketplace/category/admin/ColumnRow.tsx",
     "message": "Are you sure you want to remove this column: {title}?"
+  },
+  "Are you sure you want to remove {count} selected users from organization {organization_name}?": {
+    "description": "customer/team/UsersBulkRemoveButton.tsx",
+    "message": "Are you sure you want to remove {count} selected users from organization {organization_name}?"
+  },
+  "Are you sure you want to remove {count} selected users from project {project_name}?": {
+    "description": "project/team/ProjectUsersBulkRemoveButton.tsx",
+    "message": "Are you sure you want to remove {count} selected users from project {project_name}?"
   },
   "Are you sure you want to remove {doc_name}?": {
     "description": "administration/service-desk/issue-templates/IssueTemplateForm.tsx",
