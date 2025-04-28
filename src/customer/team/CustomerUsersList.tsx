@@ -26,6 +26,7 @@ import {
 import { CustomerPermissionsLogButton } from './CustomerPermissionsLogButton';
 import { CustomerUserRowActions } from './CustomerUserRowActions';
 import { TeamDropdownActions } from './TeamDropdownActions';
+import { UsersBulkRemoveButton } from './UsersBulkRemoveButton';
 
 export const renderRoleExpirationDate = (row) => {
   return row.expiration_time
@@ -175,6 +176,8 @@ export const CustomerUsersList: FunctionComponent<{ filters? }> = ({
         </>
       }
       hasOptionalColumns
+      enableMultiSelect
+      multiSelectActions={UsersBulkRemoveButton}
     />
   );
 };
