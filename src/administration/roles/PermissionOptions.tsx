@@ -236,6 +236,10 @@ export const PermissionOptions = [
         label: translate('Get service provider robot account projects'),
         value: 'SERVICE_PROVIDER.GET_ROBOT_ACCOUNT_PROJECTS',
       },
+      {
+        label: translate('Manage service account'),
+        value: 'SERVICE_ACCOUNT.MANAGE',
+      },
     ],
   },
   {
