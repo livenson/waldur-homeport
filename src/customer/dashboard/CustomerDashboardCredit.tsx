@@ -89,7 +89,7 @@ export const CustomerDashboardCredit = ({
         ]}
         className="h-100"
       >
-        <EChart options={options} />
+        <EChart options={options} height="130px" />
       </WidgetCard>
     </Col>
   );
