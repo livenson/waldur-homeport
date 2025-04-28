@@ -1,4 +1,4 @@
-import React, { ReactNode } from 'react';
+import React, { ComponentType, ReactNode } from 'react';
 import { ColProps } from 'react-bootstrap';
 import { BaseFieldProps } from 'redux-form';
 
@@ -145,6 +145,23 @@ export type DropdownActionItemType<T = any> = React.ComponentType<
   } & Record<string, any>
 >;
 
+export type TableWithPortal<T = any> = {
+  portal: TablePortal;
+} & T;
+
+export interface TableTab {
+  key: string | number;
+  title: ReactNode;
+  state?: string;
+  params?: Record<string, any>;
+  component?: ComponentType<any>;
+}
+
+interface TablePortal {
+  toolbar?: HTMLElement;
+  refresh?: HTMLElement;
+}
+
 export interface TableProps<RowType = any> extends TableState {
   table?: string;
   rows: any[];
@@ -200,7 +217,7 @@ export interface TableProps<RowType = any> extends TableState {
   subtitle?: React.ReactNode;
   hasActionBar?: boolean;
   hasHeaders?: boolean;
-  tabs?: Array<{ key; title; state; params? }>;
+  tabs?: TableTab[];
   enableMultiSelect?: boolean;
   multiSelectActions?: React.ComponentType<{ rows: RowType[]; refetch }>;
   selectRow?(row: RowType): void;
@@ -220,4 +237,5 @@ export interface TableProps<RowType = any> extends TableState {
   standalone?: boolean;
   hideClearFilters?: boolean;
   hideRefresh?: boolean;
+  portal?: TablePortal;
 }

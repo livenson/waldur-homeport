@@ -6,6 +6,7 @@ import { translate } from '@waldur/i18n';
 import { ActionsDropdownComponent } from '@waldur/table/ActionsDropdown';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
+import { TableWithPortal } from '@waldur/table/types';
 import { useTable } from '@waldur/table/useTable';
 
 import { ApplicationDeleteButton } from './ApplicationDeleteButton';
@@ -18,9 +19,9 @@ const ApplicationActions = ({ row }) => (
   </ActionsDropdownComponent>
 );
 
-export const ClusterApplicationsList: FunctionComponent<{
-  resourceScope: RancherCluster;
-}> = ({ resourceScope }) => {
+export const ClusterApplicationsList: FunctionComponent<
+  TableWithPortal<{ resourceScope: RancherCluster }>
+> = ({ resourceScope, portal }) => {
   const filter = useMemo(
     () => ({
       cluster_uuid: resourceScope.uuid,
@@ -32,6 +33,7 @@ export const ClusterApplicationsList: FunctionComponent<{
     fetchData: createFetcher('rancher-apps'),
     filter,
   });
+
   return (
     <Table<RancherApplication>
       {...props}
@@ -68,6 +70,10 @@ export const ClusterApplicationsList: FunctionComponent<{
       ]}
       verboseName={translate('applications')}
       showPageSizeSelector
+      portal={portal}
+      hasActionBar={false}
+      cardBordered={false}
+      fullWidth
     />
   );
 };

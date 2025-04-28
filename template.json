@@ -256,7 +256,7 @@
     "message": "Action"
   },
   "Actions": {
-    "description": "administration/remote-offering-sync/CategoryMappingRulesField.tsx, customer/team/CustomerUsersListExpandableRow.tsx, invitations/UserPermissionRequestsList.tsx, invoices/details/InvoiceItemExpandableRow.tsx, marketplace/category/admin/ColumnsList.tsx, marketplace/offerings/actions/ActionsDropdown.tsx, marketplace/orders/actions/OrderActionsButton.tsx, marketplace/orders/list/OrdersListExpandableRow.tsx, marketplace/resources/ResourceActions.tsx, marketplace/service-providers/CampaignForm.tsx, marketplace/service-providers/CampaignUpdateForm.tsx, openstack/openstack-backup/BackupsList.tsx, openstack/openstack-instance/InternalIpsList.tsx, openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx, openstack/openstack-security-groups/rule-editor/RulesHeader.tsx, openstack/openstack-server-groups/ServerGroupsList.tsx, openstack/openstack-snapshot/TenantSnapshotsList.tsx, openstack/openstack-tenant/IpAddressList.tsx, openstack/openstack-tenant/StaticRoutesTable.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, openstack/openstack-volume/VolumeSnapshotsList.tsx, project/ProjectsListActions.tsx, proposals/update/CallActions.tsx, rancher/cluster/apps/ClusterApplicationsList.tsx, rancher/cluster/hpas/ClusterHPAList.tsx, table/ActionsDropdown.tsx, table/TableColumnsButton.tsx, table/TableHeader.tsx, user/keys/KeysList.tsx",
+    "description": "administration/remote-offering-sync/CategoryMappingRulesField.tsx, customer/team/CustomerUsersListExpandableRow.tsx, invitations/UserPermissionRequestsList.tsx, invoices/details/InvoiceItemExpandableRow.tsx, marketplace/category/admin/ColumnsList.tsx, marketplace/offerings/actions/ActionsDropdown.tsx, marketplace/orders/actions/OrderActionsButton.tsx, marketplace/orders/list/OrdersListExpandableRow.tsx, marketplace/resources/ResourceActions.tsx, marketplace/service-providers/CampaignForm.tsx, marketplace/service-providers/CampaignUpdateForm.tsx, openstack/openstack-backup/BackupsList.tsx, openstack/openstack-instance/InternalIpsList.tsx, openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx, openstack/openstack-security-groups/rule-editor/RulesHeader.tsx, openstack/openstack-server-groups/ServerGroupsList.tsx, openstack/openstack-snapshot/TenantSnapshotsList.tsx, openstack/openstack-tenant/IpAddressList.tsx, openstack/openstack-tenant/StaticRoutesTable.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, openstack/openstack-volume/VolumeSnapshotsList.tsx, project/ProjectsListActions.tsx, proposals/update/CallActions.tsx, rancher/cluster/apps/ClusterApplicationsList.tsx, table/ActionsDropdown.tsx, table/TableColumnsButton.tsx, table/TableHeader.tsx, user/keys/KeysList.tsx",
     "message": "Actions"
   },
   "Activate": {
@@ -1123,6 +1123,10 @@
     "description": "customer/details/CustomerCallManagerPanel.tsx",
     "message": "Are you sure you want to prohibit this organization from managing calls?"
   },
+  "Are you sure you want to redeploy workload {workload}?": {
+    "description": "rancher/cluster/WorkloadActions.tsx",
+    "message": "Are you sure you want to redeploy workload {workload}?"
+  },
   "Are you sure you want to reject the proposal: {name}?": {
     "description": "proposals/proposal/ProposalRowActions.tsx",
     "message": "Are you sure you want to reject the proposal: {name}?"
@@ -1278,6 +1282,10 @@
   "Are you sure you would like to delete the user agreement?": {
     "description": "administration/agreements/UserAgreementDeleteButton.tsx",
     "message": "Are you sure you would like to delete the user agreement?"
+  },
+  "Are you sure you would like to delete workload {workload}?": {
+    "description": "rancher/cluster/WorkloadActions.tsx",
+    "message": "Are you sure you would like to delete workload {workload}?"
   },
   "Are you sure you would like to terminate resource {resourceName} from project {projectName} ({customerName})?": {
     "description": "marketplace/resources/terminate/TerminateDialog.tsx",
@@ -1880,7 +1888,7 @@
     "message": "Cancel request"
   },
   "Cancel": {
-    "description": "administration/roles/RoleDescriptionEditDialog.tsx, form/InsertLinkPopover.tsx, form/WideImageField.tsx, invitations/GroupInvitationCancelButton.tsx, invitations/GroupinvitationButtons.tsx, invitations/MultiCancelAction.tsx, invitations/actions/InvitationCancelButton.tsx, marketplace/details/CustomerField.tsx, marketplace/landing/MarketplaceLandingFilter.tsx, marketplace/offerings/update/integration/EditScriptDialog.tsx, marketplace/orders/actions/CancelTerminationOrderButton.tsx, marketplace/orders/details/CancelOrderButton.tsx, marketplace/service-providers/ServiceProviderManagement.tsx, modal/CloseDialogButton.tsx, modal/DeleteConfirmationDialog.tsx, table/TableFilterActions.tsx, table/TableFilterItem.tsx, user/support/DangerActionDialog.tsx, user/support/UserStatus.tsx",
+    "description": "administration/roles/RoleDescriptionEditDialog.tsx, form/InsertLinkPopover.tsx, form/WideImageField.tsx, invitations/GroupInvitationCancelButton.tsx, invitations/GroupinvitationButtons.tsx, invitations/MultiCancelAction.tsx, invitations/actions/InvitationCancelButton.tsx, marketplace/details/CustomerField.tsx, marketplace/landing/MarketplaceLandingFilter.tsx, marketplace/offerings/update/integration/EditScriptDialog.tsx, marketplace/orders/actions/CancelTerminationOrderButton.tsx, marketplace/orders/details/CancelOrderButton.tsx, marketplace/service-providers/ServiceProviderManagement.tsx, modal/CloseDialogButton.tsx, modal/DeleteConfirmationDialog.tsx, rancher/cluster/WorkloadActions.tsx, table/TableFilterActions.tsx, table/TableFilterItem.tsx, user/support/DangerActionDialog.tsx, user/support/UserStatus.tsx",
     "message": "Cancel"
   },
   "Canceled": {
@@ -3215,6 +3223,10 @@
     "description": "openstack/openstack-instance/actions/utils.ts",
     "message": "Delete volumes"
   },
+  "Delete workload": {
+    "description": "rancher/cluster/WorkloadActions.tsx",
+    "message": "Delete workload"
+  },
   "Delete": {
     "description": "administration/agreements/UserAgreementDeleteButton.tsx, administration/remote-offering-sync/RemoteSyncDeleteAction.tsx, customer/credits/DeleteCreditButton.tsx, customer/credits/ProjectDeleteCreditButton.tsx, customer/details/CustomerRemoveDialog.tsx, customer/payment-profiles/PaymentProfileDeleteButton.tsx, customer/payments/DeletePaymentButton.tsx, invitations/InvitationDeleteButton.tsx, invitations/MultiDeleteAction.tsx, marketplace/offerings/images/DeleteImageButton.tsx, marketplace/offerings/list/DeleteOfferingButton.tsx, marketplace/offerings/list/OfferingActions.test.tsx, marketplace/offerings/update/components/DeleteComponentButton.tsx, marketplace/offerings/update/endpoints/DeleteEndpointButton.tsx, marketplace/offerings/update/options/DeleteOptionButton.tsx, marketplace/offerings/update/roles/DeleteRoleButton.tsx, marketplace/resources/users/DeleteUserButton.tsx, marketplace/service-providers/ProviderOfferingUserDeleteButton.tsx, modal/DeleteConfirmationDialog.tsx, openstack/openstack-backup/actions/NetworksList.tsx, openstack/openstack-instance/actions/update-floating-ips/FloatingIpRow.tsx, openstack/openstack-security-groups/rule-editor/ActionsField.tsx, project/DeleteAction.tsx, project/manage/ProjectDelete.tsx, rancher/catalog/CatalogDeleteButton.tsx, rancher/cluster/WorkloadActions.tsx, resource/actions/ResourceDeleteButton.tsx, user/support/DangerActionDialog.tsx, user/support/UserDelete.tsx",
     "message": "Delete"
@@ -3512,7 +3524,7 @@
     "message": "Domain"
   },
   "Done": {
-    "description": "administration/organizations/OrganizationGroupDetailsDialog.tsx, marketplace/details/plan/PlanDetailsDialog.tsx, marketplace/offerings/details/OfferingDetailsDialog.tsx, marketplace/orders/list/MarketplaceOrdersListFilter.tsx, marketplace/orders/list/OrderStateCell.tsx, marketplace/orders/list/OrderStateFilter.tsx, marketplace/resources/details/ResourceComponentsDialog.tsx, marketplace/resources/resource-pending/OrderInProgressView.tsx, navigation/BackendHealthStatusDialog.tsx, rancher/cluster/actions/RancherClusterKubeconfigDialog.tsx",
+    "description": "administration/organizations/OrganizationGroupDetailsDialog.tsx, marketplace/details/plan/PlanDetailsDialog.tsx, marketplace/offerings/details/OfferingDetailsDialog.tsx, marketplace/orders/list/MarketplaceOrdersListFilter.tsx, marketplace/orders/list/OrderStateCell.tsx, marketplace/orders/list/OrderStateFilter.tsx, marketplace/resources/details/ResourceComponentsDialog.tsx, marketplace/resources/resource-pending/OrderInProgressView.tsx, navigation/BackendHealthStatusDialog.tsx",
     "message": "Done"
   },
   "Download full price list": {
@@ -4675,10 +4687,6 @@
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Generate API secret code"
   },
-  "Generate Kubeconfig file": {
-    "description": "rancher/cluster/actions/KubeconfigFileAction.tsx",
-    "message": "Generate Kubeconfig file"
-  },
   "Generate link": {
     "description": "invitations/actions/GroupInvitationCreateDialog.tsx",
     "message": "Generate link"
@@ -5311,10 +5319,6 @@
     "description": "openstack/openstack-instance/actions/ForceDestroyAction.tsx",
     "message": "Instance should be OK, or erred. Please contact support."
   },
-  "Instance should be OK. Please contact support.": {
-    "description": "rancher/cluster/actions/KubeconfigFileAction.tsx",
-    "message": "Instance should be OK. Please contact support."
-  },
   "Instance should be shutoff and OK or erred. Please contact support.": {
     "description": "openstack/openstack-instance/actions/DestroyAction.tsx",
     "message": "Instance should be shutoff and OK or erred. Please contact support."
@@ -5738,10 +5742,6 @@
   "Keystone auth URL (e.g. http://keystone.example.com:5000/v3)": {
     "description": "openstack/OpenStackForm.tsx",
     "message": "Keystone auth URL (e.g. http://keystone.example.com:5000/v3)"
-  },
-  "Kubeconfig file": {
-    "description": "rancher/cluster/actions/RancherClusterKubeconfigDialog.tsx",
-    "message": "Kubeconfig file"
   },
   "Kubernetes namespace where jobs will be executed": {
     "description": "SettingsDescription.ts",
@@ -9011,10 +9011,6 @@
     "description": "marketplace/offerings/update/integration/RemoteActions.tsx",
     "message": "Push project data"
   },
-  "Put this into ~/.kube/config:": {
-    "description": "rancher/cluster/actions/RancherClusterKubeconfigDialog.tsx",
-    "message": "Put this into ~/.kube/config:"
-  },
   "Quantity": {
     "description": "invoices/details/InvoiceItemExpandableRow.tsx, invoices/details/InvoiceItemUpdateDialog.tsx, invoices/details/ResourceLimitPeriodsTable.tsx, marketplace/details/plan/PlanDetailsTable.tsx, marketplace/details/plan/PlanDetailsTable2.tsx, marketplace/details/plan/TotalLimitComponentsTable.tsx, rancher/cluster/hpas/HPACreateDialog.tsx, rancher/cluster/hpas/HPAUpdateDialog.tsx",
     "message": "Quantity"
@@ -9130,6 +9126,10 @@
   "Record period": {
     "description": "invoices/details/InvoiceItemsTable.tsx, invoices/list/BillingRecordsList.tsx",
     "message": "Record period"
+  },
+  "Redeploy workload": {
+    "description": "rancher/cluster/WorkloadActions.tsx",
+    "message": "Redeploy workload"
   },
   "Redeploy": {
     "description": "rancher/cluster/WorkloadActions.tsx",
@@ -12063,10 +12063,6 @@
     "description": "SettingsDescription.ts, administration/settings/AdministrationBranding.tsx",
     "message": "Theme"
   },
-  "Then download (if needed) and run kubectl": {
-    "description": "rancher/cluster/actions/RancherClusterKubeconfigDialog.tsx",
-    "message": "Then download (if needed) and run kubectl"
-  },
   "Then": {
     "description": "customer/cost-policies/CostPolicyForm.tsx, marketplace/offerings/details/policies/PolicyCreateForm.tsx",
     "message": "Then"
@@ -13024,7 +13020,7 @@
     "message": "Unable to load data"
   },
   "Unable to load data.": {
-    "description": "core/LoadingErred.tsx, customer/dashboard/CustomerDashboardCredit.tsx, customer/list/TotalCostComponent.tsx, freeipa/FreeIPAAccount.tsx, invoices/details/BillingDetails.tsx, issues/IssueDetails.tsx, issues/create/IssueDescriptionTab.tsx, marketplace/resources/change-limits/ChangeLimitsBody.tsx, marketplace/resources/change-plan/ChangePlanDialog.tsx, project/ProjectDashboardCostLimits.tsx, project/ProjectDashboardCredit.tsx, rancher/cluster/actions/RancherClusterKubeconfigDialog.tsx, rancher/cluster/create/CreateNodeDialog.tsx, rancher/template/CatalogTemplateContainer.tsx, rancher/template/SecretField.tsx, resource/actions/AsyncActionDialog.tsx, resource/actions/ResourceActionDialog.tsx, user/dashboard/UserDashboard.tsx, user/hooks/HookDetailsDialog.tsx",
+    "description": "core/LoadingErred.tsx, customer/dashboard/CustomerDashboardCredit.tsx, customer/list/TotalCostComponent.tsx, freeipa/FreeIPAAccount.tsx, invoices/details/BillingDetails.tsx, issues/IssueDetails.tsx, issues/create/IssueDescriptionTab.tsx, marketplace/resources/change-limits/ChangeLimitsBody.tsx, marketplace/resources/change-plan/ChangePlanDialog.tsx, project/ProjectDashboardCostLimits.tsx, project/ProjectDashboardCredit.tsx, rancher/cluster/create/CreateNodeDialog.tsx, rancher/template/CatalogTemplateContainer.tsx, rancher/template/SecretField.tsx, resource/actions/AsyncActionDialog.tsx, resource/actions/ResourceActionDialog.tsx, user/dashboard/UserDashboard.tsx, user/hooks/HookDetailsDialog.tsx",
     "message": "Unable to load data."
   },
   "Unable to load detail.": {

@@ -3,6 +3,7 @@ import classNames from 'classnames';
 import { debounce, isEqual } from 'lodash-es';
 import React, { useEffect, useMemo, useRef } from 'react';
 import { Card, Col, Row, Stack } from 'react-bootstrap';
+import { createPortal } from 'react-dom';
 import { useMediaQuery } from 'react-responsive';
 
 import { GRID_BREAKPOINTS } from '@waldur/core/constants';
@@ -216,42 +217,26 @@ class TableClass<RowType = any> extends React.Component<TableProps<RowType>> {
                           </small>
                         )}
                       </div>
-                      {!this.props.hideRefresh && (
-                        <TableRefreshButton {...this.props} />
-                      )}
+                      {!this.props.hideRefresh &&
+                        !this.props.portal?.refresh && (
+                          <TableRefreshButton {...this.props} />
+                        )}
                     </Card.Title>
                   </Col>
                 )}
-                <Col sm="auto" className="order-1 order-sm-2 ms-auto">
-                  {this.showActionsColumn() && (
-                    <div className="d-flex justify-content-sm-end flex-wrap flex-sm-nowrap text-nowrap gap-3">
-                      <TableButtons
-                        {...this.props}
-                        showFilterMenuToggle={this.state.showFilterMenuToggle}
-                        toggleFilterMenu={this.toggleFilterMenu}
-                      />
-                    </div>
-                  )}
-                </Col>
-                {this.props.hasQuery && (
-                  <Col
-                    xs
-                    className={classNames(
-                      'order-2 order-sm-1 mw-lg-325px',
-                      !this.props.standalone && 'ms-auto',
-                    )}
-                  >
-                    {this.props.hasQuery && (
-                      <TableQuery
-                        query={this.props.query}
-                        setQuery={this.props.setQuery}
-                      />
-                    )}
-                  </Col>
-                )}
+                {!this.props.portal?.toolbar && this.renderActions()}
               </Row>
             </Card.Header>
           )}
+
+          {/* Portals */}
+          {Boolean(this.props.portal?.refresh) &&
+            createPortal(
+              <TableRefreshButton {...this.props} />,
+              this.props.portal?.refresh,
+            )}
+          {Boolean(this.props.portal?.toolbar) &&
+            createPortal(this.renderActions(), this.props.portal.toolbar)}
 
           {/* Tabs */}
           {this.props.tabs?.length ? (
@@ -387,6 +372,40 @@ class TableClass<RowType = any> extends React.Component<TableProps<RowType>> {
           pinnedColumns={this.state.pinnedColumns}
         />
       </ErrorBoundary>
+    );
+  }
+
+  renderActions() {
+    return (
+      <>
+        <Col sm="auto" className="order-1 order-sm-2 ms-auto">
+          {this.showActionsColumn() && (
+            <div className="d-flex justify-content-sm-end flex-wrap flex-sm-nowrap text-nowrap gap-3">
+              <TableButtons
+                {...this.props}
+                showFilterMenuToggle={this.state.showFilterMenuToggle}
+                toggleFilterMenu={this.toggleFilterMenu}
+              />
+            </div>
+          )}
+        </Col>
+        {this.props.hasQuery && (
+          <Col
+            xs
+            className={classNames(
+              'order-2 order-sm-1 mw-lg-325px',
+              !this.props.standalone && 'ms-auto',
+            )}
+          >
+            {this.props.hasQuery && (
+              <TableQuery
+                query={this.props.query}
+                setQuery={this.props.setQuery}
+              />
+            )}
+          </Col>
+        )}
+      </>
     );
   }
 

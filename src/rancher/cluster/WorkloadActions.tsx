@@ -9,7 +9,8 @@ import {
   rancherWorkloadsYamlUpdate,
 } from 'waldur-js-client';
 
-import { translate } from '@waldur/i18n';
+import { formatJsxTemplate, translate } from '@waldur/i18n';
+import { waitForConfirmation } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
 import { deleteEntity } from '@waldur/table/actions';
@@ -23,6 +24,24 @@ export const WorkloadActions: FunctionComponent<{ workload }> = ({
   const dispatch = useDispatch();
   const [redeployResult, redeployCallback] = useAsyncFn(async () => {
     try {
+      await waitForConfirmation(
+        dispatch,
+        translate('Redeploy workload'),
+        translate(
+          'Are you sure you want to redeploy workload {workload}?',
+          { workload: <strong>{workload.name}</strong> },
+          formatJsxTemplate,
+        ),
+        {
+          positiveButton: translate('Redeploy'),
+          negativeButton: translate('Cancel'),
+          iconNode: <Swap weight="bold" />,
+        },
+      );
+    } catch {
+      return;
+    }
+    try {
       await rancherWorkloadsRedeploy({ path: { uuid: workload.uuid } });
       dispatch(showSuccess('Workload has been redeployed.'));
     } catch (e) {
@@ -31,6 +50,20 @@ export const WorkloadActions: FunctionComponent<{ workload }> = ({
   }, [dispatch, workload]);
 
   const [deleteResult, deleteCallback] = useAsyncFn(async () => {
+    try {
+      await waitForConfirmation(
+        dispatch,
+        translate('Delete workload'),
+        translate(
+          'Are you sure you would like to delete workload {workload}?',
+          { workload: <strong>{workload.name}</strong> },
+          formatJsxTemplate,
+        ),
+        { forDeletion: true },
+      );
+    } catch {
+      return;
+    }
     try {
       await rancherWorkloadsDestroy({ path: { uuid: workload.uuid } });
       dispatch(showSuccess('Workload has been deleted.'));

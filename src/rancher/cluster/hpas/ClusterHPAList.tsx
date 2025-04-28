@@ -11,6 +11,7 @@ import { translate } from '@waldur/i18n';
 import { ActionsDropdownComponent } from '@waldur/table/ActionsDropdown';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
+import { TableWithPortal } from '@waldur/table/types';
 import { useTable } from '@waldur/table/useTable';
 
 import { ViewYAMLButton } from '../ViewYAMLButton';
@@ -31,9 +32,9 @@ const RowActions = ({ row, yamlRetrieve, yamlUpdate }) => (
   </ActionsDropdownComponent>
 );
 
-export const ClusterHPAList: FunctionComponent<{
-  resourceScope: RancherCluster;
-}> = ({ resourceScope }) => {
+export const ClusterHPAList: FunctionComponent<
+  TableWithPortal<{ resourceScope: RancherCluster }>
+> = ({ resourceScope, portal }) => {
   const filter = useMemo(
     () => ({
       cluster_uuid: resourceScope.uuid,
@@ -92,20 +93,21 @@ export const ClusterHPAList: FunctionComponent<{
           title: translate('State'),
           render: ({ row }) => <>{row.runtime_state}</>,
         },
-        {
-          title: translate('Actions'),
-          render: ({ row }) => (
-            <RowActions
-              yamlRetrieve={rancherHpasYamlRetrieve}
-              yamlUpdate={rancherHpasYamlUpdate}
-              row={row}
-            />
-          ),
-        },
       ]}
+      rowActions={({ row }) => (
+        <RowActions
+          yamlRetrieve={rancherHpasYamlRetrieve}
+          yamlUpdate={rancherHpasYamlUpdate}
+          row={row}
+        />
+      )}
       verboseName={translate('horizontal pod autoscalers')}
       showPageSizeSelector
       tableActions={<HPACreateButton cluster={resourceScope} />}
+      portal={portal}
+      hasActionBar={false}
+      cardBordered={false}
+      fullWidth
     />
   );
 };
