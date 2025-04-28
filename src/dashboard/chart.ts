@@ -93,7 +93,7 @@ export const getCostWidgetChartOptions = (
     grid: {
       left: '0%',
       right: '0%',
-      top: 30,
+      top: series.length > 2 ? 48 : 30,
       bottom: '0%',
       containLabel: true,
     },
