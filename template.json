@@ -1135,6 +1135,14 @@
     "description": "proposals/review/utils.tsx",
     "message": "Are you sure you want to reject the {name} proposal review?"
   },
+  "Are you sure you want to remove all selected users from project?": {
+    "description": "project/team/ProjectUsersBulkRemoveButton.tsx",
+    "message": "Are you sure you want to remove all selected users from project?"
+  },
+  "Are you sure you want to remove all selected users?": {
+    "description": "customer/team/UsersBulkRemoveButton.tsx",
+    "message": "Are you sure you want to remove all selected users?"
+  },
   "Are you sure you want to remove invoice item {name}?": {
     "description": "invoices/details/InvoiceItemDelete.tsx",
     "message": "Are you sure you want to remove invoice item {name}?"
@@ -2328,7 +2336,7 @@
     "message": "Confirmation notification template"
   },
   "Confirmation": {
-    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerCallManagerPanel.tsx, customer/details/CustomerLocationRow.tsx, customer/payment-profiles/PaymentProfileDeleteButton.tsx, customer/payments/DeletePaymentButton.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, invoices/details/InvoiceItemDelete.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/ColumnRow.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/deploy/DeployForm.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/images/DeleteImageButton.tsx, marketplace/offerings/update/components/DeleteComponentButton.tsx, marketplace/offerings/update/endpoints/DeleteEndpointButton.tsx, marketplace/offerings/update/options/DeleteOptionButton.tsx, marketplace/offerings/update/plans/ArchivePlanButton.tsx, marketplace/offerings/update/roles/DeleteRoleButton.tsx, marketplace/orders/actions/OrderUnlinkButton.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, marketplace/resources/resource-pending/OrderErredView.tsx, marketplace/resources/users/DeleteUserButton.tsx, marketplace/service-providers/OfferingPermissionRemoveButton.tsx, marketplace/service-providers/RestrictOfferingUser.tsx, openstack/openstack-security-groups/UnlinkSecurityGroupAction.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/ProposalRowActions.tsx, proposals/proposal/create/ProposalSubmissionStep.tsx, proposals/review/ReviewDeleteAction.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/CallActions.tsx, proposals/update/documents/RemoveDocumentButton.tsx, rancher/cluster/create/FormNodesStep.tsx, resource/actions/AsyncActionItem.tsx, resource/actions/ResourceDeleteButton.tsx, user/support/UserDelete.tsx, user/support/UserStatus.tsx",
+    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerCallManagerPanel.tsx, customer/details/CustomerLocationRow.tsx, customer/payment-profiles/PaymentProfileDeleteButton.tsx, customer/payments/DeletePaymentButton.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, customer/team/UsersBulkRemoveButton.tsx, invoices/details/InvoiceItemDelete.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/ColumnRow.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/deploy/DeployForm.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/images/DeleteImageButton.tsx, marketplace/offerings/update/components/DeleteComponentButton.tsx, marketplace/offerings/update/endpoints/DeleteEndpointButton.tsx, marketplace/offerings/update/options/DeleteOptionButton.tsx, marketplace/offerings/update/plans/ArchivePlanButton.tsx, marketplace/offerings/update/roles/DeleteRoleButton.tsx, marketplace/orders/actions/OrderUnlinkButton.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, marketplace/resources/resource-pending/OrderErredView.tsx, marketplace/resources/users/DeleteUserButton.tsx, marketplace/service-providers/OfferingPermissionRemoveButton.tsx, marketplace/service-providers/RestrictOfferingUser.tsx, openstack/openstack-security-groups/UnlinkSecurityGroupAction.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, project/team/ProjectUsersBulkRemoveButton.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/ProposalRowActions.tsx, proposals/proposal/create/ProposalSubmissionStep.tsx, proposals/review/ReviewDeleteAction.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/CallActions.tsx, proposals/update/documents/RemoveDocumentButton.tsx, rancher/cluster/create/FormNodesStep.tsx, resource/actions/AsyncActionItem.tsx, resource/actions/ResourceDeleteButton.tsx, user/support/UserDelete.tsx, user/support/UserStatus.tsx",
     "message": "Confirmation"
   },
   "Confirming that data is correct": {
@@ -9283,6 +9291,14 @@
     "description": "rancher/cluster/ClusterLonghornTab.tsx",
     "message": "Remove Loghorn in cluster"
   },
+  "Remove all selected users from organization.": {
+    "description": "customer/team/UsersBulkRemoveButton.tsx",
+    "message": "Remove all selected users from organization."
+  },
+  "Remove all selected users from project.": {
+    "description": "project/team/ProjectUsersBulkRemoveButton.tsx",
+    "message": "Remove all selected users from project."
+  },
   "Remove avatar": {
     "description": "form/ImageField.tsx",
     "message": "Remove avatar"
@@ -9296,7 +9312,7 @@
     "message": "Remove organization"
   },
   "Remove": {
-    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerManageContainer.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, form/DateField.tsx, form/WideImageField.tsx, invoices/details/InvoiceItemDelete.tsx, issues/comments/CommentActions.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/offerings/RemoveButton.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/update/ImageUploadField.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx, openstack/openstack-subnet/AllocationPoolsField.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, openstack/openstack-tenant/IpAddressList.tsx, openstack/openstack-tenant/StaticRoutesTable.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, project/ProjectManageContainer.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestItemActions.tsx, proposals/review/ReviewDeleteAction.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/documents/RemoveDocumentButton.tsx, user/hooks/HookRemoveButton.tsx, user/keys/KeyRemoveButton.tsx",
+    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerManageContainer.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, customer/team/UsersBulkRemoveButton.tsx, form/DateField.tsx, form/WideImageField.tsx, invoices/details/InvoiceItemDelete.tsx, issues/comments/CommentActions.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/offerings/RemoveButton.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/update/ImageUploadField.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx, openstack/openstack-subnet/AllocationPoolsField.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, openstack/openstack-tenant/IpAddressList.tsx, openstack/openstack-tenant/StaticRoutesTable.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, project/ProjectManageContainer.tsx, project/team/ProjectUsersBulkRemoveButton.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestItemActions.tsx, proposals/review/ReviewDeleteAction.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/documents/RemoveDocumentButton.tsx, user/hooks/HookRemoveButton.tsx, user/keys/KeyRemoveButton.tsx",
     "message": "Remove"
   },
   "Removed organizations cannot be restored!": {
@@ -10686,6 +10702,10 @@
   "Selected mappings": {
     "description": "marketplace/offerings/import/ImportReviewTab.tsx",
     "message": "Selected mappings"
+  },
+  "Selected users have been successfully removed.": {
+    "description": "customer/team/UsersBulkRemoveButton.tsx",
+    "message": "Selected users have been successfully removed."
   },
   "Selected": {
     "description": "table/TableButtons.tsx",
@@ -13239,9 +13259,21 @@
     "description": "customer/details/CustomerLocationRow.tsx",
     "message": "Unable to remove the location."
   },
+  "Unable to remove user {userName}.": {
+    "description": "customer/team/UsersBulkRemoveButton.tsx",
+    "message": "Unable to remove user {userName}."
+  },
   "Unable to remove user.": {
     "description": "marketplace/resources/users/DeleteUserButton.tsx",
     "message": "Unable to remove user."
+  },
+  "Unable to remove users from project.": {
+    "description": "project/team/ProjectUsersBulkRemoveButton.tsx",
+    "message": "Unable to remove users from project."
+  },
+  "Unable to remove users.": {
+    "description": "customer/team/UsersBulkRemoveButton.tsx",
+    "message": "Unable to remove users."
   },
   "Unable to replicate OpenStack tenant.": {
     "description": "openstack/openstack-tenant/actions/MigrateTenantDialog.tsx",
@@ -14370,6 +14402,10 @@
   "Users from {provider}": {
     "description": "administration/providers/ProviderUsersDialog.tsx",
     "message": "Users from {provider}"
+  },
+  "Users have been removed from project successfully.": {
+    "description": "project/team/ProjectUsersBulkRemoveButton.tsx",
+    "message": "Users have been removed from project successfully."
   },
   "Users should be revoked before role is removed.": {
     "description": "administration/roles/RoleDeleteButton.tsx",

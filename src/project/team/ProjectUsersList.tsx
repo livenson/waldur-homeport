@@ -18,6 +18,7 @@ import { PROJECT_TEAM_TABLE_TABS } from '../utils';
 
 import { ProjectPermisionActions } from './ProjectPermisionActions';
 import { ProjectPermissionsLogButton } from './ProjectPermissionsLogButton';
+import { ProjectUsersBulkRemoveButton } from './ProjectUsersBulkRemoveButton';
 import { ProjectUsersListFilter } from './ProjectUsersListFilter';
 import { TeamDropdownActions } from './TeamDropdownActions';
 
@@ -151,6 +152,8 @@ export const ProjectUsersList = ({
       )}
       filters={<ProjectUsersListFilter />}
       hasOptionalColumns
+      enableMultiSelect
+      multiSelectActions={ProjectUsersBulkRemoveButton}
     />
   );
 };
