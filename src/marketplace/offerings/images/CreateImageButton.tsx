@@ -19,6 +19,7 @@ const CreateImageDialog = lazyComponent(() =>
 
 interface CreateImageButtonProps {
   offering: Offering;
+  refetch(): void;
 }
 
 export const CreateImageButton = (props: CreateImageButtonProps) => {

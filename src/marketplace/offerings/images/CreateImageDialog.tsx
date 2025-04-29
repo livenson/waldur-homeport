@@ -17,7 +17,10 @@ import { useModal } from '@waldur/modal/hooks';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { useNotify } from '@waldur/store/hooks';
 
-export const CreateImageDialog = reduxForm<{}, { resolve: { offering } }>({
+export const CreateImageDialog = reduxForm<
+  {},
+  { resolve: { offering; refetch } }
+>({
   form: OFFERING_IMAGES_FORM_ID,
 })((props) => {
   const { showSuccess, showErrorResponse } = useNotify();
@@ -33,6 +36,7 @@ export const CreateImageDialog = reduxForm<{}, { resolve: { offering } }>({
         },
         ...formDataOptions,
       });
+      props.resolve.refetch();
       showSuccess(translate('Image has been added.'));
       closeDialog();
     } catch (error) {
