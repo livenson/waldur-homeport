@@ -10,7 +10,7 @@ import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { RowActionButton } from '@waldur/table/ActionButton';
 import { useUser } from '@waldur/workspace/hooks';
 
-export const DeleteImageButton = ({ row, offering }) => {
+export const DeleteImageButton = ({ row, fetch, offering }) => {
   const user = useUser();
   const dispatch = useDispatch();
   const handler = async () => {
@@ -26,6 +26,7 @@ export const DeleteImageButton = ({ row, offering }) => {
     }
     try {
       await marketplaceScreenshotsDestroy({ path: { uuid: row.uuid } });
+      fetch();
       dispatch(showSuccess(translate('Image has been removed.')));
     } catch (error) {
       dispatch(showErrorResponse(error, translate('Unable to remove image.')));
