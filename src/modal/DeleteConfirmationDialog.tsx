@@ -1,4 +1,4 @@
-import { WarningCircle } from '@phosphor-icons/react';
+import { Trash } from '@phosphor-icons/react';
 import React, { ReactNode } from 'react';
 import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
@@ -38,7 +38,7 @@ export const DeleteConfirmationDialog: React.FC<
   return (
     <ModalDialog
       title={title}
-      iconNode={<WarningCircle weight="bold" />}
+      iconNode={<Trash weight="bold" />}
       iconColor="danger"
       bodyClassName="text-gray-500 pt-2"
       footer={

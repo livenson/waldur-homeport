@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { projectsDeleteUser } from 'waldur-js-client';
 
-import { translate } from '@waldur/i18n';
+import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';
@@ -27,16 +27,34 @@ export const ProjectUsersBulkRemoveButton = ({ rows, refetch }) => {
   const dispatch = useDispatch();
   const callback = async () => {
     try {
+      const userList = rows.map((row) => (
+        <li key={row.uuid}>
+          {row.user_full_name || row.user_username} ({row.user_email || '-'})
+        </li>
+      ));
+
+      const confirmationText = translate(
+        "You are about to remove these users from the project. Once removed, they'll immediately lose access and all associated permissions.",
+      );
+
+      const formattedMessage = (
+        <div>
+          <p>{confirmationText}</p>
+          <ul>{userList}</ul>
+        </div>
+      );
+
       await waitForConfirmation(
         dispatch,
-        translate('Confirmation'),
         translate(
-          'Are you sure you want to remove {count} selected users from project {project_name}?',
+          'Remove selected users from the project: {projectName}',
           {
-            count: rows.length,
-            project_name: project.name,
+            projectName: <strong>{project.name}</strong>,
           },
+          formatJsxTemplate,
         ),
+        formattedMessage,
+        { forDeletion: true },
       );
     } catch {
       return;
@@ -75,8 +93,7 @@ export const ProjectUsersBulkRemoveButton = ({ rows, refetch }) => {
       title={translate('Remove')}
       action={callback}
       iconNode={<Trash />}
-      variant="danger"
-      className="btn btn-danger"
+      variant="light-danger"
       tooltip={translate('Remove all selected users from project.')}
       disabled={isRemoving}
     />
