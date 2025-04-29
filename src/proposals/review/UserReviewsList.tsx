@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
+import { ProposalReviewsListData } from 'waldur-js-client';
 
 import { translate } from '@waldur/i18n';
 import { ProposalReview } from '@waldur/proposals/types';
@@ -26,7 +27,7 @@ const filtersSelctor = createSelector(
   getUser,
   getFormValues(USER_REVIEWS_FILTER_FORM_ID),
   (user, filters: any) => {
-    const result: Record<string, any> = {};
+    const result: ProposalReviewsListData['query'] = {};
     result.reviewer_uuid = user.uuid;
     if (filters?.state) {
       result.state = filters.state.map((option) => option.value);
