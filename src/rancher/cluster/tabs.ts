@@ -1,4 +1,5 @@
 import { lazyComponent } from '@waldur/core/lazyComponent';
+import { RancherFeatures } from '@waldur/FeaturesEnums';
 import { translate } from '@waldur/i18n';
 import { ResourceTabsConfiguration } from '@waldur/resource/tabs/types';
 
@@ -57,12 +58,12 @@ export const RancherClusterTabConfiguration: ResourceTabsConfiguration = {
           default: module.AppsTable,
         })),
       ),
+      feature: RancherFeatures.apps,
       defaultKey: 'templates',
       children: [
         {
           key: 'templates',
           title: translate('Application templates'),
-          visible: false,
           component: lazyComponent(() =>
             import('../template/ClusterTemplateList').then((module) => ({
               default: module.ClusterTemplatesList,
@@ -72,7 +73,6 @@ export const RancherClusterTabConfiguration: ResourceTabsConfiguration = {
         {
           key: 'applications',
           title: translate('Applications'),
-          visible: false,
           component: lazyComponent(() =>
             import('./apps/ClusterApplicationsList').then((module) => ({
               default: module.ClusterApplicationsList,
@@ -82,7 +82,6 @@ export const RancherClusterTabConfiguration: ResourceTabsConfiguration = {
         {
           key: 'workloads',
           title: translate('Workloads'),
-          visible: false,
           component: lazyComponent(() =>
             import('./ClusterWorkloadsList').then((module) => ({
               default: module.ClusterWorkloadsList,
@@ -92,7 +91,6 @@ export const RancherClusterTabConfiguration: ResourceTabsConfiguration = {
         {
           key: 'catalogs',
           title: translate('Catalogues'),
-          visible: false,
           component: lazyComponent(() =>
             import('../catalog/ClusterCatalogList').then((module) => ({
               default: module.ClusterCatalogList,
