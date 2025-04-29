@@ -6167,6 +6167,10 @@
     "description": "openstack/openstack-instance/ManageSecurityGroupsButton.tsx",
     "message": "Manage security groups"
   },
+  "Manage service account": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Manage service account"
+  },
   "Manage": {
     "description": "marketplace/offerings/OfferingViewHero.tsx, user/UserManageContainer.tsx",
     "message": "Manage"
@@ -9370,6 +9374,10 @@
   "Removing the organization will delete all related resources.": {
     "description": "customer/details/CustomerRemovePanel.tsx",
     "message": "Removing the organization will delete all related resources."
+  },
+  "Render Rancher apps as a separate tab in resource details page.": {
+    "description": "features/FeaturesDescription.ts",
+    "message": "Render Rancher apps as a separate tab in resource details page."
   },
   "Render estimated cost column in projects list.": {
     "description": "features/FeaturesDescription.ts",

@@ -1,5 +1,6 @@
 import type { ComponentType } from 'react';
 
+import { FeaturesEnum } from '@waldur/FeaturesEnums';
 import { Offering } from '@waldur/marketplace/types';
 import { TableProps } from '@waldur/table/types';
 
@@ -26,6 +27,7 @@ export interface ResourceParentTab {
   defaultKey?: string;
   component?: ComponentType<ResourceTabProps>;
   children: ResourceTab[];
+  feature?: FeaturesEnum;
 }
 
 export interface ResourceTabsConfiguration {
