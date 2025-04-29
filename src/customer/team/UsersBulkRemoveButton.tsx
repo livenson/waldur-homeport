@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { customersDeleteUser, projectsDeleteUser } from 'waldur-js-client';
 
-import { translate } from '@waldur/i18n';
+import { formatJsxTemplate, translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';
@@ -28,16 +28,33 @@ export const UsersBulkRemoveButton = ({ rows, refetch }) => {
 
   const callback = async () => {
     try {
+      const userList = rows.map((row) => (
+        <li key={row.uuid}>
+          {row.full_name || row.username} ({row.email || '-'})
+        </li>
+      ));
+
+      const confirmationText = translate(
+        "You are about to remove these users from the organization. Once removed, they'll immediately lose access and all associated permissions.",
+      );
+
+      const formattedMessage = (
+        <div>
+          <p>{confirmationText}</p>
+          <ul>{userList}</ul>
+        </div>
+      );
+
       await waitForConfirmation(
         dispatch,
-        translate('Confirmation'),
         translate(
-          'Are you sure you want to remove {count} selected users from organization {organization_name}?',
+          'Remove selected users from the organization: {customerName}',
           {
-            count: rows.length,
-            organization_name: currentCustomer.name,
+            customerName: <strong>{currentCustomer.name}</strong>,
           },
+          formatJsxTemplate,
         ),
+        formattedMessage,
         { forDeletion: true },
       );
     } catch {
@@ -97,8 +114,7 @@ export const UsersBulkRemoveButton = ({ rows, refetch }) => {
       title={translate('Remove')}
       action={callback}
       iconNode={<Trash />}
-      variant="danger"
-      className="btn btn-danger"
+      variant="light-danger"
       tooltip={translate('Remove all selected users from organization.')}
       disabled={isRemoving}
     />

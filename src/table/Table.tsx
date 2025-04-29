@@ -1,8 +1,9 @@
+import { X } from '@phosphor-icons/react';
 import { ErrorBoundary } from '@sentry/react';
 import classNames from 'classnames';
 import { debounce, isEqual } from 'lodash-es';
 import React, { useEffect, useMemo, useRef } from 'react';
-import { Card, Col, Row, Stack } from 'react-bootstrap';
+import { Button, Card, Col, Row, Stack } from 'react-bootstrap';
 import { createPortal } from 'react-dom';
 import { useMediaQuery } from 'react-responsive';
 
@@ -11,6 +12,7 @@ import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { titleCase } from '@waldur/core/utils';
 import { ErrorMessage } from '@waldur/ErrorMessage';
 import { ErrorView } from '@waldur/ErrorView';
+import { translate } from '@waldur/i18n';
 
 import { COLUMN_ACTIONS_KEY } from './constants';
 import { FilterContextProvider } from './FilterContextProvider';
@@ -378,22 +380,45 @@ class TableClass<RowType = any> extends React.Component<TableProps<RowType>> {
   renderActions() {
     return (
       <>
-        <Col sm="auto" className="order-1 order-sm-2 ms-auto">
-          {this.showActionsColumn() && (
-            <div className="d-flex justify-content-sm-end flex-wrap flex-sm-nowrap text-nowrap gap-3">
-              <TableButtons
-                {...this.props}
-                showFilterMenuToggle={this.state.showFilterMenuToggle}
-                toggleFilterMenu={this.toggleFilterMenu}
-              />
-            </div>
+        {/* Multi-select actions */}
+        {this.props.selectedRows?.length > 0 &&
+          this.props.multiSelectActions && (
+            <Col
+              xs="auto"
+              className="order-1 order-sm-1 d-flex justify-content-start flex-wrap text-nowrap gap-3"
+            >
+              <Stack
+                direction="horizontal"
+                className="fw-normal text-dark me-2"
+              >
+                <Button
+                  variant="active-secondary"
+                  className="btn-icon me-1"
+                  size="sm"
+                  onClick={this.props.resetSelection}
+                >
+                  <X weight="bold" />
+                </Button>
+                <span>
+                  ({this.props.selectedRows?.length}) {translate('Selected')}
+                </span>
+              </Stack>
+              {React.createElement(this.props.multiSelectActions, {
+                rows: this.props.selectedRows,
+                refetch: () => {
+                  this.props.fetch();
+                  this.props.resetSelection();
+                },
+              })}
+            </Col>
           )}
-        </Col>
+
+        {/* Table Query */}
         {this.props.hasQuery && (
           <Col
             xs
             className={classNames(
-              'order-2 order-sm-1 mw-lg-325px',
+              'order-2 order-sm-2 mw-lg-325px',
               !this.props.standalone && 'ms-auto',
             )}
           >
@@ -405,6 +430,19 @@ class TableClass<RowType = any> extends React.Component<TableProps<RowType>> {
             )}
           </Col>
         )}
+
+        {/* Remaining table action buttons */}
+        <Col sm="auto" className="order-3 order-sm-3 ms-auto">
+          {this.showActionsColumn() && (
+            <div className="d-flex justify-content-sm-end flex-wrap flex-sm-nowrap text-nowrap gap-3">
+              <TableButtons
+                {...this.props}
+                showFilterMenuToggle={this.state.showFilterMenuToggle}
+                toggleFilterMenu={this.toggleFilterMenu}
+              />
+            </div>
+          )}
+        </Col>
       </>
     );
   }
