@@ -40,6 +40,7 @@ export enum ProjectFeatures {
 }
 
 export enum RancherFeatures {
+  apps = 'rancher.apps',
   volume_mount_point = 'rancher.volume_mount_point',
 }
 

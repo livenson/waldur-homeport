@@ -131,6 +131,10 @@ export const FeaturesDescription: FeatureSection[] = [
     description: translate('Rancher resources provisioning'),
     items: [
       {
+        key: 'apps',
+        description: translate('Render Rancher apps as a separate tab in resource details page.'),
+      },
+      {
         key: 'volume_mount_point',
         description: translate('Allow to select mount point for data volume when Rancher cluster is provisioned.'),
       },
