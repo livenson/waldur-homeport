@@ -19,10 +19,11 @@ export const ConfirmModalRoot: FunctionComponent = () => {
     { modal: TState },
     TState
   >((state: RootState) => state.modal);
-  const { modalStyle, className, backdropClassName, ...rest } =
+  const { modalStyle, className, backdropClassName, resolve, ...rest } =
     confirmProps || {};
   const dispatch = useDispatch();
   const onHide = () => {
+    if (resolve.deferred) resolve.deferred.reject();
     dispatch(closeModalDialog('HIDE_CONFIRM'));
   };
   return (

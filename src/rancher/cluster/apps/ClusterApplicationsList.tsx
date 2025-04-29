@@ -63,11 +63,8 @@ export const ClusterApplicationsList: FunctionComponent<
           title: translate('State'),
           render: ({ row }) => <>{row.runtime_state}</>,
         },
-        {
-          title: translate('Actions'),
-          render: ApplicationActions,
-        },
       ]}
+      rowActions={ApplicationActions}
       verboseName={translate('applications')}
       showPageSizeSelector
       portal={portal}
