@@ -4,7 +4,7 @@ import { FC, useMemo } from 'react';
 import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
-import { Proposal } from 'waldur-js-client';
+import { Proposal, ProposalProposalsListData } from 'waldur-js-client';
 
 import { isFeatureVisible } from '@waldur/features/connect';
 import { ProjectFeatures } from '@waldur/FeaturesEnums';
@@ -29,14 +29,14 @@ import { ProposalsTableFilter } from './ProposalsTableFilter';
 const filtersSelector = createSelector(
   getFormValues(PROPOSALS_FILTER_FORM_ID),
   (filters: any) => {
-    const result: Record<string, any> = {};
+    const result: ProposalProposalsListData['query'] = {};
     if (filters?.state) {
       result.state = filters.state.map((option) => option.value);
     }
     if (filters?.call) {
       result.call_uuid = filters.call.uuid;
     }
-    result.o = '-round__cutoff_time';
+    result.o = ['-round__cutoff_time'];
     return result;
   },
 );

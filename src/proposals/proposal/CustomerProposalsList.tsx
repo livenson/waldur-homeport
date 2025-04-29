@@ -2,6 +2,7 @@ import { FC } from 'react';
 import { useSelector } from 'react-redux';
 import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
+import { ProposalProposalsListData } from 'waldur-js-client';
 
 import { Link } from '@waldur/core/Link';
 import { translate } from '@waldur/i18n';
@@ -26,11 +27,11 @@ const mapStateToFilter = createSelector(
   getCustomer,
   getFormValues(PROPOSALS_FILTER_FORM_ID),
   (customer, filters: any) => {
-    const result: Record<string, any> = {};
+    const result: ProposalProposalsListData['query'] = {};
     if (customer) {
       result.organization_uuid = customer.uuid;
     }
-    result.o = '-round__cutoff_time';
+    result.o = ['-round__cutoff_time'];
     result.state = getNonCanceledProposalStates();
 
     if (filters) {
