@@ -1,5 +1,6 @@
 import { FunctionComponent, useMemo } from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { useSelector } from 'react-redux';
+import { Field, getFormValues, reduxForm } from 'redux-form';
 import { MarketplacePublicOfferingsListData, Project } from 'waldur-js-client';
 
 import {
@@ -36,14 +37,19 @@ const PureProjectResourcesAllFilter: FunctionComponent<
 > = (props) => {
   useSyncInitialFiltersToURL(props.initialValues);
 
+  const formValues = useSelector(
+    getFormValues(PROJECT_RESOURCES_ALL_FILTER_FORM_ID),
+  ) as { project: Project; organization: Customer };
+
   const offeringFilter = useMemo(
     (): MarketplacePublicOfferingsListData['query'] => ({
       project_uuid: props.project?.uuid,
       allowed_customer_uuid: props.customer?.uuid,
-      resource_customer_uuid: props.customer?.uuid,
-      resource_project_uuid: props.project?.uuid,
+      resource_customer_uuid:
+        formValues?.organization?.uuid || props.customer?.uuid,
+      resource_project_uuid: formValues?.project?.uuid || props.project?.uuid,
     }),
-    [props.project, props.customer],
+    [props.project, props.customer, formValues],
   );
 
   return (
@@ -75,7 +81,10 @@ const PureProjectResourcesAllFilter: FunctionComponent<
         name="category"
         badgeValue={(value) => value?.title}
       >
-        <CategoryFilter project={props.project} customer={props.customer} />
+        <CategoryFilter
+          project={formValues?.project || props.project}
+          customer={formValues?.organization || props.customer}
+        />
       </TableFilterItem>
       {props.hasCustomerFilter ? (
         <TableFilterItem
