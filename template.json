@@ -131,6 +131,10 @@
     "description": "invitations/InvitationButtons.tsx",
     "message": "Accept invitation"
   },
+  "Accept term and conditions": {
+    "description": "user/support/AcceptTosWarning.tsx",
+    "message": "Accept term and conditions"
+  },
   "Accept": {
     "description": "booking/components/AcceptBookingButton.tsx, proposals/offering-requests/OfferingRequestItemActions.tsx",
     "message": "Accept"
@@ -254,6 +258,10 @@
   "Action": {
     "description": "administration/organizations/OrganizationCostPoliciesList.tsx, customer/cost-policies/CostPoliciesList.tsx, marketplace/offerings/details/policies/PoliciesTable.tsx, resource/actions/AsyncActionItem.tsx",
     "message": "Action"
+  },
+  "Actions required": {
+    "description": "user/support/AcceptTosWarning.tsx",
+    "message": "Actions required"
   },
   "Actions": {
     "description": "administration/remote-offering-sync/CategoryMappingRulesField.tsx, customer/team/CustomerUsersListExpandableRow.tsx, invitations/UserPermissionRequestsList.tsx, invoices/details/InvoiceItemExpandableRow.tsx, marketplace/category/admin/ColumnsList.tsx, marketplace/offerings/actions/ActionsDropdown.tsx, marketplace/orders/actions/OrderActionsButton.tsx, marketplace/orders/list/OrdersListExpandableRow.tsx, marketplace/resources/ResourceActions.tsx, marketplace/service-providers/CampaignForm.tsx, marketplace/service-providers/CampaignUpdateForm.tsx, openstack/openstack-backup/BackupsList.tsx, openstack/openstack-instance/InternalIpsList.tsx, openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx, openstack/openstack-security-groups/rule-editor/RulesHeader.tsx, openstack/openstack-server-groups/ServerGroupsList.tsx, openstack/openstack-snapshot/TenantSnapshotsList.tsx, openstack/openstack-tenant/IpAddressList.tsx, openstack/openstack-tenant/StaticRoutesTable.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, openstack/openstack-volume/VolumeSnapshotsList.tsx, project/ProjectsListActions.tsx, proposals/update/CallActions.tsx, table/ActionsDropdown.tsx, table/TableColumnsButton.tsx, table/TableHeader.tsx, user/keys/KeysList.tsx",
@@ -8103,6 +8111,10 @@
     "description": "administration/hooks/HooksList.tsx",
     "message": "Person"
   },
+  "Personal information": {
+    "description": "user/support/UserEditTab.tsx",
+    "message": "Personal information"
+  },
   "Philosophy, ethics and religion": {
     "description": "project/OECD_FOS_2007_CODES.ts",
     "message": "Philosophy, ethics and religion"
@@ -8198,10 +8210,6 @@
   "Please check the credentials again.": {
     "description": "marketplace/offerings/import/SelectOfferingTab.tsx, marketplace/offerings/import/SelectOrganizationTab.tsx",
     "message": "Please check the credentials again."
-  },
-  "Please ensure that all your mandatory profile information is complete.": {
-    "description": "user/CompleteYourProfileBanner.tsx",
-    "message": "Please ensure that all your mandatory profile information is complete."
   },
   "Please enter desired values in the rows below:": {
     "description": "marketplace/details/plan/PlanDetailsTable.tsx",
@@ -12291,6 +12299,10 @@
     "description": "customer/details/CustomerErrorDialog.tsx",
     "message": "To correct details of your organization, please send an email to {supportEmail} highlighting the errors in current details. Thank you!"
   },
+  "To ensure full access to all Waldur features and services please update your profile information to avoid any disruption in service.": {
+    "description": "user/CompleteYourProfileBanner.tsx",
+    "message": "To ensure full access to all Waldur features and services please update your profile information to avoid any disruption in service."
+  },
   "To get access, please send a request to {supportEmail}.": {
     "description": "openstack/openstack-tenant/actions/RequestDirectAccessDialog.tsx",
     "message": "To get access, please send a request to {supportEmail}."
@@ -14942,6 +14954,10 @@
   "You have the right to request service without additional approval.": {
     "description": "i18n/translate.tsx",
     "message": "You have the right to request service without additional approval."
+  },
+  "You must accept the terms of service and privacy policy to access all features. To accept, please check the box below.": {
+    "description": "user/support/AcceptTosWarning.tsx",
+    "message": "You must accept the terms of service and privacy policy to access all features. To accept, please check the box below."
   },
   "You must be staff to modify payment profiles": {
     "description": "customer/payment-profiles/PaymentProfileList.tsx",
