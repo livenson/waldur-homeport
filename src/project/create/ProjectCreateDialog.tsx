@@ -70,7 +70,7 @@ export const ProjectCreateDialog = ({
         },
         ...formDataOptions,
       });
-      if (!response.error) {
+      if (!response.error && formData.project_credit) {
         try {
           await projectCreditsCreate({
             body: {
