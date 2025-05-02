@@ -64,6 +64,11 @@
     &.expanded,
     &.expanded + tr {
       background-color: $gray-50;
+
+      th.pinned,
+      td.pinned {
+        background-color: unset;
+      }
     }
     &.expanded + tr {
       > td {

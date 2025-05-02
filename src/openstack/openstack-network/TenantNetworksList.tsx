@@ -1,4 +1,4 @@
-import { FunctionComponent, useMemo } from 'react';
+import { FunctionComponent, memo, useMemo } from 'react';
 import { OpenStackNetwork, OpenstackNetworksListData } from 'waldur-js-client';
 
 import { translate } from '@waldur/i18n';
@@ -11,6 +11,23 @@ import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
 
 import { CreateNetworkAction } from '../openstack-tenant/actions/CreateNetworkAction';
+
+import { NetworkRBACList } from './NetworkRBACList';
+
+const ExpandableRow = ({ row }) => (
+  <ResourceSummary
+    resource={row}
+    extraTabs={[
+      {
+        title: translate('Network sharing (RBAC)'),
+        eventKey: 'rbac',
+        component: () => <NetworkRBACList network={row} />,
+      },
+    ]}
+  />
+);
+
+const ExpandableRowMemo = memo(ExpandableRow);
 
 export const TenantNetworksList: FunctionComponent<{ resourceScope }> = ({
   resourceScope,
@@ -81,7 +98,7 @@ export const TenantNetworksList: FunctionComponent<{ resourceScope }> = ({
       rowActions={({ row }) => (
         <ActionButtonResource url={row.url} refetch={props.fetch} />
       )}
-      expandableRow={({ row }) => <ResourceSummary resource={row} />}
+      expandableRow={ExpandableRowMemo}
     />
   );
 };
