@@ -19,6 +19,7 @@ interface ResourceActionComponentProps {
   providerResourceActions?: ActionItemType[];
   staffActions?: ActionItemType[];
   resourceTypeActions?: ActionItemType[];
+  extraActions?: ActionItemType[];
   resource: any;
   marketplaceResource?: any;
   refetch?(): void;
@@ -48,8 +49,21 @@ export const ResourceActionComponent: FunctionComponent<
           </Dropdown.Item>
         ) : props.customerResourceActions ||
           props.staffActions ||
+          props.resourceTypeActions ||
           props.resourceTypeActions ? (
           <>
+            {props.extraActions?.length > 0 && (
+              <>
+                {props.extraActions.map((ActionComponent, index) => (
+                  <ActionComponent
+                    key={`resource-${index}`}
+                    resource={props.resource}
+                    marketplaceResource={props.marketplaceResource}
+                    refetch={props.refetch}
+                  />
+                ))}
+              </>
+            )}
             {props.resourceTypeActions?.length > 0 && (
               <>
                 {props.resourceTypeActions.map((ActionComponent, index) => (

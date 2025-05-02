@@ -591,6 +591,10 @@
     "description": "marketplace/service-providers/ServiceProviderManagement.tsx",
     "message": "After secret API code has been regenerated, it will not be possible to submit usage with the old key."
   },
+  "Agent": {
+    "description": "rancher/cluster/create/NodeRoleField.tsx, rancher/cluster/create/RANCHER_NODE_ROLES.tsx, rancher/node/NodeRoleField.tsx",
+    "message": "Agent"
+  },
   "Aggregate usage and limits": {
     "description": "marketplace/aggregate-limits/AggregateLimitWidget.tsx",
     "message": "Aggregate usage and limits"
@@ -680,7 +684,7 @@
     "message": "All users"
   },
   "All": {
-    "description": "administration/organizations/OrganizationsFilter.tsx, customer/credits/CreditFormDialog.tsx, customer/list/AccountingRunningField.tsx, customer/list/ServiceProviderFilter.tsx, invitations/GroupInvitationsFilter.tsx, marketplace/offerings/update/attributes/utils.tsx, rancher/node/NodeRoleField.tsx",
+    "description": "administration/organizations/OrganizationsFilter.tsx, customer/credits/CreditFormDialog.tsx, customer/list/AccountingRunningField.tsx, customer/list/ServiceProviderFilter.tsx, invitations/GroupInvitationsFilter.tsx, marketplace/offerings/update/attributes/utils.tsx",
     "message": "All"
   },
   "Allocate credit ({currency})": {
@@ -2434,10 +2438,6 @@
   "Contract sum": {
     "description": "customer/payment-profiles/PaymentProfileCreateDialog.tsx, customer/payment-profiles/PaymentProfileUpdateDialog.tsx",
     "message": "Contract sum"
-  },
-  "Control plane": {
-    "description": "rancher/cluster/create/NodeRoleField.tsx, rancher/cluster/create/RANCHER_NODE_ROLES.tsx",
-    "message": "Control plane"
   },
   "Copied!": {
     "description": "form/InsertLinkPopover.tsx",
@@ -7119,9 +7119,9 @@
     "description": "vmware/deploy/FormProcessorStep.tsx",
     "message": "Number of CPU cores should be multiple of cores per socket."
   },
-  "Number of control plane nodes": {
+  "Number of agent nodes": {
     "description": "rancher/cluster/create/RancherClusterCheckoutSummary.tsx",
-    "message": "Number of control plane nodes"
+    "message": "Number of agent nodes"
   },
   "Number of cores in a VM": {
     "description": "vmware/deploy/FormProcessorStep.tsx",
@@ -7130,10 +7130,6 @@
   "Number of created instances": {
     "description": "reporting/openstack/FlavorsList.tsx, reporting/openstack/ImagesList.tsx",
     "message": "Number of created instances"
-  },
-  "Number of etcd nodes": {
-    "description": "rancher/cluster/create/RancherClusterCheckoutSummary.tsx",
-    "message": "Number of etcd nodes"
   },
   "Number of nodes": {
     "description": "rancher/cluster/create/ManagedFormNodesStep.tsx",
@@ -7147,13 +7143,13 @@
     "description": "reporting/openstack/FlavorsList.tsx, reporting/openstack/ImagesList.tsx",
     "message": "Number of running instances"
   },
+  "Number of server nodes": {
+    "description": "rancher/cluster/create/RancherClusterCheckoutSummary.tsx",
+    "message": "Number of server nodes"
+  },
   "Number of users": {
     "description": "administration/TelemetryExampleDialog.tsx",
     "message": "Number of users"
-  },
-  "Number of worker nodes": {
-    "description": "rancher/cluster/create/RancherClusterCheckoutSummary.tsx",
-    "message": "Number of worker nodes"
   },
   "OECD FoS code": {
     "description": "marketplace-remote/ProjectUpdateRequestExpandable.tsx, project/create/OecdCodeGroup.tsx, project/manage/ProjectMetadata.tsx, proposals/proposal/UserProposalsList.tsx, user/affiliations/ProjectsList.tsx",
@@ -10832,7 +10828,7 @@
     "message": "Server groups"
   },
   "Server": {
-    "description": "azure/sql/AzureSQLDatabaseSummary.tsx",
+    "description": "azure/sql/AzureSQLDatabaseSummary.tsx, rancher/cluster/create/NodeRoleField.tsx, rancher/cluster/create/RANCHER_NODE_ROLES.tsx, rancher/node/NodeRoleField.tsx",
     "message": "Server"
   },
   "Service Desk": {
@@ -14827,10 +14823,6 @@
     "description": "rancher/cluster/create/ManagedFormNodesStep.tsx, rancher/cluster/create/managed-steps.ts",
     "message": "Worker nodes hardware configuration"
   },
-  "Worker": {
-    "description": "rancher/cluster/create/NodeRoleField.tsx, rancher/cluster/create/RANCHER_NODE_ROLES.tsx",
-    "message": "Worker"
-  },
   "Workload": {
     "description": "rancher/cluster/hpas/ClusterHPAList.tsx, rancher/cluster/hpas/HPACreateDialog.tsx",
     "message": "Workload"
@@ -15123,10 +15115,6 @@
     "description": "marketplace/offerings/PriceList.tsx",
     "message": "components"
   },
-  "control plane": {
-    "description": "rancher/node/NodeRoleField.tsx",
-    "message": "control plane"
-  },
   "current state on backend: {resourceState}.": {
     "description": "resource/state/utils.ts",
     "message": "current state on backend: {resourceState}."
@@ -15174,10 +15162,6 @@
   "estimated": {
     "description": "reporting/invoices/utils.ts",
     "message": "estimated"
-  },
-  "etcd": {
-    "description": "rancher/cluster/create/NodeRoleField.tsx, rancher/cluster/create/RANCHER_NODE_ROLES.tsx, rancher/node/NodeRoleField.tsx",
-    "message": "etcd"
   },
   "events": {
     "description": "events/BaseEventsList.tsx",
@@ -15482,10 +15466,6 @@
   "volumes": {
     "description": "openstack/openstack-volume/InstanceVolumesList.tsx, openstack/openstack-volume/TenantVolumesList.tsx",
     "message": "volumes"
-  },
-  "worker": {
-    "description": "rancher/node/NodeRoleField.tsx",
-    "message": "worker"
   },
   "workloads": {
     "description": "rancher/cluster/ClusterWorkloadsList.tsx",
