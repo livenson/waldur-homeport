@@ -39,17 +39,15 @@ const getStats = (state: RootState) => {
     return {};
   }
   const nodeCount = nodes.length;
-  const etcdCount = countNodesByRole('etcd', nodes);
-  const workerCount = countNodesByRole('worker', nodes);
-  const controlCount = countNodesByRole('controlplane', nodes);
+  const agentCount = countNodesByRole('agent', nodes);
+  const serverCount = countNodesByRole('server', nodes);
   const totalCores = getTotalCores(nodes);
   const totalStorage = formatFilesize(getTotalStorage(nodes) * 1024);
   const totalRam = formatFilesize(getTotalRam(nodes));
   return {
     nodeCount,
-    etcdCount,
-    workerCount,
-    controlCount,
+    agentCount,
+    serverCount,
     totalCores,
     totalStorage,
     totalRam,
@@ -58,7 +56,7 @@ const getStats = (state: RootState) => {
 
 const connector = connect(getStats);
 
-const PureRancherExtraComponent = (props) =>
+const PureRancherExtraComponent = (props: ReturnType<typeof getStats>) =>
   props.nodeCount ? (
     <>
       <CheckoutPricingRow
@@ -66,16 +64,12 @@ const PureRancherExtraComponent = (props) =>
         value={props.nodeCount}
       />
       <CheckoutPricingRow
-        label={translate('Number of etcd nodes')}
-        value={props.etcdCount}
+        label={translate('Number of agent nodes')}
+        value={props.agentCount}
       />
       <CheckoutPricingRow
-        label={translate('Number of worker nodes')}
-        value={props.workerCount}
-      />
-      <CheckoutPricingRow
-        label={translate('Number of control plane nodes')}
-        value={props.controlCount}
+        label={translate('Number of server nodes')}
+        value={props.serverCount}
       />
       <CheckoutPricingRow
         label={translate('Total CPU')}
