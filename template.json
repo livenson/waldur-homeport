@@ -2700,7 +2700,7 @@
     "message": "Create"
   },
   "Created at": {
-    "description": "administration/InvitationList.tsx, administration/agreements/UserAgreementsList.tsx, administration/notifications/NotificationList.tsx, broadcasts/BroadcastList.tsx, invitations/GroupInvitationsList.tsx, invitations/InvitationsList.tsx, invitations/UserPermissionRequestsList.tsx, marketplace/category/PublicOfferingsList.tsx, marketplace/offerings/details/OfferingUsersTable.tsx, marketplace/offerings/details/permissions/OfferingPermissionsList.tsx, marketplace/orders/details/OrderDetailsApprovalsTab.tsx, marketplace/orders/list/OrdersTableComponent.tsx, marketplace/orders/list/ResourceOrders.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/utils.tsx, marketplace/service-providers/OfferingPermissionsList.tsx, marketplace/service-providers/ProviderCampaignResourceExpandable.tsx, marketplace/service-providers/ProviderProjectResourcesList.tsx, marketplace/service-providers/ServiceProvidersList.tsx, navigation/header/confirmation-drawer/OrderExpandableRow.tsx, project/team/InvitationsList.tsx, proposals/team/InvitationsList.tsx, user/UserOfferingList.tsx, user/UserPermissionRequestsList.tsx, user/affiliations/SummaryResourcesTable.tsx",
+    "description": "administration/InvitationList.tsx, administration/agreements/UserAgreementsList.tsx, administration/notifications/NotificationList.tsx, broadcasts/BroadcastList.tsx, invitations/GroupInvitationsList.tsx, invitations/InvitationsList.tsx, invitations/UserPermissionRequestsList.tsx, marketplace/category/PublicOfferingsList.tsx, marketplace/offerings/details/OfferingUsersTable.tsx, marketplace/offerings/details/permissions/OfferingPermissionsList.tsx, marketplace/orders/details/OrderDetailsApprovalsTab.tsx, marketplace/orders/list/OrdersTableComponent.tsx, marketplace/orders/list/ResourceOrders.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/utils.tsx, marketplace/service-providers/OfferingPermissionsList.tsx, marketplace/service-providers/ProviderCampaignResourceExpandable.tsx, marketplace/service-providers/ProviderProjectResourcesList.tsx, marketplace/service-providers/ServiceProvidersList.tsx, navigation/header/confirmation-drawer/OrderExpandableRow.tsx, openstack/openstack-network/NetworkRBACList.tsx, project/team/InvitationsList.tsx, proposals/team/InvitationsList.tsx, user/UserOfferingList.tsx, user/UserPermissionRequestsList.tsx, user/affiliations/SummaryResourcesTable.tsx",
     "message": "Created at"
   },
   "Created by": {
@@ -3356,7 +3356,7 @@
     "message": "Details overview"
   },
   "Details": {
-    "description": "administration/organizations/OrganizationGroupDetailsButton.tsx, administration/providers/ProviderCard.tsx, customer/dashboard/CustomerDashboardCredit.tsx, customer/details/CustomerBillingPanel.tsx, customer/details/CustomerDetailsPanel.tsx, customer/details/CustomerMarketplacePanel.tsx, customer/list/OrganizationCard.tsx, invoices/list/MonthOverview.tsx, marketplace/aggregate-limits/AggregateLimitWidget.tsx, marketplace/common/ViewOfferingButton.tsx, marketplace/referral/ReferralDetailsButton.tsx, marketplace/resources/details/fetchData.tsx, marketplace/resources/details/openstack-instance/InstanceMainComponent.tsx, marketplace/resources/details/popup/ResourceDetailsDialog.tsx, marketplace/resources/usage/utils.ts, project/ProjectCard.tsx, project/ProjectDashboardCredit.tsx, project/manage/ProjectGeneral.tsx, proposals/CallCard.tsx, proposals/round/proposals/ProposalReviewsDetailButton.tsx, rancher/cluster/apps/ApplicationDetailsButton.tsx, resource/summary/ResourceSummaryButton.tsx, resource/summary/ResourceSummaryModal.tsx, user/UserDetailsButton.tsx, user/support/UserDetailsButton.tsx, user/support/UserDetailsDialog.tsx, vmware/tabs.ts",
+    "description": "administration/organizations/OrganizationGroupDetailsButton.tsx, administration/providers/ProviderCard.tsx, customer/dashboard/CustomerDashboardCredit.tsx, customer/details/CustomerBillingPanel.tsx, customer/details/CustomerDetailsPanel.tsx, customer/details/CustomerMarketplacePanel.tsx, customer/list/OrganizationCard.tsx, invoices/list/MonthOverview.tsx, marketplace/aggregate-limits/AggregateLimitWidget.tsx, marketplace/common/ViewOfferingButton.tsx, marketplace/referral/ReferralDetailsButton.tsx, marketplace/resources/details/fetchData.tsx, marketplace/resources/details/openstack-instance/InstanceMainComponent.tsx, marketplace/resources/details/popup/ResourceDetailsDialog.tsx, marketplace/resources/usage/utils.ts, project/ProjectCard.tsx, project/ProjectDashboardCredit.tsx, project/manage/ProjectGeneral.tsx, proposals/CallCard.tsx, proposals/round/proposals/ProposalReviewsDetailButton.tsx, rancher/cluster/apps/ApplicationDetailsButton.tsx, resource/summary/ResourceSummary.tsx, resource/summary/ResourceSummaryButton.tsx, resource/summary/ResourceSummaryModal.tsx, user/UserDetailsButton.tsx, user/support/UserDetailsButton.tsx, user/support/UserDetailsDialog.tsx, vmware/tabs.ts",
     "message": "Details"
   },
   "Device ID": {
@@ -4342,6 +4342,10 @@
   "External username": {
     "description": "marketplace/service-providers/ProviderOfferingUserUpdateDialog.tsx, marketplace/service-providers/ProviderOfferingUsersList.tsx",
     "message": "External username"
+  },
+  "External": {
+    "description": "openstack/openstack-network/NetworkRBACList.tsx, openstack/openstack-network/actions/ShareNetworkDialog.tsx",
+    "message": "External"
   },
   "FAQ": {
     "description": "marketplace/offerings/OfferingPublicUIView.tsx, marketplace/offerings/details/PublicOfferingFAQ.tsx",
@@ -6655,6 +6659,10 @@
     "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx, openstack/openstack-instance/deploy/steps.ts",
     "message": "Network and security"
   },
+  "Network has been shared.": {
+    "description": "openstack/openstack-network/actions/ShareNetworkDialog.tsx",
+    "message": "Network has been shared."
+  },
   "Network interfaces": {
     "description": "vmware/deploy/FormNetworkStep.tsx, vmware/deploy/steps.ts",
     "message": "Network interfaces"
@@ -6662,6 +6670,14 @@
   "Network name": {
     "description": "openstack/openstack-tenant/TenantPortsList.tsx, vmware/deploy/FormNetworkStep.tsx",
     "message": "Network name"
+  },
+  "Network sharing (RBAC)": {
+    "description": "openstack/openstack-network/TenantNetworksList.tsx",
+    "message": "Network sharing (RBAC)"
+  },
+  "Network sharing": {
+    "description": "openstack/openstack-network/NetworkRBACList.tsx",
+    "message": "Network sharing"
   },
   "Network": {
     "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx, openstack/openstack-subnet/OpenStackSubNetSummary.tsx, openstack/openstack-subnet/TenantSubnetsList.tsx, quotas/constants.ts, rancher/cluster/create/FormNetworkStep.tsx, rancher/cluster/create/steps.ts, vmware/PortsList.tsx, vmware/VMwarePortSummary.tsx, vmware/actions/CreatePortDialog.tsx",
@@ -8350,6 +8366,10 @@
   "Policies": {
     "description": "marketplace/offerings/details/policies/PoliciesTable.tsx",
     "message": "Policies"
+  },
+  "Policy type": {
+    "description": "openstack/openstack-network/NetworkRBACList.tsx, openstack/openstack-network/actions/ShareNetworkDialog.tsx",
+    "message": "Policy type"
   },
   "Policy": {
     "description": "marketplace/offerings/OfferingDetailsUIView.tsx, marketplace/offerings/details/policies/PoliciesTable.tsx, openstack/openstack-server-groups/ServerGroupsList.tsx, openstack/openstack-tenant/actions/CreateServerGroupForm.tsx",
@@ -10740,7 +10760,7 @@
     "message": "Select volume type"
   },
   "Select": {
-    "description": "form/themed-select.tsx, invitations/actions/create/RoleAndProjectSelectField.tsx, marketplace/offerings/actions/SetAccessPolicyFormContainer.tsx",
+    "description": "form/AsyncSelectField.tsx, form/themed-select.tsx, invitations/actions/create/RoleAndProjectSelectField.tsx, marketplace/offerings/actions/SetAccessPolicyFormContainer.tsx",
     "message": "Select"
   },
   "Select...": {
@@ -11043,12 +11063,20 @@
     "description": "administration/routes.ts, customer/routes.ts, project/routes.ts, user/routes.ts",
     "message": "Settings"
   },
+  "Share {name} network": {
+    "description": "openstack/openstack-network/actions/ShareNetworkDialog.tsx",
+    "message": "Share {name} network"
+  },
+  "Share": {
+    "description": "openstack/openstack-network/actions/ShareNetworkAction.tsx, openstack/openstack-network/actions/ShareNetworkDialog.tsx",
+    "message": "Share"
+  },
   "Shared user password": {
     "description": "marketplace/UserSecretOptionsForm.tsx",
     "message": "Shared user password"
   },
   "Shared": {
-    "description": "marketplace/category/PublicOfferingsList.tsx, marketplace/offerings/admin/AdminOfferingsFilter.tsx, marketplace/offerings/list/OfferingsList.tsx",
+    "description": "marketplace/category/PublicOfferingsList.tsx, marketplace/offerings/admin/AdminOfferingsFilter.tsx, marketplace/offerings/list/OfferingsList.tsx, openstack/openstack-network/NetworkRBACList.tsx, openstack/openstack-network/actions/ShareNetworkDialog.tsx",
     "message": "Shared"
   },
   "Shared/Billing enabled": {
@@ -11832,7 +11860,7 @@
     "message": "Tenant user username"
   },
   "Tenant": {
-    "description": "rancher/cluster/create/FormTenantStep.tsx, rancher/cluster/create/steps.ts",
+    "description": "openstack/openstack-network/NetworkRBACList.tsx, openstack/openstack-network/actions/ShareNetworkDialog.tsx, rancher/cluster/create/FormTenantStep.tsx, rancher/cluster/create/steps.ts",
     "message": "Tenant"
   },
   "Terminate an existing resource": {
@@ -13402,6 +13430,10 @@
   "Unable to set slug.": {
     "description": "marketplace/resources/SetSlugDialog.tsx",
     "message": "Unable to set slug."
+  },
+  "Unable to share the network.": {
+    "description": "openstack/openstack-network/actions/ShareNetworkDialog.tsx",
+    "message": "Unable to share the network."
   },
   "Unable to show console log.": {
     "description": "resource/actions/OpenConsoleLogActionItem.tsx",
