@@ -5,11 +5,9 @@ import {
   PlanStep,
 } from '@waldur/marketplace/deploy/steps/constants';
 import { FormAdditionalConfigurationStep } from '@waldur/marketplace/deploy/steps/FormAdditionalConfigurationStep';
-import { FormCloudStep } from '@waldur/marketplace/deploy/steps/FormCloudStep';
 import { FormFinalConfigurationStep } from '@waldur/marketplace/deploy/steps/FormFinalConfigurationStep';
 import { OfferingConfigurationFormStep } from '@waldur/marketplace/deploy/types';
 
-import { MANAGED_RANCHER } from './constants';
 import { FormLonghornStep } from './FormLonghornStep';
 import { ManagedFormNodesStep } from './ManagedFormNodesStep';
 import { ManagedFormOpenStackOfferingStep } from './ManagedFormOpenStackOfferingStep';
@@ -18,15 +16,6 @@ import { rancherClusterName } from './utils';
 export const managedDeployOfferingSteps: OfferingConfigurationFormStep[] = [
   DetailsOverviewStep,
   PlanStep,
-  {
-    label: translate('Management offering'),
-    id: 'step-management-offering',
-    fields: ['offering'],
-    required: true,
-    requiredFields: ['offering'],
-    component: FormCloudStep,
-    params: { type: MANAGED_RANCHER },
-  },
   {
     label: translate('OpenStack offering'),
     id: 'step-openstack-offerings',
