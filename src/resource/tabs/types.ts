@@ -17,7 +17,7 @@ interface ResourceTab {
   key: string;
   title: string;
   component: ComponentType<ResourceTabProps>;
-  feature?: string;
+  feature?: FeaturesEnum;
   visible?: boolean;
 }
 

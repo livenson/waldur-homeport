@@ -1,4 +1,4 @@
-import { FunctionComponent, useMemo } from 'react';
+import { FunctionComponent } from 'react';
 import {
   RancherCluster,
   RancherHpa,
@@ -14,6 +14,7 @@ import Table from '@waldur/table/Table';
 import { TableWithPortal } from '@waldur/table/types';
 import { useTable } from '@waldur/table/useTable';
 
+import { ClusterFilter, useClusterFilter } from '../ClusterFilter';
 import { ViewYAMLButton } from '../ViewYAMLButton';
 
 import { HPACreateButton } from './HPACreateButton';
@@ -35,13 +36,7 @@ const RowActions = ({ row, yamlRetrieve, yamlUpdate }) => (
 export const ClusterHPAList: FunctionComponent<
   TableWithPortal<{ resourceScope: RancherCluster }>
 > = ({ resourceScope, portal }) => {
-  const filter = useMemo(
-    () => ({
-      cluster_uuid: resourceScope.uuid,
-    }),
-    [resourceScope],
-  );
-
+  const filter = useClusterFilter(resourceScope);
   const props = useTable({
     table: 'rancher-hpas',
     fetchData: createFetcher('rancher-hpas'),
@@ -60,10 +55,12 @@ export const ClusterHPAList: FunctionComponent<
         {
           title: translate('Project'),
           render: ({ row }) => <>{row.project_name}</>,
+          filter: 'rancher_project',
         },
         {
           title: translate('Namespace'),
           render: ({ row }) => <>{row.namespace_name}</>,
+          filter: 'namespace',
         },
         {
           title: translate('Workload'),
@@ -104,6 +101,7 @@ export const ClusterHPAList: FunctionComponent<
       verboseName={translate('horizontal pod autoscalers')}
       showPageSizeSelector
       tableActions={<HPACreateButton cluster={resourceScope} />}
+      filters={<ClusterFilter cluster={resourceScope} />}
       portal={portal}
       hasActionBar={false}
       cardBordered={false}

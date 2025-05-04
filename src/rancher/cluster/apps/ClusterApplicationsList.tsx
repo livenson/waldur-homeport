@@ -1,4 +1,4 @@
-import { FunctionComponent, useMemo } from 'react';
+import { FunctionComponent } from 'react';
 import { RancherApplication, RancherCluster } from 'waldur-js-client';
 
 import { formatDate } from '@waldur/core/dateUtils';
@@ -8,6 +8,8 @@ import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
 import { TableWithPortal } from '@waldur/table/types';
 import { useTable } from '@waldur/table/useTable';
+
+import { ClusterFilter, useClusterResourceFilter } from '../ClusterFilter';
 
 import { ApplicationDeleteButton } from './ApplicationDeleteButton';
 import { ApplicationDetailsButton } from './ApplicationDetailsButton';
@@ -22,12 +24,8 @@ const ApplicationActions = ({ row }) => (
 export const ClusterApplicationsList: FunctionComponent<
   TableWithPortal<{ resourceScope: RancherCluster }>
 > = ({ resourceScope, portal }) => {
-  const filter = useMemo(
-    () => ({
-      cluster_uuid: resourceScope.uuid,
-    }),
-    [resourceScope],
-  );
+  const filter = useClusterResourceFilter(resourceScope);
+
   const props = useTable({
     table: 'rancher-apps',
     fetchData: createFetcher('rancher-apps'),
@@ -45,7 +43,8 @@ export const ClusterApplicationsList: FunctionComponent<
         },
         {
           title: translate('Project'),
-          render: ({ row }) => <>{row.project_name}</>,
+          render: ({ row }) => <>{row.rancher_project_name}</>,
+          filter: 'rancher_project',
         },
         {
           title: translate('Catalog'),
@@ -66,6 +65,7 @@ export const ClusterApplicationsList: FunctionComponent<
       ]}
       rowActions={ApplicationActions}
       verboseName={translate('applications')}
+      filters={<ClusterFilter cluster={resourceScope} />}
       showPageSizeSelector
       portal={portal}
       hasActionBar={false}
