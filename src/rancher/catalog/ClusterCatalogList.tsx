@@ -1,10 +1,11 @@
 import { FunctionComponent, useMemo } from 'react';
+import { RancherCatalog } from 'waldur-js-client';
 
 import { Link } from '@waldur/core/Link';
 import { translate } from '@waldur/i18n';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
-import { TableWithPortal } from '@waldur/table/types';
+import { Column, TableWithPortal } from '@waldur/table/types';
 import { useTable } from '@waldur/table/useTable';
 
 import { CatalogCreateButton } from './CatalogCreateButton';
@@ -25,34 +26,35 @@ export const ClusterCatalogList: FunctionComponent<
     filter,
   });
   const columns = useMemo(
-    () => [
-      {
-        title: translate('Name'),
-        render: ({ row }) => (
-          <Link
-            state="rancher-catalog-details"
-            params={{
-              clusterUuid: resourceScope.uuid,
-              catalogUuid: row.uuid,
-              uuid: resourceScope.project_uuid,
-            }}
-            label={row.name}
-          />
-        ),
-        copyField: (row) => row.name,
-        export: 'name',
-      },
-      {
-        title: translate('Description'),
-        render: ({ row }) => <>{row.description}</>,
-        export: 'description',
-      },
-      {
-        title: translate('URL'),
-        render: ({ row }) => <>{row.catalog_url}</>,
-        export: 'catalog_url',
-      },
-    ],
+    () =>
+      [
+        {
+          title: translate('Name'),
+          render: ({ row }) => (
+            <Link
+              state="rancher-catalog-details"
+              params={{
+                clusterUuid: resourceScope.uuid,
+                catalogUuid: row.uuid,
+                uuid: resourceScope.project_uuid,
+              }}
+              label={row.name}
+            />
+          ),
+          copyField: (row) => row.name,
+          export: 'name',
+        },
+        {
+          title: translate('Description'),
+          render: ({ row }) => <>{row.description}</>,
+          export: 'description',
+        },
+        {
+          title: translate('URL'),
+          render: ({ row }) => <>{row.catalog_url}</>,
+          export: 'catalog_url',
+        },
+      ] satisfies Column<RancherCatalog>[],
     [resourceScope],
   );
 

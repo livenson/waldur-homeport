@@ -252,7 +252,6 @@ export const getResourceTabs = ({
       ),
     });
   }
-  // @ts-ignore
   if (resource.report?.length > 0) {
     tabs.push({
       key: 'report',

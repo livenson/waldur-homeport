@@ -58,7 +58,6 @@ export const RancherClusterTabConfiguration: ResourceTabsConfiguration = {
           default: module.AppsTable,
         })),
       ),
-      feature: RancherFeatures.apps,
       defaultKey: 'templates',
       children: [
         {
@@ -96,6 +95,7 @@ export const RancherClusterTabConfiguration: ResourceTabsConfiguration = {
               default: module.ClusterCatalogList,
             })),
           ),
+          feature: RancherFeatures.apps,
         },
       ],
     },

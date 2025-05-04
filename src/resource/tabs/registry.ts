@@ -14,7 +14,14 @@ const register = (conf: ResourceTabsConfiguration) => {
 };
 
 export const getTabs = (resource_type: string): ResourceParentTab[] =>
-  (tabs[resource_type] || []).filter((tab) => isFeatureVisible(tab.feature));
+  (tabs[resource_type] || [])
+    .filter((tab) => isFeatureVisible(tab.feature))
+    .map((tab) => ({
+      ...tab,
+      children: tab.children?.filter((child) =>
+        isFeatureVisible(child.feature),
+      ),
+    }));
 
 register(OpenStackInstanceTabConfiguration);
 register(OpenStackTenantTabConfiguration);

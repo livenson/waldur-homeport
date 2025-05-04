@@ -6184,7 +6184,7 @@
     "message": "Managed Rancher cluster"
   },
   "Management offering": {
-    "description": "rancher/cluster/create/managed-steps.ts, rancher/cluster/create/steps.ts",
+    "description": "rancher/cluster/create/steps.ts",
     "message": "Management offering"
   },
   "Managers": {
@@ -6632,7 +6632,7 @@
     "message": "Namespace should be unique."
   },
   "Namespace": {
-    "description": "rancher/cluster/ClusterIngressesList.tsx, rancher/cluster/ClusterServicesList.tsx, rancher/cluster/ClusterWorkloadsList.tsx, rancher/cluster/hpas/ClusterHPAList.tsx, rancher/cluster/hpas/HPACreateDialog.tsx, rancher/template/NamespaceField.tsx",
+    "description": "rancher/cluster/ClusterFilter.tsx, rancher/cluster/ClusterIngressesList.tsx, rancher/cluster/ClusterServicesList.tsx, rancher/cluster/ClusterWorkloadsList.tsx, rancher/cluster/hpas/ClusterHPAList.tsx, rancher/cluster/hpas/HPACreateDialog.tsx, rancher/template/NamespaceField.tsx",
     "message": "Namespace"
   },
   "Nano technology": {
@@ -6891,6 +6891,10 @@
     "description": "dashboard/TeamWidget.tsx",
     "message": "No members"
   },
+  "No namespaces": {
+    "description": "rancher/cluster/hpas/NamespaceAutocomplete.tsx",
+    "message": "No namespaces"
+  },
   "No offerings": {
     "description": "customer/credits/CreditFormDialog.tsx, marketplace/offerings/details/OfferingAutocomplete.tsx",
     "message": "No offerings"
@@ -6944,7 +6948,7 @@
     "message": "No projects found"
   },
   "No projects": {
-    "description": "customer/cost-policies/CostPolicyForm.tsx, marketplace/resources/actions/MoveToProjectAutocomplete.tsx, marketplace/resources/list/ProjectFilter.tsx, marketplace/robot-accounts/ProviderProjectFilter.tsx",
+    "description": "customer/cost-policies/CostPolicyForm.tsx, marketplace/resources/actions/MoveToProjectAutocomplete.tsx, marketplace/resources/list/ProjectFilter.tsx, marketplace/robot-accounts/ProviderProjectFilter.tsx, rancher/cluster/hpas/ProjectAutocomplete.tsx",
     "message": "No projects"
   },
   "No providers": {
@@ -8744,7 +8748,7 @@
     "message": "Project {project} from {organization} was successfully removed"
   },
   "Project": {
-    "description": "administration/roles/PermissionOptions.tsx, customer/cost-policies/CostPoliciesList.tsx, customer/cost-policies/CostPolicyForm.tsx, customer/team/OrganizationProjectSelectField.tsx, customer/team/ProjectGroup.tsx, events/ExpandableEventDetailsTable.tsx, invitations/actions/ProjectGroup.tsx, invoices/details/InvoiceItemsFilter.tsx, issues/IssueInfo.tsx, issues/create/IssueDetailsStepLabel.tsx, issues/create/ProjectGroup.tsx, issues/list/IssuesList.tsx, issues/list/IssuesListExpandableRow.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/deploy/steps/FormDetailsOverviewStep.tsx, marketplace/details/ProjectField.tsx, marketplace/landing/MarketplaceLandingFilter.tsx, marketplace/orders/details/OrderDetailsHeaderBody.tsx, marketplace/orders/list/MarketplaceOrdersListFilter.tsx, marketplace/orders/list/OrdersTableComponent.tsx, marketplace/resources/list/AllResourcesFilter.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/ProjectResourcesAllFilter.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/utils.tsx, marketplace/robot-accounts/ProviderRobotAccountFilter.tsx, marketplace/robot-accounts/ProviderRobotAccountList.tsx, marketplace-checklist/CustomerChecklistOverview.tsx, marketplace-remote/BaseProjectUpdateRequestsList.tsx, navigation/header/confirmation-drawer/PendingConsumerOrders.tsx, navigation/header/confirmation-drawer/PendingProviderOrders.tsx, navigation/sidebar/resources-filter/utils.tsx, permissions/constants.tsx, project/routes.ts, proposals/review/ReviewsExpandableRow.tsx, rancher/cluster/ClusterIngressesList.tsx, rancher/cluster/ClusterWorkloadsList.tsx, rancher/cluster/apps/ClusterApplicationsList.tsx, rancher/cluster/hpas/ClusterHPAList.tsx, rancher/template/ApplicationConfiguration.tsx, reporting/resource-usage/ResourceUsageFilter.tsx, support/SupportEventsFilter.tsx, user/affiliations/SummaryResourcesTable.tsx",
+    "description": "administration/roles/PermissionOptions.tsx, customer/cost-policies/CostPoliciesList.tsx, customer/cost-policies/CostPolicyForm.tsx, customer/team/OrganizationProjectSelectField.tsx, customer/team/ProjectGroup.tsx, events/ExpandableEventDetailsTable.tsx, invitations/actions/ProjectGroup.tsx, invoices/details/InvoiceItemsFilter.tsx, issues/IssueInfo.tsx, issues/create/IssueDetailsStepLabel.tsx, issues/create/ProjectGroup.tsx, issues/list/IssuesList.tsx, issues/list/IssuesListExpandableRow.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/deploy/steps/FormDetailsOverviewStep.tsx, marketplace/details/ProjectField.tsx, marketplace/landing/MarketplaceLandingFilter.tsx, marketplace/orders/details/OrderDetailsHeaderBody.tsx, marketplace/orders/list/MarketplaceOrdersListFilter.tsx, marketplace/orders/list/OrdersTableComponent.tsx, marketplace/resources/list/AllResourcesFilter.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/ProjectResourcesAllFilter.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/utils.tsx, marketplace/robot-accounts/ProviderRobotAccountFilter.tsx, marketplace/robot-accounts/ProviderRobotAccountList.tsx, marketplace-checklist/CustomerChecklistOverview.tsx, marketplace-remote/BaseProjectUpdateRequestsList.tsx, navigation/header/confirmation-drawer/PendingConsumerOrders.tsx, navigation/header/confirmation-drawer/PendingProviderOrders.tsx, navigation/sidebar/resources-filter/utils.tsx, permissions/constants.tsx, project/routes.ts, proposals/review/ReviewsExpandableRow.tsx, rancher/cluster/ClusterFilter.tsx, rancher/cluster/ClusterIngressesList.tsx, rancher/cluster/ClusterServicesList.tsx, rancher/cluster/ClusterWorkloadsList.tsx, rancher/cluster/apps/ClusterApplicationsList.tsx, rancher/cluster/hpas/ClusterHPAList.tsx, rancher/template/ApplicationConfiguration.tsx, reporting/resource-usage/ResourceUsageFilter.tsx, support/SupportEventsFilter.tsx, user/affiliations/SummaryResourcesTable.tsx",
     "message": "Project"
   },
   "Projects": {
@@ -10575,6 +10579,10 @@
     "description": "issues/create/IssueDescriptionTab.tsx",
     "message": "Select issue template..."
   },
+  "Select namespace...": {
+    "description": "rancher/cluster/hpas/NamespaceAutocomplete.tsx",
+    "message": "Select namespace..."
+  },
   "Select offering": {
     "description": "proposals/proposal/create/resource-requests-step/ResourceRequestFormDialog.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestWizardFormFirstPage.tsx, proposals/update/offerings/CallOfferingCreateDialog.tsx",
     "message": "Select offering"
@@ -10636,7 +10644,7 @@
     "message": "Select project"
   },
   "Select project...": {
-    "description": "marketplace/details/ProjectField.tsx, marketplace/resources/actions/MoveToProjectAutocomplete.tsx, marketplace/resources/list/ProjectFilter.tsx, marketplace/robot-accounts/ProviderProjectFilter.tsx",
+    "description": "marketplace/details/ProjectField.tsx, marketplace/resources/actions/MoveToProjectAutocomplete.tsx, marketplace/resources/list/ProjectFilter.tsx, marketplace/robot-accounts/ProviderProjectFilter.tsx, rancher/cluster/hpas/ProjectAutocomplete.tsx",
     "message": "Select project..."
   },
   "Select provider...": {
