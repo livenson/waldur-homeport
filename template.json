@@ -2647,6 +2647,10 @@
     "description": "administration/organizations/OrganizationGroupForm.tsx",
     "message": "Create organization group"
   },
+  "Create port for OpenStack network": {
+    "description": "openstack/openstack-tenant/actions/CreatePortDialog.tsx",
+    "message": "Create port for OpenStack network"
+  },
   "Create port": {
     "description": "vmware/actions/CreatePortDialog.tsx",
     "message": "Create port"
@@ -2696,7 +2700,7 @@
     "message": "Create support request"
   },
   "Create": {
-    "description": "administration/announcements/AnnouncementForm.tsx, administration/organizations/OrganizationGroupForm.tsx, administration/remote-offering-sync/RemoteSyncFormDialog.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, customer/cost-policies/CostPolicyFormDialog.tsx, customer/create/CustomerCreateDialog.tsx, customer/credits/CreditFormDialog.tsx, customer/details/AccessSubnetForm.tsx, freeipa/FreeIPAAccountCreate.tsx, issues/create/IssueCreateForm.tsx, issues/list/IssueCreateButton.tsx, marketplace/category/admin/CategoryEditDialog.tsx, marketplace/category/admin/GroupFromDialog.tsx, marketplace/details/OrderSubmitButton.tsx, marketplace/offerings/actions/OfferingCreateDialog.tsx, marketplace/offerings/details/CreateOfferingUserButton.tsx, marketplace/offerings/details/policies/PolicyCreateDialog.tsx, marketplace/offerings/update/components/AddComponentDialog.tsx, marketplace/offerings/update/endpoints/AddEndpointDialog.tsx, marketplace/offerings/update/options/AddOptionDialog.tsx, marketplace/offerings/update/plans/AddPlanDialog.tsx, marketplace/offerings/update/roles/AddRoleDialog.tsx, marketplace/orders/list/OrderTypeCell.tsx, marketplace/orders/list/OrderTypeFilter.tsx, marketplace/resources/details/ResourceIssuesCard.tsx, marketplace/resources/users/AddUserDialog.tsx, marketplace/service-providers/CampaignCreateButton.tsx, marketplace/service-providers/CreateProviderOfferingUserButton.tsx, openstack/openstack-instance/actions/CreateBackupAction.tsx, openstack/openstack-tenant/CreateMigrationButton.tsx, openstack/openstack-tenant/actions/CreateFloatingIpAction.tsx, openstack/openstack-tenant/actions/CreateNetworkAction.tsx, openstack/openstack-tenant/actions/CreateSecurityGroupAction.tsx, openstack/openstack-tenant/actions/CreateServerGroupAction.tsx, openstack/openstack-volume/actions/CreateSnapshotAction.tsx, project/create/ProjectCreateDialog.tsx, proposals/call-management/CallFormDialog.tsx, proposals/proposal/create/AddProposalDialog.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestFormDialog.tsx, proposals/proposal/create-review/CreateReviewDialog.tsx, proposals/update/offerings/CallOfferingCreateDialog.tsx, proposals/update/rounds/CallRoundCreateDialog.tsx, rancher/catalog/CatalogCreateButton.tsx, rancher/cluster/hpas/HPACreateButton.tsx, user/hooks/HookDetailsDialog.tsx",
+    "description": "administration/announcements/AnnouncementForm.tsx, administration/organizations/OrganizationGroupForm.tsx, administration/remote-offering-sync/RemoteSyncFormDialog.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, customer/cost-policies/CostPolicyFormDialog.tsx, customer/create/CustomerCreateDialog.tsx, customer/credits/CreditFormDialog.tsx, customer/details/AccessSubnetForm.tsx, freeipa/FreeIPAAccountCreate.tsx, issues/create/IssueCreateForm.tsx, issues/list/IssueCreateButton.tsx, marketplace/category/admin/CategoryEditDialog.tsx, marketplace/category/admin/GroupFromDialog.tsx, marketplace/details/OrderSubmitButton.tsx, marketplace/offerings/actions/OfferingCreateDialog.tsx, marketplace/offerings/details/CreateOfferingUserButton.tsx, marketplace/offerings/details/policies/PolicyCreateDialog.tsx, marketplace/offerings/update/components/AddComponentDialog.tsx, marketplace/offerings/update/endpoints/AddEndpointDialog.tsx, marketplace/offerings/update/options/AddOptionDialog.tsx, marketplace/offerings/update/plans/AddPlanDialog.tsx, marketplace/offerings/update/roles/AddRoleDialog.tsx, marketplace/orders/list/OrderTypeCell.tsx, marketplace/orders/list/OrderTypeFilter.tsx, marketplace/resources/details/ResourceIssuesCard.tsx, marketplace/resources/users/AddUserDialog.tsx, marketplace/service-providers/CampaignCreateButton.tsx, marketplace/service-providers/CreateProviderOfferingUserButton.tsx, openstack/openstack-instance/actions/CreateBackupAction.tsx, openstack/openstack-tenant/CreateMigrationButton.tsx, openstack/openstack-tenant/actions/CreateFloatingIpAction.tsx, openstack/openstack-tenant/actions/CreateNetworkAction.tsx, openstack/openstack-tenant/actions/CreatePortAction.tsx, openstack/openstack-tenant/actions/CreateSecurityGroupAction.tsx, openstack/openstack-tenant/actions/CreateServerGroupAction.tsx, openstack/openstack-volume/actions/CreateSnapshotAction.tsx, project/create/ProjectCreateDialog.tsx, proposals/call-management/CallFormDialog.tsx, proposals/proposal/create/AddProposalDialog.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestFormDialog.tsx, proposals/proposal/create-review/CreateReviewDialog.tsx, proposals/update/offerings/CallOfferingCreateDialog.tsx, proposals/update/rounds/CallRoundCreateDialog.tsx, rancher/catalog/CatalogCreateButton.tsx, rancher/cluster/hpas/HPACreateButton.tsx, user/hooks/HookDetailsDialog.tsx",
     "message": "Create"
   },
   "Created at": {
@@ -2928,7 +2932,7 @@
     "message": "Current type"
   },
   "Custom IP configuration": {
-    "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx",
+    "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx, openstack/openstack-tenant/actions/CreatePortDialog.tsx",
     "message": "Custom IP configuration"
   },
   "Custom IP": {
@@ -4492,7 +4496,7 @@
     "message": "First"
   },
   "Fixed IPs": {
-    "description": "openstack/openstack-tenant/OpenStackRouterSummary.tsx, openstack/openstack-tenant/TenantRoutersList.tsx",
+    "description": "openstack/openstack-tenant/OpenStackRouterSummary.tsx, openstack/openstack-tenant/TenantRoutersList.tsx, openstack/openstack-tenant/actions/CreatePortDialog.tsx",
     "message": "Fixed IPs"
   },
   "Fixed date": {
@@ -6127,6 +6131,10 @@
     "description": "openstack/openstack-network/OpenStackNetworkSummary.tsx, openstack/openstack-network/actions/SetMtuDialog.tsx",
     "message": "MTU"
   },
+  "Mac address": {
+    "description": "openstack/openstack-tenant/actions/CreatePortDialog.tsx",
+    "message": "Mac address"
+  },
   "Mail": {
     "description": "proposals/team/UsersList.tsx",
     "message": "Mail"
@@ -6680,7 +6688,7 @@
     "message": "Network sharing"
   },
   "Network": {
-    "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx, openstack/openstack-subnet/OpenStackSubNetSummary.tsx, openstack/openstack-subnet/TenantSubnetsList.tsx, quotas/constants.ts, rancher/cluster/create/FormNetworkStep.tsx, rancher/cluster/create/steps.ts, vmware/PortsList.tsx, vmware/VMwarePortSummary.tsx, vmware/actions/CreatePortDialog.tsx",
+    "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx, openstack/openstack-subnet/OpenStackSubNetSummary.tsx, openstack/openstack-subnet/TenantSubnetsList.tsx, openstack/openstack-tenant/actions/CreatePortDialog.tsx, quotas/constants.ts, rancher/cluster/create/FormNetworkStep.tsx, rancher/cluster/create/steps.ts, vmware/PortsList.tsx, vmware/VMwarePortSummary.tsx, vmware/actions/CreatePortDialog.tsx",
     "message": "Network"
   },
   "Networking": {
@@ -7495,6 +7503,10 @@
     "description": "openstack/openstack-instance/actions/EditDialog.tsx, openstack/openstack-instance/marketplace.ts, rancher/node/RancherNodeSummary.tsx, rancher/node/actions/LinkDialog.tsx",
     "message": "OpenStack instance"
   },
+  "OpenStack network port has been created.": {
+    "description": "openstack/openstack-tenant/actions/CreatePortDialog.tsx",
+    "message": "OpenStack network port has been created."
+  },
   "OpenStack networks has been created.": {
     "description": "openstack/openstack-tenant/actions/CreateNetworkDialog.tsx",
     "message": "OpenStack networks has been created."
@@ -8227,6 +8239,10 @@
     "description": "marketplace/offerings/import/SelectOfferingTab.tsx, marketplace/offerings/import/SelectOrganizationTab.tsx",
     "message": "Please check the credentials again."
   },
+  "Please enter a valid mac address": {
+    "description": "openstack/openstack-tenant/actions/CreatePortDialog.tsx",
+    "message": "Please enter a valid mac address"
+  },
   "Please enter desired values in the rows below:": {
     "description": "marketplace/details/plan/PlanDetailsTable.tsx",
     "message": "Please enter desired values in the rows below:"
@@ -8250,6 +8266,10 @@
   "Please mark if project is aimed at industrial use": {
     "description": "project/create/IndustryGroup.tsx",
     "message": "Please mark if project is aimed at industrial use"
+  },
+  "Please match the requested format.": {
+    "description": "core/validators.ts",
+    "message": "Please match the requested format."
   },
   "Please note that request should specify allocation name and provide a reason for change.": {
     "description": "slurm/RequestLimitsChangeDialog.tsx",
@@ -8392,7 +8412,7 @@
     "message": "Port range"
   },
   "Port security enabled": {
-    "description": "openstack/openstack-tenant/ExpandablePortRow.tsx",
+    "description": "openstack/openstack-tenant/ExpandablePortRow.tsx, openstack/openstack-tenant/actions/CreatePortDialog.tsx",
     "message": "Port security enabled"
   },
   "Port": {
@@ -10712,7 +10732,7 @@
     "message": "Select status..."
   },
   "Select subnet": {
-    "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx, rancher/cluster/create/FormNetworkStep.tsx",
+    "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx, openstack/openstack-tenant/actions/CreatePortDialog.tsx, rancher/cluster/create/FormNetworkStep.tsx",
     "message": "Select subnet"
   },
   "Select subnets to connect to...": {
@@ -11572,7 +11592,7 @@
     "message": "Subnet name"
   },
   "Subnet": {
-    "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx, rancher/cluster/create/FormNetworkStep.tsx, rancher/cluster/create/SubnetGroup.tsx",
+    "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx, openstack/openstack-tenant/actions/CreatePortDialog.tsx, rancher/cluster/create/FormNetworkStep.tsx, rancher/cluster/create/SubnetGroup.tsx",
     "message": "Subnet"
   },
   "Subnets from where connection to self-service is allowed.": {
@@ -12667,6 +12687,10 @@
     "description": "user/support/UserEmailChangeCallback.tsx",
     "message": "Unable to confirm email."
   },
+  "Unable to create OpenStack network port.": {
+    "description": "openstack/openstack-tenant/actions/CreatePortDialog.tsx",
+    "message": "Unable to create OpenStack network port."
+  },
   "Unable to create OpenStack networks.": {
     "description": "openstack/openstack-tenant/actions/CreateNetworkDialog.tsx",
     "message": "Unable to create OpenStack networks."
@@ -13072,7 +13096,7 @@
     "message": "Unable to load data"
   },
   "Unable to load data.": {
-    "description": "core/LoadingErred.tsx, customer/dashboard/CustomerDashboardCredit.tsx, customer/list/TotalCostComponent.tsx, freeipa/FreeIPAAccount.tsx, invoices/details/BillingDetails.tsx, issues/IssueDetails.tsx, issues/create/IssueDescriptionTab.tsx, marketplace/resources/change-limits/ChangeLimitsBody.tsx, marketplace/resources/change-plan/ChangePlanDialog.tsx, project/ProjectDashboardCostLimits.tsx, project/ProjectDashboardCredit.tsx, rancher/cluster/create/CreateNodeDialog.tsx, rancher/template/CatalogTemplateContainer.tsx, rancher/template/SecretField.tsx, resource/actions/AsyncActionDialog.tsx, resource/actions/ResourceActionDialog.tsx, user/dashboard/UserDashboard.tsx, user/hooks/HookDetailsDialog.tsx",
+    "description": "core/LoadingErred.tsx, customer/dashboard/CustomerDashboardCredit.tsx, customer/list/TotalCostComponent.tsx, freeipa/FreeIPAAccount.tsx, invoices/details/BillingDetails.tsx, issues/IssueDetails.tsx, issues/create/IssueDescriptionTab.tsx, marketplace/resources/change-limits/ChangeLimitsBody.tsx, marketplace/resources/change-plan/ChangePlanDialog.tsx, project/ProjectDashboardCostLimits.tsx, project/ProjectDashboardCredit.tsx, rancher/cluster/create/CreateNodeDialog.tsx, rancher/template/CatalogTemplateContainer.tsx, rancher/template/SecretField.tsx, resource/actions/AsyncActionDialog.tsx, user/dashboard/UserDashboard.tsx, user/hooks/HookDetailsDialog.tsx",
     "message": "Unable to load data."
   },
   "Unable to load detail.": {

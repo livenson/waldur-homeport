@@ -28,7 +28,7 @@ import { getDefaultFloatingIps, formatSubnet } from '../utils';
 import { FormSecurityGroupsField } from './FormSecurityGroupsField';
 import { FormSSHPublicKeysField } from './FormSSHPublicKeysField';
 
-const CustomIpField = ({ parentName, data }) => {
+export const CustomIpField = ({ parentName, data }) => {
   const options = useMemo(() => {
     const ipRanges = data?.subnet
       ?.allocation_pools as OpenStackSubNetAllocationPool[];
@@ -78,9 +78,11 @@ const CustomIpField = ({ parentName, data }) => {
           />
           <StringField
             placeholder={translate('Enter custom IP')}
-            input={fieldProps.input}
+            value={fieldProps.input?.value}
+            onChange={fieldProps.input.onChange}
             hidden={selected?.value !== 'other'}
             className="mt-4"
+            autoFocus
           />
           {fieldProps.meta.touched &&
             (fieldProps.meta.error ? (
@@ -99,7 +101,7 @@ const CustomIpField = ({ parentName, data }) => {
   );
 };
 
-const ValueContainer = (props) => {
+export const SubnetValueContainer = (props) => {
   if (!props.hasValue) {
     return (
       <components.ValueContainer {...props}>
@@ -234,7 +236,7 @@ const renderNetworkRows = ({
                   getOptionLabel={(option) => option.name}
                   noUpdateOnBlur
                   spaceless
-                  components={{ ValueContainer }}
+                  components={{ ValueContainer: SubnetValueContainer }}
                 >
                   <SelectField />
                 </Field>

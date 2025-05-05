@@ -3,6 +3,8 @@ import {
   OpenstackFlavorsListData,
   openstackFloatingIpsList,
   OpenstackFloatingIpsListData,
+  openstackNetworksList,
+  OpenstackNetworksListData,
   openstackSecurityGroupsList,
   OpenstackSecurityGroupsListData,
   openstackSubnetsList,
@@ -33,6 +35,9 @@ export const loadVolumeTypes = (query: OpenstackVolumeTypesListData['query']) =>
   getAllPages((page) =>
     openstackVolumeTypesList({ query: { page, ...query } }),
   );
+
+export const loadNetworks = (query: OpenstackNetworksListData['query']) =>
+  getAllPages((page) => openstackNetworksList({ query: { page, ...query } }));
 
 export const loadSubnets = (query: OpenstackSubnetsListData['query']) =>
   getAllPages((page) => openstackSubnetsList({ query: { page, ...query } }));
