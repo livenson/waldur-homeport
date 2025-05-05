@@ -2,6 +2,7 @@ import { useCallback } from 'react';
 import { reduxForm } from 'redux-form';
 
 import { CustomRadioButton } from '@waldur/core/CustomRadioButton';
+import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { Tip } from '@waldur/core/Tooltip';
 import { SelectField, StringField, TextField } from '@waldur/form';
@@ -24,6 +25,7 @@ interface ResourceActionDialogOwnProps {
   formFields?: any[];
   loading?: boolean;
   error?: Error;
+  refetch?(): void;
 }
 
 const validateJSON = (value: string) => {
@@ -48,11 +50,20 @@ export const ResourceActionDialog = reduxForm<{}, ResourceActionDialogOwnProps>(
   dialogSubmitLabel = translate('Submit'),
   loading,
   error,
+  refetch,
   formFields: fields,
+  change,
 }) => {
-  const getFieldComponent = useCallback((field, { key, ...props }) => {
+  const getFieldComponent = useCallback((field, index, { key, ...props }) => {
     if (field.component) {
-      return <field.component key={key} {...props} />;
+      return (
+        <field.component
+          key={key}
+          {...props}
+          {...(field.extraProps || {})}
+          change={change}
+        />
+      );
     } else if (field.type === 'string') {
       return (
         <StringField
@@ -61,7 +72,7 @@ export const ResourceActionDialog = reduxForm<{}, ResourceActionDialogOwnProps>(
           maxLength={field.maxlength}
           pattern={field.pattern?.source}
           validate={field.validate}
-          autoFocus
+          autoFocus={index === 0}
         />
       );
     } else if (field.type === 'text') {
@@ -138,7 +149,7 @@ export const ResourceActionDialog = reduxForm<{}, ResourceActionDialogOwnProps>(
       {loading ? (
         <LoadingSpinner />
       ) : error ? (
-        translate('Unable to load data.')
+        <LoadingErred loadData={refetch} />
       ) : (
         fields.map((field, index) => {
           const props = {
@@ -158,10 +169,10 @@ export const ResourceActionDialog = reduxForm<{}, ResourceActionDialogOwnProps>(
               label={props.disabled_tooltip}
               id="resource-action-dialog-disabled-tooltip"
             >
-              {getFieldComponent(field, props)}
+              {getFieldComponent(field, index, props)}
             </Tip>
           ) : (
-            getFieldComponent(field, props)
+            getFieldComponent(field, index, props)
           );
         })
       )}

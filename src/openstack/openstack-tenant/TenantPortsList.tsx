@@ -7,6 +7,7 @@ import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
 
+import { CreatePortAction } from './actions/CreatePortAction';
 import { ExpandablePortRow } from './ExpandablePortRow';
 
 export const TenantPortsList: FunctionComponent<{ resourceScope }> = ({
@@ -72,6 +73,9 @@ export const TenantPortsList: FunctionComponent<{ resourceScope }> = ({
           render: ({ row }) => <>{row.network_name || 'N/A'}</>,
         },
       ]}
+      tableActions={
+        <CreatePortAction resource={resourceScope} refetch={props.fetch} />
+      }
       rowActions={({ row }) => (
         <ResourceRowActions resource={row} refetch={props.fetch} />
       )}
