@@ -3,6 +3,7 @@ import { get } from 'lodash-es';
 import { CheckOrX } from '@waldur/core/CheckOrX';
 import { SecretField } from '@waldur/form';
 import { AwesomeCheckboxField } from '@waldur/form/AwesomeCheckboxField';
+import { CommaSeparatedListField } from '@waldur/form/CommaSeparatedListField';
 import FormTable from '@waldur/form/FormTable';
 import { SecretField as PlainSecretField } from '@waldur/marketplace/common/SecretField';
 import { FieldEditButton } from '@waldur/marketplace/offerings/update/integration/FieldEditButton';
@@ -36,6 +37,8 @@ export const DefaultOfferingEditPanel = (
             <PlainSecretField value={get(props.offering, field.key)} />
           ) : field.component === AwesomeCheckboxField ? (
             <CheckOrX value={get(props.offering, field.key)} />
+          ) : field.component === CommaSeparatedListField ? (
+            (get(props.offering, field.key) || []).join(', ')
           ) : (
             get(props.offering, field.key, 'N/A')
           )

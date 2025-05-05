@@ -160,6 +160,11 @@ const fields: OfferingEditField[] = [
     component: TextField,
   },
   {
+    label: translate('Image name for Rancher nodes'),
+    key: 'secret_options.base_image_name',
+    component: StringField,
+  },
+  {
     label: translate('Vault Host'),
     key: 'secret_options.vault_host',
     component: StringField,

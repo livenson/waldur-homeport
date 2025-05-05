@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 import { NumberField, StringField } from '@waldur/form';
+import { CommaSeparatedListField } from '@waldur/form/CommaSeparatedListField';
 import { translate } from '@waldur/i18n';
 import {
   DefaultOfferingEditPanel,
@@ -72,6 +73,14 @@ const openStackFields: OfferingEditField[] = [
     ),
     key: 'service_attributes.console_domain_override',
     component: StringField,
+  },
+  {
+    label: translate('Default DNS servers'),
+    description: translate(
+      'Default value for new subnets DNS name servers. Should be defined as list.',
+    ),
+    key: 'service_attributes.dns_nameservers',
+    component: CommaSeparatedListField,
   },
 ];
 
