@@ -2,12 +2,12 @@ import { FC } from 'react';
 import { Field } from 'redux-form';
 
 import { required } from '@waldur/core/validators';
-import { SelectControl } from '@waldur/form/SelectControl';
+import { Select } from '@waldur/form/themed-select';
 import { translate } from '@waldur/i18n';
 import { FormGroup } from '@waldur/marketplace/offerings/FormGroup';
 
 const SelectFlavorField: FC<any> = (props) => (
-  <SelectControl
+  <Select
     value={props.input.value}
     onChange={props.input.onChange}
     options={props.options}
