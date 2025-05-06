@@ -24,6 +24,7 @@ export const TenantPortsList: FunctionComponent<{ resourceScope }> = ({
         'created',
         'error_message',
         'resource_type',
+        'admin_state_up',
         'state',
         'service_name',
         'service_settings',
