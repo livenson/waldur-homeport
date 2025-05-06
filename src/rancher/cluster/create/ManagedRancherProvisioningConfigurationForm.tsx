@@ -26,6 +26,60 @@ import {
 import { OfferingEditPanelFormProps } from '@waldur/marketplace/offerings/update/integration/types';
 import { TENANT_TYPE } from '@waldur/openstack/constants';
 
+const VOLUME_TYPE_FIELD: Partial<OfferingEditField> = {
+  component: AsyncSelectField,
+  fieldProps: {
+    loadOptions: (query, prevOptions, currentPage) =>
+      openstackVolumeTypesList({
+        query: {
+          name: query,
+          page: currentPage,
+        },
+      }).then((response) =>
+        returnReactSelectAsyncPaginateObject(
+          parseSelectData(response),
+          prevOptions,
+          currentPage,
+        ),
+      ),
+    getOptionLabel: ({ name }: OpenStackFlavor) => name,
+    getOptionKey: ({ uuid }: OpenStackFlavor) => uuid,
+  },
+};
+
+const VOLUME_SIZE_FIELD: Partial<OfferingEditField> = {
+  component: BoxNumberField,
+  fieldProps: {
+    required: true,
+    validate: required,
+    min: 1,
+    parse: parseIntField,
+    format: formatIntField,
+  },
+};
+
+const FLAVOR_FIELD: Partial<OfferingEditField> = {
+  component: AsyncSelectField,
+  fieldProps: {
+    loadOptions: (query, prevOptions, currentPage) =>
+      openstackFlavorsList({
+        query: {
+          name: query,
+          page: currentPage,
+          field: ['name', 'uuid'],
+        },
+      }).then((response) =>
+        returnReactSelectAsyncPaginateObject(
+          parseSelectData(response),
+          prevOptions,
+          currentPage,
+        ),
+      ),
+    getOptionLabel: ({ name }: OpenStackFlavor) => name,
+    getOptionKey: ({ uuid }: OpenStackFlavor) => uuid,
+  },
+};
+
 const fields: OfferingEditField[] = [
   {
     label: translate('OpenStack offerings'),
@@ -56,59 +110,47 @@ const fields: OfferingEditField[] = [
   {
     label: translate('OpenStack flavor name for server node'),
     key: 'plugin_options.managed_rancher_server_flavor_name',
-    component: AsyncSelectField,
-    fieldProps: {
-      loadOptions: (query, prevOptions, currentPage) =>
-        openstackFlavorsList({
-          query: {
-            name: query,
-            page: currentPage,
-            field: ['name', 'uuid'],
-          },
-        }).then((response) =>
-          returnReactSelectAsyncPaginateObject(
-            parseSelectData(response),
-            prevOptions,
-            currentPage,
-          ),
-        ),
-      getOptionLabel: ({ name }: OpenStackFlavor) => name,
-      getOptionKey: ({ uuid }: OpenStackFlavor) => uuid,
-    },
+    ...FLAVOR_FIELD,
   },
   {
     label: translate('OpenStack system volume type for server node'),
     key: 'plugin_options.managed_rancher_server_system_volume_type_name',
-    component: AsyncSelectField,
-    fieldProps: {
-      loadOptions: (query, prevOptions, currentPage) =>
-        openstackVolumeTypesList({
-          query: {
-            name: query,
-            page: currentPage,
-          },
-        }).then((response) =>
-          returnReactSelectAsyncPaginateObject(
-            parseSelectData(response),
-            prevOptions,
-            currentPage,
-          ),
-        ),
-      getOptionLabel: ({ name }: OpenStackFlavor) => name,
-      getOptionKey: ({ uuid }: OpenStackFlavor) => uuid,
-    },
+    ...VOLUME_TYPE_FIELD,
   },
   {
     label: translate('OpenStack system volume size for server node'),
     key: 'plugin_options.managed_rancher_server_system_volume_size_gb',
-    component: BoxNumberField,
-    fieldProps: {
-      required: true,
-      validate: required,
-      min: 1,
-      parse: parseIntField,
-      format: formatIntField,
-    },
+    ...VOLUME_SIZE_FIELD,
+  },
+  {
+    label: translate('Cloud init template for load balancer node'),
+    key: 'plugin_options.managed_rancher_load_balancer_cloud_init_template',
+    component: TextField,
+  },
+  {
+    label: translate('OpenStack system flavor for load balancer node'),
+    key: 'plugin_options.managed_rancher_load_balancer_flavor_name',
+    ...FLAVOR_FIELD,
+  },
+  {
+    label: translate('OpenStack system volume type for load balancer node'),
+    key: 'plugin_options.managed_rancher_load_balancer_system_volume_type_name',
+    ...VOLUME_TYPE_FIELD,
+  },
+  {
+    label: translate('OpenStack system volume size for load balancer node'),
+    key: 'plugin_options.managed_rancher_load_balancer_system_volume_size_gb',
+    ...VOLUME_SIZE_FIELD,
+  },
+  {
+    label: translate('OpenStack data volume type for load balancer node'),
+    key: 'plugin_options.managed_rancher_load_balancer_data_volume_type_name',
+    ...VOLUME_TYPE_FIELD,
+  },
+  {
+    label: translate('OpenStack data volume size for load balancer node'),
+    key: 'plugin_options.managed_rancher_load_balancer_data_volume_size_gb',
+    ...VOLUME_SIZE_FIELD,
   },
   {
     label: translate('Organization'),

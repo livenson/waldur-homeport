@@ -123,5 +123,11 @@ export const ManagedRancherOffering: OfferingConfiguration = {
       formData.managed_rancher_server_flavor_name?.name,
     managed_rancher_server_system_volume_type_name:
       formData.managed_rancher_server_system_volume_type_name?.name,
+    managed_rancher_load_balancer_flavor_name:
+      formData.managed_rancher_load_balancer_flavor_name?.name,
+    managed_rancher_load_balancer_system_volume_type_name:
+      formData.managed_rancher_load_balancer_system_volume_type_name?.name,
+    managed_rancher_load_balancer_data_volume_type_name:
+      formData.managed_rancher_load_balancer_data_volume_type_name?.name,
   }),
 };
