@@ -177,7 +177,10 @@ export const getFormattedUsages = (
   });
 };
 
-export const getUsagePeriods = (usages: ComponentUsage[], months: number) => {
+export const getUsagePeriods = (
+  usages: ComponentUsage[],
+  months: number = null,
+) => {
   let numberOfMonths = months;
   if (!numberOfMonths) {
     // Calculate number of months from usages, if months param is not given
@@ -249,35 +252,6 @@ export const getUsageHistoryPeriodOptions = (startDate = null) => {
 export const getBillingTypeLabel = (value) =>
   getAccountingTypeOptions().find((option) => option.value === value)?.label ||
   'N/A';
-
-export const getUsageTableData = (
-  component: OfferingComponent,
-  usages: ComponentUsage[],
-) => {
-  return usages
-    .filter((usage) => usage.type === component.type)
-    .map((usage) => {
-      return {
-        date: parseDate(usage.billing_period).toFormat('MM/yyyy'),
-        usage: Number(usage.usage),
-      };
-    });
-};
-
-export const getUserUsageTableData = (
-  component: OfferingComponent,
-  userUsages: ComponentUserUsage[],
-) => {
-  return userUsages
-    .filter((usage) => usage.component_type === component.type)
-    .map((usage) => {
-      return {
-        username: usage.username,
-        date: parseDate(usage.billing_period).toFormat('MM/yyyy'),
-        usage: Number(usage.usage),
-      };
-    });
-};
 
 export const getTotalUsagePeriod = (
   usages: ComponentUsage[],

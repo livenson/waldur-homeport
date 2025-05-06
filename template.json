@@ -12500,7 +12500,7 @@
     "message": "Total number of nodes"
   },
   "Total of {label}": {
-    "description": "marketplace/resources/usage/UsageExportDropdown.tsx",
+    "description": "marketplace/resources/usage/ResourceUsageTable.tsx, marketplace/resources/usage/UsageExportDropdown.tsx",
     "message": "Total of {label}"
   },
   "Total paid": {
