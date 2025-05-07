@@ -71,7 +71,7 @@ interface ManagedRancherOrderFormData {
   worker_nodes_count: number;
   worker_nodes_flavor: OpenStackFlavor;
   worker_nodes_data_volume_size: number;
-  worker_nodes_data_volume_type: OpenStackVolumeType;
+  worker_nodes_data_volume_type_name: OpenStackVolumeType;
   openstack_offering: Offering;
   install_longhorn: boolean;
   longhorn_volume_size: number;
@@ -83,7 +83,7 @@ const managedRancherOrderSerializer = (
   ...formData,
   worker_nodes_flavor_name: formData.worker_nodes_flavor?.name,
   worker_nodes_data_volume_type_name:
-    formData.worker_nodes_data_volume_type?.name,
+    formData.worker_nodes_data_volume_type_name?.name,
   openstack_offering_uuid_list: formData.openstack_offering
     ? [formData.openstack_offering.uuid]
     : undefined,
@@ -121,12 +121,25 @@ export const ManagedRancherOffering: OfferingConfiguration = {
       : undefined,
     managed_rancher_server_flavor_name:
       formData.managed_rancher_server_flavor_name?.name,
+
     managed_rancher_server_system_volume_type_name:
       formData.managed_rancher_server_system_volume_type_name?.name,
+
+    managed_rancher_server_data_volume_type_name:
+      formData.managed_rancher_server_data_volume_type_name?.name,
+
+    managed_rancher_worker_system_volume_type_name:
+      formData.managed_rancher_worker_system_volume_type_name?.name,
+
+    managed_rancher_worker_data_volume_type_name:
+      formData.managed_rancher_worker_data_volume_type_name?.name,
+
     managed_rancher_load_balancer_flavor_name:
       formData.managed_rancher_load_balancer_flavor_name?.name,
+
     managed_rancher_load_balancer_system_volume_type_name:
       formData.managed_rancher_load_balancer_system_volume_type_name?.name,
+
     managed_rancher_load_balancer_data_volume_type_name:
       formData.managed_rancher_load_balancer_data_volume_type_name?.name,
   }),

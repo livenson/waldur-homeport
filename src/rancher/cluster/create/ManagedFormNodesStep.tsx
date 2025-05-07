@@ -103,7 +103,7 @@ export const ManagedFormNodesStep = (props: FormStepProps) => {
         <div className="mb-2 border-bottom">
           <FormGroup label={translate('Data volume type')} required={true}>
             <Field
-              name="attributes.worker_nodes_data_volume_type"
+              name="attributes.worker_nodes_data_volume_type_name"
               component={SelectField}
               options={volumeTypes.data}
               getOptionValue={(option: OpenStackVolumeType) => option.uuid}
