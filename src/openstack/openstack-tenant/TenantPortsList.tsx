@@ -25,6 +25,7 @@ export const TenantPortsList: FunctionComponent<{ resourceScope }> = ({
         'error_message',
         'resource_type',
         'admin_state_up',
+        'status',
         'state',
         'service_name',
         'service_settings',
@@ -68,6 +69,10 @@ export const TenantPortsList: FunctionComponent<{ resourceScope }> = ({
         {
           title: translate('MAC address'),
           render: ({ row }) => <>{row.mac_address || 'N/A'}</>,
+        },
+        {
+          title: translate('Status'),
+          render: ({ row }) => <>{row.status}</>,
         },
         {
           title: translate('Network name'),
