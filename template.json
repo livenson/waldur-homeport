@@ -2163,6 +2163,10 @@
     "description": "reporting/quotas/constants.tsx",
     "message": "Cloud block storage size"
   },
+  "Cloud init template for load balancer node": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Cloud init template for load balancer node"
+  },
   "Cloud init template": {
     "description": "rancher/RancherProviderForm.tsx, rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
     "message": "Cloud init template"
@@ -3087,6 +3091,10 @@
     "description": "proposals/proposal/create/ProgressSteps.tsx",
     "message": "Decision"
   },
+  "Default DNS servers": {
+    "description": "openstack/OpenStackProvisioningConfigForm.tsx",
+    "message": "Default DNS servers"
+  },
   "Default SLURM account for user": {
     "description": "slurm/SlurmForm.tsx",
     "message": "Default SLURM account for user"
@@ -3126,6 +3134,10 @@
   "Default tenant category": {
     "description": "marketplace/category/admin/CategoryEditDialog.tsx",
     "message": "Default tenant category"
+  },
+  "Default value for new subnets DNS name servers. Should be defined as list.": {
+    "description": "openstack/OpenStackProvisioningConfigForm.tsx",
+    "message": "Default value for new subnets DNS name servers. Should be defined as list."
   },
   "Default value": {
     "description": "marketplace/offerings/update/options/OptionForm.tsx",
@@ -4058,6 +4070,10 @@
   "Enter address...": {
     "description": "map/LocationContainer.tsx",
     "message": "Enter address..."
+  },
+  "Enter comma-separated values": {
+    "description": "form/CommaSeparatedListField.tsx",
+    "message": "Enter comma-separated values"
   },
   "Enter custom IP": {
     "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx",
@@ -5150,6 +5166,10 @@
   "Image is too large": {
     "description": "form/WideImageField.tsx",
     "message": "Image is too large"
+  },
+  "Image name for Rancher nodes": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Image name for Rancher nodes"
   },
   "Image name": {
     "description": "reporting/openstack/ImagesList.tsx",
@@ -7515,6 +7535,14 @@
     "description": "reporting/openstack/ImagesList.tsx",
     "message": "OpenStack Images"
   },
+  "OpenStack data volume size for load balancer node": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "OpenStack data volume size for load balancer node"
+  },
+  "OpenStack data volume type for load balancer node": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "OpenStack data volume type for load balancer node"
+  },
   "OpenStack flavor name for server node": {
     "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
     "message": "OpenStack flavor name for server node"
@@ -7559,9 +7587,21 @@
     "description": "openstack/openstack-subnet/EditSubnetDialog.tsx",
     "message": "OpenStack subnet"
   },
+  "OpenStack system flavor for load balancer node": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "OpenStack system flavor for load balancer node"
+  },
+  "OpenStack system volume size for load balancer node": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "OpenStack system volume size for load balancer node"
+  },
   "OpenStack system volume size for server node": {
     "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
     "message": "OpenStack system volume size for server node"
+  },
+  "OpenStack system volume type for load balancer node": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "OpenStack system volume type for load balancer node"
   },
   "OpenStack system volume type for server node": {
     "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
@@ -14160,7 +14200,7 @@
     "message": "Update {resourceType}"
   },
   "Update": {
-    "description": "administration/hooks/HookUpdateButton.tsx, administration/service-desk/AdministrationServiceDeskUpdateDialog.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, booking/EditSchedulesDialog.tsx, broadcasts/BroadcastUpdateButton.tsx, customer/details/AccessSubnetForm.tsx, customer/payment-profiles/PaymentProfileUpdateDialog.tsx, customer/payments/PaymentUpdateDialog.tsx, marketplace/offerings/update/overview/EditGettingStartedDialog.tsx, marketplace/offerings/update/overview/EditOverviewDialog.tsx, marketplace/orders/list/OrderTypeCell.tsx, marketplace/orders/list/OrderTypeFilter.tsx, marketplace/resources/options/UpdateResourceOptionDialog.tsx, marketplace/service-providers/UpdateOfferingPermissionExpirationTimeDialog.tsx, openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx, openstack/openstack-tenant/SetRoutesDialog.tsx, table/SaveFilterDialog.tsx, table/TableFiltersMenu.tsx, user/hooks/HookDetailsDialog.tsx, user/hooks/HookUpdateButton.tsx",
+    "description": "administration/hooks/HookUpdateButton.tsx, administration/service-desk/AdministrationServiceDeskUpdateDialog.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, booking/EditSchedulesDialog.tsx, broadcasts/BroadcastUpdateButton.tsx, customer/details/AccessSubnetForm.tsx, customer/payment-profiles/PaymentProfileUpdateDialog.tsx, customer/payments/PaymentUpdateDialog.tsx, marketplace/offerings/update/overview/EditGettingStartedDialog.tsx, marketplace/offerings/update/overview/EditOverviewDialog.tsx, marketplace/orders/list/OrderTypeCell.tsx, marketplace/orders/list/OrderTypeFilter.tsx, marketplace/resources/options/UpdateResourceOptionDialog.tsx, marketplace/service-providers/UpdateOfferingPermissionExpirationTimeDialog.tsx, openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx, openstack/openstack-tenant/SetRoutesDialog.tsx, table/SaveFilterDialog.tsx, table/TableFiltersMenu.tsx, user/hooks/HookDetailsDialog.tsx",
     "message": "Update"
   },
   "Updating floating IPs": {
