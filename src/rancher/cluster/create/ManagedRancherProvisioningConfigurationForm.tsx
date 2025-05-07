@@ -153,6 +153,26 @@ const fields: OfferingEditField[] = [
     ...VOLUME_SIZE_FIELD,
   },
   {
+    label: translate('OpenStack data volume type for server node'),
+    key: 'plugin_options.managed_rancher_server_data_volume_type_name',
+    ...VOLUME_TYPE_FIELD,
+  },
+  {
+    label: translate('OpenStack data volume size for server node'),
+    key: 'plugin_options.managed_rancher_server_data_volume_size_gb',
+    ...VOLUME_SIZE_FIELD,
+  },
+  {
+    label: translate('OpenStack system volume type for worker node'),
+    key: 'plugin_options.managed_rancher_worker_system_volume_type_name',
+    ...VOLUME_TYPE_FIELD,
+  },
+  {
+    label: translate('OpenStack system volume size for worker node'),
+    key: 'plugin_options.managed_rancher_worker_system_volume_size_gb',
+    ...VOLUME_SIZE_FIELD,
+  },
+  {
     label: translate('Organization'),
     key: 'secret_options.customer_uuid',
     component: AsyncSelectField,

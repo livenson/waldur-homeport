@@ -7539,9 +7539,17 @@
     "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
     "message": "OpenStack data volume size for load balancer node"
   },
+  "OpenStack data volume size for server node": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "OpenStack data volume size for server node"
+  },
   "OpenStack data volume type for load balancer node": {
     "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
     "message": "OpenStack data volume type for load balancer node"
+  },
+  "OpenStack data volume type for server node": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "OpenStack data volume type for server node"
   },
   "OpenStack flavor name for server node": {
     "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
@@ -7599,6 +7607,10 @@
     "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
     "message": "OpenStack system volume size for server node"
   },
+  "OpenStack system volume size for worker node": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "OpenStack system volume size for worker node"
+  },
   "OpenStack system volume type for load balancer node": {
     "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
     "message": "OpenStack system volume type for load balancer node"
@@ -7606,6 +7618,10 @@
   "OpenStack system volume type for server node": {
     "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
     "message": "OpenStack system volume type for server node"
+  },
+  "OpenStack system volume type for worker node": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "OpenStack system volume type for worker node"
   },
   "OpenStack tenant": {
     "description": "openstack/marketplace.ts, openstack/openstack-tenant/actions/EditDialog.tsx",
