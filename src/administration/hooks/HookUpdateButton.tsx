@@ -14,24 +14,26 @@ const HookDetailsDialog = lazyComponent(() =>
   })),
 );
 
-const showHookUpdateDialog = (row?) =>
+const showHookUpdateDialog = (row?, refetch?) =>
   openModalDialog(HookDetailsDialog, {
-    resolve: { hook: row, listId: ADMIN_HOOK_LIST_ID },
+    resolve: { hook: row, listId: ADMIN_HOOK_LIST_ID, refetch },
     size: 'md',
   });
 
 interface HookUpdateButtonProps {
   row: any;
+  refetch?: () => void;
 }
 
 export const HookUpdateButton: FunctionComponent<HookUpdateButtonProps> = ({
   row,
+  refetch,
 }) => {
   const dispatch = useDispatch();
   return (
     <EditAction
       label={translate('Update')}
-      action={() => dispatch(showHookUpdateDialog(row))}
+      action={() => dispatch(showHookUpdateDialog(row, refetch))}
       size="sm"
     />
   );
