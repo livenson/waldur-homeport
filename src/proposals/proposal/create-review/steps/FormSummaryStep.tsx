@@ -38,31 +38,40 @@ const FormSummaryStep: React.FC<FormSummaryStepProps> = (props) => {
       <Field
         name="summary_score"
         disabled={disabled}
-        component={(fieldProps) => (
-          <FormGroup {...fieldProps} label={translate('Rate')}>
-            <div className="d-flex align-items-center gap-4">
-              <ReactStars
-                count={5}
-                size={20}
-                edit={true}
-                isHalf={false}
-                emptyIcon={<Star weight="fill" />}
-                filledIcon={<Star weight="fill" />}
-                color={RATING_STAR_INACTIVE_COLOR}
-                activeColor={RATING_STAR_ACTIVE_COLOR}
-                value={fieldProps.input.value || 0}
-                onChange={(value) => fieldProps.input.onChange(value)}
-              />
-              <span className="text-gray-700 mt-2">
-                {fieldProps.input.value === 1
-                  ? translate('1 star')
-                  : translate('{count} stars', {
-                      count: fieldProps.input.value,
-                    })}
-              </span>
+        component={(fieldProps) => {
+          const starValue = Number(fieldProps.input.value) || 0;
+          const ratingId = `rating-${fieldProps.input.name}`;
+
+          return (
+            <div className="form-group">
+              <label htmlFor={ratingId}>{translate('Rate')}</label>
+              <div className="d-flex align-items-center gap-4">
+                <div id={ratingId}>
+                  <ReactStars
+                    key={`stars-${starValue}`}
+                    count={5}
+                    size={20}
+                    edit={!disabled}
+                    isHalf={false}
+                    emptyIcon={<Star weight="fill" />}
+                    filledIcon={<Star weight="fill" />}
+                    color={RATING_STAR_INACTIVE_COLOR}
+                    activeColor={RATING_STAR_ACTIVE_COLOR}
+                    value={starValue}
+                    onChange={(value) => fieldProps.input.onChange(value)}
+                  />
+                </div>
+                <span className="text-gray-700 mt-2">
+                  {fieldProps.input.value === 1
+                    ? translate('1 star')
+                    : translate('{count} stars', {
+                        count: fieldProps.input.value,
+                      })}
+                </span>
+              </div>
             </div>
-          </FormGroup>
-        )}
+          );
+        }}
       />
       <Field
         name="summary_public_comment"
