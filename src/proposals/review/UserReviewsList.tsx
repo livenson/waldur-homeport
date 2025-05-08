@@ -6,10 +6,7 @@ import { ProposalReviewsListData } from 'waldur-js-client';
 
 import { translate } from '@waldur/i18n';
 import { ProposalReview } from '@waldur/proposals/types';
-import {
-  formatReviewState,
-  getReviewStateOptions,
-} from '@waldur/proposals/utils';
+import { getReviewStateOptions } from '@waldur/proposals/utils';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
@@ -22,6 +19,7 @@ import { EndingField } from '../EndingField';
 import { ReviewsExpandableRow } from './ReviewsExpandableRow';
 import { ReviewsRowActions } from './ReviewsRowActons';
 import { ReviewsTableFilter } from './ReviewsTableFilter';
+import { ReviewStateRenderer } from './ReviewStateRenderer';
 
 const filtersSelctor = createSelector(
   getUser,
@@ -94,7 +92,7 @@ export const UserReviewsList: FC = () => {
         },
         {
           title: translate('State'),
-          render: ({ row }) => <>{formatReviewState(row.state)}</>,
+          render: ReviewStateRenderer,
           filter: 'state',
           inlineFilter: (row) =>
             getReviewStateOptions().filter((s) => s.value === row.state),

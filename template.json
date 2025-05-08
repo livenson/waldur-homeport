@@ -10124,7 +10124,7 @@
     "message": "Review has been submitted."
   },
   "Review has been updated.": {
-    "description": "proposals/proposal/create-review/steps/FormSummaryStep.tsx",
+    "description": "proposals/proposal/create-review/ProposalReviewCreatePage.tsx",
     "message": "Review has been updated."
   },
   "Review request": {
@@ -10182,10 +10182,6 @@
   "Reviewers": {
     "description": "proposals/round/RoundUIView.tsx, proposals/round/reviewers/RoundReviewersList.tsx, proposals/team/TeamSection.tsx, proposals/update/CallUpdateContainer.tsx",
     "message": "Reviewers"
-  },
-  "Reviews in final states are not editable": {
-    "description": "proposals/proposal/create-review/steps/FormSummaryStep.tsx",
-    "message": "Reviews in final states are not editable"
   },
   "Reviews": {
     "description": "customer/routes.ts, invitations/tabs.ts, navigation/sidebar/CallPublicMenu.tsx, proposals/review/CustomerReviewsList.tsx, proposals/round/proposals/ProposalExpandableRow.tsx, proposals/routes.ts, proposals/update/rounds/CallRoundsList.tsx",
@@ -10404,7 +10400,7 @@
     "message": "Save as a template"
   },
   "Save as draft": {
-    "description": "broadcasts/BroadcastFooter.tsx, proposals/proposal/create/ProposalSidebar.tsx",
+    "description": "broadcasts/BroadcastFooter.tsx, proposals/proposal/create/ProposalSidebar.tsx, proposals/proposal/create-review/CreatePageSidebar.tsx",
     "message": "Save as draft"
   },
   "Save as": {
@@ -10422,10 +10418,6 @@
   "Save script": {
     "description": "marketplace/offerings/update/integration/ScriptEditorHeader.tsx",
     "message": "Save script"
-  },
-  "Save summary": {
-    "description": "proposals/proposal/create-review/steps/FormSummaryStep.tsx",
-    "message": "Save summary"
   },
   "Save": {
     "description": "administration/FeaturesList.tsx, administration/agreements/UserAgreementCreateDialog.tsx, administration/agreements/UserAgreementsEditDialog.tsx, administration/languages/AdministrationLanguages.tsx, administration/notifications/NotificationUpdateDialog.tsx, administration/providers/UpdateProviderDialog.tsx, administration/remote-offering-sync/RemoteSyncFormDialog.tsx, administration/roles/RoleCreateDialog.tsx, administration/roles/RoleDescriptionEditDialog.tsx, administration/roles/RoleEditDialog.tsx, administration/settings/CountrySelector.tsx, broadcasts/BroadcastSaveAsTemplateDialog.tsx, broadcasts/BroadcastTemplateCreateDialog.tsx, broadcasts/BroadcastTemplateUpdateDialog.tsx, customer/details/CustomerMediaPanel.tsx, customer/team/AddProjectUserDialog.tsx, customer/team/EditProjectUserDialog.tsx, customer/team/EditUserDialog.tsx, form/InsertLinkPopover.tsx, map/SetLocationDialog.tsx, marketplace/offerings/actions/SetAccessPolicyDialogForm.tsx, marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx, marketplace/offerings/expandable/utils.ts, marketplace/offerings/update/attributes/EditAttributeDialog.tsx, marketplace/offerings/update/attributes/EditCategoryDialog.tsx, marketplace/offerings/update/components/ChangeStorageModeDialog.tsx, marketplace/offerings/update/components/EditComponentDialog.tsx, marketplace/offerings/update/integration/EditLexisLinkIntegrationDialog.tsx, marketplace/offerings/update/integration/EditVarsDialog.tsx, marketplace/offerings/update/integration/ScriptEditorHeader.tsx, marketplace/offerings/update/options/EditOptionDialog.tsx, marketplace/offerings/update/plans/EditPlanDescriptionDialog.tsx, marketplace/offerings/update/plans/EditPlanPricesDialog.tsx, marketplace/offerings/update/plans/EditPlanQuotasDialog.tsx, marketplace/resources/actions/EditResourceEndDateDialog.tsx, marketplace/resources/actions/MoveResourceDialog.tsx, marketplace/resources/mass-actions/MultiMoveDialog.tsx, marketplace-checklist/ChecklistCustomer.tsx, project/MoveProjectDialog.tsx, project/manage/ProjectAvatar.tsx, project/team/EditUserDialog.tsx, proposals/update/documents/AttachDocumentsDialog.tsx, proposals/update/general/EditGeneralInfoDialog.tsx, reporting/invoices/utils.ts, table/SaveFilterDialog.tsx, user/support/UserEditAvatarFormItem.tsx",
@@ -13856,7 +13848,7 @@
     "message": "Unable to update remote synchronization."
   },
   "Unable to update review.": {
-    "description": "proposals/proposal/create-review/steps/FormSummaryStep.tsx",
+    "description": "proposals/proposal/create-review/ProposalReviewCreatePage.tsx",
     "message": "Unable to update review."
   },
   "Unable to update schedules.": {

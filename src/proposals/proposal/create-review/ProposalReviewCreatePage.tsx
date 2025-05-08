@@ -91,20 +91,28 @@ export const ProposalReviewCreatePage = (props) => {
     return values;
   }, []);
 
-  const submit = useCallback(async () => {
-    const summaryFormData = captureFormValues();
+  const [isSaving, setIsSaving] = useState(false);
+
+  const handleSaveSummary = useCallback(async () => {
+    const values = captureFormValues();
+
+    setIsSaving(true);
     try {
-      if (summaryFormData) {
-        const response = await proposalReviewsPartialUpdate({
-          path: { uuid: data.review.uuid },
-          body: summaryFormData,
-        });
-        setReviewObject(response.data);
-      }
-    } catch (error) {
-      dispatch(showErrorResponse(error, translate('Something went wrong')));
-      return;
+      const response = await proposalReviewsPartialUpdate({
+        body: values,
+        path: { uuid: data.review.uuid },
+      });
+      setReviewObject(response.data);
+      dispatch(showSuccess(translate('Review has been updated.')));
+    } catch (e) {
+      dispatch(showErrorResponse(e, translate('Unable to update review.')));
+    } finally {
+      setIsSaving(false);
     }
+  }, [dispatch, data?.review]);
+
+  const submit = useCallback(async () => {
+    await handleSaveSummary();
     try {
       await waitForConfirmation(
         dispatch,
@@ -199,6 +207,8 @@ export const ProposalReviewCreatePage = (props) => {
                 <CreatePageSidebar
                   review={reviewObject}
                   submitting={submitting}
+                  saveAsDraft={handleSaveSummary}
+                  isSaving={isSaving}
                   refetch={refetch}
                 />
               </SidebarLayout.Sidebar>
