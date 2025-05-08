@@ -324,7 +324,7 @@
     "message": "Active to"
   },
   "Active": {
-    "description": "administration/announcements/AnnouncementFilter.tsx, administration/roles/RolesList.tsx, administration/users/FreeIPAUsersList.tsx, invitations/GroupInvitationsList.tsx, invitations/tabs.ts, marketplace/offerings/list/OfferingStateCell.tsx, marketplace/offerings/list/OfferingStateFilter.tsx, marketplace/offerings/update/plans/PlansSection.tsx, marketplace/service-providers/ProviderCampaignStateFilter.tsx, project/utils.ts, proposals/utils.ts, user/support/UserList.tsx, user/support/UserStatus.tsx, user/support/utils.ts",
+    "description": "administration/announcements/AnnouncementFilter.tsx, administration/roles/RolesList.tsx, administration/users/FreeIPAUsersList.tsx, invitations/GroupInvitationsList.tsx, invitations/tabs.ts, marketplace/offerings/list/OfferingStateCell.tsx, marketplace/offerings/list/OfferingStateFilter.tsx, marketplace/offerings/update/plans/PlansSection.tsx, marketplace/service-providers/ProviderCampaignStateFilter.tsx, openstack/openstack-tenant/TenantPortsList.tsx, project/utils.ts, proposals/utils.ts, user/support/UserList.tsx, user/support/UserStatus.tsx, user/support/utils.ts",
     "message": "Active"
   },
   "Add Waldur user SSH keys to the FreeIPA profile": {
@@ -550,6 +550,10 @@
   "Admin password": {
     "description": "azure/sql/AzureSQLServerDetails.tsx, azure/vm/AzureVirtualMachineDetails.tsx, azure/vm/AzureVirtualMachineSummary.tsx",
     "message": "Admin password"
+  },
+  "Admin state": {
+    "description": "openstack/openstack-tenant/TenantPortsList.tsx",
+    "message": "Admin state"
   },
   "Admin username": {
     "description": "azure/sql/AzureSQLServerDetails.tsx, azure/vm/AzureVirtualMachineDetails.tsx, azure/vm/AzureVirtualMachineSummary.tsx",
@@ -780,7 +784,7 @@
     "message": "Allowed address pairs update was scheduled."
   },
   "Allowed address pairs": {
-    "description": "openstack/openstack-tenant/ExpandablePortRow.tsx",
+    "description": "openstack/openstack-tenant/OpenstackPortSummary.tsx",
     "message": "Allowed address pairs"
   },
   "Allowed file types": {
@@ -3388,11 +3392,11 @@
     "message": "Details"
   },
   "Device ID": {
-    "description": "openstack/openstack-tenant/ExpandablePortRow.tsx",
+    "description": "openstack/openstack-tenant/OpenstackPortSummary.tsx",
     "message": "Device ID"
   },
   "Device owner": {
-    "description": "openstack/openstack-tenant/ExpandablePortRow.tsx",
+    "description": "openstack/openstack-tenant/OpenstackPortSummary.tsx",
     "message": "Device owner"
   },
   "Device": {
@@ -5252,7 +5256,7 @@
     "message": "In the format of GUID"
   },
   "Inactive": {
-    "description": "administration/announcements/AnnouncementFilter.tsx, invitations/GroupInvitationsList.tsx, project/team/UserListOptionInline.tsx, user/support/UserList.tsx",
+    "description": "administration/announcements/AnnouncementFilter.tsx, invitations/GroupInvitationsList.tsx, openstack/openstack-tenant/TenantPortsList.tsx, project/team/UserListOptionInline.tsx, user/support/UserList.tsx",
     "message": "Inactive"
   },
   "Incident - client issue with service usage or availability (interruptions, degradation of quality).": {
@@ -7068,7 +7072,7 @@
     "message": "No {verboseName} found"
   },
   "No": {
-    "description": "administration/remote-offering-sync/RemoteOfferingSyncList.tsx, administration/settings/FieldRow.tsx, core/BooleanBadge.tsx, customer/list/ServiceProviderFilter.tsx, invitations/GroupInvitationsList.tsx, invoices/details/InvoiceItemsFilter.tsx, marketplace/details/OfferingResourcesFilter.tsx, marketplace/offerings/OfferingViewHero.tsx, marketplace/offerings/admin/AdminOfferingsFilter.tsx, marketplace/offerings/details/policies/PoliciesTable.tsx, marketplace/offerings/update/attributes/utils.tsx, marketplace/resources/list/AllResourcesFilter.tsx, marketplace/resources/list/ProjectResourcesAllFilter.tsx, marketplace/resources/list/ProviderResourcesFilter.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/options/OptionValue.tsx, marketplace-checklist/AnswerGroup.tsx, marketplace-checklist/AnswersTable.tsx, marketplace-checklist/ChecklistCustomer.tsx, modal/ConfirmationDialog.tsx, openstack/openstack-network/OpenStackNetworkSummary.tsx, openstack/openstack-subnet/OpenStackSubNetSummary.tsx, openstack/openstack-tenant/ExpandablePortRow.tsx, rancher/cluster/users/ClusterUsersList.tsx, user/affiliations/OrganizationsList.tsx, user/affiliations/ProjectsList.tsx, user/affiliations/ProjectsListFilter.tsx, user/support/UserList.tsx",
+    "description": "administration/remote-offering-sync/RemoteOfferingSyncList.tsx, administration/settings/FieldRow.tsx, core/BooleanBadge.tsx, customer/list/ServiceProviderFilter.tsx, invitations/GroupInvitationsList.tsx, invoices/details/InvoiceItemsFilter.tsx, marketplace/details/OfferingResourcesFilter.tsx, marketplace/offerings/OfferingViewHero.tsx, marketplace/offerings/admin/AdminOfferingsFilter.tsx, marketplace/offerings/details/policies/PoliciesTable.tsx, marketplace/offerings/update/attributes/utils.tsx, marketplace/resources/list/AllResourcesFilter.tsx, marketplace/resources/list/ProjectResourcesAllFilter.tsx, marketplace/resources/list/ProviderResourcesFilter.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/options/OptionValue.tsx, marketplace-checklist/AnswerGroup.tsx, marketplace-checklist/AnswersTable.tsx, marketplace-checklist/ChecklistCustomer.tsx, modal/ConfirmationDialog.tsx, openstack/openstack-network/OpenStackNetworkSummary.tsx, openstack/openstack-subnet/OpenStackSubNetSummary.tsx, openstack/openstack-tenant/OpenstackPortSummary.tsx, openstack/openstack-tenant/TenantPortsList.tsx, rancher/cluster/users/ClusterUsersList.tsx, user/affiliations/OrganizationsList.tsx, user/affiliations/ProjectsList.tsx, user/affiliations/ProjectsListFilter.tsx, user/support/UserList.tsx",
     "message": "No"
   },
   "Node has been created.": {
@@ -8504,7 +8508,7 @@
     "message": "Port range"
   },
   "Port security enabled": {
-    "description": "openstack/openstack-tenant/ExpandablePortRow.tsx, openstack/openstack-tenant/actions/CreatePortDialog.tsx",
+    "description": "openstack/openstack-tenant/OpenstackPortSummary.tsx, openstack/openstack-tenant/TenantPortsList.tsx, openstack/openstack-tenant/actions/CreatePortDialog.tsx",
     "message": "Port security enabled"
   },
   "Port": {
@@ -10560,7 +10564,7 @@
     "message": "Security groups details"
   },
   "Security groups": {
-    "description": "openstack/openstack-backup/actions/BackupRestoreDialog.tsx, openstack/openstack-instance/OpenStackInstanceSummary.tsx, openstack/openstack-instance/OpenstackInstanceDetails.tsx, openstack/openstack-instance/actions/update-security-groups/UpdateSecurityGroupsForm.tsx, openstack/openstack-instance/deploy/FormSecurityGroupsField.tsx, openstack/openstack-instance/tabs.ts, openstack/openstack-security-groups/SecurityGroupsList.tsx, openstack/openstack-tenant/ExpandablePortRow.tsx, openstack/openstack-tenant/tabs.ts, rancher/cluster/create/FormRancherSecurityGroupsStep.tsx, rancher/cluster/create/steps.ts",
+    "description": "openstack/openstack-backup/actions/BackupRestoreDialog.tsx, openstack/openstack-instance/OpenStackInstanceSummary.tsx, openstack/openstack-instance/OpenstackInstanceDetails.tsx, openstack/openstack-instance/actions/update-security-groups/UpdateSecurityGroupsForm.tsx, openstack/openstack-instance/deploy/FormSecurityGroupsField.tsx, openstack/openstack-instance/tabs.ts, openstack/openstack-security-groups/SecurityGroupsList.tsx, openstack/openstack-tenant/OpenstackPortSummary.tsx, openstack/openstack-tenant/tabs.ts, rancher/cluster/create/FormRancherSecurityGroupsStep.tsx, rancher/cluster/create/steps.ts",
     "message": "Security groups"
   },
   "See all calls": {
@@ -14964,7 +14968,7 @@
     "message": "Yearly estimate"
   },
   "Yes": {
-    "description": "administration/organizations/OrganizationsFilter.tsx, administration/remote-offering-sync/RemoteOfferingSyncList.tsx, administration/settings/FieldRow.tsx, core/BooleanBadge.tsx, customer/list/ServiceProviderFilter.tsx, invitations/GroupInvitationsList.tsx, invoices/details/InvoiceItemsFilter.tsx, marketplace/details/OfferingResourcesFilter.tsx, marketplace/offerings/OfferingViewHero.tsx, marketplace/offerings/admin/AdminOfferingsFilter.tsx, marketplace/offerings/details/policies/PoliciesTable.tsx, marketplace/offerings/update/attributes/utils.tsx, marketplace/resources/list/AllResourcesFilter.tsx, marketplace/resources/list/ProjectResourcesAllFilter.tsx, marketplace/resources/list/ProviderResourcesFilter.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/options/OptionValue.tsx, marketplace-checklist/AnswerGroup.tsx, marketplace-checklist/AnswersTable.tsx, marketplace-checklist/ChecklistCustomer.tsx, modal/ConfirmationDialog.tsx, openstack/openstack-network/OpenStackNetworkSummary.tsx, openstack/openstack-subnet/OpenStackSubNetSummary.tsx, openstack/openstack-tenant/ExpandablePortRow.tsx, proposals/call-management/CallAllFilters.tsx, rancher/cluster/users/ClusterUsersList.tsx, user/affiliations/OrganizationsList.tsx, user/affiliations/ProjectsList.tsx, user/affiliations/ProjectsListFilter.tsx, user/support/UserList.tsx",
+    "description": "administration/organizations/OrganizationsFilter.tsx, administration/remote-offering-sync/RemoteOfferingSyncList.tsx, administration/settings/FieldRow.tsx, core/BooleanBadge.tsx, customer/list/ServiceProviderFilter.tsx, invitations/GroupInvitationsList.tsx, invoices/details/InvoiceItemsFilter.tsx, marketplace/details/OfferingResourcesFilter.tsx, marketplace/offerings/OfferingViewHero.tsx, marketplace/offerings/admin/AdminOfferingsFilter.tsx, marketplace/offerings/details/policies/PoliciesTable.tsx, marketplace/offerings/update/attributes/utils.tsx, marketplace/resources/list/AllResourcesFilter.tsx, marketplace/resources/list/ProjectResourcesAllFilter.tsx, marketplace/resources/list/ProviderResourcesFilter.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/options/OptionValue.tsx, marketplace-checklist/AnswerGroup.tsx, marketplace-checklist/AnswersTable.tsx, marketplace-checklist/ChecklistCustomer.tsx, modal/ConfirmationDialog.tsx, openstack/openstack-network/OpenStackNetworkSummary.tsx, openstack/openstack-subnet/OpenStackSubNetSummary.tsx, openstack/openstack-tenant/OpenstackPortSummary.tsx, openstack/openstack-tenant/TenantPortsList.tsx, proposals/call-management/CallAllFilters.tsx, rancher/cluster/users/ClusterUsersList.tsx, user/affiliations/OrganizationsList.tsx, user/affiliations/ProjectsList.tsx, user/affiliations/ProjectsListFilter.tsx, user/support/UserList.tsx",
     "message": "Yes"
   },
   "You agree to the <tos>Terms of Service</tos> and <pp>Privacy policy</pp>.": {

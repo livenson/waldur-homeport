@@ -1,14 +1,15 @@
 import { FunctionComponent, useMemo } from 'react';
 import { OpenStackPort, OpenstackPortsListData } from 'waldur-js-client';
 
+import { Badge } from '@waldur/core/Badge';
 import { translate } from '@waldur/i18n';
 import { ResourceRowActions } from '@waldur/resource/actions/ResourceRowActions';
+import { ResourceSummary } from '@waldur/resource/summary/ResourceSummary';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
 
 import { CreatePortAction } from './actions/CreatePortAction';
-import { ExpandablePortRow } from './ExpandablePortRow';
 
 export const TenantPortsList: FunctionComponent<{ resourceScope }> = ({
   resourceScope,
@@ -71,12 +72,46 @@ export const TenantPortsList: FunctionComponent<{ resourceScope }> = ({
           render: ({ row }) => <>{row.mac_address || 'N/A'}</>,
         },
         {
-          title: translate('Status'),
-          render: ({ row }) => <>{row.status}</>,
-        },
-        {
           title: translate('Network name'),
           render: ({ row }) => <>{row.network_name || 'N/A'}</>,
+        },
+        {
+          title: translate('Status'),
+          render: ({ row }) => (
+            <Badge
+              variant={row.status === 'ACTIVE' ? 'success' : 'warning'}
+              pill
+              outline
+            >
+              {row.status}
+            </Badge>
+          ),
+        },
+        {
+          title: translate('Admin state'),
+          render: ({ row }) => (
+            <Badge
+              variant={row.admin_state_up === 'True' ? 'success' : 'warning'}
+              pill
+              outline
+            >
+              {row.admin_state_up === 'True'
+                ? translate('Active')
+                : translate('Inactive')}
+            </Badge>
+          ),
+        },
+        {
+          title: translate('Port security enabled'),
+          render: ({ row }) => (
+            <Badge
+              variant={row.port_security_enabled ? 'success' : 'danger'}
+              pill
+              outline
+            >
+              {row.port_security_enabled ? translate('Yes') : translate('No')}
+            </Badge>
+          ),
         },
       ]}
       tableActions={
@@ -85,7 +120,7 @@ export const TenantPortsList: FunctionComponent<{ resourceScope }> = ({
       rowActions={({ row }) => (
         <ResourceRowActions resource={row} refetch={props.fetch} />
       )}
-      expandableRow={ExpandablePortRow}
+      expandableRow={({ row }) => <ResourceSummary resource={row} />}
       title={translate('Ports')}
       verboseName={translate('ports')}
       showPageSizeSelector

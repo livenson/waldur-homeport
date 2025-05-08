@@ -1,9 +1,12 @@
-import { translate } from '@waldur/i18n';
-import { Field } from '@waldur/resource/summary';
-import { ExpandableContainer } from '@waldur/table/ExpandableContainer';
+import { FC } from 'react';
 
-export const ExpandablePortRow = ({ row }) => (
-  <ExpandableContainer asTable>
+import { translate } from '@waldur/i18n';
+import { Field, ResourceSummaryProps } from '@waldur/resource/summary';
+
+export const OpenstackPortSummary: FC<ResourceSummaryProps> = ({
+  resource: row,
+}) => (
+  <>
     <Field label={translate('Device ID')} value={row.device_id || 'N/A'} />
     <Field
       label={translate('Device owner')}
@@ -29,5 +32,5 @@ export const ExpandablePortRow = ({ row }) => (
           : 'N/A'
       }
     />
-  </ExpandableContainer>
+  </>
 );
