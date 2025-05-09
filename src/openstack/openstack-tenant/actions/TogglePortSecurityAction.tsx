@@ -44,8 +44,8 @@ export const TogglePortSecurityAction: ActionItemType<OpenStackPort> = ({
       dispatch(
         showSuccess(
           resource.port_security_enabled
-            ? translate('Port has been disabled.')
-            : translate('Port has been enabled.'),
+            ? translate('Port security has been disabled.')
+            : translate('Port security has been enabled.'),
         ),
       );
       if (refetch) {
