@@ -108,7 +108,6 @@ export const ManagedFormNodesStep = (props: FormStepProps) => {
               options={volumeTypes.data}
               getOptionValue={(option: OpenStackVolumeType) => option.uuid}
               getOptionLabel={(option: OpenStackVolumeType) => option.name}
-              simpleValue
             />
           </FormGroup>
         </div>
