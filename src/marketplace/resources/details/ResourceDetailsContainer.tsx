@@ -97,7 +97,10 @@ export const ResourceDetailsContainer: FunctionComponent<{}> = () => {
             },
           }).then((r) => r.data)
         : null,
-    { refetchInterval: 10 * 1000 },
+    {
+      refetchInterval: 10 * 1000,
+      enabled: resource?.state !== 'OK' && !!resource?.order_in_progress,
+    },
   );
   // Check if resource state is changed
   useEffect(() => {
