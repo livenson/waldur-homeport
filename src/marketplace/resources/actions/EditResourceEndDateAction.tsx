@@ -49,6 +49,10 @@ export const EditResourceEndDateAction: ActionItemType = ({
     !hasPermission(user, {
       permission: PermissionEnum.SET_RESOURCE_END_DATE,
       customerId: resource.offering_customer_uuid,
+    }) &&
+    !hasPermission(user, {
+      permission: PermissionEnum.SET_RESOURCE_END_DATE,
+      customerId: resource.customer_uuid,
     })
   ) {
     return null;
