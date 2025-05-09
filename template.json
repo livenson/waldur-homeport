@@ -1135,6 +1135,10 @@
     "description": "openstack/openstack-tenant/actions/TogglePortSecurityAction.tsx",
     "message": "Are you sure you want to disable port security?"
   },
+  "Are you sure you want to disable this port?": {
+    "description": "openstack/openstack-tenant/actions/ActivatePortAction.tsx",
+    "message": "Are you sure you want to disable this port?"
+  },
   "Are you sure you want to disable {name}?": {
     "description": "user/support/UserStatus.tsx",
     "message": "Are you sure you want to disable {name}?"
@@ -1142,6 +1146,10 @@
   "Are you sure you want to enable port security?": {
     "description": "openstack/openstack-tenant/actions/TogglePortSecurityAction.tsx",
     "message": "Are you sure you want to enable port security?"
+  },
+  "Are you sure you want to enable this port?": {
+    "description": "openstack/openstack-tenant/actions/ActivatePortAction.tsx",
+    "message": "Are you sure you want to enable this port?"
   },
   "Are you sure you want to prohibit this organization from managing calls?": {
     "description": "customer/details/CustomerCallManagerPanel.tsx",
@@ -2376,7 +2384,7 @@
     "message": "Confirmation notification template"
   },
   "Confirmation": {
-    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerCallManagerPanel.tsx, customer/details/CustomerLocationRow.tsx, customer/payment-profiles/PaymentProfileDeleteButton.tsx, customer/payments/DeletePaymentButton.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, invoices/details/InvoiceItemDelete.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/ColumnRow.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/deploy/DeployForm.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/images/DeleteImageButton.tsx, marketplace/offerings/update/components/DeleteComponentButton.tsx, marketplace/offerings/update/endpoints/DeleteEndpointButton.tsx, marketplace/offerings/update/options/DeleteOptionButton.tsx, marketplace/offerings/update/plans/ArchivePlanButton.tsx, marketplace/offerings/update/roles/DeleteRoleButton.tsx, marketplace/orders/actions/OrderUnlinkButton.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, marketplace/resources/resource-pending/OrderErredView.tsx, marketplace/resources/users/DeleteUserButton.tsx, marketplace/service-providers/OfferingPermissionRemoveButton.tsx, marketplace/service-providers/RestrictOfferingUser.tsx, openstack/openstack-security-groups/UnlinkSecurityGroupAction.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, openstack/openstack-tenant/actions/TogglePortSecurityAction.tsx, openstack/openstack-tenant/actions/UnlinkPortAction.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/ProposalRowActions.tsx, proposals/proposal/create/ProposalSubmissionStep.tsx, proposals/review/ReviewDeleteAction.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/CallActions.tsx, proposals/update/documents/RemoveDocumentButton.tsx, rancher/cluster/create/FormNodesStep.tsx, resource/actions/AsyncActionItem.tsx, resource/actions/ResourceDeleteButton.tsx, user/support/UserDelete.tsx, user/support/UserStatus.tsx",
+    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerCallManagerPanel.tsx, customer/details/CustomerLocationRow.tsx, customer/payment-profiles/PaymentProfileDeleteButton.tsx, customer/payments/DeletePaymentButton.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, invoices/details/InvoiceItemDelete.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/ColumnRow.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/deploy/DeployForm.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/images/DeleteImageButton.tsx, marketplace/offerings/update/components/DeleteComponentButton.tsx, marketplace/offerings/update/endpoints/DeleteEndpointButton.tsx, marketplace/offerings/update/options/DeleteOptionButton.tsx, marketplace/offerings/update/plans/ArchivePlanButton.tsx, marketplace/offerings/update/roles/DeleteRoleButton.tsx, marketplace/orders/actions/OrderUnlinkButton.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, marketplace/resources/resource-pending/OrderErredView.tsx, marketplace/resources/users/DeleteUserButton.tsx, marketplace/service-providers/OfferingPermissionRemoveButton.tsx, marketplace/service-providers/RestrictOfferingUser.tsx, openstack/openstack-security-groups/UnlinkSecurityGroupAction.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, openstack/openstack-tenant/actions/ActivatePortAction.tsx, openstack/openstack-tenant/actions/TogglePortSecurityAction.tsx, openstack/openstack-tenant/actions/UnlinkPortAction.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/ProposalRowActions.tsx, proposals/proposal/create/ProposalSubmissionStep.tsx, proposals/review/ReviewDeleteAction.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/CallActions.tsx, proposals/update/documents/RemoveDocumentButton.tsx, rancher/cluster/create/FormNodesStep.tsx, resource/actions/AsyncActionItem.tsx, resource/actions/ResourceDeleteButton.tsx, user/support/UserDelete.tsx, user/support/UserStatus.tsx",
     "message": "Confirmation"
   },
   "Confirming that data is correct": {
@@ -8492,11 +8500,11 @@
     "message": "Port has been created."
   },
   "Port has been disabled.": {
-    "description": "openstack/openstack-tenant/actions/TogglePortSecurityAction.tsx",
+    "description": "openstack/openstack-tenant/actions/ActivatePortAction.tsx",
     "message": "Port has been disabled."
   },
   "Port has been enabled.": {
-    "description": "openstack/openstack-tenant/actions/TogglePortSecurityAction.tsx",
+    "description": "openstack/openstack-tenant/actions/ActivatePortAction.tsx",
     "message": "Port has been enabled."
   },
   "Port number in the range should be at most {portMax}.": {
@@ -8510,6 +8518,14 @@
   "Port security enabled": {
     "description": "openstack/openstack-tenant/OpenstackPortSummary.tsx, openstack/openstack-tenant/TenantPortsList.tsx, openstack/openstack-tenant/actions/CreatePortDialog.tsx",
     "message": "Port security enabled"
+  },
+  "Port security has been disabled.": {
+    "description": "openstack/openstack-tenant/actions/TogglePortSecurityAction.tsx",
+    "message": "Port security has been disabled."
+  },
+  "Port security has been enabled.": {
+    "description": "openstack/openstack-tenant/actions/TogglePortSecurityAction.tsx",
+    "message": "Port security has been enabled."
   },
   "Port": {
     "description": "slurm/SlurmForm.tsx",
@@ -12684,7 +12700,7 @@
     "message": "Unable to add user."
   },
   "Unable to apply action.": {
-    "description": "openstack/openstack-tenant/actions/TogglePortSecurityAction.tsx, resource/actions/AsyncActionButton.tsx, resource/actions/AsyncActionItem.tsx",
+    "description": "openstack/openstack-tenant/actions/ActivatePortAction.tsx, openstack/openstack-tenant/actions/TogglePortSecurityAction.tsx, resource/actions/AsyncActionButton.tsx, resource/actions/AsyncActionItem.tsx",
     "message": "Unable to apply action."
   },
   "Unable to approve all orders.": {
