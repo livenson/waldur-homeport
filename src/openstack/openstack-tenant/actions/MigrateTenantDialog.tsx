@@ -115,6 +115,7 @@ export const MigrateTenantDialog = connect<
               query: {
                 tenant_uuid: resource.uuid,
                 field: ['name', 'uuid'],
+                direct_only: true,
               },
             })
           ).data.map(({ uuid, name }) => ({ label: name, value: uuid }));
