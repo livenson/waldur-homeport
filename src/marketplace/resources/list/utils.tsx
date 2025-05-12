@@ -1,6 +1,5 @@
 import { Resource } from 'waldur-js-client';
 
-import { ENV } from '@waldur/core/config';
 import { formatDateTime } from '@waldur/core/dateUtils';
 import { translate } from '@waldur/i18n';
 import { BooleanField } from '@waldur/table/BooleanField';
@@ -155,7 +154,7 @@ export const getResourceAllListColumns = (
         keys: ['created'],
         export: (row) => formatDateTime(row.created),
       },
-      ENV.plugins.WALDUR_CORE.ENABLE_RESOURCE_END_DATE && {
+      {
         title: translate('Termination date'),
         render: ({ row }) => <>{row.end_date || 'N/A'}</>,
         id: 'end_date',
