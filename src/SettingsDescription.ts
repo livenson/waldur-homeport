@@ -124,12 +124,6 @@ export const SettingsDescription = [
         default: false,
         type: 'boolean',
       },
-      {
-        key: 'ENABLE_RESOURCE_END_DATE',
-        description: translate('Allow to view and update resource end date.'),
-        default: true,
-        type: 'boolean',
-      },
     ],
   },
   {
