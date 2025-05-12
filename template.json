@@ -11264,11 +11264,11 @@
     "message": "Show industry flag."
   },
   "Show less": {
-    "description": "navigation/sidebar/ResourcesMenu.tsx",
+    "description": "core/TruncatedDescription.tsx, navigation/sidebar/ResourcesMenu.tsx",
     "message": "Show less"
   },
   "Show more": {
-    "description": "marketplace/resources/details/ResourceShowMoreComponents.tsx",
+    "description": "core/TruncatedDescription.tsx, marketplace/resources/details/ResourceShowMoreComponents.tsx",
     "message": "Show more"
   },
   "Show offering": {
