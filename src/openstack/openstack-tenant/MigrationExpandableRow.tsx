@@ -4,6 +4,7 @@ import { MigrationDetails } from 'waldur-js-client';
 import { BooleanBadge } from '@waldur/core/BooleanBadge';
 import { translate } from '@waldur/i18n';
 import { Field } from '@waldur/resource/summary';
+import { ErrorMessageField } from '@waldur/resource/summary/ErrorMessageField';
 import { ExpandableContainer } from '@waldur/table/ExpandableContainer';
 
 export const MigrationExpandableRow: FC<{
@@ -49,5 +50,7 @@ export const MigrationExpandableRow: FC<{
       label={translate('Copy ports connected to instances')}
       value={<BooleanBadge value={row.mappings?.sync_instance_ports} />}
     />
+
+    <ErrorMessageField resource={row} />
   </ExpandableContainer>
 );
