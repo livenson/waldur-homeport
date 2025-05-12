@@ -23,7 +23,6 @@ interface CoreConfiguration {
   INVITATION_USE_WEBHOOKS: boolean;
   DEFAULT_IDP: Pick<IdentityProvider, 'provider' | 'auth_url' | 'client_id'>;
   ANONYMOUS_USER_CAN_VIEW_OFFERINGS: boolean;
-  ENABLE_RESOURCE_END_DATE: boolean;
   MATOMO_URL_BASE: string;
   MATOMO_SITE_ID: number;
   MASTERMIND_URL: string;
