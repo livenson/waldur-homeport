@@ -51,6 +51,7 @@ export const TenantPortsList: FunctionComponent<{ resourceScope }> = ({
   const props = useTable({
     table: 'openstack-ports',
     fetchData: createFetcher('openstack-ports'),
+    queryField: 'query',
     filter,
   });
   return (
@@ -120,6 +121,7 @@ export const TenantPortsList: FunctionComponent<{ resourceScope }> = ({
       rowActions={({ row }) => (
         <ResourceRowActions resource={row} refetch={props.fetch} />
       )}
+      hasQuery={true}
       expandableRow={({ row }) => <ResourceSummary resource={row} />}
       title={translate('Ports')}
       verboseName={translate('ports')}
