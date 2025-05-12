@@ -1,6 +1,8 @@
 import { Resource } from 'waldur-js-client';
 
 import { formatDateTime } from '@waldur/core/dateUtils';
+import { isFeatureVisible } from '@waldur/features/connect';
+import { MarketplaceFeatures } from '@waldur/FeaturesEnums';
 import { translate } from '@waldur/i18n';
 import { BooleanField } from '@waldur/table/BooleanField';
 import { SLUG_COLUMN } from '@waldur/table/slug';
@@ -159,7 +161,7 @@ export const getResourceAllListColumns = (
         render: ({ row }) => <>{row.end_date || 'N/A'}</>,
         id: 'end_date',
         keys: ['end_date'],
-        optional: true,
+        optional: !isFeatureVisible(MarketplaceFeatures.show_resource_end_date),
         export: (row) => row.end_date,
       },
       {

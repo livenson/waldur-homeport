@@ -216,6 +216,14 @@ export const CategoryResourcesList: FunctionComponent<OwnProps> = (
       keys: ['created'],
       export: (row) => formatDateTime(row.created),
     },
+    {
+      title: translate('Termination date'),
+      render: ({ row }) =>
+        row.end_date ? formatDateTime(row.end_date) : 'N/A',
+      id: 'end_date',
+      keys: ['end_date'],
+      optional: !isFeatureVisible(MarketplaceFeatures.show_resource_end_date),
+    },
     SLUG_COLUMN,
   );
 
