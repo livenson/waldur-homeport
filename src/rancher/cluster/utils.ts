@@ -2,7 +2,7 @@ import { getTabs } from '@waldur/resource/tabs/registry';
 import { TableTab } from '@waldur/table/types';
 
 export const getRancherTabsAndTitle = (
-  group: 'cluster' | 'apps' | 'service-discovery',
+  group: 'cluster' | 'apps' | 'service-discovery' | 'team',
 ): { title: string; tabs: TableTab[] } => {
   const tabs = getTabs('Rancher.Cluster');
   const tabsGroup = tabs.find((tab) => tab.key === group);

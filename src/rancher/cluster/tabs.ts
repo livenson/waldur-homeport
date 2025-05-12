@@ -141,5 +141,28 @@ export const RancherClusterTabConfiguration: ResourceTabsConfiguration = {
         },
       ],
     },
+
+    {
+      title: translate('Team'),
+      key: 'team',
+      component: lazyComponent(() =>
+        import('./TeamTable').then((module) => ({
+          default: module.TeamTable,
+        })),
+      ),
+      defaultKey: 'resource-access',
+      children: [
+        {
+          key: 'resource-access',
+          title: translate('Resource access'),
+          visible: false,
+          component: lazyComponent(() =>
+            import('./team/KeycloakMembershipList').then((module) => ({
+              default: module.KeycloakMembershipList,
+            })),
+          ),
+        },
+      ],
+    },
   ],
 };
