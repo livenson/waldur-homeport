@@ -68,6 +68,10 @@ export const FeaturesDescription: FeatureSection[] = [
         key: 'show_experimental_ui_components',
         description: translate('Enabled display of experimental or mocked components in marketplace.'),
       },
+      {
+        key: 'show_resource_end_date',
+        description: translate('Show resource end date as a non optional column in resources list.'),
+      },
     ],
   },
   {
@@ -201,6 +205,10 @@ export const FeaturesDescription: FeatureSection[] = [
       {
         key: 'show_slug',
         description: translate('Enable display of slug field in user summary.'),
+      },
+      {
+        key: 'show_username',
+        description: translate('Enable display of username field in user tables.'),
       },
       {
         key: 'ssh_keys',

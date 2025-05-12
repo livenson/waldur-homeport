@@ -20,6 +20,7 @@ export enum MarketplaceFeatures {
   lexis_links = 'marketplace.lexis_links',
   show_call_management_functionality = 'marketplace.show_call_management_functionality',
   show_experimental_ui_components = 'marketplace.show_experimental_ui_components',
+  show_resource_end_date = 'marketplace.show_resource_end_date',
 }
 
 export enum OpenstackFeatures {
@@ -64,6 +65,7 @@ export enum UserFeatures {
   notifications = 'user.notifications',
   preferred_language = 'user.preferred_language',
   show_slug = 'user.show_slug',
+  show_username = 'user.show_username',
   ssh_keys = 'user.ssh_keys',
 }
 
