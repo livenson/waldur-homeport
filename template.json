@@ -3923,6 +3923,10 @@
     "description": "features/FeaturesDescription.ts",
     "message": "Enable display of slug field in user summary."
   },
+  "Enable display of username field in user tables.": {
+    "description": "features/FeaturesDescription.ts",
+    "message": "Enable display of username field in user tables."
+  },
   "Enable email and webhook notifications management in user workspace.": {
     "description": "features/FeaturesDescription.ts",
     "message": "Enable email and webhook notifications management in user workspace."
@@ -11350,6 +11354,10 @@
   "Show recipients": {
     "description": "broadcasts/RecipientsField.tsx",
     "message": "Show recipients"
+  },
+  "Show resource end date as a non optional column in resources list.": {
+    "description": "features/FeaturesDescription.ts",
+    "message": "Show resource end date as a non optional column in resources list."
   },
   "Show results of last run": {
     "description": "administration/remote-offering-sync/RemoteSyncLastRunResultsAction.tsx",
