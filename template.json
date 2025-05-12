@@ -264,7 +264,7 @@
     "message": "Actions required"
   },
   "Actions": {
-    "description": "administration/remote-offering-sync/CategoryMappingRulesField.tsx, customer/team/CustomerUsersListExpandableRow.tsx, invitations/UserPermissionRequestsList.tsx, invoices/details/InvoiceItemExpandableRow.tsx, marketplace/category/admin/ColumnsList.tsx, marketplace/offerings/actions/ActionsDropdown.tsx, marketplace/orders/actions/OrderActionsButton.tsx, marketplace/orders/list/OrdersListExpandableRow.tsx, marketplace/resources/ResourceActions.tsx, marketplace/service-providers/CampaignForm.tsx, marketplace/service-providers/CampaignUpdateForm.tsx, openstack/openstack-backup/BackupsList.tsx, openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx, openstack/openstack-security-groups/rule-editor/RulesHeader.tsx, openstack/openstack-server-groups/ServerGroupsList.tsx, openstack/openstack-snapshot/TenantSnapshotsList.tsx, openstack/openstack-tenant/IpAddressList.tsx, openstack/openstack-tenant/StaticRoutesTable.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, openstack/openstack-volume/VolumeSnapshotsList.tsx, project/ProjectsListActions.tsx, proposals/update/CallActions.tsx, table/ActionsDropdown.tsx, table/TableColumnsButton.tsx, table/TableHeader.tsx",
+    "description": "administration/remote-offering-sync/CategoryMappingRulesField.tsx, customer/team/CustomerUsersListExpandableRow.tsx, invitations/UserPermissionRequestsList.tsx, invoices/details/InvoiceItemExpandableRow.tsx, marketplace/category/admin/ColumnsList.tsx, marketplace/offerings/actions/ActionsDropdown.tsx, marketplace/orders/actions/OrderActionsButton.tsx, marketplace/orders/list/OrdersListExpandableRow.tsx, marketplace/resources/ResourceActions.tsx, marketplace/service-providers/CampaignForm.tsx, marketplace/service-providers/CampaignUpdateForm.tsx, openstack/openstack-backup/BackupsList.tsx, openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx, openstack/openstack-security-groups/rule-editor/RulesHeader.tsx, openstack/openstack-server-groups/ServerGroupsList.tsx, openstack/openstack-snapshot/TenantSnapshotsList.tsx, openstack/openstack-tenant/IpAddressList.tsx, openstack/openstack-tenant/StaticRoutesTable.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, openstack/openstack-volume/VolumeSnapshotsList.tsx, project/ProjectsListActions.tsx, proposals/update/CallActions.tsx, rancher/cluster/team/KeycloakMembershipList.tsx, table/ActionsDropdown.tsx, table/TableColumnsButton.tsx, table/TableHeader.tsx",
     "message": "Actions"
   },
   "Activate": {
@@ -324,7 +324,7 @@
     "message": "Active to"
   },
   "Active": {
-    "description": "administration/announcements/AnnouncementFilter.tsx, administration/roles/RolesList.tsx, administration/users/FreeIPAUsersList.tsx, invitations/GroupInvitationsList.tsx, invitations/tabs.ts, marketplace/offerings/list/OfferingStateCell.tsx, marketplace/offerings/list/OfferingStateFilter.tsx, marketplace/offerings/update/plans/PlansSection.tsx, marketplace/service-providers/ProviderCampaignStateFilter.tsx, openstack/openstack-tenant/TenantPortsList.tsx, project/utils.ts, proposals/utils.ts, user/support/UserList.tsx, user/support/UserStatus.tsx, user/support/utils.ts",
+    "description": "administration/announcements/AnnouncementFilter.tsx, administration/roles/RolesList.tsx, administration/users/FreeIPAUsersList.tsx, invitations/GroupInvitationsList.tsx, invitations/tabs.ts, marketplace/offerings/list/OfferingStateCell.tsx, marketplace/offerings/list/OfferingStateFilter.tsx, marketplace/offerings/update/plans/PlansSection.tsx, marketplace/service-providers/ProviderCampaignStateFilter.tsx, openstack/openstack-tenant/TenantPortsList.tsx, project/utils.ts, proposals/utils.ts, rancher/cluster/team/KeycloakMembershipExpandableRow.tsx, rancher/cluster/team/KeycloakMembershipList.tsx, user/support/UserList.tsx, user/support/UserStatus.tsx, user/support/utils.ts",
     "message": "Active"
   },
   "Add Waldur user SSH keys to the FreeIPA profile": {
@@ -520,7 +520,7 @@
     "message": "Add {category}"
   },
   "Add": {
-    "description": "administration/providers/CreateProviderDialog.tsx, core/AddButton.tsx, customer/list/OrganizationCreateButton.tsx, customer/team/AddProjectUserButton.tsx, customer/team/TeamDropdownActions.tsx, marketplace/deploy/DeployPage.tsx, marketplace/service-providers/UserAddButton.tsx, openstack/OpenStackExternalIpsField.tsx, openstack/openstack-backup/actions/NetworksList.tsx, openstack/openstack-instance/actions/update-floating-ips/FloatingIpsList.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, project/create/GlobalProjectCreateButton.tsx, project/create/ProjectCreateButton.tsx, project/team/TeamDropdownActions.tsx, proposals/team/TeamDropdownActions.tsx, rancher/cluster/create/FormNodesStep.tsx",
+    "description": "administration/providers/CreateProviderDialog.tsx, core/AddButton.tsx, customer/list/OrganizationCreateButton.tsx, customer/team/AddProjectUserButton.tsx, customer/team/TeamDropdownActions.tsx, marketplace/deploy/DeployPage.tsx, marketplace/service-providers/UserAddButton.tsx, openstack/OpenStackExternalIpsField.tsx, openstack/openstack-backup/actions/NetworksList.tsx, openstack/openstack-instance/actions/update-floating-ips/FloatingIpsList.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, project/create/GlobalProjectCreateButton.tsx, project/create/ProjectCreateButton.tsx, project/team/TeamDropdownActions.tsx, proposals/team/TeamDropdownActions.tsx, rancher/cluster/create/FormNodesStep.tsx, rancher/cluster/team/KeycloakMembershipList.tsx",
     "message": "Add"
   },
   "Additional account description invisible to user": {
@@ -1210,6 +1210,10 @@
   "Are you sure you want to retry to submit this order?": {
     "description": "marketplace/resources/resource-pending/OrderErredView.tsx",
     "message": "Are you sure you want to retry to submit this order?"
+  },
+  "Are you sure you want to revoke resource access from {name} user?": {
+    "description": "rancher/cluster/team/KeycloakMembershipRowActions.tsx",
+    "message": "Are you sure you want to revoke resource access from {name} user?"
   },
   "Are you sure you want to revoke this permission?": {
     "description": "marketplace/service-providers/OfferingPermissionRemoveButton.tsx",
@@ -2100,7 +2104,7 @@
     "message": "Civil engineering"
   },
   "Civil number": {
-    "description": "invitations/InvitationExpandableRow.tsx, invitations/actions/create/EmailsListGroup.tsx, user/support/UserList.tsx",
+    "description": "invitations/InvitationExpandableRow.tsx, invitations/actions/create/EmailsListGroup.tsx, rancher/cluster/team/AddResourceAccessDialog.tsx, user/support/UserList.tsx",
     "message": "Civil number"
   },
   "Clear filters": {
@@ -2199,12 +2203,16 @@
     "description": "rancher/cluster/create/managed-steps.ts, rancher/cluster/create/steps.ts",
     "message": "Cluster name"
   },
+  "Cluster role": {
+    "description": "rancher/cluster/team/KeycloakMembershipList.tsx",
+    "message": "Cluster role"
+  },
   "Cluster roles": {
     "description": "rancher/cluster/users/ClusterUsersList.tsx",
     "message": "Cluster roles"
   },
   "Cluster": {
-    "description": "rancher/cluster/tabs.ts, vmware/VMwareVirtualMachineSummary.tsx, vmware/deploy/FormAdvancedOptionsStep.tsx",
+    "description": "rancher/cluster/tabs.ts, rancher/cluster/team/AddResourceAccessDialog.tsx, vmware/VMwareVirtualMachineSummary.tsx, vmware/deploy/FormAdvancedOptionsStep.tsx",
     "message": "Cluster"
   },
   "Code editor": {
@@ -2355,6 +2363,10 @@
     "description": "rancher/template/TemplateDetail.tsx",
     "message": "Configuration"
   },
+  "Configure access permissions for a user in the rancher claster": {
+    "description": "rancher/cluster/team/AddResourceAccessDialog.tsx",
+    "message": "Configure access permissions for a user in the rancher claster"
+  },
   "Configure columns": {
     "description": "marketplace/category/admin/CategoryManageColumns.tsx",
     "message": "Configure columns"
@@ -2372,7 +2384,7 @@
     "message": "Confirm your review"
   },
   "Confirm": {
-    "description": "administration/settings/ConfigurationEditDialog.tsx, customer/credits/CreditFormDialog.tsx, customer/credits/ProjectCreditFormDialog.tsx, customer/details/EditFieldDialog.tsx, issues/comments/CommentFormDialog.tsx, marketplace/details/CustomerField.tsx, marketplace/offerings/import/WizardButtons.tsx, marketplace/offerings/update/integration/EditFieldDialog.tsx, marketplace/offerings/update/integration/EditScriptLanguageDialog.tsx, project/manage/EditFieldDialog.tsx, proposals/proposal/create-review/CommentFormDialog.tsx",
+    "description": "administration/settings/ConfigurationEditDialog.tsx, customer/credits/CreditFormDialog.tsx, customer/credits/ProjectCreditFormDialog.tsx, customer/details/EditFieldDialog.tsx, issues/comments/CommentFormDialog.tsx, marketplace/details/CustomerField.tsx, marketplace/offerings/import/WizardButtons.tsx, marketplace/offerings/update/integration/EditFieldDialog.tsx, marketplace/offerings/update/integration/EditScriptLanguageDialog.tsx, project/manage/EditFieldDialog.tsx, proposals/proposal/create-review/CommentFormDialog.tsx, rancher/cluster/team/AddResourceAccessDialog.tsx",
     "message": "Confirm"
   },
   "Confirmation notification template": {
@@ -2380,7 +2392,7 @@
     "message": "Confirmation notification template"
   },
   "Confirmation": {
-    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerCallManagerPanel.tsx, customer/details/CustomerLocationRow.tsx, customer/payment-profiles/PaymentProfileDeleteButton.tsx, customer/payments/DeletePaymentButton.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, invoices/details/InvoiceItemDelete.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/ColumnRow.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/deploy/DeployForm.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/images/DeleteImageButton.tsx, marketplace/offerings/update/components/DeleteComponentButton.tsx, marketplace/offerings/update/endpoints/DeleteEndpointButton.tsx, marketplace/offerings/update/options/DeleteOptionButton.tsx, marketplace/offerings/update/plans/ArchivePlanButton.tsx, marketplace/offerings/update/roles/DeleteRoleButton.tsx, marketplace/orders/actions/OrderUnlinkButton.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, marketplace/resources/resource-pending/OrderErredView.tsx, marketplace/resources/users/DeleteUserButton.tsx, marketplace/service-providers/OfferingPermissionRemoveButton.tsx, marketplace/service-providers/RestrictOfferingUser.tsx, openstack/openstack-security-groups/UnlinkSecurityGroupAction.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, openstack/openstack-tenant/actions/ActivatePortAction.tsx, openstack/openstack-tenant/actions/TogglePortSecurityAction.tsx, openstack/openstack-tenant/actions/UnlinkPortAction.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/ProposalRowActions.tsx, proposals/proposal/create/ProposalSubmissionStep.tsx, proposals/review/ReviewDeleteAction.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/CallActions.tsx, proposals/update/documents/RemoveDocumentButton.tsx, rancher/cluster/create/FormNodesStep.tsx, resource/actions/AsyncActionItem.tsx, resource/actions/ResourceDeleteButton.tsx, user/support/UserDelete.tsx, user/support/UserStatus.tsx",
+    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerCallManagerPanel.tsx, customer/details/CustomerLocationRow.tsx, customer/payment-profiles/PaymentProfileDeleteButton.tsx, customer/payments/DeletePaymentButton.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, invoices/details/InvoiceItemDelete.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/ColumnRow.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/deploy/DeployForm.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/images/DeleteImageButton.tsx, marketplace/offerings/update/components/DeleteComponentButton.tsx, marketplace/offerings/update/endpoints/DeleteEndpointButton.tsx, marketplace/offerings/update/options/DeleteOptionButton.tsx, marketplace/offerings/update/plans/ArchivePlanButton.tsx, marketplace/offerings/update/roles/DeleteRoleButton.tsx, marketplace/orders/actions/OrderUnlinkButton.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, marketplace/resources/resource-pending/OrderErredView.tsx, marketplace/resources/users/DeleteUserButton.tsx, marketplace/service-providers/OfferingPermissionRemoveButton.tsx, marketplace/service-providers/RestrictOfferingUser.tsx, openstack/openstack-security-groups/UnlinkSecurityGroupAction.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, openstack/openstack-tenant/actions/ActivatePortAction.tsx, openstack/openstack-tenant/actions/TogglePortSecurityAction.tsx, openstack/openstack-tenant/actions/UnlinkPortAction.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/ProposalRowActions.tsx, proposals/proposal/create/ProposalSubmissionStep.tsx, proposals/review/ReviewDeleteAction.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/CallActions.tsx, proposals/update/documents/RemoveDocumentButton.tsx, rancher/cluster/create/FormNodesStep.tsx, rancher/cluster/team/KeycloakMembershipRowActions.tsx, resource/actions/AsyncActionItem.tsx, resource/actions/ResourceDeleteButton.tsx, user/support/UserDelete.tsx, user/support/UserStatus.tsx",
     "message": "Confirmation"
   },
   "Confirming that data is correct": {
@@ -3860,7 +3872,7 @@
     "message": "Email verification has been sent. Please check your inbox."
   },
   "Email": {
-    "description": "administration/InvitationList.tsx, administration/hooks/HooksList.tsx, administration/organizations/OrganizationGroupOrganizationsList.tsx, administration/providers/ProviderUsersDialog.tsx, broadcasts/RecipientsList.tsx, customer/details/CustomerContactPanel.tsx, customer/details/EditFieldDialog.tsx, customer/list/ExportAsEmailDialog.tsx, customer/list/OrganizationCard.tsx, customer/team/CustomerUsersList.tsx, customer/team/UserGroup.tsx, invitations/InvitationsList.tsx, invitations/actions/create/EmailsListGroup.tsx, marketplace/service-providers/ProviderTeamPage.tsx, project/team/InvitationsList.tsx, project/team/ProjectUsersList.tsx, project/team/UserGroup.tsx, proposals/call-management/CallManagementTeamPage.tsx, proposals/round/reviewers/RoundReviewersList.tsx, proposals/team/InvitationsList.tsx, user/affiliations/OrganizationsList.tsx, user/affiliations/SummaryTeamTable.tsx, user/hooks/HookTypeField.tsx, user/support/UserDetailsTable.tsx, user/support/UserEditRows.tsx, user/support/UserEmailChangeDialog.tsx, user/support/UserList.tsx",
+    "description": "administration/InvitationList.tsx, administration/hooks/HooksList.tsx, administration/organizations/OrganizationGroupOrganizationsList.tsx, administration/providers/ProviderUsersDialog.tsx, broadcasts/RecipientsList.tsx, customer/details/CustomerContactPanel.tsx, customer/details/EditFieldDialog.tsx, customer/list/ExportAsEmailDialog.tsx, customer/list/OrganizationCard.tsx, customer/team/CustomerUsersList.tsx, customer/team/UserGroup.tsx, invitations/InvitationsList.tsx, invitations/actions/create/EmailsListGroup.tsx, marketplace/service-providers/ProviderTeamPage.tsx, project/team/InvitationsList.tsx, project/team/ProjectUsersList.tsx, project/team/UserGroup.tsx, proposals/call-management/CallManagementTeamPage.tsx, proposals/round/reviewers/RoundReviewersList.tsx, proposals/team/InvitationsList.tsx, rancher/cluster/team/AddResourceAccessDialog.tsx, rancher/cluster/team/KeycloakMembershipList.tsx, user/affiliations/OrganizationsList.tsx, user/affiliations/SummaryTeamTable.tsx, user/hooks/HookTypeField.tsx, user/support/UserDetailsTable.tsx, user/support/UserEditRows.tsx, user/support/UserEmailChangeDialog.tsx, user/support/UserList.tsx",
     "message": "Email"
   },
   "Email: {email}": {
@@ -4394,6 +4406,10 @@
   "External user emails": {
     "description": "customer/cost-policies/CostPolicyForm.tsx",
     "message": "External user emails"
+  },
+  "External user": {
+    "description": "rancher/cluster/team/AddResourceAccessDialog.tsx",
+    "message": "External user"
   },
   "External username": {
     "description": "marketplace/service-providers/ProviderOfferingUserUpdateDialog.tsx, marketplace/service-providers/ProviderOfferingUsersList.tsx",
@@ -5795,6 +5811,10 @@
     "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
     "message": "Keycloak sync frequency"
   },
+  "Keycloak user group membership": {
+    "description": "rancher/cluster/team/KeycloakMembershipExpandableRow.tsx, rancher/cluster/team/KeycloakMembershipList.tsx",
+    "message": "Keycloak user group membership"
+  },
   "Keycloak username": {
     "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
     "message": "Keycloak username"
@@ -6634,6 +6654,10 @@
   "My reviews": {
     "description": "proposals/review/UserReviewsList.tsx",
     "message": "My reviews"
+  },
+  "MyAccessID CUID": {
+    "description": "rancher/cluster/team/AddResourceAccessDialog.tsx",
+    "message": "MyAccessID CUID"
   },
   "N/A": {
     "description": "marketplace-checklist/AnswersTable.tsx",
@@ -8128,7 +8152,7 @@
     "message": "Pending tasks"
   },
   "Pending": {
-    "description": "customer/team/CustomerPermissionsReviewList.tsx, invitations/InvitationStateFilter.tsx, invoices/list/InvoicesFilter.tsx, marketplace-remote/RequestStateFilter.tsx, user/UserPermissionRequestsStateFilter.tsx",
+    "description": "customer/team/CustomerPermissionsReviewList.tsx, invitations/InvitationStateFilter.tsx, invoices/list/InvoicesFilter.tsx, marketplace-remote/RequestStateFilter.tsx, rancher/cluster/team/KeycloakMembershipExpandableRow.tsx, rancher/cluster/team/KeycloakMembershipList.tsx, user/UserPermissionRequestsStateFilter.tsx",
     "message": "Pending"
   },
   "Per day": {
@@ -8224,7 +8248,7 @@
     "message": "Permission requests"
   },
   "Permissions": {
-    "description": "administration/roles/RoleForm.tsx, marketplace/offerings/OfferingDetailsUIView.tsx, proposals/team/TeamSection.tsx",
+    "description": "administration/roles/RoleForm.tsx, marketplace/offerings/OfferingDetailsUIView.tsx, proposals/team/TeamSection.tsx, rancher/cluster/team/AddResourceAccessDialog.tsx",
     "message": "Permissions"
   },
   "Person": {
@@ -8807,8 +8831,12 @@
     "description": "project/create/ImageGroup.tsx",
     "message": "Project image"
   },
+  "Project member": {
+    "description": "rancher/cluster/team/AddResourceAccessDialog.tsx",
+    "message": "Project member"
+  },
   "Project name": {
-    "description": "customer/team/CustomerUsersListExpandableRow.tsx, events/ExpandableEventDetailsTable.tsx, invoices/details/InvoiceItemsTable.tsx, project/create/NameGroup.tsx",
+    "description": "customer/team/CustomerUsersListExpandableRow.tsx, events/ExpandableEventDetailsTable.tsx, invoices/details/InvoiceItemsTable.tsx, project/create/NameGroup.tsx, rancher/cluster/team/KeycloakMembershipExpandableRow.tsx",
     "message": "Project name"
   },
   "Project owned by {name}": {
@@ -8876,7 +8904,7 @@
     "message": "Project {project} from {organization} was successfully removed"
   },
   "Project": {
-    "description": "administration/roles/PermissionOptions.tsx, customer/cost-policies/CostPoliciesList.tsx, customer/cost-policies/CostPolicyForm.tsx, customer/team/OrganizationProjectSelectField.tsx, customer/team/ProjectGroup.tsx, events/ExpandableEventDetailsTable.tsx, invitations/actions/ProjectGroup.tsx, invoices/details/InvoiceItemsFilter.tsx, issues/IssueInfo.tsx, issues/create/IssueDetailsStepLabel.tsx, issues/create/ProjectGroup.tsx, issues/list/IssuesList.tsx, issues/list/IssuesListExpandableRow.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/deploy/steps/FormDetailsOverviewStep.tsx, marketplace/details/ProjectField.tsx, marketplace/landing/MarketplaceLandingFilter.tsx, marketplace/orders/details/OrderDetailsHeaderBody.tsx, marketplace/orders/list/MarketplaceOrdersListFilter.tsx, marketplace/orders/list/OrdersTableComponent.tsx, marketplace/resources/list/AllResourcesFilter.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/ProjectResourcesAllFilter.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/utils.tsx, marketplace/robot-accounts/ProviderRobotAccountFilter.tsx, marketplace/robot-accounts/ProviderRobotAccountList.tsx, marketplace-checklist/CustomerChecklistOverview.tsx, marketplace-remote/BaseProjectUpdateRequestsList.tsx, navigation/header/confirmation-drawer/PendingConsumerOrders.tsx, navigation/header/confirmation-drawer/PendingProviderOrders.tsx, navigation/sidebar/resources-filter/utils.tsx, permissions/constants.tsx, project/routes.ts, proposals/review/ReviewsExpandableRow.tsx, rancher/cluster/ClusterFilter.tsx, rancher/cluster/ClusterIngressesList.tsx, rancher/cluster/ClusterServicesList.tsx, rancher/cluster/ClusterWorkloadsList.tsx, rancher/cluster/apps/ClusterApplicationsList.tsx, rancher/cluster/hpas/ClusterHPAList.tsx, rancher/template/ApplicationConfiguration.tsx, reporting/resource-usage/ResourceUsageFilter.tsx, support/SupportEventsFilter.tsx, user/affiliations/SummaryResourcesTable.tsx",
+    "description": "administration/roles/PermissionOptions.tsx, customer/cost-policies/CostPoliciesList.tsx, customer/cost-policies/CostPolicyForm.tsx, customer/team/OrganizationProjectSelectField.tsx, customer/team/ProjectGroup.tsx, events/ExpandableEventDetailsTable.tsx, invitations/actions/ProjectGroup.tsx, invoices/details/InvoiceItemsFilter.tsx, issues/IssueInfo.tsx, issues/create/IssueDetailsStepLabel.tsx, issues/create/ProjectGroup.tsx, issues/list/IssuesList.tsx, issues/list/IssuesListExpandableRow.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/deploy/steps/FormDetailsOverviewStep.tsx, marketplace/details/ProjectField.tsx, marketplace/landing/MarketplaceLandingFilter.tsx, marketplace/orders/details/OrderDetailsHeaderBody.tsx, marketplace/orders/list/MarketplaceOrdersListFilter.tsx, marketplace/orders/list/OrdersTableComponent.tsx, marketplace/resources/list/AllResourcesFilter.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/ProjectResourcesAllFilter.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/utils.tsx, marketplace/robot-accounts/ProviderRobotAccountFilter.tsx, marketplace/robot-accounts/ProviderRobotAccountList.tsx, marketplace-checklist/CustomerChecklistOverview.tsx, marketplace-remote/BaseProjectUpdateRequestsList.tsx, navigation/header/confirmation-drawer/PendingConsumerOrders.tsx, navigation/header/confirmation-drawer/PendingProviderOrders.tsx, navigation/sidebar/resources-filter/utils.tsx, permissions/constants.tsx, project/routes.ts, proposals/review/ReviewsExpandableRow.tsx, rancher/cluster/ClusterFilter.tsx, rancher/cluster/ClusterIngressesList.tsx, rancher/cluster/ClusterServicesList.tsx, rancher/cluster/ClusterWorkloadsList.tsx, rancher/cluster/apps/ClusterApplicationsList.tsx, rancher/cluster/hpas/ClusterHPAList.tsx, rancher/cluster/team/AddResourceAccessDialog.tsx, rancher/template/ApplicationConfiguration.tsx, reporting/resource-usage/ResourceUsageFilter.tsx, support/SupportEventsFilter.tsx, user/affiliations/SummaryResourcesTable.tsx",
     "message": "Project"
   },
   "Projects": {
@@ -9475,6 +9503,10 @@
     "description": "rancher/cluster/ClusterLonghornTab.tsx",
     "message": "Remove Loghorn in cluster"
   },
+  "Remove all selected resource permissions": {
+    "description": "rancher/cluster/team/KeycloakMembershipBulkRemoveAction.tsx",
+    "message": "Remove all selected resource permissions"
+  },
   "Remove all selected users from organization.": {
     "description": "customer/team/UsersBulkRemoveButton.tsx",
     "message": "Remove all selected users from organization."
@@ -9504,7 +9536,7 @@
     "message": "Remove selected users from the project: {projectName}"
   },
   "Remove": {
-    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerManageContainer.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, customer/team/UsersBulkRemoveButton.tsx, form/DateField.tsx, form/WideImageField.tsx, invoices/details/InvoiceItemDelete.tsx, issues/comments/CommentActions.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/offerings/RemoveButton.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/update/ImageUploadField.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx, openstack/openstack-subnet/AllocationPoolsField.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, openstack/openstack-tenant/IpAddressList.tsx, openstack/openstack-tenant/StaticRoutesTable.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, project/ProjectManageContainer.tsx, project/team/ProjectUsersBulkRemoveButton.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestItemActions.tsx, proposals/review/ReviewDeleteAction.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/documents/RemoveDocumentButton.tsx, user/hooks/HookRemoveButton.tsx, user/keys/KeyRemoveButton.tsx",
+    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerManageContainer.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, customer/team/UsersBulkRemoveButton.tsx, form/DateField.tsx, form/WideImageField.tsx, invoices/details/InvoiceItemDelete.tsx, issues/comments/CommentActions.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/offerings/RemoveButton.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/update/ImageUploadField.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx, openstack/openstack-subnet/AllocationPoolsField.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, openstack/openstack-tenant/IpAddressList.tsx, openstack/openstack-tenant/StaticRoutesTable.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, project/ProjectManageContainer.tsx, project/team/ProjectUsersBulkRemoveButton.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestItemActions.tsx, proposals/review/ReviewDeleteAction.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/documents/RemoveDocumentButton.tsx, rancher/cluster/team/KeycloakMembershipBulkRemoveAction.tsx, rancher/cluster/team/KeycloakMembershipRowActions.tsx, user/hooks/HookRemoveButton.tsx, user/keys/KeyRemoveButton.tsx",
     "message": "Remove"
   },
   "Removed organizations cannot be restored!": {
@@ -9518,6 +9550,10 @@
   "Removing Longhorn may result in the loss of attached volumes. Do you want to delete existing backups as well, or keep them for future use?": {
     "description": "rancher/cluster/ClusterLonghornTab.tsx",
     "message": "Removing Longhorn may result in the loss of attached volumes. Do you want to delete existing backups as well, or keep them for future use?"
+  },
+  "Removing all selected resource permissions": {
+    "description": "rancher/cluster/team/KeycloakMembershipBulkRemoveAction.tsx",
+    "message": "Removing all selected resource permissions"
   },
   "Removing default security group can remove egress access from the VM and block communication with Openstack metadata service.": {
     "description": "openstack/openstack-instance/deploy/FormSecurityGroupsField.tsx",
@@ -9831,6 +9867,10 @@
     "description": "marketplace/orders/details/OrderMetadataTab.tsx, marketplace/resources/list/ProviderResourcesList.tsx",
     "message": "Resource UUID"
   },
+  "Resource access": {
+    "description": "rancher/cluster/tabs.ts, rancher/cluster/team/AddResourceAccessButton.tsx, rancher/cluster/team/AddResourceAccessDialog.tsx",
+    "message": "Resource access"
+  },
   "Resource actions": {
     "description": "openstack/openstack-instance/OpenStackInstanceActions.tsx, openstack/openstack-tenant/OpenstackTenantActions.tsx, openstack/openstack-volume/OpenStackVolumeActions.tsx, resource/actions/ResourceActionComponent.tsx, slurm/SlurmAllocationActions.tsx",
     "message": "Resource actions"
@@ -9934,6 +9974,10 @@
   "Resource orders": {
     "description": "marketplace/orders/list/ResourceOrders.tsx",
     "message": "Resource orders"
+  },
+  "Resource permissions deleted": {
+    "description": "rancher/cluster/team/KeycloakMembershipBulkRemoveAction.tsx",
+    "message": "Resource permissions deleted"
   },
   "Resource plan change request has been submitted.": {
     "description": "marketplace/resources/change-plan/ChangePlanDialog.tsx",
@@ -10272,7 +10316,7 @@
     "message": "Role name"
   },
   "Role": {
-    "description": "administration/InvitationList.tsx, customer/team/CustomerUsersListExpandableRow.tsx, invitations/GroupInvitationsList.tsx, invitations/InvitationRoleFilter.tsx, invitations/InvitationsList.tsx, invitations/actions/RoleGroup.tsx, invitations/actions/create/EmailsListGroup.tsx, marketplace/offerings/update/integration/ScriptEditorHeader.tsx, marketplace/offerings/update/roles/RolesSection.tsx, marketplace/resources/users/AddUserDialog.tsx, marketplace/resources/users/ResourceUsersList.tsx, project/team/InvitationsList.tsx, project/team/ProjectUsersListFilter.tsx, project/team/RoleGroup.tsx, proposals/team/InvitationsList.tsx, proposals/team/UsersList.tsx, rancher/cluster/create/NodeRoleGroup.tsx, user/UserPermissionRequestsList.tsx, user/affiliations/PermissionDetails.tsx, user/support/UserFilter.tsx",
+    "description": "administration/InvitationList.tsx, customer/team/CustomerUsersListExpandableRow.tsx, invitations/GroupInvitationsList.tsx, invitations/InvitationRoleFilter.tsx, invitations/InvitationsList.tsx, invitations/actions/RoleGroup.tsx, invitations/actions/create/EmailsListGroup.tsx, marketplace/offerings/update/integration/ScriptEditorHeader.tsx, marketplace/offerings/update/roles/RolesSection.tsx, marketplace/resources/users/AddUserDialog.tsx, marketplace/resources/users/ResourceUsersList.tsx, project/team/InvitationsList.tsx, project/team/ProjectUsersListFilter.tsx, project/team/RoleGroup.tsx, proposals/team/InvitationsList.tsx, proposals/team/UsersList.tsx, rancher/cluster/create/NodeRoleGroup.tsx, rancher/cluster/team/AddResourceAccessDialog.tsx, rancher/cluster/team/KeycloakMembershipExpandableRow.tsx, user/UserPermissionRequestsList.tsx, user/affiliations/PermissionDetails.tsx, user/support/UserFilter.tsx",
     "message": "Role"
   },
   "Roles and permissions": {
@@ -10476,7 +10520,7 @@
     "message": "Scope type"
   },
   "Scope": {
-    "description": "administration/InvitationList.tsx, administration/roles/RolesList.tsx, user/UserPermissionRequestsList.tsx",
+    "description": "administration/InvitationList.tsx, administration/roles/RolesList.tsx, rancher/cluster/team/AddResourceAccessDialog.tsx, user/UserPermissionRequestsList.tsx",
     "message": "Scope"
   },
   "Score": {
@@ -11568,7 +11612,7 @@
     "message": "Statistics"
   },
   "Status": {
-    "description": "administration/InvitationList.tsx, administration/announcements/AnnouncementFilter.tsx, administration/notifications/NotificationFilter.tsx, administration/providers/ProviderUsersDialog.tsx, customer/payment-profiles/PaymentProfileList.tsx, invitations/GroupInvitationsList.tsx, invitations/InvitationsList.tsx, issues/list/IssuesFilter.tsx, issues/list/IssuesList.tsx, marketplace/offerings/OfferingBreadcrumbPopover.tsx, marketplace/offerings/details/ConnectionStatusIndicator.tsx, marketplace/offerings/update/plans/PlansSection.tsx, marketplace/resources/details/utils.tsx, marketplace/service-providers/ProviderCampaignsList.tsx, navigation/BackendHealthStatusDialog.tsx, openstack/openstack-tenant/TenantPortsList.tsx, project/team/InvitationsList.tsx, proposals/offering-requests/OfferingRequestsTableFilter.tsx, proposals/round/proposals/ProposalExpandableRow.tsx, proposals/team/InvitationsList.tsx, user/support/UserFilter.tsx, user/support/UserList.tsx",
+    "description": "administration/InvitationList.tsx, administration/announcements/AnnouncementFilter.tsx, administration/notifications/NotificationFilter.tsx, administration/providers/ProviderUsersDialog.tsx, customer/payment-profiles/PaymentProfileList.tsx, invitations/GroupInvitationsList.tsx, invitations/InvitationsList.tsx, issues/list/IssuesFilter.tsx, issues/list/IssuesList.tsx, marketplace/offerings/OfferingBreadcrumbPopover.tsx, marketplace/offerings/details/ConnectionStatusIndicator.tsx, marketplace/offerings/update/plans/PlansSection.tsx, marketplace/resources/details/utils.tsx, marketplace/service-providers/ProviderCampaignsList.tsx, navigation/BackendHealthStatusDialog.tsx, openstack/openstack-tenant/TenantPortsList.tsx, project/team/InvitationsList.tsx, proposals/offering-requests/OfferingRequestsTableFilter.tsx, proposals/round/proposals/ProposalExpandableRow.tsx, proposals/team/InvitationsList.tsx, rancher/cluster/team/KeycloakMembershipExpandableRow.tsx, rancher/cluster/team/KeycloakMembershipList.tsx, user/support/UserFilter.tsx, user/support/UserList.tsx",
     "message": "Status"
   },
   "Stay on current": {
@@ -11912,7 +11956,7 @@
     "message": "Team members"
   },
   "Team": {
-    "description": "customer/routes.ts, customer/team/CustomerUsersList.tsx, dashboard/TeamWidget.tsx, dashboard/utils.ts, invitations/GroupInvitationsList.tsx, invitations/InvitationsList.tsx, marketplace/resources/details/ResourceTeamDialog.tsx, marketplace/routes.ts, project/ProjectUsersBadge.tsx, project/routes.ts, project/team/InvitationsList.tsx, project/team/ProjectUsersList.tsx, proposals/routes.ts, proposals/update/CallUpdateContainer.tsx, user/affiliations/OrganizationExpandableRow.tsx, user/affiliations/ProjectExpandableRow.tsx",
+    "description": "customer/routes.ts, customer/team/CustomerUsersList.tsx, dashboard/TeamWidget.tsx, dashboard/utils.ts, invitations/GroupInvitationsList.tsx, invitations/InvitationsList.tsx, marketplace/resources/details/ResourceTeamDialog.tsx, marketplace/routes.ts, project/ProjectUsersBadge.tsx, project/routes.ts, project/team/InvitationsList.tsx, project/team/ProjectUsersList.tsx, proposals/routes.ts, proposals/update/CallUpdateContainer.tsx, rancher/cluster/tabs.ts, user/affiliations/OrganizationExpandableRow.tsx, user/affiliations/ProjectExpandableRow.tsx",
     "message": "Team"
   },
   "Technical code used by accounting software.": {
@@ -12687,6 +12731,10 @@
     "description": "marketplace/offerings/update/options/AddOptionDialog.tsx",
     "message": "Unable to add option."
   },
+  "Unable to add resource access.": {
+    "description": "rancher/cluster/team/AddResourceAccessDialog.tsx",
+    "message": "Unable to add resource access."
+  },
   "Unable to add role.": {
     "description": "marketplace/offerings/update/roles/AddRoleDialog.tsx",
     "message": "Unable to add role."
@@ -12995,6 +13043,10 @@
     "description": "proposals/details/CallOfferingDeleteButton.tsx",
     "message": "Unable to delete requested offering."
   },
+  "Unable to delete resource permissions.": {
+    "description": "rancher/cluster/team/KeycloakMembershipBulkRemoveAction.tsx",
+    "message": "Unable to delete resource permissions."
+  },
   "Unable to delete resource request.": {
     "description": "proposals/proposal/create/resource-requests-step/ResourceRequestItemActions.tsx",
     "message": "Unable to delete resource request."
@@ -13275,6 +13327,14 @@
     "description": "project/create/TypeGroup.tsx",
     "message": "Unable to load project types."
   },
+  "Unable to load project users": {
+    "description": "rancher/cluster/team/AddResourceAccessDialog.tsx",
+    "message": "Unable to load project users"
+  },
+  "Unable to load projects": {
+    "description": "rancher/cluster/team/AddResourceAccessDialog.tsx",
+    "message": "Unable to load projects"
+  },
   "Unable to load questions and answers.": {
     "description": "marketplace-checklist/UserChecklist.tsx, marketplace-checklist/useChecklist.tsx",
     "message": "Unable to load questions and answers."
@@ -13286,6 +13346,10 @@
   "Unable to load resource details.": {
     "description": "marketplace/resources/details/ResourceDetailsPage.tsx",
     "message": "Unable to load resource details."
+  },
+  "Unable to load roles": {
+    "description": "rancher/cluster/team/AddResourceAccessDialog.tsx",
+    "message": "Unable to load roles"
   },
   "Unable to load service desk configuration.": {
     "description": "administration/service-desk/AdministrationServiceDesk.tsx",
@@ -14564,7 +14628,7 @@
     "message": "User's"
   },
   "User": {
-    "description": "customer/team/UserGroup.tsx, events/BaseEventsList.tsx, events/ExpandableEventDetailsTable.tsx, issues/feedback/SupportFeedbackList.tsx, issues/feedback/SupportFeedbackListFilter.tsx, marketplace/offerings/details/CreateOfferingUserDialog.tsx, marketplace/offerings/details/permissions/OfferingPermissionCreateDialog.tsx, marketplace/offerings/details/permissions/OfferingPermissionsList.tsx, marketplace/resources/usage/ResourceUsageForm.tsx, marketplace/resources/users/AddUserDialog.tsx, marketplace/resources/users/ResourceUsersList.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx, marketplace/service-providers/OfferingPermissionCreateDialog.tsx, marketplace/service-providers/OfferingPermissionsList.tsx, marketplace/service-providers/ProviderOfferingUsersList.tsx, marketplace/service-providers/ProviderTeamPage.tsx, marketplace/service-providers/ProviderUsersList.tsx, project/team/AddUserDialog.tsx, project/team/UserGroup.tsx, proposals/call-management/CallManagementTeamPage.tsx, proposals/team/AddUserDialog.tsx, slurm/details/AllocationJobsTable.tsx, support/SupportEventsFilter.tsx, user/UserManageContainer.tsx",
+    "description": "customer/team/UserGroup.tsx, events/BaseEventsList.tsx, events/ExpandableEventDetailsTable.tsx, issues/feedback/SupportFeedbackList.tsx, issues/feedback/SupportFeedbackListFilter.tsx, marketplace/offerings/details/CreateOfferingUserDialog.tsx, marketplace/offerings/details/permissions/OfferingPermissionCreateDialog.tsx, marketplace/offerings/details/permissions/OfferingPermissionsList.tsx, marketplace/resources/usage/ResourceUsageForm.tsx, marketplace/resources/users/AddUserDialog.tsx, marketplace/resources/users/ResourceUsersList.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx, marketplace/service-providers/OfferingPermissionCreateDialog.tsx, marketplace/service-providers/OfferingPermissionsList.tsx, marketplace/service-providers/ProviderOfferingUsersList.tsx, marketplace/service-providers/ProviderTeamPage.tsx, marketplace/service-providers/ProviderUsersList.tsx, project/team/AddUserDialog.tsx, project/team/UserGroup.tsx, proposals/call-management/CallManagementTeamPage.tsx, proposals/team/AddUserDialog.tsx, rancher/cluster/team/KeycloakMembershipList.tsx, slurm/details/AllocationJobsTable.tsx, support/SupportEventsFilter.tsx, user/UserManageContainer.tsx",
     "message": "User"
   },
   "Username anonymized prefix": {
@@ -15011,6 +15075,10 @@
     "description": "project/team/ProjectUsersBulkRemoveButton.tsx",
     "message": "You are about to remove these users from the project. Once removed, they'll immediately lose access and all associated permissions."
   },
+  "You are about to revoke resource access from {count} users. Once removed, they'll immediately lose access and all associated permissions.": {
+    "description": "rancher/cluster/team/KeycloakMembershipBulkRemoveAction.tsx",
+    "message": "You are about to revoke resource access from {count} users. Once removed, they'll immediately lose access and all associated permissions."
+  },
   "You are going to cancel invitation by {name}. This action cannot be undone.": {
     "description": "invitations/GroupInvitationCancelButton.tsx",
     "message": "You are going to cancel invitation by {name}. This action cannot be undone."
@@ -15284,7 +15352,7 @@
     "message": "e.g. This organization is irrelevant"
   },
   "e.g.": {
-    "description": "administration/remote-offering-sync/RemoteSyncFormDialog.tsx, customer/create/CustomerCreateForm.tsx, invitations/actions/InvitationLinkField.tsx, marketplace/offerings/import/CredentialsTab.tsx, openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx, table/SaveFilterDialog.tsx",
+    "description": "administration/remote-offering-sync/RemoteSyncFormDialog.tsx, customer/create/CustomerCreateForm.tsx, invitations/actions/InvitationLinkField.tsx, marketplace/offerings/import/CredentialsTab.tsx, openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx, rancher/cluster/team/AddResourceAccessDialog.tsx, table/SaveFilterDialog.tsx",
     "message": "e.g."
   },
   "error message: {errorMessage}": {

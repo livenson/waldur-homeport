@@ -24,7 +24,6 @@ export interface FormGroupProps extends FormField {
   actions?: ReactNode;
   quickAction?: ReactNode;
   tooltipEnd?: boolean;
-  containerClassName?: string;
 }
 
 export const FormGroup: FC<PropsWithChildren<FormGroupProps>> = (props) => {
