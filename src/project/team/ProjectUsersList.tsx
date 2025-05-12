@@ -5,6 +5,8 @@ import { UserRoleDetails } from 'waldur-js-client';
 
 import Avatar from '@waldur/core/Avatar';
 import { renderRoleExpirationDate } from '@waldur/customer/team/CustomerUsersList';
+import { isFeatureVisible } from '@waldur/features/connect';
+import { UserFeatures } from '@waldur/FeaturesEnums';
 import { translate } from '@waldur/i18n';
 import { createFetcher } from '@waldur/table/api';
 import { DASH_ESCAPE_CODE } from '@waldur/table/constants';
@@ -106,10 +108,12 @@ export const ProjectUsersList = ({
         {
           title: translate('Username'),
           render: ({ row }) => row.user_username,
+          copyField: (row) => row.user_username,
           id: 'user_username',
           keys: ['user_username'],
-          optional: true,
+          optional: !isFeatureVisible(UserFeatures.show_username),
         },
+
         {
           title: translate('Role in project'),
           render: RoleField,

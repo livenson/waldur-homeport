@@ -3,6 +3,8 @@ import { Project } from 'waldur-js-client';
 
 import Avatar from '@waldur/core/Avatar';
 import { renderRoleExpirationDate } from '@waldur/customer/team/CustomerUsersList';
+import { isFeatureVisible } from '@waldur/features/connect';
+import { UserFeatures } from '@waldur/FeaturesEnums';
 import { translate } from '@waldur/i18n';
 import { ActionsDropdownComponent } from '@waldur/table/ActionsDropdown';
 import { createFetcher } from '@waldur/table/api';
@@ -97,6 +99,12 @@ export const SummaryTeamTable: FC<OwnProps> = ({ scope, context }) => {
           orderField:
             (context === 'organization' && 'concatenated_name') ||
             (context === 'project' && 'full_name'),
+        },
+        isFeatureVisible(UserFeatures.show_username) && {
+          title: translate('Username'),
+          render: ({ row }) => getValue(row, 'username'),
+          copyField: (row) => getValue(row, 'username'),
+          className: 'w-25',
         },
         {
           title: translate('Email'),
