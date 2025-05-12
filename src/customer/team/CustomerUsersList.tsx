@@ -10,6 +10,8 @@ import { ENV } from '@waldur/core/config';
 import { formatDate } from '@waldur/core/dateUtils';
 import { CUSTOMER_USERS_LIST_FILTER_FORM_ID } from '@waldur/customer/team/constants';
 import { CustomerUsersListExpandableRow } from '@waldur/customer/team/CustomerUsersListExpandableRow';
+import { isFeatureVisible } from '@waldur/features/connect';
+import { UserFeatures } from '@waldur/FeaturesEnums';
 import { translate } from '@waldur/i18n';
 import { useTeamTableTabs } from '@waldur/invitations/tabs';
 import { createFetcher } from '@waldur/table/api';
@@ -136,7 +138,8 @@ export const CustomerUsersList: FunctionComponent<{ filters? }> = ({
           export: 'username',
           id: 'username',
           keys: ['username'],
-          optional: true,
+          optional: !isFeatureVisible(UserFeatures.show_username),
+          copyField: (row) => row.username,
         },
         {
           title: translate('Role in organization'),
