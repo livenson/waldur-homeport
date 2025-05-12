@@ -11,7 +11,6 @@ import { lazyComponent } from '@waldur/core/lazyComponent';
 import { ProgressSteps } from '@waldur/core/ProgressSteps';
 import { omit } from '@waldur/core/utils';
 import { translate } from '@waldur/i18n';
-import { formatOrderForCreate } from '@waldur/marketplace/details/utils';
 import { OrderDetailsLink } from '@waldur/marketplace/orders/details/OrderDetailsLink';
 import { openModalDialog, waitForConfirmation } from '@waldur/modal/actions';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
@@ -105,27 +104,15 @@ export const OrderErredView: FC<OrderErredViewProps> = ({ resource }) => {
       translate('Confirmation'),
       translate('Are you sure you want to retry to submit this order?'),
     );
-    const item: any = {
-      formData: {
-        attributes: resource.attributes || resource.creation_order.attributes,
-        limits: resource.limits || resource.creation_order.limits,
-        plan: {
-          // We only need the url in the order request
-          url: resource.plan || resource.creation_order.plan,
-        },
-        project: {
-          // We only need the url in the order request
-          url: resource.project,
-        },
-      },
-      offering: {
-        // We only need the url in the order request
-        url: resource.offering || resource.creation_order.offering,
-      },
-    };
     try {
       const order = await marketplaceOrdersCreate({
-        body: formatOrderForCreate(item),
+        body: {
+          offering: resource.offering,
+          project: resource.project,
+          plan: resource.plan,
+          attributes: resource.attributes,
+          limits: resource.limits,
+        },
       });
       dispatch(showSuccess(translate('Order has been submitted.')));
       router.stateService.go('marketplace-resource-details', {
