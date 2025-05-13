@@ -15,6 +15,7 @@ import { PROJECTS_LIST } from '@waldur/project/constants';
 import { GlobalProjectCreateButton } from '@waldur/project/create/GlobalProjectCreateButton';
 import { ProjectCard } from '@waldur/project/ProjectCard';
 import { ProjectLink } from '@waldur/project/ProjectLink';
+import { ProjectsListActions } from '@waldur/project/ProjectsListActions';
 import { createFetcher } from '@waldur/table/api';
 import { DASH_ESCAPE_CODE } from '@waldur/table/constants';
 import { SLUG_COLUMN } from '@waldur/table/slug';
@@ -245,6 +246,9 @@ export const ProjectsList = () => {
       standalone
       hasOptionalColumns
       tableActions={<GlobalProjectCreateButton refetch={props.fetch} />}
+      rowActions={({ row }) => (
+        <ProjectsListActions project={row} refetch={props.fetch} />
+      )}
     />
   );
 };
