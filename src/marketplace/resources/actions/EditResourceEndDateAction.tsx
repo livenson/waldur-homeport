@@ -36,7 +36,7 @@ export const EditResourceEndDateAction: ActionItemType = ({
               body: { end_date },
             }),
         },
-        size: 'md',
+        size: 'lg',
       }),
     );
 

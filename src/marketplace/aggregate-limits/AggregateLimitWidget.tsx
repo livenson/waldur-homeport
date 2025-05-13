@@ -61,17 +61,25 @@ export const AggregateLimitWidget = ({
 
   const viewDetails = useCallback(
     () =>
-      dispatch(
-        openModalDialog(AggregateLimitDetailsDialog, {
-          resolve: {
-            [isProject ? 'project' : 'customer']: isProject
-              ? project
-              : customer,
-            components: data?.components,
-          },
-          size: 'lg',
-        }),
-      ),
+      isProject
+        ? dispatch(
+            openModalDialog(AggregateLimitDetailsDialog, {
+              resolve: {
+                project,
+                components: data?.components,
+              },
+              size: 'lg',
+            }),
+          )
+        : dispatch(
+            openModalDialog(AggregateLimitDetailsDialog, {
+              resolve: {
+                customer,
+                components: data?.components,
+              },
+              size: 'lg',
+            }),
+          ),
     [dispatch, project, customer, data, isProject],
   );
 

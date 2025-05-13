@@ -48,7 +48,7 @@ export const ProposalRowActions = ({ row, refetch }) => {
       dispatch(
         openModalDialog(CreateReviewDialog, {
           resolve: { proposal },
-          size: 'md',
+          size: 'lg',
         }),
       ),
     [dispatch],

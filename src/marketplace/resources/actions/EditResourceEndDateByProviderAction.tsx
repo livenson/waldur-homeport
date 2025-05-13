@@ -43,7 +43,7 @@ export const EditResourceEndDateByProviderAction = ({
               body: { end_date },
             }),
         },
-        size: 'md',
+        size: 'lg',
       }),
     );
 

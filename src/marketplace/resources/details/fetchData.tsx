@@ -43,7 +43,9 @@ export const getResourceTabs = ({
   const tabs: PageBarTab<{
     resource: Resource;
     resourceScope;
+    scope;
     offering: PublicOfferingDetails;
+    refetch: () => void;
   }>[] = [];
 
   const endpoints = getResourceAccessEndpoints(resource, offering);

@@ -16,7 +16,7 @@ const CallCreateDialog = lazyComponent(() =>
 const callCreateDialog = (refetch) =>
   openModalDialog(CallCreateDialog, {
     resolve: { refetch },
-    size: 'md',
+    size: 'lg',
   });
 
 export const CallCreateButton = ({ refetch }) => {

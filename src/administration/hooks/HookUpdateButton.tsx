@@ -6,8 +6,6 @@ import { EditAction } from '@waldur/form/EditAction';
 import { translate } from '@waldur/i18n';
 import { openModalDialog } from '@waldur/modal/actions';
 
-import { ADMIN_HOOK_LIST_ID } from './constants';
-
 const HookDetailsDialog = lazyComponent(() =>
   import('@waldur/user/hooks/HookDetailsDialog').then((module) => ({
     default: module.HookDetailsDialog,
@@ -16,8 +14,8 @@ const HookDetailsDialog = lazyComponent(() =>
 
 const showHookUpdateDialog = (row?, refetch?) =>
   openModalDialog(HookDetailsDialog, {
-    resolve: { hook: row, listId: ADMIN_HOOK_LIST_ID, refetch },
-    size: 'md',
+    resolve: { hook: row, refetch },
+    size: 'lg',
   });
 
 interface HookUpdateButtonProps {
