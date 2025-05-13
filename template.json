@@ -7107,6 +7107,10 @@
     "description": "administration/remote-offering-sync/RemoteOfferingSyncList.tsx, administration/settings/FieldRow.tsx, core/BooleanBadge.tsx, customer/list/ServiceProviderFilter.tsx, invitations/GroupInvitationsList.tsx, invoices/details/InvoiceItemsFilter.tsx, marketplace/details/OfferingResourcesFilter.tsx, marketplace/offerings/OfferingViewHero.tsx, marketplace/offerings/admin/AdminOfferingsFilter.tsx, marketplace/offerings/details/policies/PoliciesTable.tsx, marketplace/offerings/update/attributes/utils.tsx, marketplace/resources/list/AllResourcesFilter.tsx, marketplace/resources/list/ProjectResourcesAllFilter.tsx, marketplace/resources/list/ProviderResourcesFilter.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/options/OptionValue.tsx, marketplace-checklist/AnswerGroup.tsx, marketplace-checklist/AnswersTable.tsx, marketplace-checklist/ChecklistCustomer.tsx, modal/ConfirmationDialog.tsx, openstack/openstack-network/OpenStackNetworkSummary.tsx, openstack/openstack-subnet/OpenStackSubNetSummary.tsx, openstack/openstack-tenant/OpenstackPortSummary.tsx, openstack/openstack-tenant/TenantPortsList.tsx, rancher/cluster/users/ClusterUsersList.tsx, user/affiliations/OrganizationsList.tsx, user/affiliations/ProjectsList.tsx, user/affiliations/ProjectsListFilter.tsx, user/support/UserList.tsx",
     "message": "No"
   },
+  "Node disk driver type": {
+    "description": "rancher/RancherProviderForm.tsx, rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Node disk driver type"
+  },
   "Node has been created.": {
     "description": "rancher/cluster/create/CreateNodeDialog.tsx",
     "message": "Node has been created."

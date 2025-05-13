@@ -10,7 +10,13 @@ import {
 import { parseSelectData } from '@waldur/core/api';
 import { returnReactSelectAsyncPaginateObject } from '@waldur/core/utils';
 import { required } from '@waldur/core/validators';
-import { SecretField, StringField, TextField, NumberField } from '@waldur/form';
+import {
+  SecretField,
+  StringField,
+  TextField,
+  NumberField,
+  SelectField,
+} from '@waldur/form';
 import { AsyncSelectField } from '@waldur/form/AsyncSelectField';
 import { AwesomeCheckboxField } from '@waldur/form/AwesomeCheckboxField';
 import { BoxNumberField } from '@waldur/form/BoxNumberField';
@@ -25,6 +31,7 @@ import {
 } from '@waldur/marketplace/offerings/update/DefaultOfferingEditPanel';
 import { OfferingEditPanelFormProps } from '@waldur/marketplace/offerings/update/integration/types';
 import { TENANT_TYPE } from '@waldur/openstack/constants';
+import { RANCHER_NODE_DISK_DRIVER_OPTIONS } from '@waldur/rancher/RancherProviderForm';
 
 const VOLUME_TYPE_FIELD: Partial<OfferingEditField> = {
   component: AsyncSelectField,
@@ -298,6 +305,16 @@ const fields: OfferingEditField[] = [
     label: translate('ArgoCD K8S kubeconfig'),
     key: 'secret_options.argocd_k8s_kubeconfig',
     component: TextField,
+  },
+  {
+    label: translate('Node disk driver type'),
+    key: 'secret_options.node_disk_driver',
+    component: SelectField,
+    fieldProps: {
+      options: RANCHER_NODE_DISK_DRIVER_OPTIONS,
+      simpleValue: true,
+      isClearable: false,
+    },
   },
 ];
 
