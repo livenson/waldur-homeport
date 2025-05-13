@@ -10,6 +10,7 @@ export enum CustomerFeatures {
 export enum InvitationsFeatures {
   civil_number_required = 'invitations.civil_number_required',
   conceal_civil_number = 'invitations.conceal_civil_number',
+  show_service_accounts = 'invitations.show_service_accounts',
 }
 
 export enum MarketplaceFeatures {
