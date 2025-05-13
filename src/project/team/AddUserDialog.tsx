@@ -208,16 +208,23 @@ export const AddUserDialog = reduxForm<
             key={showAllUsers ? 'showAllUsers' : 'notShowAllUsers'}
             label={translate('User')}
             placeholder={translate('Select user...')}
-            loadOptions={(query, prevOptions, page) =>
-              showAllUsers
-                ? usersAutocomplete({ query }, prevOptions, page)
-                : customerUsersAutocomplete(
-                    currentCustomer.uuid,
-                    { user_keyword: query },
-                    prevOptions,
-                    page,
-                  )
-            }
+            loadOptions={async (query, prevOptions, page) => {
+              try {
+                return showAllUsers
+                  ? await usersAutocomplete({ query }, prevOptions, page)
+                  : await customerUsersAutocomplete(
+                      currentCustomer.uuid,
+                      { user_keyword: query },
+                      prevOptions,
+                      page,
+                    );
+              } catch (error) {
+                dispatch(
+                  showErrorResponse(error, translate('Unable to load users.')),
+                );
+                return { options: [], hasMore: false, additional: { page: 1 } };
+              }
+            }}
             getOptionValue={(option) => option.uuid}
             getOptionLabel={getOptionLabel}
             components={{ Option: UserListOptionInline }}
