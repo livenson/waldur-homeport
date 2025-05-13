@@ -7107,6 +7107,10 @@
     "description": "administration/remote-offering-sync/RemoteOfferingSyncList.tsx, administration/settings/FieldRow.tsx, core/BooleanBadge.tsx, customer/list/ServiceProviderFilter.tsx, invitations/GroupInvitationsList.tsx, invoices/details/InvoiceItemsFilter.tsx, marketplace/details/OfferingResourcesFilter.tsx, marketplace/offerings/OfferingViewHero.tsx, marketplace/offerings/admin/AdminOfferingsFilter.tsx, marketplace/offerings/details/policies/PoliciesTable.tsx, marketplace/offerings/update/attributes/utils.tsx, marketplace/resources/list/AllResourcesFilter.tsx, marketplace/resources/list/ProjectResourcesAllFilter.tsx, marketplace/resources/list/ProviderResourcesFilter.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/options/OptionValue.tsx, marketplace-checklist/AnswerGroup.tsx, marketplace-checklist/AnswersTable.tsx, marketplace-checklist/ChecklistCustomer.tsx, modal/ConfirmationDialog.tsx, openstack/openstack-network/OpenStackNetworkSummary.tsx, openstack/openstack-subnet/OpenStackSubNetSummary.tsx, openstack/openstack-tenant/OpenstackPortSummary.tsx, openstack/openstack-tenant/TenantPortsList.tsx, rancher/cluster/users/ClusterUsersList.tsx, user/affiliations/OrganizationsList.tsx, user/affiliations/ProjectsList.tsx, user/affiliations/ProjectsListFilter.tsx, user/support/UserList.tsx",
     "message": "No"
   },
+  "Node disk driver type": {
+    "description": "rancher/RancherProviderForm.tsx, rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Node disk driver type"
+  },
   "Node has been created.": {
     "description": "rancher/cluster/create/CreateNodeDialog.tsx",
     "message": "Node has been created."
@@ -12068,7 +12072,7 @@
     "message": "Termination actions"
   },
   "Termination date": {
-    "description": "marketplace/deploy/steps/TerminationDateField.tsx, marketplace/resources/actions/EditResourceEndDateDialog.tsx, marketplace/resources/details/EndDateField.tsx, marketplace/resources/details/utils.tsx, marketplace/resources/list/utils.tsx, resource/summary/ResourceSummaryBase.tsx",
+    "description": "marketplace/deploy/steps/TerminationDateField.tsx, marketplace/resources/actions/EditResourceEndDateDialog.tsx, marketplace/resources/details/EndDateField.tsx, marketplace/resources/details/utils.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/utils.tsx, resource/summary/ResourceSummaryBase.tsx",
     "message": "Termination date"
   },
   "Termination date: {date}": {
@@ -14672,7 +14676,7 @@
     "message": "Username prefix"
   },
   "Username": {
-    "description": "administration/TokensList.tsx, administration/users/FreeIPAUsersList.tsx, auth/SigninForm.tsx, customer/team/CustomerUsersList.tsx, customer/team/UserGroup.tsx, freeipa/FreeIPAAccountEdit.tsx, freeipa/UsernameGroup.tsx, marketplace/offerings/details/CreateOfferingUserDialog.tsx, marketplace/resources/details/utils.tsx, marketplace/resources/usage/ResourceUsageForm.tsx, marketplace/resources/usage/ResourceUsageTable.tsx, marketplace/resources/usage/UsageExportDropdown.tsx, marketplace/robot-accounts/CreateRobotAccountDialog.tsx, marketplace/robot-accounts/ProviderRobotAccountList.tsx, marketplace/robot-accounts/RobotAccountList.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx, openstack/OpenStackForm.tsx, openstack/openstack-tenant/OpenStackTenantSummary.tsx, project/team/ProjectUsersList.tsx, project/team/UserGroup.tsx, rancher/catalog/CatalogCreateDialog.tsx, rancher/cluster/users/ClusterUsersList.tsx, reporting/resource-usage/UserUsageList.tsx, slurm/SlurmForm.tsx, slurm/details/AllocationUsersTable.tsx, user/UserOfferingList.tsx, user/support/UserDetailsTable.tsx, user/support/UserList.tsx, vmware/VMwareForm.tsx",
+    "description": "administration/TokensList.tsx, administration/users/FreeIPAUsersList.tsx, auth/SigninForm.tsx, customer/team/CustomerUsersList.tsx, customer/team/UserGroup.tsx, freeipa/FreeIPAAccountEdit.tsx, freeipa/UsernameGroup.tsx, marketplace/offerings/details/CreateOfferingUserDialog.tsx, marketplace/resources/details/utils.tsx, marketplace/resources/usage/ResourceUsageForm.tsx, marketplace/resources/usage/ResourceUsageTable.tsx, marketplace/resources/usage/UsageExportDropdown.tsx, marketplace/robot-accounts/CreateRobotAccountDialog.tsx, marketplace/robot-accounts/ProviderRobotAccountList.tsx, marketplace/robot-accounts/RobotAccountList.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx, openstack/OpenStackForm.tsx, openstack/openstack-tenant/OpenStackTenantSummary.tsx, project/team/ProjectUsersList.tsx, project/team/UserGroup.tsx, rancher/catalog/CatalogCreateDialog.tsx, rancher/cluster/users/ClusterUsersList.tsx, reporting/resource-usage/UserUsageList.tsx, slurm/SlurmForm.tsx, slurm/details/AllocationUsersTable.tsx, user/UserOfferingList.tsx, user/affiliations/SummaryTeamTable.tsx, user/support/UserDetailsTable.tsx, user/support/UserList.tsx, vmware/VMwareForm.tsx",
     "message": "Username"
   },
   "Usernames can contain letters (a-z), numbers (0-9), dashes (-), underscores (_) and periods (.).": {
