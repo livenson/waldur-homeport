@@ -66,8 +66,8 @@ export const PublicCallApplyButton: FC<PublicCallApplyButtonProps> = ({
       } else if (activeRound) {
         dispatch(
           openModalDialog(ProposalCreateDialog, {
-            resolve: { call, round: activeRound },
-            size: 'md',
+            resolve: { call, round_uuid: activeRound.uuid },
+            size: 'lg',
           }),
         );
       }

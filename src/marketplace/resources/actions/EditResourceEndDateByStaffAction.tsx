@@ -41,7 +41,7 @@ export const EditResourceEndDateByStaffAction = ({
               body: { end_date },
             }),
         },
-        size: 'md',
+        size: 'lg',
       }),
     );
 
