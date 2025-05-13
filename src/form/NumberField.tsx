@@ -38,9 +38,6 @@ export const NumberField: FunctionComponent<NumberFieldProps> = ({
         {unit && (
           <InputGroup.Text className="border-0 unit">{unit}</InputGroup.Text>
         )}
-        {description && (
-          <Form.Text className="text-muted">{description}</Form.Text>
-        )}
       </>
     );
   } else {

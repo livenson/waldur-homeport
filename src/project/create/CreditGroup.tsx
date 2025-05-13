@@ -1,3 +1,4 @@
+import { Form } from 'react-bootstrap';
 import { Field } from 'react-final-form';
 import { Customer } from 'waldur-js-client';
 
@@ -32,12 +33,14 @@ export const CreditGroup = ({ customer }: { customer: Customer }) => {
         name="project_credit"
         placeholder={defaultCurrency(0)}
         customer={customer}
-        description={translate(
+      />
+      <Form.Text className="text-muted">
+        {translate(
           'Credits available for this organization: {customer_credit}',
           valueFieldDescriptionData,
           formatJsxTemplate,
         )}
-      />
+      </Form.Text>
     </FormGroup>
   );
 };
