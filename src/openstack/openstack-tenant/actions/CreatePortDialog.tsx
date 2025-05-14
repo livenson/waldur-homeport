@@ -4,9 +4,8 @@ import { Col, Form, Row } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { useToggle } from 'react-use';
 import { Field, formValueSelector } from 'redux-form';
-import { OpenStackSubNet } from 'waldur-js-client';
+import { openstackPortsCreate, OpenStackSubNet } from 'waldur-js-client';
 
-import { post } from '@waldur/core/api';
 import { AwesomeCheckbox } from '@waldur/core/AwesomeCheckbox';
 import { isMatchPattern, required } from '@waldur/core/validators';
 import { FormGroup, SelectField } from '@waldur/form';
@@ -43,11 +42,12 @@ const macAddressValidator = (value) =>
     translate('Please enter a valid mac address'),
   )(value);
 
-const FixedIPsField: FC<{ subnets: OpenStackSubNet[]; change }> = ({
-  subnets,
-  change,
-}) => {
-  const [customIpEnabled, setCustomIpEnabled] = useToggle(false);
+export const FixedIPsField: FC<{
+  subnets: OpenStackSubNet[];
+  customIp?: boolean;
+  change;
+}> = ({ subnets, customIp = false, change }) => {
+  const [customIpEnabled, setCustomIpEnabled] = useToggle(customIp);
   const fixedIps = useSelector(fixedIpsSelector);
 
   const toggleCustomIp = (value) => {
@@ -87,7 +87,7 @@ const FixedIPsField: FC<{ subnets: OpenStackSubNet[]; change }> = ({
               <SelectField />
             </Field>
           </Col>
-          {customIpEnabled && (
+          {customIpEnabled && fixedIps && (
             <Col xs={12}>
               <CustomIpField parentName="fixed_ips" data={fixedIps} />
             </Col>
@@ -162,7 +162,7 @@ export const CreatePortDialog: FC<ActionDialogProps> = ({
       };
 
       try {
-        await post('/openstack-ports/', body);
+        await openstackPortsCreate({ body });
         dispatch(
           showSuccess(translate('OpenStack network port has been created.')),
         );
