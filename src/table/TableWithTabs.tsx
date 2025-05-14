@@ -1,15 +1,22 @@
+import { useCurrentStateAndParams, useRouter } from '@uirouter/react';
 import { FC, useEffect, useMemo, useRef, useState } from 'react';
-import { Card, Nav, Tab } from 'react-bootstrap';
+import { Card, Col, Nav, Row, Tab } from 'react-bootstrap';
 
 import { TableTabsContainer } from '@waldur/customer/list/TableTabsContainer';
 
 import { TableProps } from './types';
 
 export const TableWithTabs: FC<
-  Pick<TableProps, 'title' | 'tabs'> & { data: Record<string, any> }
-> = ({ title, tabs, data }) => {
+  Pick<TableProps, 'title' | 'subtitle' | 'tabs'> & {
+    data?: Record<string, any>;
+    syncWithUrlKey?: string;
+  }
+> = ({ title, subtitle, tabs, data = {}, syncWithUrlKey }) => {
+  const { state, params } = useCurrentStateAndParams();
+  const router = useRouter();
+
   const [isRefsReady, setRefsReady] = useState(false);
-  const [activeKey, setActiveKey] = useState<string | null>(null);
+  const [activeKey, setActiveKey] = useState<string | number | null>(null);
   const refToolbar = useRef<HTMLDivElement>(null);
   const refTitle = useRef<HTMLDivElement>(null);
 
@@ -23,6 +30,18 @@ export const TableWithTabs: FC<
     () => tabs.find((tab) => tab.key)?.key,
     [tabs],
   );
+
+  // Sync activeKey with URL query if syncWithUrlKey is provided
+  useEffect(() => {
+    if (syncWithUrlKey) {
+      const urlKey = params[syncWithUrlKey];
+      if (urlKey && tabs.some((tab) => tab.key === urlKey)) {
+        setActiveKey(urlKey);
+      } else {
+        setActiveKey(defaultActiveKey);
+      }
+    }
+  }, [params, syncWithUrlKey, tabs, defaultActiveKey]);
 
   const handleSelect = (key: string | null) => {
     // Remove all children that came through the portal from the toolbar and title,
@@ -43,20 +62,39 @@ export const TableWithTabs: FC<
       }
     }
     setActiveKey(key);
+
+    // Update URL query if syncWithUrlKey is provided
+    if (syncWithUrlKey && key) {
+      router.stateService.go(state.name, { ...params, [syncWithUrlKey]: key });
+    }
   };
 
   return (
-    <Card className="card-bordered">
-      <Card.Header className="pt-4 pb-2">
-        <Card.Title ref={refTitle}>
-          <div className="me-2">
-            <h3>{title}</h3>
-          </div>
-          {/* Portal destination */}
-        </Card.Title>
-        <div ref={refToolbar} className="card-toolbar gap-3">
-          {/* Portal destination */}
-        </div>
+    <Card className="card-table card-bordered">
+      <Card.Header>
+        <Row className="card-toolbar g-0 gap-4 w-100">
+          <Col xs>
+            <Card.Title ref={refTitle}>
+              <div className="me-2">
+                <h3>{title}</h3>
+                {Boolean(subtitle) && (
+                  <small className="fs-6 fw-normal d-block mt-2">
+                    {subtitle}
+                  </small>
+                )}
+              </div>
+            </Card.Title>
+            {/* Portal destination */}
+          </Col>
+          <Col sm="auto" className="ms-auto">
+            <div
+              ref={refToolbar}
+              className="d-flex justify-content-sm-end flex-wrap flex-sm-nowrap text-nowrap gap-3"
+            >
+              {/* Portal destination */}
+            </div>
+          </Col>
+        </Row>
       </Card.Header>
       <Card.Body className="pt-0">
         <TableTabsContainer

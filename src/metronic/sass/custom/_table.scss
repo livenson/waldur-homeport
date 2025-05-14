@@ -233,6 +233,18 @@
 
 /* TABLE IN CARD */
 .card.card-table {
+  .card-header {
+    min-height: 77px;
+
+    .card-toolbar {
+      margin: 0.71rem 0;
+
+      .card-title {
+        margin: 0;
+      }
+    }
+  }
+
   &:not(.grid-table) .card-body {
     padding-top: 0;
   }
