@@ -1,21 +1,18 @@
 import { ChatText, CheckCircle, Eye, XCircle } from '@phosphor-icons/react';
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  proposalProposalsApprove,
-  proposalProposalsReject,
-} from 'waldur-js-client';
 
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
-import { openModalDialog, waitForConfirmation } from '@waldur/modal/actions';
+import { openModalDialog } from '@waldur/modal/actions';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { router } from '@waldur/router';
-import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { ActionsDropdownComponent } from '@waldur/table/ActionsDropdown';
 import { getUser } from '@waldur/workspace/selectors';
+
+import { useProposalDecisionActions } from './create/utils';
 
 const CreateReviewDialog = lazyComponent(() =>
   import('./create-review/CreateReviewDialog').then((module) => ({
@@ -37,10 +34,6 @@ export const ProposalRowActions = ({ row, refetch }) => {
     scopeId: row.call_uuid,
   });
 
-  const isRejectButtonDisabled = !['submitted', 'in_review'].includes(
-    row.state,
-  );
-
   const dispatch = useDispatch();
 
   const openCreateReviewDialog = useCallback(
@@ -54,46 +47,12 @@ export const ProposalRowActions = ({ row, refetch }) => {
     [dispatch],
   );
 
-  const handleRejectProposal = async (proposalUuid: string) => {
-    await waitForConfirmation(
-      dispatch,
-      translate('Confirmation'),
-      translate('Are you sure you want to reject the proposal: {name}?', {
-        name: row.name,
-      }),
-    );
-    try {
-      await proposalProposalsReject({ path: { uuid: proposalUuid } });
-      dispatch(showSuccess(translate('Proposal has been rejected.')));
-      refetch();
-    } catch (error) {
-      dispatch(
-        showErrorResponse(error, translate('Unable to reject the proposal.')),
-      );
-    }
-  };
-  const handleApproveProposal = async (proposalUuid: string) => {
-    await waitForConfirmation(
-      dispatch,
-      translate('Confirmation'),
-      translate(
-        'Are you sure you want to approve the proposal {name} in state {state}?',
-        {
-          name: row.name,
-          state: row.state,
-        },
-      ),
-    );
-    try {
-      await proposalProposalsApprove({ path: { uuid: proposalUuid } });
-      dispatch(showSuccess(translate('Proposal has been approved.')));
-      refetch();
-    } catch (error) {
-      dispatch(
-        showErrorResponse(error, translate('Unable to approve the proposal.')),
-      );
-    }
-  };
+  const {
+    canPerformDecisionActions,
+    handleApproveProposal,
+    handleRejectProposal,
+  } = useProposalDecisionActions(row, refetch);
+
   return (
     <ActionsDropdownComponent>
       <ActionItem
@@ -108,19 +67,19 @@ export const ProposalRowActions = ({ row, refetch }) => {
           iconNode={<ChatText weight="bold" />}
         />
       )}
-      {!isRejectButtonDisabled && (
+      {canPerformDecisionActions && (
         <>
           <ActionItem
             title={translate('Approve')}
-            action={() => handleApproveProposal(row.uuid)}
+            action={handleApproveProposal}
             iconNode={<CheckCircle weight="bold" />}
-            disabled={isRejectButtonDisabled}
+            disabled={!canPerformDecisionActions}
           />
           <ActionItem
             title={translate('Reject')}
-            action={() => handleRejectProposal(row.uuid)}
+            action={handleRejectProposal}
             iconNode={<XCircle weight="bold" />}
-            disabled={isRejectButtonDisabled}
+            disabled={!canPerformDecisionActions}
             className="text-danger"
             iconColor="danger"
           />
