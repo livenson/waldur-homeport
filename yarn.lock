@@ -10805,10 +10805,10 @@ wait-on@8.0.3:
     minimist "^1.2.8"
     rxjs "^7.8.2"
 
-waldur-js-client@^1.0.4-dev.63:
-  version "1.0.4-dev.63"
-  resolved "https://registry.yarnpkg.com/waldur-js-client/-/waldur-js-client-1.0.4-dev.63.tgz#82ea501f5ac7f08700d8d04697e1ebc378b07cd1"
-  integrity sha512-ma4Oqj02ZdIoThjTYHWPk5zVDH/MSYrQ84+fI2WgVtG+1jEcKEZMhrR7tZXLJ014bGGrw2SxDi9gSfCTTaaeig==
+waldur-js-client@^1.0.4-dev.65:
+  version "1.0.4-dev.65"
+  resolved "https://registry.yarnpkg.com/waldur-js-client/-/waldur-js-client-1.0.4-dev.65.tgz#09fc870a710cf78ccd215c306702ac41a919f44c"
+  integrity sha512-QbWuEL57a8t7l6KQ8h4DSXWXQdjBXg6AP654iWUso9TXcpDbBBUHnjMGRxTTiPzqLDCrvqi2Bfnd2wwPDY0RvA==
   dependencies:
     "@hey-api/client-fetch" "^0.8.3"
 

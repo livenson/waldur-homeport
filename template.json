@@ -14104,7 +14104,7 @@
     "message": "Unique ID of a resource within management plugin"
   },
   "Unit price": {
-    "description": "invoices/details/InvoiceItemExpandableRow.tsx",
+    "description": "invoices/details/InvoiceItemExpandableRow.tsx, invoices/details/InvoiceItemUpdateDialog.tsx",
     "message": "Unit price"
   },
   "Unit": {
