@@ -2,7 +2,7 @@ import { useSelector } from 'react-redux';
 
 import { ENV } from '@waldur/core/config';
 import { isFeatureVisible } from '@waldur/features/connect';
-import { CustomerFeatures } from '@waldur/FeaturesEnums';
+import { CustomerFeatures, InvitationsFeatures } from '@waldur/FeaturesEnums';
 import { translate } from '@waldur/i18n';
 import { isOwnerOrStaff as isOwnerOrStaffSelector } from '@waldur/workspace/selectors';
 
@@ -29,6 +29,11 @@ export const useTeamTableTabs = () => {
       key: 'organization-permissions-reviews',
       title: translate('Reviews'),
       state: 'organization-permissions-reviews',
+    },
+    isFeatureVisible(InvitationsFeatures.show_service_accounts) && {
+      key: 'organization-service-accounts',
+      title: translate('Service accounts'),
+      state: 'organization-service-accounts',
     },
   ].filter(Boolean);
 };
