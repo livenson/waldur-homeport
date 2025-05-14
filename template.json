@@ -123,9 +123,13 @@
     "description": "about.tsx",
     "message": "About"
   },
-  "Accept booking request": {
+  "Accept booking request for resource": {
     "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Accept booking request"
+    "message": "Accept booking request for resource"
+  },
+  "Accept call request": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Accept call request"
   },
   "Accept invitation": {
     "description": "invitations/InvitationButtons.tsx",
@@ -400,7 +404,7 @@
     "message": "Add email"
   },
   "Add endpoint": {
-    "description": "marketplace/offerings/update/endpoints/AddEndpointButton.tsx, marketplace/offerings/update/endpoints/AddEndpointDialog.tsx",
+    "description": "administration/roles/PermissionOptions.tsx, marketplace/offerings/update/endpoints/AddEndpointButton.tsx, marketplace/offerings/update/endpoints/AddEndpointDialog.tsx",
     "message": "Add endpoint"
   },
   "Add filter": {
@@ -430,10 +434,6 @@
   "Add notification": {
     "description": "user/hooks/HookCreateButton.tsx",
     "message": "Add notification"
-  },
-  "Add offering endpoint": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Add offering endpoint"
   },
   "Add option": {
     "description": "marketplace/offerings/update/options/AddOptionButton.tsx, marketplace/offerings/update/options/AddOptionDialog.tsx",
@@ -927,9 +927,9 @@
     "description": "invitations/UserPermissionRequestApproveButton.tsx",
     "message": "Approve permission request by {name}"
   },
-  "Approve private order": {
+  "Approve private for order": {
     "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Approve private order"
+    "message": "Approve private for order"
   },
   "Approve": {
     "description": "invitations/UserPermissionRequestApproveButton.tsx, marketplace/orders/actions/ApproveByConsumerButton.tsx, marketplace/orders/actions/ApproveByProviderButton.tsx, marketplace-remote/ReviewApproveAction.tsx, proposals/proposal/ProposalRowActions.tsx",
@@ -951,13 +951,13 @@
     "description": "rancher/cluster/tabs.ts, vmware/deploy/FormTemplateStep.tsx",
     "message": "Apps"
   },
-  "Archive offering plan": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Archive offering plan"
-  },
   "Archive offering": {
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Archive offering"
+  },
+  "Archive plan": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Archive plan"
   },
   "Archive": {
     "description": "marketplace/offerings/actions/OfferingStateActions.tsx, marketplace/offerings/update/plans/ArchivePlanButton.tsx, proposals/update/CallActions.tsx, proposals/utils.ts",
@@ -2435,6 +2435,10 @@
     "description": "openstack/OpenStackProvisioningConfigForm.tsx",
     "message": "Console type"
   },
+  "Consumption limitation": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Consumption limitation"
+  },
   "Contact details": {
     "description": "customer/details/CustomerContactPanel.tsx, customer/details/EditFieldDialog.tsx, user/affiliations/OrganizationsList.tsx",
     "message": "Contact details"
@@ -2576,7 +2580,7 @@
     "message": "Create a user agreements"
   },
   "Create access subnet": {
-    "description": "customer/details/AccessSubnetForm.tsx",
+    "description": "administration/roles/PermissionOptions.tsx, customer/details/AccessSubnetForm.tsx",
     "message": "Create access subnet"
   },
   "Create an organization": {
@@ -2587,12 +2591,8 @@
     "description": "rancher/template/TemplateQuestions.tsx",
     "message": "Create application"
   },
-  "Create call permission": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Create call permission"
-  },
   "Create call": {
-    "description": "proposals/call-management/CallFormDialog.tsx",
+    "description": "administration/roles/PermissionOptions.tsx, proposals/call-management/CallFormDialog.tsx",
     "message": "Create call"
   },
   "Create catalog": {
@@ -2615,9 +2615,9 @@
     "description": "invoices/details/InvoiceItemCompensation.tsx",
     "message": "Create compensation"
   },
-  "Create customer permission": {
+  "Create customer": {
     "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Create customer permission"
+    "message": "Create customer"
   },
   "Create disk": {
     "description": "vmware/actions/CreateDiskAction.tsx, vmware/actions/CreateDiskDialog.tsx",
@@ -2630,6 +2630,10 @@
   "Create horizontal pod autoscaler": {
     "description": "rancher/cluster/hpas/HPACreateDialog.tsx",
     "message": "Create horizontal pod autoscaler"
+  },
+  "Create lexis link": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Create lexis link"
   },
   "Create message": {
     "description": "broadcasts/BroadcastForm.tsx",
@@ -2659,20 +2663,8 @@
     "description": "user/hooks/HookDetailsDialog.tsx",
     "message": "Create notification"
   },
-  "Create offering permission": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Create offering permission"
-  },
-  "Create offering plan": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Create offering plan"
-  },
-  "Create offering screenshot": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Create offering screenshot"
-  },
   "Create offering user": {
-    "description": "administration/roles/PermissionOptions.tsx, marketplace/offerings/details/CreateOfferingUserDialog.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx",
+    "description": "marketplace/offerings/details/CreateOfferingUserDialog.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx",
     "message": "Create offering user"
   },
   "Create offering": {
@@ -2683,6 +2675,22 @@
     "description": "administration/organizations/OrganizationGroupForm.tsx",
     "message": "Create organization group"
   },
+  "Create permission customer": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Create permission customer"
+  },
+  "Create permission project": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Create permission project"
+  },
+  "Create permission": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Create permission"
+  },
+  "Create plan": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Create plan"
+  },
   "Create port for OpenStack network": {
     "description": "openstack/openstack-tenant/actions/CreatePortDialog.tsx",
     "message": "Create port for OpenStack network"
@@ -2690,10 +2698,6 @@
   "Create port": {
     "description": "vmware/actions/CreatePortDialog.tsx",
     "message": "Create port"
-  },
-  "Create project permission": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Create project permission"
   },
   "Create project": {
     "description": "administration/roles/PermissionOptions.tsx, project/create/ProjectCreateDialog.tsx, user/affiliations/SummaryOrganizationProjects.tsx",
@@ -2715,6 +2719,10 @@
     "description": "administration/roles/PermissionOptions.tsx, marketplace/robot-accounts/CreateRobotAccountAction.tsx",
     "message": "Create robot account"
   },
+  "Create screenshot": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Create screenshot"
+  },
   "Create security group for OpenStack tenant {name}": {
     "description": "openstack/openstack-tenant/actions/CreateSecurityGroupForm.tsx",
     "message": "Create security group for OpenStack tenant {name}"
@@ -2734,6 +2742,10 @@
   "Create support request": {
     "description": "issues/create/IssueCreateForm.tsx",
     "message": "Create support request"
+  },
+  "Create user": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Create user"
   },
   "Create": {
     "description": "administration/announcements/AnnouncementForm.tsx, administration/organizations/OrganizationGroupForm.tsx, administration/remote-offering-sync/RemoteSyncFormDialog.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, customer/cost-policies/CostPolicyFormDialog.tsx, customer/create/CustomerCreateDialog.tsx, customer/credits/CreditFormDialog.tsx, customer/details/AccessSubnetForm.tsx, freeipa/FreeIPAAccountCreate.tsx, issues/create/IssueCreateForm.tsx, issues/list/IssueCreateButton.tsx, marketplace/category/admin/CategoryEditDialog.tsx, marketplace/category/admin/GroupFromDialog.tsx, marketplace/details/OrderSubmitButton.tsx, marketplace/offerings/actions/OfferingCreateDialog.tsx, marketplace/offerings/details/CreateOfferingUserButton.tsx, marketplace/offerings/details/policies/PolicyCreateDialog.tsx, marketplace/offerings/update/components/AddComponentDialog.tsx, marketplace/offerings/update/endpoints/AddEndpointDialog.tsx, marketplace/offerings/update/options/AddOptionDialog.tsx, marketplace/offerings/update/plans/AddPlanDialog.tsx, marketplace/offerings/update/roles/AddRoleDialog.tsx, marketplace/orders/list/OrderTypeCell.tsx, marketplace/orders/list/OrderTypeFilter.tsx, marketplace/resources/details/ResourceIssuesCard.tsx, marketplace/resources/users/AddUserDialog.tsx, marketplace/service-providers/CampaignCreateButton.tsx, marketplace/service-providers/CreateProviderOfferingUserButton.tsx, openstack/openstack-instance/actions/CreateBackupAction.tsx, openstack/openstack-tenant/CreateMigrationButton.tsx, openstack/openstack-tenant/actions/CreateFloatingIpAction.tsx, openstack/openstack-tenant/actions/CreateNetworkAction.tsx, openstack/openstack-tenant/actions/CreatePortAction.tsx, openstack/openstack-tenant/actions/CreateSecurityGroupAction.tsx, openstack/openstack-tenant/actions/CreateServerGroupAction.tsx, openstack/openstack-volume/actions/CreateSnapshotAction.tsx, project/create/ProjectCreateDialog.tsx, proposals/call-management/CallFormDialog.tsx, proposals/proposal/create/AddProposalDialog.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestFormDialog.tsx, proposals/proposal/create-review/CreateReviewDialog.tsx, proposals/update/offerings/CallOfferingCreateDialog.tsx, proposals/update/rounds/CallRoundCreateDialog.tsx, rancher/catalog/CatalogCreateButton.tsx, rancher/cluster/hpas/HPACreateButton.tsx, user/hooks/HookDetailsDialog.tsx",
@@ -2996,7 +3008,7 @@
     "message": "Customer support satisfaction overall rating"
   },
   "Customer": {
-    "description": "organization/OrganizationUIView.tsx, proposals/CallsAvailableOfferingsPage.tsx",
+    "description": "administration/roles/PermissionOptions.tsx, organization/OrganizationUIView.tsx, proposals/CallsAvailableOfferingsPage.tsx",
     "message": "Customer"
   },
   "Customers": {
@@ -3187,6 +3199,10 @@
     "description": "marketplace/offerings/update/overview/OverviewSection.tsx",
     "message": "Define the organization groups that are allowed to access the offering."
   },
+  "Delete access subnet": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Delete access subnet"
+  },
   "Delete account": {
     "description": "user/support/UserDelete.tsx, user/support/UserDeleteAccount.tsx",
     "message": "Delete account"
@@ -3194,10 +3210,6 @@
   "Delete all selected invitations.": {
     "description": "invitations/MultiDeleteAction.tsx",
     "message": "Delete all selected invitations."
-  },
-  "Delete call permission": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Delete call permission"
   },
   "Delete catalog": {
     "description": "rancher/catalog/CatalogDeleteButton.tsx",
@@ -3211,25 +3223,21 @@
     "description": "customer/credits/DeleteCreditButton.tsx, marketplace/offerings/list/DeleteOfferingButton.tsx",
     "message": "Delete confirmation"
   },
-  "Delete customer permission": {
+  "Delete customer": {
     "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Delete customer permission"
+    "message": "Delete customer"
+  },
+  "Delete endpoint": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Delete endpoint"
   },
   "Delete filter": {
     "description": "table/SavedFilterSelect.tsx",
     "message": "Delete filter"
   },
-  "Delete offering endpoint": {
+  "Delete lexis link": {
     "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Delete offering endpoint"
-  },
-  "Delete offering permission": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Delete offering permission"
-  },
-  "Delete offering screenshot": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Delete offering screenshot"
+    "message": "Delete lexis link"
   },
   "Delete offering user": {
     "description": "marketplace/service-providers/ProviderOfferingUserDeleteButton.tsx",
@@ -3239,21 +3247,33 @@
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Delete offering"
   },
+  "Delete permission call": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Delete permission call"
+  },
+  "Delete permission customer": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Delete permission customer"
+  },
+  "Delete permission project": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Delete permission project"
+  },
+  "Delete permission proposal": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Delete permission proposal"
+  },
+  "Delete permission": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Delete permission"
+  },
   "Delete project credit": {
     "description": "customer/credits/ProjectDeleteCreditButton.tsx",
     "message": "Delete project credit"
   },
-  "Delete project permission": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Delete project permission"
-  },
   "Delete project": {
     "description": "administration/roles/PermissionOptions.tsx, project/manage/ProjectDelete.tsx",
     "message": "Delete project"
-  },
-  "Delete proposal permission": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Delete proposal permission"
   },
   "Delete remote synchronization": {
     "description": "administration/remote-offering-sync/RemoteSyncDeleteAction.tsx",
@@ -3263,9 +3283,17 @@
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Delete robot account"
   },
+  "Delete screenshot": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Delete screenshot"
+  },
   "Delete user agreement": {
     "description": "administration/agreements/UserAgreementDeleteButton.tsx",
     "message": "Delete user agreement"
+  },
+  "Delete user": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Delete user"
   },
   "Delete volumes": {
     "description": "openstack/openstack-instance/actions/utils.ts",
@@ -3603,12 +3631,8 @@
     "description": "form/upload/UploadContainer.tsx",
     "message": "Drop files to attach them."
   },
-  "Dry run offering script": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Dry run offering script"
-  },
   "Dry run script": {
-    "description": "marketplace/offerings/update/integration/ScriptEditorHeader.tsx",
+    "description": "administration/roles/PermissionOptions.tsx, marketplace/offerings/update/integration/ScriptEditorHeader.tsx",
     "message": "Dry run script"
   },
   "Dry run": {
@@ -4763,9 +4787,9 @@
     "description": "marketplace/offerings/OfferingEditUIView.tsx, marketplace/offerings/update/overview/OverviewSection.tsx, project/ProjectManageContainer.tsx, proposals/update/CallUpdateContainer.tsx, proposals/update/general/CallGeneralSection.tsx",
     "message": "General"
   },
-  "Generate API secret code": {
+  "Generate api secret code": {
     "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Generate API secret code"
+    "message": "Generate api secret code"
   },
   "Generate link": {
     "description": "invitations/actions/GroupInvitationCreateDialog.tsx",
@@ -4775,29 +4799,9 @@
     "description": "rancher/template/PasswordField.tsx",
     "message": "Generate password"
   },
-  "Get API secret code": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Get API secret code"
-  },
   "Get help": {
     "description": "marketplace/offerings/OfferingPublicUIView.tsx, marketplace/offerings/details/PublicOfferingGetHelp.tsx",
     "message": "Get help"
-  },
-  "Get service provider revenue": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Get service provider revenue"
-  },
-  "Get service provider robot account customers": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Get service provider robot account customers"
-  },
-  "Get service provider robot account projects": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Get service provider robot account projects"
-  },
-  "Get service provider statistics": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Get service provider statistics"
   },
   "Getting started instructions": {
     "description": "marketplace/offerings/update/overview/EditGettingStartedDialog.tsx, marketplace/offerings/update/overview/OverviewSection.tsx",
@@ -5979,17 +5983,29 @@
     "description": "SettingsDescription.ts, administration/settings/AdministrationBranding.tsx",
     "message": "Links"
   },
-  "List calls": {
+  "List call": {
     "description": "administration/roles/PermissionOptions.tsx",
-    "message": "List calls"
+    "message": "List call"
   },
-  "List importable resources": {
+  "List customer projects": {
     "description": "administration/roles/PermissionOptions.tsx",
-    "message": "List importable resources"
+    "message": "List customer projects"
   },
-  "List invitations": {
+  "List customers": {
     "description": "administration/roles/PermissionOptions.tsx",
-    "message": "List invitations"
+    "message": "List customers"
+  },
+  "List importable for resource": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "List importable for resource"
+  },
+  "List invitation": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "List invitation"
+  },
+  "List keys": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "List keys"
   },
   "List of all resources": {
     "description": "navigation/header/favorite-pages/FavoritePageService.ts",
@@ -6015,53 +6031,45 @@
     "description": "SettingsDescription.ts",
     "message": "List of username that users are not allowed to select"
   },
-  "List orders": {
+  "List order": {
     "description": "administration/roles/PermissionOptions.tsx",
-    "message": "List orders"
+    "message": "List order"
+  },
+  "List permission reviews": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "List permission reviews"
+  },
+  "List project permissions": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "List project permissions"
+  },
+  "List project": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "List project"
   },
   "List projects": {
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "List projects"
   },
-  "List proposals": {
+  "List proposal": {
     "description": "administration/roles/PermissionOptions.tsx",
-    "message": "List proposals"
+    "message": "List proposal"
   },
-  "List resources": {
+  "List resource": {
     "description": "administration/roles/PermissionOptions.tsx",
-    "message": "List resources"
+    "message": "List resource"
   },
-  "List rounds": {
+  "List round": {
     "description": "administration/roles/PermissionOptions.tsx",
-    "message": "List rounds"
+    "message": "List round"
   },
-  "List service provider customer projects": {
+  "List user customers": {
     "description": "administration/roles/PermissionOptions.tsx",
-    "message": "List service provider customer projects"
+    "message": "List user customers"
   },
-  "List service provider customers": {
+  "List users": {
     "description": "administration/roles/PermissionOptions.tsx",
-    "message": "List service provider customers"
-  },
-  "List service provider keys": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "List service provider keys"
-  },
-  "List service provider project permissions": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "List service provider project permissions"
-  },
-  "List service provider projects": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "List service provider projects"
-  },
-  "List service provider user customers": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "List service provider user customers"
-  },
-  "List service provider users": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "List service provider users"
+    "message": "List users"
   },
   "Load more": {
     "description": "core/InfiniteList.tsx, marketplace/deploy/steps/FormCloudStep.tsx",
@@ -6235,9 +6243,9 @@
     "description": "marketplace/offerings/update/integration/EditScriptDialog.tsx",
     "message": "Manage custom scripts"
   },
-  "Manage offering user group": {
+  "Manage offerings username": {
     "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Manage offering user group"
+    "message": "Manage offerings username"
   },
   "Manage policy": {
     "description": "project/ProjectDashboardCostLimits.tsx",
@@ -6251,9 +6259,9 @@
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Manage proposal"
   },
-  "Manage resource users": {
+  "Manage review": {
     "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Manage resource users"
+    "message": "Manage review"
   },
   "Manage security groups": {
     "description": "openstack/openstack-instance/ManageSecurityGroupsButton.tsx",
@@ -6262,6 +6270,18 @@
   "Manage service account": {
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Manage service account"
+  },
+  "Manage user group": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Manage user group"
+  },
+  "Manage user role": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Manage user role"
+  },
+  "Manage users for resource": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Manage users for resource"
   },
   "Manage": {
     "description": "marketplace/offerings/OfferingViewHero.tsx, user/UserManageContainer.tsx",
@@ -7923,6 +7943,10 @@
     "description": "project/OECD_FOS_2007_CODES.ts",
     "message": "Other social sciences"
   },
+  "Other": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Other"
+  },
   "Others": {
     "description": "reporting/invoices/utils.ts",
     "message": "Others"
@@ -9355,6 +9379,10 @@
     "description": "customer/details/CustomerMarketplacePanel.tsx",
     "message": "Register as service provider"
   },
+  "Register service provider": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Register service provider"
+  },
   "Registered at:": {
     "description": "marketplace/service-providers/ServiceProviderManagement.tsx",
     "message": "Registered at:"
@@ -9379,9 +9407,9 @@
     "description": "navigation/header/confirmation-drawer/ConsumerRejectAll.tsx, navigation/header/confirmation-drawer/RejectAllButton.tsx",
     "message": "Reject all"
   },
-  "Reject booking request": {
+  "Reject booking request for resource": {
     "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Reject booking request"
+    "message": "Reject booking request for resource"
   },
   "Reject order": {
     "description": "administration/roles/PermissionOptions.tsx",
@@ -11135,9 +11163,21 @@
     "description": "marketplace/resources/SetBackendIdAction.tsx, marketplace/resources/SetBackendIdDialog.tsx",
     "message": "Set backend ID"
   },
+  "Set backend id for resource": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Set backend id for resource"
+  },
+  "Set backend metadata for resource": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Set backend metadata for resource"
+  },
   "Set columns in {name} category": {
     "description": "marketplace/category/admin/CategoryColumnsForm.tsx",
     "message": "Set columns in {name} category"
+  },
+  "Set end date for resource": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Set end date for resource"
   },
   "Set erred": {
     "description": "marketplace/resources/mass-actions/MultiSetErredAction.tsx",
@@ -11151,6 +11191,10 @@
     "description": "table/TableFilterButton.tsx",
     "message": "Set filters"
   },
+  "Set limits for resource": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Set limits for resource"
+  },
   "Set limits": {
     "description": "slurm/SetLimitsAction.tsx",
     "message": "Set limits"
@@ -11159,33 +11203,9 @@
     "description": "map/SetLocationDialog.tsx",
     "message": "Set location"
   },
-  "Set offerings username": {
+  "Set plan for resource": {
     "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Set offerings username"
-  },
-  "Set resource backend id": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Set resource backend id"
-  },
-  "Set resource backend metadata": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Set resource backend metadata"
-  },
-  "Set resource consumption limitation": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Set resource consumption limitation"
-  },
-  "Set resource end date": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Set resource end date"
-  },
-  "Set resource state": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Set resource state"
-  },
-  "Set resource usage": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Set resource usage"
+    "message": "Set plan for resource"
   },
   "Set rules in {name} security group": {
     "description": "openstack/openstack-security-groups/rule-editor/RulesForm.tsx",
@@ -11198,6 +11218,10 @@
   "Set slug": {
     "description": "marketplace/resources/SetSlugAction.tsx, marketplace/resources/SetSlugDialog.tsx",
     "message": "Set slug"
+  },
+  "Set state for resource": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Set state for resource"
   },
   "Set static routes": {
     "description": "openstack/openstack-tenant/SetRoutersButton.tsx",
@@ -11230,6 +11254,10 @@
   "Set to true to activate privilege escalation": {
     "description": "slurm/SlurmForm.tsx",
     "message": "Set to true to activate privilege escalation"
+  },
+  "Set usage for resource": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Set usage for resource"
   },
   "Set value": {
     "description": "marketplace/offerings/update/components/OptionalNumberField.tsx",
@@ -11370,6 +11398,10 @@
   "Show rules": {
     "description": "openstack/openstack-instance/deploy/FormSecurityGroupsField.tsx",
     "message": "Show rules"
+  },
+  "Show service accounts of the scopes.": {
+    "description": "features/FeaturesDescription.ts",
+    "message": "Show service accounts of the scopes."
   },
   "Show shared": {
     "description": "reporting/openstack/VmOverviewFilter.tsx",
@@ -11712,12 +11744,8 @@
     "message": "Submit job"
   },
   "Submit report": {
-    "description": "marketplace/resources/report/SubmitReportAction.tsx, marketplace/resources/report/SubmitReportDialog.tsx",
+    "description": "administration/roles/PermissionOptions.tsx, marketplace/resources/report/SubmitReportAction.tsx, marketplace/resources/report/SubmitReportDialog.tsx",
     "message": "Submit report"
-  },
-  "Submit resource report": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Submit resource report"
   },
   "Submit review": {
     "description": "proposals/proposal/create-review/CreatePageSidebar.tsx",
@@ -11822,10 +11850,6 @@
   "Suspend": {
     "description": "vmware/actions/SuspendAction.tsx",
     "message": "Suspend"
-  },
-  "Switch resource plan": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Switch resource plan"
   },
   "Switching scripts will discard your changes. Do you want to continue?": {
     "description": "marketplace/offerings/update/integration/EditScriptDialog.tsx",
@@ -14115,17 +14139,29 @@
     "description": "marketplace/offerings/update/plans/UpdateAccessPoliciesAction.tsx",
     "message": "Update access policies"
   },
+  "Update access subnet": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Update access subnet"
+  },
+  "Update attributes": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Update attributes"
+  },
   "Update available": {
     "description": "navigation/AppFooter.tsx",
     "message": "Update available"
   },
-  "Update call permission": {
+  "Update components": {
     "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Update call permission"
+    "message": "Update components"
   },
-  "Update customer permission": {
+  "Update customer": {
     "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Update customer permission"
+    "message": "Update customer"
+  },
+  "Update description": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Update description"
   },
   "Update filter": {
     "description": "table/SaveFilterDialog.tsx, table/TableFilterActions.tsx",
@@ -14151,6 +14187,10 @@
     "description": "marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx",
     "message": "Update image"
   },
+  "Update integration": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Update integration"
+  },
   "Update internal IPs for OpenStack instance {name}": {
     "description": "openstack/openstack-instance/actions/update-internal-ips/UpdateInternalIpsForm.tsx",
     "message": "Update internal IPs for OpenStack instance {name}"
@@ -14164,7 +14204,7 @@
     "message": "Update limits for an existing resource"
   },
   "Update location": {
-    "description": "map/SetLocationDialog.tsx",
+    "description": "administration/roles/PermissionOptions.tsx, map/SetLocationDialog.tsx",
     "message": "Update location"
   },
   "Update logo": {
@@ -14183,46 +14223,6 @@
     "description": "openstack/openstack-instance/actions/update-security-groups/utils.ts",
     "message": "Update of OpenStack instance security groups has been scheduled."
   },
-  "Update offering attributes": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Update offering attributes"
-  },
-  "Update offering components": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Update offering components"
-  },
-  "Update offering description": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Update offering description"
-  },
-  "Update offering location": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Update offering location"
-  },
-  "Update offering options": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Update offering options"
-  },
-  "Update offering permission": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Update offering permission"
-  },
-  "Update offering plan": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Update offering plan"
-  },
-  "Update offering screenshot": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Update offering screenshot"
-  },
-  "Update offering thumbnail": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Update offering thumbnail"
-  },
-  "Update offering user": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Update offering user"
-  },
   "Update offering": {
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Update offering"
@@ -14230,6 +14230,14 @@
   "Update option": {
     "description": "marketplace/resources/options/UpdateResourceOptionDialog.tsx",
     "message": "Update option"
+  },
+  "Update options for resource": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Update options for resource"
+  },
+  "Update options": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Update options"
   },
   "Update payment profile": {
     "description": "customer/payment-profiles/PaymentProfileUpdateDialog.tsx",
@@ -14239,37 +14247,49 @@
     "description": "customer/payments/PaymentUpdateDialog.tsx",
     "message": "Update payment"
   },
+  "Update permission call": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Update permission call"
+  },
+  "Update permission customer": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Update permission customer"
+  },
   "Update permission of {name}": {
     "description": "marketplace/service-providers/UpdateOfferingPermissionExpirationTimeDialog.tsx",
     "message": "Update permission of {name}"
+  },
+  "Update permission project": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Update permission project"
+  },
+  "Update permission proposal": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Update permission proposal"
+  },
+  "Update permission": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Update permission"
   },
   "Update plan for an existing resource": {
     "description": "marketplace/orders/details/OrderDetailsQuickBody.tsx",
     "message": "Update plan for an existing resource"
   },
-  "Update project permission": {
+  "Update plan": {
     "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Update project permission"
+    "message": "Update plan"
   },
   "Update project": {
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Update project"
   },
-  "Update proposal permission": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Update proposal permission"
-  },
   "Update proposal": {
     "description": "proposals/proposal/create/ProposalManagePage.tsx",
     "message": "Update proposal"
   },
-  "Update resource limits": {
+  "Update restriction for offeringuser": {
     "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Update resource limits"
-  },
-  "Update resource options": {
-    "description": "administration/roles/PermissionOptions.tsx",
-    "message": "Update resource options"
+    "message": "Update restriction for offeringuser"
   },
   "Update robot account": {
     "description": "administration/roles/PermissionOptions.tsx",
@@ -14278,6 +14298,10 @@
   "Update schedule": {
     "description": "booking/EditSchedulesDialog.tsx",
     "message": "Update schedule"
+  },
+  "Update screenshot": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Update screenshot"
   },
   "Update security groups for OpenStack instance {name}": {
     "description": "openstack/openstack-instance/actions/update-security-groups/UpdateSecurityGroupsForm.tsx",
@@ -14290,6 +14314,14 @@
   "Update static routes": {
     "description": "openstack/openstack-tenant/SetRoutesDialog.tsx",
     "message": "Update static routes"
+  },
+  "Update thumbnail": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Update thumbnail"
+  },
+  "Update user": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Update user"
   },
   "Update {name} settings": {
     "description": "administration/service-desk/AdministrationServiceDeskUpdateDialog.tsx",
@@ -14867,6 +14899,10 @@
     "description": "core/StatisticsCard.tsx, marketplace/aggregate-limits/AggregateLimitWidget.tsx, proposals/CallsAvailableOfferingsList.tsx, proposals/CallsForProposalsList.tsx",
     "message": "View all"
   },
+  "View api secret code": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "View api secret code"
+  },
   "View detailed information about a user, including its permissions and contact details": {
     "description": "user/support/UserDetailsDialog.tsx",
     "message": "View detailed information about a user, including its permissions and contact details"
@@ -14894,6 +14930,22 @@
   "View proposal": {
     "description": "proposals/proposal/create/ProposalManagePage.tsx",
     "message": "View proposal"
+  },
+  "View revenue": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "View revenue"
+  },
+  "View robot account customers": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "View robot account customers"
+  },
+  "View robot account projects": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "View robot account projects"
+  },
+  "View statistics": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "View statistics"
   },
   "View summary": {
     "description": "marketplace/details/OrderSummaryButton.tsx",
