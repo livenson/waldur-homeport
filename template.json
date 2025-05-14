@@ -8559,6 +8559,10 @@
     "description": "openstack/openstack-tenant/actions/ActivatePortAction.tsx",
     "message": "Port has been enabled."
   },
+  "Port has been updated.": {
+    "description": "openstack/openstack-tenant/actions/UpdatePortDialog.tsx",
+    "message": "Port has been updated."
+  },
   "Port number in the range should be at most {portMax}.": {
     "description": "openstack/openstack-security-groups/rule-editor/PortRangeField.tsx",
     "message": "Port number in the range should be at most {portMax}."
@@ -10516,7 +10520,7 @@
     "message": "Save script"
   },
   "Save": {
-    "description": "administration/FeaturesList.tsx, administration/agreements/UserAgreementCreateDialog.tsx, administration/agreements/UserAgreementsEditDialog.tsx, administration/languages/AdministrationLanguages.tsx, administration/notifications/NotificationUpdateDialog.tsx, administration/providers/UpdateProviderDialog.tsx, administration/remote-offering-sync/RemoteSyncFormDialog.tsx, administration/roles/RoleCreateDialog.tsx, administration/roles/RoleDescriptionEditDialog.tsx, administration/roles/RoleEditDialog.tsx, administration/settings/CountrySelector.tsx, broadcasts/BroadcastSaveAsTemplateDialog.tsx, broadcasts/BroadcastTemplateCreateDialog.tsx, broadcasts/BroadcastTemplateUpdateDialog.tsx, customer/details/CustomerMediaPanel.tsx, customer/team/AddProjectUserDialog.tsx, customer/team/EditProjectUserDialog.tsx, customer/team/EditUserDialog.tsx, form/InsertLinkPopover.tsx, map/SetLocationDialog.tsx, marketplace/offerings/actions/SetAccessPolicyDialogForm.tsx, marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx, marketplace/offerings/expandable/utils.ts, marketplace/offerings/update/attributes/EditAttributeDialog.tsx, marketplace/offerings/update/attributes/EditCategoryDialog.tsx, marketplace/offerings/update/components/ChangeStorageModeDialog.tsx, marketplace/offerings/update/components/EditComponentDialog.tsx, marketplace/offerings/update/integration/EditLexisLinkIntegrationDialog.tsx, marketplace/offerings/update/integration/EditVarsDialog.tsx, marketplace/offerings/update/integration/ScriptEditorHeader.tsx, marketplace/offerings/update/options/EditOptionDialog.tsx, marketplace/offerings/update/plans/EditPlanDescriptionDialog.tsx, marketplace/offerings/update/plans/EditPlanPricesDialog.tsx, marketplace/offerings/update/plans/EditPlanQuotasDialog.tsx, marketplace/resources/actions/EditResourceEndDateDialog.tsx, marketplace/resources/actions/MoveResourceDialog.tsx, marketplace/resources/mass-actions/MultiMoveDialog.tsx, marketplace-checklist/ChecklistCustomer.tsx, project/MoveProjectDialog.tsx, project/manage/ProjectAvatar.tsx, project/team/EditUserDialog.tsx, proposals/update/documents/AttachDocumentsDialog.tsx, proposals/update/general/EditGeneralInfoDialog.tsx, reporting/invoices/utils.ts, table/SaveFilterDialog.tsx, user/support/UserEditAvatarFormItem.tsx",
+    "description": "administration/FeaturesList.tsx, administration/agreements/UserAgreementCreateDialog.tsx, administration/agreements/UserAgreementsEditDialog.tsx, administration/languages/AdministrationLanguages.tsx, administration/notifications/NotificationUpdateDialog.tsx, administration/providers/UpdateProviderDialog.tsx, administration/remote-offering-sync/RemoteSyncFormDialog.tsx, administration/roles/RoleCreateDialog.tsx, administration/roles/RoleDescriptionEditDialog.tsx, administration/roles/RoleEditDialog.tsx, administration/settings/CountrySelector.tsx, broadcasts/BroadcastSaveAsTemplateDialog.tsx, broadcasts/BroadcastTemplateCreateDialog.tsx, broadcasts/BroadcastTemplateUpdateDialog.tsx, customer/details/CustomerMediaPanel.tsx, customer/team/AddProjectUserDialog.tsx, customer/team/EditProjectUserDialog.tsx, customer/team/EditUserDialog.tsx, form/InsertLinkPopover.tsx, map/SetLocationDialog.tsx, marketplace/offerings/actions/SetAccessPolicyDialogForm.tsx, marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx, marketplace/offerings/expandable/utils.ts, marketplace/offerings/update/attributes/EditAttributeDialog.tsx, marketplace/offerings/update/attributes/EditCategoryDialog.tsx, marketplace/offerings/update/components/ChangeStorageModeDialog.tsx, marketplace/offerings/update/components/EditComponentDialog.tsx, marketplace/offerings/update/integration/EditLexisLinkIntegrationDialog.tsx, marketplace/offerings/update/integration/EditVarsDialog.tsx, marketplace/offerings/update/integration/ScriptEditorHeader.tsx, marketplace/offerings/update/options/EditOptionDialog.tsx, marketplace/offerings/update/plans/EditPlanDescriptionDialog.tsx, marketplace/offerings/update/plans/EditPlanPricesDialog.tsx, marketplace/offerings/update/plans/EditPlanQuotasDialog.tsx, marketplace/resources/actions/EditResourceEndDateDialog.tsx, marketplace/resources/actions/MoveResourceDialog.tsx, marketplace/resources/mass-actions/MultiMoveDialog.tsx, marketplace-checklist/ChecklistCustomer.tsx, openstack/openstack-tenant/actions/UpdatePortDialog.tsx, project/MoveProjectDialog.tsx, project/manage/ProjectAvatar.tsx, project/team/EditUserDialog.tsx, proposals/update/documents/AttachDocumentsDialog.tsx, proposals/update/general/EditGeneralInfoDialog.tsx, reporting/invoices/utils.ts, table/SaveFilterDialog.tsx, user/support/UserEditAvatarFormItem.tsx",
     "message": "Save"
   },
   "Saved filters": {
@@ -13955,6 +13959,10 @@
     "description": "marketplace/offerings/update/plans/EditPlanDescriptionDialog.tsx",
     "message": "Unable to update plan."
   },
+  "Unable to update port.": {
+    "description": "openstack/openstack-tenant/actions/UpdatePortDialog.tsx",
+    "message": "Unable to update port."
+  },
   "Unable to update prices.": {
     "description": "marketplace/offerings/update/plans/EditPlanPricesDialog.tsx",
     "message": "Unable to update prices."
@@ -14114,6 +14122,10 @@
   "Unsent": {
     "description": "invitations/GroupInvitationCancelButton.tsx",
     "message": "Unsent"
+  },
+  "Update IP": {
+    "description": "openstack/openstack-tenant/actions/UpdatePortAction.tsx",
+    "message": "Update IP"
   },
   "Update LEXIS link options": {
     "description": "marketplace/offerings/update/integration/EditLexisLinkIntegrationDialog.tsx",
@@ -14278,6 +14290,10 @@
   "Update plan": {
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Update plan"
+  },
+  "Update port IP": {
+    "description": "openstack/openstack-tenant/actions/UpdatePortDialog.tsx",
+    "message": "Update port IP"
   },
   "Update project": {
     "description": "administration/roles/PermissionOptions.tsx",

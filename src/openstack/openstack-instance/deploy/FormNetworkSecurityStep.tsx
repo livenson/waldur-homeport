@@ -59,7 +59,9 @@ export const CustomIpField = ({ parentName, data }) => {
     [data?.subnet?.cidr],
   );
 
-  const [selected, setSelected] = useState<{ label; value }>(null);
+  const [selected, setSelected] = useState<{ label; value }>(
+    data?.fixed_ip ? { label: data?.fixed_ip, value: data?.fixed_ip } : null,
+  );
 
   return (
     <Field

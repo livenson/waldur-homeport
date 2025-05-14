@@ -54,8 +54,8 @@ export type ActionItemType<T = any> = ComponentType<{
   as?: ComponentType;
 }>;
 
-export type ActionDialogProps = {
-  resolve: { resource; refetch? };
+export type ActionDialogProps<T = any> = {
+  resolve: { resource: T; refetch?(): void };
 };
 
 export interface ActionConfiguration {
