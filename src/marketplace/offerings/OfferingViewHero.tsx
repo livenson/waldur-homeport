@@ -151,6 +151,7 @@ export const OfferingViewHero: FC<OfferingViewHeroProps> = (props) => {
         logoSize={100}
         logoAlt={offering.name}
         logoTooltip={offering.category_title}
+        logoCircle
         title={
           <>
             <div className="d-flex flex-wrap align-items-center gap-2 mb-1">

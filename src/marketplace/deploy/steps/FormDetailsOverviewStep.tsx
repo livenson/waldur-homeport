@@ -54,7 +54,7 @@ export const FormDetailsOverviewStep = (props: FormStepProps) => {
               value={
                 <Stack direction="horizontal" gap={2}>
                   {props.offering.thumbnail ? (
-                    <Image src={props.offering.thumbnail} size={25} circle />
+                    <Image src={props.offering.thumbnail} size={24} circle />
                   ) : null}
                   {props.offering.name}
                 </Stack>
@@ -118,7 +118,7 @@ export const FormDetailsOverviewStep = (props: FormStepProps) => {
             value={
               <Stack direction="horizontal" gap={2}>
                 {props.offering.thumbnail ? (
-                  <Image src={props.offering.thumbnail} size={25} circle />
+                  <Image src={props.offering.thumbnail} size={24} circle />
                 ) : null}
                 {props.offering.name}
               </Stack>

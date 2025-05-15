@@ -90,12 +90,7 @@ export const WideImageField: FunctionComponent<WideImageFieldProps> = (
           {input.value ? (
             <div ref={previewRef} className="symbol-label" />
           ) : (
-            <ImagePlaceholder
-              width={`${size}px`}
-              height={`${size}px`}
-              backgroundColor="#e2e2e2"
-              circle
-            >
+            <ImagePlaceholder width={`${size}px`} height={`${size}px`} circle>
               <div className="symbol-label fs-2 fw-bold w-100 h-100">
                 {props.alt}
               </div>

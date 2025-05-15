@@ -76,21 +76,7 @@ export const ProjectUsersList = ({
           title: translate('Member'),
           render: ({ row }) => (
             <div className="d-flex align-items-center gap-1">
-              {row.user_image ? (
-                <img
-                  src={row.user_image}
-                  alt={row.user_username}
-                  width={32}
-                  height={32}
-                  className="rounded-circle"
-                />
-              ) : (
-                <Avatar
-                  className="symbol symbol-32px symbol-circle"
-                  name={row.user_full_name}
-                  size={32}
-                />
-              )}
+              <Avatar name={row.user_full_name} src={row.user_image} circle />
               {row.user_full_name || DASH_ESCAPE_CODE}
             </div>
           ),

@@ -23,6 +23,7 @@ export const CallUpdateHero: FC<CallUpdateHeroProps> = ({ call, refetch }) => {
     <PublicDashboardHero
       logo={customer?.image}
       logoAlt={call.name}
+      logoCircle
       cardBordered
       title={
         <>

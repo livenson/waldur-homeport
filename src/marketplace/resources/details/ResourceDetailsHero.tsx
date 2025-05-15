@@ -48,6 +48,7 @@ export const ResourceDetailsHero = ({
         logo={getMarketplaceResourceLogo(resource)}
         logoAlt={resource.category_title}
         logoTooltip={formatResourceType(resource)}
+        logoCircle
         backgroundImage={offering.image}
         title={<ResourceDetailsHeaderTitle resource={resource} />}
         quickActions={

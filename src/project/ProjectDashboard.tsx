@@ -107,6 +107,7 @@ export const ProjectDashboard: FunctionComponent<{}> = () => {
                     'user_uuid',
                     'user_full_name',
                     'user_email',
+                    'user_image',
                     'role_name',
                   ],
                   page_size: 5,

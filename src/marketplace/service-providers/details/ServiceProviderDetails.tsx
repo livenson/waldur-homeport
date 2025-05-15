@@ -64,6 +64,7 @@ const ProviderDetailsHero: FunctionComponent<ProviderDetailsProps> = (data) => {
       className="container-fluid my-5"
       logoAlt={data.provider.customer_name}
       logoTooltip={data.provider.customer_name}
+      logoCircle
       title={
         <Stack direction="horizontal" gap={2} className="gap-6 text-muted mb-1">
           {data.provider.customer_country && (

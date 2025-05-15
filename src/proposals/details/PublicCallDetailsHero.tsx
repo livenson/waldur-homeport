@@ -23,6 +23,7 @@ export const PublicCallDetailsHero: FC<PublicCallDetailsHeroProps> = ({
     <PublicDashboardHero
       logo={undefined}
       logoAlt={call.name}
+      logoCircle
       cardBordered
       title={
         <>
