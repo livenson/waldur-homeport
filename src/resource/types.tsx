@@ -23,6 +23,7 @@ export interface BaseResource {
   marketplace_category_name?: string;
   marketplace_category_icon?: string;
   project_uuid?: string;
+  customer_uuid?: string;
   quotas?: Quota[];
   resource_type?: string;
 }

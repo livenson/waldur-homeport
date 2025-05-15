@@ -1,14 +1,12 @@
 import { CalendarBlank } from '@phosphor-icons/react';
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  marketplaceProviderResourcesSetEndDateByStaff,
-  Resource,
-} from 'waldur-js-client';
+import { marketplaceProviderResourcesSetEndDateByStaff } from 'waldur-js-client';
 
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { openModalDialog } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
+import { Resource } from '@waldur/resource/types';
 import { isStaff as isStaffSelector } from '@waldur/workspace/selectors';
 
 const EditResourceEndDateDialog = lazyComponent(() =>
