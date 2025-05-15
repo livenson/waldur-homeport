@@ -76,7 +76,7 @@ export const CustomerDashboardChart: FunctionComponent<
                 customersUsersList({
                   path: { uuid: customer.uuid },
                   query: {
-                    field: ['uuid', 'full_name', 'email', 'role_name'],
+                    field: ['uuid', 'full_name', 'email', 'role_name', 'image'],
                     page_size: 5,
                   },
                 }).then(parseSelectData)

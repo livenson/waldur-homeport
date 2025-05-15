@@ -43,7 +43,7 @@ export const UserEditAvatarFormItem: React.FC<OwnProps> = ({
           alt={getItemAbbreviation(user, 'full_name')}
           initialValue={user.image}
           max={2 * 1024 * 1024} // 2MB
-          size={65}
+          size={64}
           input={{ value: image, onChange: (value) => setImage(value) } as any}
           extraActions={({ isChanged, isTooLarge }) =>
             isChanged || isLoading ? (

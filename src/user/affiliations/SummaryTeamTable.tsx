@@ -75,21 +75,11 @@ export const SummaryTeamTable: FC<OwnProps> = ({ scope, context }) => {
           title: translate('Member'),
           render: ({ row }) => (
             <div className="content-wrapper gap-2">
-              {getValue(row, 'image') ? (
-                <img
-                  src={getValue(row, 'image')}
-                  alt={getValue(row, 'username')}
-                  width={32}
-                  height={32}
-                  className="rounded-circle"
-                />
-              ) : (
-                <Avatar
-                  className="symbol symbol-32px symbol-circle"
-                  name={getValue(row, 'full_name')}
-                  size={32}
-                />
-              )}
+              <Avatar
+                src={getValue(row, 'image')}
+                name={getValue(row, 'full_name')}
+                circle
+              />
               <p className="mb-0">
                 {getValue(row, 'full_name') || DASH_ESCAPE_CODE}
               </p>

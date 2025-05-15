@@ -45,11 +45,7 @@ const BulkActions = ({ rows, refetch }) => (
 
 const UserField = ({ row }) => (
   <div className="d-flex align-items-center gap-1">
-    <Avatar
-      className="symbol symbol-32px symbol-circle"
-      name={row?.email}
-      size={40}
-    />
+    <Avatar name={row?.email} size={40} circle />
     <div>
       <span className="d-block">
         {renderFieldOrDash(

@@ -101,21 +101,7 @@ export const CustomerUsersList: FunctionComponent<{ filters? }> = ({
           title: translate('Member'),
           render: ({ row }) => (
             <div className="content-wrapper gap-2">
-              {row.image ? (
-                <img
-                  src={row.image}
-                  alt={row.username}
-                  width={32}
-                  height={32}
-                  className="rounded-circle"
-                />
-              ) : (
-                <Avatar
-                  className="symbol symbol-32px symbol-circle"
-                  name={row.full_name}
-                  size={32}
-                />
-              )}
+              <Avatar name={row.full_name} src={row.image} circle size={32} />
               <p className="mb-0">{row.full_name || DASH_ESCAPE_CODE}</p>
             </div>
           ),

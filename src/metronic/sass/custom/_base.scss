@@ -53,6 +53,11 @@
   }
 }
 
+.image-placeholder {
+  color: if(isDarkMode(), $primary-500, $primary);
+  background-color: if(isDarkMode(), $gray-100, $primary-50);
+}
+
 /* Typography */
 .ellipsis {
   white-space: nowrap;

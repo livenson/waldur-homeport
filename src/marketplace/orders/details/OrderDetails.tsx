@@ -91,6 +91,7 @@ const PageHero = ({ data, isRefetching }) => (
     logo={data.offering.thumbnail}
     logoAlt={data.offering.name}
     logoTooltip={data.offering.name}
+    logoCircle
     title={<OrderDetailsHeaderTitle order={data.order} />}
     quickBody={<OrderDetailsQuickBody order={data.order} />}
     quickActions={
