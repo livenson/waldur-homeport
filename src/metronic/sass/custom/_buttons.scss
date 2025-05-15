@@ -23,4 +23,10 @@
       color: $gray-400 !important;
     }
   }
+
+  .btn-group-lg > .btn.btn-icon,
+  &.btn-icon.btn-lg {
+    height: 3.385rem;
+    width: 3.385rem;
+  }
 }

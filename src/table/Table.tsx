@@ -165,7 +165,7 @@ class TableClass<RowType = any> extends React.Component<TableProps<RowType>> {
         toggleFilterMenu={this.toggleFilterMenu}
       >
         {this.props.standalone && (
-          <div className="d-flex justify-content-between gap-4 mb-6">
+          <div className="table-standalone-header d-flex justify-content-between gap-4 mb-6">
             <Stack direction="horizontal" gap={2}>
               <h1 className="mb-0">
                 {this.props.title || this.props.alterTitle}
