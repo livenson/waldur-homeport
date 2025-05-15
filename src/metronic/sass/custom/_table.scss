@@ -249,6 +249,13 @@
     padding-top: 0;
   }
 
+  .card-header .card-toolbar {
+    .btn {
+      height: 44px;
+      font-size: $input-btn-font-size-lg;
+    }
+  }
+
   table {
     margin-bottom: 0;
   }
@@ -538,6 +545,18 @@ $mobile-spacing: get($content-spacing, tablet-and-mobile);
       .card-header {
         border-color: $gray-200 !important;
       }
+    }
+  }
+}
+
+// Standalone table header
+.table-standalone-header {
+  .btn {
+    height: 44px;
+    font-size: $input-btn-font-size-lg;
+
+    &.btn-icon {
+      width: 44px;
     }
   }
 }
