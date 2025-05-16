@@ -115,6 +115,18 @@ export const getResourceTabs = ({
         ),
       });
     }
+  } else if (resource.offering_type === MANAGED_RANCHER && scope) {
+    tabs.push({
+      key: 'security_groups',
+      title: translate('Security groups'),
+      component: lazyComponent(() =>
+        import('@waldur/rancher/cluster/ClusterSecurityGroupsList').then(
+          (module) => ({
+            default: module.ClusterSecurityGroupsList,
+          }),
+        ),
+      ),
+    });
   }
 
   if (scope) {
