@@ -74,7 +74,8 @@ interface ManagedRancherOrderFormData {
   worker_nodes_data_volume_type_name: OpenStackVolumeType;
   openstack_offering: Offering;
   install_longhorn: boolean;
-  longhorn_volume_size: number;
+  worker_nodes_longhorn_volume_size: number;
+  worker_nodes_longhorn_volume_type_name: OpenStackVolumeType;
 }
 
 const managedRancherOrderSerializer = (
@@ -84,6 +85,8 @@ const managedRancherOrderSerializer = (
   worker_nodes_flavor_name: formData.worker_nodes_flavor?.name,
   worker_nodes_data_volume_type_name:
     formData.worker_nodes_data_volume_type_name?.name,
+  worker_nodes_longhorn_volume_type_name:
+    formData.worker_nodes_longhorn_volume_type_name?.name,
   openstack_offering_uuid_list: formData.openstack_offering
     ? [formData.openstack_offering.uuid]
     : undefined,

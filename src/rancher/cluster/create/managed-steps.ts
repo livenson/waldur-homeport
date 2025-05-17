@@ -32,6 +32,8 @@ export const managedDeployOfferingSteps: OfferingConfigurationFormStep[] = [
       'attributes.worker_nodes_flavor',
       'attributes.worker_nodes_data_volume_size',
       'attributes.worker_nodes_data_volume_type_name',
+      'attributes.worker_nodes_longhorn_volume_size',
+      'attributes.worker_nodes_longhorn_volume_type_name',
     ],
     required: true,
     component: ManagedFormNodesStep,
