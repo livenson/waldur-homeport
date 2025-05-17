@@ -6219,9 +6219,13 @@
     "description": "rancher/cluster/ClusterLonghornTab.tsx",
     "message": "Longhorn status"
   },
-  "Longhorn volume size": {
+  "Longhorn volume size for worker nodes": {
     "description": "rancher/cluster/create/FormLonghornStep.tsx",
-    "message": "Longhorn volume size"
+    "message": "Longhorn volume size for worker nodes"
+  },
+  "Longhorn volume type for worker nodes": {
+    "description": "rancher/cluster/create/FormLonghornStep.tsx",
+    "message": "Longhorn volume type for worker nodes"
   },
   "Longhorn": {
     "description": "marketplace/resources/details/fetchData.tsx, rancher/cluster/create/FormLonghornStep.tsx, rancher/cluster/create/managed-steps.ts",
