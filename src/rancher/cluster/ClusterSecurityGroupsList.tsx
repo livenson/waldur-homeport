@@ -6,6 +6,8 @@ import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
 
+import { ClusterSecurityGroupSetRulesButton } from './ClusterSecurityGroupSetRulesButton';
+
 export const ClusterSecurityGroupsList: FunctionComponent<{
   resourceScope;
 }> = ({ resourceScope }) => {
@@ -34,6 +36,12 @@ export const ClusterSecurityGroupsList: FunctionComponent<{
       columns={columns}
       verboseName={translate('security groups')}
       expandableRow={SecurityGroupRulesList}
+      rowActions={({ row }) => (
+        <ClusterSecurityGroupSetRulesButton
+          resource={row}
+          refetch={tableProps.fetch}
+        />
+      )}
     />
   );
 };

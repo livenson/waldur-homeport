@@ -92,13 +92,11 @@ export const TenantPortsList: FunctionComponent<{ resourceScope }> = ({
           title: translate('Admin state'),
           render: ({ row }) => (
             <Badge
-              variant={row.admin_state_up === 'True' ? 'success' : 'warning'}
+              variant={row.admin_state_up ? 'success' : 'warning'}
               pill
               outline
             >
-              {row.admin_state_up === 'True'
-                ? translate('Active')
-                : translate('Inactive')}
+              {row.admin_state_up ? translate('Active') : translate('Inactive')}
             </Badge>
           ),
         },

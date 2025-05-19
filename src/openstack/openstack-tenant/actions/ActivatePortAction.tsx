@@ -29,7 +29,7 @@ export const ActivatePortAction: ActionItemType<OpenStackPort> = ({
       await waitForConfirmation(
         dispatch,
         translate('Confirmation'),
-        resource.admin_state_up === 'True'
+        resource.admin_state_up
           ? translate('Are you sure you want to disable this port?')
           : translate('Are you sure you want to enable this port?'),
       );
@@ -37,15 +37,14 @@ export const ActivatePortAction: ActionItemType<OpenStackPort> = ({
       return;
     }
     try {
-      const apiMethod =
-        resource.admin_state_up === 'True'
-          ? openstackPortsDisablePort
-          : openstackPortsEnablePort;
+      const apiMethod = resource.admin_state_up
+        ? openstackPortsDisablePort
+        : openstackPortsEnablePort;
 
       await apiMethod({ path: { uuid: resource.uuid } } as any);
       dispatch(
         showSuccess(
-          resource.admin_state_up === 'True'
+          resource.admin_state_up
             ? translate('Port has been disabled.')
             : translate('Port has been enabled.'),
         ),
@@ -61,7 +60,7 @@ export const ActivatePortAction: ActionItemType<OpenStackPort> = ({
   return (
     <ActionItem
       title={
-        resource.admin_state_up === 'True'
+        resource.admin_state_up
           ? translate('Disable port')
           : translate('Enable port')
       }

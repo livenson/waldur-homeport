@@ -10435,6 +10435,10 @@
     "description": "table/TablePageSize.tsx",
     "message": "Rows per page"
   },
+  "Rules have been updated.": {
+    "description": "rancher/cluster/ClusterSecurityGroupSetRulesDialog.tsx",
+    "message": "Rules have been updated."
+  },
   "Running accounting": {
     "description": "customer/list/AccountingRunningField.tsx",
     "message": "Running accounting"
@@ -11256,11 +11260,11 @@
     "message": "Set plan for resource"
   },
   "Set rules in {name} security group": {
-    "description": "openstack/openstack-security-groups/rule-editor/RulesForm.tsx",
+    "description": "openstack/openstack-security-groups/rule-editor/RulesForm.tsx, rancher/cluster/ClusterSecurityGroupSetRulesDialog.tsx",
     "message": "Set rules in {name} security group"
   },
   "Set rules": {
-    "description": "openstack/openstack-security-groups/SetRulesAction.tsx",
+    "description": "openstack/openstack-security-groups/SetRulesAction.tsx, rancher/cluster/ClusterSecurityGroupSetRulesButton.tsx, rancher/cluster/ClusterSecurityGroupSetRulesDialog.tsx",
     "message": "Set rules"
   },
   "Set slug": {
@@ -14030,6 +14034,10 @@
   "Unable to update review.": {
     "description": "proposals/proposal/create-review/ProposalReviewCreatePage.tsx",
     "message": "Unable to update review."
+  },
+  "Unable to update rules.": {
+    "description": "rancher/cluster/ClusterSecurityGroupSetRulesDialog.tsx",
+    "message": "Unable to update rules."
   },
   "Unable to update schedules.": {
     "description": "booking/EditSchedulesDialog.tsx",
