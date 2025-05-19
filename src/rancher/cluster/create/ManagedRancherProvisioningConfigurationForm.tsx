@@ -234,6 +234,26 @@ const fields: OfferingEditField[] = [
     component: StringField,
   },
   {
+    label: translate('Kubernetes version'),
+    key: 'secret_options.k8s_version',
+    component: StringField,
+  },
+  {
+    label: translate('Private registry URL'),
+    key: 'secret_options.private_registry_url',
+    component: StringField,
+  },
+  {
+    label: translate('Private registry username'),
+    key: 'secret_options.private_registry_user',
+    component: StringField,
+  },
+  {
+    label: translate('Private registry password'),
+    key: 'secret_options.private_registry_password',
+    component: SecretField,
+  },
+  {
     label: translate('Vault Host'),
     key: 'secret_options.vault_host',
     component: StringField,
