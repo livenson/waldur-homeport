@@ -5864,7 +5864,7 @@
     "message": "Kubernetes nodes"
   },
   "Kubernetes version": {
-    "description": "rancher/node/RancherNodeSummary.tsx",
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx, rancher/node/RancherNodeSummary.tsx",
     "message": "Kubernetes version"
   },
   "LEXIS link creation request has been submitted.": {
@@ -8778,6 +8778,18 @@
   "Private comment": {
     "description": "proposals/round/proposals/ProposalReviewsDetailButton.tsx",
     "message": "Private comment"
+  },
+  "Private registry URL": {
+    "description": "rancher/RancherProviderForm.tsx, rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Private registry URL"
+  },
+  "Private registry password": {
+    "description": "rancher/RancherProviderForm.tsx, rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Private registry password"
+  },
+  "Private registry username": {
+    "description": "rancher/RancherProviderForm.tsx, rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Private registry username"
   },
   "Processor": {
     "description": "vmware/deploy/FormProcessorStep.tsx, vmware/deploy/steps.ts",

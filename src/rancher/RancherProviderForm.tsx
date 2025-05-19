@@ -46,6 +46,21 @@ const fields: OfferingEditField[] = [
     fieldProps: { required: true, validate: required },
   },
   {
+    label: translate('Private registry URL'),
+    key: 'service_attributes.private_registry_url',
+    component: StringField,
+  },
+  {
+    label: translate('Private registry username'),
+    key: 'service_attributes.private_registry_user',
+    component: StringField,
+  },
+  {
+    label: translate('Private registry password'),
+    key: 'service_attributes.private_registry_password',
+    component: SecretField,
+  },
+  {
     label: translate('Cloud init template'),
     key: 'service_attributes.cloud_init_template',
     component: TextField,
