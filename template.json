@@ -1591,6 +1591,10 @@
     "description": "marketplace/resources/details/utils.tsx",
     "message": "Backend metadata"
   },
+  "Backend state": {
+    "description": "marketplace/resources/details/ResourceBackendState.tsx",
+    "message": "Backend state"
+  },
   "Backend sync": {
     "description": "marketplace/resources/details/utils.tsx",
     "message": "Backend sync"
@@ -4248,7 +4252,7 @@
     "message": "Erred resources"
   },
   "Erred": {
-    "description": "marketplace/orders/list/MarketplaceOrdersListFilter.tsx, marketplace/orders/list/OrderStateCell.tsx, marketplace/orders/list/OrderStateFilter.tsx, marketplace/resources/list/ResourceStateFilter.tsx, marketplace/resources/resource-pending/OrderInProgressView.tsx",
+    "description": "marketplace/orders/list/MarketplaceOrdersListFilter.tsx, marketplace/orders/list/OrderStateCell.tsx, marketplace/orders/list/OrderStateFilter.tsx, marketplace/resources/details/ResourceBackendState.tsx, marketplace/resources/list/ResourceStateFilter.tsx, marketplace/resources/resource-pending/OrderInProgressView.tsx",
     "message": "Erred"
   },
   "Error details": {
