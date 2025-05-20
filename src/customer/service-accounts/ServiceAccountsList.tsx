@@ -8,6 +8,7 @@ import { CustomerPermissionsLogButton } from '@waldur/customer/team/CustomerPerm
 import { useTeamTableTabs } from '@waldur/customer/team/tabs';
 import { TeamDropdownActions } from '@waldur/customer/team/TeamDropdownActions';
 import { translate } from '@waldur/i18n';
+import { ProjectLink } from '@waldur/project/ProjectLink';
 import { ProjectPermissionsLogButton } from '@waldur/project/team/ProjectPermissionsLogButton';
 import { TeamDropdownActions as ProjectTeamDropdownActions } from '@waldur/project/team/TeamDropdownActions';
 import { PROJECT_TEAM_TABLE_TABS } from '@waldur/project/utils';
@@ -16,6 +17,8 @@ import Table from '@waldur/table/Table';
 import { TableProps } from '@waldur/table/types';
 import { useTable } from '@waldur/table/useTable';
 import { getCustomer } from '@waldur/workspace/selectors';
+
+import { OrganizationLink } from '../list/OrganizationLink';
 
 import { ServiceAccountActions } from './ServiceAccountActions';
 import { ServiceAccountExpandableRow } from './ServiceAccountExpandableRow';
@@ -36,7 +39,16 @@ export const ServiceAccountsTableComponent: FC<
                 context === 'customer'
                   ? translate('Organization')
                   : translate('Project'),
-              render: ({ row }) => row[getContextKey(context)],
+              render: ({ row }) =>
+                context === 'customer' ? (
+                  <OrganizationLink uuid={row.customer_uuid}>
+                    {row.customer_name}
+                  </OrganizationLink>
+                ) : (
+                  <ProjectLink
+                    row={{ uuid: row.project_uuid, name: row.project_name }}
+                  />
+                ),
               export: getContextKey(context),
               orderField: getContextKey(context),
             } as any)
