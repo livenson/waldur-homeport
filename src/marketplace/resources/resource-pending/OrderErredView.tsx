@@ -123,7 +123,11 @@ export const OrderErredView: FC<OrderErredViewProps> = ({ resource }) => {
     }
   });
 
-  if (!resource.creation_order || resource.creation_order.state !== 'erred') {
+  if (
+    !resource.creation_order ||
+    resource.state === 'OK' ||
+    resource.creation_order.state !== 'erred'
+  ) {
     return null;
   }
   const steps = getSteps(resource);
