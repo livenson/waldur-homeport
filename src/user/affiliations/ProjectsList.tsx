@@ -14,6 +14,7 @@ import { useTitle } from '@waldur/navigation/title';
 import { PROJECTS_LIST } from '@waldur/project/constants';
 import { GlobalProjectCreateButton } from '@waldur/project/create/GlobalProjectCreateButton';
 import { ProjectCard } from '@waldur/project/ProjectCard';
+import { ProjectEndDateField } from '@waldur/project/ProjectEndDateField';
 import { ProjectLink } from '@waldur/project/ProjectLink';
 import { ProjectsListActions } from '@waldur/project/ProjectsListActions';
 import { createFetcher } from '@waldur/table/api';
@@ -138,9 +139,7 @@ export const ProjectsList = () => {
     {
       title: translate('End date'),
       orderField: 'end_date',
-      render: ({ row }) => (
-        <>{row.end_date ? formatDate(row.end_date) : DASH_ESCAPE_CODE}</>
-      ),
+      render: ProjectEndDateField,
       keys: ['end_date'],
       id: 'end_date',
       export: (row) =>

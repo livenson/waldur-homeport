@@ -18,7 +18,7 @@ const EditResourceEndDateDialog = lazyComponent(() =>
 );
 
 export const EditResourceEndDateAction: ActionItemType = ({
-  resource,
+  marketplaceResource,
   refetch,
 }) => {
   const dispatch = useDispatch();
@@ -28,7 +28,7 @@ export const EditResourceEndDateAction: ActionItemType = ({
     dispatch(
       openModalDialog(EditResourceEndDateDialog, {
         resolve: {
-          resource,
+          resource: marketplaceResource,
           refetch,
           updateEndDate: (uuid, end_date) =>
             marketplaceResourcesPartialUpdate({
@@ -36,18 +36,17 @@ export const EditResourceEndDateAction: ActionItemType = ({
               body: { end_date },
             }),
         },
-        size: 'lg',
       }),
     );
 
   if (
     !hasPermission(user, {
       permission: PermissionEnum.SET_RESOURCE_END_DATE,
-      customerId: resource.offering_customer_uuid,
+      customerId: marketplaceResource.offering_customer_uuid,
     }) &&
     !hasPermission(user, {
       permission: PermissionEnum.SET_RESOURCE_END_DATE,
-      customerId: resource.customer_uuid,
+      customerId: marketplaceResource.customer_uuid,
     })
   ) {
     return null;

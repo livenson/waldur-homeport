@@ -1,6 +1,9 @@
 import { CalendarBlank } from '@phosphor-icons/react';
 import { useDispatch, useSelector } from 'react-redux';
-import { marketplaceProviderResourcesSetEndDateByProvider } from 'waldur-js-client';
+import {
+  marketplaceProviderResourcesSetEndDateByProvider,
+  Resource,
+} from 'waldur-js-client';
 
 import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
@@ -8,7 +11,6 @@ import { openModalDialog } from '@waldur/modal/actions';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
-import { Resource } from '@waldur/resource/types';
 import { getUser } from '@waldur/workspace/selectors';
 
 const EditResourceEndDateDialog = lazyComponent(() =>
@@ -41,7 +43,6 @@ export const EditResourceEndDateByProviderAction = ({
               body: { end_date },
             }),
         },
-        size: 'lg',
       }),
     );
 
