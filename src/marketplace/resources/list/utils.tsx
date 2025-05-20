@@ -12,6 +12,7 @@ import { renderFieldOrDash } from '@waldur/table/utils';
 import { ResourceNameField } from './ResourceNameField';
 import { ResourceStateField } from './ResourceStateField';
 import { getStates } from './ResourceStateFilter';
+import { ResourceTerminationDateField } from './ResourceTerminationDateField';
 
 export const resourcesListRequiredFields = (hasExpandableView = true) =>
   [
@@ -158,9 +159,9 @@ export const getResourceAllListColumns = (
       },
       {
         title: translate('Termination date'),
-        render: ({ row }) => <>{row.end_date || 'N/A'}</>,
+        render: ResourceTerminationDateField,
         id: 'end_date',
-        keys: ['end_date'],
+        keys: ['end_date', 'project_end_date'],
         optional: !isFeatureVisible(MarketplaceFeatures.show_resource_end_date),
         export: (row) => row.end_date,
       },

@@ -41,10 +41,17 @@ const renderComponent = (props = {}) => {
   );
 };
 
-const mockResource = {
-  uuid: 'test-uuid',
+const mockMarketplaceResource = {
+  uuid: 'test-market-uuid',
   state: 'OK',
-  marketplace_resource_uuid: 'market-uuid',
+  customer_uuid: 'customer-uuid',
+  name: 'Test Market Resource',
+  offering_customer_uuid: 'offering-uuid',
+};
+const mockResource = {
+  uuid: 'test-scope-uuid',
+  state: 'OK',
+  marketplace_resource_uuid: 'test-market-uuid',
   customer_uuid: 'customer-uuid',
   name: 'Test Resource',
 };
@@ -52,6 +59,7 @@ const mockResource = {
 describe('OpenstackTenantActions', () => {
   it('renders action groups with correct titles', () => {
     renderComponent({
+      marketplaceResource: mockMarketplaceResource,
       resource: mockResource,
       refetch: vi.fn(),
     });

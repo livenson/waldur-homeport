@@ -18,6 +18,7 @@ import { InstanceComponents } from './openstack-instance/InstanceComponents';
 import { ResourceComponents } from './ResourceComponents';
 import { ResourceDetailsHeaderBody } from './ResourceDetailsHeaderBody';
 import { ResourceDetailsHeaderTitle } from './ResourceDetailsHeaderTitle';
+import { ResourceEndDateConflictBar } from './ResourceEndDateConflictBar';
 import { VolumeComponents } from './VolumeComponents';
 
 export const ResourceDetailsHero = ({
@@ -37,6 +38,11 @@ export const ResourceDetailsHero = ({
 }) => {
   return (
     <>
+      {resource.end_date &&
+        resource.project_end_date &&
+        resource.end_date > resource.project_end_date && (
+          <ResourceEndDateConflictBar />
+        )}
       {resource.order_in_progress ? (
         <OrderInProgressView resource={resource} refetch={refetch} />
       ) : resource.creation_order ? (

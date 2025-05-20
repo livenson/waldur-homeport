@@ -591,6 +591,10 @@
     "description": "openstack/openstack-tenant/actions/CreateServerGroupForm.tsx",
     "message": "Affinity"
   },
+  "After project": {
+    "description": "project/manage/EditEndDateDialog.tsx",
+    "message": "After project"
+  },
   "After proposal submission": {
     "description": "proposals/utils.ts",
     "message": "After proposal submission"
@@ -634,6 +638,10 @@
   "Agriculture, forestry, and fisheries": {
     "description": "project/OECD_FOS_2007_CODES.ts",
     "message": "Agriculture, forestry, and fisheries"
+  },
+  "Aligned": {
+    "description": "project/manage/EditEndDateDialog.tsx",
+    "message": "Aligned"
   },
   "All actions": {
     "description": "invitations/InvitationsMultiSelectActions.tsx, marketplace/resources/mass-actions/ResourceMultiSelectAction.tsx",
@@ -1623,6 +1631,10 @@
     "description": "i18n/translate.tsx",
     "message": "Become a customer of our portal. Provision IT services from the catalog and manage your team from one place."
   },
+  "Before project": {
+    "description": "project/manage/EditEndDateDialog.tsx",
+    "message": "Before project"
+  },
   "Before removing organization, please make sure that all projects are removed.": {
     "description": "customer/details/CustomerRemovePanel.tsx",
     "message": "Before removing organization, please make sure that all projects are removed."
@@ -1992,7 +2004,7 @@
     "message": "Category {category} does not contain a column yet."
   },
   "Category": {
-    "description": "marketplace/category/PublicOfferingsList.tsx, marketplace/offerings/OfferingEditUIView.tsx, marketplace/offerings/actions/OfferingCreateDialog.tsx, marketplace/offerings/admin/AdminOfferingsFilter.tsx, marketplace/offerings/list/OfferingsList.tsx, marketplace/offerings/update/attributes/AttributesSection.tsx, marketplace/resources/details/utils.tsx, marketplace/resources/list/ProjectResourcesAllFilter.tsx, marketplace/resources/list/ProviderResourcesFilter.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/utils.tsx, marketplace/service-providers/ProviderCampaignResourceExpandable.tsx, marketplace/service-providers/ProviderProjectResourcesList.tsx, marketplace-checklist/ChecklistCustomer.tsx, proposals/details/CallOfferingsCard.tsx, proposals/proposal/create/ResourceRequestsSummary.tsx, proposals/proposal/create/resource-requests-step/FormResourceRequestsStep.tsx, user/affiliations/SummaryResourcesTable.tsx",
+    "description": "marketplace/category/PublicOfferingsList.tsx, marketplace/offerings/OfferingEditUIView.tsx, marketplace/offerings/actions/OfferingCreateDialog.tsx, marketplace/offerings/admin/AdminOfferingsFilter.tsx, marketplace/offerings/list/OfferingsList.tsx, marketplace/offerings/update/attributes/AttributesSection.tsx, marketplace/resources/details/utils.tsx, marketplace/resources/list/ProjectResourcesAllFilter.tsx, marketplace/resources/list/ProviderResourcesFilter.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/utils.tsx, marketplace/service-providers/ProviderCampaignResourceExpandable.tsx, marketplace/service-providers/ProviderProjectResourcesList.tsx, marketplace-checklist/ChecklistCustomer.tsx, project/manage/EditEndDateDialog.tsx, proposals/details/CallOfferingsCard.tsx, proposals/proposal/create/ResourceRequestsSummary.tsx, proposals/proposal/create/resource-requests-step/FormResourceRequestsStep.tsx, user/affiliations/SummaryResourcesTable.tsx",
     "message": "Category"
   },
   "Caution! You are impersonating {impersonated}. Logged in as: {impersonator}": {
@@ -2386,6 +2398,10 @@
   "Configure": {
     "description": "administration/service-desk/AdministrationServiceDesk.tsx, openstack/openstack-instance/actions/update-internal-ips/UpdateInternalIpsSetAction.tsx",
     "message": "Configure"
+  },
+  "Confirm & save": {
+    "description": "project/manage/EditEndDateDialog.tsx",
+    "message": "Confirm & save"
   },
   "Confirm your review": {
     "description": "proposals/proposal/create-review/ProposalReviewCreatePage.tsx",
@@ -3111,6 +3127,14 @@
     "description": "invoices/details/InvoiceItemUpdateDialog.tsx",
     "message": "Date and time when item usage has started"
   },
+  "Date conflict": {
+    "description": "marketplace/resources/actions/EditResourceEndDateDialog.tsx",
+    "message": "Date conflict"
+  },
+  "Date conflict.": {
+    "description": "marketplace/resources/details/ResourceEndDateConflictBar.tsx",
+    "message": "Date conflict."
+  },
   "Date joined": {
     "description": "user/support/UserDetailsTable.tsx, user/support/UserEditRows.tsx, user/support/UserList.tsx",
     "message": "Date joined"
@@ -3118,6 +3142,14 @@
   "Date of reporting": {
     "description": "reporting/resource-usage/ResourceUsageList.tsx, reporting/resource-usage/UserUsageList.tsx",
     "message": "Date of reporting"
+  },
+  "Date when invitations are sent and resource orders processed.": {
+    "description": "project/manage/ProjectGeneral.tsx",
+    "message": "Date when invitations are sent and resource orders processed."
+  },
+  "Date when termination orders are created; project is removed if resources are already terminated.": {
+    "description": "project/manage/ProjectGeneral.tsx",
+    "message": "Date when termination orders are created; project is removed if resources are already terminated."
   },
   "Date": {
     "description": "customer/payments/PaymentCreateDialog.tsx, customer/payments/PaymentUpdateDialog.tsx, customer/payments/PaymentsList.tsx, invoices/list/MarkAsPaidDialog.tsx, issues/feedback/SupportFeedbackListFilter.tsx, marketplace/resources/usage/ResourceUsageTable.tsx, marketplace/resources/usage/UsageExportDropdown.tsx, marketplace/resources/usage/utils.ts",
@@ -4840,7 +4872,7 @@
     "message": "Go back to categories"
   },
   "Go back": {
-    "description": "invitations/actions/create/FormButtons.tsx",
+    "description": "invitations/actions/create/FormButtons.tsx, project/manage/EditEndDateDialog.tsx",
     "message": "Go back"
   },
   "Go to detail view": {
@@ -7472,7 +7504,7 @@
     "message": "Offering(s)"
   },
   "Offering": {
-    "description": "administration/roles/PermissionOptions.tsx, customer/credits/CreditUsageDialog.tsx, customer/credits/CreditUsageFilter.tsx, invoices/details/InvoiceItemsFilter.tsx, invoices/details/InvoiceItemsTable.tsx, marketplace/aggregate-limits/AggregateLimitsExpandableRow.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/deploy/steps/FormDetailsOverviewStep.tsx, marketplace/offerings/PriceList.tsx, marketplace/orders/list/MarketplaceOrdersListFilter.tsx, marketplace/orders/list/OrdersListExpandableRow.tsx, marketplace/resources/list/AllResourcesFilter.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/OfferingFilter.tsx, marketplace/resources/list/ProjectResourcesAllFilter.tsx, marketplace/resources/list/ProviderResourcesFilter.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/utils.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx, marketplace/service-providers/OfferingPermissionCreateDialog.tsx, marketplace/service-providers/OfferingPermissionsList.tsx, marketplace/service-providers/ProviderCampaignResourceExpandable.tsx, marketplace/service-providers/ProviderOfferingUsersFilter.tsx, marketplace/service-providers/ProviderOfferingUsersList.tsx, marketplace/service-providers/ProviderProjectResourcesList.tsx, marketplace-remote/ProjectUpdateRequestsList.tsx, navigation/header/confirmation-drawer/PendingConsumerOrders.tsx, navigation/header/confirmation-drawer/PendingProviderOrders.tsx, openstack/openstack-tenant/actions/MigrateTenantDialog.tsx, permissions/constants.tsx, proposals/offering-requests/OfferingRequestsList.tsx, proposals/offering-requests/OfferingRequestsTableFilter.tsx, proposals/proposal/create/ResourceRequestsSummary.tsx, proposals/proposal/create/resource-requests-step/FormResourceRequestsStep.tsx, proposals/proposal/create/resource-requests-step/ProposalResourcesFilter.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestWizardFormSecondPage.tsx, proposals/review/ReviewsExpandableRow.tsx, proposals/update/offerings/WizardFormSecondPage.tsx, reporting/plan-usage/PlanUsageDialog.tsx, reporting/plan-usage/PlanUsageFilter.tsx, reporting/plan-usage/PlanUsageList.tsx, reporting/resource-usage/ResourceUsageFilter.tsx, reporting/resource-usage/ResourceUsageList.tsx, reporting/resource-usage/UserUsageList.tsx, user/UserOfferingList.tsx, user/affiliations/SummaryResourcesTable.tsx",
+    "description": "administration/roles/PermissionOptions.tsx, customer/credits/CreditUsageDialog.tsx, customer/credits/CreditUsageFilter.tsx, invoices/details/InvoiceItemsFilter.tsx, invoices/details/InvoiceItemsTable.tsx, marketplace/aggregate-limits/AggregateLimitsExpandableRow.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/deploy/steps/FormDetailsOverviewStep.tsx, marketplace/offerings/PriceList.tsx, marketplace/orders/list/MarketplaceOrdersListFilter.tsx, marketplace/orders/list/OrdersListExpandableRow.tsx, marketplace/resources/list/AllResourcesFilter.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/OfferingFilter.tsx, marketplace/resources/list/ProjectResourcesAllFilter.tsx, marketplace/resources/list/ProviderResourcesFilter.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/utils.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx, marketplace/service-providers/OfferingPermissionCreateDialog.tsx, marketplace/service-providers/OfferingPermissionsList.tsx, marketplace/service-providers/ProviderCampaignResourceExpandable.tsx, marketplace/service-providers/ProviderOfferingUsersFilter.tsx, marketplace/service-providers/ProviderOfferingUsersList.tsx, marketplace/service-providers/ProviderProjectResourcesList.tsx, marketplace-remote/ProjectUpdateRequestsList.tsx, navigation/header/confirmation-drawer/PendingConsumerOrders.tsx, navigation/header/confirmation-drawer/PendingProviderOrders.tsx, openstack/openstack-tenant/actions/MigrateTenantDialog.tsx, permissions/constants.tsx, project/manage/EditEndDateDialog.tsx, proposals/offering-requests/OfferingRequestsList.tsx, proposals/offering-requests/OfferingRequestsTableFilter.tsx, proposals/proposal/create/ResourceRequestsSummary.tsx, proposals/proposal/create/resource-requests-step/FormResourceRequestsStep.tsx, proposals/proposal/create/resource-requests-step/ProposalResourcesFilter.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestWizardFormSecondPage.tsx, proposals/review/ReviewsExpandableRow.tsx, proposals/update/offerings/WizardFormSecondPage.tsx, reporting/plan-usage/PlanUsageDialog.tsx, reporting/plan-usage/PlanUsageFilter.tsx, reporting/plan-usage/PlanUsageList.tsx, reporting/resource-usage/ResourceUsageFilter.tsx, reporting/resource-usage/ResourceUsageList.tsx, reporting/resource-usage/UserUsageList.tsx, user/UserOfferingList.tsx, user/affiliations/SummaryResourcesTable.tsx",
     "message": "Offering"
   },
   "Offerings count": {
@@ -8828,7 +8860,7 @@
     "message": "Project could not be moved."
   },
   "Project could not be updated.": {
-    "description": "project/manage/EditFieldDialog.tsx, project/manage/ProjectAvatar.tsx",
+    "description": "project/manage/EditEndDateDialog.tsx, project/manage/EditFieldDialog.tsx, project/manage/ProjectAvatar.tsx",
     "message": "Project could not be updated."
   },
   "Project credit": {
@@ -8858,6 +8890,14 @@
   "Project end date is {date}": {
     "description": "marketplace/details/DetailsPage.tsx",
     "message": "Project end date is {date}"
+  },
+  "Project end date supersedes resource termination date if resource termination date is after the project end date.": {
+    "description": "project/manage/EditEndDateDialog.tsx",
+    "message": "Project end date supersedes resource termination date if resource termination date is after the project end date."
+  },
+  "Project end date was successfully updated to {date}": {
+    "description": "project/manage/EditEndDateDialog.tsx",
+    "message": "Project end date was successfully updated to {date}"
   },
   "Project end date": {
     "description": "events/ExpandableEventDetailsTable.tsx, marketplace/resources/details/EndDateField.tsx, marketplace/resources/list/utils.tsx",
@@ -10036,7 +10076,7 @@
     "message": "Resource metadata"
   },
   "Resource name": {
-    "description": "invoices/details/InvoiceItemsTable.tsx, reporting/resource-usage/ResourceUsageList.tsx, reporting/resource-usage/UserUsageList.tsx",
+    "description": "invoices/details/InvoiceItemsTable.tsx, marketplace/resources/actions/EditResourceEndDateDialog.tsx, project/manage/EditEndDateDialog.tsx, reporting/resource-usage/ResourceUsageList.tsx, reporting/resource-usage/UserUsageList.tsx",
     "message": "Resource name"
   },
   "Resource option": {
@@ -10110,6 +10150,14 @@
   "Resource usage": {
     "description": "marketplace/resources/usage/ResourceCreateUsageDialog.test.tsx, marketplace/resources/usage/ResourceCreateUsageDialog.tsx, reporting/utils.ts",
     "message": "Resource usage"
+  },
+  "Resource will be terminated soon.": {
+    "description": "marketplace/resources/details/EndDateField.tsx",
+    "message": "Resource will be terminated soon."
+  },
+  "Resource will terminate at project end as termination date exceeds project duration.": {
+    "description": "marketplace/resources/list/ResourceTerminationDateField.tsx",
+    "message": "Resource will terminate at project end as termination date exceeds project duration."
   },
   "Resource {type} process": {
     "description": "marketplace/resources/resource-pending/OrderInProgressView.tsx",
@@ -10560,7 +10608,7 @@
     "message": "Save script"
   },
   "Save": {
-    "description": "administration/FeaturesList.tsx, administration/agreements/UserAgreementCreateDialog.tsx, administration/agreements/UserAgreementsEditDialog.tsx, administration/languages/AdministrationLanguages.tsx, administration/notifications/NotificationUpdateDialog.tsx, administration/providers/UpdateProviderDialog.tsx, administration/remote-offering-sync/RemoteSyncFormDialog.tsx, administration/roles/RoleCreateDialog.tsx, administration/roles/RoleDescriptionEditDialog.tsx, administration/roles/RoleEditDialog.tsx, administration/settings/CountrySelector.tsx, broadcasts/BroadcastSaveAsTemplateDialog.tsx, broadcasts/BroadcastTemplateCreateDialog.tsx, broadcasts/BroadcastTemplateUpdateDialog.tsx, customer/details/CustomerMediaPanel.tsx, customer/service-accounts/ServiceAccountFormDialog.tsx, customer/team/AddProjectUserDialog.tsx, customer/team/EditProjectUserDialog.tsx, customer/team/EditUserDialog.tsx, form/InsertLinkPopover.tsx, map/SetLocationDialog.tsx, marketplace/offerings/actions/SetAccessPolicyDialogForm.tsx, marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx, marketplace/offerings/expandable/utils.ts, marketplace/offerings/update/attributes/EditAttributeDialog.tsx, marketplace/offerings/update/attributes/EditCategoryDialog.tsx, marketplace/offerings/update/components/ChangeStorageModeDialog.tsx, marketplace/offerings/update/components/EditComponentDialog.tsx, marketplace/offerings/update/integration/EditLexisLinkIntegrationDialog.tsx, marketplace/offerings/update/integration/EditVarsDialog.tsx, marketplace/offerings/update/integration/ScriptEditorHeader.tsx, marketplace/offerings/update/options/EditOptionDialog.tsx, marketplace/offerings/update/plans/EditPlanDescriptionDialog.tsx, marketplace/offerings/update/plans/EditPlanPricesDialog.tsx, marketplace/offerings/update/plans/EditPlanQuotasDialog.tsx, marketplace/resources/actions/EditResourceEndDateDialog.tsx, marketplace/resources/actions/MoveResourceDialog.tsx, marketplace/resources/mass-actions/MultiMoveDialog.tsx, marketplace-checklist/ChecklistCustomer.tsx, openstack/openstack-tenant/actions/UpdatePortDialog.tsx, project/MoveProjectDialog.tsx, project/manage/ProjectAvatar.tsx, project/team/EditUserDialog.tsx, proposals/update/documents/AttachDocumentsDialog.tsx, proposals/update/general/EditGeneralInfoDialog.tsx, reporting/invoices/utils.ts, table/SaveFilterDialog.tsx, user/support/UserEditAvatarFormItem.tsx",
+    "description": "administration/FeaturesList.tsx, administration/agreements/UserAgreementCreateDialog.tsx, administration/agreements/UserAgreementsEditDialog.tsx, administration/languages/AdministrationLanguages.tsx, administration/notifications/NotificationUpdateDialog.tsx, administration/providers/UpdateProviderDialog.tsx, administration/remote-offering-sync/RemoteSyncFormDialog.tsx, administration/roles/RoleCreateDialog.tsx, administration/roles/RoleDescriptionEditDialog.tsx, administration/roles/RoleEditDialog.tsx, administration/settings/CountrySelector.tsx, broadcasts/BroadcastSaveAsTemplateDialog.tsx, broadcasts/BroadcastTemplateCreateDialog.tsx, broadcasts/BroadcastTemplateUpdateDialog.tsx, customer/details/CustomerMediaPanel.tsx, customer/service-accounts/ServiceAccountFormDialog.tsx, customer/team/AddProjectUserDialog.tsx, customer/team/EditProjectUserDialog.tsx, customer/team/EditUserDialog.tsx, form/InsertLinkPopover.tsx, map/SetLocationDialog.tsx, marketplace/offerings/actions/SetAccessPolicyDialogForm.tsx, marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx, marketplace/offerings/expandable/utils.ts, marketplace/offerings/update/attributes/EditAttributeDialog.tsx, marketplace/offerings/update/attributes/EditCategoryDialog.tsx, marketplace/offerings/update/components/ChangeStorageModeDialog.tsx, marketplace/offerings/update/components/EditComponentDialog.tsx, marketplace/offerings/update/integration/EditLexisLinkIntegrationDialog.tsx, marketplace/offerings/update/integration/EditVarsDialog.tsx, marketplace/offerings/update/integration/ScriptEditorHeader.tsx, marketplace/offerings/update/options/EditOptionDialog.tsx, marketplace/offerings/update/plans/EditPlanDescriptionDialog.tsx, marketplace/offerings/update/plans/EditPlanPricesDialog.tsx, marketplace/offerings/update/plans/EditPlanQuotasDialog.tsx, marketplace/resources/actions/EditResourceEndDateDialog.tsx, marketplace/resources/actions/MoveResourceDialog.tsx, marketplace/resources/mass-actions/MultiMoveDialog.tsx, marketplace-checklist/ChecklistCustomer.tsx, openstack/openstack-tenant/actions/UpdatePortDialog.tsx, project/MoveProjectDialog.tsx, project/manage/EditEndDateDialog.tsx, project/manage/ProjectAvatar.tsx, project/team/EditUserDialog.tsx, proposals/update/documents/AttachDocumentsDialog.tsx, proposals/update/general/EditGeneralInfoDialog.tsx, reporting/invoices/utils.ts, table/SaveFilterDialog.tsx, user/support/UserEditAvatarFormItem.tsx",
     "message": "Save"
   },
   "Saved filters": {
@@ -11239,6 +11287,10 @@
     "description": "marketplace/category/admin/CategoryColumnsForm.tsx",
     "message": "Set columns in {name} category"
   },
+  "Set end date for project": {
+    "description": "project/manage/EditEndDateDialog.tsx",
+    "message": "Set end date for project"
+  },
   "Set end date for resource": {
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Set end date for resource"
@@ -11291,12 +11343,8 @@
     "description": "openstack/openstack-tenant/SetRoutersButton.tsx",
     "message": "Set static routes"
   },
-  "Set termination date of {resourceName}": {
-    "description": "marketplace/resources/actions/EditResourceEndDateDialog.tsx",
-    "message": "Set termination date of {resourceName}"
-  },
   "Set termination date": {
-    "description": "marketplace/resources/actions/EditResourceEndDateAction.tsx, marketplace/resources/actions/EditResourceEndDateByProviderAction.tsx, marketplace/resources/actions/EditResourceEndDateByStaffAction.tsx",
+    "description": "marketplace/resources/actions/EditResourceEndDateAction.tsx, marketplace/resources/actions/EditResourceEndDateByProviderAction.tsx, marketplace/resources/actions/EditResourceEndDateByStaffAction.tsx, marketplace/resources/actions/EditResourceEndDateDialog.tsx",
     "message": "Set termination date"
   },
   "Set to draft": {
@@ -11607,9 +11655,17 @@
     "description": "project/OECD_FOS_2007_CODES.ts",
     "message": "Sociology"
   },
+  "Some conflicting resources are unselected": {
+    "description": "project/manage/EditEndDateDialog.tsx",
+    "message": "Some conflicting resources are unselected"
+  },
   "Some functionality may not be accessible.": {
     "description": "table/HiddenActionsMessage.tsx",
     "message": "Some functionality may not be accessible."
+  },
+  "Some of the resources' termination dates are beyond the project end date. Resource termination will begin on the project's end date.": {
+    "description": "project/ProjectEndDateField.tsx",
+    "message": "Some of the resources' termination dates are beyond the project end date. Resource termination will begin on the project's end date."
   },
   "Something went wrong": {
     "description": "ErrorView.tsx, customer/list/ExportAsEmailDialog.tsx, marketplace/service-providers/ServiceProviderManagement.tsx, proposals/proposal/create/AddProposalDialog.tsx, proposals/proposal/create/ProposalSubmissionStep.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestFormDialog.tsx, proposals/proposal/create-review/CreateReviewDialog.tsx, proposals/proposal/create-review/ProposalReviewCreatePage.tsx, proposals/update/offerings/CallOfferingCreateDialog.tsx",
@@ -11708,7 +11764,7 @@
     "message": "Starting"
   },
   "State": {
-    "description": "administration/hooks/HooksList.tsx, administration/hooks/HooksListFilter.tsx, administration/remote-offering-sync/RemoteOfferingSyncList.tsx, broadcasts/BroadcastList.tsx, customer/team/CustomerPermissionsReviewList.tsx, invitations/InvitationStateFilter.tsx, invitations/UserPermissionRequestsList.tsx, invoices/list/BillingRecordsList.tsx, invoices/list/InvoicesFilter.tsx, invoices/list/InvoicesList.tsx, marketplace/category/PublicOfferingsList.tsx, marketplace/details/OfferingResourcesFilter.tsx, marketplace/offerings/admin/AdminOfferingsFilter.tsx, marketplace/offerings/list/OfferingsFilter.tsx, marketplace/offerings/list/OfferingsList.tsx, marketplace/offerings/update/integration/OfferingScopeState.tsx, marketplace/orders/list/MarketplaceOrdersListFilter.tsx, marketplace/orders/list/OrdersListExpandableRow.tsx, marketplace/orders/list/OrdersTableComponent.tsx, marketplace/orders/list/ResourceOrders.tsx, marketplace/resources/lexis/BasicLexisLinkList.tsx, marketplace/resources/list/AllResourcesFilter.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/ProjectResourcesAllFilter.tsx, marketplace/resources/list/ProviderResourcesFilter.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/utils.tsx, marketplace/robot-accounts/RobotAccountList.tsx, marketplace/service-providers/ProviderCampaignFilter.tsx, marketplace/service-providers/ProviderOfferingsFilter.tsx, marketplace/service-providers/ProviderOfferingsList.tsx, marketplace/service-providers/ProviderProjectResourcesList.tsx, marketplace/service-providers/details/ProviderDashboardTab.tsx, marketplace-remote/BaseProjectUpdateRequestsList.tsx, marketplace-remote/OrganizationProjectUpdateRequestListFilter.tsx, marketplace-remote/ProjectUpdateRequestListFilter.tsx, marketplace-remote/ProjectUpdateRequestsList.tsx, navigation/header/confirmation-drawer/PendingConsumerOrders.tsx, navigation/header/confirmation-drawer/PendingProviderOrders.tsx, openstack/openstack-backup/BackupsList.tsx, openstack/openstack-floating-ips/FloatingIpsList.tsx, openstack/openstack-network/TenantNetworksList.tsx, openstack/openstack-security-groups/SecurityGroupsList.tsx, openstack/openstack-server-groups/ServerGroupsList.tsx, openstack/openstack-snapshot/TenantSnapshotsList.tsx, openstack/openstack-subnet/TenantSubnetsList.tsx, openstack/openstack-tenant/TenantInstancesList.tsx, openstack/openstack-tenant/TenantRoutersList.tsx, openstack/openstack-volume/InstanceVolumesList.tsx, openstack/openstack-volume/TenantVolumesList.tsx, openstack/openstack-volume/VolumeSnapshotsList.tsx, proposals/CallsAvailableOfferingsPage.tsx, proposals/PublicCallsList.tsx, proposals/call-management/CallAllFilters.tsx, proposals/call-management/CallManagementPage.tsx, proposals/details/CallRoundsList.tsx, proposals/offering-requests/OfferingRequestsList.tsx, proposals/proposal/CustomerProposalsList.tsx, proposals/proposal/ProposalsTableFilter.tsx, proposals/proposal/UserProposalsList.tsx, proposals/review/CustomerReviewsList.tsx, proposals/review/ReviewsTableFilter.tsx, proposals/review/UserReviewsList.tsx, proposals/round/proposals/ProposalsList.tsx, proposals/update/offerings/CallOfferingsSection.tsx, proposals/update/rounds/CallRoundsList.tsx, rancher/ClusterProjectList.tsx, rancher/cluster/ClusterIngressesList.tsx, rancher/cluster/ClusterServicesList.tsx, rancher/cluster/ClusterWorkloadsList.tsx, rancher/cluster/apps/ClusterApplicationsList.tsx, rancher/cluster/hpas/ClusterHPAList.tsx, rancher/node/ClusterNodesList.tsx, rancher/template/ClusterTemplateList.tsx, resource/summary/ResourceSummaryBase.tsx, slurm/details/AllocationJobsTable.tsx, user/UserPermissionRequestsList.tsx, user/UserPermissionRequestsListFilter.tsx, user/affiliations/SummaryResourcesTable.tsx, user/hooks/HooksList.tsx, vmware/DisksList.tsx, vmware/PortsList.tsx",
+    "description": "administration/hooks/HooksList.tsx, administration/hooks/HooksListFilter.tsx, administration/remote-offering-sync/RemoteOfferingSyncList.tsx, broadcasts/BroadcastList.tsx, customer/team/CustomerPermissionsReviewList.tsx, invitations/InvitationStateFilter.tsx, invitations/UserPermissionRequestsList.tsx, invoices/list/BillingRecordsList.tsx, invoices/list/InvoicesFilter.tsx, invoices/list/InvoicesList.tsx, marketplace/category/PublicOfferingsList.tsx, marketplace/details/OfferingResourcesFilter.tsx, marketplace/offerings/admin/AdminOfferingsFilter.tsx, marketplace/offerings/list/OfferingsFilter.tsx, marketplace/offerings/list/OfferingsList.tsx, marketplace/offerings/update/integration/OfferingScopeState.tsx, marketplace/orders/list/MarketplaceOrdersListFilter.tsx, marketplace/orders/list/OrdersListExpandableRow.tsx, marketplace/orders/list/OrdersTableComponent.tsx, marketplace/orders/list/ResourceOrders.tsx, marketplace/resources/lexis/BasicLexisLinkList.tsx, marketplace/resources/list/AllResourcesFilter.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/ProjectResourcesAllFilter.tsx, marketplace/resources/list/ProviderResourcesFilter.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/utils.tsx, marketplace/robot-accounts/RobotAccountList.tsx, marketplace/service-providers/ProviderCampaignFilter.tsx, marketplace/service-providers/ProviderOfferingsFilter.tsx, marketplace/service-providers/ProviderOfferingsList.tsx, marketplace/service-providers/ProviderProjectResourcesList.tsx, marketplace/service-providers/details/ProviderDashboardTab.tsx, marketplace-remote/BaseProjectUpdateRequestsList.tsx, marketplace-remote/OrganizationProjectUpdateRequestListFilter.tsx, marketplace-remote/ProjectUpdateRequestListFilter.tsx, marketplace-remote/ProjectUpdateRequestsList.tsx, navigation/header/confirmation-drawer/PendingConsumerOrders.tsx, navigation/header/confirmation-drawer/PendingProviderOrders.tsx, openstack/openstack-backup/BackupsList.tsx, openstack/openstack-floating-ips/FloatingIpsList.tsx, openstack/openstack-network/TenantNetworksList.tsx, openstack/openstack-security-groups/SecurityGroupsList.tsx, openstack/openstack-server-groups/ServerGroupsList.tsx, openstack/openstack-snapshot/TenantSnapshotsList.tsx, openstack/openstack-subnet/TenantSubnetsList.tsx, openstack/openstack-tenant/TenantInstancesList.tsx, openstack/openstack-tenant/TenantRoutersList.tsx, openstack/openstack-volume/InstanceVolumesList.tsx, openstack/openstack-volume/TenantVolumesList.tsx, openstack/openstack-volume/VolumeSnapshotsList.tsx, project/manage/EditEndDateDialog.tsx, proposals/CallsAvailableOfferingsPage.tsx, proposals/PublicCallsList.tsx, proposals/call-management/CallAllFilters.tsx, proposals/call-management/CallManagementPage.tsx, proposals/details/CallRoundsList.tsx, proposals/offering-requests/OfferingRequestsList.tsx, proposals/proposal/CustomerProposalsList.tsx, proposals/proposal/ProposalsTableFilter.tsx, proposals/proposal/UserProposalsList.tsx, proposals/review/CustomerReviewsList.tsx, proposals/review/ReviewsTableFilter.tsx, proposals/review/UserReviewsList.tsx, proposals/round/proposals/ProposalsList.tsx, proposals/update/offerings/CallOfferingsSection.tsx, proposals/update/rounds/CallRoundsList.tsx, rancher/ClusterProjectList.tsx, rancher/cluster/ClusterIngressesList.tsx, rancher/cluster/ClusterServicesList.tsx, rancher/cluster/ClusterWorkloadsList.tsx, rancher/cluster/apps/ClusterApplicationsList.tsx, rancher/cluster/hpas/ClusterHPAList.tsx, rancher/node/ClusterNodesList.tsx, rancher/template/ClusterTemplateList.tsx, resource/summary/ResourceSummaryBase.tsx, slurm/details/AllocationJobsTable.tsx, user/UserPermissionRequestsList.tsx, user/UserPermissionRequestsListFilter.tsx, user/affiliations/SummaryResourcesTable.tsx, user/hooks/HooksList.tsx, vmware/DisksList.tsx, vmware/PortsList.tsx",
     "message": "State"
   },
   "Static routes update was scheduled.": {
@@ -12159,8 +12215,16 @@
     "description": "user/UserManageContainer.tsx",
     "message": "Termination actions"
   },
+  "Termination date exceeds project end date. Resource termination will start from the project end date.": {
+    "description": "marketplace/resources/details/EndDateField.tsx, marketplace/resources/details/ResourceEndDateConflictBar.tsx",
+    "message": "Termination date exceeds project end date. Resource termination will start from the project end date."
+  },
+  "Termination date is after end date. Resource will end with the project.": {
+    "description": "marketplace/resources/actions/EditResourceEndDateDialog.tsx",
+    "message": "Termination date is after end date. Resource will end with the project."
+  },
   "Termination date": {
-    "description": "marketplace/deploy/steps/TerminationDateField.tsx, marketplace/resources/actions/EditResourceEndDateDialog.tsx, marketplace/resources/details/EndDateField.tsx, marketplace/resources/details/utils.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/utils.tsx, resource/summary/ResourceSummaryBase.tsx",
+    "description": "marketplace/deploy/steps/TerminationDateField.tsx, marketplace/resources/actions/EditResourceEndDateDialog.tsx, marketplace/resources/details/EndDateField.tsx, marketplace/resources/details/utils.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/utils.tsx, project/manage/EditEndDateDialog.tsx, resource/summary/ResourceSummaryBase.tsx",
     "message": "Termination date"
   },
   "Termination date: {date}": {
@@ -12247,9 +12311,29 @@
     "description": "administration/providers/ProviderForm.tsx",
     "message": "The endpoint for user details management."
   },
+  "The following resources could not be updated": {
+    "description": "project/manage/EditEndDateDialog.tsx",
+    "message": "The following resources could not be updated"
+  },
+  "The following resources had their termination dates updated": {
+    "description": "project/manage/EditEndDateDialog.tsx",
+    "message": "The following resources had their termination dates updated"
+  },
+  "The following resources were not selected and will be forcibly terminated on the project end date:": {
+    "description": "project/manage/EditEndDateDialog.tsx",
+    "message": "The following resources were not selected and will be forcibly terminated on the project end date:"
+  },
+  "The following resources were not updated and be affected by the project end": {
+    "description": "project/manage/EditEndDateDialog.tsx",
+    "message": "The following resources were not updated and be affected by the project end"
+  },
   "The following substitution variables are available: {resource_name}, {resource_username}, {backend_id}, {options_key}, {backend_metadata_key}": {
     "description": "marketplace/offerings/update/overview/EditGettingStartedDialog.tsx",
     "message": "The following substitution variables are available: {resource_name}, {resource_username}, {backend_id}, {options_key}, {backend_metadata_key}"
+  },
+  "The following were not updated and be affected by the project end": {
+    "description": "project/manage/EditEndDateDialog.tsx",
+    "message": "The following were not updated and be affected by the project end"
   },
   "The image rendered at hero section of HomePort landing page.": {
     "description": "SettingsDescription.ts",
@@ -12354,6 +12438,10 @@
   "The role has been enabled": {
     "description": "administration/roles/RoleToggleButton.tsx",
     "message": "The role has been enabled"
+  },
+  "The selected termination date ({terminationDate}) is after the project end date ({endDate}). The resource will be terminated on the project end date regardless of this setting.": {
+    "description": "marketplace/resources/actions/EditResourceEndDateDialog.tsx",
+    "message": "The selected termination date ({terminationDate}) is after the project end date ({endDate}). The resource will be terminated on the project end date regardless of this setting."
   },
   "The user's {field} is required": {
     "description": "user/support/UserEditRows.tsx",
@@ -14227,6 +14315,10 @@
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Update access subnet"
   },
+  "Update all selected resource termination dates to match project end date": {
+    "description": "project/manage/EditEndDateDialog.tsx",
+    "message": "Update all selected resource termination dates to match project end date"
+  },
   "Update attributes": {
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Update attributes"
@@ -14542,6 +14634,10 @@
   "Use an existing namespace": {
     "description": "rancher/template/NamespaceField.tsx",
     "message": "Use an existing namespace"
+  },
+  "Use project date": {
+    "description": "marketplace/resources/actions/EditResourceEndDateDialog.tsx",
+    "message": "Use project date"
   },
   "Use sudo": {
     "description": "slurm/SlurmForm.tsx",
@@ -15358,6 +15454,10 @@
   "You're switching to the {name} organization. This will discard any entered data. Do you want to proceed?": {
     "description": "marketplace/details/CustomerField.tsx",
     "message": "You're switching to the {name} organization. This will discard any entered data. Do you want to proceed?"
+  },
+  "You've changed the project end date. Some resources now conflict with this date. Review the list below to align or confirm resource termination dates.": {
+    "description": "project/manage/EditEndDateDialog.tsx",
+    "message": "You've changed the project end date. Some resources now conflict with this date. Review the list below to align or confirm resource termination dates."
   },
   "Your FreeIPA has been removed in FreeIPA server.": {
     "description": "freeipa/SyncProfile.tsx",
