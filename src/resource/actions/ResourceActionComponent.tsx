@@ -54,10 +54,10 @@ export const ResourceActionComponent: FunctionComponent<
           </Dropdown.Item>
         ) : props.customerResourceActions ||
           props.staffActions ||
-          extraAndResourceTypeActions.length > 0 ? (
+          extraAndResourceTypeActions?.length > 0 ? (
           <>
             {/* If we also have Resource actions, move the extra and resource type actions into it. */}
-            {extraAndResourceTypeActions.length > 0 &&
+            {extraAndResourceTypeActions?.length > 0 &&
               !props.customerResourceActions?.length &&
               extraAndResourceTypeActions.map((ActionComponent, index) => (
                 <ActionComponent
@@ -99,7 +99,7 @@ export const ResourceActionComponent: FunctionComponent<
                 ))}
               </>
             )}
-            {props.staffActions.length > 0 && user.is_staff && (
+            {props.staffActions?.length > 0 && user.is_staff && (
               <>
                 <Dropdown.Header>{translate('Staff actions')}</Dropdown.Header>
                 {props.staffActions.map((ActionComponent, index) => (
