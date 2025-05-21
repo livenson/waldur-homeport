@@ -31,6 +31,7 @@ export const ShareNetworkDialog: FC<ActionDialogProps> = ({
             const response = await openstackTenantsList({
               query: {
                 name: query,
+                service_settings_uuid: resource.service_settings_uuid,
                 field: ['uuid', 'name', 'url'],
                 page: page,
                 page_size: ENV.pageSize,
