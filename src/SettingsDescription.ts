@@ -36,6 +36,12 @@ export const SettingsDescription = [
         default: 'https://example.com/',
         type: 'string',
       },
+      {
+        key: 'RANCHER_USERNAME_INPUT_LABEL',
+        description: translate('Label for the username field in Rancher external user resource access management.'),
+        default: 'Username',
+        type: 'string',
+      },
     ],
   },
   {
