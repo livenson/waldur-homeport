@@ -71,6 +71,7 @@ interface CoreConfiguration {
   FREEIPA_USERNAME_PREFIX?: string;
   FREEIPA_ENABLED?: boolean;
   KEYCLOAK_ICON: string;
+  RANCHER_USERNAME_INPUT_LABEL: string;
 }
 
 interface OpenStackConfiguration {
