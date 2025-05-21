@@ -491,6 +491,10 @@
     "description": "openstack/openstack-tenant/StaticRoutesTable.tsx",
     "message": "Add route"
   },
+  "Add router interface": {
+    "description": "openstack/openstack-tenant/AddRouterInterfaceButton.tsx, openstack/openstack-tenant/AddRouterInterfaceDialog.tsx",
+    "message": "Add router interface"
+  },
   "Add rule": {
     "description": "openstack/openstack-security-groups/rule-editor/RuleAddButton.tsx",
     "message": "Add rule"
@@ -3943,6 +3947,10 @@
     "description": "SettingsDescription.ts",
     "message": "Email for access user"
   },
+  "Email for receiving notifications about events connected with the service account.": {
+    "description": "customer/service-accounts/ServiceAccountFormDialog.tsx",
+    "message": "Email for receiving notifications about events connected with the service account."
+  },
   "Email has been updated.": {
     "description": "user/support/UserEmailChangeCallback.tsx",
     "message": "Email has been updated."
@@ -7259,6 +7267,10 @@
     "description": "administration/notifications/NotificationList.tsx",
     "message": "Notification code"
   },
+  "Notification email": {
+    "description": "customer/service-accounts/ServiceAccountFormDialog.tsx, customer/service-accounts/ServiceAccountsList.tsx",
+    "message": "Notification email"
+  },
   "Notification has been created.": {
     "description": "user/hooks/HookDetailsDialog.tsx",
     "message": "Notification has been created."
@@ -8523,6 +8535,10 @@
     "description": "auth/saml2/AuthSaml2Dialog.tsx",
     "message": "Please search for your organization"
   },
+  "Please select a port to remove.": {
+    "description": "openstack/openstack-tenant/RemoveRouterInterfaceButton.tsx",
+    "message": "Please select a port to remove."
+  },
   "Please select a script language to use dry-run": {
     "description": "marketplace/offerings/update/integration/EditScriptDialog.tsx",
     "message": "Please select a script language to use dry-run"
@@ -8546,6 +8562,10 @@
   "Please select organization first": {
     "description": "marketplace/details/ProjectField.tsx",
     "message": "Please select organization first"
+  },
+  "Please select the port that you want to remove.": {
+    "description": "openstack/openstack-tenant/RemoveRouterInterfaceButton.tsx",
+    "message": "Please select the port that you want to remove."
   },
   "Please start instance first.": {
     "description": "openstack/openstack-instance/actions/RestartAction.tsx",
@@ -8640,7 +8660,7 @@
     "message": "Port security has been enabled."
   },
   "Port": {
-    "description": "slurm/SlurmForm.tsx",
+    "description": "openstack/openstack-tenant/AddRouterInterfaceDialog.tsx, slurm/SlurmForm.tsx",
     "message": "Port"
   },
   "Ports": {
@@ -8662,6 +8682,10 @@
   "Powered by": {
     "description": "auth/PoweredBy.tsx",
     "message": "Powered by"
+  },
+  "Preferred identifier": {
+    "description": "customer/service-accounts/ServiceAccountFormDialog.tsx",
+    "message": "Preferred identifier"
   },
   "Preferred language": {
     "description": "user/support/UserDetailsTable.tsx, user/support/UserList.tsx",
@@ -9643,6 +9667,10 @@
     "description": "customer/details/CustomerRemovePanel.tsx",
     "message": "Remove organization"
   },
+  "Remove router interface": {
+    "description": "openstack/openstack-tenant/RemoveRouterInterfaceButton.tsx",
+    "message": "Remove router interface"
+  },
   "Remove selected users from the organization: {customerName}": {
     "description": "customer/team/UsersBulkRemoveButton.tsx",
     "message": "Remove selected users from the organization: {customerName}"
@@ -9652,7 +9680,7 @@
     "message": "Remove selected users from the project: {projectName}"
   },
   "Remove": {
-    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerManageContainer.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, customer/team/UsersBulkRemoveButton.tsx, form/DateField.tsx, form/WideImageField.tsx, invoices/details/InvoiceItemDelete.tsx, issues/comments/CommentActions.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/offerings/RemoveButton.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/update/ImageUploadField.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx, openstack/openstack-subnet/AllocationPoolsField.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, openstack/openstack-tenant/IpAddressList.tsx, openstack/openstack-tenant/StaticRoutesTable.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, project/ProjectManageContainer.tsx, project/team/ProjectUsersBulkRemoveButton.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestItemActions.tsx, proposals/review/ReviewDeleteAction.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/documents/RemoveDocumentButton.tsx, rancher/cluster/team/KeycloakMembershipBulkRemoveAction.tsx, rancher/cluster/team/KeycloakMembershipRowActions.tsx, user/hooks/HookRemoveButton.tsx, user/keys/KeyRemoveButton.tsx",
+    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerManageContainer.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, customer/team/UsersBulkRemoveButton.tsx, form/DateField.tsx, form/WideImageField.tsx, invoices/details/InvoiceItemDelete.tsx, issues/comments/CommentActions.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/offerings/RemoveButton.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/update/ImageUploadField.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx, openstack/openstack-subnet/AllocationPoolsField.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, openstack/openstack-tenant/IpAddressList.tsx, openstack/openstack-tenant/RemoveRouterInterfaceButton.tsx, openstack/openstack-tenant/StaticRoutesTable.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, project/ProjectManageContainer.tsx, project/team/ProjectUsersBulkRemoveButton.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestItemActions.tsx, proposals/review/ReviewDeleteAction.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/documents/RemoveDocumentButton.tsx, rancher/cluster/team/KeycloakMembershipBulkRemoveAction.tsx, rancher/cluster/team/KeycloakMembershipRowActions.tsx, user/hooks/HookRemoveButton.tsx, user/keys/KeyRemoveButton.tsx",
     "message": "Remove"
   },
   "Removed organizations cannot be restored!": {
@@ -10148,7 +10176,7 @@
     "message": "Resource usage for {resourceName}"
   },
   "Resource usage": {
-    "description": "marketplace/resources/usage/ResourceCreateUsageDialog.test.tsx, marketplace/resources/usage/ResourceCreateUsageDialog.tsx, marketplace/resources/usage/ResourceUsageTable.tsx, marketplace/routes.ts, reporting/utils.ts",
+    "description": "marketplace/resources/usage/ResourceCreateUsageDialog.test.tsx, marketplace/resources/usage/ResourceCreateUsageDialog.tsx, marketplace/resources/usage/ResourceUsageTable.tsx, reporting/utils.ts",
     "message": "Resource usage"
   },
   "Resource will be terminated soon.": {
@@ -10184,7 +10212,7 @@
     "message": "Resources"
   },
   "Responsible user": {
-    "description": "customer/service-accounts/ServiceAccountFormDialog.tsx, customer/service-accounts/ServiceAccountsList.tsx, marketplace/robot-accounts/CreateRobotAccountDialog.tsx",
+    "description": "marketplace/robot-accounts/CreateRobotAccountDialog.tsx",
     "message": "Responsible user"
   },
   "Restart": {
@@ -10486,6 +10514,14 @@
   "Rounds": {
     "description": "proposals/details/CallRoundsList.tsx, proposals/details/PublicCallDetailsContainer.tsx, proposals/round/RoundUIView.tsx, proposals/update/CallUpdateContainer.tsx, proposals/update/rounds/CallRoundsList.tsx",
     "message": "Rounds"
+  },
+  "Router interface was added.": {
+    "description": "openstack/openstack-tenant/AddRouterInterfaceDialog.tsx",
+    "message": "Router interface was added."
+  },
+  "Router interface was removed.": {
+    "description": "openstack/openstack-tenant/RemoveRouterInterfaceButton.tsx",
+    "message": "Router interface was removed."
   },
   "Routers": {
     "description": "openstack/openstack-tenant/TenantRoutersList.tsx, openstack/openstack-tenant/tabs.ts",
@@ -10855,6 +10891,10 @@
     "description": "issues/feedback/EvaluationSelectField.tsx",
     "message": "Select evaluation..."
   },
+  "Select existing port": {
+    "description": "openstack/openstack-tenant/AddRouterInterfaceDialog.tsx",
+    "message": "Select existing port"
+  },
   "Select flavor": {
     "description": "rancher/cluster/create/FormNodesStep.tsx",
     "message": "Select flavor"
@@ -11008,7 +11048,7 @@
     "message": "Select status..."
   },
   "Select subnet": {
-    "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx, openstack/openstack-tenant/actions/CreatePortDialog.tsx, rancher/cluster/create/FormNetworkStep.tsx",
+    "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx, openstack/openstack-tenant/AddRouterInterfaceDialog.tsx, openstack/openstack-tenant/actions/CreatePortDialog.tsx, rancher/cluster/create/FormNetworkStep.tsx",
     "message": "Select subnet"
   },
   "Select subnets to connect to...": {
@@ -11900,7 +11940,7 @@
     "message": "Subnet name"
   },
   "Subnet": {
-    "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx, openstack/openstack-tenant/actions/CreatePortDialog.tsx, rancher/cluster/create/FormNetworkStep.tsx, rancher/cluster/create/SubnetGroup.tsx",
+    "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx, openstack/openstack-tenant/AddRouterInterfaceDialog.tsx, openstack/openstack-tenant/actions/CreatePortDialog.tsx, rancher/cluster/create/FormNetworkStep.tsx, rancher/cluster/create/SubnetGroup.tsx",
     "message": "Subnet"
   },
   "Subnets from where connection to self-service is allowed.": {
@@ -11922,6 +11962,10 @@
   "Subtotal": {
     "description": "invoices/details/InvoiceDetails.tsx, invoices/list/MonthOverview.tsx, marketplace/details/plan/TotalLimitComponentsTable.tsx",
     "message": "Subtotal"
+  },
+  "Suggest an identifier to include into the generated username of the service account.": {
+    "description": "customer/service-accounts/ServiceAccountFormDialog.tsx",
+    "message": "Suggest an identifier to include into the generated username of the service account."
   },
   "Suggest name": {
     "description": "marketplace/deploy/steps/ResourceNameGroup.tsx",
@@ -12880,7 +12924,7 @@
     "message": "Type of support backend. Possible values: atlassian, zammad, smax."
   },
   "Type": {
-    "description": "administration/agreements/UserAgreementsList.tsx, administration/announcements/AnnouncementFilter.tsx, administration/announcements/AnnouncementForm.tsx, administration/roles/RoleForm.tsx, administration/service-desk/issue-templates/AdministrationIssueTemplatesList.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, customer/payment-profiles/PaymentProfileCreateDialog.tsx, customer/payment-profiles/PaymentProfileDetails.tsx, customer/payment-profiles/PaymentProfileList.tsx, customer/payment-profiles/PaymentProfileUpdateDialog.tsx, customer/workspace/CustomerEventsFilter.tsx, marketplace/aggregate-limits/AggregateLimitsExpandableRow.tsx, marketplace/category/PublicOfferingsList.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/offerings/OfferingViewHero.tsx, marketplace/offerings/actions/OfferingCreateDialog.tsx, marketplace/offerings/details/PublicOfferingComponentsTable.tsx, marketplace/offerings/list/OfferingsList.tsx, marketplace/offerings/update/components/ComponentsSection.tsx, marketplace/offerings/update/options/OptionForm.tsx, marketplace/orders/details/OrderDetailsQuickBody.tsx, marketplace/orders/list/MarketplaceOrdersListFilter.tsx, marketplace/orders/list/OrdersListExpandableRow.tsx, marketplace/orders/list/OrdersTableComponent.tsx, marketplace/orders/list/ResourceOrders.tsx, marketplace/resources/import/ResourcesList.tsx, marketplace/robot-accounts/CreateRobotAccountDialog.tsx, marketplace/robot-accounts/ProviderRobotAccountList.tsx, marketplace/robot-accounts/RobotAccountList.tsx, marketplace/service-providers/ProviderOfferingsList.tsx, marketplace/service-providers/details/ProviderDashboardTab.tsx, marketplace-remote/ProjectUpdateRequestExpandable.tsx, navigation/header/confirmation-drawer/PendingConsumerOrders.tsx, navigation/header/confirmation-drawer/PendingProviderOrders.tsx, openstack/openstack-instance/deploy/FormSSHPublicKeysField.tsx, openstack/openstack-network/OpenStackNetworkSummary.tsx, openstack/openstack-volume/InstanceVolumesList.tsx, openstack/openstack-volume/TenantVolumesList.tsx, project/ProjectEventsFilter.tsx, user/keys/KeysList.tsx, vmware/deploy/FormNetworkStep.tsx",
+    "description": "administration/agreements/UserAgreementsList.tsx, administration/announcements/AnnouncementFilter.tsx, administration/announcements/AnnouncementForm.tsx, administration/roles/RoleForm.tsx, administration/service-desk/issue-templates/AdministrationIssueTemplatesList.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, customer/payment-profiles/PaymentProfileCreateDialog.tsx, customer/payment-profiles/PaymentProfileDetails.tsx, customer/payment-profiles/PaymentProfileList.tsx, customer/payment-profiles/PaymentProfileUpdateDialog.tsx, customer/workspace/CustomerEventsFilter.tsx, marketplace/aggregate-limits/AggregateLimitsExpandableRow.tsx, marketplace/category/PublicOfferingsList.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/offerings/OfferingViewHero.tsx, marketplace/offerings/actions/OfferingCreateDialog.tsx, marketplace/offerings/details/PublicOfferingComponentsTable.tsx, marketplace/offerings/list/OfferingsList.tsx, marketplace/offerings/update/components/ComponentsSection.tsx, marketplace/offerings/update/options/OptionForm.tsx, marketplace/orders/details/OrderDetailsQuickBody.tsx, marketplace/orders/list/MarketplaceOrdersListFilter.tsx, marketplace/orders/list/OrdersListExpandableRow.tsx, marketplace/orders/list/OrdersTableComponent.tsx, marketplace/orders/list/ResourceOrders.tsx, marketplace/resources/import/ResourcesList.tsx, marketplace/robot-accounts/CreateRobotAccountDialog.tsx, marketplace/robot-accounts/ProviderRobotAccountList.tsx, marketplace/robot-accounts/RobotAccountList.tsx, marketplace/service-providers/ProviderOfferingsList.tsx, marketplace/service-providers/details/ProviderDashboardTab.tsx, marketplace-remote/ProjectUpdateRequestExpandable.tsx, navigation/header/confirmation-drawer/PendingConsumerOrders.tsx, navigation/header/confirmation-drawer/PendingProviderOrders.tsx, openstack/openstack-instance/deploy/FormSSHPublicKeysField.tsx, openstack/openstack-network/OpenStackNetworkSummary.tsx, openstack/openstack-tenant/AddRouterInterfaceDialog.tsx, openstack/openstack-volume/InstanceVolumesList.tsx, openstack/openstack-volume/TenantVolumesList.tsx, project/ProjectEventsFilter.tsx, user/keys/KeysList.tsx, vmware/deploy/FormNetworkStep.tsx",
     "message": "Type"
   },
   "Types of offering": {
@@ -12934,6 +12978,10 @@
   "Unable to add role.": {
     "description": "marketplace/offerings/update/roles/AddRoleDialog.tsx",
     "message": "Unable to add role."
+  },
+  "Unable to add router interface.": {
+    "description": "openstack/openstack-tenant/AddRouterInterfaceDialog.tsx",
+    "message": "Unable to add router interface."
   },
   "Unable to add user.": {
     "description": "project/team/AddUserDialog.tsx, proposals/team/AddUserDialog.tsx, user/support/AddRemoteUserDialog.tsx",
@@ -13726,6 +13774,10 @@
   "Unable to remove role.": {
     "description": "marketplace/offerings/update/roles/DeleteRoleButton.tsx",
     "message": "Unable to remove role."
+  },
+  "Unable to remove router interface.": {
+    "description": "openstack/openstack-tenant/RemoveRouterInterfaceButton.tsx",
+    "message": "Unable to remove router interface."
   },
   "Unable to remove the filter.": {
     "description": "table/SavedFilterSelect.tsx",
@@ -14908,7 +14960,7 @@
     "message": "Username prefix"
   },
   "Username": {
-    "description": "administration/TokensList.tsx, administration/users/FreeIPAUsersList.tsx, auth/SigninForm.tsx, customer/service-accounts/ServiceAccountFormDialog.tsx, customer/service-accounts/ServiceAccountsList.tsx, customer/team/CustomerUsersList.tsx, customer/team/UserGroup.tsx, freeipa/FreeIPAAccountEdit.tsx, freeipa/UsernameGroup.tsx, marketplace/offerings/details/CreateOfferingUserDialog.tsx, marketplace/resources/details/utils.tsx, marketplace/resources/usage/ResourceComponentUserUsageTable.tsx, marketplace/resources/usage/ResourceUsageFilter.tsx, marketplace/resources/usage/ResourceUsageForm.tsx, marketplace/resources/usage/UsageExportDropdown.tsx, marketplace/robot-accounts/CreateRobotAccountDialog.tsx, marketplace/robot-accounts/ProviderRobotAccountList.tsx, marketplace/robot-accounts/RobotAccountList.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx, openstack/OpenStackForm.tsx, openstack/openstack-tenant/OpenStackTenantSummary.tsx, project/team/ProjectUsersList.tsx, project/team/UserGroup.tsx, rancher/catalog/CatalogCreateDialog.tsx, rancher/cluster/users/ClusterUsersList.tsx, reporting/resource-usage/UserUsageList.tsx, slurm/SlurmForm.tsx, slurm/details/AllocationUsersTable.tsx, user/UserOfferingList.tsx, user/affiliations/SummaryTeamTable.tsx, user/support/UserDetailsTable.tsx, user/support/UserList.tsx, vmware/VMwareForm.tsx",
+    "description": "administration/TokensList.tsx, administration/users/FreeIPAUsersList.tsx, auth/SigninForm.tsx, customer/service-accounts/ServiceAccountsList.tsx, customer/team/CustomerUsersList.tsx, customer/team/UserGroup.tsx, freeipa/FreeIPAAccountEdit.tsx, freeipa/UsernameGroup.tsx, marketplace/offerings/details/CreateOfferingUserDialog.tsx, marketplace/resources/details/utils.tsx, marketplace/resources/usage/ResourceComponentUserUsageTable.tsx, marketplace/resources/usage/ResourceUsageFilter.tsx, marketplace/resources/usage/ResourceUsageForm.tsx, marketplace/resources/usage/UsageExportDropdown.tsx, marketplace/robot-accounts/CreateRobotAccountDialog.tsx, marketplace/robot-accounts/ProviderRobotAccountList.tsx, marketplace/robot-accounts/RobotAccountList.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx, openstack/OpenStackForm.tsx, openstack/openstack-tenant/OpenStackTenantSummary.tsx, project/team/ProjectUsersList.tsx, project/team/UserGroup.tsx, rancher/catalog/CatalogCreateDialog.tsx, rancher/cluster/team/AddResourceAccessDialog.tsx, rancher/cluster/users/ClusterUsersList.tsx, reporting/resource-usage/UserUsageList.tsx, slurm/SlurmForm.tsx, slurm/details/AllocationUsersTable.tsx, user/UserOfferingList.tsx, user/affiliations/SummaryTeamTable.tsx, user/support/UserDetailsTable.tsx, user/support/UserList.tsx, vmware/VMwareForm.tsx",
     "message": "Username"
   },
   "Usernames can contain letters (a-z), numbers (0-9), dashes (-), underscores (_) and periods (.).": {

@@ -134,14 +134,20 @@ export const ServiceAccountFormDialog = reduxForm<
         <FormContainer submitting={submitting}>
           <StringField
             name="username"
-            label={translate('Username')}
-            placeholder={translate('e.g.') + ' monitoring-bot'}
+            label={translate('Preferred identifier')}
+            placeholder={translate('e.g.') + ' backup'}
             autoFocus
+            description={translate(
+              'Suggest an identifier to include into the generated username of the service account.',
+            )}
           />
           <StringField
             name="email"
-            label={translate('Responsible user')}
-            placeholder={translate('e.g.') + ' alice@waldur.com'}
+            label={translate('Notification email')}
+            placeholder={translate('e.g.') + ' serviceaccount@example.com'}
+            description={translate(
+              'Email for receiving notifications about events connected with the service account.',
+            )}
           />
           <TextField
             name="description"
