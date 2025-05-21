@@ -8,6 +8,7 @@ import {
 
 import { getAllPages } from '@waldur/core/api';
 import { parseDate } from '@waldur/core/dateUtils';
+import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { getAccountingTypeOptions } from '@waldur/marketplace/offerings/update/components/ComponentAccountingTypeField';
 import { OfferingComponent } from '@waldur/marketplace/types';
@@ -341,4 +342,27 @@ export const getComponentsAndUsages = async (
   }
 
   return { components, usages, userUsages };
+};
+
+export const useResourceUsageTabs = () => {
+  return [
+    {
+      key: 'marketplace-component-user-usages',
+      title: translate('User usages'),
+      component: lazyComponent(() =>
+        import('./ResourceComponentUserUsageTable').then((module) => ({
+          default: module.ResourceComponentUserUsageTable,
+        })),
+      ),
+    },
+    {
+      key: 'marketplace-component-usages',
+      title: translate('Total usages'),
+      component: lazyComponent(() =>
+        import('./ResourceComponentUsageTable').then((module) => ({
+          default: module.ResourceComponentUsageTable,
+        })),
+      ),
+    },
+  ].filter(Boolean);
 };
