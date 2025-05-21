@@ -72,3 +72,7 @@ export const formatShortDateTime: DateFormatter = (date) =>
 /** @example 2024-07-22T14:00 */
 export const formatISOWithoutZone: DateFormatter = (date) =>
   parseDate(date).toFormat("yyyy-MM-dd'T'T");
+
+/** @example July 2022 */
+export const formatMonth: DateFormatter = (date) =>
+  parseDate(date).toFormat('MMMM yyyy');

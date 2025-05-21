@@ -1656,7 +1656,7 @@
     "message": "Billing component has been updated successfully."
   },
   "Billing period": {
-    "description": "marketplace/details/plan/PlanDetailsDialog.tsx, marketplace/offerings/PriceList.tsx, marketplace/offerings/update/plans/PlanForm.tsx",
+    "description": "marketplace/details/plan/PlanDetailsDialog.tsx, marketplace/offerings/PriceList.tsx, marketplace/offerings/update/plans/PlanForm.tsx, marketplace/resources/usage/ResourceComponentUsageTable.tsx",
     "message": "Billing period"
   },
   "Billing periods": {
@@ -3156,7 +3156,7 @@
     "message": "Date when termination orders are created; project is removed if resources are already terminated."
   },
   "Date": {
-    "description": "customer/payments/PaymentCreateDialog.tsx, customer/payments/PaymentUpdateDialog.tsx, customer/payments/PaymentsList.tsx, invoices/list/MarkAsPaidDialog.tsx, issues/feedback/SupportFeedbackListFilter.tsx, marketplace/resources/usage/ResourceUsageTable.tsx, marketplace/resources/usage/UsageExportDropdown.tsx, marketplace/resources/usage/utils.ts",
+    "description": "customer/payments/PaymentCreateDialog.tsx, customer/payments/PaymentUpdateDialog.tsx, customer/payments/PaymentsList.tsx, invoices/list/MarkAsPaidDialog.tsx, issues/feedback/SupportFeedbackListFilter.tsx, marketplace/resources/usage/ResourceComponentUserUsageTable.tsx, marketplace/resources/usage/ResourceUsageFilter.tsx, marketplace/resources/usage/UsageExportDropdown.tsx, marketplace/resources/usage/utils.ts",
     "message": "Date"
   },
   "Days": {
@@ -10152,7 +10152,7 @@
     "message": "Resource usage for {resourceName}"
   },
   "Resource usage": {
-    "description": "marketplace/resources/usage/ResourceCreateUsageDialog.test.tsx, marketplace/resources/usage/ResourceCreateUsageDialog.tsx, reporting/utils.ts",
+    "description": "marketplace/resources/usage/ResourceCreateUsageDialog.test.tsx, marketplace/resources/usage/ResourceCreateUsageDialog.tsx, marketplace/resources/usage/ResourceUsageTable.tsx, marketplace/routes.ts, reporting/utils.ts",
     "message": "Resource usage"
   },
   "Resource will be terminated soon.": {
@@ -10710,6 +10710,10 @@
   "Search by name": {
     "description": "marketplace/resources/actions/ActionDialogBody.tsx",
     "message": "Search by name"
+  },
+  "Search by username": {
+    "description": "marketplace/resources/usage/ResourceUsageFilter.tsx",
+    "message": "Search by username"
   },
   "Search for project": {
     "description": "invitations/actions/create/RoleAndProjectSelectField.tsx",
@@ -12800,7 +12804,7 @@
     "message": "Total number of nodes"
   },
   "Total of {label}": {
-    "description": "marketplace/resources/usage/ResourceUsageTable.tsx, marketplace/resources/usage/UsageExportDropdown.tsx",
+    "description": "marketplace/resources/usage/UsageExportDropdown.tsx",
     "message": "Total of {label}"
   },
   "Total paid": {
@@ -12827,8 +12831,12 @@
     "description": "rancher/cluster/create/RancherClusterCheckoutSummary.tsx",
     "message": "Total storage"
   },
+  "Total usages": {
+    "description": "marketplace/resources/usage/utils.ts",
+    "message": "Total usages"
+  },
   "Total": {
-    "description": "customer/cost-policies/CostPolicyForm.tsx, customer/cost-policies/utils.ts, invoices/details/BillingRecordDetails.tsx, invoices/details/InvoiceDetails.tsx, invoices/details/InvoiceItemExpandableRow.tsx, invoices/details/InvoiceItemsTable.tsx, invoices/details/ResourceLimitPeriodsTable.tsx, invoices/list/BillingRecordsList.tsx, invoices/list/InvoicesList.tsx, invoices/list/MonthOverview.tsx, marketplace/deploy/DeployPageTotalCard.tsx, marketplace/details/plan/ComponentRow.tsx, marketplace/details/plan/OrderSummaryPlanRows.tsx, marketplace/details/plan/PlanDetailsTable.tsx, marketplace/details/plan/PlanDetailsTable2.tsx, marketplace/details/plan/TotalLimitComponentsTable.tsx, marketplace/details/plan/UsageComponentRow.tsx, marketplace/resources/change-limits/ComponentTotalRow.tsx, marketplace/resources/usage/ResourceUsageTable.tsx, marketplace/resources/usage/UsageExportDropdown.tsx, reporting/invoices/utils.ts",
+    "description": "customer/cost-policies/CostPolicyForm.tsx, customer/cost-policies/utils.ts, invoices/details/BillingRecordDetails.tsx, invoices/details/InvoiceDetails.tsx, invoices/details/InvoiceItemExpandableRow.tsx, invoices/details/InvoiceItemsTable.tsx, invoices/details/ResourceLimitPeriodsTable.tsx, invoices/list/BillingRecordsList.tsx, invoices/list/InvoicesList.tsx, invoices/list/MonthOverview.tsx, marketplace/deploy/DeployPageTotalCard.tsx, marketplace/details/plan/ComponentRow.tsx, marketplace/details/plan/OrderSummaryPlanRows.tsx, marketplace/details/plan/PlanDetailsTable.tsx, marketplace/details/plan/PlanDetailsTable2.tsx, marketplace/details/plan/TotalLimitComponentsTable.tsx, marketplace/details/plan/UsageComponentRow.tsx, marketplace/resources/change-limits/ComponentTotalRow.tsx, marketplace/resources/usage/UsageExportDropdown.tsx, reporting/invoices/utils.ts",
     "message": "Total"
   },
   "Tracked using UTC timezone, displayed with your browser’s timezone.": {
@@ -14624,7 +14632,7 @@
     "message": "Usage reports"
   },
   "Usage": {
-    "description": "marketplace/aggregate-limits/AggregateLimitDetailsDialog.tsx, marketplace/aggregate-limits/utils.ts, marketplace/offerings/details/policies/PoliciesTable.tsx, marketplace/resources/change-limits/ChangeLimitsComponent.tsx, marketplace/resources/details/fetchData.tsx, reporting/plan-usage/PlanUsageDialog.tsx, slurm/details/utils.ts",
+    "description": "marketplace/aggregate-limits/AggregateLimitDetailsDialog.tsx, marketplace/aggregate-limits/utils.ts, marketplace/offerings/details/policies/PoliciesTable.tsx, marketplace/resources/change-limits/ChangeLimitsComponent.tsx, marketplace/resources/details/fetchData.tsx, marketplace/resources/usage/ResourceComponentUsageTable.tsx, reporting/plan-usage/PlanUsageDialog.tsx, slurm/details/utils.ts",
     "message": "Usage"
   },
   "Usage-based": {
@@ -14791,6 +14799,10 @@
     "description": "reporting/utils.ts",
     "message": "User usage"
   },
+  "User usages": {
+    "description": "marketplace/resources/usage/utils.ts",
+    "message": "User usages"
+  },
   "User username": {
     "description": "administration/users/FreeIPAUsersList.tsx",
     "message": "User username"
@@ -14900,7 +14912,7 @@
     "message": "Username prefix"
   },
   "Username": {
-    "description": "administration/TokensList.tsx, administration/users/FreeIPAUsersList.tsx, auth/SigninForm.tsx, customer/service-accounts/ServiceAccountFormDialog.tsx, customer/service-accounts/ServiceAccountsList.tsx, customer/team/CustomerUsersList.tsx, customer/team/UserGroup.tsx, freeipa/FreeIPAAccountEdit.tsx, freeipa/UsernameGroup.tsx, marketplace/offerings/details/CreateOfferingUserDialog.tsx, marketplace/resources/details/utils.tsx, marketplace/resources/usage/ResourceUsageForm.tsx, marketplace/resources/usage/ResourceUsageTable.tsx, marketplace/resources/usage/UsageExportDropdown.tsx, marketplace/robot-accounts/CreateRobotAccountDialog.tsx, marketplace/robot-accounts/ProviderRobotAccountList.tsx, marketplace/robot-accounts/RobotAccountList.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx, openstack/OpenStackForm.tsx, openstack/openstack-tenant/OpenStackTenantSummary.tsx, project/team/ProjectUsersList.tsx, project/team/UserGroup.tsx, rancher/catalog/CatalogCreateDialog.tsx, rancher/cluster/users/ClusterUsersList.tsx, reporting/resource-usage/UserUsageList.tsx, slurm/SlurmForm.tsx, slurm/details/AllocationUsersTable.tsx, user/UserOfferingList.tsx, user/affiliations/SummaryTeamTable.tsx, user/support/UserDetailsTable.tsx, user/support/UserList.tsx, vmware/VMwareForm.tsx",
+    "description": "administration/TokensList.tsx, administration/users/FreeIPAUsersList.tsx, auth/SigninForm.tsx, customer/service-accounts/ServiceAccountFormDialog.tsx, customer/service-accounts/ServiceAccountsList.tsx, customer/team/CustomerUsersList.tsx, customer/team/UserGroup.tsx, freeipa/FreeIPAAccountEdit.tsx, freeipa/UsernameGroup.tsx, marketplace/offerings/details/CreateOfferingUserDialog.tsx, marketplace/resources/details/utils.tsx, marketplace/resources/usage/ResourceComponentUserUsageTable.tsx, marketplace/resources/usage/ResourceUsageFilter.tsx, marketplace/resources/usage/ResourceUsageForm.tsx, marketplace/resources/usage/UsageExportDropdown.tsx, marketplace/robot-accounts/CreateRobotAccountDialog.tsx, marketplace/robot-accounts/ProviderRobotAccountList.tsx, marketplace/robot-accounts/RobotAccountList.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx, openstack/OpenStackForm.tsx, openstack/openstack-tenant/OpenStackTenantSummary.tsx, project/team/ProjectUsersList.tsx, project/team/UserGroup.tsx, rancher/catalog/CatalogCreateDialog.tsx, rancher/cluster/users/ClusterUsersList.tsx, reporting/resource-usage/UserUsageList.tsx, slurm/SlurmForm.tsx, slurm/details/AllocationUsersTable.tsx, user/UserOfferingList.tsx, user/affiliations/SummaryTeamTable.tsx, user/support/UserDetailsTable.tsx, user/support/UserList.tsx, vmware/VMwareForm.tsx",
     "message": "Username"
   },
   "Usernames can contain letters (a-z), numbers (0-9), dashes (-), underscores (_) and periods (.).": {
