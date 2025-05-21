@@ -2128,7 +2128,7 @@
     "message": "Civil engineering"
   },
   "Civil number": {
-    "description": "invitations/InvitationExpandableRow.tsx, invitations/actions/create/EmailsListGroup.tsx, rancher/cluster/team/AddResourceAccessDialog.tsx, user/support/UserList.tsx",
+    "description": "invitations/InvitationExpandableRow.tsx, invitations/actions/create/EmailsListGroup.tsx, user/support/UserList.tsx",
     "message": "Civil number"
   },
   "Clear filters": {
@@ -2387,9 +2387,9 @@
     "description": "rancher/template/TemplateDetail.tsx",
     "message": "Configuration"
   },
-  "Configure access permissions for a user in the rancher claster": {
+  "Configure access permissions for a user in the rancher cluster": {
     "description": "rancher/cluster/team/AddResourceAccessDialog.tsx",
-    "message": "Configure access permissions for a user in the rancher claster"
+    "message": "Configure access permissions for a user in the rancher cluster"
   },
   "Configure columns": {
     "description": "marketplace/category/admin/CategoryManageColumns.tsx",
@@ -6738,10 +6738,6 @@
   "My reviews": {
     "description": "proposals/review/UserReviewsList.tsx",
     "message": "My reviews"
-  },
-  "MyAccessID CUID": {
-    "description": "rancher/cluster/team/AddResourceAccessDialog.tsx",
-    "message": "MyAccessID CUID"
   },
   "N/A": {
     "description": "marketplace-checklist/AnswersTable.tsx",

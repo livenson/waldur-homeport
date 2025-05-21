@@ -14,6 +14,7 @@ import {
 } from 'waldur-js-client';
 
 import { getAllPages } from '@waldur/core/api';
+import { ENV } from '@waldur/core/config';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { required } from '@waldur/core/validators';
 import {
@@ -186,7 +187,7 @@ export const AddResourceAccessDialog = reduxForm<
       <ModalDialog
         title={translate('Resource access')}
         subtitle={translate(
-          'Configure access permissions for a user in the rancher claster',
+          'Configure access permissions for a user in the rancher cluster',
         )}
         footer={
           <>
@@ -238,10 +239,8 @@ export const AddResourceAccessDialog = reduxForm<
             <SelectField
               name="username"
               label={
-                translate('MyAccessID CUID') +
-                ' / ' +
-                translate('Civil number') +
-                ' / ...'
+                ENV.plugins.WALDUR_CORE.RANCHER_USERNAME_INPUT_LABEL ||
+                translate('Username')
               }
               placeholder={translate('e.g.') + ', EE12345667890'}
               isLoading={isLoadingUsers}
@@ -257,10 +256,8 @@ export const AddResourceAccessDialog = reduxForm<
             <StringField
               name="username"
               label={
-                translate('MyAccessID CUID') +
-                ' / ' +
-                translate('Civil number') +
-                ' / ...'
+                ENV.plugins.WALDUR_CORE.RANCHER_USERNAME_INPUT_LABEL ||
+                translate('Username')
               }
               placeholder={translate('e.g.') + ', EE12345667890'}
               containerClassName="col-md-6"
