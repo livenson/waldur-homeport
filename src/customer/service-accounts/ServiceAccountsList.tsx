@@ -65,7 +65,7 @@ export const ServiceAccountsTableComponent: FC<
           export: (row) => formatDate(row.created),
         },
         {
-          title: translate('Responsible user'),
+          title: translate('Notification email'),
           render: ({ row }) => (
             <div className="d-flex align-items-center gap-1">
               {row.email}

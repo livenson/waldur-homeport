@@ -1,26 +1,21 @@
-import { PencilSimple } from '@phosphor-icons/react';
+import { PlusCircle } from '@phosphor-icons/react';
 import { useDispatch } from 'react-redux';
 import { OpenStackRouter } from 'waldur-js-client';
 
-import { lazyComponent } from '@waldur/core/lazyComponent';
 import { translate } from '@waldur/i18n';
 import { openModalDialog } from '@waldur/modal/actions';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
 import { ActionItemType } from '@waldur/resource/actions/types';
 
-const SetRoutesDialog = lazyComponent(() =>
-  import('./SetRoutesDialog').then((module) => ({
-    default: module.SetRoutesDialog,
-  })),
-);
+import { AddRouterInterfaceDialog } from './AddRouterInterfaceDialog';
 
-export const SetRoutersButton: ActionItemType<OpenStackRouter> = ({
+export const AddRouterInterfaceButton: ActionItemType<OpenStackRouter> = ({
   resource,
 }) => {
   const dispatch = useDispatch();
   const openDialog = () =>
     dispatch(
-      openModalDialog(SetRoutesDialog, {
+      openModalDialog(AddRouterInterfaceDialog, {
         resolve: {
           router: resource,
         },
@@ -28,8 +23,8 @@ export const SetRoutersButton: ActionItemType<OpenStackRouter> = ({
     );
   return (
     <ActionItem
-      title={translate('Set static routes')}
-      iconNode={<PencilSimple weight="bold" />}
+      title={translate('Add router interface')}
+      iconNode={<PlusCircle weight="bold" />}
       action={openDialog}
     />
   );

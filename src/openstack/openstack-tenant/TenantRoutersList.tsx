@@ -2,13 +2,12 @@ import { FunctionComponent, useMemo } from 'react';
 import { OpenStackRouter, OpenstackRoutersListData } from 'waldur-js-client';
 
 import { translate } from '@waldur/i18n';
+import { ResourceRowActions } from '@waldur/resource/actions/ResourceRowActions';
 import { ResourceState } from '@waldur/resource/state/ResourceState';
 import { ResourceSummary } from '@waldur/resource/summary/ResourceSummary';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
-
-import { SetRoutersButton } from './SetRoutersButton';
 
 export const TenantRoutersList: FunctionComponent<{ resourceScope }> = ({
   resourceScope,
@@ -22,6 +21,7 @@ export const TenantRoutersList: FunctionComponent<{ resourceScope }> = ({
         'name',
         'description',
         'created',
+        'ports',
         'resource_type',
         'routes',
         'service_name',
@@ -30,6 +30,7 @@ export const TenantRoutersList: FunctionComponent<{ resourceScope }> = ({
         'service_settings_state',
         'service_settings_error_message',
         'state',
+        'tenant_uuid',
         'error_message',
         'fixed_ips',
         'offering_external_ips',
@@ -64,7 +65,9 @@ export const TenantRoutersList: FunctionComponent<{ resourceScope }> = ({
       ]}
       verboseName={translate('routers')}
       title={translate('Routers')}
-      rowActions={({ row }) => <SetRoutersButton router={row} />}
+      rowActions={({ row }) => (
+        <ResourceRowActions resource={row} refetch={props.fetch} />
+      )}
       expandableRow={({ row }) => <ResourceSummary resource={row} />}
       hasQuery={true}
       showPageSizeSelector
