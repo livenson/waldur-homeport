@@ -18,6 +18,7 @@ import { getCustomer } from '@waldur/workspace/selectors';
 
 import { PROPOSALS_FILTER_FORM_ID } from '../constants';
 import { EndingField } from '../EndingField';
+import { ProposalExpandableRow } from '../round/proposals/ProposalExpandableRow';
 
 import { ProposalBadge } from './ProposalBadge';
 import { ProposalRowActions } from './ProposalRowActions';
@@ -61,7 +62,17 @@ export const CustomerProposalsList: FC<{}> = () => {
       columns={[
         {
           title: translate('Proposal'),
-          render: ({ row }) => <>{row.name}</>,
+          render: ({ row }) => (
+            <Link
+              state="call-management.proposal-details"
+              params={{ proposal_uuid: row.uuid }}
+              label={row.name}
+            />
+          ),
+        },
+        {
+          title: translate('Applicant'),
+          render: ({ row }) => <>{row.created_by_name || '-'} </>,
         },
         {
           title: translate('Call'),
@@ -99,6 +110,7 @@ export const CustomerProposalsList: FC<{}> = () => {
       rowActions={({ row }) => (
         <ProposalRowActions refetch={tableProps.fetch} row={row} />
       )}
+      expandableRow={ProposalExpandableRow}
     />
   );
 };
