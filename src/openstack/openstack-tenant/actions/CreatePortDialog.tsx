@@ -87,15 +87,16 @@ export const FixedIPsField: FC<{
               <SelectField />
             </Field>
           </Col>
-          {customIpEnabled && (
-            <Col xs={12}>
-              <Field
-                name="fixed_ips.fixed_ip"
-                component={CustomIpField}
-                data={fixedIps}
-              />
-            </Col>
-          )}
+          {customIpEnabled &&
+            fixedIps(
+              <Col xs={12}>
+                <Field
+                  name="fixed_ips.fixed_ip"
+                  component={CustomIpField}
+                  data={fixedIps}
+                />
+              </Col>,
+            )}
         </Row>
       </div>
     </Form.Group>
