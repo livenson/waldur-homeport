@@ -207,7 +207,7 @@ export const CreatePortDialog: FC<ActionDialogProps> = ({
         },
         {
           name: 'mac_address',
-          label: translate('Mac address'),
+          label: translate('MAC address'),
           type: 'string',
           validate: [macAddressValidator],
         },

@@ -39,7 +39,6 @@ export const AddRouterInterfaceDialog = ({ resolve: { router } }) => {
         await openstackPortsList({
           query: {
             tenant_uuid: router.tenant_uuid,
-            status: 'DOWN',
             has_device_owner: false,
             exclude_subnet_uuids: (router?.ports || [])
               .map((port) => port.subnet_uuid)
