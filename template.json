@@ -879,6 +879,10 @@
     "description": "proposals/review/ReviewsExpandableRow.tsx",
     "message": "Applicant name"
   },
+  "Applicant": {
+    "description": "proposals/proposal/CustomerProposalsList.tsx",
+    "message": "Applicant"
+  },
   "Application configuration": {
     "description": "rancher/template/ApplicationConfiguration.tsx",
     "message": "Application configuration"
@@ -2180,7 +2184,7 @@
     "message": "Close rounds"
   },
   "Close": {
-    "description": "administration/TelemetryExampleDialog.tsx, booking/components/BookingResourceDetailsDialog.tsx, broadcasts/RecipientsListDialog.tsx, marketplace/details/plan/EstimateUsageComponentDialog.tsx, marketplace/offerings/images/ImageDetailsDialog.tsx, marketplace/offerings/update/integration/GLAuthConfigDialog.tsx, marketplace/referral/OfferingReferralsDialog.tsx, marketplace/resources/details/ResourceTeamDialog.tsx, marketplace/resources/usage/ResourceShowUsageDialog.tsx, marketplace/service-providers/ProviderProjectResourcesDialog.tsx, navigation/UpgradeNotificationDialog.tsx, proposals/round/proposals/ProposalReviewsDetailButton.tsx, resource/summary/ResourceMetadataDialog.tsx, resource/summary/ResourceSummaryModal.tsx",
+    "description": "administration/TelemetryExampleDialog.tsx, booking/components/BookingResourceDetailsDialog.tsx, broadcasts/RecipientsListDialog.tsx, marketplace/details/plan/EstimateUsageComponentDialog.tsx, marketplace/offerings/images/ImageDetailsDialog.tsx, marketplace/offerings/update/integration/GLAuthConfigDialog.tsx, marketplace/referral/OfferingReferralsDialog.tsx, marketplace/resources/details/ResourceTeamDialog.tsx, marketplace/resources/usage/ResourceShowUsageDialog.tsx, marketplace/service-providers/ProviderProjectResourcesDialog.tsx, navigation/UpgradeNotificationDialog.tsx, resource/summary/ResourceMetadataDialog.tsx, resource/summary/ResourceSummaryModal.tsx",
     "message": "Close"
   },
   "Closed issues (this month)": {
@@ -2282,6 +2286,10 @@
   "Comment": {
     "description": "invitations/PermissionRequestActionDialog.tsx, invitations/UserPermissionRequestsList.tsx, issues/feedback/SupportFeedback.tsx, issues/feedback/SupportFeedbackListExpandableRow.tsx, marketplace-remote/ReviewDialog.tsx, proposals/proposal/create-review/CommentFormDialog.tsx, reporting/resource-usage/ResourceUsageList.tsx, reporting/resource-usage/UserUsageList.tsx, user/UserPermissionRequestsList.tsx",
     "message": "Comment"
+  },
+  "Comments by {reviewer}": {
+    "description": "proposals/round/proposals/ShowReviewCommentsAction.tsx",
+    "message": "Comments by {reviewer}"
   },
   "Comments": {
     "description": "issues/comments/IssueCommentsContainer.tsx, proposals/proposal/create/ProposalReviewDialog.tsx, proposals/proposal/create-review/steps/FormSummaryStep.tsx",
@@ -3484,7 +3492,7 @@
     "message": "Details overview"
   },
   "Details": {
-    "description": "administration/organizations/OrganizationGroupDetailsButton.tsx, administration/providers/ProviderCard.tsx, customer/dashboard/CustomerDashboardCredit.tsx, customer/details/CustomerBillingPanel.tsx, customer/details/CustomerDetailsPanel.tsx, customer/details/CustomerMarketplacePanel.tsx, customer/list/OrganizationCard.tsx, invoices/list/MonthOverview.tsx, marketplace/aggregate-limits/AggregateLimitWidget.tsx, marketplace/common/ViewOfferingButton.tsx, marketplace/referral/ReferralDetailsButton.tsx, marketplace/resources/details/fetchData.tsx, marketplace/resources/details/openstack-instance/InstanceMainComponent.tsx, marketplace/resources/details/popup/ResourceDetailsDialog.tsx, marketplace/resources/usage/utils.ts, project/ProjectCard.tsx, project/ProjectDashboardCredit.tsx, project/manage/ProjectGeneral.tsx, proposals/CallCard.tsx, proposals/round/proposals/ProposalReviewsDetailButton.tsx, rancher/cluster/apps/ApplicationDetailsButton.tsx, resource/summary/ResourceSummary.tsx, resource/summary/ResourceSummaryButton.tsx, resource/summary/ResourceSummaryModal.tsx, user/UserDetailsButton.tsx, user/support/UserDetailsButton.tsx, user/support/UserDetailsDialog.tsx, vmware/tabs.ts",
+    "description": "administration/organizations/OrganizationGroupDetailsButton.tsx, administration/providers/ProviderCard.tsx, customer/dashboard/CustomerDashboardCredit.tsx, customer/details/CustomerBillingPanel.tsx, customer/details/CustomerDetailsPanel.tsx, customer/details/CustomerMarketplacePanel.tsx, customer/list/OrganizationCard.tsx, invoices/list/MonthOverview.tsx, marketplace/aggregate-limits/AggregateLimitWidget.tsx, marketplace/common/ViewOfferingButton.tsx, marketplace/referral/ReferralDetailsButton.tsx, marketplace/resources/details/fetchData.tsx, marketplace/resources/details/openstack-instance/InstanceMainComponent.tsx, marketplace/resources/details/popup/ResourceDetailsDialog.tsx, marketplace/resources/usage/utils.ts, project/ProjectCard.tsx, project/ProjectDashboardCredit.tsx, project/manage/ProjectGeneral.tsx, proposals/CallCard.tsx, rancher/cluster/apps/ApplicationDetailsButton.tsx, resource/summary/ResourceSummary.tsx, resource/summary/ResourceSummaryButton.tsx, resource/summary/ResourceSummaryModal.tsx, user/UserDetailsButton.tsx, user/support/UserDetailsButton.tsx, user/support/UserDetailsDialog.tsx, vmware/tabs.ts",
     "message": "Details"
   },
   "Device ID": {
@@ -7011,6 +7019,10 @@
     "description": "administration/remote-offering-sync/CategoryMappingRulesField.tsx, marketplace/resources/list/CategoryFilter.tsx",
     "message": "No categories"
   },
+  "No comments available": {
+    "description": "proposals/round/proposals/ShowReviewCommentsAction.tsx",
+    "message": "No comments available"
+  },
   "No countries": {
     "description": "customer/list/SelectCountryField.tsx",
     "message": "No countries"
@@ -8812,7 +8824,7 @@
     "message": "Private cloud"
   },
   "Private comment": {
-    "description": "proposals/round/proposals/ProposalReviewsDetailButton.tsx",
+    "description": "proposals/round/proposals/ShowReviewCommentsAction.tsx",
     "message": "Private comment"
   },
   "Private registry URL": {
@@ -8876,7 +8888,7 @@
     "message": "Project dashboard"
   },
   "Project description": {
-    "description": "marketplace/orders/list/OrdersListExpandableRow.tsx, project/create/DescriptionGroup.tsx",
+    "description": "marketplace/orders/list/OrdersListExpandableRow.tsx, project/create/DescriptionGroup.tsx, proposals/round/proposals/ShowReviewCommentsAction.tsx",
     "message": "Project description"
   },
   "Project details for {name}": {
@@ -8890,6 +8902,10 @@
   "Project duration in days": {
     "description": "proposals/proposal/create/ProjectDetailsStep.tsx, proposals/proposal/create/ProjectDetailsSummary.tsx",
     "message": "Project duration in days"
+  },
+  "Project duration": {
+    "description": "proposals/round/proposals/ShowReviewCommentsAction.tsx",
+    "message": "Project duration"
   },
   "Project end date is {date}": {
     "description": "marketplace/details/DetailsPage.tsx",
@@ -8934,6 +8950,10 @@
   "Project has been updated.": {
     "description": "project/manage/EditFieldDialog.tsx, project/manage/ProjectAvatar.tsx",
     "message": "Project has been updated."
+  },
+  "Project has civilian purpose": {
+    "description": "proposals/round/proposals/ShowReviewCommentsAction.tsx",
+    "message": "Project has civilian purpose"
   },
   "Project has reached its end date {date}": {
     "description": "marketplace/details/DetailsPage.tsx",
@@ -8980,12 +9000,20 @@
     "message": "Project slug"
   },
   "Project summary": {
-    "description": "proposals/review/ReviewsExpandableRow.tsx",
+    "description": "proposals/review/ReviewsExpandableRow.tsx, proposals/round/proposals/ProposalExpandableRow.tsx, proposals/round/proposals/ShowReviewCommentsAction.tsx",
     "message": "Project summary"
   },
+  "Project supporting documentation": {
+    "description": "proposals/round/proposals/ShowReviewCommentsAction.tsx",
+    "message": "Project supporting documentation"
+  },
   "Project team": {
-    "description": "proposals/proposal/create/ProposalSidebar.tsx, proposals/proposal/create/ProposalTeamStep.tsx, proposals/proposal/create/steps.ts, proposals/proposal/create-review/steps/ReviewTeamStep.tsx, proposals/proposal/create-review/steps/steps.ts",
+    "description": "proposals/proposal/create/ProposalSidebar.tsx, proposals/proposal/create/ProposalTeamStep.tsx, proposals/proposal/create/steps.ts, proposals/proposal/create-review/steps/ReviewTeamStep.tsx, proposals/proposal/create-review/steps/steps.ts, proposals/round/proposals/ShowReviewCommentsAction.tsx",
     "message": "Project team"
+  },
+  "Project title": {
+    "description": "proposals/round/proposals/ShowReviewCommentsAction.tsx",
+    "message": "Project title"
   },
   "Project type": {
     "description": "project/create/TypeGroup.tsx",
@@ -9236,7 +9264,7 @@
     "message": "Public cloud"
   },
   "Public comment": {
-    "description": "proposals/round/proposals/ProposalReviewsDetailButton.tsx",
+    "description": "proposals/round/proposals/ShowReviewCommentsAction.tsx",
     "message": "Public comment"
   },
   "Public information": {
@@ -10116,7 +10144,7 @@
     "message": "Resource request has been updated."
   },
   "Resource requests": {
-    "description": "proposals/proposal/create/ProposalSidebar.tsx, proposals/proposal/create/ResourceRequestsSummary.tsx, proposals/proposal/create/steps.ts, proposals/proposal/create-review/steps/steps.ts",
+    "description": "proposals/proposal/create/ProposalSidebar.tsx, proposals/proposal/create/ResourceRequestsSummary.tsx, proposals/proposal/create/steps.ts, proposals/proposal/create-review/steps/steps.ts, proposals/round/proposals/ShowReviewCommentsAction.tsx",
     "message": "Resource requests"
   },
   "Resource successfully created": {
@@ -10266,10 +10294,6 @@
   "Review and confirm": {
     "description": "marketplace/offerings/import/tabs.ts",
     "message": "Review and confirm"
-  },
-  "Review details": {
-    "description": "proposals/round/proposals/ProposalReviewsDetailButton.tsx",
-    "message": "Review details"
   },
   "Review due": {
     "description": "proposals/review/CustomerReviewsList.tsx, proposals/review/UserReviewsList.tsx",
@@ -11514,6 +11538,10 @@
   "Show results of last run": {
     "description": "administration/remote-offering-sync/RemoteSyncLastRunResultsAction.tsx",
     "message": "Show results of last run"
+  },
+  "Show reviewer comments": {
+    "description": "proposals/round/proposals/ShowReviewCommentsAction.tsx",
+    "message": "Show reviewer comments"
   },
   "Show rules": {
     "description": "openstack/openstack-instance/deploy/FormSecurityGroupsField.tsx",
