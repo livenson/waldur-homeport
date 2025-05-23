@@ -29,7 +29,6 @@ export const CreateImageButton = (props: CreateImageButtonProps) => {
     dispatch(
       openModalDialog(CreateImageDialog, {
         resolve: props,
-        size: 'lg',
       }),
     );
 
