@@ -8,17 +8,26 @@ import {
 
 import { translate } from '@waldur/i18n';
 import { waitForConfirmation } from '@waldur/modal/actions';
+import { PermissionEnum } from '@waldur/permissions/enums';
+import { hasPermission } from '@waldur/permissions/hasPermission';
 import { showSuccess, showErrorResponse } from '@waldur/store/notify';
+import { useUser } from '@waldur/workspace/hooks';
 
 export const useProposalDecisionActions = (
   proposal: Proposal,
   refetch: () => void,
 ) => {
   const dispatch = useDispatch();
+  const user = useUser();
 
-  const canPerformDecisionActions = ['submitted', 'in_review'].includes(
-    proposal.state,
-  );
+  const stateIsValid = ['submitted', 'in_review'].includes(proposal.state);
+
+  const hasPermissionForDecision = hasPermission(user, {
+    permission: PermissionEnum.APPROVE_AND_REJECT_PROPOSALS,
+    scopeId: proposal.call_uuid,
+  });
+
+  const canPerformDecisionActions = stateIsValid && hasPermissionForDecision;
 
   const handleApproveProposal = useCallback(async () => {
     await waitForConfirmation(
