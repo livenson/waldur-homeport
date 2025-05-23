@@ -9,6 +9,8 @@ import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
 
+import { CreateRouterAction } from './actions/CreateRouterAction';
+
 export const TenantRoutersList: FunctionComponent<{ resourceScope }> = ({
   resourceScope,
 }) => {
@@ -18,6 +20,7 @@ export const TenantRoutersList: FunctionComponent<{ resourceScope }> = ({
       field: [
         'uuid',
         'url',
+        'backend_id',
         'name',
         'description',
         'created',
@@ -65,6 +68,9 @@ export const TenantRoutersList: FunctionComponent<{ resourceScope }> = ({
       ]}
       verboseName={translate('routers')}
       title={translate('Routers')}
+      tableActions={
+        <CreateRouterAction resource={resourceScope} refetch={props.fetch} />
+      }
       rowActions={({ row }) => (
         <ResourceRowActions resource={row} refetch={props.fetch} />
       )}

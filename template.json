@@ -1211,6 +1211,10 @@
     "description": "marketplace/category/admin/ColumnRow.tsx",
     "message": "Are you sure you want to remove this column: {title}?"
   },
+  "Are you sure you want to remove this router?": {
+    "description": "openstack/openstack-tenant/RemoveRouterButton.tsx",
+    "message": "Are you sure you want to remove this router?"
+  },
   "Are you sure you want to remove {doc_name}?": {
     "description": "administration/service-desk/issue-templates/IssueTemplateForm.tsx",
     "message": "Are you sure you want to remove {doc_name}?"
@@ -2687,6 +2691,10 @@
     "description": "administration/service-desk/issue-templates/IssueTemplateForm.tsx",
     "message": "Create new issue template"
   },
+  "Create new router": {
+    "description": "openstack/openstack-tenant/actions/CreateRouterDialog.tsx",
+    "message": "Create new router"
+  },
   "Create new": {
     "description": "openstack/openstack-instance/deploy/FormSSHPublicKeysField.tsx",
     "message": "Create new"
@@ -2788,7 +2796,7 @@
     "message": "Create user"
   },
   "Create": {
-    "description": "administration/announcements/AnnouncementForm.tsx, administration/organizations/OrganizationGroupForm.tsx, administration/remote-offering-sync/RemoteSyncFormDialog.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, customer/cost-policies/CostPolicyFormDialog.tsx, customer/create/CustomerCreateDialog.tsx, customer/credits/CreditFormDialog.tsx, customer/details/AccessSubnetForm.tsx, customer/service-accounts/ServiceAccountFormDialog.tsx, freeipa/FreeIPAAccountCreate.tsx, issues/create/IssueCreateForm.tsx, issues/list/IssueCreateButton.tsx, marketplace/category/admin/CategoryEditDialog.tsx, marketplace/category/admin/GroupFromDialog.tsx, marketplace/details/OrderSubmitButton.tsx, marketplace/offerings/actions/OfferingCreateDialog.tsx, marketplace/offerings/details/CreateOfferingUserButton.tsx, marketplace/offerings/details/policies/PolicyCreateDialog.tsx, marketplace/offerings/update/components/AddComponentDialog.tsx, marketplace/offerings/update/endpoints/AddEndpointDialog.tsx, marketplace/offerings/update/options/AddOptionDialog.tsx, marketplace/offerings/update/plans/AddPlanDialog.tsx, marketplace/offerings/update/roles/AddRoleDialog.tsx, marketplace/orders/list/OrderTypeCell.tsx, marketplace/orders/list/OrderTypeFilter.tsx, marketplace/resources/details/ResourceIssuesCard.tsx, marketplace/resources/users/AddUserDialog.tsx, marketplace/service-providers/CampaignCreateButton.tsx, marketplace/service-providers/CreateProviderOfferingUserButton.tsx, openstack/openstack-instance/actions/CreateBackupAction.tsx, openstack/openstack-tenant/CreateMigrationButton.tsx, openstack/openstack-tenant/actions/CreateFloatingIpAction.tsx, openstack/openstack-tenant/actions/CreateNetworkAction.tsx, openstack/openstack-tenant/actions/CreatePortAction.tsx, openstack/openstack-tenant/actions/CreateSecurityGroupAction.tsx, openstack/openstack-tenant/actions/CreateServerGroupAction.tsx, openstack/openstack-volume/actions/CreateSnapshotAction.tsx, project/create/ProjectCreateDialog.tsx, proposals/call-management/CallFormDialog.tsx, proposals/proposal/create/AddProposalDialog.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestFormDialog.tsx, proposals/proposal/create-review/CreateReviewDialog.tsx, proposals/update/offerings/CallOfferingCreateDialog.tsx, proposals/update/rounds/CallRoundCreateDialog.tsx, rancher/catalog/CatalogCreateButton.tsx, rancher/cluster/hpas/HPACreateButton.tsx, user/hooks/HookDetailsDialog.tsx",
+    "description": "administration/announcements/AnnouncementForm.tsx, administration/organizations/OrganizationGroupForm.tsx, administration/remote-offering-sync/RemoteSyncFormDialog.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, customer/cost-policies/CostPolicyFormDialog.tsx, customer/create/CustomerCreateDialog.tsx, customer/credits/CreditFormDialog.tsx, customer/details/AccessSubnetForm.tsx, customer/service-accounts/ServiceAccountFormDialog.tsx, freeipa/FreeIPAAccountCreate.tsx, issues/create/IssueCreateForm.tsx, issues/list/IssueCreateButton.tsx, marketplace/category/admin/CategoryEditDialog.tsx, marketplace/category/admin/GroupFromDialog.tsx, marketplace/details/OrderSubmitButton.tsx, marketplace/offerings/actions/OfferingCreateDialog.tsx, marketplace/offerings/details/CreateOfferingUserButton.tsx, marketplace/offerings/details/policies/PolicyCreateDialog.tsx, marketplace/offerings/update/components/AddComponentDialog.tsx, marketplace/offerings/update/endpoints/AddEndpointDialog.tsx, marketplace/offerings/update/options/AddOptionDialog.tsx, marketplace/offerings/update/plans/AddPlanDialog.tsx, marketplace/offerings/update/roles/AddRoleDialog.tsx, marketplace/orders/list/OrderTypeCell.tsx, marketplace/orders/list/OrderTypeFilter.tsx, marketplace/resources/details/ResourceIssuesCard.tsx, marketplace/resources/users/AddUserDialog.tsx, marketplace/service-providers/CampaignCreateButton.tsx, marketplace/service-providers/CreateProviderOfferingUserButton.tsx, openstack/openstack-instance/actions/CreateBackupAction.tsx, openstack/openstack-tenant/CreateMigrationButton.tsx, openstack/openstack-tenant/actions/CreateFloatingIpAction.tsx, openstack/openstack-tenant/actions/CreateNetworkAction.tsx, openstack/openstack-tenant/actions/CreatePortAction.tsx, openstack/openstack-tenant/actions/CreateRouterAction.tsx, openstack/openstack-tenant/actions/CreateSecurityGroupAction.tsx, openstack/openstack-tenant/actions/CreateServerGroupAction.tsx, openstack/openstack-volume/actions/CreateSnapshotAction.tsx, project/create/ProjectCreateDialog.tsx, proposals/call-management/CallFormDialog.tsx, proposals/proposal/create/AddProposalDialog.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestFormDialog.tsx, proposals/proposal/create-review/CreateReviewDialog.tsx, proposals/update/offerings/CallOfferingCreateDialog.tsx, proposals/update/rounds/CallRoundCreateDialog.tsx, rancher/catalog/CatalogCreateButton.tsx, rancher/cluster/hpas/HPACreateButton.tsx, user/hooks/HookDetailsDialog.tsx",
     "message": "Create"
   },
   "Created at": {
@@ -7731,6 +7739,10 @@
     "description": "features/FeaturesDescription.ts",
     "message": "OpenStack resources provisioning"
   },
+  "OpenStack router has been created.": {
+    "description": "openstack/openstack-tenant/actions/CreateRouterDialog.tsx",
+    "message": "OpenStack router has been created."
+  },
   "OpenStack subnet": {
     "description": "openstack/openstack-subnet/EditSubnetDialog.tsx",
     "message": "OpenStack subnet"
@@ -9699,6 +9711,10 @@
     "description": "openstack/openstack-tenant/RemoveRouterInterfaceButton.tsx",
     "message": "Remove router interface"
   },
+  "Remove router": {
+    "description": "openstack/openstack-tenant/RemoveRouterButton.tsx",
+    "message": "Remove router"
+  },
   "Remove selected users from the organization: {customerName}": {
     "description": "customer/team/UsersBulkRemoveButton.tsx",
     "message": "Remove selected users from the organization: {customerName}"
@@ -9708,7 +9724,7 @@
     "message": "Remove selected users from the project: {projectName}"
   },
   "Remove": {
-    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerManageContainer.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, customer/team/UsersBulkRemoveButton.tsx, form/DateField.tsx, form/WideImageField.tsx, invoices/details/InvoiceItemDelete.tsx, issues/comments/CommentActions.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/offerings/RemoveButton.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/update/ImageUploadField.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx, openstack/openstack-subnet/AllocationPoolsField.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, openstack/openstack-tenant/IpAddressList.tsx, openstack/openstack-tenant/RemoveRouterInterfaceButton.tsx, openstack/openstack-tenant/StaticRoutesTable.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, project/ProjectManageContainer.tsx, project/team/ProjectUsersBulkRemoveButton.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestItemActions.tsx, proposals/review/ReviewDeleteAction.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/documents/RemoveDocumentButton.tsx, rancher/cluster/team/KeycloakMembershipBulkRemoveAction.tsx, rancher/cluster/team/KeycloakMembershipRowActions.tsx, user/hooks/HookRemoveButton.tsx, user/keys/KeyRemoveButton.tsx",
+    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerManageContainer.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, customer/team/UsersBulkRemoveButton.tsx, form/DateField.tsx, form/WideImageField.tsx, invoices/details/InvoiceItemDelete.tsx, issues/comments/CommentActions.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/offerings/RemoveButton.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/update/ImageUploadField.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx, openstack/openstack-subnet/AllocationPoolsField.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, openstack/openstack-tenant/IpAddressList.tsx, openstack/openstack-tenant/RemoveRouterButton.tsx, openstack/openstack-tenant/RemoveRouterInterfaceButton.tsx, openstack/openstack-tenant/StaticRoutesTable.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, project/ProjectManageContainer.tsx, project/team/ProjectUsersBulkRemoveButton.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestItemActions.tsx, proposals/review/ReviewDeleteAction.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/documents/RemoveDocumentButton.tsx, rancher/cluster/team/KeycloakMembershipBulkRemoveAction.tsx, rancher/cluster/team/KeycloakMembershipRowActions.tsx, user/hooks/HookRemoveButton.tsx, user/keys/KeyRemoveButton.tsx",
     "message": "Remove"
   },
   "Removed organizations cannot be restored!": {
@@ -9734,6 +9750,10 @@
   "Removing resource request": {
     "description": "proposals/proposal/create/resource-requests-step/ResourceRequestItemActions.tsx",
     "message": "Removing resource request"
+  },
+  "Removing router": {
+    "description": "openstack/openstack-tenant/RemoveRouterButton.tsx",
+    "message": "Removing router"
   },
   "Removing the organization will delete all related resources.": {
     "description": "customer/details/CustomerRemovePanel.tsx",
@@ -10546,6 +10566,10 @@
   "Router interface was removed.": {
     "description": "openstack/openstack-tenant/RemoveRouterInterfaceButton.tsx",
     "message": "Router interface was removed."
+  },
+  "Router was removed.": {
+    "description": "openstack/openstack-tenant/RemoveRouterButton.tsx",
+    "message": "Router was removed."
   },
   "Routers": {
     "description": "openstack/openstack-tenant/TenantRoutersList.tsx, openstack/openstack-tenant/tabs.ts",
@@ -13115,6 +13139,10 @@
     "description": "openstack/openstack-tenant/actions/CreateNetworkDialog.tsx",
     "message": "Unable to create OpenStack networks."
   },
+  "Unable to create OpenStack router.": {
+    "description": "openstack/openstack-tenant/actions/CreateRouterDialog.tsx",
+    "message": "Unable to create OpenStack router."
+  },
   "Unable to create VM snapshot.": {
     "description": "openstack/openstack-instance/actions/CreateBackupDialog.tsx",
     "message": "Unable to create VM snapshot."
@@ -13806,6 +13834,10 @@
   "Unable to remove router interface.": {
     "description": "openstack/openstack-tenant/RemoveRouterInterfaceButton.tsx",
     "message": "Unable to remove router interface."
+  },
+  "Unable to remove router.": {
+    "description": "openstack/openstack-tenant/RemoveRouterButton.tsx",
+    "message": "Unable to remove router."
   },
   "Unable to remove the filter.": {
     "description": "table/SavedFilterSelect.tsx",
