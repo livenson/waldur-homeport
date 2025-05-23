@@ -5931,6 +5931,10 @@
     "description": "SettingsDescription.ts",
     "message": "Label for link in hero section of HomePort landing page. It can be lead to support site or blog post."
   },
+  "Label for the username field in Rancher external user resource access management.": {
+    "description": "SettingsDescription.ts",
+    "message": "Label for the username field in Rancher external user resource access management."
+  },
   "Label that is visible to users in Marketplace.": {
     "description": "marketplace/offerings/DisplayNameField.tsx",
     "message": "Label that is visible to users in Marketplace."
@@ -8986,6 +8990,10 @@
   "Project image": {
     "description": "project/create/ImageGroup.tsx",
     "message": "Project image"
+  },
+  "Project is confidential": {
+    "description": "proposals/round/proposals/ShowReviewCommentsAction.tsx",
+    "message": "Project is confidential"
   },
   "Project member": {
     "description": "rancher/cluster/team/AddResourceAccessDialog.tsx",
