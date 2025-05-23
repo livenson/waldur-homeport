@@ -28,7 +28,7 @@ import { getDefaultFloatingIps, formatSubnet } from '../utils';
 import { FormSecurityGroupsField } from './FormSecurityGroupsField';
 import { FormSSHPublicKeysField } from './FormSSHPublicKeysField';
 
-export const CustomIpField = ({ parentName, data }) => {
+export const CustomIpField = ({ parentName, data, autoFocus = false }) => {
   const options = useMemo(() => {
     const ipRanges = data?.subnet
       ?.allocation_pools as OpenStackSubNetAllocationPool[];
@@ -59,7 +59,7 @@ export const CustomIpField = ({ parentName, data }) => {
     [data?.subnet?.cidr],
   );
 
-  const [selected, setSelected] = useState<{ label; value }>(
+  const [selected, setSelected] = useState<{ label; value }>(() =>
     data?.fixed_ip ? { label: data?.fixed_ip, value: data?.fixed_ip } : null,
   );
 
@@ -84,7 +84,7 @@ export const CustomIpField = ({ parentName, data }) => {
             onChange={fieldProps.input.onChange}
             hidden={selected?.value !== 'other'}
             className="mt-4"
-            autoFocus
+            autoFocus={autoFocus}
           />
           {fieldProps.meta.touched &&
             (fieldProps.meta.error ? (
