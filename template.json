@@ -15236,7 +15236,7 @@
     "message": "View summary"
   },
   "View": {
-    "description": "project/ProjectContainer.tsx, proposals/proposal/ProposalRowActions.tsx, proposals/proposal/UserProposalsList.tsx, proposals/review/ReviewViewAction.tsx, user/dashboard/UserProfileHero.tsx",
+    "description": "project/ProjectContainer.tsx, proposals/review/ReviewViewAction.tsx, user/dashboard/UserProfileHero.tsx",
     "message": "View"
   },
   "Viewing image": {
