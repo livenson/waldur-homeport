@@ -1,4 +1,3 @@
-import { Eye } from '@phosphor-icons/react';
 import { useCurrentStateAndParams } from '@uirouter/react';
 import { FC, useMemo } from 'react';
 import { useSelector } from 'react-redux';
@@ -6,14 +5,12 @@ import { getFormValues } from 'redux-form';
 import { createSelector } from 'reselect';
 import { Proposal, ProposalProposalsListData } from 'waldur-js-client';
 
+import { Link } from '@waldur/core/Link';
 import { isFeatureVisible } from '@waldur/features/connect';
 import { ProjectFeatures } from '@waldur/FeaturesEnums';
 import { translate } from '@waldur/i18n';
 import { PROPOSALS_FILTER_FORM_ID } from '@waldur/proposals/constants';
 import { getProposalStateOptions } from '@waldur/proposals/utils';
-import { ActionItem } from '@waldur/resource/actions/ActionItem';
-import { router } from '@waldur/router';
-import { ActionsDropdown } from '@waldur/table/ActionsDropdown';
 import { createFetcher } from '@waldur/table/api';
 import { DASH_ESCAPE_CODE } from '@waldur/table/constants';
 import Table from '@waldur/table/Table';
@@ -43,25 +40,6 @@ const filtersSelector = createSelector(
 
 const mandatoryFields = ['uuid', 'proposal_name', 'state'];
 
-const ViewProposalAction = ({ row }) => {
-  const action = () => {
-    router.stateService.go('proposals.manage-proposal', {
-      proposal_uuid: row.uuid,
-    });
-  };
-  return (
-    <ActionItem
-      title={translate('View')}
-      action={action}
-      iconNode={<Eye weight="bold" />}
-    />
-  );
-};
-
-const UserProposalsRowActions = ({ row }) => (
-  <ActionsDropdown row={row} actions={[ViewProposalAction]} />
-);
-
 export const UserProposalsList: FC = () => {
   const {
     params: { call },
@@ -90,7 +68,13 @@ export const UserProposalsList: FC = () => {
   const columns: Column<Proposal>[] = [
     {
       title: translate('Proposal'),
-      render: ({ row }) => <>{row.name}</>,
+      render: ({ row }) => (
+        <Link
+          state="proposals.manage-proposal"
+          params={{ proposal_uuid: row.uuid }}
+          label={row.name}
+        />
+      ),
       keys: ['name'],
       id: 'proposal',
     },
@@ -166,7 +150,6 @@ export const UserProposalsList: FC = () => {
       verboseName={translate('Proposals')}
       hasQuery={true}
       hasOptionalColumns
-      rowActions={UserProposalsRowActions}
       filters={<ProposalsTableFilter initialValues={initialValues} />}
     />
   );

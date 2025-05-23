@@ -1,4 +1,4 @@
-import { ChatText, CheckCircle, Eye, XCircle } from '@phosphor-icons/react';
+import { ChatText, CheckCircle, XCircle } from '@phosphor-icons/react';
 import { useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -8,7 +8,6 @@ import { openModalDialog } from '@waldur/modal/actions';
 import { PermissionEnum } from '@waldur/permissions/enums';
 import { hasPermission } from '@waldur/permissions/hasPermission';
 import { ActionItem } from '@waldur/resource/actions/ActionItem';
-import { router } from '@waldur/router';
 import { ActionsDropdownComponent } from '@waldur/table/ActionsDropdown';
 import { getUser } from '@waldur/workspace/selectors';
 
@@ -19,13 +18,6 @@ const CreateReviewDialog = lazyComponent(() =>
     default: module.CreateReviewDialog,
   })),
 );
-
-const linkToProposalDetails = (proposalUuid, callManagerUuid) =>
-  router.stateService.go('call-management.proposal-details', {
-    proposal_uuid: proposalUuid,
-    // if the parent component is not in organization scope, call managing organization's customer uuid is needed for routing
-    ...(callManagerUuid !== undefined && { uuid: callManagerUuid }),
-  });
 
 export const ProposalRowActions = ({ row, refetch }) => {
   const user = useSelector(getUser);
@@ -55,11 +47,6 @@ export const ProposalRowActions = ({ row, refetch }) => {
 
   return (
     <ActionsDropdownComponent>
-      <ActionItem
-        title={translate('View')}
-        action={() => linkToProposalDetails(row.uuid, row.call_manager_uuid)}
-        iconNode={<Eye weight="bold" />}
-      />
       {canCreateReview && (
         <ActionItem
           title={translate('Create review')}
