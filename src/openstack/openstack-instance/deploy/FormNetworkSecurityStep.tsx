@@ -86,7 +86,7 @@ export const CustomIpField = ({ parentName, data, autoFocus = false }) => {
             className="mt-4"
             autoFocus={autoFocus}
           />
-          {fieldProps.meta.touched &&
+          {fieldProps.meta.dirty &&
             (fieldProps.meta.error ? (
               <FieldError error={fieldProps.meta.error} />
             ) : fieldProps.meta.warning ? (
