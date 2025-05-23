@@ -424,7 +424,7 @@
     "message": "Add identity provider"
   },
   "Add image": {
-    "description": "marketplace/offerings/images/CreateImageButton.tsx, marketplace/offerings/images/CreateImageDialog.tsx",
+    "description": "marketplace/offerings/images/CreateImageButton.tsx",
     "message": "Add image"
   },
   "Add key": {
@@ -442,6 +442,10 @@
   "Add notification": {
     "description": "user/hooks/HookCreateButton.tsx",
     "message": "Add notification"
+  },
+  "Add offering image": {
+    "description": "marketplace/offerings/images/CreateImageDialog.tsx",
+    "message": "Add offering image"
   },
   "Add option": {
     "description": "marketplace/offerings/update/options/AddOptionButton.tsx, marketplace/offerings/update/options/AddOptionDialog.tsx",
@@ -802,10 +806,6 @@
   "Allowed address pairs": {
     "description": "openstack/openstack-tenant/OpenstackPortSummary.tsx",
     "message": "Allowed address pairs"
-  },
-  "Allowed file types": {
-    "description": "form/ImageField.tsx",
-    "message": "Allowed file types"
   },
   "Allows to hide domain field in organization detail.": {
     "description": "features/FeaturesDescription.ts",
@@ -2035,10 +2035,6 @@
     "description": "issues/types/constants.tsx",
     "message": "Change Request"
   },
-  "Change avatar": {
-    "description": "form/ImageField.tsx",
-    "message": "Change avatar"
-  },
   "Change comment": {
     "description": "issues/comments/CommentFormDialog.tsx",
     "message": "Change comment"
@@ -2424,7 +2420,7 @@
     "message": "Confirm your review"
   },
   "Confirm": {
-    "description": "administration/settings/ConfigurationEditDialog.tsx, customer/credits/CreditFormDialog.tsx, customer/credits/ProjectCreditFormDialog.tsx, customer/details/EditFieldDialog.tsx, issues/comments/CommentFormDialog.tsx, marketplace/details/CustomerField.tsx, marketplace/offerings/import/WizardButtons.tsx, marketplace/offerings/update/integration/EditFieldDialog.tsx, marketplace/offerings/update/integration/EditScriptLanguageDialog.tsx, project/manage/EditFieldDialog.tsx, proposals/proposal/create-review/CommentFormDialog.tsx, rancher/cluster/team/AddResourceAccessDialog.tsx",
+    "description": "administration/settings/ConfigurationEditDialog.tsx, customer/credits/CreditFormDialog.tsx, customer/credits/ProjectCreditFormDialog.tsx, customer/details/EditFieldDialog.tsx, issues/comments/CommentFormDialog.tsx, marketplace/details/CustomerField.tsx, marketplace/offerings/images/CreateImageDialog.tsx, marketplace/offerings/import/WizardButtons.tsx, marketplace/offerings/update/integration/EditFieldDialog.tsx, marketplace/offerings/update/integration/EditScriptLanguageDialog.tsx, project/manage/EditFieldDialog.tsx, proposals/proposal/create-review/CommentFormDialog.tsx, rancher/cluster/team/AddResourceAccessDialog.tsx",
     "message": "Confirm"
   },
   "Confirmation notification template": {
@@ -4174,6 +4170,10 @@
   "Enter a description": {
     "description": "marketplace/resources/usage/ResourceUsageForm.tsx, project/create/DescriptionGroup.tsx, proposals/proposal/create/ProjectDetailsStep.tsx",
     "message": "Enter a description"
+  },
+  "Enter a description...": {
+    "description": "marketplace/offerings/images/CreateImageDialog.tsx",
+    "message": "Enter a description..."
   },
   "Enter a name": {
     "description": "proposals/proposal/create/ProjectDetailsStep.tsx",
@@ -9687,10 +9687,6 @@
     "description": "project/team/ProjectUsersBulkRemoveButton.tsx",
     "message": "Remove all selected users from project."
   },
-  "Remove avatar": {
-    "description": "form/ImageField.tsx",
-    "message": "Remove avatar"
-  },
   "Remove link": {
     "description": "form/InsertLinkPopover.tsx",
     "message": "Remove link"
@@ -9770,6 +9766,10 @@
   "Renders link to docs in header": {
     "description": "SettingsDescription.ts",
     "message": "Renders link to docs in header"
+  },
+  "Replace": {
+    "description": "form/ImageField.tsx",
+    "message": "Replace"
   },
   "Replicate tenant to another OpenStack deployment": {
     "description": "openstack/openstack-tenant/actions/MigrateTenantDialog.tsx",
@@ -10010,10 +10010,6 @@
   "Reserved tasks": {
     "description": "administration/CeleryInfoPage.tsx",
     "message": "Reserved tasks"
-  },
-  "Reset avatar": {
-    "description": "form/ImageField.tsx",
-    "message": "Reset avatar"
   },
   "Reset to saved": {
     "description": "marketplace/offerings/update/integration/ScriptEditorHeader.tsx",
@@ -11952,7 +11948,7 @@
     "message": "Submit usage report"
   },
   "Submit": {
-    "description": "customer/payment-profiles/PaymentProfileCreateDialog.tsx, customer/payments/PaymentCreateDialog.tsx, form/FloatingSubmitButton.tsx, form/WizardFormContainer.tsx, invitations/GroupinvitationButtons.tsx, invitations/PermissionRequestActionDialog.tsx, invoices/list/MarkAsPaidDialog.tsx, issues/feedback/SupportFeedback.tsx, marketplace/offerings/actions/PauseOfferingDialog.tsx, marketplace/offerings/details/permissions/OfferingPermissionCreateDialog.tsx, marketplace/offerings/images/CreateImageDialog.tsx, marketplace/resources/change-limits/ChangeLimitsBody.tsx, marketplace/resources/change-plan/ChangePlanDialog.tsx, marketplace/resources/lexis/CreateLexisLinkDialog.tsx, marketplace/resources/terminate/TerminateDialog.tsx, marketplace/resources/usage/ResourceUsageSubmitButton.tsx, marketplace/service-providers/OfferingPermissionCreateDialog.tsx, marketplace-checklist/UserChecklist.tsx, marketplace-remote/ReviewDialog.tsx, openstack/openstack-tenant/actions/MigrateTenantDialog.tsx, openstack/openstack-volume/actions/ExtendDialog.tsx, proposals/proposal/create/ProposalSidebar.tsx, proposals/update/offerings/CallOfferingCreateDialog.tsx, rancher/catalog/CatalogCreateDialog.tsx, rancher/cluster/ImportYAMLDialog.tsx, rancher/cluster/ViewYAMLDialog.tsx, rancher/cluster/hpas/HPACreateDialog.tsx, rancher/cluster/hpas/HPAUpdateDialog.tsx, resource/actions/AsyncActionDialog.tsx, resource/actions/ResourceActionDialog.tsx, user/support/EditFieldDialog.tsx",
+    "description": "customer/payment-profiles/PaymentProfileCreateDialog.tsx, customer/payments/PaymentCreateDialog.tsx, form/FloatingSubmitButton.tsx, form/WizardFormContainer.tsx, invitations/GroupinvitationButtons.tsx, invitations/PermissionRequestActionDialog.tsx, invoices/list/MarkAsPaidDialog.tsx, issues/feedback/SupportFeedback.tsx, marketplace/offerings/actions/PauseOfferingDialog.tsx, marketplace/offerings/details/permissions/OfferingPermissionCreateDialog.tsx, marketplace/resources/change-limits/ChangeLimitsBody.tsx, marketplace/resources/change-plan/ChangePlanDialog.tsx, marketplace/resources/lexis/CreateLexisLinkDialog.tsx, marketplace/resources/terminate/TerminateDialog.tsx, marketplace/resources/usage/ResourceUsageSubmitButton.tsx, marketplace/service-providers/OfferingPermissionCreateDialog.tsx, marketplace-checklist/UserChecklist.tsx, marketplace-remote/ReviewDialog.tsx, openstack/openstack-tenant/actions/MigrateTenantDialog.tsx, openstack/openstack-volume/actions/ExtendDialog.tsx, proposals/proposal/create/ProposalSidebar.tsx, proposals/update/offerings/CallOfferingCreateDialog.tsx, rancher/catalog/CatalogCreateDialog.tsx, rancher/cluster/ImportYAMLDialog.tsx, rancher/cluster/ViewYAMLDialog.tsx, rancher/cluster/hpas/HPACreateDialog.tsx, rancher/cluster/hpas/HPAUpdateDialog.tsx, resource/actions/AsyncActionDialog.tsx, resource/actions/ResourceActionDialog.tsx, user/support/EditFieldDialog.tsx",
     "message": "Submit"
   },
   "Submitted": {
@@ -14667,6 +14663,10 @@
     "description": "marketplace/offerings/update/overview/OverviewSection.tsx",
     "message": "Upload an image to represent the offering visually."
   },
+  "Upload an image": {
+    "description": "form/ImageField.tsx",
+    "message": "Upload an image"
+  },
   "Upload failed, please try again": {
     "description": "form/upload/AttachmentItemPending.tsx",
     "message": "Upload failed, please try again"
@@ -14674,6 +14674,10 @@
   "Upload supporting documentation": {
     "description": "proposals/proposal/create/ProjectDetailsStep.tsx",
     "message": "Upload supporting documentation"
+  },
+  "Upload": {
+    "description": "form/ImageField.tsx",
+    "message": "Upload"
   },
   "Uploaded at": {
     "description": "proposals/details/CallDocumentsCard.tsx",
@@ -15691,6 +15695,10 @@
     "description": "invitations/actions/create/EmailsListGroup.tsx",
     "message": "e.g. EE123456789"
   },
+  "e.g. Image name...": {
+    "description": "marketplace/offerings/images/CreateImageDialog.tsx",
+    "message": "e.g. Image name..."
+  },
   "e.g. My Organization": {
     "description": "customer/create/CustomerCreateForm.tsx",
     "message": "e.g. My Organization"
@@ -15822,6 +15830,10 @@
   "offerings": {
     "description": "marketplace/category/PublicOfferingsList.tsx, proposals/details/CallOfferingsCard.tsx",
     "message": "offerings"
+  },
+  "or": {
+    "description": "form/ImageField.tsx",
+    "message": "or"
   },
   "orders": {
     "description": "marketplace/orders/list/ResourceOrders.tsx",
@@ -15978,6 +15990,10 @@
   "tokens": {
     "description": "administration/TokensList.tsx",
     "message": "tokens"
+  },
+  "under 2 MB": {
+    "description": "form/ImageField.tsx",
+    "message": "under 2 MB"
   },
   "user agreements": {
     "description": "administration/agreements/UserAgreementsList.tsx",
