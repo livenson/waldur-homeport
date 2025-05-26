@@ -6,7 +6,7 @@ import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { translate } from '@waldur/i18n';
 import { useNotify } from '@waldur/store/hooks';
 
-export const FileDownloader = ({ url, name, size = 40 }) => {
+export const FileDownloader = ({ url, name, size = 20 }) => {
   const { showErrorResponse } = useNotify();
   const [loading, setLoading] = useState(false);
 
@@ -42,7 +42,11 @@ export const FileDownloader = ({ url, name, size = 40 }) => {
       disabled={loading}
       title={translate('Download')}
     >
-      {loading ? <LoadingSpinner /> : <FileArrowDown size={size} />}
+      {loading ? (
+        <LoadingSpinner />
+      ) : (
+        <FileArrowDown weight="bold" size={size} />
+      )}
     </button>
   );
 };
