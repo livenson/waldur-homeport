@@ -26,12 +26,14 @@ interface AttachmentItemProps {
   attachment: Attachment;
   onDelete?(attachment): void;
   isDeleting?: boolean;
+  iconSize?: number;
 }
 
 export const AttachmentItem: FC<AttachmentItemProps> = ({
   attachment,
   onDelete,
   isDeleting,
+  iconSize = 20,
 }) => {
   const dispatch = useDispatch();
   const openModal = () =>
@@ -52,7 +54,7 @@ export const AttachmentItem: FC<AttachmentItemProps> = ({
         <>
           {attachment.file instanceof File ? (
             <div className="attachment-item__thumb">
-              <FileIcon size={40} className="text-muted" />
+              <FileIcon size={iconSize} weight="bold" className="text-muted" />
             </div>
           ) : (
             <div className="attachment-item__thumb">
@@ -66,12 +68,14 @@ export const AttachmentItem: FC<AttachmentItemProps> = ({
                     url={attachment.file}
                     name={attachment.file_name}
                     thumb
+                    iconSize={iconSize}
                   />
                 </button>
               ) : (
                 <FileDownloader
                   url={attachment.file}
                   name={attachment.file_name}
+                  size={iconSize}
                 />
               )}
             </div>
@@ -95,7 +99,7 @@ export const AttachmentItem: FC<AttachmentItemProps> = ({
       ) : (
         <>
           <div className="attachment-item__thumb">
-            <Warning />
+            <Warning weight="bold" />
           </div>
           <div className="attachment-item__body">
             <div className="attachment-item__body-name">
@@ -105,16 +109,18 @@ export const AttachmentItem: FC<AttachmentItemProps> = ({
         </>
       )}
       {onDelete ? (
-        <Button
-          variant="active-light-danger"
-          size="sm"
-          className="btn-icon attachment-item__delete"
-          onClick={() => onDelete(attachment)}
-        >
-          <span className="svg-icon svg-icon-2">
-            <Trash weight="bold" />
-          </span>
-        </Button>
+        <div>
+          <Button
+            variant="link"
+            size="sm"
+            className="btn-active-icon-danger attachment-item__delete p-0 btn-icon-right"
+            onClick={() => onDelete(attachment)}
+          >
+            <span className="svg-icon svg-icon-2">
+              <Trash weight="bold" />
+            </span>
+          </Button>
+        </div>
       ) : null}
     </div>
   );
