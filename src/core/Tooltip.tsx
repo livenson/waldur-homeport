@@ -39,6 +39,7 @@ export const Tip: React.FC<PropsWithChildren<TipProps>> = ({
             autoWidth && 'tooltip-auto-width',
             tipClassName,
           )}
+          style={{ zIndex: 1180 }}
         >
           {label}
         </Tooltip>
