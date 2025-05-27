@@ -24,7 +24,7 @@ export const UserImpersonateButton: FunctionComponent<{ row }> = ({ row }) => {
     }
   });
 
-  if (user?.uuid === row.uuid) {
+  if (!(user?.uuid !== row.uuid && user?.is_staff)) {
     return null;
   }
 
