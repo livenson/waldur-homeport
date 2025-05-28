@@ -36,7 +36,8 @@ interface OwnProps {
 }
 
 interface ServiceAccountFormData {
-  username: string;
+  preferred_identifier?: string;
+  username?: string;
   email: string;
   description: string;
 }
@@ -64,14 +65,19 @@ export const ServiceAccountFormDialog = reduxForm<
   const save = useCallback(
     async (formData: ServiceAccountFormData) => {
       try {
+        const {
+          preferred_identifier: _,
+          username: __,
+          ...updateData
+        } = formData;
         const body =
           context === 'customer'
             ? ({
-                ...formData,
+                ...(isEdit ? updateData : formData),
                 customer: scope.uuid,
               } as CustomerServiceAccountRequest)
             : ({
-                ...formData,
+                ...(isEdit ? updateData : formData),
                 project: scope.uuid,
               } as ProjectServiceAccountRequest);
 
@@ -150,13 +156,20 @@ export const ServiceAccountFormDialog = reduxForm<
       >
         <FormContainer submitting={submitting}>
           <StringField
-            name="username"
-            label={translate('Preferred identifier')}
+            name={isEdit ? 'username' : 'preferred_identifier'}
+            label={
+              isEdit ? translate('Username') : translate('Preferred identifier')
+            }
             placeholder={translate('e.g.') + ' backup'}
             autoFocus
-            description={translate(
-              'Suggest an identifier to include into the generated username of the service account.',
-            )}
+            disabled={isEdit}
+            description={
+              isEdit
+                ? translate('Username of the service account.')
+                : translate(
+                    'Suggest an identifier to include into the generated username of the service account.',
+                  )
+            }
           />
           <StringField
             name="email"
