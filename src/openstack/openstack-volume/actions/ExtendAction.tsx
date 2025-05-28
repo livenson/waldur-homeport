@@ -6,7 +6,7 @@ import { validateState } from '@waldur/resource/actions/base';
 import { DialogActionItem } from '@waldur/resource/actions/DialogActionItem';
 import { ActionItemType } from '@waldur/resource/actions/types';
 
-import { isBootable } from './utils';
+import { isExtendable } from './utils';
 
 const VolumeExtendDialog = lazyComponent(() =>
   import('./ExtendDialog').then((module) => ({
@@ -14,7 +14,7 @@ const VolumeExtendDialog = lazyComponent(() =>
   })),
 );
 
-const validators = [isBootable, validateState('OK')];
+const validators = [isExtendable, validateState('OK')];
 
 export const ExtendAction: ActionItemType = ({ resource, refetch }) => (
   <DialogActionItem
