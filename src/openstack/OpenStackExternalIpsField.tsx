@@ -1,11 +1,10 @@
 import { Plus, Trash } from '@phosphor-icons/react';
-import { Fragment } from 'react';
 import { Button, Form } from 'react-bootstrap';
-import { BaseFieldArrayProps, Field, FieldArray } from 'redux-form';
+import { BaseFieldArrayProps, FieldArray, FormSection } from 'redux-form';
 
-import { required } from '@waldur/core/validators';
-import { FormGroup, StringField } from '@waldur/form';
 import { translate } from '@waldur/i18n';
+
+import { StringField } from './StringField';
 
 const FieldsListGroup = ({ fields }: BaseFieldArrayProps<any>) => {
   const addRow = () => {
@@ -29,31 +28,13 @@ const FieldsListGroup = ({ fields }: BaseFieldArrayProps<any>) => {
               </thead>
               <tbody>
                 {fields.map((component, i) => (
-                  <Fragment key={component}>
+                  <FormSection name={component} key={i}>
                     <tr>
                       <td>
-                        <Field
-                          name={`${component}.floating_ip`}
-                          required={true}
-                          component={FormGroup}
-                          validate={[required]}
-                          hideLabel
-                          spaceless
-                        >
-                          <StringField />
-                        </Field>
+                        <StringField name="floating_ip" />
                       </td>
                       <td>
-                        <Field
-                          name={`${component}.external_ip`}
-                          required={true}
-                          component={FormGroup}
-                          validate={[required]}
-                          hideLabel
-                          spaceless
-                        >
-                          <StringField />
-                        </Field>
+                        <StringField name="external_ip" />
                       </td>
                       <td>
                         <Button
@@ -67,7 +48,7 @@ const FieldsListGroup = ({ fields }: BaseFieldArrayProps<any>) => {
                         </Button>
                       </td>
                     </tr>
-                  </Fragment>
+                  </FormSection>
                 ))}
               </tbody>
             </table>
