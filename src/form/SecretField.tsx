@@ -13,16 +13,17 @@ interface SecretFieldProps extends FormField {
   placeholder?: string;
   maxLength?: number;
   solid?: boolean;
+  className?: string;
 }
 
 export const SecretField: React.FC<SecretFieldProps> = (props) => {
   const [showSecret, onToggle] = useToggle(false);
 
   // eslint-disable-next-line @typescript-eslint/no-unused-vars
-  const { input, label, validate, solid, ...rest } = props;
+  const { input, label, validate, solid, className, ...rest } = props;
 
   return (
-    <div className="has-password">
+    <div className={'has-password' + (className ? ` ${className}` : '')}>
       <Form.Control
         {...props.input}
         type={showSecret ? 'text' : 'password'}

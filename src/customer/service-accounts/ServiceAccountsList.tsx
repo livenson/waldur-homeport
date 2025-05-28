@@ -86,6 +86,15 @@ export const ServiceAccountsTableComponent: FC<
       hasQuery={true}
       enableExport
       expandableRow={ServiceAccountExpandableRow}
+      rowActions={({ row }) => (
+        <ServiceAccountActions
+          context={context}
+          scope={scope}
+          row={row}
+          refetch={tableProps.fetch}
+          admin={!scope}
+        />
+      )}
       {...tableProps}
     />
   );
@@ -134,14 +143,6 @@ export const ServiceAccountsList: FC<ServiceAccountsProps> = ({
           </>
         )
       }
-      rowActions={({ row }) => (
-        <ServiceAccountActions
-          context={context}
-          scope={scope}
-          row={row}
-          refetch={tableProps.fetch}
-        />
-      )}
     />
   );
 };
