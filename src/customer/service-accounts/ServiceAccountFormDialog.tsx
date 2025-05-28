@@ -96,7 +96,7 @@ export const ServiceAccountFormDialog = reduxForm<
               resolve: {
                 username: response.data.username,
                 token: response.data.token,
-                expiresAt: response.data.expiresAt,
+                expiresAt: response.data.expires_at,
               },
             }),
           );
