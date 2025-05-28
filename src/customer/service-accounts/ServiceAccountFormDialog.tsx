@@ -13,6 +13,7 @@ import {
   ProjectServiceAccountRequest,
 } from 'waldur-js-client';
 
+import { lazyComponent } from '@waldur/core/lazyComponent';
 import {
   FormContainer,
   StringField,
@@ -20,7 +21,7 @@ import {
   TextField,
 } from '@waldur/form';
 import { translate } from '@waldur/i18n';
-import { closeModalDialog } from '@waldur/modal/actions';
+import { closeModalDialog, openModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
@@ -39,6 +40,12 @@ interface ServiceAccountFormData {
   email: string;
   description: string;
 }
+
+const ServiceAccountShowInfoDialog = lazyComponent(() =>
+  import('./ServiceAccountShowInfoDialog').then((module) => ({
+    default: module.ServiceAccountShowInfoDialog,
+  })),
+);
 
 export const ServiceAccountFormDialog = reduxForm<
   ServiceAccountFormData,
@@ -73,10 +80,20 @@ export const ServiceAccountFormDialog = reduxForm<
             context === 'customer'
               ? marketplaceCustomerServiceAccountsPartialUpdate
               : marketplaceProjectServiceAccountsPartialUpdate;
-          await api({
+          const response = await api({
             path: { uuid: row.uuid },
             body,
           });
+          // Open a dialog to show the API key
+          dispatch(
+            openModalDialog(ServiceAccountShowInfoDialog, {
+              resolve: {
+                username: response.data.username,
+                token: response.data.token,
+                expiresAt: response.data.expiresAt,
+              },
+            }),
+          );
         } else {
           const api =
             context === 'customer'
