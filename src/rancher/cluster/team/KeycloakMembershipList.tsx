@@ -1,7 +1,11 @@
 import { CaretDown, PlusCircle } from '@phosphor-icons/react';
 import { FunctionComponent, memo, useMemo } from 'react';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
-import { KeycloakUserGroupMembership, RancherCluster } from 'waldur-js-client';
+import {
+  KeycloakUserGroupMembership,
+  KeycloakUserGroupMembershipsListData,
+  Resource,
+} from 'waldur-js-client';
 
 import Avatar from '@waldur/core/Avatar';
 import { Badge } from '@waldur/core/Badge';
@@ -18,7 +22,13 @@ import { KeycloakMembershipExpandableRow } from './KeycloakMembershipExpandableR
 import { KeycloakMembershipRowActions } from './KeycloakMembershipRowActions';
 import { getKeycloakMembershipRoleColor } from './utils';
 
-const TableActions = ({ refetch, resource }) => {
+const TableActions = ({
+  refetch,
+  resource,
+}: {
+  refetch(): void;
+  resource: Resource;
+}) => {
   return (
     <Dropdown placement="bottom-end">
       <Dropdown.Toggle variant="primary" className="no-arrow btn-icon-right">
@@ -62,13 +72,14 @@ const ExpandableRow = memo((row: any, resource: any) => (
 ));
 
 export const KeycloakMembershipList: FunctionComponent<
-  TableWithPortal<{ resourceScope: RancherCluster }>
+  TableWithPortal<{ resourceScope: Resource }>
 > = ({ resourceScope, portal }) => {
   const filter = useMemo(
-    () => ({
-      cluster_uuid: resourceScope.uuid,
-      scope_type: 'cluster',
-    }),
+    () =>
+      ({
+        scope_uuid: resourceScope.resource_uuid,
+        scope_type: 'cluster',
+      }) satisfies KeycloakUserGroupMembershipsListData['query'],
     [resourceScope],
   );
   const props = useTable({

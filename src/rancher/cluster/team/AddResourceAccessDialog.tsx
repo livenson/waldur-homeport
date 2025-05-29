@@ -7,9 +7,9 @@ import { formValueSelector, reduxForm } from 'redux-form';
 import {
   keycloakUserGroupMembershipsCreate,
   projectsListUsersList,
-  RancherCluster,
   rancherProjectsList,
   rancherRoleTemplatesList,
+  Resource,
   UserRoleDetails,
 } from 'waldur-js-client';
 
@@ -43,7 +43,7 @@ interface ResourceAccessFormData {
 }
 
 interface AddResourceAccessDialogProps {
-  resource: RancherCluster;
+  resource: Resource;
   refetch;
 }
 
