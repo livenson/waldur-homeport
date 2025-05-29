@@ -169,7 +169,8 @@ export const AddResourceAccessDialog = reduxForm<
           username: formData.username,
           email: formData.email,
           role: formData.role,
-          scope_uuid: scope === 'cluster' ? resource.uuid : formData.scope_uuid,
+          scope_uuid:
+            scope === 'cluster' ? resource.resource_uuid : formData.scope_uuid,
         },
       });
       await refetch();
