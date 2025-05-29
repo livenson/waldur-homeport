@@ -9,20 +9,20 @@ import { required } from '@waldur/core/validators';
 import { FormGroup, SelectField } from '@waldur/form';
 import { VStepperFormStepCard } from '@waldur/form/VStepperFormStep';
 import { translate } from '@waldur/i18n';
-import { orderCustomerSelector } from '@waldur/marketplace/deploy/selectors';
+import { orderProjectSelector } from '@waldur/marketplace/deploy/selectors';
 import { FormStepProps } from '@waldur/marketplace/deploy/types';
 
 export const FormTenantStep = (props: FormStepProps) => {
-  const customer = useSelector(orderCustomerSelector);
+  const project = useSelector(orderProjectSelector);
   const { data, isLoading } = useQuery(
-    ['tenant-step', customer?.uuid],
+    ['tenant-step', project?.uuid],
     () =>
-      customer
+      project
         ? getAllPages((page) =>
             openstackTenantsList({
               query: {
                 page,
-                customer_uuid: customer.uuid,
+                project_uuid: project.uuid,
                 field: ['name', 'url', 'uuid'],
               },
             }),
