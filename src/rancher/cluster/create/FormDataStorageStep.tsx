@@ -1,8 +1,8 @@
 import { Plus } from '@phosphor-icons/react';
-import { Fragment, useCallback, useMemo } from 'react';
+import { Fragment, useCallback } from 'react';
 import { Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
-import { FieldArray, FormName, FormSection } from 'redux-form';
+import { FieldArray, FormSection } from 'redux-form';
 
 import { isFeatureVisible } from '@waldur/features/connect';
 import { RancherFeatures } from '@waldur/FeaturesEnums';
@@ -18,7 +18,6 @@ import {
 import {
   formNodesSelector,
   formTenantSelector,
-  getRancherMountPointChoices,
   useVolumeDataLoader,
 } from './utils';
 import { VolumeMountPointGroup } from './VolumeMountPointGroup';
@@ -33,7 +32,6 @@ const renderDataVolumeRows = ({
   sizeLimit,
   sizeValidate,
   change,
-  mountPoints,
 }: any) => {
   return (
     <>
@@ -55,16 +53,7 @@ const renderDataVolumeRows = ({
             {isFeatureVisible(RancherFeatures.volume_mount_point) && (
               <tr>
                 <td>
-                  <FormName>
-                    {({ form }) => (
-                      <VolumeMountPointGroup
-                        form={form}
-                        nodeIndex={nodeIndex}
-                        volumeIndex={index}
-                        mountPoints={mountPoints}
-                      />
-                    )}
-                  </FormName>
+                  <VolumeMountPointGroup nodeIndex={nodeIndex} />
                 </td>
               </tr>
             )}
@@ -106,8 +95,6 @@ export const FormDataStorageStep = (props: FormStepProps) => {
     [limit],
   );
 
-  const mountPoints = useMemo(() => getRancherMountPointChoices(), []);
-
   return (
     <VStepperFormStepCard
       title={translate('Data storage')}
@@ -134,7 +121,6 @@ export const FormDataStorageStep = (props: FormStepProps) => {
                 sizeValidate={[exceeds]}
                 change={props.change}
                 nodeIndex={i}
-                mountPoints={mountPoints}
               />
             </FormSection>
           </FormNodeStorageTable>

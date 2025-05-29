@@ -3127,10 +3127,6 @@
     "description": "rancher/cluster/create/DataVolumePanel.tsx",
     "message": "Data volume #{index}"
   },
-  "Data volume should have at least {size} GB.": {
-    "description": "rancher/cluster/create/VolumeSizeGroup.tsx",
-    "message": "Data volume should have at least {size} GB."
-  },
   "Data volume size": {
     "description": "openstack/openstack-instance/OpenstackInstanceDetails.tsx, rancher/cluster/create/ManagedFormNodesStep.tsx",
     "message": "Data volume size"
