@@ -323,6 +323,18 @@ export const SettingsDescription = [
         type: 'image_field',
       },
       {
+        key: 'MARKETPLACE_HERO_IMAGE',
+        description: translate('The image rendered at hero section of Marketplace landing page. Please, use a wide image (min. 1920×600px) with no text or logos. Keep the center area clean, and choose a darker image for dark mode or a brighter image for light mode.'),
+        default: '',
+        type: 'image_field',
+      },
+      {
+        key: 'CALL_MANAGEMENT_HERO_IMAGE',
+        description: translate('The image rendered at hero section of Call Management landing page. Please, use a wide image (min. 1920×600px) with no text or logos. Keep the center area clean, and choose a darker image for dark mode or a brighter image for light mode.'),
+        default: '',
+        type: 'image_field',
+      },
+      {
         key: 'LOGIN_LOGO',
         description: translate('A custom .png image file for login page'),
         default: '',
