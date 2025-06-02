@@ -1399,6 +1399,10 @@
     "description": "administration/roles/RolesList.tsx",
     "message": "Assigned users count"
   },
+  "At least one project is required.": {
+    "description": "project/import/Step5PreviewAndImport.tsx",
+    "message": "At least one project is required."
+  },
   "Atlassian API server URL": {
     "description": "SettingsDescription.ts",
     "message": "Atlassian API server URL"
@@ -1596,7 +1600,7 @@
     "message": "Back to login"
   },
   "Back": {
-    "description": "broadcasts/BroadcastFooter.tsx, broadcasts/BroadcastSaveAsTemplateDialog.tsx, error/InvalidObjectPage.tsx, error/InvalidRoutePage.tsx, marketplace/offerings/import/WizardButtons.tsx, marketplace/resources/import/ResourceImportDialog.tsx",
+    "description": "broadcasts/BroadcastFooter.tsx, broadcasts/BroadcastSaveAsTemplateDialog.tsx, error/InvalidObjectPage.tsx, error/InvalidRoutePage.tsx, form/WizardForm.tsx, marketplace/offerings/import/WizardButtons.tsx, marketplace/resources/import/ResourceImportDialog.tsx",
     "message": "Back"
   },
   "Backend ID has been successfully set.": {
@@ -1798,6 +1802,14 @@
   "Bulk import contacts": {
     "description": "invitations/actions/create/BulkUpload.tsx",
     "message": "Bulk import contacts"
+  },
+  "Bulk import of projects": {
+    "description": "project/import/ProjectImportDialog.tsx",
+    "message": "Bulk import of projects"
+  },
+  "Bulk import": {
+    "description": "project/import/ProjectImportButton.tsx",
+    "message": "Bulk import"
   },
   "Business hours": {
     "description": "booking/components/BusinessHoursGroup.tsx",
@@ -3691,6 +3703,10 @@
     "description": "marketplace/offerings/details/ExportFullPriceList.tsx",
     "message": "Download full price list"
   },
+  "Download template": {
+    "description": "project/import/ProjectImportDialog.tsx",
+    "message": "Download template"
+  },
   "Download": {
     "description": "form/upload/FileDownloader.tsx",
     "message": "Download"
@@ -4123,12 +4139,16 @@
     "description": "openstack/openstack-subnet/AllocationPoolsField.tsx",
     "message": "End IP"
   },
+  "End date is required.": {
+    "description": "project/import/Step5PreviewAndImport.tsx",
+    "message": "End date is required."
+  },
   "End date of the agreement is {date}.": {
     "description": "invoices/list/AgreementInfo.tsx",
     "message": "End date of the agreement is {date}."
   },
   "End date": {
-    "description": "booking/deploy/CustomRangeDatePicker.tsx, customer/credits/constants.tsx, customer/payment-profiles/PaymentProfileCreateDialog.tsx, customer/payment-profiles/PaymentProfileUpdateDialog.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/service-providers/OrganizationProjectsExpandable.tsx, marketplace/service-providers/ProviderCampaignsList.tsx, marketplace-remote/ProjectUpdateRequestExpandable.tsx, project/ProjectCard.tsx, project/ProjectsList.tsx, project/create/EndDateGroup.tsx, project/details/ProjectDetailsDialog.tsx, project/manage/ProjectGeneral.tsx, proposals/round/RoundPageHeaderBody.tsx, user/affiliations/ProjectsList.tsx",
+    "description": "booking/deploy/CustomRangeDatePicker.tsx, customer/credits/constants.tsx, customer/payment-profiles/PaymentProfileCreateDialog.tsx, customer/payment-profiles/PaymentProfileUpdateDialog.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/service-providers/OrganizationProjectsExpandable.tsx, marketplace/service-providers/ProviderCampaignsList.tsx, marketplace-remote/ProjectUpdateRequestExpandable.tsx, project/ProjectCard.tsx, project/ProjectsList.tsx, project/create/EndDateGroup.tsx, project/details/ProjectDetailsDialog.tsx, project/import/Step5PreviewAndImport.tsx, project/manage/ProjectGeneral.tsx, proposals/round/RoundPageHeaderBody.tsx, user/affiliations/ProjectsList.tsx",
     "message": "End date"
   },
   "End date:": {
@@ -4614,6 +4634,14 @@
   "Filesize": {
     "description": "marketplace/category/admin/ColumnRow.tsx",
     "message": "Filesize"
+  },
+  "Fill the template with your project and resource details, then upload it in the next step.": {
+    "description": "project/import/Step3DownloadTemplate.tsx",
+    "message": "Fill the template with your project and resource details, then upload it in the next step."
+  },
+  "Fill the template with your project details, then upload it in the next step.": {
+    "description": "project/import/Step3DownloadTemplate.tsx",
+    "message": "Fill the template with your project details, then upload it in the next step."
   },
   "Filter by organization/project": {
     "description": "marketplace/landing/MarketplaceLandingFilter.tsx, navigation/sidebar/resources-filter/FilterByOrgAndProjectDialog.tsx",
@@ -5323,6 +5351,10 @@
     "description": "user/support/UserImpersonateButton.tsx",
     "message": "Impersonation is not available for users without active session."
   },
+  "Import & create": {
+    "description": "project/import/ProjectImportDialog.tsx",
+    "message": "Import & create"
+  },
   "Import YAML": {
     "description": "rancher/cluster/ImportYAMLButton.tsx, rancher/cluster/ImportYAMLDialog.tsx",
     "message": "Import YAML"
@@ -5330,6 +5362,10 @@
   "Import config": {
     "description": "marketplace/deploy/DeployPageActions.tsx",
     "message": "Import config"
+  },
+  "Import just project details without associated resources. Includes basic project metadata.": {
+    "description": "project/import/Step1ImportType.tsx",
+    "message": "Import just project details without associated resources. Includes basic project metadata."
   },
   "Import key": {
     "description": "user/keys/KeyCreateDialog.tsx",
@@ -5347,6 +5383,10 @@
     "description": "proposals/proposal/create/ProjectDetailsStep.tsx",
     "message": "Import project"
   },
+  "Import projects along with their associated resources based on a selected offering type.": {
+    "description": "project/import/Step1ImportType.tsx",
+    "message": "Import projects along with their associated resources based on a selected offering type."
+  },
   "Import public key": {
     "description": "user/keys/KeyCreateDialog.tsx",
     "message": "Import public key"
@@ -5354,6 +5394,10 @@
   "Import resource": {
     "description": "marketplace/resources/import/ResourceImportDialog.tsx",
     "message": "Import resource"
+  },
+  "Import type": {
+    "description": "project/import/ProjectImportDialog.tsx",
+    "message": "Import type"
   },
   "Import your mailing list from a .csv file. You can download an {example}": {
     "description": "invitations/actions/create/BulkUpload.tsx",
@@ -5574,6 +5618,10 @@
   "Invalid files": {
     "description": "form/upload/UploadContainer.tsx",
     "message": "Invalid files"
+  },
+  "Invalid format, please import a .csv file": {
+    "description": "project/import/Step4UploadFile.tsx",
+    "message": "Invalid format, please import a .csv file"
   },
   "Invitation approval": {
     "description": "invitations/InvitationApprove.tsx",
@@ -6651,6 +6699,14 @@
     "description": "freeipa/UsernameGroup.tsx",
     "message": "Minimum username length is 3 characters."
   },
+  "Missing date": {
+    "description": "project/import/Step5PreviewAndImport.tsx",
+    "message": "Missing date"
+  },
+  "Missing name": {
+    "description": "project/import/Step5PreviewAndImport.tsx",
+    "message": "Missing name"
+  },
   "Mobile phone number": {
     "description": "auth/valimo/AuthValimoDialog.tsx",
     "message": "Mobile phone number"
@@ -7227,6 +7283,10 @@
     "description": "issues/feedback/UserAutocomplete.tsx",
     "message": "No users"
   },
+  "No valid projects to import": {
+    "description": "project/import/ProjectImportDialog.tsx",
+    "message": "No valid projects to import"
+  },
   "No variable defined": {
     "description": "marketplace/offerings/update/integration/EnvironmentVariablesList.tsx",
     "message": "No variable defined"
@@ -7395,8 +7455,12 @@
     "description": "marketplace-remote/ProjectUpdateRequestExpandable.tsx, project/create/OecdCodeGroup.tsx, project/manage/ProjectMetadata.tsx, proposals/proposal/UserProposalsList.tsx, user/affiliations/ProjectsList.tsx",
     "message": "OECD FoS code"
   },
+  "OECD code is required for projects.": {
+    "description": "project/import/Step4UploadFile.tsx",
+    "message": "OECD code is required for projects."
+  },
   "OK": {
-    "description": "administration/providers/ProviderDetailsDialog.tsx, administration/providers/ProviderUsersDialog.tsx, marketplace/resources/list/ResourceStateFilter.tsx, user/support/DangerActionDialog.tsx",
+    "description": "administration/providers/ProviderDetailsDialog.tsx, administration/providers/ProviderUsersDialog.tsx, marketplace/resources/list/ResourceStateFilter.tsx, project/import/Step5PreviewAndImport.tsx, user/support/DangerActionDialog.tsx",
     "message": "OK"
   },
   "OR": {
@@ -8531,9 +8595,17 @@
     "description": "auth/SigninForm.tsx",
     "message": "Please enter username and password."
   },
+  "Please fix (step {step}) or skip records with errors": {
+    "description": "project/import/Step5PreviewAndImport.tsx",
+    "message": "Please fix (step {step}) or skip records with errors"
+  },
   "Please give us a moment to validate your invitation.": {
     "description": "invitations/GroupInvitationConfirmDialog.tsx, invitations/InvitationConfirmDialog.tsx",
     "message": "Please give us a moment to validate your invitation."
+  },
+  "Please import a file.": {
+    "description": "project/import/Step4UploadFile.tsx",
+    "message": "Please import a file."
   },
   "Please make sure you know what you are doing and set to 10 minutes if unsure.": {
     "description": "user/api-key/UserTokenLifetime.tsx",
@@ -8767,6 +8839,10 @@
     "description": "project/MoveProjectDialog.tsx",
     "message": "Preserve project permissions"
   },
+  "Preview & import": {
+    "description": "project/import/ProjectImportDialog.tsx",
+    "message": "Preview & import"
+  },
   "Preview changes": {
     "description": "customer/details/CustomerErrorDialog.tsx",
     "message": "Preview changes"
@@ -8786,10 +8862,6 @@
   "Previous months": {
     "description": "customer/cost-policies/CostPolicyForm.tsx",
     "message": "Previous months"
-  },
-  "Previous": {
-    "description": "form/WizardForm.tsx",
-    "message": "Previous"
   },
   "Previously saved credit value for this organization: {currency} {credits}": {
     "description": "customer/credits/ProjectCreditFormDialog.tsx",
@@ -9047,8 +9119,12 @@
     "description": "rancher/cluster/team/AddResourceAccessDialog.tsx",
     "message": "Project member"
   },
+  "Project name is required.": {
+    "description": "project/import/Step5PreviewAndImport.tsx",
+    "message": "Project name is required."
+  },
   "Project name": {
-    "description": "customer/team/CustomerUsersListExpandableRow.tsx, events/ExpandableEventDetailsTable.tsx, invoices/details/InvoiceItemsTable.tsx, project/create/NameGroup.tsx, rancher/cluster/team/KeycloakMembershipExpandableRow.tsx",
+    "description": "customer/team/CustomerUsersListExpandableRow.tsx, events/ExpandableEventDetailsTable.tsx, invoices/details/InvoiceItemsTable.tsx, project/create/NameGroup.tsx, project/import/Step5PreviewAndImport.tsx, rancher/cluster/team/KeycloakMembershipExpandableRow.tsx",
     "message": "Project name"
   },
   "Project owned by {name}": {
@@ -9127,8 +9203,16 @@
     "description": "administration/roles/PermissionOptions.tsx, customer/cost-policies/CostPoliciesList.tsx, customer/cost-policies/CostPolicyForm.tsx, customer/service-accounts/ServiceAccountsList.tsx, customer/team/OrganizationProjectSelectField.tsx, customer/team/ProjectGroup.tsx, events/ExpandableEventDetailsTable.tsx, invitations/actions/ProjectGroup.tsx, invoices/details/InvoiceItemsFilter.tsx, issues/IssueInfo.tsx, issues/create/IssueDetailsStepLabel.tsx, issues/create/ProjectGroup.tsx, issues/list/IssuesList.tsx, issues/list/IssuesListExpandableRow.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/deploy/steps/FormDetailsOverviewStep.tsx, marketplace/details/ProjectField.tsx, marketplace/landing/MarketplaceLandingFilter.tsx, marketplace/orders/details/OrderDetailsHeaderBody.tsx, marketplace/orders/list/MarketplaceOrdersListFilter.tsx, marketplace/orders/list/OrdersTableComponent.tsx, marketplace/resources/list/AllResourcesFilter.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/ProjectResourcesAllFilter.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/utils.tsx, marketplace/robot-accounts/ProviderRobotAccountFilter.tsx, marketplace/robot-accounts/ProviderRobotAccountList.tsx, marketplace-checklist/CustomerChecklistOverview.tsx, marketplace-remote/BaseProjectUpdateRequestsList.tsx, navigation/header/confirmation-drawer/PendingConsumerOrders.tsx, navigation/header/confirmation-drawer/PendingProviderOrders.tsx, navigation/sidebar/resources-filter/utils.tsx, permissions/constants.tsx, project/routes.ts, proposals/review/ReviewsExpandableRow.tsx, rancher/cluster/ClusterFilter.tsx, rancher/cluster/ClusterIngressesList.tsx, rancher/cluster/ClusterServicesList.tsx, rancher/cluster/ClusterWorkloadsList.tsx, rancher/cluster/apps/ClusterApplicationsList.tsx, rancher/cluster/hpas/ClusterHPAList.tsx, rancher/cluster/team/AddResourceAccessDialog.tsx, rancher/template/ApplicationConfiguration.tsx, reporting/resource-usage/ResourceUsageFilter.tsx, support/SupportEventsFilter.tsx, user/affiliations/SummaryResourcesTable.tsx",
     "message": "Project"
   },
+  "Projects only": {
+    "description": "project/import/Step1ImportType.tsx",
+    "message": "Projects only"
+  },
+  "Projects with resources": {
+    "description": "project/import/Step1ImportType.tsx",
+    "message": "Projects with resources"
+  },
   "Projects": {
-    "description": "administration/dashboard/AdminStatistics.tsx, administration/organizations/OrganizationGroupOrganizationsList.tsx, administration/service-accounts/ServiceAccountsTable.tsx, customer/list/OrganizationCard.tsx, customer/routes.ts, marketplace/resources/details/ResourceDetailsContainer.tsx, marketplace/routes.ts, marketplace/service-providers/ProviderOrganizationsList.tsx, marketplace/service-providers/ProviderUserCustomersList.tsx, navigation/header/search/SearchPopover.tsx, navigation/sidebar/ProjectsListMenu.tsx, project/ProjectContainer.tsx, project/ProjectsList.tsx, rancher/cluster/tabs.ts, user/affiliations/OrganizationExpandableRow.tsx, user/affiliations/OrganizationsList.tsx, user/affiliations/ProjectsList.tsx",
+    "description": "administration/dashboard/AdminStatistics.tsx, administration/organizations/OrganizationGroupOrganizationsList.tsx, administration/service-accounts/ServiceAccountsTable.tsx, customer/list/OrganizationCard.tsx, customer/routes.ts, marketplace/resources/details/ResourceDetailsContainer.tsx, marketplace/routes.ts, marketplace/service-providers/ProviderOrganizationsList.tsx, marketplace/service-providers/ProviderUserCustomersList.tsx, navigation/header/search/SearchPopover.tsx, navigation/sidebar/ProjectsListMenu.tsx, project/ProjectContainer.tsx, project/ProjectsList.tsx, project/import/Step5PreviewAndImport.tsx, rancher/cluster/tabs.ts, user/affiliations/OrganizationExpandableRow.tsx, user/affiliations/OrganizationsList.tsx, user/affiliations/ProjectsList.tsx",
     "message": "Projects"
   },
   "Proof document": {
@@ -10192,7 +10276,7 @@
     "message": "Resource metadata"
   },
   "Resource name": {
-    "description": "invoices/details/InvoiceItemsTable.tsx, marketplace/resources/actions/EditResourceEndDateDialog.tsx, project/manage/EditEndDateDialog.tsx, reporting/resource-usage/ResourceUsageList.tsx, reporting/resource-usage/UserUsageList.tsx",
+    "description": "invoices/details/InvoiceItemsTable.tsx, marketplace/resources/actions/EditResourceEndDateDialog.tsx, project/import/Step5PreviewAndImport.tsx, project/manage/EditEndDateDialog.tsx, reporting/resource-usage/ResourceUsageList.tsx, reporting/resource-usage/UserUsageList.tsx",
     "message": "Resource name"
   },
   "Resource option": {
@@ -10283,6 +10367,10 @@
     "description": "customer/credits/CreditUsageDialog.tsx, customer/credits/CreditUsageFilter.tsx, events/ExpandableEventDetailsTable.tsx, issues/create/IssueDetailsStepLabel.tsx, marketplace/orders/list/OrdersListExpandableRow.tsx, marketplace/robot-accounts/ProviderRobotAccountList.tsx, navigation/header/confirmation-drawer/PendingConsumerOrders.tsx, navigation/header/confirmation-drawer/PendingProviderOrders.tsx, reporting/resource-usage/ResourceUsageFilter.tsx",
     "message": "Resource"
   },
+  "Resources identified": {
+    "description": "project/import/Step5PreviewAndImport.tsx",
+    "message": "Resources identified"
+  },
   "Resources import has failed.": {
     "description": "marketplace/resources/import/useImportDialog.tsx",
     "message": "Resources import has failed."
@@ -10296,7 +10384,7 @@
     "message": "Resources in project and provider"
   },
   "Resources": {
-    "description": "administration/dashboard/AdminStatistics.tsx, customer/routes.ts, marketplace/aggregate-limits/AggregateLimitDetailsDialog.tsx, marketplace/details/OfferingResourcesList.tsx, marketplace/offerings/OfferingDetailsUIView.tsx, marketplace/offerings/update/plans/PlansSection.tsx, marketplace/resources/import/ResourcesList.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/ResourcesAllListTable.tsx, marketplace/routes.ts, marketplace/service-providers/OrganizationProjectsExpandable.tsx, marketplace/service-providers/ProviderCampaignResourceExpandable.tsx, marketplace/service-providers/ProviderOfferingsList.tsx, marketplace/service-providers/ProviderProjectResourcesList.tsx, marketplace/utils.ts, navigation/header/search/SearchPopover.tsx, navigation/sidebar/ResourcesMenu.tsx, project/ProjectCard.tsx, project/routes.ts, proposals/proposal/create/resource-requests-step/FormResourceRequestsStep.tsx, reporting/quotas/constants.tsx, user/affiliations/OrganizationExpandableRow.tsx, user/affiliations/ProjectExpandableRow.tsx, user/affiliations/ProjectsList.tsx, user/affiliations/SummaryResourcesTable.tsx",
+    "description": "administration/dashboard/AdminStatistics.tsx, customer/routes.ts, marketplace/aggregate-limits/AggregateLimitDetailsDialog.tsx, marketplace/details/OfferingResourcesList.tsx, marketplace/offerings/OfferingDetailsUIView.tsx, marketplace/offerings/update/plans/PlansSection.tsx, marketplace/resources/import/ResourcesList.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/ResourcesAllListTable.tsx, marketplace/routes.ts, marketplace/service-providers/OrganizationProjectsExpandable.tsx, marketplace/service-providers/ProviderCampaignResourceExpandable.tsx, marketplace/service-providers/ProviderOfferingsList.tsx, marketplace/service-providers/ProviderProjectResourcesList.tsx, marketplace/utils.ts, navigation/header/search/SearchPopover.tsx, navigation/sidebar/ResourcesMenu.tsx, project/ProjectCard.tsx, project/import/ProjectPreviewExpandableRow.tsx, project/routes.ts, proposals/proposal/create/resource-requests-step/FormResourceRequestsStep.tsx, reporting/quotas/constants.tsx, user/affiliations/OrganizationExpandableRow.tsx, user/affiliations/ProjectExpandableRow.tsx, user/affiliations/ProjectsList.tsx, user/affiliations/SummaryResourcesTable.tsx",
     "message": "Resources"
   },
   "Responsible user": {
@@ -10931,6 +11019,10 @@
     "description": "customer/cost-policies/CostPolicyForm.tsx, marketplace/offerings/details/policies/PolicyCreateForm.tsx",
     "message": "Select action to take when the condition is met"
   },
+  "Select an offering type to generate the appropriate template with resource fields.": {
+    "description": "project/import/Step2SelectOffering.tsx",
+    "message": "Select an offering type to generate the appropriate template with resource fields."
+  },
   "Select an option...": {
     "description": "rancher/template/SelectControl.tsx",
     "message": "Select an option..."
@@ -11012,7 +11104,7 @@
     "message": "Select namespace..."
   },
   "Select offering": {
-    "description": "proposals/proposal/create/resource-requests-step/ResourceRequestFormDialog.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestWizardFormFirstPage.tsx, proposals/update/offerings/CallOfferingCreateDialog.tsx",
+    "description": "project/import/ProjectImportDialog.tsx, project/import/Step2SelectOffering.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestFormDialog.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestWizardFormFirstPage.tsx, proposals/update/offerings/CallOfferingCreateDialog.tsx",
     "message": "Select offering"
   },
   "Select offering...": {
@@ -11767,6 +11859,10 @@
     "description": "openstack/openstack-backup/actions/utils.tsx, openstack/openstack-instance/utils.ts",
     "message": "Skip floating IP assignment"
   },
+  "Skip records with errors": {
+    "description": "project/import/Step5PreviewAndImport.tsx",
+    "message": "Skip records with errors"
+  },
   "Slug has been successfully set.": {
     "description": "marketplace/resources/SetSlugDialog.tsx",
     "message": "Slug has been successfully set."
@@ -11867,8 +11963,12 @@
     "description": "openstack/openstack-subnet/AllocationPoolsField.tsx",
     "message": "Start IP"
   },
+  "Start date is required.": {
+    "description": "project/import/Step5PreviewAndImport.tsx",
+    "message": "Start date is required."
+  },
   "Start date": {
-    "description": "marketplace/service-providers/ProviderCampaignsList.tsx, project/ProjectCard.tsx, project/ProjectsList.tsx, project/create/StartDateGroup.tsx, project/details/ProjectDetailsDialog.tsx, project/manage/ProjectGeneral.tsx, proposals/details/CallRoundsList.tsx, proposals/round/RoundPageHeaderBody.tsx, proposals/round/submission/RoundSubmissionSection.tsx, proposals/update/rounds/CallRoundsList.tsx, proposals/update/rounds/WizardFormFirstPage.tsx, user/affiliations/ProjectsList.tsx",
+    "description": "marketplace/service-providers/ProviderCampaignsList.tsx, project/ProjectCard.tsx, project/ProjectsList.tsx, project/create/StartDateGroup.tsx, project/details/ProjectDetailsDialog.tsx, project/import/Step5PreviewAndImport.tsx, project/manage/ProjectGeneral.tsx, proposals/details/CallRoundsList.tsx, proposals/round/RoundPageHeaderBody.tsx, proposals/round/submission/RoundSubmissionSection.tsx, proposals/update/rounds/CallRoundsList.tsx, proposals/update/rounds/WizardFormFirstPage.tsx, user/affiliations/ProjectsList.tsx",
     "message": "Start date"
   },
   "Start date:": {
@@ -11916,7 +12016,7 @@
     "message": "Statistics"
   },
   "Status": {
-    "description": "administration/InvitationList.tsx, administration/announcements/AnnouncementFilter.tsx, administration/notifications/NotificationFilter.tsx, administration/providers/ProviderUsersDialog.tsx, customer/payment-profiles/PaymentProfileList.tsx, invitations/GroupInvitationsList.tsx, invitations/InvitationsList.tsx, issues/list/IssuesFilter.tsx, issues/list/IssuesList.tsx, marketplace/offerings/OfferingBreadcrumbPopover.tsx, marketplace/offerings/details/ConnectionStatusIndicator.tsx, marketplace/offerings/update/plans/PlansSection.tsx, marketplace/resources/details/utils.tsx, marketplace/service-providers/ProviderCampaignsList.tsx, navigation/BackendHealthStatusDialog.tsx, openstack/openstack-tenant/TenantPortsList.tsx, project/team/InvitationsList.tsx, proposals/offering-requests/OfferingRequestsTableFilter.tsx, proposals/round/proposals/ProposalExpandableRow.tsx, proposals/team/InvitationsList.tsx, rancher/cluster/team/KeycloakMembershipExpandableRow.tsx, rancher/cluster/team/KeycloakMembershipList.tsx, user/support/UserFilter.tsx, user/support/UserList.tsx",
+    "description": "administration/InvitationList.tsx, administration/announcements/AnnouncementFilter.tsx, administration/notifications/NotificationFilter.tsx, administration/providers/ProviderUsersDialog.tsx, customer/payment-profiles/PaymentProfileList.tsx, invitations/GroupInvitationsList.tsx, invitations/InvitationsList.tsx, issues/list/IssuesFilter.tsx, issues/list/IssuesList.tsx, marketplace/offerings/OfferingBreadcrumbPopover.tsx, marketplace/offerings/details/ConnectionStatusIndicator.tsx, marketplace/offerings/update/plans/PlansSection.tsx, marketplace/resources/details/utils.tsx, marketplace/service-providers/ProviderCampaignsList.tsx, navigation/BackendHealthStatusDialog.tsx, openstack/openstack-tenant/TenantPortsList.tsx, project/import/Step5PreviewAndImport.tsx, project/team/InvitationsList.tsx, proposals/offering-requests/OfferingRequestsTableFilter.tsx, proposals/round/proposals/ProposalExpandableRow.tsx, proposals/team/InvitationsList.tsx, rancher/cluster/team/KeycloakMembershipExpandableRow.tsx, rancher/cluster/team/KeycloakMembershipList.tsx, user/support/UserFilter.tsx, user/support/UserList.tsx",
     "message": "Status"
   },
   "Stay on current": {
@@ -12058,6 +12158,14 @@
   "Subtotal": {
     "description": "invoices/details/InvoiceDetails.tsx, invoices/list/MonthOverview.tsx, marketplace/details/plan/TotalLimitComponentsTable.tsx",
     "message": "Subtotal"
+  },
+  "Successfully imported {n} projects and {m} resources": {
+    "description": "project/import/ProjectImportDialog.tsx",
+    "message": "Successfully imported {n} projects and {m} resources"
+  },
+  "Successfully imported {n} projects": {
+    "description": "project/import/ProjectImportDialog.tsx",
+    "message": "Successfully imported {n} projects"
   },
   "Suggest an identifier to include into the generated username of the service account.": {
     "description": "customer/service-accounts/ServiceAccountFormDialog.tsx",
@@ -12515,6 +12623,14 @@
     "description": "openstack/openstack-instance/deploy/FormHardwareConfigurationStep.tsx",
     "message": "The image's minimum RAM is over the flavor RAM"
   },
+  "The imported data format does not match the template format.": {
+    "description": "project/import/Step4UploadFile.tsx",
+    "message": "The imported data format does not match the template format."
+  },
+  "The imported file is empty.": {
+    "description": "project/import/Step4UploadFile.tsx",
+    "message": "The imported file is empty."
+  },
   "The invoice has been marked as paid.": {
     "description": "invoices/list/MarkAsPaidDialog.tsx",
     "message": "The invoice has been marked as paid."
@@ -12562,6 +12678,14 @@
   "The notification has been enabled": {
     "description": "administration/notifications/NotificationToggleButton.tsx",
     "message": "The notification has been enabled"
+  },
+  "The offering has no components!": {
+    "description": "project/import/Step2SelectOffering.tsx",
+    "message": "The offering has no components!"
+  },
+  "The organization UUID is not specified in one or more records.": {
+    "description": "project/import/ProjectImportDialog.tsx, project/import/Step4UploadFile.tsx",
+    "message": "The organization UUID is not specified in one or more records."
   },
   "The organization group has been created.": {
     "description": "administration/organizations/OrganizationGroupForm.tsx",
@@ -12770,6 +12894,18 @@
   "This offering has not been activated by the operator yet.": {
     "description": "marketplace/offerings/details/PublicOfferingDetails.tsx",
     "message": "This offering has not been activated by the operator yet."
+  },
+  "This offering includes the following components:": {
+    "description": "project/import/Step2SelectOffering.tsx",
+    "message": "This offering includes the following components:"
+  },
+  "This template includes all required fields for HPC project import: {fields} (required) etc.": {
+    "description": "project/import/Step3DownloadTemplate.tsx",
+    "message": "This template includes all required fields for HPC project import: {fields} (required) etc."
+  },
+  "This template includes all required fields for HPC project import: {fields} (required), {components} (offering specific).": {
+    "description": "project/import/Step3DownloadTemplate.tsx",
+    "message": "This template includes all required fields for HPC project import: {fields} (required), {components} (offering specific)."
   },
   "This token won't be shown again, but you can regenerate it later.": {
     "description": "customer/service-accounts/ServiceAccountShowInfoDialog.tsx",
@@ -14763,9 +14899,21 @@
     "description": "form/upload/AttachmentItemPending.tsx",
     "message": "Upload failed, please try again"
   },
+  "Upload file": {
+    "description": "project/import/ProjectImportDialog.tsx",
+    "message": "Upload file"
+  },
   "Upload supporting documentation": {
     "description": "proposals/proposal/create/ProjectDetailsStep.tsx",
     "message": "Upload supporting documentation"
+  },
+  "Upload your completed project and resources template file": {
+    "description": "project/import/Step4UploadFile.tsx",
+    "message": "Upload your completed project and resources template file"
+  },
+  "Upload your completed project template file": {
+    "description": "project/import/Step4UploadFile.tsx",
+    "message": "Upload your completed project template file"
   },
   "Upload": {
     "description": "form/ImageField.tsx",
@@ -15251,6 +15399,10 @@
     "description": "openstack/OpenStackForm.tsx",
     "message": "Verify server certificate"
   },
+  "Verify your data before importing": {
+    "description": "project/import/Step5PreviewAndImport.tsx",
+    "message": "Verify your data before importing"
+  },
   "Verifying email change": {
     "description": "user/support/UserEmailChangeCallback.tsx",
     "message": "Verifying email change"
@@ -15604,7 +15756,7 @@
     "message": "You do not have the permissions for accessing this page."
   },
   "You don't have enough privileges to perform this operation.": {
-    "description": "customer/team/UserAddButton.tsx, invitations/actions/create/InvitationCreateButton.tsx, marketplace/resources/options/UpdateResourceOptionButton.tsx, project/create/ProjectCreateButton.tsx, project/team/AddUserButton.tsx",
+    "description": "customer/team/UserAddButton.tsx, invitations/actions/create/InvitationCreateButton.tsx, marketplace/resources/options/UpdateResourceOptionButton.tsx, project/create/ProjectCreateButton.tsx, project/import/ProjectImportButton.tsx, project/team/AddUserButton.tsx",
     "message": "You don't have enough privileges to perform this operation."
   },
   "You don't have permission to cancel these invitations.": {

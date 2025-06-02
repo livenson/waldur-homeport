@@ -13,6 +13,7 @@ import { useOrganizationAndProjectFiltersForResources } from '@waldur/navigation
 import { useTitle } from '@waldur/navigation/title';
 import { PROJECTS_LIST } from '@waldur/project/constants';
 import { GlobalProjectCreateButton } from '@waldur/project/create/GlobalProjectCreateButton';
+import { ProjectImportButton } from '@waldur/project/import/ProjectImportButton';
 import { ProjectCard } from '@waldur/project/ProjectCard';
 import { ProjectEndDateField } from '@waldur/project/ProjectEndDateField';
 import { ProjectLink } from '@waldur/project/ProjectLink';
@@ -244,7 +245,12 @@ export const ProjectsList = () => {
       filter={filter}
       standalone
       hasOptionalColumns
-      tableActions={<GlobalProjectCreateButton refetch={props.fetch} />}
+      tableActions={
+        <>
+          <ProjectImportButton refetch={props.fetch} />
+          <GlobalProjectCreateButton refetch={props.fetch} />
+        </>
+      }
       rowActions={({ row }) => (
         <ProjectsListActions project={row} refetch={props.fetch} />
       )}
