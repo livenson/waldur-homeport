@@ -5,6 +5,7 @@ import { useDispatch } from 'react-redux';
 
 import { required } from '@waldur/core/validators';
 import { SubmitButton, TextField } from '@waldur/form';
+import { AwesomeCheckboxField } from '@waldur/form/AwesomeCheckboxField';
 import { StringField } from '@waldur/form/StringField';
 import { translate } from '@waldur/i18n';
 import { FormGroup } from '@waldur/marketplace/offerings/FormGroup';
@@ -63,7 +64,18 @@ export const EditFieldDialog: React.FC<EditFieldDialogProps> = ({
               </>
             }
           >
-            {resolve.name === 'description' ? (
+            {resolve.name === 'notifications_enabled' ? (
+              <FormGroup
+                label={resolve.label}
+                required={Boolean(resolve.requiredMsg)}
+              >
+                <Field
+                  name="notifications_enabled"
+                  component={AwesomeCheckboxField as any}
+                  validate={resolve.requiredMsg ? required : undefined}
+                />
+              </FormGroup>
+            ) : resolve.name === 'description' ? (
               <FormGroup
                 label={translate('Description')}
                 required={Boolean(resolve.requiredMsg)}
