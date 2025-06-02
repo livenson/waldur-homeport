@@ -33,7 +33,7 @@ export const AttachmentItem: FC<AttachmentItemProps> = ({
   attachment,
   onDelete,
   isDeleting,
-  iconSize = 20,
+  iconSize = 40,
 }) => {
   const dispatch = useDispatch();
   const openModal = () =>
@@ -54,7 +54,7 @@ export const AttachmentItem: FC<AttachmentItemProps> = ({
         <>
           {attachment.file instanceof File ? (
             <div className="attachment-item__thumb">
-              <FileIcon size={iconSize} weight="bold" className="text-muted" />
+              <FileIcon size={iconSize} className="text-muted" />
             </div>
           ) : (
             <div className="attachment-item__thumb">

@@ -20,7 +20,7 @@ export const UploadContainer: React.FC<UploadContainerProps> = (props) => {
   const { message, className, ...rest } = props;
   const dropzoneNode = useRef<DropzoneRef>(null);
 
-  const openDownloadModal = () => {
+  const chooseFile = () => {
     if (dropzoneNode.current) {
       dropzoneNode.current.open();
     }
@@ -51,9 +51,14 @@ export const UploadContainer: React.FC<UploadContainerProps> = (props) => {
           )}
           <div className="dropzone-message text-muted">
             <input {...getInputProps()} />
-            <span className="icon" aria-hidden="true">
+            <button
+              type="button"
+              className="icon"
+              aria-hidden="true"
+              onClick={chooseFile}
+            >
               <CloudArrowUp size={20} weight="bold" className="text-primary" />
-            </span>
+            </button>
             <div>
               {translate(
                 '<button>Click to upload</button> or drag and drop',
@@ -62,7 +67,7 @@ export const UploadContainer: React.FC<UploadContainerProps> = (props) => {
                     <button
                       className="text-anchor fw-bold"
                       type="button"
-                      onClick={openDownloadModal}
+                      onClick={chooseFile}
                     >
                       {child}
                     </button>

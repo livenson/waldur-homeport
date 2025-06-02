@@ -18,6 +18,7 @@ import { getCustomer } from '@waldur/workspace/selectors';
 import { Customer } from '@waldur/workspace/types';
 
 import { ProjectCreateButton } from './create/ProjectCreateButton';
+import { ProjectImportButton } from './import/ProjectImportButton';
 import { ProjectCostField } from './ProjectCostField';
 import { ProjectLink } from './ProjectLink';
 
@@ -32,6 +33,13 @@ interface ProjectsListProps extends Partial<TableProps> {
   customer?: Customer;
   optionalColumns?: ('description' | 'created')[];
 }
+
+const TableActions = ({ customer, refetch }) => (
+  <>
+    <ProjectImportButton customer={customer} refetch={refetch} />
+    <ProjectCreateButton customer={customer} refetch={refetch} />
+  </>
+);
 
 export const ProjectsList: FC<ProjectsListProps> = ({
   customer,
@@ -123,7 +131,10 @@ export const ProjectsList: FC<ProjectsListProps> = ({
       hasQuery={true}
       showPageSizeSelector={true}
       tableActions={
-        <ProjectCreateButton customer={customer} refetch={tableProps.fetch} />
+        <TableActions
+          customer={customer || currentCustomer}
+          refetch={tableProps.fetch}
+        />
       }
       rowActions={({ row }) => (
         <ProjectsListActions project={row} refetch={tableProps.fetch} />

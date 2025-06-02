@@ -110,7 +110,7 @@ export const CustomerDashboard: FunctionComponent = () => {
             </Col>
           )}
           <Col xs={12}>
-            <ProjectsList />
+            <ProjectsList customer={customer} />
           </Col>
         </Row>
       )}
