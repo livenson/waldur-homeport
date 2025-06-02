@@ -4,7 +4,7 @@ import { Form } from 'react-final-form';
 import { projectCreditsCreate, projectsCreate } from 'waldur-js-client';
 
 import { formDataOptions, fileSerializer } from '@waldur/core/api';
-import { formatDate } from '@waldur/core/dateUtils';
+import { formatISODate } from '@waldur/core/dateUtils';
 import { SubmitButton } from '@waldur/form';
 import { translate } from '@waldur/i18n';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
@@ -57,10 +57,10 @@ export const ProjectCreateDialog = ({
           name: formData.name,
           description: formData.description,
           end_date: formData.end_date
-            ? formatDate(formData.end_date)
+            ? formatISODate(formData.end_date)
             : undefined,
           start_date: formData.start_date
-            ? formatDate(formData.start_date)
+            ? formatISODate(formData.start_date)
             : undefined,
           customer: formData.customer.url,
           type: formData.type?.url,

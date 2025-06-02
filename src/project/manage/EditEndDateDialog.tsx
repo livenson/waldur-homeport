@@ -15,7 +15,7 @@ import { Project } from 'waldur-js-client';
 
 import { getAllPages } from '@waldur/core/api';
 import { Badge } from '@waldur/core/Badge';
-import { formatDate, parseDate } from '@waldur/core/dateUtils';
+import { formatDate, formatISODate, parseDate } from '@waldur/core/dateUtils';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinner } from '@waldur/core/LoadingSpinner';
 import { SubmitButton } from '@waldur/form';
@@ -302,7 +302,7 @@ export const EditEndDateDialog = ({
         const project = await projectsPartialUpdate({
           path: { uuid: resolve.project.uuid },
           body: {
-            [resolve.name]: formatDate(endDate),
+            [resolve.name]: formatISODate(endDate),
           },
         });
         dispatch(setCurrentProject(project.data as any as Project));
@@ -317,7 +317,7 @@ export const EditEndDateDialog = ({
           const promises = selectedResources.map((resource) =>
             marketplaceResourcesPartialUpdate({
               path: { uuid: resource.uuid },
-              body: { end_date: endDate ? formatDate(endDate) : null },
+              body: { end_date: endDate ? formatISODate(endDate) : null },
             }),
           );
           const updatedResources: string[] = [];

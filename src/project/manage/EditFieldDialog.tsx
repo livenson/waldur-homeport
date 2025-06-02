@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { projectsPartialUpdate } from 'waldur-js-client';
 import { Project } from 'waldur-js-client';
 
-import { formatDate } from '@waldur/core/dateUtils';
+import { formatISODate } from '@waldur/core/dateUtils';
 import { SubmitButton } from '@waldur/form';
 import { StringField } from '@waldur/form/StringField';
 import { translate } from '@waldur/i18n';
@@ -28,7 +28,7 @@ const formatValue = (key, value) => {
   switch (key) {
     case 'end_date':
     case 'start_date':
-      return formatDate(value);
+      return formatISODate(value);
     case 'oecd_fos_2007_code':
       return value.value;
     default:
