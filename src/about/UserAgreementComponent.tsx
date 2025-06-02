@@ -1,7 +1,8 @@
 import { useQuery } from '@tanstack/react-query';
-import Markdown from 'markdown-to-jsx';
 import { FunctionComponent } from 'react';
 import { userAgreementsList } from 'waldur-js-client';
+
+import { SafeMarkdown } from '@waldur/core/SafeMarkdown';
 
 import { LoadingSpinner } from '../core/LoadingSpinner';
 import { translate } from '../i18n';
@@ -43,7 +44,7 @@ export const UserAgreementComponent: FunctionComponent<
     <div>
       <div className="mb-6 card card-bordered">
         <div className="card-body">
-          <Markdown>{option.content}</Markdown>
+          <SafeMarkdown text={option.content} />
         </div>
       </div>
     </div>

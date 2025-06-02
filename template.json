@@ -5671,6 +5671,10 @@
     "description": "invitations/actions/create/InvitationCreateButton.tsx",
     "message": "Invite by mail"
   },
+  "Invited by": {
+    "description": "invitations/InvitationExpandableRow.tsx",
+    "message": "Invited by"
+  },
   "Invoice date": {
     "description": "invoices/details/InvoiceDetails.tsx, invoices/list/InvoicesList.tsx",
     "message": "Invoice date"
@@ -5850,6 +5854,10 @@
   "Jobs": {
     "description": "marketplace/resources/details/fetchData.tsx, slurm/details/AllocationJobsTable.tsx",
     "message": "Jobs"
+  },
+  "Keep existing offering permissions when moving to a new organization": {
+    "description": "marketplace/offerings/list/MoveOfferingDialog.tsx",
+    "message": "Keep existing offering permissions when moving to a new organization"
   },
   "Keep existing project permissions when moving to a new organization": {
     "description": "project/MoveProjectDialog.tsx",
@@ -6699,6 +6707,14 @@
     "description": "invoices/details/InvoiceItemMove.tsx",
     "message": "Move item"
   },
+  "Move offering {offeringName}": {
+    "description": "marketplace/offerings/list/MoveOfferingDialog.tsx",
+    "message": "Move offering {offeringName}"
+  },
+  "Move offering": {
+    "description": "marketplace/offerings/list/MoveOfferingAction.tsx",
+    "message": "Move offering"
+  },
   "Move project {projectName}": {
     "description": "project/MoveProjectDialog.tsx",
     "message": "Move project {projectName}"
@@ -6718,6 +6734,10 @@
   "Move to project": {
     "description": "marketplace/resources/actions/MoveToProjectAutocomplete.tsx",
     "message": "Move to project"
+  },
+  "Move to service provider": {
+    "description": "marketplace/offerings/list/MoveOfferingDialog.tsx",
+    "message": "Move to service provider"
   },
   "Move": {
     "description": "marketplace/resources/actions/MoveResourceAction.tsx, marketplace/resources/mass-actions/MultiMoveAction.tsx",
@@ -7124,7 +7144,7 @@
     "message": "No organizations found"
   },
   "No organizations": {
-    "description": "customer/cost-policies/CostPolicyForm.tsx, customer/credits/CreditFormDialog.tsx, marketplace/orders/OrganizationAutocomplete.tsx, marketplace/robot-accounts/ProviderCustomerFilter.tsx, project/MoveProjectDialog.tsx, project/create/OrganizationGroup.tsx",
+    "description": "customer/cost-policies/CostPolicyForm.tsx, customer/credits/CreditFormDialog.tsx, marketplace/offerings/list/MoveOfferingDialog.tsx, marketplace/orders/OrganizationAutocomplete.tsx, marketplace/robot-accounts/ProviderCustomerFilter.tsx, project/MoveProjectDialog.tsx, project/create/OrganizationGroup.tsx",
     "message": "No organizations"
   },
   "No outputs found for this order": {
@@ -7406,6 +7426,10 @@
   "Offering cost chart": {
     "description": "marketplace/offerings/expandable/OfferingCostsChart.tsx",
     "message": "Offering cost chart"
+  },
+  "Offering could not be moved.": {
+    "description": "marketplace/offerings/list/MoveOfferingDialog.tsx",
+    "message": "Offering could not be moved."
   },
   "Offering deleted successfully.": {
     "description": "marketplace/offerings/list/DeleteOfferingButton.tsx",
@@ -8734,6 +8758,10 @@
   "Prefix to be appended to all usernames created in FreeIPA by Waldur": {
     "description": "SettingsDescription.ts",
     "message": "Prefix to be appended to all usernames created in FreeIPA by Waldur"
+  },
+  "Preserve offering permissions": {
+    "description": "marketplace/offerings/list/MoveOfferingDialog.tsx",
+    "message": "Preserve offering permissions"
   },
   "Preserve project permissions": {
     "description": "project/MoveProjectDialog.tsx",
@@ -10708,7 +10736,7 @@
     "message": "Save script"
   },
   "Save": {
-    "description": "administration/FeaturesList.tsx, administration/agreements/UserAgreementCreateDialog.tsx, administration/agreements/UserAgreementsEditDialog.tsx, administration/languages/AdministrationLanguages.tsx, administration/notifications/NotificationUpdateDialog.tsx, administration/providers/UpdateProviderDialog.tsx, administration/remote-offering-sync/RemoteSyncFormDialog.tsx, administration/roles/RoleCreateDialog.tsx, administration/roles/RoleDescriptionEditDialog.tsx, administration/roles/RoleEditDialog.tsx, administration/settings/CountrySelector.tsx, broadcasts/BroadcastSaveAsTemplateDialog.tsx, broadcasts/BroadcastTemplateCreateDialog.tsx, broadcasts/BroadcastTemplateUpdateDialog.tsx, customer/details/CustomerMediaPanel.tsx, customer/service-accounts/ServiceAccountFormDialog.tsx, customer/team/AddProjectUserDialog.tsx, customer/team/EditProjectUserDialog.tsx, customer/team/EditUserDialog.tsx, form/InsertLinkPopover.tsx, map/SetLocationDialog.tsx, marketplace/offerings/actions/SetAccessPolicyDialogForm.tsx, marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx, marketplace/offerings/expandable/utils.ts, marketplace/offerings/update/attributes/EditAttributeDialog.tsx, marketplace/offerings/update/attributes/EditCategoryDialog.tsx, marketplace/offerings/update/components/ChangeStorageModeDialog.tsx, marketplace/offerings/update/components/EditComponentDialog.tsx, marketplace/offerings/update/integration/EditLexisLinkIntegrationDialog.tsx, marketplace/offerings/update/integration/EditVarsDialog.tsx, marketplace/offerings/update/integration/ScriptEditorHeader.tsx, marketplace/offerings/update/options/EditOptionDialog.tsx, marketplace/offerings/update/plans/EditPlanDescriptionDialog.tsx, marketplace/offerings/update/plans/EditPlanPricesDialog.tsx, marketplace/offerings/update/plans/EditPlanQuotasDialog.tsx, marketplace/resources/actions/EditResourceEndDateDialog.tsx, marketplace/resources/actions/MoveResourceDialog.tsx, marketplace/resources/mass-actions/MultiMoveDialog.tsx, marketplace-checklist/ChecklistCustomer.tsx, openstack/openstack-tenant/actions/UpdatePortDialog.tsx, project/MoveProjectDialog.tsx, project/manage/EditEndDateDialog.tsx, project/manage/ProjectAvatar.tsx, project/team/EditUserDialog.tsx, proposals/update/documents/AttachDocumentsDialog.tsx, proposals/update/general/EditGeneralInfoDialog.tsx, reporting/invoices/utils.ts, table/SaveFilterDialog.tsx, user/support/UserEditAvatarFormItem.tsx",
+    "description": "administration/FeaturesList.tsx, administration/agreements/UserAgreementCreateDialog.tsx, administration/agreements/UserAgreementsEditDialog.tsx, administration/languages/AdministrationLanguages.tsx, administration/notifications/NotificationUpdateDialog.tsx, administration/providers/UpdateProviderDialog.tsx, administration/remote-offering-sync/RemoteSyncFormDialog.tsx, administration/roles/RoleCreateDialog.tsx, administration/roles/RoleDescriptionEditDialog.tsx, administration/roles/RoleEditDialog.tsx, administration/settings/CountrySelector.tsx, broadcasts/BroadcastSaveAsTemplateDialog.tsx, broadcasts/BroadcastTemplateCreateDialog.tsx, broadcasts/BroadcastTemplateUpdateDialog.tsx, customer/details/CustomerMediaPanel.tsx, customer/service-accounts/ServiceAccountFormDialog.tsx, customer/team/AddProjectUserDialog.tsx, customer/team/EditProjectUserDialog.tsx, customer/team/EditUserDialog.tsx, form/InsertLinkPopover.tsx, map/SetLocationDialog.tsx, marketplace/offerings/actions/SetAccessPolicyDialogForm.tsx, marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx, marketplace/offerings/expandable/utils.ts, marketplace/offerings/list/MoveOfferingDialog.tsx, marketplace/offerings/update/attributes/EditAttributeDialog.tsx, marketplace/offerings/update/attributes/EditCategoryDialog.tsx, marketplace/offerings/update/components/ChangeStorageModeDialog.tsx, marketplace/offerings/update/components/EditComponentDialog.tsx, marketplace/offerings/update/integration/EditLexisLinkIntegrationDialog.tsx, marketplace/offerings/update/integration/EditVarsDialog.tsx, marketplace/offerings/update/integration/ScriptEditorHeader.tsx, marketplace/offerings/update/options/EditOptionDialog.tsx, marketplace/offerings/update/plans/EditPlanDescriptionDialog.tsx, marketplace/offerings/update/plans/EditPlanPricesDialog.tsx, marketplace/offerings/update/plans/EditPlanQuotasDialog.tsx, marketplace/resources/actions/EditResourceEndDateDialog.tsx, marketplace/resources/actions/MoveResourceDialog.tsx, marketplace/resources/mass-actions/MultiMoveDialog.tsx, marketplace-checklist/ChecklistCustomer.tsx, openstack/openstack-tenant/actions/UpdatePortDialog.tsx, project/MoveProjectDialog.tsx, project/manage/EditEndDateDialog.tsx, project/manage/ProjectAvatar.tsx, project/team/EditUserDialog.tsx, proposals/update/documents/AttachDocumentsDialog.tsx, proposals/update/general/EditGeneralInfoDialog.tsx, reporting/invoices/utils.ts, table/SaveFilterDialog.tsx, user/support/UserEditAvatarFormItem.tsx",
     "message": "Save"
   },
   "Saved filters": {
@@ -11016,7 +11044,7 @@
     "message": "Select organization"
   },
   "Select organization...": {
-    "description": "auth/saml2/ProviderField.tsx, marketplace/details/CustomerField.tsx, marketplace/orders/OrganizationAutocomplete.tsx, marketplace/robot-accounts/ProviderCustomerFilter.tsx, project/MoveProjectDialog.tsx",
+    "description": "auth/saml2/ProviderField.tsx, marketplace/details/CustomerField.tsx, marketplace/offerings/list/MoveOfferingDialog.tsx, marketplace/orders/OrganizationAutocomplete.tsx, marketplace/robot-accounts/ProviderCustomerFilter.tsx, project/MoveProjectDialog.tsx",
     "message": "Select organization..."
   },
   "Select organizations...": {
@@ -12451,9 +12479,17 @@
     "description": "project/manage/EditEndDateDialog.tsx",
     "message": "The following were not updated and be affected by the project end"
   },
+  "The image rendered at hero section of Call Management landing page. Please, use a wide image (min. 1920×600px) with no text or logos. Keep the center area clean, and choose a darker image for dark mode or a brighter image for light mode.": {
+    "description": "SettingsDescription.ts",
+    "message": "The image rendered at hero section of Call Management landing page. Please, use a wide image (min. 1920×600px) with no text or logos. Keep the center area clean, and choose a darker image for dark mode or a brighter image for light mode."
+  },
   "The image rendered at hero section of HomePort landing page.": {
     "description": "SettingsDescription.ts",
     "message": "The image rendered at hero section of HomePort landing page."
+  },
+  "The image rendered at hero section of Marketplace landing page. Please, use a wide image (min. 1920×600px) with no text or logos. Keep the center area clean, and choose a darker image for dark mode or a brighter image for light mode.": {
+    "description": "SettingsDescription.ts",
+    "message": "The image rendered at hero section of Marketplace landing page. Please, use a wide image (min. 1920×600px) with no text or logos. Keep the center area clean, and choose a darker image for dark mode or a brighter image for light mode."
   },
   "The image rendered at the bottom of login menu in HomePort.": {
     "description": "SettingsDescription.ts",
@@ -16198,6 +16234,10 @@
   "{name} ({questions_count} questions)": {
     "description": "marketplace-checklist/useChecklist.tsx",
     "message": "{name} ({questions_count} questions)"
+  },
+  "{offeringName} offering has been moved to {organizationName} organization.": {
+    "description": "marketplace/offerings/list/MoveOfferingDialog.tsx",
+    "message": "{offeringName} offering has been moved to {organizationName} organization."
   },
   "{percentage}% uploaded": {
     "description": "invitations/actions/create/BulkUpload.tsx",
