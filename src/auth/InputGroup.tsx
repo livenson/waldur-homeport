@@ -1,5 +1,35 @@
+import { Eye, EyeSlash } from '@phosphor-icons/react';
 import { useCallback, FunctionComponent } from 'react';
+import { useToggle } from 'react-use';
 import { Field } from 'redux-form';
+
+import { translate } from '@waldur/i18n';
+
+import '@waldur/form/SecretField.scss';
+
+const PasswordField = ({ placeholder, input }) => {
+  const [showSecret, onToggle] = useToggle(false);
+
+  return (
+    <div className="has-password">
+      <input
+        className="login-input"
+        type={showSecret ? 'text' : 'password'}
+        placeholder={placeholder}
+        {...input}
+      />
+      <button
+        className="password-icon text-btn icon-align"
+        type="button"
+        title={showSecret ? translate('Hide') : translate('Show')}
+        onClick={onToggle}
+      >
+        {showSecret ? <EyeSlash size={20} /> : <Eye size={20} />}
+        &nbsp;
+      </button>
+    </div>
+  );
+};
 
 export const InputGroup: FunctionComponent<{
   fieldName;
@@ -7,14 +37,17 @@ export const InputGroup: FunctionComponent<{
   type;
 }> = ({ fieldName, placeholder, type }) => {
   const renderComponent = useCallback(
-    ({ input }) => (
-      <input
-        className="login-input"
-        type={type}
-        placeholder={placeholder}
-        {...input}
-      />
-    ),
+    ({ input }) =>
+      type === 'password' ? (
+        <PasswordField placeholder={placeholder} input={input} />
+      ) : (
+        <input
+          className="login-input"
+          type={type}
+          placeholder={placeholder}
+          {...input}
+        />
+      ),
     [placeholder, type],
   );
 

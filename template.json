@@ -5100,7 +5100,7 @@
     "message": "Hide password"
   },
   "Hide": {
-    "description": "form/SecretField.tsx, marketplace/SecretValueField.tsx, openstack/openstack-tenant/OpenStackTenantSummary.tsx",
+    "description": "auth/InputGroup.tsx, form/SecretField.tsx, marketplace/SecretValueField.tsx, openstack/openstack-tenant/OpenStackTenantSummary.tsx",
     "message": "Hide"
   },
   "History and archaeology": {
@@ -11776,7 +11776,7 @@
     "message": "Show {count} more"
   },
   "Show": {
-    "description": "form/SecretField.tsx, marketplace/SecretValueField.tsx, marketplace/details/plan/PlanDetailsLink.tsx, resource/summary/ResourceMetadataLink.tsx",
+    "description": "auth/InputGroup.tsx, form/SecretField.tsx, marketplace/SecretValueField.tsx, marketplace/details/plan/PlanDetailsLink.tsx, resource/summary/ResourceMetadataLink.tsx",
     "message": "Show"
   },
   "Showing {sliceStart} to {sliceEnd} of {resultCount} entries.": {
