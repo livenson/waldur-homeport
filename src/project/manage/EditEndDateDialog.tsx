@@ -137,7 +137,7 @@ const FormModalComponent: FC<
     },
     {
       refetchOnWindowFocus: false,
-      enabled: value.input.value && value.meta.dirty,
+      enabled: !!value.input.value && value.meta.dirty,
     },
   );
 
