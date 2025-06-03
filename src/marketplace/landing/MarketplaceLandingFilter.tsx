@@ -7,6 +7,7 @@ import { Project } from 'waldur-js-client';
 
 import { getInitialValues, syncFiltersToURL } from '@waldur/core/filters';
 import { translate } from '@waldur/i18n';
+import { useOrganizationAndProjectFiltersForResources } from '@waldur/navigation/sidebar/resources-filter/utils';
 import { getUser } from '@waldur/workspace/selectors';
 import { Customer } from '@waldur/workspace/types';
 
@@ -41,6 +42,9 @@ export const MarketplaceLandingFilter = reduxForm<FormData>({
     getFormValues(MARKETPLACE_LANDING_FILTER_FORM),
   ) as FormData;
 
+  const { syncResourceFilters } =
+    useOrganizationAndProjectFiltersForResources();
+
   const apply = useCallback(
     (formData) => {
       filterItems.forEach((item) => {
@@ -55,8 +59,9 @@ export const MarketplaceLandingFilter = reduxForm<FormData>({
       });
       setShow(false);
       syncFiltersToURL(formData);
+      syncResourceFilters(formData);
     },
-    [setShow, dispatch],
+    [setShow, dispatch, syncResourceFilters],
   );
 
   // To initialize & apply filters (from URL)
