@@ -4,6 +4,7 @@ import { Button } from 'react-bootstrap';
 import { FieldArrayFieldsProps } from 'redux-form';
 
 import { translate } from '@waldur/i18n';
+import { EthernetType } from '@waldur/openstack/types';
 
 import { Rule } from './types';
 
@@ -12,7 +13,7 @@ interface RuleAddButtonProps {
 }
 
 const DEFAULT_RULE = {
-  ethertype: 'IPv4',
+  ethertype: 'IPv4' as EthernetType,
   protocol: 'tcp',
   direction: 'ingress',
   port_range: { min: 443, max: 443 },
