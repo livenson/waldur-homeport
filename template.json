@@ -3576,7 +3576,7 @@
     "message": "Disable"
   },
   "Disabled": {
-    "description": "administration/hooks/HooksList.tsx, administration/providers/ProviderCard.tsx, customer/payment-profiles/PaymentProfileList.tsx, user/hooks/HooksList.tsx, user/support/UserStatus.tsx, user/support/utils.ts",
+    "description": "administration/hooks/HooksList.tsx, administration/providers/ProviderCard.tsx, customer/payment-profiles/PaymentProfileList.tsx, user/hooks/HooksList.tsx, user/support/UserEditRows.tsx, user/support/UserStatus.tsx, user/support/utils.ts",
     "message": "Disabled"
   },
   "Discard and exit": {
@@ -4067,6 +4067,14 @@
     "description": "marketplace/offerings/update/components/ComponentLimitEnableField.tsx",
     "message": "Enable limit"
   },
+  "Enable or disable notifications for this user (Staff only)": {
+    "description": "user/support/UserEditRows.tsx",
+    "message": "Enable or disable notifications for this user (Staff only)"
+  },
+  "Enable or disable notifications for your account (Staff only)": {
+    "description": "user/support/UserEditRows.tsx",
+    "message": "Enable or disable notifications for your account (Staff only)"
+  },
   "Enable port security": {
     "description": "openstack/openstack-tenant/actions/TogglePortSecurityAction.tsx",
     "message": "Enable port security"
@@ -4116,7 +4124,7 @@
     "message": "Enabled display of experimental or mocked components in marketplace."
   },
   "Enabled": {
-    "description": "administration/hooks/HooksList.tsx, administration/notifications/NotificationList.tsx, administration/providers/ProviderCard.tsx, administration/providers/ProviderForm.tsx, administration/remote-offering-sync/RemoteOfferingSyncList.tsx, customer/payment-profiles/PaymentProfileList.tsx, marketplace-checklist/ChecklistCustomer.tsx, user/hooks/HookDetailsDialog.tsx, user/hooks/HooksList.tsx",
+    "description": "administration/hooks/HooksList.tsx, administration/notifications/NotificationList.tsx, administration/providers/ProviderCard.tsx, administration/providers/ProviderForm.tsx, administration/remote-offering-sync/RemoteOfferingSyncList.tsx, customer/payment-profiles/PaymentProfileList.tsx, marketplace-checklist/ChecklistCustomer.tsx, user/hooks/HookDetailsDialog.tsx, user/hooks/HooksList.tsx, user/support/UserEditRows.tsx",
     "message": "Enabled"
   },
   "Encountered an empty component": {
@@ -4390,6 +4398,10 @@
   "Ethernet type": {
     "description": "openstack/openstack-security-groups/SecurityGroupRuleHeader.tsx, openstack/openstack-security-groups/rule-editor/RulesHeader.tsx",
     "message": "Ethernet type"
+  },
+  "Ethertype": {
+    "description": "rancher/cluster/SetManagementSecurityGroupDialog.tsx",
+    "message": "Ethertype"
   },
   "Evaluation": {
     "description": "issues/feedback/SupportFeedback.tsx, issues/feedback/SupportFeedbackList.tsx, issues/feedback/SupportFeedbackListFilter.tsx",
@@ -5218,6 +5230,14 @@
   "IPs is outside the allocation pool": {
     "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx",
     "message": "IPs is outside the allocation pool"
+  },
+  "IPv4": {
+    "description": "rancher/cluster/SetManagementSecurityGroupDialog.tsx",
+    "message": "IPv4"
+  },
+  "IPv6": {
+    "description": "rancher/cluster/SetManagementSecurityGroupDialog.tsx",
+    "message": "IPv6"
   },
   "Icon": {
     "description": "marketplace/category/admin/GroupFromDialog.tsx, rancher/template/CatalogTemplateList.tsx",
@@ -6447,6 +6467,10 @@
     "description": "rancher/cluster/create/steps.ts",
     "message": "Management offering"
   },
+  "Management security group has been updated.": {
+    "description": "rancher/cluster/SetManagementSecurityGroupDialog.tsx",
+    "message": "Management security group has been updated."
+  },
   "Managers": {
     "description": "proposals/team/TeamSection.tsx, proposals/update/CallUpdateContainer.tsx",
     "message": "Managers"
@@ -7396,7 +7420,7 @@
     "message": "Notification method"
   },
   "Notifications": {
-    "description": "SettingsDescription.ts, administration/hooks/HooksList.tsx, administration/routes.ts, administration/settings/AdministrationBranding.tsx, user/hooks/HooksList.tsx, user/routes.ts",
+    "description": "SettingsDescription.ts, administration/hooks/HooksList.tsx, administration/routes.ts, administration/settings/AdministrationBranding.tsx, user/hooks/HooksList.tsx, user/routes.ts, user/support/UserEditRows.tsx",
     "message": "Notifications"
   },
   "Notify external user": {
@@ -11547,6 +11571,10 @@
     "description": "map/SetLocationDialog.tsx",
     "message": "Set location"
   },
+  "Set management security group": {
+    "description": "rancher/cluster/SetManagementSecurityGroupButton.tsx, rancher/cluster/SetManagementSecurityGroupDialog.tsx",
+    "message": "Set management security group"
+  },
   "Set plan for resource": {
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Set plan for resource"
@@ -14382,6 +14410,10 @@
   "Unable to update logo.": {
     "description": "marketplace/offerings/actions/UpdateOfferingMediaDialog.tsx",
     "message": "Unable to update logo."
+  },
+  "Unable to update management security group.": {
+    "description": "rancher/cluster/SetManagementSecurityGroupDialog.tsx",
+    "message": "Unable to update management security group."
   },
   "Unable to update network MTU.": {
     "description": "openstack/openstack-network/actions/SetMtuDialog.tsx",

@@ -11,6 +11,7 @@ import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
 
 import { ClusterSecurityGroupSetRulesButton } from './ClusterSecurityGroupSetRulesButton';
+import { SetManagementSecurityGroupButton } from './SetManagementSecurityGroupButton';
 
 export const ClusterSecurityGroupsList: FunctionComponent<{
   resourceScope: Resource;
@@ -50,6 +51,11 @@ export const ClusterSecurityGroupsList: FunctionComponent<{
           refetch={tableProps.fetch}
         />
       )}
+      tableActions={
+        <SetManagementSecurityGroupButton
+          clusterId={resourceScope.resource_uuid}
+        />
+      }
     />
   );
 };
