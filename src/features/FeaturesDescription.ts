@@ -101,6 +101,14 @@ export const FeaturesDescription: FeatureSection[] = [
         description: translate('Render estimated cost column in projects list.'),
       },
       {
+        key: 'mandatory_end_date',
+        description: translate('Make the project end date mandatory.'),
+      },
+      {
+        key: 'mandatory_start_date',
+        description: translate('Make the project start date mandatory.'),
+      },
+      {
         key: 'oecd_fos_2007_code',
         description: translate('Enable OECD code.'),
       },
