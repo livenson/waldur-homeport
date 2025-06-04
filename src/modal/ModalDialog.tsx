@@ -54,7 +54,7 @@ export const ModalDialog: FC<ModalDialogProps> = ({
         className={classNames(
           headerClassName,
           'without-border',
-          !hasHeaderPadding && 'pt-0',
+          !hasHeaderPadding && 'pb-0',
           !title && 'without-border',
           iconNode && 'has-icon',
         )}
