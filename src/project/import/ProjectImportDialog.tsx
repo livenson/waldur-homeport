@@ -7,7 +7,7 @@ import {
   projectsCreate,
 } from 'waldur-js-client';
 
-import { formatDate } from '@waldur/core/dateUtils';
+import { formatISODate } from '@waldur/core/dateUtils';
 import { ProgressStep } from '@waldur/core/ProgressSteps';
 import { getCustomer } from '@waldur/customer/utils';
 import { WizardFormContainer } from '@waldur/form/WizardFormContainer';
@@ -145,10 +145,10 @@ export const ProjectImportDialog: FC<ProjectImportDialogProps> = (props) => {
         projects.forEach(({ resources, ...project }) => {
           if (!project.name) return;
           const start_date = project.start_date
-            ? formatDate(project.start_date)
+            ? formatISODate(project.start_date)
             : undefined;
           const end_date = project.end_date
-            ? formatDate(project.end_date)
+            ? formatISODate(project.end_date)
             : undefined;
           if (!start_date || !end_date) return;
 
