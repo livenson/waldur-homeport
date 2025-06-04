@@ -1539,6 +1539,10 @@
     "description": "proposals/utils.ts",
     "message": "Automatic based on review scoring"
   },
+  "Automatic": {
+    "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx",
+    "message": "Automatic"
+  },
   "Automation": {
     "description": "openstack/openstack-instance/deploy/FormStartupScriptStep.tsx, openstack/openstack-instance/deploy/steps.ts",
     "message": "Automation"

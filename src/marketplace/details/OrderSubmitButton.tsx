@@ -5,6 +5,7 @@ import { Button } from 'react-bootstrap';
 import { parseDate } from '@waldur/core/dateUtils';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
 import { Tip } from '@waldur/core/Tooltip';
+import { removeEmptyObjects } from '@waldur/core/utils';
 import { FieldErrorMessage } from '@waldur/form/FieldError';
 import { FloatingButton } from '@waldur/form/FloatingButton';
 import { translate } from '@waldur/i18n';
@@ -23,11 +24,16 @@ export const OrderSubmitButton = (props: OrderSummaryProps) => {
     return null;
   }, [props.formData?.project]);
 
+  const errors = useMemo(
+    () => removeEmptyObjects(props.errors),
+    [props.errors],
+  );
+
   const errorsExist =
     projectError ||
-    props.errors?.attributes ||
-    props.errors?.limits ||
-    props.errors?.plan_entries;
+    errors?.attributes ||
+    errors?.limits ||
+    errors?.plan_entries;
 
   const Btn = (
     <Button
@@ -48,7 +54,7 @@ export const OrderSubmitButton = (props: OrderSummaryProps) => {
     <FloatingButton>
       {errorsExist ? (
         <Tip
-          label={<FieldErrorMessage error={projectError || props.errors} />}
+          label={<FieldErrorMessage error={projectError || errors} />}
           id="offering-button-errors"
           autoWidth
           className="w-100"
