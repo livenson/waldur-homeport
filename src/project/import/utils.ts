@@ -89,6 +89,11 @@ export const parseProjectsAndResourcesFile = (file: File) => {
             projectFields.forEach(({ field, idx }) => {
               projectData[field] = parseValue(row[idx]);
             });
+            // add customer_uuid if it exists
+            const customerIndex = header.indexOf('customer_uuid');
+            if (customerIndex !== -1) {
+              projectData.customer_uuid = row[customerIndex];
+            }
             if (typeIndex >= 0) {
               // Find the resources of this project
               const resources = rows

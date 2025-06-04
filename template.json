@@ -1848,7 +1848,7 @@
     "message": "By"
   },
   "CIDR": {
-    "description": "customer/details/AccessSubnetForm.tsx, customer/details/CustomerAccessControlPanel.tsx, openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx, openstack/openstack-subnet/OpenStackSubNetSummary.tsx, openstack/openstack-subnet/TenantSubnetsList.tsx",
+    "description": "customer/details/AccessSubnetForm.tsx, customer/details/CustomerAccessControlPanel.tsx, openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx, openstack/openstack-subnet/OpenStackSubNetSummary.tsx, openstack/openstack-subnet/TenantSubnetsList.tsx, rancher/cluster/SetManagementSecurityGroupDialog.tsx",
     "message": "CIDR"
   },
   "CPU limit (hours)": {
@@ -4396,12 +4396,8 @@
     "message": "Estimated revenue"
   },
   "Ethernet type": {
-    "description": "openstack/openstack-security-groups/SecurityGroupRuleHeader.tsx, openstack/openstack-security-groups/rule-editor/RulesHeader.tsx",
+    "description": "openstack/openstack-security-groups/SecurityGroupRuleHeader.tsx, openstack/openstack-security-groups/rule-editor/RulesHeader.tsx, rancher/cluster/SetManagementSecurityGroupDialog.tsx",
     "message": "Ethernet type"
-  },
-  "Ethertype": {
-    "description": "rancher/cluster/SetManagementSecurityGroupDialog.tsx",
-    "message": "Ethertype"
   },
   "Evaluation": {
     "description": "issues/feedback/SupportFeedback.tsx, issues/feedback/SupportFeedbackList.tsx, issues/feedback/SupportFeedbackListFilter.tsx",
