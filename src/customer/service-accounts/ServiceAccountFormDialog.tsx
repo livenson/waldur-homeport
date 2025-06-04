@@ -81,32 +81,36 @@ export const ServiceAccountFormDialog = reduxForm<
                 project: scope.uuid,
               } as ProjectServiceAccountRequest);
 
+        let response;
         if (isEdit) {
           const api =
             context === 'customer'
               ? marketplaceCustomerServiceAccountsPartialUpdate
               : marketplaceProjectServiceAccountsPartialUpdate;
-          const response = await api({
+          response = await api({
             path: { uuid: row.uuid },
             body,
           });
-          // Open a dialog to show the API key
-          dispatch(
-            openModalDialog(ServiceAccountShowInfoDialog, {
-              resolve: {
-                username: response.data.username,
-                token: response.data.token,
-                expiresAt: response.data.expires_at,
-              },
-            }),
-          );
         } else {
           const api =
             context === 'customer'
               ? marketplaceCustomerServiceAccountsCreate
               : marketplaceProjectServiceAccountsCreate;
-          await api({ body } as any);
+          response = await api({ body } as any);
         }
+        dispatch(closeModalDialog());
+
+        // Open a dialog to show the API key
+        dispatch(
+          openModalDialog(ServiceAccountShowInfoDialog, {
+            resolve: {
+              username: response.data.username,
+              token: response.data.token,
+              expiresAt: response.data.expires_at,
+            },
+          }),
+        );
+
         dispatch(
           showSuccess(
             isEdit
@@ -115,7 +119,6 @@ export const ServiceAccountFormDialog = reduxForm<
           ),
         );
         if (refetch) refetch();
-        dispatch(closeModalDialog());
       } catch (e) {
         dispatch(
           showErrorResponse(
