@@ -28,19 +28,28 @@ import { getDefaultFloatingIps, formatSubnet } from '../utils';
 import { FormSecurityGroupsField } from './FormSecurityGroupsField';
 import { FormSSHPublicKeysField } from './FormSSHPublicKeysField';
 
-export const CustomIpField = ({ parentName, data, autoFocus = false }) => {
+export const CustomIpField = ({
+  parentName,
+  data,
+  autoFocus = false,
+  hasAutoOption = false,
+}) => {
   const options = useMemo(() => {
     const ipRanges = data?.subnet
       ?.allocation_pools as OpenStackSubNetAllocationPool[];
     const customIps = ipRanges?.length
       ? ipRanges.flatMap(({ start, end }) => getIPsInRange(start, end))
       : [];
-    return customIps
+    const opts = customIps
       .map((ip) => ({ label: ip, value: ip }))
       .concat({
         value: 'other',
         label: translate('Other (manual input)'),
       });
+    if (hasAutoOption) {
+      return [{ label: translate('Automatic'), value: false }].concat(opts);
+    }
+    return opts;
   }, [data?.subnet?.allocation_pools]);
 
   const isOutsideAllocationPool = useCallback(
@@ -96,8 +105,10 @@ export const CustomIpField = ({ parentName, data, autoFocus = false }) => {
             ) : null)}
         </div>
       )}
-      validate={[required, isOutsideRange]}
-      warn={[isOutsideAllocationPool]}
+      validate={
+        selected?.value === false ? undefined : [required, isOutsideRange]
+      }
+      warn={selected?.value === false ? undefined : [isOutsideAllocationPool]}
       required={true}
     />
   );
@@ -277,6 +288,7 @@ const renderNetworkRows = ({
                     <CustomIpField
                       parentName={network}
                       data={fields.get(index)}
+                      hasAutoOption
                     />
                   </Col>
                 </Col>
