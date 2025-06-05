@@ -130,6 +130,12 @@ export const SettingsDescription = [
         default: false,
         type: 'boolean',
       },
+      {
+        key: 'ENABLE_MOCK_SERVICE_ACCOUNT_BACKEND',
+        description: translate('Enable mock returns for the service account service'),
+        default: false,
+        type: 'boolean',
+      },
     ],
   },
   {
