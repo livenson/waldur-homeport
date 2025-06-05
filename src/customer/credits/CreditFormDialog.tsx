@@ -3,30 +3,25 @@ import { Accordion, Form } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { formValueSelector, reduxForm } from 'redux-form';
 
-import { ENV } from '@waldur/core/config';
 import { EChart } from '@waldur/core/EChart';
 import { defaultCurrency } from '@waldur/core/formatCurrency';
 import { LoadingErred } from '@waldur/core/LoadingErred';
 import { LoadingSpinnerIcon } from '@waldur/core/LoadingSpinner';
 import { required } from '@waldur/core/validators';
-import {
-  FieldError,
-  FormContainer,
-  NumberField,
-  SubmitButton,
-} from '@waldur/form';
+import { FieldError, FormContainer, SubmitButton } from '@waldur/form';
 import { AsyncSelectField } from '@waldur/form/AsyncSelectField';
 import { translate } from '@waldur/i18n';
-import {
-  providerOfferingsAutocomplete,
-  organizationAutocomplete,
-} from '@waldur/marketplace/common/autocompletes';
+import { organizationAutocomplete } from '@waldur/marketplace/common/autocompletes';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
 import { ModalDialog } from '@waldur/modal/ModalDialog';
 
 import { useCustomerCostChart } from '../dashboard/utils';
 
-import { useMinimalConsumptionFields } from './constants';
+import {
+  useCustomerAllocateCreditField,
+  useCustomerCreditOfferingsField,
+  useMinimalConsumptionFields,
+} from './constants';
 import { CustomerCreditFormData } from './types';
 
 interface CreditFormDialogProps {
@@ -53,6 +48,8 @@ export const CreditFormDialog = reduxForm<
     props.form,
     props.initialValues,
   );
+  const OFFERING_FIELD = useCustomerCreditOfferingsField();
+  const ALLOCATE_CREDIT_FIELD = useCustomerAllocateCreditField();
 
   return (
     <form onSubmit={props.handleSubmit(props.submitFn)}>
@@ -123,36 +120,8 @@ export const CreditFormDialog = reduxForm<
               </Accordion.Item>
             </Accordion>
           )}
-          <AsyncSelectField
-            name="offerings"
-            label={translate('Offering(s)')}
-            placeholder={translate('All')}
-            loadOptions={(query, prevOptions, { page }) =>
-              providerOfferingsAutocomplete(
-                { name: query, billable: true },
-                prevOptions,
-                page,
-              )
-            }
-            isMulti
-            getOptionValue={(option) => option.uuid}
-            getOptionLabel={(option) =>
-              option.category_title
-                ? `${option.category_title} / ${option.name}`
-                : option.name
-            }
-            noOptionsMessage={() => translate('No offerings')}
-          />
-          <NumberField
-            label={translate('Allocate credit ({currency})', {
-              currency: ENV.plugins.WALDUR_CORE.CURRENCY_NAME,
-            })}
-            name="value"
-            placeholder="0"
-            validate={required}
-            required
-            unit={ENV.plugins.WALDUR_CORE.CURRENCY_NAME}
-          />
+          {OFFERING_FIELD}
+          {ALLOCATE_CREDIT_FIELD}
           {CONSUMPTION_FIELDS}
           <Form.Group>
             <FieldError error={props.error} />
