@@ -114,7 +114,7 @@ export const SummaryTeamTable: FC<OwnProps> = ({ scope, context }) => {
           render: ({ row }) => renderRoleExpirationDate(row),
           className: 'w-45px',
         },
-      ]}
+      ].filter(Boolean)}
       verboseName={translate('Team members')}
       hasActionBar={false}
       hoverShadow={false}
