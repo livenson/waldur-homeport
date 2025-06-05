@@ -20,6 +20,7 @@ import {
   SubmitButton,
   TextField,
 } from '@waldur/form';
+import { EmailField } from '@waldur/form/EmailField';
 import { translate } from '@waldur/i18n';
 import { closeModalDialog, openModalDialog } from '@waldur/modal/actions';
 import { CloseDialogButton } from '@waldur/modal/CloseDialogButton';
@@ -174,7 +175,7 @@ export const ServiceAccountFormDialog = reduxForm<
                   )
             }
           />
-          <StringField
+          <EmailField
             name="email"
             label={translate('Notification email')}
             placeholder={translate('e.g.') + ' serviceaccount@example.com'}
