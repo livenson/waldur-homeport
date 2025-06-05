@@ -716,11 +716,11 @@
     "message": "All users"
   },
   "All": {
-    "description": "administration/organizations/OrganizationsFilter.tsx, customer/credits/CreditFormDialog.tsx, customer/list/AccountingRunningField.tsx, customer/list/ServiceProviderFilter.tsx, invitations/GroupInvitationsFilter.tsx, marketplace/offerings/update/attributes/utils.tsx",
+    "description": "administration/organizations/OrganizationsFilter.tsx, customer/credits/constants.tsx, customer/list/AccountingRunningField.tsx, customer/list/ServiceProviderFilter.tsx, invitations/GroupInvitationsFilter.tsx, marketplace/offerings/update/attributes/utils.tsx",
     "message": "All"
   },
   "Allocate credit ({currency})": {
-    "description": "customer/credits/CreditFormDialog.tsx, customer/credits/ProjectCreditFormDialog.tsx",
+    "description": "customer/credits/constants.tsx",
     "message": "Allocate credit ({currency})"
   },
   "Allocate credit to the project (optional)": {
@@ -728,7 +728,7 @@
     "message": "Allocate credit to the project (optional)"
   },
   "Allocated credit": {
-    "description": "customer/credits/constants.tsx",
+    "description": "customer/credits/constants.tsx, customer/details/CustomerCreditPanel.tsx, project/manage/ProjectCredit.tsx",
     "message": "Allocated credit"
   },
   "Allocation date": {
@@ -924,7 +924,7 @@
     "message": "Applications"
   },
   "Apply as minimal consumption": {
-    "description": "customer/credits/CreditExpandableRow.tsx, customer/credits/constants.tsx",
+    "description": "customer/credits/CreditExpandableRow.tsx, customer/credits/constants.tsx, customer/details/CustomerCreditPanel.tsx, project/manage/ProjectCredit.tsx",
     "message": "Apply as minimal consumption"
   },
   "Apply filters to table data": {
@@ -2452,7 +2452,7 @@
     "message": "Confirm your review"
   },
   "Confirm": {
-    "description": "administration/settings/ConfigurationEditDialog.tsx, customer/credits/CreditFormDialog.tsx, customer/credits/ProjectCreditFormDialog.tsx, customer/details/EditFieldDialog.tsx, issues/comments/CommentFormDialog.tsx, marketplace/details/CustomerField.tsx, marketplace/offerings/images/CreateImageDialog.tsx, marketplace/offerings/import/WizardButtons.tsx, marketplace/offerings/update/integration/EditFieldDialog.tsx, marketplace/offerings/update/integration/EditScriptLanguageDialog.tsx, project/manage/EditFieldDialog.tsx, proposals/proposal/create-review/CommentFormDialog.tsx, rancher/cluster/team/AddResourceAccessDialog.tsx",
+    "description": "administration/settings/ConfigurationEditDialog.tsx, customer/credits/CreditFormDialog.tsx, customer/credits/EditCreditFieldDialog.tsx, customer/credits/ProjectCreditFormDialog.tsx, customer/details/EditFieldDialog.tsx, issues/comments/CommentFormDialog.tsx, marketplace/details/CustomerField.tsx, marketplace/offerings/images/CreateImageDialog.tsx, marketplace/offerings/import/WizardButtons.tsx, marketplace/offerings/update/integration/EditFieldDialog.tsx, marketplace/offerings/update/integration/EditScriptLanguageDialog.tsx, project/manage/EditCreditFieldDialog.tsx, project/manage/EditFieldDialog.tsx, proposals/proposal/create-review/CommentFormDialog.tsx, rancher/cluster/team/AddResourceAccessDialog.tsx",
     "message": "Confirm"
   },
   "Confirmation notification template": {
@@ -2887,6 +2887,10 @@
     "description": "marketplace/offerings/OfferingEditUIView.tsx, marketplace/offerings/update/integration/CredentialsSection.tsx, user/routes.ts",
     "message": "Credentials"
   },
+  "Credit allocated to projects": {
+    "description": "customer/details/CustomerCreditPanel.tsx",
+    "message": "Credit allocated to projects"
+  },
   "Credit compensation.": {
     "description": "invoices/details/InvoiceItemExpandableRow.tsx",
     "message": "Credit compensation."
@@ -2912,7 +2916,7 @@
     "message": "Credit is overallocated"
   },
   "Credit management": {
-    "description": "administration/organizations/OrganizationCreditsList.tsx, administration/routes.ts, customer/credits/ProjectCreditsList.tsx, customer/routes.ts",
+    "description": "administration/organizations/OrganizationCreditsList.tsx, administration/routes.ts, customer/credits/ProjectCreditsList.tsx, customer/details/CustomerManageContainer.tsx, customer/routes.ts, project/ProjectManageContainer.tsx",
     "message": "Credit management"
   },
   "Credit usage": {
@@ -2928,7 +2932,7 @@
     "message": "Credit"
   },
   "Credits available for this organization: {currency} {credits}": {
-    "description": "customer/credits/ProjectCreditFormDialog.tsx",
+    "description": "customer/credits/constants.tsx",
     "message": "Credits available for this organization: {currency} {credits}"
   },
   "Credits available for this organization: {customer_credit}": {
@@ -3580,7 +3584,7 @@
     "message": "Disable"
   },
   "Disabled": {
-    "description": "administration/hooks/HooksList.tsx, administration/providers/ProviderCard.tsx, customer/payment-profiles/PaymentProfileList.tsx, user/hooks/HooksList.tsx, user/support/UserEditRows.tsx, user/support/UserStatus.tsx, user/support/utils.ts",
+    "description": "administration/hooks/HooksList.tsx, administration/providers/ProviderCard.tsx, customer/details/CustomerCreditPanel.tsx, customer/payment-profiles/PaymentProfileList.tsx, project/manage/ProjectCredit.tsx, user/hooks/HooksList.tsx, user/support/UserEditRows.tsx, user/support/UserStatus.tsx, user/support/utils.ts",
     "message": "Disabled"
   },
   "Discard and exit": {
@@ -4071,6 +4075,10 @@
     "description": "marketplace/offerings/update/components/ComponentLimitEnableField.tsx",
     "message": "Enable limit"
   },
+  "Enable mock returns for the service account service": {
+    "description": "SettingsDescription.ts",
+    "message": "Enable mock returns for the service account service"
+  },
   "Enable or disable notifications for this user (Staff only)": {
     "description": "user/support/UserEditRows.tsx",
     "message": "Enable or disable notifications for this user (Staff only)"
@@ -4128,7 +4136,7 @@
     "message": "Enabled display of experimental or mocked components in marketplace."
   },
   "Enabled": {
-    "description": "administration/hooks/HooksList.tsx, administration/notifications/NotificationList.tsx, administration/providers/ProviderCard.tsx, administration/providers/ProviderForm.tsx, administration/remote-offering-sync/RemoteOfferingSyncList.tsx, customer/payment-profiles/PaymentProfileList.tsx, marketplace-checklist/ChecklistCustomer.tsx, user/hooks/HookDetailsDialog.tsx, user/hooks/HooksList.tsx, user/support/UserEditRows.tsx",
+    "description": "administration/hooks/HooksList.tsx, administration/notifications/NotificationList.tsx, administration/providers/ProviderCard.tsx, administration/providers/ProviderForm.tsx, administration/remote-offering-sync/RemoteOfferingSyncList.tsx, customer/details/CustomerCreditPanel.tsx, customer/payment-profiles/PaymentProfileList.tsx, marketplace-checklist/ChecklistCustomer.tsx, project/manage/ProjectCredit.tsx, user/hooks/HookDetailsDialog.tsx, user/hooks/HooksList.tsx, user/support/UserEditRows.tsx",
     "message": "Enabled"
   },
   "Encountered an empty component": {
@@ -4160,7 +4168,7 @@
     "message": "End date of the agreement is {date}."
   },
   "End date": {
-    "description": "booking/deploy/CustomRangeDatePicker.tsx, customer/credits/constants.tsx, customer/payment-profiles/PaymentProfileCreateDialog.tsx, customer/payment-profiles/PaymentProfileUpdateDialog.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/service-providers/OrganizationProjectsExpandable.tsx, marketplace/service-providers/ProviderCampaignsList.tsx, marketplace-remote/ProjectUpdateRequestExpandable.tsx, project/ProjectCard.tsx, project/ProjectsList.tsx, project/create/EndDateGroup.tsx, project/details/ProjectDetailsDialog.tsx, project/import/Step5PreviewAndImport.tsx, project/manage/ProjectGeneral.tsx, proposals/round/RoundPageHeaderBody.tsx, user/affiliations/ProjectsList.tsx",
+    "description": "booking/deploy/CustomRangeDatePicker.tsx, customer/credits/constants.tsx, customer/details/CustomerCreditPanel.tsx, customer/payment-profiles/PaymentProfileCreateDialog.tsx, customer/payment-profiles/PaymentProfileUpdateDialog.tsx, marketplace/deploy/DetailsOverviewDialog.tsx, marketplace/service-providers/OrganizationProjectsExpandable.tsx, marketplace/service-providers/ProviderCampaignsList.tsx, marketplace-remote/ProjectUpdateRequestExpandable.tsx, project/ProjectCard.tsx, project/ProjectsList.tsx, project/create/EndDateGroup.tsx, project/details/ProjectDetailsDialog.tsx, project/import/Step5PreviewAndImport.tsx, project/manage/ProjectCredit.tsx, project/manage/ProjectGeneral.tsx, proposals/round/RoundPageHeaderBody.tsx, user/affiliations/ProjectsList.tsx",
     "message": "End date"
   },
   "End date:": {
@@ -4462,6 +4470,10 @@
   "Expected consumption (per month)": {
     "description": "customer/credits/constants.tsx",
     "message": "Expected consumption (per month)"
+  },
+  "Expected consumption ({currency} per month)": {
+    "description": "customer/details/CustomerCreditPanel.tsx, project/manage/ProjectCredit.tsx",
+    "message": "Expected consumption ({currency} per month)"
   },
   "Expected consumption": {
     "description": "customer/credits/CreditExpandableRow.tsx",
@@ -4984,7 +4996,7 @@
     "message": "Google Calendar has been unpublished successfully."
   },
   "Grace coefficient": {
-    "description": "customer/credits/CreditExpandableRow.tsx, customer/credits/constants.tsx",
+    "description": "customer/credits/CreditExpandableRow.tsx, customer/credits/constants.tsx, customer/details/CustomerCreditPanel.tsx, project/manage/ProjectCredit.tsx",
     "message": "Grace coefficient"
   },
   "Grant permission": {
@@ -6407,6 +6419,14 @@
     "description": "features/FeaturesDescription.ts",
     "message": "Make payments menu visible for staff users only."
   },
+  "Make the project end date mandatory.": {
+    "description": "features/FeaturesDescription.ts",
+    "message": "Make the project end date mandatory."
+  },
+  "Make the project start date mandatory.": {
+    "description": "features/FeaturesDescription.ts",
+    "message": "Make the project start date mandatory."
+  },
   "Manage campaign": {
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Manage campaign"
@@ -6684,7 +6704,7 @@
     "message": "Minimal average scoring"
   },
   "Minimal consumption logic": {
-    "description": "customer/credits/CreditExpandableRow.tsx, customer/credits/constants.tsx",
+    "description": "customer/credits/CreditExpandableRow.tsx, customer/credits/constants.tsx, customer/details/CustomerCreditPanel.tsx, project/manage/ProjectCredit.tsx",
     "message": "Minimal consumption logic"
   },
   "Minimal consumption": {
@@ -7204,7 +7224,7 @@
     "message": "No namespaces"
   },
   "No offerings": {
-    "description": "customer/credits/CreditFormDialog.tsx, marketplace/offerings/details/OfferingAutocomplete.tsx",
+    "description": "customer/credits/constants.tsx, marketplace/offerings/details/OfferingAutocomplete.tsx",
     "message": "No offerings"
   },
   "No organization groups are currently defined. Please create groups to configure access policies.": {
@@ -7656,7 +7676,7 @@
     "message": "Offering users"
   },
   "Offering(s)": {
-    "description": "customer/credits/CreditFormDialog.tsx",
+    "description": "customer/credits/constants.tsx, customer/details/CustomerCreditPanel.tsx",
     "message": "Offering(s)"
   },
   "Offering": {
@@ -8038,6 +8058,14 @@
   "Organization change": {
     "description": "marketplace/details/CustomerField.tsx",
     "message": "Organization change"
+  },
+  "Organization credit could not be updated.": {
+    "description": "customer/credits/EditCreditFieldDialog.tsx",
+    "message": "Organization credit could not be updated."
+  },
+  "Organization credit has been updated.": {
+    "description": "customer/credits/EditCreditFieldDialog.tsx",
+    "message": "Organization credit has been updated."
   },
   "Organization credit": {
     "description": "customer/cost-policies/CostPoliciesList.tsx",
@@ -8888,7 +8916,7 @@
     "message": "Previous months"
   },
   "Previously saved credit value for this organization: {currency} {credits}": {
-    "description": "customer/credits/ProjectCreditFormDialog.tsx",
+    "description": "customer/credits/constants.tsx",
     "message": "Previously saved credit value for this organization: {currency} {credits}"
   },
   "Price for consumption": {
@@ -9046,6 +9074,14 @@
   "Project could not be updated.": {
     "description": "project/manage/EditEndDateDialog.tsx, project/manage/EditFieldDialog.tsx, project/manage/ProjectAvatar.tsx",
     "message": "Project could not be updated."
+  },
+  "Project credit could not be updated.": {
+    "description": "project/manage/EditCreditFieldDialog.tsx",
+    "message": "Project credit could not be updated."
+  },
+  "Project credit has been updated.": {
+    "description": "project/manage/EditCreditFieldDialog.tsx",
+    "message": "Project credit has been updated."
   },
   "Project credit": {
     "description": "customer/cost-policies/CostPoliciesList.tsx",
