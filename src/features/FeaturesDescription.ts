@@ -23,6 +23,20 @@ export const FeaturesDescription: FeatureSection[] = [
     ],
   },
   {
+    key: 'deployment',
+    description: translate('Waldur deployment settings'),
+    items: [
+      {
+        key: 'enable_cookie_notice',
+        description: translate('Enable cookie notice in marketplace.'),
+      },
+      {
+        key: 'send_metrics',
+        description: translate('Send telemetry metrics.'),
+      },
+    ],
+  },
+  {
     key: 'invitations',
     description: translate('Invitations management'),
     items: [
@@ -185,16 +199,6 @@ export const FeaturesDescription: FeatureSection[] = [
       {
         key: 'vm_type_overview',
         description: translate('Enable VM type overview in support workspace.'),
-      },
-    ],
-  },
-  {
-    key: 'telemetry',
-    description: translate('Telemetry settings'),
-    items: [
-      {
-        key: 'send_metrics',
-        description: translate('Send telemetry metrics.'),
       },
     ],
   },

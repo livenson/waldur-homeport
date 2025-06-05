@@ -7,6 +7,11 @@ export enum CustomerFeatures {
   show_permission_reviews = 'customer.show_permission_reviews',
 }
 
+export enum DeploymentFeatures {
+  enable_cookie_notice = 'deployment.enable_cookie_notice',
+  send_metrics = 'deployment.send_metrics',
+}
+
 export enum InvitationsFeatures {
   civil_number_required = 'invitations.civil_number_required',
   conceal_civil_number = 'invitations.conceal_civil_number',
@@ -59,10 +64,6 @@ export enum SupportFeatures {
   vm_type_overview = 'support.vm_type_overview',
 }
 
-export enum TelemetryFeatures {
-  send_metrics = 'telemetry.send_metrics',
-}
-
 export enum UserFeatures {
   disable_user_termination = 'user.disable_user_termination',
   notifications = 'user.notifications',
@@ -74,6 +75,7 @@ export enum UserFeatures {
 
 export type FeaturesEnum =
   | CustomerFeatures
+  | DeploymentFeatures
   | InvitationsFeatures
   | MarketplaceFeatures
   | OpenstackFeatures
@@ -81,6 +83,5 @@ export type FeaturesEnum =
   | RancherFeatures
   | SlurmFeatures
   | SupportFeatures
-  | TelemetryFeatures
   | UserFeatures
 ;
