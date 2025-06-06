@@ -4063,6 +4063,10 @@
     "description": "customer/details/CustomerCallManagerPanel.tsx",
     "message": "Enable call manager"
   },
+  "Enable cookie notice in marketplace.": {
+    "description": "features/FeaturesDescription.ts",
+    "message": "Enable cookie notice in marketplace."
+  },
   "Enable display of slug field in user summary.": {
     "description": "features/FeaturesDescription.ts",
     "message": "Enable display of slug field in user summary."
@@ -6618,6 +6622,10 @@
   "Maximum number of instances in a single tenant": {
     "description": "openstack/OpenStackPluginOptionsForm.tsx",
     "message": "Maximum number of instances in a single tenant"
+  },
+  "Maximum number of service accounts": {
+    "description": "customer/details/CustomerDetailsPanel.tsx, customer/details/EditFieldDialog.tsx, project/manage/EditFieldDialog.tsx, project/manage/ProjectGeneral.tsx",
+    "message": "Maximum number of service accounts"
   },
   "Maximum number of volumes in a single tenant": {
     "description": "openstack/OpenStackPluginOptionsForm.tsx",
@@ -12467,10 +12475,6 @@
     "description": "SettingsDescription.ts",
     "message": "Telemetry service version."
   },
-  "Telemetry settings": {
-    "description": "features/FeaturesDescription.ts",
-    "message": "Telemetry settings"
-  },
   "Telemetry": {
     "description": "SettingsDescription.ts, administration/routes.ts, administration/telemetry/AdministrationTelemetry.tsx",
     "message": "Telemetry"
@@ -12734,6 +12738,10 @@
   "The maximum number of attempts to pull user from backend.": {
     "description": "SettingsDescription.ts",
     "message": "The maximum number of attempts to pull user from backend."
+  },
+  "The maximum number of service accounts that can be created in this project.": {
+    "description": "project/manage/ProjectGeneral.tsx",
+    "message": "The maximum number of service accounts that can be created in this project."
   },
   "The maximum port number is not specified.": {
     "description": "openstack/openstack-security-groups/rule-editor/PortRangeField.tsx",
@@ -15650,6 +15658,10 @@
   "Waldur API URL": {
     "description": "slurm/SlurmForm.tsx",
     "message": "Waldur API URL"
+  },
+  "Waldur deployment settings": {
+    "description": "features/FeaturesDescription.ts",
+    "message": "Waldur deployment settings"
   },
   "Waldur only uses <b>essential cookies</b>, which are necessary for the platform to function correctly. These cookies enable you to log in, access secure areas, and navigate throughout Waldur. No other types of cookies are used.": {
     "description": "navigation/cookies/CookiesConsentDialog.tsx",
