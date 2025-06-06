@@ -3,6 +3,7 @@ import { Project } from 'waldur-js-client';
 
 import FormTable from '@waldur/form/FormTable';
 import { translate } from '@waldur/i18n';
+import { useUser } from '@waldur/workspace/hooks';
 
 import { FieldEditButton } from './FieldEditButton';
 import { ProjectAvatar } from './ProjectAvatar';
@@ -12,6 +13,7 @@ interface ProjectGeneralProps {
 }
 
 export const ProjectGeneral: React.FC<ProjectGeneralProps> = ({ project }) => {
+  const user = useUser();
   const rows = useMemo(
     () => [
       {
@@ -44,6 +46,16 @@ export const ProjectGeneral: React.FC<ProjectGeneralProps> = ({ project }) => {
         label: translate('Description'),
         key: 'description',
         value: project.description || 'N/A',
+      },
+      user.is_staff && {
+        label: translate('Maximum number of service accounts'),
+        description: translate(
+          'The maximum number of service accounts that can be created in this project.',
+        ),
+        key: 'max_service_accounts',
+        value: project.max_service_accounts
+          ? project.max_service_accounts
+          : 'N/A',
       },
     ],
     [project],

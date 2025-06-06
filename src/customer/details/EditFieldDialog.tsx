@@ -174,6 +174,12 @@ export const EditFieldDialog = connect<{}, {}, { resolve: EditCustomerProps }>(
               />
             ) : props.resolve.name === 'slug' ? (
               <StringField name="slug" label={translate('Slug')} />
+            ) : props.resolve.name === 'max_service_accounts' ? (
+              <NumberField
+                name="max_service_accounts"
+                label={translate('Maximum number of service accounts')}
+                min={0}
+              />
             ) : // Contact fields
             props.resolve.name === 'email' ? (
               <EmailField name="email" label={translate('Email')} />
