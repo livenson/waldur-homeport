@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 import { translate } from '@waldur/i18n';
 import { InvitationCreateButton } from '@waldur/invitations/actions/create/InvitationCreateButton';
 import { GroupInvitationCreateButton } from '@waldur/invitations/actions/GroupInvitationCreateButton';
+import { getTableState } from '@waldur/table/selectors';
 import { getCustomer } from '@waldur/workspace/selectors';
 
 import { ServiceAccountCreateButton } from '../service-accounts/ServiceAccountCreateAction';
@@ -17,7 +18,12 @@ interface TeamDropdownActionsProps {
 
 export const TeamDropdownActions = ({ refetch }: TeamDropdownActionsProps) => {
   const customer = useSelector(getCustomer);
-
+  const tableState = useSelector(
+    getTableState('marketplace-customer-service-accounts'),
+  );
+  const isServiceAccountLimitReached =
+    customer.max_service_accounts > 0 &&
+    tableState?.pagination?.resultCount >= customer.max_service_accounts;
   return (
     <Dropdown placement="bottom-end">
       <Dropdown.Toggle variant="primary" className="no-arrow btn-icon-right">
@@ -37,11 +43,14 @@ export const TeamDropdownActions = ({ refetch }: TeamDropdownActionsProps) => {
         />
         <GroupInvitationCreateButton refetch={refetch} />
         <UserAddButton refetch={refetch} />
-        <ServiceAccountCreateButton
-          context="customer"
-          scope={customer}
-          refetch={refetch}
-        />
+        {customer.max_service_accounts !== 0 && (
+          <ServiceAccountCreateButton
+            context="customer"
+            scope={customer}
+            refetch={refetch}
+            disabled={isServiceAccountLimitReached}
+          />
+        )}
       </Dropdown.Menu>
     </Dropdown>
   );

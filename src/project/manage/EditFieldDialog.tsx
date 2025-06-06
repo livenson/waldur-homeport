@@ -114,6 +114,17 @@ export const EditFieldDialog = ({ resolve }: { resolve: EditProjectProps }) => {
               <FormGroup label={translate('Slug')}>
                 <Field component={StringField as any} name="slug" />
               </FormGroup>
+            ) : resolve.name === 'max_service_accounts' ? (
+              <FormGroup
+                label={translate('Maximum number of service accounts')}
+              >
+                <Field
+                  component={StringField as any}
+                  name="max_service_accounts"
+                  type="number"
+                  min={0}
+                />
+              </FormGroup>
             ) : null}
           </ModalDialog>
         </form>

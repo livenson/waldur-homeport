@@ -20,8 +20,9 @@ const ServiceAccountFormDialog = lazyComponent(() =>
 export const ServiceAccountCreateButton: FC<
   ServiceAccountsProps & {
     refetch(): void;
+    disabled?: boolean;
   }
-> = ({ context, scope, refetch }) => {
+> = ({ context, scope, refetch, disabled }) => {
   if (!isFeatureVisible(InvitationsFeatures.show_service_accounts)) {
     return null;
   }
@@ -38,6 +39,7 @@ export const ServiceAccountCreateButton: FC<
       title={translate('Service account')}
       action={callback}
       iconNode={<Robot weight="bold" />}
+      disabled={disabled}
     />
   );
 };
