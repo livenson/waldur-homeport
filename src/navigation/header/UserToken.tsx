@@ -16,8 +16,8 @@ export const UserToken = ({ token }) => {
   }, [dispatch, token]);
 
   return (
-    <div className="menu-item px-5" data-kt-menu-trigger="click">
-      <div className="px-5 menu-link">
+    <div className="menu-item" data-kt-menu-trigger="click">
+      <div className="menu-link bg-transparent">
         <span className="menu-title me-2 text-nowrap">
           {translate('API token')}
         </span>

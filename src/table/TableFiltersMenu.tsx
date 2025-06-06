@@ -121,7 +121,7 @@ const SaveFilterItems = ({ table, formId, apply }) => {
         >
           <span className="menu-link" aria-hidden="true">
             <span className="menu-title">{translate('Current filters')}</span>
-            <CaretRight size={18} className="ms-auto" weight="bold" />
+            <CaretRight size={20} className="ms-auto" weight="bold" />
           </span>
 
           <div className="menu-sub menu-sub-dropdown w-250px py-3 shadow-sm">
@@ -131,7 +131,7 @@ const SaveFilterItems = ({ table, formId, apply }) => {
               onClick={onSaveFilter}
             >
               <span className="menu-title">{translate('Save as')}</span>
-              <Star size={18} className="ms-auto" weight="bold" />
+              <Star size={20} className="ms-auto" weight="bold" />
             </span>
             {selectedSavedFilter ? (
               <span
@@ -140,7 +140,7 @@ const SaveFilterItems = ({ table, formId, apply }) => {
                 onClick={(e) => onSaveFilter(e, true)}
               >
                 {translate('Update')}
-                <ArrowsClockwise size={18} className="ms-auto" weight="bold" />
+                <ArrowsClockwise size={20} className="ms-auto" weight="bold" />
               </span>
             ) : null}
           </div>
@@ -155,7 +155,7 @@ const SaveFilterItems = ({ table, formId, apply }) => {
           <span className="menu-title">
             {translate('Saved filters') + ` (${list.length})`}
           </span>
-          <CaretRight size={18} className="ms-auto" weight="bold" />
+          <CaretRight size={20} className="ms-auto" weight="bold" />
         </span>
 
         <div className="menu-sub menu-sub-dropdown w-250px py-3 shadow-sm">

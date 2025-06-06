@@ -24,6 +24,6 @@ export const UpdateSecurityGroupsButton: ActionItemType = ({
     validators={validators}
     modalComponent={UpdateSecurityGroupsDialog}
     extraResolve={{ refetch }}
-    iconNode={<ShieldChevron />}
+    iconNode={<ShieldChevron weight="bold" />}
   />
 );
