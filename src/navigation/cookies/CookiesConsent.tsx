@@ -3,6 +3,8 @@ import { useState, FunctionComponent, useEffect } from 'react';
 
 import { initMatomoTracker, MatomoInstance } from '@waldur/afterBootstrap';
 import { lazyComponent } from '@waldur/core/lazyComponent';
+import { isFeatureVisible } from '@waldur/features/connect';
+import { DeploymentFeatures } from '@waldur/FeaturesEnums';
 import { useModal } from '@waldur/modal/hooks';
 
 import { getConsent, setConsent } from './CookiesStorage';
@@ -31,7 +33,10 @@ export const CookiesConsent: FunctionComponent = () => {
 
   useEffect(() => {
     if (state.name === 'about.privacy') return;
-    if (!accepted) {
+    if (
+      !accepted &&
+      isFeatureVisible(DeploymentFeatures.enable_cookie_notice)
+    ) {
       openDialog(CookiesConsentDialog, {
         resolve: {
           acceptAll: () => hideConsent(false),
