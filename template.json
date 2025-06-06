@@ -135,6 +135,14 @@
     "description": "about.tsx",
     "message": "About"
   },
+  "Accept & continue": {
+    "description": "navigation/cookies/CookiesConsentDialog.tsx",
+    "message": "Accept & continue"
+  },
+  "Accept all": {
+    "description": "navigation/cookies/CookiesConsentDialog.tsx",
+    "message": "Accept all"
+  },
   "Accept booking request for resource": {
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Accept booking request for resource"
@@ -3407,6 +3415,10 @@
     "description": "azure/sql/DestroyServerAction.tsx",
     "message": "Deleting PostgreSQL server will cause deletion of all databases created within server."
   },
+  "Deny analytical cookies": {
+    "description": "navigation/cookies/CookiesConsentDialog.tsx",
+    "message": "Deny analytical cookies"
+  },
   "Deny": {
     "description": "booking/components/RejectBookingButton.tsx",
     "message": "Deny"
@@ -4387,6 +4399,10 @@
     "description": "reporting/quotas/constants.tsx",
     "message": "Esimated price per month"
   },
+  "Essential cookies: required for platform functionality": {
+    "description": "navigation/cookies/CookiesConsentDialog.tsx",
+    "message": "Essential cookies: required for platform functionality"
+  },
   "Estimate usage of {component}": {
     "description": "marketplace/details/plan/EstimateUsageComponentDialog.tsx",
     "message": "Estimate usage of {component}"
@@ -4815,6 +4831,10 @@
     "description": "navigation/UpgradeNotificationDialog.tsx",
     "message": "For Helm-based deployments"
   },
+  "For complete details, please see our <pp>Privacy policy</pp>.": {
+    "description": "navigation/cookies/CookiesConsentDialog.tsx",
+    "message": "For complete details, please see our <pp>Privacy policy</pp>."
+  },
   "Force destroy {name} instance": {
     "description": "openstack/openstack-instance/actions/ForceDestroyDialog.tsx",
     "message": "Force destroy {name} instance"
@@ -5195,10 +5215,6 @@
     "description": "openstack/openstack-instance/OpenStackInstanceSummary.tsx",
     "message": "Hypervisor"
   },
-  "I agree": {
-    "description": "navigation/cookies/CookiesConsent.tsx",
-    "message": "I agree"
-  },
   "I confirm that I understand the impact and want to delete my account": {
     "description": "user/support/UserDeleteAccount.tsx",
     "message": "I confirm that I understand the impact and want to delete my account"
@@ -5442,6 +5458,10 @@
   "Importing resources": {
     "description": "resource/state/constants.ts",
     "message": "Importing resources"
+  },
+  "In addition to <b>essential cookies</b>, which are mandatory for the proper functioning of the platform, we also use <b>analytical cookies</b>. These cookies help us understand how users interact with the platform, allowing us to improve performance and user experience.": {
+    "description": "navigation/cookies/CookiesConsentDialog.tsx",
+    "message": "In addition to <b>essential cookies</b>, which are mandatory for the proper functioning of the platform, we also use <b>analytical cookies</b>. These cookies help us understand how users interact with the platform, allowing us to improve performance and user experience."
   },
   "In review": {
     "description": "proposals/utils.ts",
@@ -6100,7 +6120,7 @@
     "message": "Law"
   },
   "Learn more": {
-    "description": "auth/HeroButton.tsx, navigation/cookies/CookiesConsent.tsx",
+    "description": "auth/HeroButton.tsx",
     "message": "Learn more"
   },
   "Lifecycle policy": {
@@ -7946,6 +7966,10 @@
   "Option has been updated successfully.": {
     "description": "marketplace/offerings/update/options/EditOptionDialog.tsx",
     "message": "Option has been updated successfully."
+  },
+  "Optional cookies: Help us improve your experience": {
+    "description": "navigation/cookies/CookiesConsentDialog.tsx",
+    "message": "Optional cookies: Help us improve your experience"
   },
   "Optionally disable creation of user groups in FreeIPA matching Waldur structure": {
     "description": "SettingsDescription.ts",
@@ -12979,10 +13003,6 @@
     "description": "resource/actions/ResourceActionDialog.tsx",
     "message": "This value is invalid JSON."
   },
-  "This website uses cookies to ensure you get the best experience on our website.": {
-    "description": "navigation/cookies/CookiesConsent.tsx",
-    "message": "This website uses cookies to ensure you get the best experience on our website."
-  },
   "Thumbnail": {
     "description": "marketplace/offerings/images/OfferingImagesList.tsx",
     "message": "Thumbnail"
@@ -15630,6 +15650,10 @@
   "Waldur API URL": {
     "description": "slurm/SlurmForm.tsx",
     "message": "Waldur API URL"
+  },
+  "Waldur only uses <b>essential cookies</b>, which are necessary for the platform to function correctly. These cookies enable you to log in, access secure areas, and navigate throughout Waldur. No other types of cookies are used.": {
+    "description": "navigation/cookies/CookiesConsentDialog.tsx",
+    "message": "Waldur only uses <b>essential cookies</b>, which are necessary for the platform to function correctly. These cookies enable you to log in, access secure areas, and navigate throughout Waldur. No other types of cookies are used."
   },
   "Waldur username": {
     "description": "marketplace/UserPluginOptionsForm.tsx",
