@@ -21,12 +21,12 @@ interface OwnProps {
 export const OfferingUpdateContainer: FC<OwnProps> = (props) => {
   const data = props.data;
 
-  if (props.isLoading) {
-    return <LoadingSpinner />;
-  }
-  if (props.error) {
-    return <h3>{translate('Unable to load offering details.')}</h3>;
-  }
+  // if (props.isLoading) {
+  //   return <LoadingSpinner />;
+  // }
+  // if (props.error) {
+  //   return <h3>{translate('Unable to load offering details.')}</h3>;
+  // }
   if (!props.data) {
     return null;
   }
