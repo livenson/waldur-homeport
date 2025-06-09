@@ -40,7 +40,7 @@ const LayoutWrapper: FC<PropsWithChildren<OwnProps>> = (props) =>
 export const ProjectUsersBadge = (props: OwnProps) => {
   const {
     data: users,
-    isLoading,
+    isPending,
     error,
     refetch,
   } = useQuery({
@@ -61,7 +61,7 @@ export const ProjectUsersBadge = (props: OwnProps) => {
     enabled: Boolean(props.projectId),
   });
 
-  return isLoading ? (
+  return isPending ? (
     <LoadingSpinner />
   ) : error ? (
     <LoadingErred
