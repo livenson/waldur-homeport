@@ -14,7 +14,7 @@ const TerminateDialog = lazyComponent(() =>
   })),
 );
 
-const validators = [validateState('OK', 'ERRED')];
+const validators = [validateState('OK', 'ERRED', 'Erred')];
 
 interface TerminateActionProps {
   resource: any;
