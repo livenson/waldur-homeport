@@ -7884,7 +7884,7 @@
     "message": "OpenStack instance has been unlinked from Rancher node."
   },
   "OpenStack instance": {
-    "description": "openstack/openstack-instance/actions/EditDialog.tsx, openstack/openstack-instance/marketplace.ts, rancher/node/RancherNodeSummary.tsx, rancher/node/actions/LinkDialog.tsx",
+    "description": "openstack/openstack-instance/actions/EditDialog.tsx, openstack/openstack-instance/actions/update-security-groups/UpdateSecurityGroupsForm.tsx, openstack/openstack-instance/actions/update-security-groups/utils.ts, openstack/openstack-instance/marketplace.ts, rancher/node/RancherNodeSummary.tsx, rancher/node/actions/LinkDialog.tsx",
     "message": "OpenStack instance"
   },
   "OpenStack network port has been created.": {
@@ -7902,6 +7902,10 @@
   "OpenStack offerings": {
     "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
     "message": "OpenStack offerings"
+  },
+  "OpenStack port": {
+    "description": "openstack/openstack-instance/actions/update-security-groups/UpdateSecurityGroupsForm.tsx, openstack/openstack-instance/actions/update-security-groups/utils.ts",
+    "message": "OpenStack port"
   },
   "OpenStack replication has been initiated.": {
     "description": "openstack/openstack-tenant/actions/MigrateTenantDialog.tsx",
@@ -14575,9 +14579,9 @@
     "description": "openstack/openstack-security-groups/rule-editor/utils.ts",
     "message": "Unable to update security group rules."
   },
-  "Unable to update security groups of OpenStack instance.": {
+  "Unable to update security groups of {resource}.": {
     "description": "openstack/openstack-instance/actions/update-security-groups/utils.ts",
-    "message": "Unable to update security groups of OpenStack instance."
+    "message": "Unable to update security groups of {resource}."
   },
   "Unable to update static routes.": {
     "description": "openstack/openstack-tenant/SetRoutesDialog.tsx",
@@ -14815,9 +14819,9 @@
     "description": "openstack/openstack-instance/actions/update-internal-ips/utils.ts",
     "message": "Update of OpenStack instance internal IPs has been scheduled."
   },
-  "Update of OpenStack instance security groups has been scheduled.": {
+  "Update of {resource} security groups has been scheduled.": {
     "description": "openstack/openstack-instance/actions/update-security-groups/utils.ts",
-    "message": "Update of OpenStack instance security groups has been scheduled."
+    "message": "Update of {resource} security groups has been scheduled."
   },
   "Update offering": {
     "description": "administration/roles/PermissionOptions.tsx",
@@ -14903,9 +14907,9 @@
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Update screenshot"
   },
-  "Update security groups for OpenStack instance {name}": {
+  "Update security groups for {resource} {name}": {
     "description": "openstack/openstack-instance/actions/update-security-groups/UpdateSecurityGroupsForm.tsx",
-    "message": "Update security groups for OpenStack instance {name}"
+    "message": "Update security groups for {resource} {name}"
   },
   "Update security groups": {
     "description": "openstack/openstack-instance/actions/update-security-groups/UpdateSecurityGroupsAction.tsx, openstack/openstack-instance/actions/update-security-groups/UpdateSecurityGroupsButton.tsx",
