@@ -10,18 +10,22 @@ import { useFlatpickrTheme } from './useFlatpickrTheme';
 
 export const DateField: FunctionComponent<any> = (props) => {
   useFlatpickrTheme();
+  const options: Record<string, any> = {
+    dateFormat: 'Y-m-d',
+    minDate: props.minDate,
+    maxDate: props.maxDate,
+    defaultDate: props.defaultDate,
+    monthSelectorType: 'static',
+    inline: props.inline,
+    allowInvalidPreload: true,
+  };
+  if (props.enable) {
+    options.enable = props.enable;
+  }
   return (
     <div style={{ position: 'relative' }}>
       <Flatpickr
-        options={{
-          dateFormat: 'Y-m-d',
-          minDate: props.minDate,
-          maxDate: props.maxDate,
-          defaultDate: props.defaultDate,
-          monthSelectorType: 'static',
-          inline: props.inline,
-          allowInvalidPreload: true,
-        }}
+        options={options}
         value={
           props.input.value && typeof props.input.value === 'string'
             ? DateTime.fromISO(props.input.value).toJSDate()

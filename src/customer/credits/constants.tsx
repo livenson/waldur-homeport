@@ -1,5 +1,5 @@
 import { DateTime } from 'luxon';
-import { useEffect, useMemo } from 'react';
+import { useCallback, useEffect, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { change, getFormValues } from 'redux-form';
 
@@ -125,6 +125,12 @@ export const useMinimalConsumptionFields = (formId: string, initialValues) => {
       }
     }
   });
+
+  const onlyFirstDayOfMonth = useCallback(
+    (date: Date) => date.getDate() === 1,
+    [],
+  );
+
   return [
     <DateField
       name="end_date"
@@ -143,6 +149,7 @@ export const useMinimalConsumptionFields = (formId: string, initialValues) => {
           ? getStartOfNextMonth().toISO()
           : undefined
       }
+      enable={[onlyFirstDayOfMonth]}
     />,
 
     <CustomRadioButton
