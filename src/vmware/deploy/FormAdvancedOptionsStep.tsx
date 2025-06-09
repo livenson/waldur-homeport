@@ -16,10 +16,9 @@ import { FormStepProps } from '@waldur/marketplace/deploy/types';
 export const FormAdvancedOptionsStep = (props: FormStepProps) => {
   const advancedMode = !ENV.plugins.WALDUR_VMWARE.BASIC_MODE;
 
-  const { data, isLoading } = useQuery({
-    queryKey: ['vmware-advanced-options', props.offering.uuid],
-
-    queryFn: async () => {
+  const { data, isLoading } = useQuery(
+    ['vmware-advanced-options', props.offering.uuid],
+    async () => {
       const [clusters, datastores, folders] = await Promise.all([
         getAllPages((page) =>
           vmwareClustersList({
@@ -55,9 +54,8 @@ export const FormAdvancedOptionsStep = (props: FormStepProps) => {
         folders,
       };
     },
-
-    staleTime: 3 * 60 * 1000,
-  });
+    { staleTime: 3 * 60 * 1000 },
+  );
 
   return (
     <VStepperFormStepCard

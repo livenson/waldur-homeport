@@ -167,16 +167,14 @@ const renderScheduleRows = ({
 };
 
 export const FormPeriodsStep = (props: FormStepProps) => {
-  const { isLoading, data: bookedItems } = useQuery({
-    queryKey: ['bookedItems', props.offering.uuid],
-
-    queryFn: () =>
+  const { isLoading, data: bookedItems } = useQuery(
+    ['bookedItems', props.offering.uuid],
+    () =>
       marketplaceBookingsList({ path: { uuid: props.offering.uuid } }).then(
         (r) => r.data,
       ),
-
-    staleTime: 3 * 60 * 1000,
-  });
+    { staleTime: 3 * 60 * 1000 },
+  );
 
   return (
     <VStepperFormStepCard

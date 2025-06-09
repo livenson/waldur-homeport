@@ -15,10 +15,9 @@ export const SelectOrganizationTab = () => {
     isLoading,
     error,
     data: organizations,
-  } = useQuery({
-    queryKey: ['RemoteOrganizations', formData?.api_url, formData?.token],
-
-    queryFn: () => {
+  } = useQuery(
+    ['RemoteOrganizations', formData?.api_url, formData?.token],
+    () => {
       if (!formData?.api_url || !formData?.token) {
         return Promise.reject(
           new Error(translate('Please check the credentials again.')),
@@ -28,10 +27,8 @@ export const SelectOrganizationTab = () => {
         (r) => r.data,
       );
     },
-
-    staleTime: 60 * 1000,
-    retry: false,
-  });
+    { staleTime: 60 * 1000, retry: false },
+  );
 
   return (
     <FormContainer

@@ -159,42 +159,42 @@ const RemoteSyncRenderer = ({
     refetch: remoteCustomersRefetch,
     isFetching: remoteCustomersFetching,
     error: remoteCustomersError,
-  } = useQuery({
-    queryKey: ['remoteCustomers', remoteSync?.uuid],
-
-    queryFn: async () =>
+  } = useQuery(
+    ['remoteCustomers', remoteSync?.uuid],
+    async () =>
       values.api_url && values.token
         ? await remoteWaldurApiRemoteCustomers({
             body: { api_url: values.api_url, token: values.token },
           }).then((response) => response.data)
         : [],
-
-    staleTime: 60 * 1000,
-    refetchOnWindowFocus: false,
-    retry: false,
-    enabled: false,
-  });
+    {
+      staleTime: 60 * 1000,
+      refetchOnWindowFocus: false,
+      retry: false,
+      enabled: false,
+    },
+  );
 
   const {
     data: remoteCategories,
     refetch: remoteCategoriesRefetch,
     isFetching: remoteCategoriesFetching,
     error: remoteCategoriesError,
-  } = useQuery({
-    queryKey: ['remoteCategories', remoteSync?.uuid],
-
-    queryFn: async () =>
+  } = useQuery(
+    ['remoteCategories', remoteSync?.uuid],
+    async () =>
       values.api_url && values.token
         ? await remoteWaldurApiRemoteCategories({
             body: { api_url: values.api_url, token: values.token },
           }).then((response) => response.data)
         : [],
-
-    staleTime: 60 * 1000,
-    refetchOnWindowFocus: false,
-    retry: false,
-    enabled: false,
-  });
+    {
+      staleTime: 60 * 1000,
+      refetchOnWindowFocus: false,
+      retry: false,
+      enabled: false,
+    },
+  );
 
   const loadData = () => {
     if (

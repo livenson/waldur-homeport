@@ -38,10 +38,9 @@ export const TeamDropdownActions = ({
 
   const hasCustomerPermission = useSelector(hasCurrentCustomerPermission);
 
-  const { isLoading, isError, data } = useQuery({
-    queryKey: ['TeamDropdownActions', project.uuid],
-
-    queryFn: async () => {
+  const { isLoading, isError, data } = useQuery(
+    ['TeamDropdownActions', project.uuid],
+    async () => {
       if (user.is_staff || hasCustomerPermission) {
         return true;
       }
@@ -50,7 +49,7 @@ export const TeamDropdownActions = ({
       );
       return usersCount > 0;
     },
-  });
+  );
 
   return (
     <Dropdown placement="bottom-end">

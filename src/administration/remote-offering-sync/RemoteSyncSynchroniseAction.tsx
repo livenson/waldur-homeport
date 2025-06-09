@@ -12,20 +12,16 @@ import { RemoteSyncActionProps } from './types';
 export const RemoteSyncSynchroniseAction = (props: RemoteSyncActionProps) => {
   const dispatch = useDispatch();
 
-  const { mutate, isLoading } = useMutation({
-    mutationFn: async () => {
-      try {
-        await marketplaceRemoteSynchronisationsRunSynchronisation({
-          path: { uuid: props.row.uuid },
-        });
-        dispatch(
-          showSuccess(translate('Synchronisation has been successful.')),
-        );
-        props.refetch();
-      } catch (e) {
-        dispatch(showErrorResponse(e, translate('Unable to synchronise.')));
-      }
-    },
+  const { mutate, isLoading } = useMutation(async () => {
+    try {
+      await marketplaceRemoteSynchronisationsRunSynchronisation({
+        path: { uuid: props.row.uuid },
+      });
+      dispatch(showSuccess(translate('Synchronisation has been successful.')));
+      props.refetch();
+    } catch (e) {
+      dispatch(showErrorResponse(e, translate('Unable to synchronise.')));
+    }
   });
 
   return (

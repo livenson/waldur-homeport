@@ -26,10 +26,9 @@ export const FormImageStep = (props: FormStepProps) => {
     [setQuery],
   );
 
-  const { data, isLoading, error, refetch } = useQuery({
-    queryKey: ['deployImages', props.offering?.scope_uuid, query],
-
-    queryFn: () =>
+  const { data, isLoading, error, refetch } = useQuery(
+    ['deployImages', props.offering?.scope_uuid, query],
+    () =>
       props.offering.scope_uuid
         ? getAllPages((page) =>
             openstackImagesList({
@@ -41,9 +40,8 @@ export const FormImageStep = (props: FormStepProps) => {
             }),
           )
         : Promise.resolve([]),
-
-    staleTime: 3 * 60 * 1000,
-  });
+    { staleTime: 3 * 60 * 1000 },
+  );
 
   const choices = useMemo(() => generateSystemImageChoices(data), [data]);
 

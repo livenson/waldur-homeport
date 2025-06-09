@@ -4,7 +4,7 @@ import { Fragment, useCallback } from 'react';
 import { Button, Form, FormCheck } from 'react-bootstrap';
 import { useDispatch, useSelector } from 'react-redux';
 import { arrayPush, arrayRemoveAll, Field, FieldArray } from 'redux-form';
-import { rancherClusterTemplatesList } from 'waldur-js-client';
+import { OpenStackFlavor, rancherClusterTemplatesList } from 'waldur-js-client';
 
 import { getAllPages } from '@waldur/core/api';
 import { required } from '@waldur/core/validators';
@@ -180,24 +180,20 @@ export const FormNodesStep = (props: FormStepProps) => {
   const tenant = useSelector(formTenantSelector);
 
   const { data: volumeData } = useVolumeDataLoader(tenant);
-  const { data: templates, isLoading: templateLoading } = useQuery({
-    queryKey: ['nodes-step-templates'],
-
-    queryFn: () =>
+  const { data: templates, isLoading: templateLoading } = useQuery(
+    ['nodes-step-templates'],
+    () =>
       getAllPages((page) => rancherClusterTemplatesList({ query: { page } })),
-
-    staleTime: 3 * 60 * 1000,
-  });
-  const { data: flavors, isLoading } = useQuery({
-    queryKey: ['nodes-step-flavors', tenant?.url, props.offering.uuid],
-
-    queryFn: () =>
+    { staleTime: 3 * 60 * 1000 },
+  );
+  const { data: flavors, isLoading } = useQuery<{}, {}, OpenStackFlavor[]>(
+    ['nodes-step-flavors', tenant?.url, props.offering.uuid],
+    () =>
       tenant && props.offering
         ? filterFlavors(tenant.uuid, props.offering)
         : [],
-
-    staleTime: 3 * 60 * 1000,
-  });
+    { staleTime: 3 * 60 * 1000 },
+  );
 
   const onSelectTemplate = useCallback(
     (template) => {

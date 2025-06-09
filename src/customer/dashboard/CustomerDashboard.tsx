@@ -33,35 +33,32 @@ export const CustomerDashboard: FunctionComponent = () => {
     isLoading: isAggregateLimitLoading,
     error: aggregateLimitError,
     refetch: aggregateLimitRefetch,
-  } = useQuery({
-    queryKey: ['customer-stats', customer?.uuid],
-
-    queryFn: () =>
+  } = useQuery(
+    ['customer-stats', customer?.uuid],
+    () =>
       customersStatsRetrieve({ path: { uuid: customer?.uuid } }).then(
         (r) => r.data,
       ),
-
-    refetchOnWindowFocus: false,
-    staleTime: 60 * 1000,
-  });
+    { refetchOnWindowFocus: false, staleTime: 60 * 1000 },
+  );
 
   const {
     data: aggregateLimitDataForCurrentMonth,
     isLoading: isAggregateLimitLoadingForCurrentMonth,
     error: aggregateLimitErrorForCurrentMonth,
     refetch: aggregateLimitRefetchForCurrentMonth,
-  } = useQuery({
-    queryKey: ['customer-stats', customer?.uuid, 'current-month'],
-
-    queryFn: () =>
+  } = useQuery(
+    ['customer-stats', customer?.uuid, 'current-month'],
+    () =>
       customersStatsRetrieve({
         path: { uuid: customer?.uuid },
         query: { for_current_month: true },
       }).then((r) => r.data),
-
-    refetchOnWindowFocus: false,
-    staleTime: 60 * 1000,
-  });
+    {
+      refetchOnWindowFocus: false,
+      staleTime: 60 * 1000,
+    },
+  );
 
   const currentMonthFilteredData = filterComponentsWithUsage(
     aggregateLimitDataForCurrentMonth,

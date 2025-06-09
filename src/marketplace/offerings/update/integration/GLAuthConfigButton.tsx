@@ -21,10 +21,9 @@ export const GLAuthConfigButton: FC<{
 }> = ({ offering }) => {
   const enabled =
     offering.plugin_options?.service_provider_can_create_offering_user;
-  const { data, error, isLoading, refetch } = useQuery({
-    queryKey: ['OfferingGLAuthConfig', offering.uuid, enabled],
-
-    queryFn: () =>
+  const { data, error, isLoading, refetch } = useQuery(
+    ['OfferingGLAuthConfig', offering.uuid, enabled],
+    () =>
       enabled
         ? marketplaceProviderOfferingsGlauthUsersConfigRetrieve({
             path: { uuid: offering.uuid },
@@ -34,10 +33,8 @@ export const GLAuthConfigButton: FC<{
             },
           }).then((response) => response.data)
         : null,
-
-    refetchOnWindowFocus: false,
-    staleTime: 5 * 60 * 1000,
-  });
+    { refetchOnWindowFocus: false, staleTime: 5 * 60 * 1000 },
+  );
 
   const dispatch = useDispatch();
   const callback = () => {

@@ -7,16 +7,14 @@ import { minAmount } from '@waldur/marketplace/common/utils';
 export const minOne = minAmount(1);
 
 export const useVMwareLimitsLoader = (settingsId: string) => {
-  const { data, isLoading, error } = useQuery({
-    queryKey: ['volumeTypes', settingsId],
-
-    queryFn: () =>
+  const { data, isLoading, error } = useQuery(
+    ['volumeTypes', settingsId],
+    () =>
       vmwareLimitsRetrieve({ path: { uuid: settingsId } }).then(
         (response) => response.data,
       ),
-
-    staleTime: 3 * 60 * 1000,
-  });
+    { staleTime: 3 * 60 * 1000 },
+  );
   const limits = useMemo(
     () =>
       data

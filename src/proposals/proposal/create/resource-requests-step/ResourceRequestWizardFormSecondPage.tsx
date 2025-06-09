@@ -19,16 +19,16 @@ export const ResourceRequestWizardFormSecondPage: FunctionComponent<
       {(wizardProps) => {
         const { offering, mainOffering, plan, limits } = wizardProps.formValues;
 
-        const queryData = useQuery({
-          queryKey: ['offering', offering?.uuid],
-
-          queryFn: () =>
+        const queryData = useQuery(
+          ['offering', offering?.uuid],
+          () =>
             marketplacePublicOfferingsRetrieve({
               path: { uuid: offering.uuid },
             }).then((response) => response.data),
-
-          staleTime: 3 * 60 * 1000,
-        });
+          {
+            staleTime: 3 * 60 * 1000,
+          },
+        );
 
         // Store the main offering, so that we can access to it in other steps
         useEffect(() => {

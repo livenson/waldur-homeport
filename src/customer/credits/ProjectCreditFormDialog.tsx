@@ -48,16 +48,14 @@ export const ProjectCreditFormDialog = connect<
       isLoading,
       error,
       refetch,
-    } = useQuery({
-      queryKey: ['organizationCredits', customer?.uuid],
-
-      queryFn: () =>
+    } = useQuery(
+      ['organizationCredits', customer?.uuid],
+      () =>
         customerCreditsList({
           query: { customer_uuid: customer?.uuid },
         }).then((r) => r.data[0]),
-
-      staleTime: 60 * 1000,
-    });
+      { staleTime: 60 * 1000 },
+    );
 
     const isEdit = Boolean(props.initialValues);
 

@@ -64,11 +64,16 @@ export const ProposalReviewCreatePage = (props) => {
   // See the "openCommentFormDialog" function.
   const [reviewObject, setReviewObject] = useState<ProposalReview>(null);
 
-  const { data, isLoading, error, refetch } = useQuery({
-    queryKey: ['ReviewData', review_uuid],
-    queryFn: () => loadData(review_uuid),
-    refetchOnWindowFocus: false,
-  });
+  const { data, isLoading, error, refetch } = useQuery(
+    ['ReviewData', review_uuid],
+    () => loadData(review_uuid),
+    {
+      refetchOnWindowFocus: false,
+      onSuccess(data) {
+        setReviewObject(data.review);
+      },
+    },
+  );
 
   const formSteps = createReviewSteps;
   const stepRefs = useRef([]);

@@ -21,8 +21,8 @@ export const OfferingRequestItemActions = ({
   fetch,
 }: OfferingRequestItemActionsProps) => {
   const dispatch = useDispatch();
-  const { mutate: accept, isLoading: isAcceptLoading } = useMutation({
-    mutationFn: async () => {
+  const { mutate: accept, isLoading: isAcceptLoading } = useMutation(
+    async () => {
       try {
         await waitForConfirmation(
           dispatch,
@@ -51,9 +51,9 @@ export const OfferingRequestItemActions = ({
         );
       }
     },
-  });
-  const { mutate: reject, isLoading: isRejectLoading } = useMutation({
-    mutationFn: async () => {
+  );
+  const { mutate: reject, isLoading: isRejectLoading } = useMutation(
+    async () => {
       try {
         await waitForConfirmation(
           dispatch,
@@ -82,7 +82,7 @@ export const OfferingRequestItemActions = ({
         );
       }
     },
-  });
+  );
   return row.state === 'requested' ? (
     <>
       <RowActionButton

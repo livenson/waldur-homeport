@@ -29,11 +29,13 @@ export const AdministrationProfile = ({
   const email = ENV.plugins.WALDUR_CORE.SITE_EMAIL;
   const phone = ENV.plugins.WALDUR_CORE.SITE_PHONE;
 
-  const { data: version } = useQuery({
-    queryKey: ['version'],
-    queryFn: () => versionRetrieve().then((r) => r.data),
-    staleTime: Infinity,
-  });
+  const { data: version } = useQuery(
+    ['version'],
+    () => versionRetrieve().then((r) => r.data),
+    {
+      staleTime: Infinity,
+    },
+  );
 
   const { value, loading } = useAsync(() => {
     const promises = [

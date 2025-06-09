@@ -20,22 +20,16 @@ export const ApproveByConsumerButton: FC<
 > = ({ order, as, className, refetch }) => {
   const user = useSelector(getUser);
   const dispatch = useDispatch();
-  const { mutate, isLoading } = useMutation({
-    mutationFn: async () => {
-      try {
-        await marketplaceOrdersApproveByConsumer({
-          path: { uuid: order.uuid },
-        });
-        if (refetch) {
-          await refetch();
-        }
-        dispatch(showSuccess(translate('Order has been approved.')));
-      } catch (error) {
-        dispatch(
-          showErrorResponse(error, translate('Unable to approve order.')),
-        );
+  const { mutate, isLoading } = useMutation(async () => {
+    try {
+      await marketplaceOrdersApproveByConsumer({ path: { uuid: order.uuid } });
+      if (refetch) {
+        await refetch();
       }
-    },
+      dispatch(showSuccess(translate('Order has been approved.')));
+    } catch (error) {
+      dispatch(showErrorResponse(error, translate('Unable to approve order.')));
+    }
   });
   if (
     !hasPermission(user, {

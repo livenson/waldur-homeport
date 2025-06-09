@@ -14,10 +14,9 @@ export const ProjectEndDateField: FC<{ row: Project }> = ({ row }) => {
     ? parseDate(row.end_date)
     : DASH_ESCAPE_CODE;
 
-  const { data: endDates } = useQuery({
-    queryKey: ['project-resources-end', row.uuid],
-
-    queryFn: () => {
+  const { data: endDates } = useQuery<string[]>(
+    ['project-resources-end', row.uuid],
+    () => {
       if (
         !row.resources_count ||
         !row.end_date ||
@@ -37,10 +36,8 @@ export const ProjectEndDateField: FC<{ row: Project }> = ({ row }) => {
         }),
       ).then((res) => res.map((item) => item.end_date));
     },
-
-    staleTime: 30 * 1000,
-    refetchOnWindowFocus: false,
-  });
+    { staleTime: 30 * 1000, refetchOnWindowFocus: false },
+  );
 
   return row.end_date ? (
     <>

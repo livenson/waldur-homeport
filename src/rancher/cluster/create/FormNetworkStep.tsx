@@ -19,11 +19,11 @@ export const FormNetworkStep = (props: FormStepProps) => {
   const tenant = useSelector(formTenantSelector);
   const showExperimentalUiComponents = isExperimentalUiComponentsVisible();
 
-  const { data, isLoading } = useQuery({
-    queryKey: ['network-step', tenant?.url],
-    queryFn: () => (tenant ? formatSubnets(tenant.uuid) : []),
-    staleTime: 3 * 60 * 1000,
-  });
+  const { data, isLoading } = useQuery(
+    ['network-step', tenant?.url],
+    () => (tenant ? formatSubnets(tenant.uuid) : []),
+    { staleTime: 3 * 60 * 1000 },
+  );
 
   useEffect(() => {
     if (data?.length === 1) {

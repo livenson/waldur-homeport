@@ -19,11 +19,9 @@ const getCeleryStats = () =>
   );
 
 export const CeleryInfoPage = () => {
-  const { isLoading, error, data } = useQuery({
-    queryKey: ['CeleryInfoPage'],
-
-    queryFn: () => getCeleryStats(),
-  });
+  const { isLoading, error, data } = useQuery(['CeleryInfoPage'], () =>
+    getCeleryStats(),
+  );
   if (isLoading) {
     return <LoadingSpinner />;
   }

@@ -80,17 +80,17 @@ export const PublicCallDetailsContainer: FC = () => {
     isLoading,
     error,
     refetch,
-  } = useQuery({
-    queryKey: ['publicCall', call_uuid],
-
-    queryFn: () =>
+  } = useQuery(
+    ['publicCall', call_uuid],
+    () =>
       proposalPublicCallsRetrieve({ path: { uuid: call_uuid } }).then(
         (r) => r.data,
       ),
-
-    refetchOnWindowFocus: false,
-    staleTime: 60 * 1000,
-  });
+    {
+      refetchOnWindowFocus: false,
+      staleTime: 60 * 1000,
+    },
+  );
 
   useTitle(call ? call.name : translate('Call details'));
 

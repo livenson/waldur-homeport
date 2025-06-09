@@ -33,10 +33,9 @@ export const useSearch = () => {
     };
   }, [handleClickOutside]);
 
-  const result = useQuery({
-    queryKey: [`global-search`, query],
-
-    queryFn: async ({ signal }) => {
+  const result = useQuery(
+    [`global-search`, query],
+    async ({ signal }) => {
       const organizationsPromise = customersList({
         signal,
         query: {
@@ -89,11 +88,8 @@ export const useSearch = () => {
         resultsCount: customersCount + projectsCount + resourcesCount,
       };
     },
-
-    staleTime: 60 * 1000,
-    keepPreviousData: true,
-    enabled: show,
-  });
+    { staleTime: 60 * 1000, keepPreviousData: true, enabled: show },
+  );
   return { query, setQuery, result, show, setShow };
 };
 

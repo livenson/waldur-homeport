@@ -24,19 +24,17 @@ export const UpdatePortDialog: FC<ActionDialogProps<OpenStackPort>> = ({
     isLoading,
     error,
     refetch: refetchSubnets,
-  } = useQuery({
-    queryKey: ['port-form-subnets', resource?.network_uuid],
-
-    queryFn: () => {
+  } = useQuery(
+    ['port-form-subnets', resource?.network_uuid],
+    () => {
       if (!resource.network_uuid) return Promise.resolve([]);
       return loadSubnets({
         tenant_uuid: resource.tenant_uuid,
         network_uuid: resource.network_uuid,
       });
     },
-
-    staleTime: 60 * 1000,
-  });
+    { staleTime: 60 * 1000 },
+  );
 
   useEffect(() => {
     if (subnets) {

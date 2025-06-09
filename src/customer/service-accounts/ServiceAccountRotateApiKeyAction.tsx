@@ -26,48 +26,46 @@ export const ServiceAccountRotateApiKeyAction: FC<
 > = ({ context, row }) => {
   const dispatch = useDispatch();
 
-  const { mutate } = useMutation({
-    mutationFn: async () => {
-      try {
-        await waitForConfirmation(
-          dispatch,
-          translate('Rotate API key'),
-          translate(
-            'You are about to rotate API key for {username} service account. Are you sure you want to proceed?',
-            { username: <strong>{row.username}</strong> },
-            formatJsxTemplate,
-          ),
-          { positiveButton: translate('Yes') },
-        );
-      } catch {
-        return;
-      }
-      try {
-        const api =
-          context === 'customer'
-            ? marketplaceCustomerServiceAccountsRotateApiKey
-            : marketplaceProjectServiceAccountsRotateApiKey;
-        const response = await api({ path: { uuid: row.uuid } });
-        dispatch(showSuccess(translate('API key rotated successfully')));
-        // Open a dialog to show the new API key
-        dispatch(
-          openModalDialog(ServiceAccountShowInfoDialog, {
-            resolve: {
-              username: response.data.username,
-              token: response.data.token,
-              expiresAt: response.data.expires_at,
-            },
-          }),
-        );
-      } catch (e) {
-        dispatch(
-          showErrorResponse(
-            e,
-            translate('Unable to rotate API key for service account.'),
-          ),
-        );
-      }
-    },
+  const { mutate } = useMutation(async () => {
+    try {
+      await waitForConfirmation(
+        dispatch,
+        translate('Rotate API key'),
+        translate(
+          'You are about to rotate API key for {username} service account. Are you sure you want to proceed?',
+          { username: <strong>{row.username}</strong> },
+          formatJsxTemplate,
+        ),
+        { positiveButton: translate('Yes') },
+      );
+    } catch {
+      return;
+    }
+    try {
+      const api =
+        context === 'customer'
+          ? marketplaceCustomerServiceAccountsRotateApiKey
+          : marketplaceProjectServiceAccountsRotateApiKey;
+      const response = await api({ path: { uuid: row.uuid } });
+      dispatch(showSuccess(translate('API key rotated successfully')));
+      // Open a dialog to show the new API key
+      dispatch(
+        openModalDialog(ServiceAccountShowInfoDialog, {
+          resolve: {
+            username: response.data.username,
+            token: response.data.token,
+            expiresAt: response.data.expires_at,
+          },
+        }),
+      );
+    } catch (e) {
+      dispatch(
+        showErrorResponse(
+          e,
+          translate('Unable to rotate API key for service account.'),
+        ),
+      );
+    }
   });
 
   return (

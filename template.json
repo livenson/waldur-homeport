@@ -160,7 +160,7 @@
     "message": "Accept term and conditions"
   },
   "Accept": {
-    "description": "booking/components/AcceptBookingButton.tsx, proposals/offering-requests/OfferingRequestItemActions.tsx, proposals/proposal/ProposalDetails.tsx",
+    "description": "booking/components/AcceptBookingButton.tsx, proposals/offering-requests/OfferingRequestItemActions.tsx, proposals/proposal/create/ProposalSidebar.tsx",
     "message": "Accept"
   },
   "Accepted proposals": {
@@ -6284,7 +6284,7 @@
     "message": "Load more"
   },
   "Loading actions": {
-    "description": "marketplace/resources/actions/ActionsPopover.tsx, project/team/TeamDropdownActions.tsx, resource/actions/ResourceActionComponent.tsx, table/ActionsDropdown.tsx",
+    "description": "marketplace/resources/actions/ActionsPopover.tsx, resource/actions/ResourceActionComponent.tsx, table/ActionsDropdown.tsx",
     "message": "Loading actions"
   },
   "Loading assets": {
@@ -9788,7 +9788,7 @@
     "message": "Reject review"
   },
   "Reject": {
-    "description": "invitations/UserPermissionRequestRejectButton.tsx, marketplace/orders/actions/RejectByConsumerButton.tsx, marketplace/orders/actions/RejectByProviderButton.tsx, marketplace-remote/ReviewRejectAction.tsx, proposals/offering-requests/OfferingRequestItemActions.tsx, proposals/proposal/ProposalDetails.tsx, proposals/proposal/ProposalRowActions.tsx",
+    "description": "invitations/UserPermissionRequestRejectButton.tsx, marketplace/orders/actions/RejectByConsumerButton.tsx, marketplace/orders/actions/RejectByProviderButton.tsx, marketplace-remote/ReviewRejectAction.tsx, proposals/offering-requests/OfferingRequestItemActions.tsx, proposals/proposal/ProposalRowActions.tsx, proposals/proposal/create/ProposalSidebar.tsx",
     "message": "Reject"
   },
   "Rejected proposals": {
@@ -13760,7 +13760,7 @@
     "message": "Unable to load "
   },
   "Unable to load actions": {
-    "description": "marketplace/resources/actions/ActionsPopover.tsx, project/team/TeamDropdownActions.tsx, resource/actions/ResourceActionComponent.tsx, table/ActionsDropdown.tsx",
+    "description": "marketplace/resources/actions/ActionsPopover.tsx, resource/actions/ResourceActionComponent.tsx, table/ActionsDropdown.tsx",
     "message": "Unable to load actions"
   },
   "Unable to load aggregate limits for this customer": {

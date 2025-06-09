@@ -73,10 +73,9 @@ export const EditFieldDialog = connect<{}, {}, { resolve: EditCustomerProps }>(
       error: groupsError,
       data: organizationGroups,
       refetch: refetchGroups,
-    } = useQuery({
-      queryKey: ['organizationGroups'],
-
-      queryFn: () =>
+    } = useQuery(
+      ['organizationGroups'],
+      () =>
         getAllPages((page) => organizationGroupsList({ query: { page } })).then(
           (items) =>
             items.map((item) => ({
@@ -84,9 +83,8 @@ export const EditFieldDialog = connect<{}, {}, { resolve: EditCustomerProps }>(
               value: item.url,
             })),
         ),
-
-      staleTime: 5 * 60 * 1000,
-    });
+      { staleTime: 5 * 60 * 1000 },
+    );
 
     return (
       <form onSubmit={props.handleSubmit(processRequest)}>

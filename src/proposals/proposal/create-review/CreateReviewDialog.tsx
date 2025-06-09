@@ -41,10 +41,9 @@ export const CreateReviewDialog = reduxForm<
     isLoading,
     error,
     refetch,
-  } = useQuery({
-    queryKey: [CALL_REVIEWERS_QUERY_KEY, props.resolve.proposal.call_uuid],
-
-    queryFn: () =>
+  } = useQuery(
+    [CALL_REVIEWERS_QUERY_KEY, props.resolve.proposal.call_uuid],
+    () =>
       getAllPages((page) =>
         proposalProtectedCallsListUsersList({
           path: { uuid: props.resolve.proposal.call_uuid },
@@ -54,9 +53,8 @@ export const CreateReviewDialog = reduxForm<
           },
         }),
       ),
-
-    staleTime: 3 * 60 * 1000,
-  });
+    { staleTime: 3 * 60 * 1000 },
+  );
 
   const router = useRouter();
   const processRequest = useCallback(

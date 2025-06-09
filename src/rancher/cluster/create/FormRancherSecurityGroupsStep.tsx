@@ -15,14 +15,12 @@ export const FormRancherSecurityGroupsStep = (props: FormStepProps) => {
   const tenant = useSelector(formTenantSelector);
 
   // Fetch default security group
-  const { data: defaultItems } = useQuery({
-    queryKey: ['security-groups-step-default', tenant],
-
-    queryFn: () =>
+  const { data: defaultItems } = useQuery(
+    ['security-groups-step-default', tenant],
+    () =>
       tenant ? loadSecurityGroups({ tenant: tenant.url, name: 'default' }) : [],
-
-    staleTime: 3 * 60 * 1000,
-  });
+    { staleTime: 3 * 60 * 1000 },
+  );
 
   // Select default security group initially
   useEffect(() => {

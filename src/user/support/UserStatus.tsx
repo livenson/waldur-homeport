@@ -55,9 +55,7 @@ export const UserStatus = ({ user }: { user: User }) => {
           is_active: !isActive,
         },
       });
-      queryClient.invalidateQueries({
-        queryKey: ['User', user.uuid],
-      });
+      queryClient.invalidateQueries(['User', user.uuid]);
 
       queryClient.setQueryData(
         ['User', user.uuid],

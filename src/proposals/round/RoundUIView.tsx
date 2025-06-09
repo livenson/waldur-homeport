@@ -83,31 +83,31 @@ export const RoundUIView = () => {
     error: errorRound,
     refetch,
     isRefetching,
-  } = useQuery({
-    queryKey: ['CallRound', call_uuid, round_uuid],
-
-    queryFn: () =>
+  } = useQuery(
+    ['CallRound', call_uuid, round_uuid],
+    () =>
       proposalProtectedCallsRoundsRetrieve({
         path: { uuid: call_uuid, obj_uuid: round_uuid },
       }).then((response) => response.data),
-
-    refetchOnWindowFocus: false,
-  });
+    {
+      refetchOnWindowFocus: false,
+    },
+  );
 
   const {
     data: call,
     isLoading: isLoadingCall,
     error: errorCall,
-  } = useQuery({
-    queryKey: ['RoundCall', call_uuid],
-
-    queryFn: () =>
+  } = useQuery(
+    ['RoundCall', call_uuid],
+    () =>
       proposalProtectedCallsRetrieve({ path: { uuid: call_uuid } }).then(
         (r) => r.data as any as Call,
       ),
-
-    refetchOnWindowFocus: false,
-  });
+    {
+      refetchOnWindowFocus: false,
+    },
+  );
 
   useTitle(round ? round.name : translate('Call round'));
 

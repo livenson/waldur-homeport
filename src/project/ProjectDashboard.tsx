@@ -33,11 +33,11 @@ export const ProjectDashboard: FunctionComponent<{}> = () => {
   const router = useRouter();
   const goToUsers = () => router.stateService.go('project-users');
 
-  const { data: teamData } = useQuery({
-    queryKey: ['projectTeamData', project?.uuid],
-    queryFn: () => getProjectTeamChart(project),
-    staleTime: 5 * 60 * 1000,
-  });
+  const { data: teamData } = useQuery(
+    ['projectTeamData', project?.uuid],
+    () => getProjectTeamChart(project),
+    { staleTime: 5 * 60 * 1000 },
+  );
 
   const { callback, canInvite } = useCreateInvitation({
     project: project,
@@ -49,35 +49,32 @@ export const ProjectDashboard: FunctionComponent<{}> = () => {
     isLoading: isAggregateLimitLoading,
     error: aggregateLimitError,
     refetch: aggregateLimitRefetch,
-  } = useQuery({
-    queryKey: ['project-stats', project?.uuid],
-
-    queryFn: () =>
+  } = useQuery(
+    ['project-stats', project?.uuid],
+    () =>
       projectsStatsRetrieve({ path: { uuid: project?.uuid } }).then(
         (r) => r.data,
       ),
-
-    refetchOnWindowFocus: false,
-    staleTime: 60 * 1000,
-  });
+    { refetchOnWindowFocus: false, staleTime: 60 * 1000 },
+  );
 
   const {
     data: aggregateLimitDataForCurrentMonth,
     isLoading: isAggregateLimitLoadingForCurrentMonth,
     error: aggregateLimitErrorForCurrentMonth,
     refetch: aggregateLimitRefetchForCurrentMonth,
-  } = useQuery({
-    queryKey: ['project-stats', project?.uuid, 'current-month'],
-
-    queryFn: () =>
+  } = useQuery(
+    ['project-stats', project?.uuid, 'current-month'],
+    () =>
       projectsStatsRetrieve({
         path: { uuid: project?.uuid },
         query: { for_current_month: true },
       }).then((r) => r.data),
-
-    refetchOnWindowFocus: false,
-    staleTime: 60 * 1000,
-  });
+    {
+      refetchOnWindowFocus: false,
+      staleTime: 60 * 1000,
+    },
+  );
 
   const currentMonthFilteredData = filterComponentsWithUsage(
     aggregateLimitDataForCurrentMonth,

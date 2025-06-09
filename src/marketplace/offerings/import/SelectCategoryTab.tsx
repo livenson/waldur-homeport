@@ -98,18 +98,16 @@ export const SelectCategoryTab = () => {
     data: categories,
     error,
     refetch,
-  } = useQuery({
-    queryKey: ['categories'],
-
-    queryFn: () =>
+  } = useQuery(
+    ['categories'],
+    () =>
       getAllPages((page) =>
         marketplaceCategoriesList({
           query: { page, field: ['uuid', 'title', 'group'], page_size: 100 },
         }),
       ),
-
-    staleTime: 3 * 60 * 1000,
-  });
+    { staleTime: 3 * 60 * 1000 },
+  );
   const formData = useSelector(importOfferingSelector);
 
   return (

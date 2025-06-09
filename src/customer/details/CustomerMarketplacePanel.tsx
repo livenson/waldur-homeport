@@ -34,58 +34,56 @@ export const CustomerMarketplacePanel: FunctionComponent<{}> = () => {
     isLoading,
     error,
     refetch,
-  } = useQuery({
-    queryKey: ['ServiceProvider', customer?.uuid],
-
-    queryFn: () =>
+  } = useQuery(
+    ['ServiceProvider', customer?.uuid],
+    () =>
       customer?.uuid
         ? api.getServiceProviderByCustomer({
             customer_uuid: customer.uuid,
           })
         : null,
-
-    refetchOnWindowFocus: false,
-
-    onError: (error: any) => {
-      dispatch(
-        showErrorResponse(error, translate('Unable to load service provider.')),
-      );
+    {
+      refetchOnWindowFocus: false,
+      onError: (error: any) => {
+        dispatch(
+          showErrorResponse(
+            error,
+            translate('Unable to load service provider.'),
+          ),
+        );
+      },
     },
-  });
+  );
 
   const setServiceProvider = (data: ServiceProvider) => {
     queryClient.setQueryData(['ServiceProvider', customer?.uuid], data);
   };
 
   const { mutate: registerServiceProvider, isLoading: isRegistering } =
-    useMutation({
-      mutationFn: async () => {
-        const successMessage = translate(
-          'Service provider has been registered.',
+    useMutation(async () => {
+      const successMessage = translate('Service provider has been registered.');
+      const errorMessage = translate('Unable to register service provider.');
+      try {
+        const serviceProvider = await marketplaceServiceProvidersCreate({
+          body: {
+            customer: customer.url,
+          },
+        });
+        setServiceProvider(serviceProvider.data);
+        dispatch(showSuccess(successMessage));
+        dispatch(
+          setCurrentCustomer({
+            ...customer,
+            is_service_provider: true,
+          }),
         );
-        const errorMessage = translate('Unable to register service provider.');
-        try {
-          const serviceProvider = await marketplaceServiceProvidersCreate({
-            body: {
-              customer: customer.url,
-            },
-          });
-          setServiceProvider(serviceProvider.data);
-          dispatch(showSuccess(successMessage));
-          dispatch(
-            setCurrentCustomer({
-              ...customer,
-              is_service_provider: true,
-            }),
-          );
-        } catch (error) {
-          dispatch(showErrorResponse(error, errorMessage));
-        }
-      },
+      } catch (error) {
+        dispatch(showErrorResponse(error, errorMessage));
+      }
     });
 
-  const { mutate: deleteServiceProvider, isLoading: isDeleting } = useMutation({
-    mutationFn: async () => {
+  const { mutate: deleteServiceProvider, isLoading: isDeleting } = useMutation(
+    async () => {
       try {
         await waitForConfirmation(
           dispatch,
@@ -122,7 +120,7 @@ export const CustomerMarketplacePanel: FunctionComponent<{}> = () => {
         );
       }
     },
-  });
+  );
 
   if (isLoading) {
     return <LoadingSpinner />;

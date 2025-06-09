@@ -43,10 +43,9 @@ export const ProjectUsersBadge = (props: OwnProps) => {
     isLoading,
     error,
     refetch,
-  } = useQuery({
-    queryKey: ['ProjectTeam', props.projectId],
-
-    queryFn: () =>
+  } = useQuery(
+    ['ProjectTeam', props.projectId],
+    () =>
       getAllPages((page) =>
         projectsListUsersList({
           path: { uuid: props.projectId },
@@ -56,10 +55,8 @@ export const ProjectUsersBadge = (props: OwnProps) => {
           },
         }),
       ),
-
-    staleTime: 3 * 60 * 1000,
-    enabled: Boolean(props.projectId),
-  });
+    { staleTime: 3 * 60 * 1000, enabled: Boolean(props.projectId) },
+  );
 
   return isLoading ? (
     <LoadingSpinner />

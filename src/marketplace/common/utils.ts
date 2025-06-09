@@ -83,10 +83,9 @@ export function getBillingPeriods(unit: string): BillingPeriodDescription {
 export const useOrganizationGroups = () => {
   const user = useSelector(getUser);
 
-  const query = useQuery({
-    queryKey: ['organizationGroups'],
-
-    queryFn: () =>
+  const query = useQuery(
+    ['organizationGroups'],
+    () =>
       getAllPages((page) => organizationGroupsList({ query: { page } })).then(
         (items) =>
           items.map((item) => ({
@@ -94,9 +93,8 @@ export const useOrganizationGroups = () => {
             value: item.url,
           })),
       ),
-
-    staleTime: 5 * 60 * 1000,
-  });
+    { staleTime: 5 * 60 * 1000 },
+  );
 
   const disabled = query.data?.length === 0 && !user.is_staff;
   const tooltip = disabled

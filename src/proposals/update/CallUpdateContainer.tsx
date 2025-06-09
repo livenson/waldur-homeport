@@ -135,16 +135,16 @@ export const CallUpdateContainer: FunctionComponent = () => {
     error,
     refetch,
     isRefetching,
-  } = useQuery({
-    queryKey: ['CallUpdateContainer', call_uuid],
-
-    queryFn: () =>
+  } = useQuery(
+    ['CallUpdateContainer', call_uuid],
+    () =>
       proposalProtectedCallsRetrieve({ path: { uuid: call_uuid } }).then(
         (r) => r.data as any as Call,
       ),
-
-    refetchOnWindowFocus: false,
-  });
+    {
+      refetchOnWindowFocus: false,
+    },
+  );
 
   useTitle(call ? call.name : translate('Call update'));
 

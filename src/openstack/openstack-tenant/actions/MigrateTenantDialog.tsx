@@ -98,10 +98,9 @@ export const MigrateTenantDialog = connect<
         change('volumeTypes', []);
       }, [offering]);
 
-      const queryResult = useQuery({
-        queryKey: ['MigrateTenantDialog', offering?.uuid],
-
-        queryFn: async () => {
+      const queryResult = useQuery(
+        ['MigrateTenantDialog', offering?.uuid],
+        async () => {
           if (!offering) {
             return {};
           }
@@ -122,7 +121,7 @@ export const MigrateTenantDialog = connect<
           ).data.map(({ uuid, name }) => ({ label: name, value: uuid }));
           return { sourceVolumeTypes, destinationVolumeTypes, networks };
         },
-      });
+      );
 
       return (
         <form onSubmit={handleSubmit(submitForm)}>

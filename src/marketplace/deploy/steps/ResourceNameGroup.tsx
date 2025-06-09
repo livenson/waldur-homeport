@@ -14,16 +14,14 @@ import { orderProjectSelector } from '../selectors';
 
 const ResourceNameField = (props) => {
   const project = useSelector(orderProjectSelector);
-  const { mutate: suggestName, isLoading } = useMutation({
-    mutationFn: async () => {
-      const response = await marketplaceResourcesSuggestName({
-        body: {
-          project: project.uuid,
-          offering: props.offering.uuid,
-        },
-      });
-      props.input.onChange(response.data['name']);
-    },
+  const { mutate: suggestName, isLoading } = useMutation(async () => {
+    const response = await marketplaceResourcesSuggestName({
+      body: {
+        project: project.uuid,
+        offering: props.offering.uuid,
+      },
+    });
+    props.input.onChange(response.data['name']);
   });
 
   return (

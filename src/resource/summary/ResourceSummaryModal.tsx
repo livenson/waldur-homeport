@@ -12,11 +12,9 @@ import { ResourceSummary } from './ResourceSummary';
 export const ResourceSummaryModal: FC<{ resolve: { url } }> = ({
   resolve: { url },
 }) => {
-  const { isLoading, data } = useQuery({
-    queryKey: ['ResourceSummaryModal', url],
-
-    queryFn: () => get(url),
-  });
+  const { isLoading, data } = useQuery(['ResourceSummaryModal', url], () =>
+    get(url),
+  );
   return (
     <ModalDialog
       title={translate('Details')}

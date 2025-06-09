@@ -27,30 +27,21 @@ export const DataLoader = ({
     Category | CategoryGroup
   >();
 
-  const { data: lastOfferings } = useQuery({
-    queryKey: [
-      'MarketplacePopupNOfferings',
-      customer?.uuid,
-      project?.uuid,
-      categoryUuid,
-    ],
-
-    queryFn: () =>
+  const { data: lastOfferings } = useQuery(
+    ['MarketplacePopupNOfferings', customer?.uuid, project?.uuid, categoryUuid],
+    () =>
       categoryUuid || !showRecentlyAddedOfferings
         ? null
         : fetchLastNOfferings(customer, project),
-
-    staleTime: 1 * 60 * 1000,
-  });
+    { staleTime: 1 * 60 * 1000 },
+  );
 
   const {
     data: categoryGroups,
     isLoading: loadingGroups,
     error: errorGroups,
     refetch: loadCategoryGroups,
-  } = useQuery({
-    queryKey: ['MarketplaceCategoryGroups'],
-    queryFn: () => getCategoryGroups(),
+  } = useQuery(['MarketplaceCategoryGroups'], () => getCategoryGroups(), {
     staleTime: 1 * 60 * 1000,
   });
 
@@ -60,17 +51,11 @@ export const DataLoader = ({
     error: errorCategories,
     refetch: loadCategories,
     isFetching: fetchingCategories,
-  } = useQuery({
-    queryKey: [
-      'MarketplacePopupCategories',
-      filter,
-      customer?.uuid,
-      project?.uuid,
-    ],
-    queryFn: () => fetchCategories(customer, project, filter),
-    staleTime: 1 * 60 * 1000,
-    keepPreviousData: true,
-  });
+  } = useQuery(
+    ['MarketplacePopupCategories', filter, customer?.uuid, project?.uuid],
+    () => fetchCategories(customer, project, filter),
+    { staleTime: 1 * 60 * 1000, keepPreviousData: true },
+  );
 
   const categories = useMemo(() => {
     if (!Array.isArray(mainCategories)) return [];

@@ -84,10 +84,9 @@ export const loadNodeCreateData = async (cluster: RancherCluster) => {
 };
 
 export const useVolumeDataLoader = (tenant) => {
-  return useQuery({
-    queryKey: ['volumeTypes', tenant],
-
-    queryFn: async () => {
+  return useQuery(
+    ['volumeTypes', tenant],
+    async () => {
       const volumeTypes = tenant
         ? await loadVolumeTypes({ tenant: tenant.url })
         : [];
@@ -98,9 +97,8 @@ export const useVolumeDataLoader = (tenant) => {
         defaultVolumeType,
       };
     },
-
-    staleTime: 3 * 60 * 1000,
-  });
+    { staleTime: 3 * 60 * 1000 },
+  );
 };
 
 export const getDataVolumes = (nodeIndex, allValues) => {

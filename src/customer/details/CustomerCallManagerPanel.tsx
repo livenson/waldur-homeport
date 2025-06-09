@@ -25,10 +25,9 @@ export const CustomerCallManagerPanel: FunctionComponent = () => {
   const [infoUuid, setInfoUuid] = useState('');
   const dispatch = useDispatch();
 
-  const { error: errorInfo, refetch } = useQuery({
-    queryKey: ['callManagingOrganization', customer.uuid],
-
-    queryFn: () =>
+  const { error: errorInfo, refetch } = useQuery(
+    ['callManagingOrganization', customer.uuid],
+    () =>
       callManagingOrganisationsList({
         query: { customer_uuid: customer.uuid },
       }).then((response) => {
@@ -37,7 +36,7 @@ export const CustomerCallManagerPanel: FunctionComponent = () => {
         }
         return response.data;
       }),
-  });
+  );
 
   const [{ loading: loadingToggle }, toggleCallManager] = useAsyncFn(
     async (value: boolean) => {

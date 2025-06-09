@@ -13,20 +13,15 @@ import { UsersService, setImpersonationData } from '../UsersService';
 export const UserImpersonateButton: FunctionComponent<{ row }> = ({ row }) => {
   const user = useSelector(getUser);
   const dispatch = useDispatch();
-  const { mutate, isLoading } = useMutation({
-    mutationFn: async () => {
-      try {
-        setImpersonationData(row.uuid);
-        await UsersService.getCurrentUser(true);
-      } catch (error) {
-        dispatch(
-          showErrorResponse(
-            error,
-            translate('Unable to impersonate the user.'),
-          ),
-        );
-      }
-    },
+  const { mutate, isLoading } = useMutation(async () => {
+    try {
+      setImpersonationData(row.uuid);
+      await UsersService.getCurrentUser(true);
+    } catch (error) {
+      dispatch(
+        showErrorResponse(error, translate('Unable to impersonate the user.')),
+      );
+    }
   });
 
   if (!(user?.uuid !== row.uuid && user?.is_staff)) {

@@ -28,27 +28,24 @@ export const IdentityProvidersList = () => {
     isLoading: isProvidersLoading,
     error: providersError,
     refetch: refetchProviders,
-  } = useQuery({
-    queryKey: ['IdentityProvidersList'],
-
-    queryFn: () =>
+  } = useQuery<{}, {}, Record<string, { is_active }>>(
+    ['IdentityProvidersList'],
+    () =>
       getIdentityProviders().then((providers) =>
         providers.reduce(
           (result, item) => ({ ...result, [item.provider]: item }),
           {},
         ),
       ),
-  });
+  );
   const {
     data: settingsData,
     isLoading: isSettingsLoading,
     error: settingsError,
     refetch: refetchSettings,
-  } = useQuery({
-    queryKey: ['AdministrationUserSettings'],
-
-    queryFn: () => overrideSettingsRetrieve().then((response) => response.data),
-  });
+  } = useQuery(['AdministrationUserSettings'], () =>
+    overrideSettingsRetrieve().then((response) => response.data),
+  );
   if (isProvidersLoading || isSettingsLoading) return <LoadingSpinner />;
   if (providersError || settingsError) {
     let errorMessage = translate('Unable to load ');

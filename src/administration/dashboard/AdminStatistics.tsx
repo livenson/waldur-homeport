@@ -11,10 +11,9 @@ import { translate } from '@waldur/i18n';
 import * as api from '../api';
 
 export const AdminStatistics = () => {
-  const { data, isLoading, error, refetch } = useQuery({
-    queryKey: ['statistics'],
-
-    queryFn: async () => {
+  const { data, isLoading, error, refetch } = useQuery(
+    ['statistics'],
+    async () => {
       // Order is important
       const promises = [
         count(`/api/customers/`),
@@ -47,9 +46,10 @@ export const AdminStatistics = () => {
         resources,
       };
     },
-
-    staleTime: 5 * 60 * 1000,
-  });
+    {
+      staleTime: 5 * 60 * 1000,
+    },
+  );
 
   return (
     <Row>

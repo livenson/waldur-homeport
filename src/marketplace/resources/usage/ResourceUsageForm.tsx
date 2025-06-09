@@ -129,10 +129,9 @@ export const ResourceUsageForm: FunctionComponent<ResourceUsageFormProps> = (
     isLoading: teamIsLoading,
     error: teamError,
     refetch: refetchTeam,
-  } = useQuery({
-    queryKey: ['OfferingUsers', props.params.offering_uuid],
-
-    queryFn: () =>
+  } = useQuery(
+    ['OfferingUsers', props.params.offering_uuid],
+    () =>
       isUserUsage
         ? marketplaceOfferingUsersList({
             query: {
@@ -141,18 +140,12 @@ export const ResourceUsageForm: FunctionComponent<ResourceUsageFormProps> = (
             },
           }).then((r) => r.data)
         : null,
+    { staleTime: 3 * 60 * 1000 },
+  );
 
-    staleTime: 3 * 60 * 1000,
-  });
-
-  const { data: userUsages } = useQuery({
-    queryKey: [
-      'ComponentUserUsage',
-      props.params.resource_uuid,
-      user?.username,
-    ],
-
-    queryFn: () => {
+  const { data: userUsages } = useQuery(
+    ['ComponentUserUsage', props.params.resource_uuid, user?.username],
+    () => {
       if (!isUserUsage || !user) return null;
 
       const { start, end } = getPeriodRange(props.periods[0].value);
@@ -166,7 +159,7 @@ export const ResourceUsageForm: FunctionComponent<ResourceUsageFormProps> = (
         },
       }).then((r) => r.data);
     },
-  });
+  );
 
   // Set last recorded user usages as components amount
   useEffect(() => {

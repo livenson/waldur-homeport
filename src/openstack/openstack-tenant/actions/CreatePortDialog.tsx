@@ -109,22 +109,19 @@ export const CreatePortDialog: FC<ActionDialogProps> = ({
     error: errorNetworks,
     isLoading: isLoadingNetworks,
     refetch: refetchNetworks,
-  } = useQuery({
-    queryKey: ['port-form-networks', resource.uuid],
-
-    queryFn: () =>
+  } = useQuery(
+    ['port-form-networks', resource.uuid],
+    () =>
       loadNetworks({
         tenant_uuid: resource.uuid,
         field: ['name', 'uuid', 'url'],
       }),
+    { staleTime: 60 * 1000 },
+  );
 
-    staleTime: 60 * 1000,
-  });
-
-  const { data: subnets } = useQuery({
-    queryKey: ['port-form-subnets', resource.uuid, network],
-
-    queryFn: () => {
+  const { data: subnets } = useQuery(
+    ['port-form-subnets', resource.uuid, network],
+    () => {
       if (!network) return Promise.resolve([]);
       const networkObj = networks.find((net) => net.url === network);
       return loadSubnets({
@@ -132,9 +129,8 @@ export const CreatePortDialog: FC<ActionDialogProps> = ({
         network_uuid: networkObj.uuid,
       });
     },
-
-    staleTime: 60 * 1000,
-  });
+    { staleTime: 60 * 1000 },
+  );
 
   const networkOptions = useMemo(
     () =>

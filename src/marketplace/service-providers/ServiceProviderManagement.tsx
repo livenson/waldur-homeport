@@ -33,70 +33,67 @@ export const ServiceProviderManagement: FC<OwnProps> = ({
   const queryClient = useQueryClient();
   const customer = useSelector(getCustomer);
 
-  const { data: secretCode } = useQuery({
-    queryKey: ['ServiceProviderSecretCode', serviceProvider?.uuid],
-
-    queryFn: () =>
+  const { data: secretCode } = useQuery(
+    ['ServiceProviderSecretCode', serviceProvider?.uuid],
+    () =>
       serviceProvider?.uuid
         ? serviceProviderApiSecretCodeRetrieve({
             path: { uuid: serviceProvider.uuid },
           }).then((r) => r.data)
         : null,
-
-    refetchOnWindowFocus: false,
-
-    onError: (error: any) => {
-      dispatch(
-        showErrorResponse(
-          error,
-          translate('Unable to get service provider API secret code.'),
-        ),
-      );
+    {
+      refetchOnWindowFocus: false,
+      onError: (error: any) => {
+        dispatch(
+          showErrorResponse(
+            error,
+            translate('Unable to get service provider API secret code.'),
+          ),
+        );
+      },
     },
-  });
+  );
 
   const { mutate: regenerateSecretCode, isLoading: isGenerating } = useMutation(
-    {
-      mutationFn: async () => {
-        try {
-          await waitForConfirmation(
-            dispatch,
-            translate('Regenerate secret API code'),
-            translate(
-              'After secret API code has been regenerated, it will not be possible to submit usage with the old key.',
-            ),
-            {
-              type: 'warning',
-              positiveButton: translate('Regenerate'),
-              negativeButton: translate('Cancel'),
-            },
-          );
-        } catch {
-          return;
-        }
+    async () => {
+      try {
+        await waitForConfirmation(
+          dispatch,
+          translate('Regenerate secret API code'),
+          translate(
+            'After secret API code has been regenerated, it will not be possible to submit usage with the old key.',
+          ),
+          {
+            type: 'warning',
+            positiveButton: translate('Regenerate'),
+            negativeButton: translate('Cancel'),
+          },
+        );
+      } catch {
+        return;
+      }
 
-        try {
-          const data = await serviceProviderApiSecretCodeGenerate({
-            path: { uuid: serviceProvider.uuid },
-          }).then((r) => r.data);
-          queryClient.setQueryData(
-            ['ServiceProviderSecretCode', serviceProvider?.uuid],
-            data,
-          );
-          dispatch(
-            showSuccess(
-              translate('Service provider API secret code has been generated.'),
-            ),
-          );
-        } catch (error) {
-          dispatch(
-            showErrorResponse(
-              error,
-              translate('Unable to generate service provider API secret code.'),
-            ),
-          );
-        }
-      },
+      try {
+        const data = await serviceProviderApiSecretCodeGenerate({
+          path: { uuid: serviceProvider.uuid },
+        }).then((r) => r.data);
+        queryClient.setQueryData(
+          ['ServiceProviderSecretCode', serviceProvider?.uuid],
+          data,
+        );
+        dispatch(
+          showSuccess(
+            translate('Service provider API secret code has been generated.'),
+          ),
+        );
+      } catch (error) {
+        dispatch(
+          showErrorResponse(
+            error,
+            translate('Unable to generate service provider API secret code.'),
+          ),
+        );
+      }
     },
   );
 

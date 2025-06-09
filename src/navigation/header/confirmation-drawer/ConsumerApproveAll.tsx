@@ -10,25 +10,20 @@ import { showSuccess, showErrorResponse } from '@waldur/store/notify';
 
 export const ConsumerApproveAll = ({ orders, refetch }) => {
   const dispatch = useDispatch();
-  const { mutate, isLoading } = useMutation({
-    mutationFn: async () => {
-      try {
-        await Promise.all(
-          orders.map((order) =>
-            marketplaceOrdersApproveByConsumer({ path: { uuid: order.uuid } }),
-          ),
-        );
-        await refetch();
-        dispatch(showSuccess(translate('All orders have been approved.')));
-      } catch (response) {
-        dispatch(
-          showErrorResponse(
-            response,
-            translate('Unable to approve all orders.'),
-          ),
-        );
-      }
-    },
+  const { mutate, isLoading } = useMutation(async () => {
+    try {
+      await Promise.all(
+        orders.map((order) =>
+          marketplaceOrdersApproveByConsumer({ path: { uuid: order.uuid } }),
+        ),
+      );
+      await refetch();
+      dispatch(showSuccess(translate('All orders have been approved.')));
+    } catch (response) {
+      dispatch(
+        showErrorResponse(response, translate('Unable to approve all orders.')),
+      );
+    }
   });
   return (
     <Button variant="primary" onClick={() => mutate()} disabled={isLoading}>
