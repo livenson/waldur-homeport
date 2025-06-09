@@ -105,29 +105,33 @@ const getSteps = (resource: Resource) => {
 export const OrderErredView: FC<OrderErredViewProps> = ({ resource }) => {
   const dispatch = useDispatch();
   const router = useRouter();
-  const { mutate, isLoading } = useMutation(async () => {
-    await waitForConfirmation(
-      dispatch,
-      translate('Confirmation'),
-      translate('Are you sure you want to retry to submit this order?'),
-    );
-    try {
-      const order = await marketplaceOrdersCreate({
-        body: {
-          offering: resource.offering,
-          project: resource.project,
-          plan: resource.plan,
-          attributes: resource.attributes,
-          limits: resource.limits,
-        },
-      });
-      dispatch(showSuccess(translate('Order has been submitted.')));
-      router.stateService.go('marketplace-resource-details', {
-        resource_uuid: order.data.marketplace_resource_uuid,
-      });
-    } catch (error) {
-      dispatch(showErrorResponse(error, translate('Unable to submit order.')));
-    }
+  const { mutate, isPending: isLoading } = useMutation({
+    mutationFn: async () => {
+      await waitForConfirmation(
+        dispatch,
+        translate('Confirmation'),
+        translate('Are you sure you want to retry to submit this order?'),
+      );
+      try {
+        const order = await marketplaceOrdersCreate({
+          body: {
+            offering: resource.offering,
+            project: resource.project,
+            plan: resource.plan,
+            attributes: resource.attributes,
+            limits: resource.limits,
+          },
+        });
+        dispatch(showSuccess(translate('Order has been submitted.')));
+        router.stateService.go('marketplace-resource-details', {
+          resource_uuid: order.data.marketplace_resource_uuid,
+        });
+      } catch (error) {
+        dispatch(
+          showErrorResponse(error, translate('Unable to submit order.')),
+        );
+      }
+    },
   });
 
   if (

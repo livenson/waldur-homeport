@@ -63,20 +63,16 @@ export const BreadcrumbDropdown: FC<BreadcrumbDropdownProps> = ({
     [setQuery],
   );
 
-  const context = useInfiniteQuery<any, any, DataPage>(
-    ['SearchBoxResults', api, params, query, formValues],
-    loadData,
-    {
-      getNextPageParam: (lastPage) => lastPage.nextPage,
-      meta: { api, params: { ...params, [queryField]: query, ...formValues } },
-      refetchOnWindowFocus: false,
-      useErrorBoundary: false,
-      retry: false,
-      onError: () => {
-        /* Catch error to prevent showing error boundary view */
-      },
-    },
-  );
+  const context = useInfiniteQuery<any, any, DataPage>({
+    queryKey: ['SearchBoxResults', api, params, query, formValues],
+    queryFn: loadData,
+    initialPageParam: 1,
+    getNextPageParam: (lastPage) => lastPage.nextPage,
+    meta: { api, params: { ...params, [queryField]: query, ...formValues } },
+    refetchOnWindowFocus: false,
+    throwOnError: false,
+    retry: false,
+  });
 
   return (
     <div>

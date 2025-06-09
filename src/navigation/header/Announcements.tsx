@@ -31,18 +31,23 @@ const getTypeLabel = (type) =>
   AnnouncementTypeOptions.find((op) => op.value === type)?.label || type;
 
 export const Announcements = () => {
-  const { isLoading, error, data, refetch } = useQuery(
-    ['adminAnnouncements'],
-    () =>
+  const { isLoading, error, data, refetch } = useQuery({
+    queryKey: ['adminAnnouncements'],
+
+    queryFn: () =>
       getAllPages(() => adminAnnouncementsList({ query: { is_active: true } })),
-    {
-      staleTime: 1000 * 60 * 5,
-      cacheTime: 1000 * 60 * 60, // Keep cached data for 60 minutes
-      retry: 2, // Retry failed requests twice before showing error
-      refetchOnWindowFocus: false,
-      refetchOnReconnect: false,
-    },
-  );
+
+    staleTime: 1000 * 60 * 5,
+
+    // Keep cached data for 60 minutes
+    gcTime: 1000 * 60 * 60,
+
+    // Retry failed requests twice before showing error
+    retry: 2,
+
+    refetchOnWindowFocus: false,
+    refetchOnReconnect: false,
+  });
 
   if (error) {
     return (

@@ -22,15 +22,15 @@ export const SelectOfferingTab = () => {
     isLoading,
     error,
     data: offerings,
-  } = useQuery(
-    [
+  } = useQuery({
+    queryKey: [
       'RemoteOfferings',
       formData?.api_url,
       !formData?.token,
       !formData?.customer?.uuid,
     ],
 
-    () => {
+    queryFn: () => {
       if (!formData?.api_url || !formData?.token || !formData?.customer?.uuid) {
         return Promise.reject(
           new Error(translate('Please check the credentials again.')),
@@ -49,8 +49,10 @@ export const SelectOfferingTab = () => {
         })),
       );
     },
-    { staleTime: 60 * 1000, retry: false },
-  );
+
+    staleTime: 60 * 1000,
+    retry: false,
+  });
 
   const dispatch = useDispatch();
   const updateCategoriesMapping = (offerings: Offering[]) => {

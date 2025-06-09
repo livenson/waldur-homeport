@@ -39,11 +39,11 @@ export const CreditFormDialog = reduxForm<
   const customer = useSelector((state) =>
     formValueSelector(props.form)(state, 'customer'),
   );
-  const { data, isLoading, error, refetch } = useQuery(
-    ['customerDashboardCharts', customer?.uuid, true],
-    () => (isEdit && customer ? useCustomerCostChart(customer) : null),
-    { staleTime: 5 * 60 * 1000 },
-  );
+  const { data, isLoading, error, refetch } = useQuery({
+    queryKey: ['customerDashboardCharts', customer?.uuid, true],
+    queryFn: () => (isEdit && customer ? useCustomerCostChart(customer) : null),
+    staleTime: 5 * 60 * 1000,
+  });
   const CONSUMPTION_FIELDS = useMinimalConsumptionFields(
     props.form,
     props.initialValues,

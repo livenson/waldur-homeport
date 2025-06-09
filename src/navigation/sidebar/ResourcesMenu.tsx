@@ -109,11 +109,11 @@ const RenderMenuItems = ({ items }) => {
 export const ResourcesMenu = ({ user }) => {
   const categories = useOfferingCategories();
 
-  const { data: categoryGroups } = useQuery(
-    ['MarketplaceCategoryGroups'],
-    () => getCategoryGroups({ field: ['uuid', 'title', 'url'] }),
-    { staleTime: 1 * 60 * 1000 },
-  );
+  const { data: categoryGroups } = useQuery({
+    queryKey: ['MarketplaceCategoryGroups'],
+    queryFn: () => getCategoryGroups({ field: ['uuid', 'title', 'url'] }),
+    staleTime: 1 * 60 * 1000,
+  });
 
   const resourcesFilters = useSelector((state: any) =>
     selectFiltersStorage(state, ALL_RESOURCES_TABLE_ID),
@@ -131,8 +131,8 @@ export const ResourcesMenu = ({ user }) => {
   }, [resourcesFilters]);
 
   // We will clean counters on impersonation (on change user)
-  const { data: counters = {} } = useQuery(
-    [
+  const { data: counters = {} } = useQuery({
+    queryKey: [
       'ResourcesMenu',
       'Counters',
       user?.uuid,
@@ -140,12 +140,13 @@ export const ResourcesMenu = ({ user }) => {
       query?.project_uuid,
     ],
 
-    () =>
+    queryFn: () =>
       marketplaceGlobalCategoriesRetrieve({ query }).then(
         (response) => response.data,
       ),
-    { refetchOnWindowFocus: false },
-  );
+
+    refetchOnWindowFocus: false,
+  });
   const [expanded, setExpanded] = useState(false);
 
   const sortedCategoryGroups = useMemo(() => {

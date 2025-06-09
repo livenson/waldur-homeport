@@ -191,7 +191,7 @@ const AllResultsTabContent = ({
           </>
         ) : null}
         <NoResult
-          isVisible={!result.data?.resultsCount && result.status !== 'loading'}
+          isVisible={!result.data?.resultsCount && result.status !== 'pending'}
           callback={clearSearch}
         />
       </Col>
@@ -232,7 +232,7 @@ const OrganizationsTabContent = ({
       ) : null}
       <NoResult
         isVisible={
-          isEmpty(result.data?.customers) && result.status !== 'loading'
+          isEmpty(result.data?.customers) && result.status !== 'pending'
         }
         callback={clearSearch}
       />
@@ -278,7 +278,7 @@ const ProjectsTabContent = ({
       ) : null}
       <NoResult
         isVisible={
-          isEmpty(result.data?.projects) && result.status !== 'loading'
+          isEmpty(result.data?.projects) && result.status !== 'pending'
         }
         callback={clearSearch}
       />
@@ -333,7 +333,7 @@ const ResourcesTabContent = ({
         </div>
       ) : null}
       <NoResult
-        isVisible={isEmpty(resourceGroups) && result.status !== 'loading'}
+        isVisible={isEmpty(resourceGroups) && result.status !== 'pending'}
         callback={clearSearch}
       />
     </>

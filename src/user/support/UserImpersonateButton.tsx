@@ -13,15 +13,20 @@ import { UsersService, setImpersonationData } from '../UsersService';
 export const UserImpersonateButton: FunctionComponent<{ row }> = ({ row }) => {
   const user = useSelector(getUser);
   const dispatch = useDispatch();
-  const { mutate, isLoading } = useMutation(async () => {
-    try {
-      setImpersonationData(row.uuid);
-      await UsersService.getCurrentUser(true);
-    } catch (error) {
-      dispatch(
-        showErrorResponse(error, translate('Unable to impersonate the user.')),
-      );
-    }
+  const { mutate, isPending } = useMutation({
+    mutationFn: async () => {
+      try {
+        setImpersonationData(row.uuid);
+        await UsersService.getCurrentUser(true);
+      } catch (error) {
+        dispatch(
+          showErrorResponse(
+            error,
+            translate('Unable to impersonate the user.'),
+          ),
+        );
+      }
+    },
   });
 
   if (!(user?.uuid !== row.uuid && user?.is_staff)) {
@@ -33,7 +38,7 @@ export const UserImpersonateButton: FunctionComponent<{ row }> = ({ row }) => {
       title={translate('Impersonate')}
       action={mutate}
       iconNode={<EyeIcon weight="bold" />}
-      disabled={isLoading || !row.has_active_session}
+      disabled={isPending || !row.has_active_session}
       tooltip={
         !row.has_active_session &&
         translate(

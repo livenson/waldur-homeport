@@ -12,32 +12,34 @@ import { RemoteSyncActionProps } from './types';
 export const RemoteSyncEnableAction = (props: RemoteSyncActionProps) => {
   const dispatch = useDispatch();
 
-  const { mutate, isLoading } = useMutation(async () => {
-    try {
-      await marketplaceRemoteSynchronisationsPartialUpdate({
-        path: { uuid: props.row.uuid },
-        body: {
-          is_active: !props.row.is_active,
-        },
-      });
-      dispatch(
-        showSuccess(
-          props.row.is_active
-            ? translate('Remote synchronization disabled')
-            : translate('Remote synchronization enabled'),
-        ),
-      );
-      props.refetch();
-    } catch (e) {
-      dispatch(
-        showErrorResponse(
-          e,
-          props.row.is_active
-            ? translate('Unable to disable remote synchronization')
-            : translate('Unable to enable remote synchronization'),
-        ),
-      );
-    }
+  const { mutate, isPending: isLoading } = useMutation({
+    mutationFn: async () => {
+      try {
+        await marketplaceRemoteSynchronisationsPartialUpdate({
+          path: { uuid: props.row.uuid },
+          body: {
+            is_active: !props.row.is_active,
+          },
+        });
+        dispatch(
+          showSuccess(
+            props.row.is_active
+              ? translate('Remote synchronization disabled')
+              : translate('Remote synchronization enabled'),
+          ),
+        );
+        props.refetch();
+      } catch (e) {
+        dispatch(
+          showErrorResponse(
+            e,
+            props.row.is_active
+              ? translate('Unable to disable remote synchronization')
+              : translate('Unable to enable remote synchronization'),
+          ),
+        );
+      }
+    },
   });
 
   return (

@@ -60,16 +60,19 @@ const getReviewState = (states: string[]) => ({
 
 export const CallManagementDashboard = () => {
   const customer = useSelector(getCustomer);
-  const { data, isLoading, error, refetch } = useQuery(
-    ['call-management-dashboard', customer.call_managing_organization_uuid],
-    () =>
+  const { data, isLoading, error, refetch } = useQuery({
+    queryKey: [
+      'call-management-dashboard',
+      customer.call_managing_organization_uuid,
+    ],
+
+    queryFn: () =>
       callManagingOrganisationsStatsRetrieve({
         path: { uuid: customer.call_managing_organization_uuid },
       }).then((response) => response.data),
-    {
-      staleTime: 5 * 60 * 1000,
-    },
-  );
+
+    staleTime: 5 * 60 * 1000,
+  });
 
   return (
     <Row>

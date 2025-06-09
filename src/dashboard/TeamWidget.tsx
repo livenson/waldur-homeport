@@ -43,11 +43,11 @@ export const TeamWidget: FC<TeamWidgetProps> = ({
   emailKey,
   imageKey,
 }) => {
-  const { data, isLoading, error, refetch } = useQuery(
-    ['TeamWidget', scope?.uuid],
-    api,
-    { staleTime: 3 * 60 * 1000 },
-  );
+  const { data, isLoading, error, refetch } = useQuery({
+    queryKey: ['TeamWidget', scope?.uuid],
+    queryFn: api,
+    staleTime: 3 * 60 * 1000,
+  });
 
   const count = data?.totalItems ?? 0;
 

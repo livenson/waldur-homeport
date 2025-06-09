@@ -11,37 +11,39 @@ import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 export const KeycloakMembershipBulkRemoveAction = ({ rows, refetch }) => {
   const dispatch = useDispatch();
 
-  const { mutate, isLoading } = useMutation(async () => {
-    try {
-      await waitForConfirmation(
-        dispatch,
-        translate('Removing all selected resource permissions'),
-        translate(
-          "You are about to revoke resource access from {count} users. Once removed, they'll immediately lose access and all associated permissions.",
-          { count: rows.length },
-        ),
-        { forDeletion: true },
-      );
-    } catch {
-      return;
-    }
-    try {
-      const promises = rows.map((row) =>
-        keycloakUserGroupMembershipsDestroy({
-          path: { uuid: row.uuid },
-        }),
-      );
-      await Promise.all(promises);
-      dispatch(showSuccess(translate('Resource permissions deleted')));
-      refetch();
-    } catch (e) {
-      dispatch(
-        showErrorResponse(
-          e,
-          translate('Unable to delete resource permissions.'),
-        ),
-      );
-    }
+  const { mutate, isPending } = useMutation({
+    mutationFn: async () => {
+      try {
+        await waitForConfirmation(
+          dispatch,
+          translate('Removing all selected resource permissions'),
+          translate(
+            "You are about to revoke resource access from {count} users. Once removed, they'll immediately lose access and all associated permissions.",
+            { count: rows.length },
+          ),
+          { forDeletion: true },
+        );
+      } catch {
+        return;
+      }
+      try {
+        const promises = rows.map((row) =>
+          keycloakUserGroupMembershipsDestroy({
+            path: { uuid: row.uuid },
+          }),
+        );
+        await Promise.all(promises);
+        dispatch(showSuccess(translate('Resource permissions deleted')));
+        refetch();
+      } catch (e) {
+        dispatch(
+          showErrorResponse(
+            e,
+            translate('Unable to delete resource permissions.'),
+          ),
+        );
+      }
+    },
   });
 
   return (
@@ -52,7 +54,7 @@ export const KeycloakMembershipBulkRemoveAction = ({ rows, refetch }) => {
       iconColor="danger"
       className="text-danger"
       tooltip={translate('Remove all selected resource permissions')}
-      disabled={isLoading}
+      disabled={isPending}
     />
   );
 };
