@@ -160,7 +160,7 @@
     "message": "Accept term and conditions"
   },
   "Accept": {
-    "description": "booking/components/AcceptBookingButton.tsx, proposals/offering-requests/OfferingRequestItemActions.tsx, proposals/proposal/create/ProposalSidebar.tsx",
+    "description": "booking/components/AcceptBookingButton.tsx, proposals/offering-requests/OfferingRequestItemActions.tsx, proposals/proposal/ProposalDetails.tsx",
     "message": "Accept"
   },
   "Accepted proposals": {
@@ -9788,7 +9788,7 @@
     "message": "Reject review"
   },
   "Reject": {
-    "description": "invitations/UserPermissionRequestRejectButton.tsx, marketplace/orders/actions/RejectByConsumerButton.tsx, marketplace/orders/actions/RejectByProviderButton.tsx, marketplace-remote/ReviewRejectAction.tsx, proposals/offering-requests/OfferingRequestItemActions.tsx, proposals/proposal/ProposalRowActions.tsx, proposals/proposal/create/ProposalSidebar.tsx",
+    "description": "invitations/UserPermissionRequestRejectButton.tsx, marketplace/orders/actions/RejectByConsumerButton.tsx, marketplace/orders/actions/RejectByProviderButton.tsx, marketplace-remote/ReviewRejectAction.tsx, proposals/offering-requests/OfferingRequestItemActions.tsx, proposals/proposal/ProposalDetails.tsx, proposals/proposal/ProposalRowActions.tsx",
     "message": "Reject"
   },
   "Rejected proposals": {
