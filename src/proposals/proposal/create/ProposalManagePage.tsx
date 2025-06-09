@@ -21,7 +21,6 @@ import { ProposalDetails } from '../ProposalDetails';
 import { ProgressSteps } from './ProgressSteps';
 import { ProposalHeader } from './ProposalHeader';
 import { ProposalSubmissionStep } from './ProposalSubmissionStep';
-import { useProposalDecisionActions } from './utils';
 
 export const ProposalManagePage = () => {
   const {
@@ -66,11 +65,6 @@ export const ProposalManagePage = () => {
     { refetchOnWindowFocus: false },
   );
 
-  const { canPerformDecisionActions } = useProposalDecisionActions(
-    proposal || ({} as Proposal),
-    refetch,
-  );
-
   if (isLoading || isLoadingReviews) {
     return <LoadingSpinner />;
   } else if (error) {
@@ -85,8 +79,7 @@ export const ProposalManagePage = () => {
           <ProgressSteps proposal={proposal} bgClass="bg-body" />
         </div>
       </SidebarLayout.Header>
-      {(proposal.state === 'draft' && hasPermissionToSubmit) ||
-      canPerformDecisionActions ? (
+      {proposal.state === 'draft' && hasPermissionToSubmit ? (
         <ProposalSubmissionStep
           proposal={proposal}
           refetch={refetch}
