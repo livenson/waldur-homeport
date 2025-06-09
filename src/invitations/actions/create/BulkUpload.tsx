@@ -28,11 +28,11 @@ interface OwnProps {
 
 export const BulkUpload: FC<OwnProps> = (props) => {
   const dispatch = useDispatch();
-  const [file, setFile] = useState<FileIcon>(null);
+  const [file, setFile] = useState<File>(null);
   const [importedUsersCount, setImportedUsersCount] = useState(0);
 
   const parseCsvFile = useCallback(
-    (acceptedFiles: FileIcon[]) => {
+    (acceptedFiles: File[]) => {
       const _file = acceptedFiles[0];
 
       if (!_file || _file.type !== 'text/csv') {

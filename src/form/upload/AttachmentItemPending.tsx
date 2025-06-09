@@ -9,12 +9,12 @@ import { translate } from '@waldur/i18n';
 import './AttachmentItem.scss';
 
 interface AttachmentItemPendingProps {
-  file: FileIcon;
+  file: File;
   progress: number;
   error?: any;
   iconSize?: number;
-  onRetry?(file: FileIcon): void;
-  onCancel?(file: FileIcon): void;
+  onRetry?(file: File): void;
+  onCancel?(file: File): void;
 }
 
 export const AttachmentItemPending: FC<AttachmentItemPendingProps> = ({
