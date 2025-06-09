@@ -1,14 +1,22 @@
-import { CaretDownIcon, PlusCircleIcon } from '@phosphor-icons/react';
+import {
+  CaretDownIcon,
+  PlusCircleIcon,
+  SpinnerIcon,
+} from '@phosphor-icons/react';
+import { useQuery } from '@tanstack/react-query';
 import { Dropdown } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { Project } from 'waldur-js-client';
 
+import { count } from '@waldur/core/api';
 import { ServiceAccountCreateButton } from '@waldur/customer/service-accounts/ServiceAccountCreateAction';
 import { translate } from '@waldur/i18n';
 import { InvitationCreateButton } from '@waldur/invitations/actions/create/InvitationCreateButton';
 import { getTableState } from '@waldur/table/selectors';
+import { useUser } from '@waldur/workspace/hooks';
 
 import { AddUserButton } from './AddUserButton';
+import { hasCurrentCustomerPermission } from './utils';
 
 interface TeamDropdownActionsProps {
   project: Project;
@@ -26,6 +34,23 @@ export const TeamDropdownActions = ({
     project.max_service_accounts > 0 &&
     tableState?.pagination?.resultCount >= project.max_service_accounts;
 
+  const user = useUser();
+
+  const hasCustomerPermission = useSelector(hasCurrentCustomerPermission);
+
+  const { isLoading, isError, data } = useQuery(
+    ['TeamDropdownActions', project.uuid],
+    async () => {
+      if (user.is_staff || hasCustomerPermission) {
+        return true;
+      }
+      const usersCount = await count(
+        `/api/projects/${project.uuid}/other_users/`,
+      );
+      return usersCount > 0;
+    },
+  );
+
   return (
     <Dropdown placement="bottom-end">
       <Dropdown.Toggle variant="primary" className="no-arrow btn-icon-right">
@@ -38,21 +63,34 @@ export const TeamDropdownActions = ({
         </span>
       </Dropdown.Toggle>
       <Dropdown.Menu flip>
-        <InvitationCreateButton
-          project={project}
-          roleTypes={['project']}
-          refetch={refetch}
-          enableBulkUpload={true}
-        />
+        {isLoading ? (
+          <Dropdown.Item eventKey="1">
+            <SpinnerIcon size={20} className="animation-spin me-2" />
+            {translate('Loading actions')}
+          </Dropdown.Item>
+        ) : isError ? (
+          <Dropdown.Item eventKey="1">
+            {translate('Unable to load actions')}
+          </Dropdown.Item>
+        ) : (
+          <>
+            <InvitationCreateButton
+              project={project}
+              roleTypes={['project']}
+              refetch={refetch}
+              enableBulkUpload={true}
+            />
 
-        <AddUserButton project={project} refetch={refetch} />
-        {project.max_service_accounts !== 0 && (
-          <ServiceAccountCreateButton
-            context="project"
-            scope={project}
-            refetch={refetch}
-            disabled={isServiceAccountLimitReached}
-          />
+            {data && <AddUserButton project={project} refetch={refetch} />}
+            {project.max_service_accounts !== 0 && (
+              <ServiceAccountCreateButton
+                context="project"
+                scope={project}
+                refetch={refetch}
+                disabled={isServiceAccountLimitReached}
+              />
+            )}
+          </>
         )}
       </Dropdown.Menu>
     </Dropdown>
