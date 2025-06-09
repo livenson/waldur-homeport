@@ -260,15 +260,18 @@ export const OfferingEditUIView = ({
     params: { offering_uuid },
   } = useCurrentStateAndParams();
 
-  const { isLoading, error, data, refetch, isRefetching } = useQuery(
-    [PROVIDER_OFFERING_DATA_QUERY_KEY, offering_uuid],
-    () => getOfferingData(offering_uuid),
-    { refetchOnWindowFocus: false, staleTime: 3 * 60 * 1000 },
-  );
+  const { isLoading, error, data, refetch, isRefetching } = useQuery({
+    queryKey: [PROVIDER_OFFERING_DATA_QUERY_KEY, offering_uuid],
+    queryFn: () => getOfferingData(offering_uuid),
+    refetchOnWindowFocus: false,
+    staleTime: 3 * 60 * 1000,
+  });
 
   const { data: plugins } = useQuery(
-    ['marketplacePlugins'],
-    marketplacePluginsList,
+    {
+      queryKey: ['marketplacePlugins'],
+      ...marketplacePluginsList,
+    },
     {
       refetchOnWindowFocus: false,
       staleTime: 3 * 60 * 1000,

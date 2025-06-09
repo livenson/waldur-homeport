@@ -318,9 +318,10 @@ const renderNetworkRows = ({
 export const FormNetworkSecurityStep = (props: FormStepProps) => {
   const [customIpEnabled, setCustomIpEnabled] = useToggle(false);
 
-  const { data, isLoading } = useQuery(
-    ['network-step', props.offering.scope_uuid],
-    () => {
+  const { data, isLoading } = useQuery({
+    queryKey: ['network-step', props.offering.scope_uuid],
+
+    queryFn: () => {
       return Promise.all([
         loadSubnets({ tenant_uuid: props.offering.scope_uuid }),
         loadFloatingIps({
@@ -333,8 +334,9 @@ export const FormNetworkSecurityStep = (props: FormStepProps) => {
         floatingIps,
       }));
     },
-    { staleTime: 3 * 60 * 1000 },
-  );
+
+    staleTime: 3 * 60 * 1000,
+  });
 
   return (
     <VStepperFormStepCard

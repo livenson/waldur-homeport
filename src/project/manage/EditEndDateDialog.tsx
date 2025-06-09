@@ -112,9 +112,10 @@ const FormModalComponent: FC<
     isFetching,
     error,
     refetch,
-  } = useQuery<Resource[]>(
-    [RESOURCES_QUERY_ID, project.uuid],
-    () => {
+  } = useQuery({
+    queryKey: [RESOURCES_QUERY_ID, project.uuid],
+
+    queryFn: () => {
       if (!project.resources_count) return Promise.resolve(null);
 
       return getAllPages((page) =>
@@ -136,11 +137,10 @@ const FormModalComponent: FC<
         }),
       );
     },
-    {
-      refetchOnWindowFocus: false,
-      enabled: !!value.input.value && value.meta.dirty,
-    },
-  );
+
+    refetchOnWindowFocus: false,
+    enabled: !!value.input.value && value.meta.dirty,
+  });
 
   const ignoredResources = useMemo(() => {
     const items: Resource[] = [];

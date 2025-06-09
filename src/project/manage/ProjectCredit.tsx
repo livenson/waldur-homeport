@@ -22,14 +22,17 @@ export const ProjectCredit: React.FC<ProjectCreditProps> = ({ project }) => {
     isLoading,
     error,
     refetch,
-  } = useQuery(
-    ['ProjectCreditData', project?.uuid],
-    () =>
+  } = useQuery({
+    queryKey: ['ProjectCreditData', project?.uuid],
+
+    queryFn: () =>
       projectCreditsList({
         query: { project_uuid: project?.uuid },
       }).then((response) => response.data.length > 0 && response.data[0]),
-    { refetchOnWindowFocus: false, staleTime: 60 * 1000 },
-  );
+
+    refetchOnWindowFocus: false,
+    staleTime: 60 * 1000,
+  });
 
   const rows = useMemo(
     () => [

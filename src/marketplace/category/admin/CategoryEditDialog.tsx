@@ -47,23 +47,27 @@ export const CategoryEditDialog: FC<CategoryEditDialogProps> = ({
     isLoading,
     error,
     refetch: refetchData,
-  } = useQuery(
-    ['CategoryData', category?.uuid],
-    () =>
+  } = useQuery({
+    queryKey: ['CategoryData', category?.uuid],
+
+    queryFn: () =>
       isEdit
         ? marketplaceCategoriesRetrieve({ path: { uuid: category.uuid } }).then(
             (response) => response.data,
           )
         : null,
-    { staleTime: 30 * 1000 },
-  );
+
+    staleTime: 30 * 1000,
+  });
 
   const {
     data: categoryGroups,
     isLoading: loadingGroups,
     error: errorGroups,
     refetch: refetchGroups,
-  } = useQuery(['MarketplaceCategoryGroups'], () => getCategoryGroups(), {
+  } = useQuery({
+    queryKey: ['MarketplaceCategoryGroups'],
+    queryFn: () => getCategoryGroups(),
     staleTime: 30 * 1000,
   });
 

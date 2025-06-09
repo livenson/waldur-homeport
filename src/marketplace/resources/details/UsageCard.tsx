@@ -41,14 +41,16 @@ export const UsageCard = ({ resource }) => {
     isLoading: teamIsLoading,
     error: teamError,
     refetch: refetchTeam,
-  } = useQuery(
-    ['ResourceTeam', resource.uuid],
-    () =>
+  } = useQuery({
+    queryKey: ['ResourceTeam', resource.uuid],
+
+    queryFn: () =>
       marketplaceResourcesTeamList({ path: { uuid: resource.uuid } }).then(
         (r) => r.data,
       ),
-    { staleTime: 3 * 60 * 1000 },
-  );
+
+    staleTime: 3 * 60 * 1000,
+  });
 
   const { loading, error, value } = useAsync(
     () => getComponentsAndUsages(resourceRef.resource_uuid, period),

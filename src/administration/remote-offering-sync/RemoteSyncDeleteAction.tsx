@@ -13,35 +13,37 @@ import { RemoteSyncActionProps } from './types';
 export const RemoteSyncDeleteAction = (props: RemoteSyncActionProps) => {
   const dispatch = useDispatch();
 
-  const { mutate, isLoading } = useMutation(async () => {
-    try {
-      await waitForConfirmation(
-        dispatch,
-        translate('Delete remote synchronization'),
-        translate(
-          'You are about to delete {connection} synchronisation. This action cannot be undone.',
-          { connection: <strong>{props.row.api_url}</strong> },
-          formatJsxTemplate,
-        ),
-        { forDeletion: true },
-      );
-    } catch {
-      return;
-    }
-    try {
-      await marketplaceRemoteSynchronisationsDestroy({
-        path: { uuid: props.row.uuid },
-      });
-      dispatch(showSuccess(translate('Remote synchronization deleted')));
-      props.refetch();
-    } catch (e) {
-      dispatch(
-        showErrorResponse(
-          e,
-          translate('Unable to delete remote synchronization.'),
-        ),
-      );
-    }
+  const { mutate, isLoading } = useMutation({
+    mutationFn: async () => {
+      try {
+        await waitForConfirmation(
+          dispatch,
+          translate('Delete remote synchronization'),
+          translate(
+            'You are about to delete {connection} synchronisation. This action cannot be undone.',
+            { connection: <strong>{props.row.api_url}</strong> },
+            formatJsxTemplate,
+          ),
+          { forDeletion: true },
+        );
+      } catch {
+        return;
+      }
+      try {
+        await marketplaceRemoteSynchronisationsDestroy({
+          path: { uuid: props.row.uuid },
+        });
+        dispatch(showSuccess(translate('Remote synchronization deleted')));
+        props.refetch();
+      } catch (e) {
+        dispatch(
+          showErrorResponse(
+            e,
+            translate('Unable to delete remote synchronization.'),
+          ),
+        );
+      }
+    },
   });
 
   return (

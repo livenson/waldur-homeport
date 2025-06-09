@@ -19,11 +19,15 @@ export const UserAgreementComponent: FunctionComponent<
     isLoading: loading,
     error,
     data: option,
-  } = useQuery(['userAgreementData'], async () => {
-    const response = await userAgreementsList({
-      query: { agreement_type: props.agreement_type },
-    });
-    return response.data[0];
+  } = useQuery({
+    queryKey: ['userAgreementData'],
+
+    queryFn: async () => {
+      const response = await userAgreementsList({
+        query: { agreement_type: props.agreement_type },
+      });
+      return response.data[0];
+    },
   });
   if (loading) {
     return <LoadingSpinner />;

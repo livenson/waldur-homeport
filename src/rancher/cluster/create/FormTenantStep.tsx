@@ -14,9 +14,10 @@ import { FormStepProps } from '@waldur/marketplace/deploy/types';
 
 export const FormTenantStep = (props: FormStepProps) => {
   const project = useSelector(orderProjectSelector);
-  const { data, isLoading } = useQuery(
-    ['tenant-step', project?.uuid],
-    () =>
+  const { data, isLoading } = useQuery({
+    queryKey: ['tenant-step', project?.uuid],
+
+    queryFn: () =>
       project
         ? getAllPages((page) =>
             openstackTenantsList({
@@ -28,8 +29,9 @@ export const FormTenantStep = (props: FormStepProps) => {
             }),
           )
         : null,
-    { staleTime: 3 * 60 * 1000 },
-  );
+
+    staleTime: 3 * 60 * 1000,
+  });
 
   useEffect(() => {
     if (data?.length === 1) {

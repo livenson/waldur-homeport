@@ -82,9 +82,10 @@ export const AddResourceAccessDialog = reduxForm<
     isLoading: isLoadingUsers,
     error: errorUsers,
     refetch: refetchUsers,
-  } = useQuery(
-    ['ProjectTeam', resource.project_uuid, userType],
-    () =>
+  } = useQuery({
+    queryKey: ['ProjectTeam', resource.project_uuid, userType],
+
+    queryFn: () =>
       userType === 'project-member' &&
       getAllPages((page) =>
         projectsListUsersList({
@@ -110,8 +111,9 @@ export const AddResourceAccessDialog = reduxForm<
           image: user.user_image,
         })),
       ),
-    { staleTime: 3 * 60 * 1000 },
-  );
+
+    staleTime: 3 * 60 * 1000,
+  });
 
   // Fetch rancher projects
   const {
@@ -119,15 +121,17 @@ export const AddResourceAccessDialog = reduxForm<
     isLoading: isLoadingProjects,
     error: errorProjects,
     refetch: refetchProjects,
-  } = useQuery(
-    ['RancherProjects', scope, resource.uuid],
-    () =>
+  } = useQuery({
+    queryKey: ['RancherProjects', scope, resource.uuid],
+
+    queryFn: () =>
       scope === 'project' &&
       getAllPages((page) =>
         rancherProjectsList({ query: { page, cluster_uuid: resource.uuid } }),
       ),
-    { staleTime: 3 * 60 * 1000 },
-  );
+
+    staleTime: 3 * 60 * 1000,
+  });
 
   // Fetch cluster/project roles
   const {
@@ -135,9 +139,10 @@ export const AddResourceAccessDialog = reduxForm<
     isLoading: isLoadingRoles,
     error: errorRoles,
     refetch: refetchRoles,
-  } = useQuery(
-    ['ScopeTemplates', scope, resource.service_settings_uuid],
-    () =>
+  } = useQuery({
+    queryKey: ['ScopeTemplates', scope, resource.service_settings_uuid],
+
+    queryFn: () =>
       scope &&
       getAllPages((page) =>
         rancherRoleTemplatesList({
@@ -148,8 +153,9 @@ export const AddResourceAccessDialog = reduxForm<
           },
         }),
       ),
-    { staleTime: 3 * 60 * 1000 },
-  );
+
+    staleTime: 3 * 60 * 1000,
+  });
 
   const username = useSelector((state: RootState) =>
     formValueSelector(FORM_ID)(state, 'username'),

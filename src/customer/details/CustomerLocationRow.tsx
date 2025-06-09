@@ -20,25 +20,27 @@ export const CustomerLocationRow: FC<{ customer: Customer; callback }> = ({
   const dispatch = useDispatch();
 
   const { mutate: removeLocation, isLoading: isRemovingLocation } = useMutation(
-    async () => {
-      try {
-        await waitForConfirmation(
-          dispatch,
-          translate('Confirmation'),
-          translate('Are you sure you want to remove the location?'),
-        );
-      } catch {
-        return;
-      }
+    {
+      mutationFn: async () => {
+        try {
+          await waitForConfirmation(
+            dispatch,
+            translate('Confirmation'),
+            translate('Are you sure you want to remove the location?'),
+          );
+        } catch {
+          return;
+        }
 
-      try {
-        await callback({ latitude: null, longitude: null }, dispatch);
-        dispatch(showSuccess(translate('Location has been removed.')));
-      } catch (e) {
-        dispatch(
-          showErrorResponse(e, translate('Unable to remove the location.')),
-        );
-      }
+        try {
+          await callback({ latitude: null, longitude: null }, dispatch);
+          dispatch(showSuccess(translate('Location has been removed.')));
+        } catch (e) {
+          dispatch(
+            showErrorResponse(e, translate('Unable to remove the location.')),
+          );
+        }
+      },
     },
   );
 

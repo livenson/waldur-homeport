@@ -24,14 +24,17 @@ export const CustomerCreditPanel: FC<CustomerEditPanelProps> = (props) => {
     isLoading,
     error,
     refetch,
-  } = useQuery(
-    ['CustomerCreditData', props.customer?.uuid],
-    () =>
+  } = useQuery({
+    queryKey: ['CustomerCreditData', props.customer?.uuid],
+
+    queryFn: () =>
       customerCreditsList({
         query: { customer_uuid: props.customer?.uuid },
       }).then((response) => response.data.length > 0 && response.data[0]),
-    { refetchOnWindowFocus: false, staleTime: 60 * 1000 },
-  );
+
+    refetchOnWindowFocus: false,
+    staleTime: 60 * 1000,
+  });
 
   const rows = useMemo(
     () => [

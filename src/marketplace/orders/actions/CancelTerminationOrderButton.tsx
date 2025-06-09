@@ -20,16 +20,18 @@ export const CancelTerminationOrderButton = ({
   const user = useSelector(getUser);
 
   const dispatch = useDispatch();
-  const { mutate, isLoading } = useMutation(async () => {
-    try {
-      await remoteWaldurApiCancelTermination({ path: { uuid: row.uuid } });
-      await fetch();
-      dispatch(showSuccess(translate('Order has been canceled.')));
-    } catch (response) {
-      dispatch(
-        showErrorResponse(response, translate('Unable to cancel order.')),
-      );
-    }
+  const { mutate, isLoading } = useMutation({
+    mutationFn: async () => {
+      try {
+        await remoteWaldurApiCancelTermination({ path: { uuid: row.uuid } });
+        await fetch();
+        dispatch(showSuccess(translate('Order has been canceled.')));
+      } catch (response) {
+        dispatch(
+          showErrorResponse(response, translate('Unable to cancel order.')),
+        );
+      }
+    },
   });
 
   if (

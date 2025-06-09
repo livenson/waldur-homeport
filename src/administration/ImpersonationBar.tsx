@@ -18,15 +18,17 @@ export const ImpersonationBar = () => {
   const impersonatorUser = useSelector(getImpersonatorUser);
 
   const dispatch = useDispatch();
-  const { mutate: stop, isLoading } = useMutation(async () => {
-    try {
-      clearImpersonationData();
-      await UsersService.getCurrentUser(true);
-    } catch (error) {
-      dispatch(
-        showErrorResponse(error, translate('Unable to stop impersonating.')),
-      );
-    }
+  const { mutate: stop, isLoading } = useMutation({
+    mutationFn: async () => {
+      try {
+        clearImpersonationData();
+        await UsersService.getCurrentUser(true);
+      } catch (error) {
+        dispatch(
+          showErrorResponse(error, translate('Unable to stop impersonating.')),
+        );
+      }
+    },
   });
 
   if (!impersonatorUser || !user) {

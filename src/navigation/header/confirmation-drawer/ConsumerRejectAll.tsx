@@ -10,20 +10,25 @@ import { showSuccess, showErrorResponse } from '@waldur/store/notify';
 
 export const ConsumerRejectAll = ({ orders, refetch }) => {
   const dispatch = useDispatch();
-  const { mutate, isLoading } = useMutation(async () => {
-    try {
-      await Promise.all(
-        orders.map((order) =>
-          marketplaceOrdersRejectByConsumer({ path: { uuid: order.uuid } }),
-        ),
-      );
-      await refetch();
-      dispatch(showSuccess(translate('All orders have been rejected.')));
-    } catch (response) {
-      dispatch(
-        showErrorResponse(response, translate('Unable to reject all orders.')),
-      );
-    }
+  const { mutate, isLoading } = useMutation({
+    mutationFn: async () => {
+      try {
+        await Promise.all(
+          orders.map((order) =>
+            marketplaceOrdersRejectByConsumer({ path: { uuid: order.uuid } }),
+          ),
+        );
+        await refetch();
+        dispatch(showSuccess(translate('All orders have been rejected.')));
+      } catch (response) {
+        dispatch(
+          showErrorResponse(
+            response,
+            translate('Unable to reject all orders.'),
+          ),
+        );
+      }
+    },
   });
   return (
     <Button variant="danger" onClick={() => mutate()} disabled={isLoading}>

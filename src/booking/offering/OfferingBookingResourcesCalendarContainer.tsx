@@ -49,9 +49,11 @@ export const OfferingBookingResourcesCalendarContainer: FunctionComponent<
     isRefetching,
     error,
     refetch,
-  } = useQuery(['offeringBookings', offering.uuid], () =>
-    loadBookingOfferings(offering.uuid),
-  );
+  } = useQuery({
+    queryKey: ['offeringBookings', offering.uuid],
+
+    queryFn: () => loadBookingOfferings(offering.uuid),
+  });
 
   if (isLoading) {
     return <LoadingSpinner />;

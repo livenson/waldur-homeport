@@ -44,8 +44,10 @@ export const TeamWidget: FC<TeamWidgetProps> = ({
   imageKey,
 }) => {
   const { data, isLoading, error, refetch } = useQuery(
-    ['TeamWidget', scope?.uuid],
-    api,
+    {
+      queryKey: ['TeamWidget', scope?.uuid],
+      ...api,
+    },
     { staleTime: 3 * 60 * 1000 },
   );
 

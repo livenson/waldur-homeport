@@ -32,16 +32,16 @@ export const ProposalManagePage = () => {
     isLoading,
     error,
     refetch,
-  } = useQuery(
-    ['Proposal', proposal_uuid],
-    () =>
+  } = useQuery({
+    queryKey: ['Proposal', proposal_uuid],
+
+    queryFn: () =>
       proposalProposalsRetrieve({
         path: { uuid: proposal_uuid },
       }).then((response) => response.data as any as Proposal),
-    {
-      refetchOnWindowFocus: false,
-    },
-  );
+
+    refetchOnWindowFocus: false,
+  });
 
   const title =
     proposal?.state === 'draft'
@@ -54,16 +54,18 @@ export const ProposalManagePage = () => {
   const hasPermissionToSubmit =
     user.is_staff || (proposal && user.uuid === proposal.created_by_uuid);
 
-  const { data: reviews, isLoading: isLoadingReviews } = useQuery(
-    ['ProposalReviews', proposal_uuid],
-    () =>
+  const { data: reviews, isLoading: isLoadingReviews } = useQuery({
+    queryKey: ['ProposalReviews', proposal_uuid],
+
+    queryFn: () =>
       getAllPages((page) =>
         proposalReviewsList({
           query: { page, proposal_uuid },
         }),
       ),
-    { refetchOnWindowFocus: false },
-  );
+
+    refetchOnWindowFocus: false,
+  });
 
   if (isLoading || isLoadingReviews) {
     return <LoadingSpinner />;

@@ -49,17 +49,23 @@ export const EditCategoryDialog = reduxForm<FormData, OwnProps>({
     }
   };
 
-  const queryData = useQuery(['EditCategoryDialog'], getCategories, {
-    onSuccess: (data) => {
-      dispatch(
-        change(
-          CATEGORY_FORM_ID,
-          'category',
-          data.find((item) => item.url === resolve.offering.category),
-        ),
-      );
+  const queryData = useQuery(
+    {
+      queryKey: ['EditCategoryDialog'],
+      ...getCategories,
     },
-  });
+    {
+      onSuccess: (data) => {
+        dispatch(
+          change(
+            CATEGORY_FORM_ID,
+            'category',
+            data.find((item) => item.url === resolve.offering.category),
+          ),
+        );
+      },
+    },
+  );
 
   return (
     <form onSubmit={handleSubmit(submitRequest)}>

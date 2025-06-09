@@ -35,14 +35,15 @@ export const OfferingCreateDialog = reduxForm<
 >({
   form: OFFERING_CREATE_FORM_ID,
 })(({ handleSubmit, submitting, invalid, resolve: { fetch } }) => {
-  const { data, isLoading, error, refetch } = useQuery(
-    ['OfferingCreateDialog'],
-    async () => {
+  const { data, isLoading, error, refetch } = useQuery({
+    queryKey: ['OfferingCreateDialog'],
+
+    queryFn: async () => {
       const categories = await getCategories();
       const offeringTypes = getCreatableOfferings();
       return { categories, offeringTypes };
     },
-  );
+  });
 
   const customer = useSelector(getCustomer);
   const dispatch = useDispatch();

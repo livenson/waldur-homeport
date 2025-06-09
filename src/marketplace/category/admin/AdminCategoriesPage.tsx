@@ -28,7 +28,9 @@ export const AdminCategoriesPage: FunctionComponent = () => {
     isLoading: loadingGroups,
     error: errorGroups,
     refetch,
-  } = useQuery(['MarketplaceCategoryGroups'], () => getCategoryGroups(), {
+  } = useQuery({
+    queryKey: ['MarketplaceCategoryGroups'],
+    queryFn: () => getCategoryGroups(),
     staleTime: 30 * 1000,
   });
 
