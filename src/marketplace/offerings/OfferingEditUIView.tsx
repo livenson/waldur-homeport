@@ -142,9 +142,11 @@ const getTabs = (offering: Offering): PageBarTab[] => {
               )
             }
           />
+
           {translate('Integration')}
         </>
       ),
+
       children: [
         ServiceSettingsForm && allowToUpdateService(offering.type)
           ? {
@@ -226,6 +228,7 @@ const getTabs = (offering: Offering): PageBarTab[] => {
             {translate('Accounting plans')}
           </>
         ),
+
         key: 'plans',
         component: PlansSection,
         visible: false,
@@ -239,6 +242,7 @@ const getTabs = (offering: Offering): PageBarTab[] => {
             {translate('Accounting components')}
           </>
         ),
+
         visible: false,
       },
     ].filter(Boolean),
@@ -295,6 +299,7 @@ export const OfferingEditUIView = ({
       isLoading={isLoading}
       error={error}
     />,
+
     [data?.offering, refetch, isRefetching, isLoading, error],
   );
 

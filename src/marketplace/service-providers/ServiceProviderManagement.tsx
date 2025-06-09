@@ -139,6 +139,7 @@ export const ServiceProviderManagement: FC<OwnProps> = ({
             />
           }
         />
+
         <FormTable.Item
           label={translate('Description')}
           value={serviceProvider?.description || 'N/A'}

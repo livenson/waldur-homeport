@@ -1,4 +1,4 @@
-import { Robot } from '@phosphor-icons/react';
+import { RobotIcon } from '@phosphor-icons/react';
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
 
@@ -38,7 +38,7 @@ export const ServiceAccountCreateButton: FC<
     <ActionItem
       title={translate('Service account')}
       action={callback}
-      iconNode={<Robot weight="bold" />}
+      iconNode={<RobotIcon weight="bold" />}
       disabled={disabled}
     />
   );

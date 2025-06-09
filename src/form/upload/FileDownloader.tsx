@@ -1,4 +1,4 @@
-import { FileArrowDown } from '@phosphor-icons/react';
+import { FileArrowDownIcon } from '@phosphor-icons/react';
 import { useState } from 'react';
 
 import { get } from '@waldur/core/api';
@@ -45,7 +45,7 @@ export const FileDownloader = ({ url, name, size = 20 }) => {
       {loading ? (
         <LoadingSpinner />
       ) : (
-        <FileArrowDown weight="bold" size={size} />
+        <FileArrowDownIcon weight="bold" size={size} />
       )}
     </button>
   );

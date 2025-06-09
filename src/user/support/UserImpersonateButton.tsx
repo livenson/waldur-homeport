@@ -1,4 +1,4 @@
-import { Eye } from '@phosphor-icons/react';
+import { EyeIcon } from '@phosphor-icons/react';
 import { useMutation } from '@tanstack/react-query';
 import { FunctionComponent } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
@@ -32,7 +32,7 @@ export const UserImpersonateButton: FunctionComponent<{ row }> = ({ row }) => {
     <ActionItem
       title={translate('Impersonate')}
       action={mutate}
-      iconNode={<Eye weight="bold" />}
+      iconNode={<EyeIcon weight="bold" />}
       disabled={isLoading || !row.has_active_session}
       tooltip={
         !row.has_active_session &&

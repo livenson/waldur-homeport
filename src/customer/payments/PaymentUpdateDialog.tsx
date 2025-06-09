@@ -89,6 +89,7 @@ const PaymentUpdateDialog: FunctionComponent<
             showFileName={true}
             buttonLabel={translate('Browse')}
           />
+
           {props.resolve.proof ? (
             <span style={{ marginLeft: '145px' }}>
               <PaymentProofRenderer row={props.resolve} />

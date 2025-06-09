@@ -1,4 +1,4 @@
-import { Plus } from '@phosphor-icons/react';
+import { PlusIcon } from '@phosphor-icons/react';
 import { QueryFunction, useInfiniteQuery } from '@tanstack/react-query';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Button } from 'react-bootstrap';
@@ -167,7 +167,7 @@ export const FormCloudStep = (props: FormStepProps) => {
             <div className="d-flex gap-10 justify-content-end">
               <Button variant="light" className="text-nowrap" size="sm">
                 <span className="svg-icon svg-icon-2">
-                  <Plus weight="bold" />
+                  <PlusIcon weight="bold" />
                 </span>
                 {translate('New cloud')}
               </Button>
@@ -193,6 +193,7 @@ export const FormCloudStep = (props: FormStepProps) => {
             validate={[required]}
             onChange={onChangeOffering}
           />
+
           <div className="text-center">
             {context.hasNextPage && (
               <div>

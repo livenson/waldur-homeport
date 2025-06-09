@@ -1,4 +1,8 @@
-import { ArrowsClockwise, Info, XCircle } from '@phosphor-icons/react';
+import {
+  ArrowsClockwiseIcon,
+  InfoIcon,
+  XCircleIcon,
+} from '@phosphor-icons/react';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from '@uirouter/react';
 import { FC } from 'react';
@@ -38,7 +42,7 @@ const ShowErrorButton = ({ resource }) => {
   return (
     <Button variant="light-danger" size="sm" onClick={showErrorDialog}>
       <span className="svg-icon svg-icon-4">
-        <XCircle weight="bold" />
+        <XCircleIcon weight="bold" />
       </span>
       {translate('Show error')}
     </Button>
@@ -54,6 +58,7 @@ const getSortedSteps = (resource: Resource) => [
         formatDateTime(resource.creation_order.created),
       ].join(', '),
     ],
+
     state: [],
   },
   {
@@ -64,6 +69,7 @@ const getSortedSteps = (resource: Resource) => [
         formatDateTime(resource.creation_order.consumer_reviewed_at),
       ].join(', '),
     ],
+
     state: [],
   },
   {
@@ -74,6 +80,7 @@ const getSortedSteps = (resource: Resource) => [
         formatDateTime(resource.creation_order.modified),
       ].join(', '),
     ],
+
     state: ['erred'],
     variant: 'danger',
   },
@@ -140,6 +147,7 @@ export const OrderErredView: FC<OrderErredViewProps> = ({ resource }) => {
             bgClass="bg-body"
             className="flex-grow-1"
           />
+
           <div className="d-flex flex-sm-column gap-3 text-nowrap">
             <Button
               variant="outline btn-outline-default"
@@ -148,7 +156,7 @@ export const OrderErredView: FC<OrderErredViewProps> = ({ resource }) => {
               disabled={isLoading}
             >
               <span className="svg-icon svg-icon-4">
-                <ArrowsClockwise
+                <ArrowsClockwiseIcon
                   weight="bold"
                   className={isLoading ? ' animation-spin' : ''}
                 />
@@ -161,7 +169,7 @@ export const OrderErredView: FC<OrderErredViewProps> = ({ resource }) => {
               className="btn btn-sm btn-outline btn-outline-default"
             >
               <span className="svg-icon svg-icon-4">
-                <Info weight="bold" />
+                <InfoIcon weight="bold" />
               </span>
               {translate('View order')}
             </OrderDetailsLink>

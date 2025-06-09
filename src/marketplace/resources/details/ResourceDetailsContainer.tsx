@@ -162,6 +162,7 @@ export const ResourceDetailsContainer: FunctionComponent<{}> = () => {
         dropdown: (close) => (
           <ResourceBreadcrumbPopover resource={resource} close={close} />
         ),
+
         truncate: true,
         active: true,
       },
@@ -204,6 +205,7 @@ export const ResourceDetailsContainer: FunctionComponent<{}> = () => {
         isLoading={isRefetching}
       />
     ),
+
     [resource, data, refetch, isLoading, isRefetching],
   );
 
@@ -224,6 +226,7 @@ export const ResourceDetailsContainer: FunctionComponent<{}> = () => {
       onClick={openTeamModal}
       projectId={resource?.project_uuid}
     />,
+
     [openTeamModal],
   );
 

@@ -1,4 +1,4 @@
-import { Eye, EyeSlash } from '@phosphor-icons/react';
+import { EyeIcon, EyeSlashIcon } from '@phosphor-icons/react';
 import { useCallback, FunctionComponent } from 'react';
 import { useToggle } from 'react-use';
 import { Field } from 'redux-form';
@@ -18,13 +18,14 @@ const PasswordField = ({ placeholder, input }) => {
         placeholder={placeholder}
         {...input}
       />
+
       <button
         className="password-icon text-btn icon-align"
         type="button"
         title={showSecret ? translate('Hide') : translate('Show')}
         onClick={onToggle}
       >
-        {showSecret ? <EyeSlash size={20} /> : <Eye size={20} />}
+        {showSecret ? <EyeSlashIcon size={20} /> : <EyeIcon size={20} />}
         &nbsp;
       </button>
     </div>
@@ -48,6 +49,7 @@ export const InputGroup: FunctionComponent<{
           {...input}
         />
       ),
+
     [placeholder, type],
   );
 

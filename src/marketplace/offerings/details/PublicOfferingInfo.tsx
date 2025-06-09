@@ -26,6 +26,7 @@ export const PublicOfferingInfo: FunctionComponent<PublicOfferingInfoProps> = ({
         <SafeMarkdown
           text={offering.full_description || offering.description}
         />
+
         <PublicOfferingAttributesCard offering={offering} category={category} />
       </Card.Body>
     </Card>

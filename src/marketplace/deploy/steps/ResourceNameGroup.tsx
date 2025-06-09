@@ -1,4 +1,4 @@
-import { LightbulbFilament } from '@phosphor-icons/react';
+import { LightbulbFilamentIcon } from '@phosphor-icons/react';
 import { useMutation } from '@tanstack/react-query';
 import { Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
@@ -37,7 +37,7 @@ const ResourceNameField = (props) => {
           disabled={isLoading}
         >
           <span className="svg-icon svg-icon-2">
-            <LightbulbFilament weight="bold" />
+            <LightbulbFilamentIcon weight="bold" />
           </span>
           {translate('Suggest name')}
         </Button>
@@ -48,7 +48,7 @@ const ResourceNameField = (props) => {
         >
           <Button variant="outline" className="btn-outline-default" disabled>
             <span className="svg-icon svg-icon-2">
-              <LightbulbFilament weight="bold" />
+              <LightbulbFilamentIcon weight="bold" />
             </span>
             {translate('Suggest name')}
           </Button>

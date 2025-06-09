@@ -101,6 +101,7 @@ export const PlansSection: FC<OfferingSectionProps> = (props) => {
               scope: props.offering.url,
             }}
           />
+
           {canCreatePlan && (
             <AddPlanButton
               refetch={tableProps.fetch}

@@ -1,4 +1,4 @@
-import { Question } from '@phosphor-icons/react';
+import { QuestionIcon } from '@phosphor-icons/react';
 import classNames from 'classnames';
 import React, { PropsWithChildren } from 'react';
 import { OverlayTrigger, OverlayTriggerProps, Tooltip } from 'react-bootstrap';
@@ -61,7 +61,7 @@ export const BackendIdTip = ({ backendId }) =>
     <>
       {' '}
       <Tip id="backend-id" label={backendId}>
-        <Question weight="bold" />
+        <QuestionIcon weight="bold" />
       </Tip>
     </>
   ) : null;

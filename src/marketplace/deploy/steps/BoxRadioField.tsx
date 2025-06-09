@@ -1,4 +1,4 @@
-import { CaretDown, Check } from '@phosphor-icons/react';
+import { CaretDownIcon, CheckIcon } from '@phosphor-icons/react';
 import { isEqual } from 'lodash-es';
 import React, { useCallback, useEffect, useState } from 'react';
 
@@ -109,7 +109,7 @@ export const BoxRadioField: React.FC<BoxRadioFieldProps> = ({
                       </ImagePlaceholder>
                     ) : (
                       <span className="display-6">
-                        <Check />
+                        <CheckIcon />
                       </span>
                     )}
                   </div>
@@ -176,7 +176,7 @@ export const BoxRadioField: React.FC<BoxRadioFieldProps> = ({
                   choice.label.toUpperCase().substring(0, 4)
                 ) : (
                   <span className="display-6">
-                    <Check />
+                    <CheckIcon />
                   </span>
                 )}
               </div>
@@ -211,7 +211,7 @@ export const BoxRadioField: React.FC<BoxRadioFieldProps> = ({
                       </div>
                     </div>
                     <span className="fs-1 fw-light">
-                      <CaretDown />
+                      <CaretDownIcon />
                     </span>
                   </div>
 

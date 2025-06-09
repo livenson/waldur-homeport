@@ -55,6 +55,7 @@ export const EditFieldDialog: React.FC<EditFieldDialogProps> = ({
                   variant="outline btn-outline-default"
                   className="flex-equal"
                 />
+
                 <SubmitButton
                   disabled={invalid || !dirty}
                   submitting={submitting}

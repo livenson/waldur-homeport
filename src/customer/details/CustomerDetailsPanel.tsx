@@ -97,6 +97,7 @@ export const CustomerDetailsPanel: FC<CustomerEditPanelProps> = (props) => {
         value: props.customer.sponsor_number,
       },
     ],
+
     [props.customer],
   );
 
@@ -140,6 +141,7 @@ export const CustomerDetailsPanel: FC<CustomerEditPanelProps> = (props) => {
             label={translate('UUID')}
             value={props.customer.uuid}
           />
+
           <FormTable.Item
             label={translate('Slug')}
             value={props.customer.slug}
@@ -153,6 +155,7 @@ export const CustomerDetailsPanel: FC<CustomerEditPanelProps> = (props) => {
               ) : null
             }
           />
+
           {identifiersRows.map((row) => (
             <FormTable.Item
               key={row.key}

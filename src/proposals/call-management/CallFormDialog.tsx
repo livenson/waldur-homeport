@@ -145,6 +145,7 @@ export const CallFormDialog = connect<{}, {}, { resolve: { call?; refetch } }>(
               required
               validate={required}
             />
+
             {isEdit && (
               <MarkdownEditor
                 name="description"

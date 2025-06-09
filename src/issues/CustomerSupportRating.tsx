@@ -56,6 +56,7 @@ export const CustomerSupportRating: FunctionComponent = () => {
           activeColor={RATING_STAR_ACTIVE_COLOR}
           value={value.averageFeedback}
         />
+
         <div className="total-reviews">
           <span>
             {getTotalNumberOfReviews(value.feedbackReport)}{' '}

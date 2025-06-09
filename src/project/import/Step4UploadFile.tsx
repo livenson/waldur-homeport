@@ -158,6 +158,7 @@ export const Step4UploadFile: FC<WizardFormStepProps> = (props) => {
                     multiple={false}
                     className="mb-6"
                   />
+
                   {value?.length > 0 && (
                     <AttachmentItem
                       attachment={{

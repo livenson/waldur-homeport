@@ -1,4 +1,4 @@
-import { File, Trash } from '@phosphor-icons/react';
+import { FileIcon, TrashIcon } from '@phosphor-icons/react';
 import classNames from 'classnames';
 import { FC } from 'react';
 import { Button, ProgressBar } from 'react-bootstrap';
@@ -9,12 +9,12 @@ import { translate } from '@waldur/i18n';
 import './AttachmentItem.scss';
 
 interface AttachmentItemPendingProps {
-  file: File;
+  file: FileIcon;
   progress: number;
   error?: any;
   iconSize?: number;
-  onRetry?(file: File): void;
-  onCancel?(file: File): void;
+  onRetry?(file: FileIcon): void;
+  onCancel?(file: FileIcon): void;
 }
 
 export const AttachmentItemPending: FC<AttachmentItemPendingProps> = ({
@@ -31,7 +31,7 @@ export const AttachmentItemPending: FC<AttachmentItemPendingProps> = ({
       data-testid="pending-attachment-item"
     >
       <div className="attachment-item__thumb">
-        <File
+        <FileIcon
           size={iconSize}
           weight="bold"
           className={error ? 'text-danger' : 'text-muted'}
@@ -73,7 +73,7 @@ export const AttachmentItemPending: FC<AttachmentItemPendingProps> = ({
           onClick={() => onCancel(file)}
         >
           <span className="svg-icon svg-icon-2">
-            <Trash weight="bold" />
+            <TrashIcon weight="bold" />
           </span>
         </Button>
       </div>

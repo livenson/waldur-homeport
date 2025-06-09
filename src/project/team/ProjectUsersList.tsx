@@ -80,6 +80,7 @@ export const ProjectUsersList = ({
               {row.user_full_name || DASH_ESCAPE_CODE}
             </div>
           ),
+
           id: 'member',
           keys: ['user_full_name', 'user_username', 'user_image'],
           copyField: (row) => row.user_full_name,

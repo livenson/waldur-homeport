@@ -94,6 +94,7 @@ export const CreditFormDialog = reduxForm<
             noOptionsMessage={() => translate('No organizations')}
             isDisabled={isEdit}
           />
+
           {isEdit && (
             <Accordion className="mb-7">
               <Accordion.Item eventKey="0">

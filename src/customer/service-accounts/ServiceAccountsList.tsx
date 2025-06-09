@@ -49,6 +49,7 @@ export const ServiceAccountsTableComponent: FC<
                     row={{ uuid: row.project_uuid, name: row.project_name }}
                   />
                 ),
+
               export: getContextKey(context),
               orderField: getContextKey(context),
             } as any)
@@ -72,6 +73,7 @@ export const ServiceAccountsTableComponent: FC<
               <CopyToClipboardButton value={row.email} />
             </div>
           ),
+
           orderField: 'email',
           export: 'email',
         },

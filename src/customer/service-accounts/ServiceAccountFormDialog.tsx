@@ -1,4 +1,4 @@
-import { PencilSimple, PlusCircle } from '@phosphor-icons/react';
+import { PencilSimpleIcon, PlusCircleIcon } from '@phosphor-icons/react';
 import { useCallback, useMemo } from 'react';
 import { useDispatch } from 'react-redux';
 import { reduxForm } from 'redux-form';
@@ -143,7 +143,11 @@ export const ServiceAccountFormDialog = reduxForm<
             : translate('Create service account')
         }
         iconNode={
-          isEdit ? <PencilSimple weight="bold" /> : <PlusCircle weight="bold" />
+          isEdit ? (
+            <PencilSimpleIcon weight="bold" />
+          ) : (
+            <PlusCircleIcon weight="bold" />
+          )
         }
         iconColor="success"
         closeButton
@@ -175,6 +179,7 @@ export const ServiceAccountFormDialog = reduxForm<
                   )
             }
           />
+
           <EmailField
             name="email"
             label={translate('Notification email')}
@@ -183,6 +188,7 @@ export const ServiceAccountFormDialog = reduxForm<
               'Email for receiving notifications about events connected with the service account.',
             )}
           />
+
           <TextField
             name="description"
             label={translate('Description')}

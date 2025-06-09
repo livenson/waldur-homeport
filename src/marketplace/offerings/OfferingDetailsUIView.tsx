@@ -243,6 +243,7 @@ export const OfferingDetailsUIView = ({
       isLoading={isLoadingOffering}
       error={errorOffering}
     />,
+
     [
       offeringData?.offering,
       refetch,

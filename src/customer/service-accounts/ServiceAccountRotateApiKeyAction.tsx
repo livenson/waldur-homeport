@@ -1,4 +1,4 @@
-import { ArrowsClockwise } from '@phosphor-icons/react';
+import { ArrowsClockwiseIcon } from '@phosphor-icons/react';
 import { useMutation } from '@tanstack/react-query';
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
@@ -72,7 +72,7 @@ export const ServiceAccountRotateApiKeyAction: FC<
     <ActionItem
       action={mutate}
       title={translate('Rotate API key')}
-      iconNode={<ArrowsClockwise weight="bold" />}
+      iconNode={<ArrowsClockwiseIcon weight="bold" />}
     />
   );
 };

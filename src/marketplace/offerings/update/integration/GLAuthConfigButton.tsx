@@ -1,4 +1,4 @@
-import { Eye } from '@phosphor-icons/react';
+import { EyeIcon } from '@phosphor-icons/react';
 import { useQuery } from '@tanstack/react-query';
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
@@ -51,7 +51,7 @@ export const GLAuthConfigButton: FC<{
     <ActionButton
       action={callback}
       title={translate('View GLAuth configuration')}
-      iconNode={enabled && data && <Eye />}
+      iconNode={enabled && data && <EyeIcon />}
       pending={isLoading}
       disabled={!enabled}
       tooltip={

@@ -122,14 +122,17 @@ export const CallManagementDashboard = () => {
                     title={translate('Active rounds')}
                     count={data.active_rounds}
                   />
+
                   <FlatStatistics
                     title={translate('Round closing soon')}
                     count={data.rounds_closing_in_one_week}
                   />
+
                   <FlatStatistics
                     title={translate('Calls closing soon')}
                     count={data.calls_closing_in_one_week}
                   />
+
                   <FlatStatistics
                     title={translate('Pending offering requests')}
                     count={data.offering_requests_pending}

@@ -45,6 +45,7 @@ const Body = ({ call, refetch, loading }) => {
               {translate('Rounds')}
             </>
           ),
+
           component: CallRoundsList,
         },
         {
@@ -55,6 +56,7 @@ const Body = ({ call, refetch, loading }) => {
               <span>{translate('General')}</span>
             </>
           ),
+
           component: CallGeneralSection,
         },
         {
@@ -81,6 +83,7 @@ const Body = ({ call, refetch, loading }) => {
                   hasTeamTabs
                 />
               ),
+
               visible: false,
             },
             {
@@ -95,6 +98,7 @@ const Body = ({ call, refetch, loading }) => {
                   hasTeamTabs
                 />
               ),
+
               visible: false,
             },
           ].filter(Boolean),

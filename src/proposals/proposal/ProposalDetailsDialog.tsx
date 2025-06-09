@@ -56,6 +56,7 @@ export const ProposalDetailsDialog: FC<ProposalDetailsDialogProps> = ({
                   label={translate('Name')}
                   value={<FieldWithCopy value={call.name} />}
                 />
+
                 <FormTable.Item
                   label={translate('Reference code')}
                   value={<FieldWithCopy value={(call as any).reference_code} />}

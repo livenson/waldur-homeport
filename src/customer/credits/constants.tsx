@@ -29,6 +29,7 @@ export const COMMON_CREDIT_COLUMNS: Column[] = [
         )}
       </>
     ),
+
     export: (row) =>
       renderFieldOrDash(
         row.offerings.map((offering) => offering.name).join(', '),
@@ -143,6 +144,7 @@ export const useMinimalConsumptionFields = (formId: string, initialValues) => {
           : undefined
       }
     />,
+
     <CustomRadioButton
       label={translate('Minimal consumption logic')}
       name="minimal_consumption_logic"
@@ -150,6 +152,7 @@ export const useMinimalConsumptionFields = (formId: string, initialValues) => {
       direction="horizontal"
       choices={minimalConsumptionLogicOptions}
     />,
+
     <NumberField
       label={translate('Expected consumption (per month)')}
       name="expected_consumption"
@@ -158,6 +161,7 @@ export const useMinimalConsumptionFields = (formId: string, initialValues) => {
       description={translate('Enter the expected credit reduction per month')}
       unit={ENV.plugins.WALDUR_CORE.CURRENCY_NAME}
     />,
+
     <NumberField
       label={translate('Grace coefficient')}
       name="grace_coefficient"
@@ -166,6 +170,7 @@ export const useMinimalConsumptionFields = (formId: string, initialValues) => {
       unit="%"
       validate={validatePercent}
     />,
+
     <AwesomeCheckboxField
       label={translate('Apply as minimal consumption')}
       name="apply_as_minimal_consumption"

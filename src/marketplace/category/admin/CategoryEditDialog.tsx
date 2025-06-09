@@ -145,6 +145,7 @@ export const CategoryEditDialog: FC<CategoryEditDialogProps> = ({
               component={ImageField as any}
               initialValue={categoryData?.icon}
             />
+
             <FormGroup label={translate('Title')} required>
               <Field
                 name="title"

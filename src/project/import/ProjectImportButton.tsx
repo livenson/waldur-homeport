@@ -1,4 +1,4 @@
-import { DownloadSimple } from '@phosphor-icons/react';
+import { DownloadSimpleIcon } from '@phosphor-icons/react';
 import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -69,7 +69,7 @@ export const ProjectImportButton: FC<ProjectImportButtonProps> = ({
             )
           : undefined
       }
-      iconNode={<DownloadSimple weight="bold" />}
+      iconNode={<DownloadSimpleIcon weight="bold" />}
       disabled={disabled || hasNoPermission}
     />
   );

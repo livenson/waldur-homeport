@@ -1,4 +1,4 @@
-import { CaretLeft } from '@phosphor-icons/react';
+import { CaretLeftIcon } from '@phosphor-icons/react';
 import { FC, ReactNode, useEffect } from 'react';
 import { Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
@@ -59,7 +59,7 @@ const WizardFormPure: FC<WizardFormProps> = ({ modalProps, ...props }) => {
                 onClick={() => props.onPrev(formValues)}
               >
                 <span className="svg-icon svg-icon-4">
-                  <CaretLeft weight="bold" />
+                  <CaretLeftIcon weight="bold" />
                 </span>
                 {translate('Back')}
               </Button>
@@ -96,6 +96,7 @@ const WizardFormPure: FC<WizardFormProps> = ({ modalProps, ...props }) => {
               }
             }}
           />
+
           <div className="content clearfix">
             {typeof props.children === 'function'
               ? props.children({ ...props, formValues })

@@ -1,4 +1,4 @@
-import { CaretDown, PlusCircle } from '@phosphor-icons/react';
+import { CaretDownIcon, PlusCircleIcon } from '@phosphor-icons/react';
 import { FunctionComponent, memo, useMemo } from 'react';
 import { Dropdown, DropdownButton } from 'react-bootstrap';
 import {
@@ -33,11 +33,11 @@ const TableActions = ({
     <Dropdown placement="bottom-end">
       <Dropdown.Toggle variant="primary" className="no-arrow btn-icon-right">
         <span className="svg-icon svg-icon-2">
-          <PlusCircle weight="bold" />
+          <PlusCircleIcon weight="bold" />
         </span>
         {translate('Add')}
         <span className="svg-icon svg-icon-2 rotate-180">
-          <CaretDown weight="bold" />
+          <CaretDownIcon weight="bold" />
         </span>
       </Dropdown.Toggle>
       <Dropdown.Menu flip>
@@ -116,6 +116,7 @@ export const KeycloakMembershipList: FunctionComponent<
               {row.group_role}
             </Badge>
           ),
+
           export: 'group_role',
         },
         {
@@ -130,6 +131,7 @@ export const KeycloakMembershipList: FunctionComponent<
                 {translate('Pending')}
               </Badge>
             ),
+
           export: 'state',
         },
       ]}

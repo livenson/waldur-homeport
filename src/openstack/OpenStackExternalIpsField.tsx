@@ -1,4 +1,4 @@
-import { Plus, Trash } from '@phosphor-icons/react';
+import { PlusIcon, TrashIcon } from '@phosphor-icons/react';
 import { Button, Form } from 'react-bootstrap';
 import { BaseFieldArrayProps, FieldArray, FormSection } from 'redux-form';
 
@@ -43,7 +43,7 @@ const FieldsListGroup = ({ fields }: BaseFieldArrayProps<any>) => {
                           onClick={() => removeRow(i)}
                         >
                           <span className="svg-icon svg-icon-2">
-                            <Trash />
+                            <TrashIcon />
                           </span>
                         </Button>
                       </td>
@@ -62,7 +62,7 @@ const FieldsListGroup = ({ fields }: BaseFieldArrayProps<any>) => {
           onClick={addRow}
         >
           <span className="svg-icon svg-icon-2">
-            <Plus weight="bold" />
+            <PlusIcon weight="bold" />
           </span>{' '}
           {translate('Add')}
         </Button>

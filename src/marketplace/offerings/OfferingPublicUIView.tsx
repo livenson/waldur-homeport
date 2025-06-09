@@ -174,6 +174,7 @@ export const OfferingPublicUIView = () => {
       error={error}
       isPublic
     />,
+
     [data?.offering, isRefetching, refetch, error, isLoading],
   );
 

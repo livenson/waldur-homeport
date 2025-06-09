@@ -1,6 +1,6 @@
 import {
-  ArrowBendDoubleUpLeft,
-  FileMagnifyingGlass,
+  ArrowBendDoubleUpLeftIcon,
+  FileMagnifyingGlassIcon,
 } from '@phosphor-icons/react';
 
 import { translate } from '@waldur/i18n';
@@ -25,13 +25,14 @@ export const ReviewItemAction = ({ row, refetch }: ReviewItemActionProps) => {
       <ActionItem
         title={translate('Start review')}
         action={accept}
-        iconNode={<FileMagnifyingGlass weight="bold" />}
+        iconNode={<FileMagnifyingGlassIcon weight="bold" />}
         disabled={isAccepting || isRejecting}
       />
+
       <ActionItem
         title={translate('Send back')}
         action={reject}
-        iconNode={<ArrowBendDoubleUpLeft weight="bold" />}
+        iconNode={<ArrowBendDoubleUpLeftIcon weight="bold" />}
         disabled={isAccepting || isRejecting}
       />
     </>

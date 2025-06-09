@@ -1,4 +1,4 @@
-import { Plus } from '@phosphor-icons/react';
+import { PlusIcon } from '@phosphor-icons/react';
 import { useQuery } from '@tanstack/react-query';
 import { FC } from 'react';
 import { Button, Col } from 'react-bootstrap';
@@ -108,7 +108,7 @@ export const TeamWidget: FC<TeamWidgetProps> = ({
                 className="btn-icon btn-outline-dashed border-2 btn-color-muted btn-active-color-primary btn-circle w-40px h-40px"
                 onClick={onAddClick}
               >
-                <Plus size={18} weight="bold" />
+                <PlusIcon size={18} weight="bold" />
               </Button>
             </div>
           )}

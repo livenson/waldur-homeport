@@ -132,6 +132,7 @@ export const UserManageContainer = ({ isPersonal }) => {
       refetch={refetch}
       error={error}
     />,
+
     [user, isLoading, refetch, error],
   );
 

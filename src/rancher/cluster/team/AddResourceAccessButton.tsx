@@ -1,4 +1,4 @@
-import { Key } from '@phosphor-icons/react';
+import { KeyIcon } from '@phosphor-icons/react';
 import { FC } from 'react';
 import { useDispatch } from 'react-redux';
 import { Resource } from 'waldur-js-client';
@@ -37,7 +37,7 @@ export const AddResourceAccessButton: FC<ResourceAccessButtonProps> = ({
           }),
         )
       }
-      iconNode={<Key weight="bold" />}
+      iconNode={<KeyIcon weight="bold" />}
     />
   );
 };

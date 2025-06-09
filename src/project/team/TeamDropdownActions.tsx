@@ -1,4 +1,4 @@
-import { CaretDown, PlusCircle } from '@phosphor-icons/react';
+import { CaretDownIcon, PlusCircleIcon } from '@phosphor-icons/react';
 import { Dropdown } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { Project } from 'waldur-js-client';
@@ -30,11 +30,11 @@ export const TeamDropdownActions = ({
     <Dropdown placement="bottom-end">
       <Dropdown.Toggle variant="primary" className="no-arrow btn-icon-right">
         <span className="svg-icon svg-icon-2">
-          <PlusCircle weight="bold" />
+          <PlusCircleIcon weight="bold" />
         </span>
         {translate('Add')}
         <span className="svg-icon svg-icon-2 rotate-180">
-          <CaretDown weight="bold" />
+          <CaretDownIcon weight="bold" />
         </span>
       </Dropdown.Toggle>
       <Dropdown.Menu flip>
@@ -44,6 +44,7 @@ export const TeamDropdownActions = ({
           refetch={refetch}
           enableBulkUpload={true}
         />
+
         <AddUserButton project={project} refetch={refetch} />
         {project.max_service_accounts !== 0 && (
           <ServiceAccountCreateButton

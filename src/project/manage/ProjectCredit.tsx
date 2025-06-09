@@ -71,6 +71,7 @@ export const ProjectCredit: React.FC<ProjectCreditProps> = ({ project }) => {
         value: Boolean(creditData?.apply_as_minimal_consumption),
       },
     ],
+
     [creditData],
   );
 

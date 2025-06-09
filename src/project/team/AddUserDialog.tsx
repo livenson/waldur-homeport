@@ -1,4 +1,4 @@
-import { UserPlus } from '@phosphor-icons/react';
+import { UserPlusIcon } from '@phosphor-icons/react';
 import { useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { formValueSelector, reduxForm } from 'redux-form';
@@ -262,7 +262,7 @@ export const AddUserDialog = reduxForm<
             </SubmitButton>
           </>
         }
-        iconNode={<UserPlus weight="bold" />}
+        iconNode={<UserPlusIcon weight="bold" />}
         iconColor="success"
       >
         <FormContainer submitting={submitting}>
@@ -278,6 +278,7 @@ export const AddUserDialog = reduxForm<
             required={true}
             validate={[required]}
           />
+
           {currentUser.is_staff && (
             <AwesomeCheckboxField
               hideLabel
@@ -297,6 +298,7 @@ export const AddUserDialog = reduxForm<
                 : [level]
             }
           />
+
           {level === 'customer' && role?.content_type === 'project' && (
             <OrganizationProjectSelectField />
           )}

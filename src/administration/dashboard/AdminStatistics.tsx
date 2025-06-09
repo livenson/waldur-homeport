@@ -28,6 +28,7 @@ export const AdminStatistics = () => {
           state: ['Creating', 'OK', 'Erred', 'Updating', 'Terminating'],
         }),
       ];
+
       const [
         organizations,
         projects,

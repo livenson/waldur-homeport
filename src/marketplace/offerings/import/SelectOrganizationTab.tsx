@@ -48,6 +48,7 @@ export const SelectOrganizationTab = () => {
         getOptionLabel={(option) => option.name}
         validate={required}
       />
+
       {isLoading ? null : error ? (
         <ErredRemoteConnection
           error={error}

@@ -1,4 +1,4 @@
-import { CaretDown } from '@phosphor-icons/react';
+import { CaretDownIcon } from '@phosphor-icons/react';
 import classNames from 'classnames';
 import { FC, useCallback, useEffect, useMemo, useRef } from 'react';
 import { Button, FormCheck } from 'react-bootstrap';
@@ -250,7 +250,7 @@ export const TableHeader: FC<TableHeaderProps> = ({
                 )}
                 onClick={toggleAll}
               >
-                <CaretDown size={20} weight="bold" className="rotate-180" />
+                <CaretDownIcon size={20} weight="bold" className="rotate-180" />
               </Button>
             </th>
           )}

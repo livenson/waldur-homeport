@@ -58,6 +58,7 @@ export const ProjectGeneral: React.FC<ProjectGeneralProps> = ({ project }) => {
           : 'N/A',
       },
     ],
+
     [project],
   );
 

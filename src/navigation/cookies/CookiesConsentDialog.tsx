@@ -1,4 +1,4 @@
-import { Cookie } from '@phosphor-icons/react';
+import { CookieIcon } from '@phosphor-icons/react';
 import { FC } from 'react';
 import { Button } from 'react-bootstrap';
 
@@ -52,7 +52,7 @@ export const CookiesConsentDialog: FC<OwnProps> = ({ resolve }) => {
           </p>
         </>
       }
-      iconNode={<Cookie weight="bold" />}
+      iconNode={<CookieIcon weight="bold" />}
       iconColor="warning"
       className="cookiealert"
       bodyClassName="pt-0 pb-10"

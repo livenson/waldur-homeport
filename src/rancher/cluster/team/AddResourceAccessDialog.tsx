@@ -1,4 +1,4 @@
-import { PlusCircle } from '@phosphor-icons/react';
+import { PlusCircleIcon } from '@phosphor-icons/react';
 import { useQuery } from '@tanstack/react-query';
 import { useEffect, useState } from 'react';
 import { ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
@@ -201,7 +201,7 @@ export const AddResourceAccessDialog = reduxForm<
             />
           </>
         }
-        iconNode={<PlusCircle weight="bold" />}
+        iconNode={<PlusCircleIcon weight="bold" />}
         iconColor="success"
       >
         <FormContainer submitting={submitting} className="size-lg" asRow>

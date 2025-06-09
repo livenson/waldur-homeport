@@ -1,4 +1,4 @@
-import { Prohibit } from '@phosphor-icons/react';
+import { ProhibitIcon } from '@phosphor-icons/react';
 import { useMutation } from '@tanstack/react-query';
 import { useDispatch, useSelector } from 'react-redux';
 import { remoteWaldurApiCancelTermination } from 'waldur-js-client';
@@ -43,7 +43,7 @@ export const CancelTerminationOrderButton = ({
         title={translate('Cancel')}
         action={mutate}
         disabled={isLoading}
-        iconNode={<Prohibit weight="bold" />}
+        iconNode={<ProhibitIcon weight="bold" />}
         size="sm"
       />
     );

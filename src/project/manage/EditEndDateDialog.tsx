@@ -128,6 +128,7 @@ const FormModalComponent: FC<
               'offering_name',
               'category_title',
             ],
+
             project_uuid: project.uuid,
             state: NON_TERMINATED_STATES,
             has_terminate_date: true,
@@ -222,6 +223,7 @@ const FormModalComponent: FC<
               component={DateField}
               minDate={DateTime.now().plus({ days: 1 }).toISO()}
             />
+
             <FormText className="text-gray-700">
               {translate(
                 'Project end date supersedes resource termination date if resource termination date is after the project end date.',

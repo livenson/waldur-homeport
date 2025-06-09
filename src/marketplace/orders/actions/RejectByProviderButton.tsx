@@ -1,4 +1,4 @@
-import { Prohibit } from '@phosphor-icons/react';
+import { ProhibitIcon } from '@phosphor-icons/react';
 import { useMutation } from '@tanstack/react-query';
 import { FunctionComponent } from 'react';
 import { Button } from 'react-bootstrap';
@@ -73,7 +73,7 @@ export const RejectByProviderButton: FunctionComponent<
       title={translate('Reject')}
       action={mutate}
       disabled={isLoading}
-      iconNode={<Prohibit weight="bold" />}
+      iconNode={<ProhibitIcon weight="bold" />}
       iconColor="danger"
     />
   );

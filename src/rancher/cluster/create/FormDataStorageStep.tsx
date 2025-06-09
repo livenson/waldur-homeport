@@ -1,4 +1,4 @@
-import { Plus } from '@phosphor-icons/react';
+import { PlusIcon } from '@phosphor-icons/react';
 import { Fragment, useCallback } from 'react';
 import { Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
@@ -50,6 +50,7 @@ const renderDataVolumeRows = ({
               change={change}
               onDeleteRow={() => fields.remove(index)}
             />
+
             {isFeatureVisible(RancherFeatures.volume_mount_point) && (
               <tr>
                 <td>
@@ -69,7 +70,7 @@ const renderDataVolumeRows = ({
             }
           >
             <span className="svg-icon svg-icon-2">
-              <Plus weight="bold" />
+              <PlusIcon weight="bold" />
             </span>
             {translate('Add data volume')}
           </Button>

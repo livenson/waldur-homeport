@@ -1,4 +1,4 @@
-import { PlusCircle } from '@phosphor-icons/react';
+import { PlusCircleIcon } from '@phosphor-icons/react';
 import { useRouter } from '@uirouter/react';
 import { Form } from 'react-final-form';
 import { projectCreditsCreate, projectsCreate } from 'waldur-js-client';
@@ -109,7 +109,7 @@ export const ProjectCreateDialog = ({
             subtitle={translate(
               'Provide the required information to set up a new project.',
             )}
-            iconNode={<PlusCircle weight="bold" />}
+            iconNode={<PlusCircleIcon weight="bold" />}
             iconColor="success"
             footer={
               <>

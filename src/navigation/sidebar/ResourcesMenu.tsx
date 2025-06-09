@@ -1,4 +1,4 @@
-import { CaretDown, SquaresFour } from '@phosphor-icons/react';
+import { CaretDownIcon, SquaresFourIcon } from '@phosphor-icons/react';
 import { useQuery } from '@tanstack/react-query';
 import { useCurrentStateAndParams } from '@uirouter/react';
 import classNames from 'classnames';
@@ -57,7 +57,7 @@ const CustomToggle = ({
       </span>
       <span className={classNames('menu-badge rotate', expanded && 'active')}>
         <span className="svg-icon svg-icon-3 svg-icon-primary-300 rotate-180">
-          <CaretDown weight="bold" />
+          <CaretDownIcon weight="bold" />
         </span>
       </span>
     </span>
@@ -139,6 +139,7 @@ export const ResourcesMenu = ({ user }) => {
       query?.customer_uuid,
       query?.project_uuid,
     ],
+
     () =>
       marketplaceGlobalCategoriesRetrieve({ query }).then(
         (response) => response.data,
@@ -181,7 +182,7 @@ export const ResourcesMenu = ({ user }) => {
     <MenuAccordion
       title={translate('Resources')}
       itemId="resources-menu"
-      icon={<SquaresFour weight="bold" />}
+      icon={<SquaresFourIcon weight="bold" />}
       badge={<ResourcesMenuFilterButton />}
     >
       <ResourcesMenuFilters />
@@ -194,6 +195,7 @@ export const ResourcesMenu = ({ user }) => {
       <RenderMenuItems
         items={sortedCategoryGroups.slice(0, MAX_COLLAPSE_MENU_COUNT)}
       />
+
       {sortedCategoryGroups.length > MAX_COLLAPSE_MENU_COUNT ? (
         <>
           {expanded && (

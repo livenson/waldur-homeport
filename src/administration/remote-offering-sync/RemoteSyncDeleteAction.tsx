@@ -1,4 +1,4 @@
-import { Trash } from '@phosphor-icons/react';
+import { TrashIcon } from '@phosphor-icons/react';
 import { useMutation } from '@tanstack/react-query';
 import { useDispatch } from 'react-redux';
 import { marketplaceRemoteSynchronisationsDestroy } from 'waldur-js-client';
@@ -50,7 +50,7 @@ export const RemoteSyncDeleteAction = (props: RemoteSyncActionProps) => {
       className="text-danger"
       iconColor="danger"
       action={mutate}
-      iconNode={<Trash weight="bold" />}
+      iconNode={<TrashIcon weight="bold" />}
       disabled={isLoading}
     />
   );

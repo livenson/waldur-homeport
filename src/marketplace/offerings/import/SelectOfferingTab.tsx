@@ -29,6 +29,7 @@ export const SelectOfferingTab = () => {
       !formData?.token,
       !formData?.customer?.uuid,
     ],
+
     () => {
       if (!formData?.api_url || !formData?.token || !formData?.customer?.uuid) {
         return Promise.reject(
@@ -77,6 +78,7 @@ export const SelectOfferingTab = () => {
         className="border-bottom border-top py-5 mb-5"
         labelClass="fw-bolder me-3"
       />
+
       <SelectField
         name="offerings"
         label={translate('Offerings')}
@@ -106,6 +108,7 @@ export const SelectOfferingTab = () => {
           ),
         }}
       />
+
       {isLoading ? null : error ? (
         <ErredRemoteConnection
           error={error}

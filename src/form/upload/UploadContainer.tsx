@@ -1,4 +1,4 @@
-import { CloudArrowUp } from '@phosphor-icons/react';
+import { CloudArrowUpIcon } from '@phosphor-icons/react';
 import classNames from 'classnames';
 import { useRef } from 'react';
 import Dropzone, { DropzoneOptions, DropzoneRef } from 'react-dropzone';
@@ -57,7 +57,11 @@ export const UploadContainer: React.FC<UploadContainerProps> = (props) => {
               aria-hidden="true"
               onClick={chooseFile}
             >
-              <CloudArrowUp size={20} weight="bold" className="text-primary" />
+              <CloudArrowUpIcon
+                size={20}
+                weight="bold"
+                className="text-primary"
+              />
             </button>
             <div>
               {translate(

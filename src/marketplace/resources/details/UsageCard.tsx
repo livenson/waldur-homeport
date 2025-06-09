@@ -1,4 +1,4 @@
-import { ChartBar, Table } from '@phosphor-icons/react';
+import { ChartBarIcon, TableIcon } from '@phosphor-icons/react';
 import { useQuery } from '@tanstack/react-query';
 import { useMemo, useState } from 'react';
 import { Button, Card, ToggleButton, ToggleButtonGroup } from 'react-bootstrap';
@@ -114,6 +114,7 @@ export const UsageCard = ({ resource }) => {
             users={team}
             months={period}
           />
+
           <Button
             variant="outline-default"
             className="btn-outline btn-icon"
@@ -122,7 +123,7 @@ export const UsageCard = ({ resource }) => {
             }
           >
             <span className="svg-icon svg-icon-2">
-              {mode === 'chart' ? <Table /> : <ChartBar />}
+              {mode === 'chart' ? <TableIcon /> : <ChartBarIcon />}
             </span>
           </Button>
         </div>

@@ -1,4 +1,4 @@
-import { XCircle } from '@phosphor-icons/react';
+import { XCircleIcon } from '@phosphor-icons/react';
 import { useMutation } from '@tanstack/react-query';
 import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -50,7 +50,7 @@ export const RejectByConsumerButton: FC<
           title={translate('Reject')}
           action={mutate}
           disabled={isLoading}
-          iconNode={<XCircle weight="bold" />}
+          iconNode={<XCircleIcon weight="bold" />}
           size="sm"
         />
       )}

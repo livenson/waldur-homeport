@@ -1,4 +1,4 @@
-import { PlusCircle, Question, Trash } from '@phosphor-icons/react';
+import { PlusCircleIcon, QuestionIcon, TrashIcon } from '@phosphor-icons/react';
 import { useQuery } from '@tanstack/react-query';
 import { Fragment, useCallback, useEffect, useMemo, useState } from 'react';
 import { Button, Col, Form, FormLabel, Row } from 'react-bootstrap';
@@ -87,6 +87,7 @@ export const CustomIpField = ({
               fieldProps.input.onChange(opt.value === 'other' ? '' : opt.value);
             }}
           />
+
           <StringField
             placeholder={translate('Enter custom IP')}
             value={fieldProps.input?.value}
@@ -95,6 +96,7 @@ export const CustomIpField = ({
             className="mt-4"
             autoFocus={autoFocus}
           />
+
           {fieldProps.meta.dirty &&
             (fieldProps.meta.error ? (
               <FieldError error={fieldProps.meta.error} />
@@ -153,7 +155,7 @@ export const SubnetValueContainer = (props) => {
           }
         >
           <span className="svg-icon svg-icon-2">
-            <Question weight="bold" />
+            <QuestionIcon weight="bold" />
           </span>
         </Tip>
       </div>
@@ -197,6 +199,7 @@ const renderNetworkRows = ({
       ...getDefaultFloatingIps(),
       ...floatingIps.filter(availableNetworkItemsFilter('floatingIp')),
     ],
+
     [floatingIps, availableNetworkItemsFilter],
   );
 
@@ -278,7 +281,7 @@ const renderNetworkRows = ({
                   onClick={() => fields.remove(index)}
                 >
                   <span className="svg-icon svg-icon-1x">
-                    <Trash weight="bold" />
+                    <TrashIcon weight="bold" />
                   </span>
                 </Button>
               </Col>
@@ -304,7 +307,7 @@ const renderNetworkRows = ({
         onClick={addRow}
       >
         <span className="svg-icon svg-icon-2">
-          <PlusCircle weight="bold" />
+          <PlusCircleIcon weight="bold" />
         </span>{' '}
         {translate('Add subnet')}
       </Button>

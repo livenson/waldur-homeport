@@ -1,4 +1,4 @@
-import { XCircle } from '@phosphor-icons/react';
+import { XCircleIcon } from '@phosphor-icons/react';
 import { FC } from 'react';
 
 import { lazyComponent } from '@waldur/core/lazyComponent';
@@ -39,7 +39,7 @@ export const TerminateAction: FC<TerminateActionProps> = ({
   return (
     <ActionItem
       {...props}
-      iconNode={<XCircle weight="bold" />}
+      iconNode={<XCircleIcon weight="bold" />}
       iconColor="danger"
     />
   );

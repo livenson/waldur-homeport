@@ -1,4 +1,8 @@
-import { DotsThree, Question, WarningCircle } from '@phosphor-icons/react';
+import {
+  DotsThreeIcon,
+  QuestionIcon,
+  WarningCircleIcon,
+} from '@phosphor-icons/react';
 import { useQuery } from '@tanstack/react-query';
 import { debounce } from 'lodash-es';
 import {
@@ -285,7 +289,7 @@ export const ResourceUsageForm: FunctionComponent<ResourceUsageFormProps> = (
                           }
                           autoWidth
                         >
-                          <WarningCircle
+                          <WarningCircleIcon
                             size={18}
                             weight="bold"
                             className="text-danger me-1"
@@ -301,7 +305,11 @@ export const ResourceUsageForm: FunctionComponent<ResourceUsageFormProps> = (
                             : getBillingTypeLabel(component.billing_type)
                         }
                       >
-                        <Question size={18} weight="bold" className="ms-1" />
+                        <QuestionIcon
+                          size={18}
+                          weight="bold"
+                          className="ms-1"
+                        />
                       </Tip>
                     </Nav.Link>
                   </Nav.Item>
@@ -316,7 +324,7 @@ export const ResourceUsageForm: FunctionComponent<ResourceUsageFormProps> = (
                       variant="active-light-primary"
                       className="btn-icon btn-text-gray-500 no-arrow w-35px h-35px"
                     >
-                      <DotsThree size={22} weight="bold" />
+                      <DotsThreeIcon size={22} weight="bold" />
                       {wrappedComponents.some((comp) =>
                         Boolean(errors.components?.[comp.type]),
                       ) && (
@@ -346,7 +354,7 @@ export const ResourceUsageForm: FunctionComponent<ResourceUsageFormProps> = (
                                 }
                                 autoWidth
                               >
-                                <WarningCircle
+                                <WarningCircleIcon
                                   size={18}
                                   weight="bold"
                                   className="text-danger me-1"
@@ -360,7 +368,7 @@ export const ResourceUsageForm: FunctionComponent<ResourceUsageFormProps> = (
                                 component.billing_type,
                               )}
                             >
-                              <Question size={18} className="ms-1" />
+                              <QuestionIcon size={18} className="ms-1" />
                             </Tip>
                           </Dropdown.Item>
                         ))}

@@ -1,4 +1,4 @@
-import { Copy } from '@phosphor-icons/react';
+import { CopyIcon } from '@phosphor-icons/react';
 import { useCallback } from 'react';
 import { Button, FormControl, InputGroup } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
@@ -32,13 +32,14 @@ export const UserToken = ({ token }) => {
               fontFamily: 'text-security-disc',
             }}
           />
+
           <Button
             variant="primary"
             size="sm"
             className="px-3"
             onClick={onClick}
           >
-            <Copy />
+            <CopyIcon />
             {translate('Copy')}
           </Button>
         </InputGroup>

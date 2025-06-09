@@ -1,4 +1,4 @@
-import { DownloadSimple, FileCsv } from '@phosphor-icons/react';
+import { DownloadSimpleIcon, FileCsvIcon } from '@phosphor-icons/react';
 import Papa from 'papaparse';
 import { FC, useCallback, useEffect, useMemo, useState } from 'react';
 import { Button } from 'react-bootstrap';
@@ -71,7 +71,7 @@ export const Step3DownloadTemplate: FC<WizardFormStepProps> = (props) => {
             </p>
             <div className="attachment-item mb-6">
               <div className="attachment-item__thumb">
-                <FileCsv size={20} weight="bold" className="text-muted" />
+                <FileCsvIcon size={20} weight="bold" className="text-muted" />
               </div>
               <div className="attachment-item__body fs-6">
                 <button
@@ -91,7 +91,7 @@ export const Step3DownloadTemplate: FC<WizardFormStepProps> = (props) => {
                   onClick={() => onDownloadClick(importType)}
                 >
                   <span className="svg-icon svg-icon-2">
-                    <DownloadSimple weight="bold" />
+                    <DownloadSimpleIcon weight="bold" />
                   </span>
                 </Button>
               </div>

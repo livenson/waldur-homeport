@@ -22,6 +22,7 @@ export const ClusterSecurityGroupsList: FunctionComponent<{
       render: ({ row }) => row.name,
     },
   ];
+
   const filter = useMemo(
     () =>
       ({

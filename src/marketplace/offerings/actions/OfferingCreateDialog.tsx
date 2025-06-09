@@ -1,4 +1,4 @@
-import { PlusCircle } from '@phosphor-icons/react';
+import { PlusCircleIcon } from '@phosphor-icons/react';
 import { useQuery } from '@tanstack/react-query';
 import { useRouter } from '@uirouter/react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -102,7 +102,7 @@ export const OfferingCreateDialog = reduxForm<
             />
           </>
         }
-        iconNode={<PlusCircle weight="bold" />}
+        iconNode={<PlusCircleIcon weight="bold" />}
         iconColor="success"
       >
         <FormContainer submitting={submitting}>
@@ -113,6 +113,7 @@ export const OfferingCreateDialog = reduxForm<
             validate={required}
             maxLength={150}
           />
+
           <SelectField
             name="category"
             label={translate('Category')}
@@ -123,6 +124,7 @@ export const OfferingCreateDialog = reduxForm<
             isClearable={false}
             validate={required}
           />
+
           <SelectField
             name="type"
             label={translate('Type')}

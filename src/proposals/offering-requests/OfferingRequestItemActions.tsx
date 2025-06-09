@@ -92,6 +92,7 @@ export const OfferingRequestItemActions = ({
         pending={isAcceptLoading || isRejectLoading}
         size="sm"
       />
+
       <RowActionButton
         action={reject}
         title={translate('Reject')}

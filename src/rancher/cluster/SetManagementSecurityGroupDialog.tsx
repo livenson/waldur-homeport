@@ -59,6 +59,7 @@ export const SetManagementSecurityGroupDialog = ({ clusterId }) => {
             { value: 'IPv4', label: translate('IPv4') },
             { value: 'IPv6', label: translate('IPv6') },
           ],
+
           required: true,
         },
         {

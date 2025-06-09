@@ -94,6 +94,7 @@ export const ProjectsList: FC<ProjectsListProps> = ({
       render: ({ row }) => (
         <>{row.start_date ? formatDate(row.start_date) : DASH_ESCAPE_CODE}</>
       ),
+
       orderField: 'start_date',
       export: false,
       id: 'start_date',
@@ -105,12 +106,14 @@ export const ProjectsList: FC<ProjectsListProps> = ({
       render: ({ row }) => (
         <>{row.end_date ? formatDate(row.end_date) : DASH_ESCAPE_CODE}</>
       ),
+
       orderField: 'end_date',
       export: false,
       id: 'end_date',
       keys: ['end_date'],
     },
   ];
+
   if (isFeatureVisible(ProjectFeatures.estimated_cost)) {
     columns.push({
       title: translate('Estimated cost'),

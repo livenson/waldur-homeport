@@ -1,4 +1,4 @@
-import { Check, X, Trash } from '@phosphor-icons/react';
+import { CheckIcon, XIcon, TrashIcon } from '@phosphor-icons/react';
 import { useMutation } from '@tanstack/react-query';
 import { FC } from 'react';
 import { Spinner } from 'react-bootstrap';
@@ -47,9 +47,9 @@ export const CustomerLocationRow: FC<{ customer: Customer; callback }> = ({
       label={translate('Location')}
       value={
         customer.latitude && customer.longitude ? (
-          <Check weight="bold" className="text-info" />
+          <CheckIcon weight="bold" className="text-info" />
         ) : (
-          <X weight="bold" className="text-danger" />
+          <XIcon weight="bold" className="text-danger" />
         )
       }
       actions={
@@ -57,7 +57,7 @@ export const CustomerLocationRow: FC<{ customer: Customer; callback }> = ({
           <ActionButton
             iconNode={
               !isRemovingLocation ? (
-                <Trash weight="bold" className="text-danger" />
+                <TrashIcon weight="bold" className="text-danger" />
               ) : (
                 <Spinner className="animation-spin" />
               )
@@ -66,6 +66,7 @@ export const CustomerLocationRow: FC<{ customer: Customer; callback }> = ({
             variant="secondary"
             className="btn-sm btn-icon me-3"
           />
+
           <SetLocationButton customer={customer} />
         </>
       }

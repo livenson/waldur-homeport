@@ -1,4 +1,4 @@
-import { Trash } from '@phosphor-icons/react';
+import { TrashIcon } from '@phosphor-icons/react';
 import { useMutation } from '@tanstack/react-query';
 import { useDispatch } from 'react-redux';
 import { keycloakUserGroupMembershipsDestroy } from 'waldur-js-client';
@@ -48,7 +48,7 @@ export const KeycloakMembershipBulkRemoveAction = ({ rows, refetch }) => {
     <ActionItem
       title={translate('Remove')}
       action={mutate}
-      iconNode={<Trash weight="bold" />}
+      iconNode={<TrashIcon weight="bold" />}
       iconColor="danger"
       className="text-danger"
       tooltip={translate('Remove all selected resource permissions')}

@@ -1,4 +1,4 @@
-import { CheckCircle } from '@phosphor-icons/react';
+import { CheckCircleIcon } from '@phosphor-icons/react';
 import { useMutation } from '@tanstack/react-query';
 import { FC } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
@@ -52,7 +52,7 @@ export const ApproveByConsumerButton: FC<
           title={translate('Approve')}
           action={mutate}
           disabled={isLoading}
-          iconNode={<CheckCircle weight="bold" />}
+          iconNode={<CheckCircleIcon weight="bold" />}
           size="sm"
         />
       )}

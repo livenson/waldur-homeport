@@ -78,6 +78,7 @@ export const ProjectsList = () => {
       render: ({ row }) => (
         <ProjectLink row={row} onClick={() => onClickDetails(row)} />
       ),
+
       copyField: (row) => row.name,
       keys: ['name', 'is_industry'],
       id: 'name',
@@ -102,11 +103,13 @@ export const ProjectsList = () => {
           {row.customer_name}
         </OrganizationLink>
       ),
+
       keys: ['customer_uuid', 'customer_name'],
       filter: 'organization',
       inlineFilter: (row) => [
         { name: row.customer_name, uuid: row.customer_uuid },
       ],
+
       id: 'organization',
       export: 'customer_name',
     },
@@ -130,6 +133,7 @@ export const ProjectsList = () => {
       render: ({ row }) => (
         <>{row.start_date ? formatDate(row.start_date) : DASH_ESCAPE_CODE}</>
       ),
+
       keys: ['start_date'],
       id: 'start_date',
       export: (row) =>
@@ -151,6 +155,7 @@ export const ProjectsList = () => {
       render: ({ row }) => (
         <>{row.created ? formatDate(row.created) : DASH_ESCAPE_CODE}</>
       ),
+
       keys: ['created'],
       orderField: 'created',
       id: 'created',
@@ -184,6 +189,7 @@ export const ProjectsList = () => {
           )}
         </>
       ),
+
       keys: ['billing_price_estimate'],
       id: 'cost_estimation',
       export: (row) =>
@@ -203,6 +209,7 @@ export const ProjectsList = () => {
             : DASH_ESCAPE_CODE}
         </>
       ),
+
       optional: true,
       keys: ['oecd_fos_2007_code', 'oecd_fos_2007_label'],
       id: 'oecd_fos_code',
@@ -219,6 +226,7 @@ export const ProjectsList = () => {
       render: ({ row }) => (
         <>{row.is_industry ? translate('Yes') : translate('No')}</>
       ),
+
       optional: true,
       keys: ['is_industry'],
       id: 'industry_project',

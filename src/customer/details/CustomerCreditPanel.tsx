@@ -87,6 +87,7 @@ export const CustomerCreditPanel: FC<CustomerEditPanelProps> = (props) => {
         value: Boolean(creditData?.apply_as_minimal_consumption),
       },
     ],
+
     [creditData],
   );
 

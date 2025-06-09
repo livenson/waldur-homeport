@@ -71,6 +71,7 @@ export const PublicCallExpandableRow: FunctionComponent<{
                   value={formatDateTime(activeRound.cutoff_time)}
                   isStuck
                 />
+
                 <Field
                   label={translate('Review strategy')}
                   value={formatRoundReviewStrategy(activeRound.review_strategy)}
@@ -85,6 +86,7 @@ export const PublicCallExpandableRow: FunctionComponent<{
                   )}
                   isStuck
                 />
+
                 <Field
                   label={translate('Allocation strategy')}
                   value={formatRoundAllocationTime(activeRound.allocation_time)}

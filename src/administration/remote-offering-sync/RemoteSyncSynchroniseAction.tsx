@@ -1,4 +1,4 @@
-import { GearSix } from '@phosphor-icons/react';
+import { GearSixIcon } from '@phosphor-icons/react';
 import { useMutation } from '@tanstack/react-query';
 import { useDispatch } from 'react-redux';
 import { marketplaceRemoteSynchronisationsRunSynchronisation } from 'waldur-js-client';
@@ -28,7 +28,7 @@ export const RemoteSyncSynchroniseAction = (props: RemoteSyncActionProps) => {
     <ActionItem
       title={translate('Synchronise')}
       action={mutate}
-      iconNode={<GearSix weight="bold" />}
+      iconNode={<GearSixIcon weight="bold" />}
       disabled={isLoading}
     />
   );

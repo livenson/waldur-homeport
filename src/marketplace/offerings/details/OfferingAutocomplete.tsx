@@ -71,6 +71,7 @@ export const OfferingAutocomplete: FC<OfferingAutocompleteProps> = ({
           noOptionsMessage={() => translate('No offerings')}
           reactSelectProps={props.reactSelectProps}
         />
+
         {props.description && (
           <FormText className="text-muted">{props.description}</FormText>
         )}

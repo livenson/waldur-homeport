@@ -1,4 +1,4 @@
-import { CheckCircle, XCircle } from '@phosphor-icons/react';
+import { CheckCircleIcon, XCircleIcon } from '@phosphor-icons/react';
 import { Button } from 'react-bootstrap';
 import { useSelector } from 'react-redux';
 import { getFormSyncErrors } from 'redux-form';
@@ -60,6 +60,7 @@ export const ProposalSidebar = (props: CompletionPageSidebarProps) => {
                 : undefined
             }
           />
+
           <Button
             variant="secondary"
             onClick={props.saveAsDraft}
@@ -79,7 +80,7 @@ export const ProposalSidebar = (props: CompletionPageSidebarProps) => {
             onClick={props.handleApproveProposal}
             className="w-100 mt-2"
           >
-            <CheckCircle className="me-1" />
+            <CheckCircleIcon className="me-1" />
             {translate('Accept')}
           </Button>
           <Button
@@ -87,7 +88,7 @@ export const ProposalSidebar = (props: CompletionPageSidebarProps) => {
             onClick={props.handleRejectProposal}
             className="w-100 mt-2"
           >
-            <XCircle className="me-1" />
+            <XCircleIcon className="me-1" />
             {translate('Reject')}
           </Button>
         </>

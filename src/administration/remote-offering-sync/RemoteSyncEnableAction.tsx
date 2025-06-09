@@ -1,4 +1,4 @@
-import { CheckCircle, XCircle } from '@phosphor-icons/react';
+import { CheckCircleIcon, XCircleIcon } from '@phosphor-icons/react';
 import { useMutation } from '@tanstack/react-query';
 import { useDispatch } from 'react-redux';
 import { marketplaceRemoteSynchronisationsPartialUpdate } from 'waldur-js-client';
@@ -46,9 +46,9 @@ export const RemoteSyncEnableAction = (props: RemoteSyncActionProps) => {
       action={mutate}
       iconNode={
         props.row.is_active ? (
-          <XCircle weight="bold" />
+          <XCircleIcon weight="bold" />
         ) : (
-          <CheckCircle weight="bold" />
+          <CheckCircleIcon weight="bold" />
         )
       }
       disabled={isLoading}

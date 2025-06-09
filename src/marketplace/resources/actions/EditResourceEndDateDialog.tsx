@@ -119,6 +119,7 @@ const PureEditResourceEndDateDialog: FunctionComponent<
                 : undefined
             }
           />
+
           {exceedsProjectEndDate && (
             <WarnCard
               title={translate('Date conflict')}

@@ -1,4 +1,4 @@
-import { CaretDown, FunnelSimple } from '@phosphor-icons/react';
+import { CaretDownIcon, FunnelSimpleIcon } from '@phosphor-icons/react';
 import { useCallback, useEffect, useState } from 'react';
 import { Button, Card, OverlayTrigger, Popover, Stack } from 'react-bootstrap';
 import { useSelector, useDispatch } from 'react-redux';
@@ -110,6 +110,7 @@ export const MarketplaceLandingFilter = reduxForm<FormData>({
                 customer_uuid={formValues?.organization?.uuid}
                 isDisabled={!formValues?.organization?.uuid}
               />
+
               <Stack direction="horizontal" gap={4}>
                 <Button
                   variant="outline"
@@ -134,9 +135,9 @@ export const MarketplaceLandingFilter = reduxForm<FormData>({
         }
         onClick={() => setShow((v) => !v)}
       >
-        <FunnelSimple size={20} className="svg-icon" />
+        <FunnelSimpleIcon size={20} className="svg-icon" />
         {translate('Organization')} & {translate('Project')}
-        <CaretDown size={18} className="svg-icon rotate-180 ms-2 me-0" />
+        <CaretDownIcon size={18} className="svg-icon rotate-180 ms-2 me-0" />
       </Button>
     </OverlayTrigger>
   );

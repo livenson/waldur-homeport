@@ -1,4 +1,4 @@
-import { Check } from '@phosphor-icons/react';
+import { CheckIcon } from '@phosphor-icons/react';
 import { useMutation } from '@tanstack/react-query';
 import { FunctionComponent } from 'react';
 import { Button } from 'react-bootstrap';
@@ -72,7 +72,7 @@ export const ApproveByProviderButton: FunctionComponent<
       title={translate('Approve')}
       action={mutate}
       disabled={isLoading}
-      iconNode={<Check weight="bold" />}
+      iconNode={<CheckIcon weight="bold" />}
       iconColor="success"
     />
   );

@@ -1,4 +1,4 @@
-import { File as FileIcon, Trash, Warning } from '@phosphor-icons/react';
+import { FileIcon, TrashIcon, WarningIcon } from '@phosphor-icons/react';
 import { FC } from 'react';
 import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
@@ -99,7 +99,7 @@ export const AttachmentItem: FC<AttachmentItemProps> = ({
       ) : (
         <>
           <div className="attachment-item__thumb">
-            <Warning weight="bold" />
+            <WarningIcon weight="bold" />
           </div>
           <div className="attachment-item__body">
             <div className="attachment-item__body-name">
@@ -117,7 +117,7 @@ export const AttachmentItem: FC<AttachmentItemProps> = ({
             onClick={() => onDelete(attachment)}
           >
             <span className="svg-icon svg-icon-2">
-              <Trash weight="bold" />
+              <TrashIcon weight="bold" />
             </span>
           </Button>
         </div>

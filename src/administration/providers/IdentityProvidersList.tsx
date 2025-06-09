@@ -73,6 +73,7 @@ export const IdentityProvidersList = () => {
         groupNames={[translate('User settings')]}
         settingsSource={settingsData}
       />
+
       <Card className="card-bordered">
         <Card.Body>
           <Row>

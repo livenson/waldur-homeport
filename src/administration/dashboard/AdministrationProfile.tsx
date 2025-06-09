@@ -47,6 +47,7 @@ export const AdministrationProfile = ({
         parseSelectData,
       ),
     ];
+
     return Promise.all(promises);
   });
 

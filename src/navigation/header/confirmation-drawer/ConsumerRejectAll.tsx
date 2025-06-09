@@ -1,4 +1,4 @@
-import { Prohibit } from '@phosphor-icons/react';
+import { ProhibitIcon } from '@phosphor-icons/react';
 import { useMutation } from '@tanstack/react-query';
 import { Button } from 'react-bootstrap';
 import { useDispatch } from 'react-redux';
@@ -31,7 +31,7 @@ export const ConsumerRejectAll = ({ orders, refetch }) => {
         <LoadingSpinnerIcon />
       ) : (
         <span className="svg-icon svg-icon-2">
-          <Prohibit weight="bold" />
+          <ProhibitIcon weight="bold" />
         </span>
       )}
       {translate('Reject all')}

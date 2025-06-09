@@ -110,6 +110,7 @@ export const ProjectDashboard: FunctionComponent<{}> = () => {
                     'user_image',
                     'role_name',
                   ],
+
                   page_size: 5,
                 },
               }).then(parseSelectData)

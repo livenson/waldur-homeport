@@ -1,4 +1,4 @@
-import { Plus } from '@phosphor-icons/react';
+import { PlusIcon } from '@phosphor-icons/react';
 import { FC } from 'react';
 import { Button } from 'react-bootstrap';
 import { FieldArrayFieldsProps } from 'redux-form';
@@ -22,7 +22,7 @@ const DEFAULT_RULE = {
 export const RuleAddButton: FC<RuleAddButtonProps> = ({ fields }) => (
   <Button variant="primary" size="sm" onClick={() => fields.push(DEFAULT_RULE)}>
     <span className="svg-icon svg-icon-2">
-      <Plus weight="bold" />
+      <PlusIcon weight="bold" />
     </span>
     &nbsp;
     {translate('Add rule')}

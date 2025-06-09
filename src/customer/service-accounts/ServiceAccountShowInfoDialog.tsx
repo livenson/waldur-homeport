@@ -29,6 +29,7 @@ export const ServiceAccountShowInfoDialog = ({ resolve }: OwnProps) => {
             disabled
             className="flex-grow-1"
           />
+
           <CopyToClipboardButton
             value={resolve.token}
             size={20}

@@ -1,4 +1,4 @@
-import { FunnelSimple } from '@phosphor-icons/react';
+import { FunnelSimpleIcon } from '@phosphor-icons/react';
 import { useInfiniteQuery } from '@tanstack/react-query';
 import { debounce } from 'lodash-es';
 import { ComponentType, FC, useCallback, useState } from 'react';
@@ -89,6 +89,7 @@ export const BreadcrumbDropdown: FC<BreadcrumbDropdownProps> = ({
           className="flex-grow-1"
           autoFocus
         />
+
         {Boolean(filters) && (
           <Button
             variant="outline-default"
@@ -96,7 +97,7 @@ export const BreadcrumbDropdown: FC<BreadcrumbDropdownProps> = ({
             onClick={setFilterOpen}
           >
             <span className="svg-icon svg-icon-1">
-              <FunnelSimple weight="bold" />
+              <FunnelSimpleIcon weight="bold" />
             </span>
             {!isEmpty(formValues) && (
               <HeaderButtonBullet size={8} blink={false} className="me-n2" />

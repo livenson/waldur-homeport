@@ -1,4 +1,4 @@
-import { ShoppingCart } from '@phosphor-icons/react';
+import { ShoppingCartIcon } from '@phosphor-icons/react';
 import { useMemo } from 'react';
 import { Button } from 'react-bootstrap';
 
@@ -44,7 +44,7 @@ export const OrderSubmitButton = (props: OrderSummaryProps) => {
     >
       {props.isSubmitting && <LoadingSpinnerIcon className="me-1" />}
       <span className="svg-icon svg-icon-2">
-        <ShoppingCart />
+        <ShoppingCartIcon />
       </span>
       {translate('Create')}
     </Button>
