@@ -92,25 +92,25 @@ export const ServiceAccountFormDialog = reduxForm<
             path: { uuid: row.uuid },
             body,
           });
+          dispatch(closeModalDialog());
         } else {
           const api =
             context === 'customer'
               ? marketplaceCustomerServiceAccountsCreate
               : marketplaceProjectServiceAccountsCreate;
           response = await api({ body } as any);
+          dispatch(closeModalDialog());
+          // Open a dialog to show the API key
+          dispatch(
+            openModalDialog(ServiceAccountShowInfoDialog, {
+              resolve: {
+                username: response.data.username,
+                token: response.data.token,
+                expiresAt: response.data.expires_at,
+              },
+            }),
+          );
         }
-        dispatch(closeModalDialog());
-
-        // Open a dialog to show the API key
-        dispatch(
-          openModalDialog(ServiceAccountShowInfoDialog, {
-            resolve: {
-              username: response.data.username,
-              token: response.data.token,
-              expiresAt: response.data.expires_at,
-            },
-          }),
-        );
 
         dispatch(
           showSuccess(

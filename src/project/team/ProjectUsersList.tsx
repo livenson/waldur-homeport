@@ -125,6 +125,7 @@ export const ProjectUsersList = ({
               project ||
               ({
                 uuid: projectUuid,
+                customer_uuid: customerUuid,
               } as any)
             }
             refetch={tableProps.fetch}
