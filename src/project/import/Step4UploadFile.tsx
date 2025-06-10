@@ -36,10 +36,7 @@ const asyncValidate = (values) =>
         if (Array.isArray(results?.data) && Array.isArray(results?.data[0])) {
           const header = results.data[0];
           // Check headers
-          if (
-            header.length === template.fields.length &&
-            template.fields.every((field) => header.includes(field))
-          ) {
+          if (template.fields.every((field) => header.includes(field))) {
             _error = '';
           }
 

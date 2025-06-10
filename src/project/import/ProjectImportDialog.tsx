@@ -150,7 +150,7 @@ export const ProjectImportDialog: FC<ProjectImportDialogProps> = (props) => {
           const end_date = project.end_date
             ? formatISODate(project.end_date)
             : undefined;
-          if (!start_date || !end_date) return;
+          if (!start_date && !end_date) return;
 
           projectsCounter++;
           const existingProject = createdProjects.find(
