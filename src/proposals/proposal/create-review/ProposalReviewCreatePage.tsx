@@ -1,6 +1,6 @@
 import { useQuery } from '@tanstack/react-query';
 import { useCurrentStateAndParams } from '@uirouter/react';
-import { createRef, useCallback, useRef, useState } from 'react';
+import { createRef, useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { getFormValues, submit as submitForm } from 'redux-form';
 import {
@@ -69,6 +69,12 @@ export const ProposalReviewCreatePage = (props) => {
     queryFn: () => loadData(review_uuid),
     refetchOnWindowFocus: false,
   });
+
+  useEffect(() => {
+    if (data?.review) {
+      setReviewObject(data.review);
+    }
+  }, [data]);
 
   const formSteps = createReviewSteps;
   const stepRefs = useRef([]);
