@@ -50,6 +50,13 @@ export const TeamDropdownActions = ({ refetch }: TeamDropdownActionsProps) => {
             scope={customer}
             refetch={refetch}
             disabled={isServiceAccountLimitReached}
+            tooltip={
+              isServiceAccountLimitReached
+                ? translate(
+                    'Maximum number of service accounts has been reached',
+                  )
+                : undefined
+            }
           />
         )}
       </Dropdown.Menu>
