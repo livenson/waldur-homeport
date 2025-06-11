@@ -8,6 +8,6 @@ export const useModal = () => {
   return {
     openDialog: <T>(component: ComponentType<T>, props: T & AppModalProps) =>
       dispatch(openModalDialog(component, props)),
-    closeDialog: () => dispatch(closeModalDialog()),
+    closeDialog: (type?) => dispatch(closeModalDialog(type)),
   };
 };
