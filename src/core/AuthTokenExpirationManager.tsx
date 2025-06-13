@@ -1,6 +1,6 @@
 import { DateTime } from 'luxon';
 import { useEffect, useMemo, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { usersRefreshToken } from 'waldur-js-client';
 
 import { localLogout, setAuthHeader } from '@waldur/auth/AuthService';
@@ -10,6 +10,7 @@ import { useModal } from '@waldur/modal/hooks';
 import { getCurrentUser } from '@waldur/user/UsersService';
 import { setCurrentUser } from '@waldur/workspace/actions';
 import { useUser } from '@waldur/workspace/hooks';
+import { getImpersonatorUser } from '@waldur/workspace/selectors';
 
 const getSecondsUntilExpiration = (expiresAt: DateTime) => {
   if (!expiresAt) {
@@ -50,6 +51,7 @@ export const AuthTokenExpirationManager = () => {
   const { closeDialog } = useModal();
 
   const user = useUser();
+  const impersonatorUser = useSelector(getImpersonatorUser);
   const expiresAt = useMemo(
     () =>
       user?.token_expires_at ? DateTime.fromISO(user.token_expires_at) : null,
@@ -85,6 +87,9 @@ export const AuthTokenExpirationManager = () => {
     }
   };
   useEffect(() => {
+    if (impersonatorUser) {
+      return;
+    }
     if (!expiresAt) {
       return;
     }
@@ -100,7 +105,7 @@ export const AuthTokenExpirationManager = () => {
     } else {
       showExpirationWarning();
     }
-  }, [expiresAt]);
+  }, [expiresAt, impersonatorUser]);
 
   return null;
 };
