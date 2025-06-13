@@ -5603,6 +5603,10 @@
     "description": "openstack/openstack-instance/actions/update-floating-ips/FloatingIpsList.tsx",
     "message": "Instance is not connected to any internal subnets yet. Please connect it to internal subnet first."
   },
+  "Instance port does not have any security groups yet.": {
+    "description": "openstack/openstack-instance/OpenStackSecurityGroupsList.tsx",
+    "message": "Instance port does not have any security groups yet."
+  },
   "Instance should be OK, or erred. Please contact support.": {
     "description": "openstack/openstack-instance/actions/ForceDestroyAction.tsx",
     "message": "Instance should be OK, or erred. Please contact support."
@@ -10476,7 +10480,7 @@
     "message": "Resource {type} process"
   },
   "Resource": {
-    "description": "customer/credits/CreditUsageDialog.tsx, customer/credits/CreditUsageFilter.tsx, events/ExpandableEventDetailsTable.tsx, issues/create/IssueDetailsStepLabel.tsx, marketplace/orders/list/OrdersListExpandableRow.tsx, marketplace/robot-accounts/ProviderRobotAccountList.tsx, navigation/header/confirmation-drawer/PendingConsumerOrders.tsx, navigation/header/confirmation-drawer/PendingProviderOrders.tsx, reporting/resource-usage/ResourceUsageFilter.tsx",
+    "description": "customer/credits/CreditUsageDialog.tsx, customer/credits/CreditUsageFilter.tsx, events/ExpandableEventDetailsTable.tsx, issues/create/IssueDetailsStepLabel.tsx, marketplace/orders/list/OrdersListExpandableRow.tsx, marketplace/robot-accounts/ProviderRobotAccountList.tsx, navigation/header/confirmation-drawer/PendingConsumerOrders.tsx, navigation/header/confirmation-drawer/PendingProviderOrders.tsx, openstack/openstack-instance/OpenStackSecurityGroupsList.tsx, reporting/resource-usage/ResourceUsageFilter.tsx",
     "message": "Resource"
   },
   "Resources identified": {
