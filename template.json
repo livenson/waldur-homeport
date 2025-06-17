@@ -4479,10 +4479,6 @@
     "description": "marketplace/resources/usage/UsageExportDropdown.tsx",
     "message": "Excel"
   },
-  "Execute": {
-    "description": "openstack/openstack-tenant/actions/ExecuteMigrationAction.tsx",
-    "message": "Execute"
-  },
   "Executing": {
     "description": "marketplace/orders/list/MarketplaceOrdersListFilter.tsx, marketplace/orders/list/OrderStateCell.tsx, marketplace/orders/list/OrderStateFilter.tsx",
     "message": "Executing"
