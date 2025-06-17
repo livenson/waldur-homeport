@@ -4808,7 +4808,7 @@
     "message": "Flavors regex"
   },
   "Flavors": {
-    "description": "openstack/openstack-tenant/TenantFlavorsList.tsx, openstack/openstack-tenant/tabs.ts, reporting/openstack/FlavorsList.tsx, reporting/openstack/VmTypeOverview.tsx",
+    "description": "marketplace/offerings/OfferingEditUIView.tsx, openstack/openstack-tenant/TenantFlavorsList.tsx, openstack/openstack-tenant/tabs.ts, reporting/openstack/FlavorsList.tsx, reporting/openstack/VmTypeOverview.tsx",
     "message": "Flavors"
   },
   "Floating IP count": {
@@ -12387,6 +12387,10 @@
     "description": "administration/routes.ts",
     "message": "System info"
   },
+  "System information": {
+    "description": "marketplace/offerings/OfferingEditUIView.tsx",
+    "message": "System information"
+  },
   "System role": {
     "description": "administration/roles/RolesList.tsx",
     "message": "System role"
@@ -12814,6 +12818,14 @@
   "The organization group has been updated.": {
     "description": "administration/organizations/OrganizationGroupForm.tsx",
     "message": "The organization group has been updated."
+  },
+  "The proposal has been declined.": {
+    "description": "proposals/proposal/create/ProposalDecisionResult.tsx",
+    "message": "The proposal has been declined."
+  },
+  "The proposal has been successfully accepted.": {
+    "description": "proposals/proposal/create/ProposalDecisionResult.tsx",
+    "message": "The proposal has been successfully accepted."
   },
   "The public view is currently inactive as this call is archived or draft.": {
     "description": "proposals/details/CallTabs.tsx",
