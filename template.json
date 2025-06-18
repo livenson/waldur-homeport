@@ -976,7 +976,7 @@
     "message": "Approve private for order"
   },
   "Approve": {
-    "description": "invitations/UserPermissionRequestApproveButton.tsx, marketplace/orders/actions/ApproveByConsumerButton.tsx, marketplace/orders/actions/ApproveByProviderButton.tsx, marketplace-remote/ReviewApproveAction.tsx, proposals/proposal/ProposalRowActions.tsx",
+    "description": "invitations/UserPermissionRequestApproveButton.tsx, marketplace/orders/actions/ApproveByConsumerButton.tsx, marketplace/orders/actions/ApproveByProviderButton.tsx, marketplace/orders/actions/OrdersBulkActions.tsx, marketplace-remote/ReviewApproveAction.tsx, proposals/proposal/ProposalRowActions.tsx",
     "message": "Approve"
   },
   "Approved at": {
@@ -7295,6 +7295,10 @@
     "description": "navigation/header/confirmation-drawer/PendingConfirmationContainer.tsx",
     "message": "No pending confirmations"
   },
+  "No pending orders have been selected.": {
+    "description": "marketplace/orders/actions/OrdersBulkActions.tsx",
+    "message": "No pending orders have been selected."
+  },
   "No permissions data.": {
     "description": "administration/organizations/OrganizationExpandableRow.tsx",
     "message": "No permissions data."
@@ -9808,7 +9812,7 @@
     "message": "Reject review"
   },
   "Reject": {
-    "description": "invitations/UserPermissionRequestRejectButton.tsx, marketplace/orders/actions/RejectByConsumerButton.tsx, marketplace/orders/actions/RejectByProviderButton.tsx, marketplace-remote/ReviewRejectAction.tsx, proposals/offering-requests/OfferingRequestItemActions.tsx, proposals/proposal/ProposalDetails.tsx, proposals/proposal/ProposalRowActions.tsx",
+    "description": "invitations/UserPermissionRequestRejectButton.tsx, marketplace/orders/actions/OrdersBulkActions.tsx, marketplace/orders/actions/RejectByConsumerButton.tsx, marketplace/orders/actions/RejectByProviderButton.tsx, marketplace-remote/ReviewRejectAction.tsx, proposals/offering-requests/OfferingRequestItemActions.tsx, proposals/proposal/ProposalDetails.tsx, proposals/proposal/ProposalRowActions.tsx",
     "message": "Reject"
   },
   "Rejected proposals": {
@@ -14040,7 +14044,7 @@
     "message": "Unable to pause offering."
   },
   "Unable to perform operation.": {
-    "description": "customer/details/CustomerCallManagerPanel.tsx",
+    "description": "customer/details/CustomerCallManagerPanel.tsx, marketplace/orders/actions/OrdersBulkActions.tsx",
     "message": "Unable to perform operation."
   },
   "Unable to perform review.": {
@@ -16490,6 +16494,10 @@
   "{count} offerings": {
     "description": "navigation/sidebar/marketplace-popup/CategoriesPanel.tsx",
     "message": "{count} offerings"
+  },
+  "{count} order(s) have been {action}.": {
+    "description": "marketplace/orders/actions/OrdersBulkActions.tsx",
+    "message": "{count} order(s) have been {action}."
   },
   "{count} projects": {
     "description": "marketplace/service-providers/ProjectsCountColumn.tsx",
