@@ -131,7 +131,7 @@ const fields: OfferingEditField[] = [
   },
   {
     label: translate('Cloud init template for load balancer node'),
-    key: 'plugin_options.managed_rancher_load_balancer_cloud_init_template',
+    key: 'secret_options.managed_rancher_load_balancer_cloud_init_template',
     component: TextField,
   },
   {
