@@ -158,7 +158,6 @@ export const CustomerUsersList: FunctionComponent<{ filters? }> = ({
       expandableRow={({ row }) => (
         <CustomerUsersListExpandableRow row={row} refetch={props.fetch} />
       )}
-      expandableRowClassName="p-0 ps-12"
       tableActions={
         <>
           <CustomerPermissionsLogButton />
