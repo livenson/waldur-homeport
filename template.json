@@ -9336,7 +9336,7 @@
     "message": "Projects with resources"
   },
   "Projects": {
-    "description": "administration/dashboard/AdminStatistics.tsx, administration/organizations/OrganizationGroupOrganizationsList.tsx, administration/service-accounts/ServiceAccountsTable.tsx, customer/list/OrganizationCard.tsx, customer/routes.ts, marketplace/resources/details/ResourceDetailsContainer.tsx, marketplace/routes.ts, marketplace/service-providers/ProviderOrganizationsList.tsx, marketplace/service-providers/ProviderUserCustomersList.tsx, navigation/header/search/SearchPopover.tsx, navigation/sidebar/ProjectsListMenu.tsx, project/ProjectContainer.tsx, project/ProjectsList.tsx, project/import/Step5PreviewAndImport.tsx, rancher/cluster/tabs.ts, user/affiliations/OrganizationExpandableRow.tsx, user/affiliations/OrganizationsList.tsx, user/affiliations/ProjectsList.tsx",
+    "description": "administration/dashboard/AdminStatistics.tsx, administration/organizations/OrganizationGroupOrganizationsList.tsx, administration/service-accounts/ServiceAccountsTable.tsx, customer/list/OrganizationCard.tsx, customer/routes.ts, marketplace/resources/details/ResourceDetailsContainer.tsx, marketplace/routes.ts, marketplace/service-providers/ProviderOrganizationsList.tsx, marketplace/service-providers/ProviderUserCustomersList.tsx, marketplace/service-providers/utils.ts, navigation/header/search/SearchPopover.tsx, navigation/sidebar/ProjectsListMenu.tsx, project/ProjectContainer.tsx, project/ProjectsList.tsx, project/import/Step5PreviewAndImport.tsx, rancher/cluster/tabs.ts, user/affiliations/OrganizationExpandableRow.tsx, user/affiliations/OrganizationsList.tsx, user/affiliations/ProjectsList.tsx",
     "message": "Projects"
   },
   "Proof document": {
