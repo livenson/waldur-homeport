@@ -1876,7 +1876,7 @@
     "message": "CPU usage"
   },
   "CPU": {
-    "description": "rancher/cluster/hpas/utils.ts, rancher/node/RancherNodeSummary.tsx",
+    "description": "rancher/cluster/dashboard/ClusterStatistics.tsx, rancher/cluster/hpas/utils.ts, rancher/node/RancherNodeSummary.tsx",
     "message": "CPU"
   },
   "CSV": {
@@ -2004,7 +2004,7 @@
     "message": "Cannot create floating IP if tenant external network is not defined."
   },
   "Capacity": {
-    "description": "reporting/dashboard/ReportingWidgets.tsx, reporting/routes.ts",
+    "description": "rancher/cluster/dashboard/ClusterStatistics.tsx, reporting/dashboard/ReportingWidgets.tsx, reporting/routes.ts",
     "message": "Capacity"
   },
   "Catalog URL": {
@@ -3152,7 +3152,7 @@
     "message": "Dark"
   },
   "Dashboard": {
-    "description": "administration/routes.ts, issues/routes.ts, marketplace/routes.ts, marketplace/service-providers/details/ServiceProviderDetails.tsx, marketplace/utils.ts, proposals/routes.ts, reporting/routes.ts",
+    "description": "administration/routes.ts, issues/routes.ts, marketplace/resources/details/fetchData.tsx, marketplace/routes.ts, marketplace/service-providers/details/ServiceProviderDetails.tsx, marketplace/utils.ts, proposals/routes.ts, reporting/routes.ts",
     "message": "Dashboard"
   },
   "Data storage": {
@@ -6064,7 +6064,7 @@
     "message": "Kubernetes nodes"
   },
   "Kubernetes version": {
-    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx, rancher/node/RancherNodeSummary.tsx",
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx, rancher/cluster/dashboard/ClusterSummary.tsx, rancher/node/RancherNodeSummary.tsx",
     "message": "Kubernetes version"
   },
   "LEXIS link creation request has been submitted.": {
@@ -6295,6 +6295,10 @@
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "List users"
   },
+  "Load balancer IPs": {
+    "description": "rancher/cluster/dashboard/ClusterSummary.tsx",
+    "message": "Load balancer IPs"
+  },
   "Load more": {
     "description": "core/InfiniteList.tsx, marketplace/deploy/steps/FormCloudStep.tsx",
     "message": "Load more"
@@ -6432,7 +6436,7 @@
     "message": "Longhorn volume type for worker nodes"
   },
   "Longhorn": {
-    "description": "marketplace/resources/details/fetchData.tsx, rancher/cluster/create/FormLonghornStep.tsx, rancher/cluster/create/managed-steps.ts",
+    "description": "marketplace/resources/details/fetchData.tsx, rancher/cluster/create/FormLonghornStep.tsx, rancher/cluster/create/managed-steps.ts, rancher/cluster/dashboard/ClusterSummary.tsx",
     "message": "Longhorn"
   },
   "MAC address (optional)": {
@@ -6716,7 +6720,7 @@
     "message": "Memory size in GiB"
   },
   "Memory": {
-    "description": "rancher/cluster/hpas/utils.ts, vmware/deploy/FormMemoryStep.tsx, vmware/deploy/steps.ts",
+    "description": "rancher/cluster/dashboard/ClusterStatistics.tsx, rancher/cluster/hpas/utils.ts, vmware/deploy/FormMemoryStep.tsx, vmware/deploy/steps.ts",
     "message": "Memory"
   },
   "Message": {
@@ -7052,7 +7056,7 @@
     "message": "Network sharing"
   },
   "Network": {
-    "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx, openstack/openstack-subnet/OpenStackSubNetSummary.tsx, openstack/openstack-subnet/TenantSubnetsList.tsx, openstack/openstack-tenant/actions/CreatePortDialog.tsx, quotas/constants.ts, rancher/cluster/create/FormNetworkStep.tsx, rancher/cluster/create/steps.ts, vmware/PortsList.tsx, vmware/VMwarePortSummary.tsx, vmware/actions/CreatePortDialog.tsx",
+    "description": "openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx, openstack/openstack-subnet/OpenStackSubNetSummary.tsx, openstack/openstack-subnet/TenantSubnetsList.tsx, openstack/openstack-tenant/actions/CreatePortDialog.tsx, quotas/constants.ts, rancher/cluster/create/FormNetworkStep.tsx, rancher/cluster/create/steps.ts, rancher/cluster/dashboard/ClusterStatistics.tsx, vmware/PortsList.tsx, vmware/VMwarePortSummary.tsx, vmware/actions/CreatePortDialog.tsx",
     "message": "Network"
   },
   "Networking": {
@@ -7416,7 +7420,7 @@
     "message": "Node"
   },
   "Nodes": {
-    "description": "rancher/cluster/create/FormNodesStep.tsx, rancher/cluster/create/steps.ts, rancher/cluster/tabs.ts",
+    "description": "rancher/cluster/create/FormNodesStep.tsx, rancher/cluster/create/steps.ts, rancher/cluster/dashboard/ClusterStatistics.tsx, rancher/cluster/tabs.ts",
     "message": "Nodes"
   },
   "Non-detachable and non-resizable boot disk": {
@@ -8852,7 +8856,7 @@
     "message": "Plugin ID"
   },
   "Pods": {
-    "description": "rancher/node/RancherNodeSummary.tsx",
+    "description": "rancher/cluster/dashboard/ClusterStatistics.tsx, rancher/node/RancherNodeSummary.tsx",
     "message": "Pods"
   },
   "Policies": {
@@ -10278,6 +10282,10 @@
   "Reserved tasks": {
     "description": "administration/CeleryInfoPage.tsx",
     "message": "Reserved tasks"
+  },
+  "Reserved": {
+    "description": "rancher/cluster/dashboard/ClusterStatistics.tsx",
+    "message": "Reserved"
   },
   "Reset to saved": {
     "description": "marketplace/offerings/update/integration/ScriptEditorHeader.tsx",
@@ -12204,7 +12212,7 @@
     "message": "Storage type"
   },
   "Storage": {
-    "description": "openstack/openstack-instance/tabs.ts, openstack/openstack-tenant/tabs.ts, quotas/constants.ts, vmware/deploy/FormStorageStep.tsx, vmware/deploy/steps.ts",
+    "description": "openstack/openstack-instance/tabs.ts, openstack/openstack-tenant/tabs.ts, quotas/constants.ts, rancher/cluster/dashboard/ClusterStatistics.tsx, vmware/deploy/FormStorageStep.tsx, vmware/deploy/steps.ts",
     "message": "Storage"
   },
   "Style of sidebar. Possible values: dark, light, accent.": {
@@ -13244,7 +13252,7 @@
     "message": "Total published offerings"
   },
   "Total resources": {
-    "description": "marketplace/offerings/details/OfferingDetailsStatistics.tsx",
+    "description": "marketplace/offerings/details/OfferingDetailsStatistics.tsx, rancher/cluster/dashboard/ClusterStatistics.tsx",
     "message": "Total resources"
   },
   "Total size": {
@@ -15144,7 +15152,7 @@
     "message": "Used by {count} resources"
   },
   "Used": {
-    "description": "quotas/QuotasTable.tsx",
+    "description": "quotas/QuotasTable.tsx, rancher/cluster/dashboard/ClusterStatistics.tsx",
     "message": "Used"
   },
   "User UUID": {
@@ -15788,7 +15796,7 @@
     "message": "Workload"
   },
   "Workloads": {
-    "description": "rancher/cluster/tabs.ts",
+    "description": "rancher/cluster/dashboard/ClusterStatistics.tsx, rancher/cluster/tabs.ts",
     "message": "Workloads"
   },
   "YAML has been imported.": {
