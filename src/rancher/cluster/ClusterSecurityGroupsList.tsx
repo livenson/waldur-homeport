@@ -6,12 +6,19 @@ import {
 
 import { translate } from '@waldur/i18n';
 import { SecurityGroupRulesList } from '@waldur/openstack/openstack-security-groups/SecurityGroupRulesList';
+import { ActionsDropdownComponent } from '@waldur/table/ActionsDropdown';
 import { createFetcher } from '@waldur/table/api';
 import Table from '@waldur/table/Table';
 import { useTable } from '@waldur/table/useTable';
 
 import { ClusterSecurityGroupSetRulesButton } from './ClusterSecurityGroupSetRulesButton';
 import { SetManagementSecurityGroupButton } from './SetManagementSecurityGroupButton';
+
+const RowActions = ({ row, fetch }) => (
+  <ActionsDropdownComponent>
+    <ClusterSecurityGroupSetRulesButton resource={row} refetch={fetch} />
+  </ActionsDropdownComponent>
+);
 
 export const ClusterSecurityGroupsList: FunctionComponent<{
   resourceScope: Resource;
@@ -46,12 +53,7 @@ export const ClusterSecurityGroupsList: FunctionComponent<{
       columns={columns}
       verboseName={translate('security groups')}
       expandableRow={SecurityGroupRulesList}
-      rowActions={({ row }) => (
-        <ClusterSecurityGroupSetRulesButton
-          resource={row}
-          refetch={tableProps.fetch}
-        />
-      )}
+      rowActions={RowActions}
       tableActions={
         <SetManagementSecurityGroupButton
           clusterId={resourceScope.resource_uuid}
