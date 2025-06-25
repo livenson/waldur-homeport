@@ -8727,6 +8727,10 @@
     "description": "project/import/Step4UploadFile.tsx",
     "message": "Please import a file."
   },
+  "Please log in to submit a proposal.": {
+    "description": "proposals/details/PublicCallApplyButton.tsx",
+    "message": "Please log in to submit a proposal."
+  },
   "Please make sure you know what you are doing and set to 10 minutes if unsure.": {
     "description": "user/api-key/UserTokenLifetime.tsx",
     "message": "Please make sure you know what you are doing and set to 10 minutes if unsure."
