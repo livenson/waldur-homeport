@@ -37,6 +37,15 @@ export const OrganizationLink: FC<PropsWithChildren<OwnProps>> = ({
       ),
     [user, uuid],
   );
+  const hasCallManagingOrganisationPermission = useMemo(
+    () =>
+      user.permissions.find(
+        (permission) =>
+          permission.scope_type === 'callmanagingorganisation' &&
+          permission.scope_uuid === uuid,
+      ),
+    [user, uuid],
+  );
   return hasOrganizationPermission || user.is_staff || user.is_support ? (
     <Link
       state="organization.dashboard"
@@ -49,6 +58,15 @@ export const OrganizationLink: FC<PropsWithChildren<OwnProps>> = ({
   ) : hasProjectPermission ? (
     <Link
       state="marketplace-projects"
+      params={{ uuid }}
+      onClick={onClick}
+      className={className}
+    >
+      {children}
+    </Link>
+  ) : hasCallManagingOrganisationPermission ? (
+    <Link
+      state="call-management.dashboard"
       params={{ uuid }}
       onClick={onClick}
       className={className}
