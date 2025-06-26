@@ -61,6 +61,14 @@ export const ProviderForm = () => (
     >
       <Field name="protected_fields" component={StringField as any} />
     </FormGroup>
+    <FormGroup
+      label={translate('OIDC scope')}
+      description={translate(
+        'Space-separated list of scopes to request during authentication.',
+      )}
+    >
+      <Field name="scope" component={StringField as any} />
+    </FormGroup>
     <Form.Group className="mb-7">
       <Field
         name="is_active"
