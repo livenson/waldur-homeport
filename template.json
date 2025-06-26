@@ -7563,6 +7563,10 @@
     "description": "project/import/Step4UploadFile.tsx",
     "message": "OECD code must be a number."
   },
+  "OIDC scope": {
+    "description": "administration/providers/ProviderForm.tsx",
+    "message": "OIDC scope"
+  },
   "OK": {
     "description": "administration/providers/ProviderDetailsDialog.tsx, administration/providers/ProviderUsersDialog.tsx, marketplace/resources/list/ResourceStateFilter.tsx, project/import/Step5PreviewAndImport.tsx, user/support/DangerActionDialog.tsx",
     "message": "OK"
@@ -12066,6 +12070,10 @@
   "Source": {
     "description": "openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx",
     "message": "Source"
+  },
+  "Space-separated list of scopes to request during authentication.": {
+    "description": "administration/providers/ProviderForm.tsx",
+    "message": "Space-separated list of scopes to request during authentication."
   },
   "Special price": {
     "description": "marketplace/service-providers/CampaignForm.tsx, marketplace/service-providers/CampaignUpdateForm.tsx, marketplace/service-providers/ProviderCampaignTypeFilter.tsx",
