@@ -42,7 +42,7 @@ export const OrganizationLink: FC<PropsWithChildren<OwnProps>> = ({
       user.permissions.find(
         (permission) =>
           permission.scope_type === 'callmanagingorganisation' &&
-          permission.scope_uuid === uuid,
+          permission.customer_uuid === uuid,
       ),
     [user, uuid],
   );
