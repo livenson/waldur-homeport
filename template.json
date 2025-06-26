@@ -7995,6 +7995,10 @@
     "description": "openstack/OpenStackForm.tsx",
     "message": "Openstack API TLS certificate"
   },
+  "Openstack image management for service provider": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Openstack image management for service provider"
+  },
   "Operating system options": {
     "description": "openstack/openstack-instance/deploy/FormImageStep.tsx",
     "message": "Operating system options"
