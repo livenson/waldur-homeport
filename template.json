@@ -6643,6 +6643,18 @@
     "description": "marketplace/offerings/update/components/ComponentLimitPeriodField.tsx",
     "message": "Maximum monthly"
   },
+  "Maximum number of CPU for cluster tenants": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Maximum number of CPU for cluster tenants"
+  },
+  "Maximum number of RAM for a cluster tenants": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Maximum number of RAM for a cluster tenants"
+  },
+  "Maximum number of disk space for a cluster tenants": {
+    "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
+    "message": "Maximum number of disk space for a cluster tenants"
+  },
   "Maximum number of instances in a single tenant": {
     "description": "openstack/OpenStackPluginOptionsForm.tsx",
     "message": "Maximum number of instances in a single tenant"
