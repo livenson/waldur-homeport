@@ -831,5 +831,40 @@ export const SettingsDescription = [
       },
     ],
   },
+  {
+    description: translate('OIDC auth settings'),
+    items: [
+      {
+        key: 'OIDC_INTROSPECTION_URL',
+        description: translate('OIDC introspection endpoint URL for validating access tokens.'),
+        default: '',
+        type: 'string',
+      },
+      {
+        key: 'OIDC_CLIENT_ID',
+        description: translate('Client ID for authenticating against the introspection endpoint.'),
+        default: '',
+        type: 'string',
+      },
+      {
+        key: 'OIDC_CLIENT_SECRET',
+        description: translate('Client secret for authenticating against the introspection endpoint.'),
+        default: '',
+        type: 'string',
+      },
+      {
+        key: 'OIDC_USER_FIELD',
+        description: translate('Field name from the introspection response to identify the user (e.g., \'username\', \'email\', \'client_id\').'),
+        default: 'username',
+        type: 'string',
+      },
+      {
+        key: 'OIDC_CACHE_TIMEOUT',
+        description: translate('Number of seconds to cache token introspection results.'),
+        default: 300,
+        type: 'integer',
+      },
+    ],
+  },
 ];
 
