@@ -4615,6 +4615,10 @@
     "description": "openstack/openstack-network/NetworkRBACList.tsx, openstack/openstack-network/actions/ShareNetworkDialog.tsx",
     "message": "External"
   },
+  "Extra scope": {
+    "description": "administration/providers/ProviderForm.tsx",
+    "message": "Extra scope"
+  },
   "FAQ": {
     "description": "marketplace/offerings/OfferingPublicUIView.tsx, marketplace/offerings/details/PublicOfferingFAQ.tsx",
     "message": "FAQ"
@@ -4758,6 +4762,10 @@
   "Fingerprint (SHA512)": {
     "description": "marketplace/robot-accounts/RobotAccountExpandable.tsx, user/keys/KeysList.tsx, user/keys/KeysListExpandableRow.tsx",
     "message": "Fingerprint (SHA512)"
+  },
+  "First name field": {
+    "description": "administration/providers/ProviderForm.tsx",
+    "message": "First name field"
   },
   "First name": {
     "description": "administration/TokensList.tsx, user/support/UserEditRows.tsx",
@@ -6122,6 +6130,10 @@
   "Last execution": {
     "description": "administration/remote-offering-sync/RemoteOfferingSyncList.tsx",
     "message": "Last execution"
+  },
+  "Last name field": {
+    "description": "administration/providers/ProviderForm.tsx",
+    "message": "Last name field"
   },
   "Last name": {
     "description": "administration/TokensList.tsx, user/support/UserEditRows.tsx",
@@ -7578,10 +7590,6 @@
   "OECD code must be a number.": {
     "description": "project/import/Step4UploadFile.tsx",
     "message": "OECD code must be a number."
-  },
-  "OIDC scope": {
-    "description": "administration/providers/ProviderForm.tsx",
-    "message": "OIDC scope"
   },
   "OK": {
     "description": "administration/providers/ProviderDetailsDialog.tsx, administration/providers/ProviderUsersDialog.tsx, marketplace/resources/list/ResourceStateFilter.tsx, project/import/Step5PreviewAndImport.tsx, user/support/DangerActionDialog.tsx",
@@ -12087,6 +12095,10 @@
     "description": "openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx",
     "message": "Source"
   },
+  "Space seprated list of OIDC claims to be used as the value for the lookup field.": {
+    "description": "administration/providers/ProviderForm.tsx",
+    "message": "Space seprated list of OIDC claims to be used as the value for the lookup field."
+  },
   "Space-separated list of scopes to request during authentication.": {
     "description": "administration/providers/ProviderForm.tsx",
     "message": "Space-separated list of scopes to request during authentication."
@@ -12687,6 +12699,14 @@
     "description": "openstack/openstack-instance/deploy/FormHardwareConfigurationStep.tsx",
     "message": "The CPU quota is over the limit"
   },
+  "The OIDC claim to be used as the value for the first name field.": {
+    "description": "administration/providers/ProviderForm.tsx",
+    "message": "The OIDC claim to be used as the value for the first name field."
+  },
+  "The OIDC claim to be used as the value for the last name field.": {
+    "description": "administration/providers/ProviderForm.tsx",
+    "message": "The OIDC claim to be used as the value for the last name field."
+  },
   "The RAM quota is over the limit": {
     "description": "openstack/openstack-instance/deploy/FormHardwareConfigurationStep.tsx",
     "message": "The RAM quota is over the limit"
@@ -12738,6 +12758,10 @@
   "The endpoint for user details management.": {
     "description": "administration/providers/ProviderForm.tsx",
     "message": "The endpoint for user details management."
+  },
+  "The field to be used for looking up the user.": {
+    "description": "administration/providers/ProviderForm.tsx",
+    "message": "The field to be used for looking up the user."
   },
   "The following resources could not be updated": {
     "description": "project/manage/EditEndDateDialog.tsx",
@@ -15211,6 +15235,10 @@
     "description": "about/PrivacyPage.tsx, about/TosPage.tsx, administration/routes.ts",
     "message": "User agreements"
   },
+  "User claim": {
+    "description": "administration/providers/ProviderForm.tsx",
+    "message": "User claim"
+  },
   "User could not be updated": {
     "description": "user/api-key/UserTokenLifetime.tsx, user/support/useUpdateUser.ts",
     "message": "User could not be updated"
@@ -15226,6 +15254,10 @@
   "User details of {fullName}": {
     "description": "user/support/UserDetailsDialog.tsx",
     "message": "User details of {fullName}"
+  },
+  "User field": {
+    "description": "administration/providers/ProviderForm.tsx",
+    "message": "User field"
   },
   "User has been activated.": {
     "description": "user/support/UserStatus.tsx",
