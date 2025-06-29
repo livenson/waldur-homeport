@@ -92,7 +92,7 @@ export const ProjectUsersBulkRemoveButton = ({ rows, refetch }) => {
     <ActionButton
       title={translate('Remove')}
       action={callback}
-      iconNode={<TrashIcon />}
+      iconNode={<TrashIcon weight="bold" />}
       variant="light-danger"
       tooltip={translate('Remove all selected users from project.')}
       disabled={isRemoving}
