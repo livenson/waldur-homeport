@@ -2195,6 +2195,10 @@
     "description": "marketplace/offerings/details/GoogleCalendarLink.tsx",
     "message": "Click to see Google Calendar"
   },
+  "Client ID for authenticating against the introspection endpoint.": {
+    "description": "SettingsDescription.ts",
+    "message": "Client ID for authenticating against the introspection endpoint."
+  },
   "Client ID": {
     "description": "administration/providers/ProviderForm.tsx, azure/provider/AzureForm.tsx",
     "message": "Client ID"
@@ -2206,6 +2210,10 @@
   "Client project": {
     "description": "marketplace/resources/details/utils.tsx, marketplace/resources/usage/ResourceMetaInfo.tsx, marketplace/resources/usage/ResourceUsageForm.tsx, reporting/resource-usage/ResourceUsageList.tsx, reporting/resource-usage/UserUsageList.tsx",
     "message": "Client project"
+  },
+  "Client secret for authenticating against the introspection endpoint.": {
+    "description": "SettingsDescription.ts",
+    "message": "Client secret for authenticating against the introspection endpoint."
   },
   "Client secret": {
     "description": "administration/providers/ProviderForm.tsx, azure/provider/AzureForm.tsx",
@@ -4671,6 +4679,10 @@
     "description": "marketplace/offerings/update/overview/OverviewSection.tsx",
     "message": "Field is synchronised from the remote offering"
   },
+  "Field name from the introspection response to identify the user (e.g., 'username', 'email', 'client_id').": {
+    "description": "SettingsDescription.ts",
+    "message": "Field name from the introspection response to identify the user (e.g., 'username', 'email', 'client_id')."
+  },
   "Field": {
     "description": "marketplace-remote/ProjectUpdateRequestExpandable.tsx",
     "message": "Field"
@@ -4838,6 +4850,10 @@
   "Floating IP": {
     "description": "openstack/OpenStackExternalIpsField.tsx, openstack/openstack-floating-ips/FloatingIpsList.tsx, openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx, resource/summary/VirtualMachineSummary.tsx",
     "message": "Floating IP"
+  },
+  "Floating IPs removal has been scheduled.": {
+    "description": "openstack/openstack-floating-ips/DestroyBulkFloatingIpsAction.tsx",
+    "message": "Floating IPs removal has been scheduled."
   },
   "Floating IPs update has been scheduled.": {
     "description": "openstack/openstack-instance/actions/update-floating-ips/utils.tsx",
@@ -7571,6 +7587,10 @@
     "description": "reporting/openstack/FlavorsList.tsx, reporting/openstack/ImagesList.tsx",
     "message": "Number of running instances"
   },
+  "Number of seconds to cache token introspection results.": {
+    "description": "SettingsDescription.ts",
+    "message": "Number of seconds to cache token introspection results."
+  },
   "Number of server nodes": {
     "description": "rancher/cluster/create/RancherClusterCheckoutSummary.tsx",
     "message": "Number of server nodes"
@@ -7590,6 +7610,14 @@
   "OECD code must be a number.": {
     "description": "project/import/Step4UploadFile.tsx",
     "message": "OECD code must be a number."
+  },
+  "OIDC auth settings": {
+    "description": "SettingsDescription.ts",
+    "message": "OIDC auth settings"
+  },
+  "OIDC introspection endpoint URL for validating access tokens.": {
+    "description": "SettingsDescription.ts",
+    "message": "OIDC introspection endpoint URL for validating access tokens."
   },
   "OK": {
     "description": "administration/providers/ProviderDetailsDialog.tsx, administration/providers/ProviderUsersDialog.tsx, marketplace/resources/list/ResourceStateFilter.tsx, project/import/Step5PreviewAndImport.tsx, user/support/DangerActionDialog.tsx",
@@ -10003,6 +10031,14 @@
     "description": "openstack/openstack-tenant/RemoveRouterButton.tsx",
     "message": "Remove router"
   },
+  "Remove selected floating IPs": {
+    "description": "openstack/openstack-floating-ips/DestroyBulkFloatingIpsAction.tsx",
+    "message": "Remove selected floating IPs"
+  },
+  "Remove selected security groups": {
+    "description": "openstack/openstack-security-groups/DestroyBulkSecurityGroupsAction.tsx",
+    "message": "Remove selected security groups"
+  },
   "Remove selected users from the organization: {customerName}": {
     "description": "customer/team/UsersBulkRemoveButton.tsx",
     "message": "Remove selected users from the organization: {customerName}"
@@ -10012,7 +10048,7 @@
     "message": "Remove selected users from the project: {projectName}"
   },
   "Remove": {
-    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerManageContainer.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, customer/team/UsersBulkRemoveButton.tsx, form/DateField.tsx, form/WideImageField.tsx, invoices/details/InvoiceItemDelete.tsx, issues/comments/CommentActions.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/offerings/RemoveButton.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/update/ImageUploadField.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx, openstack/openstack-subnet/AllocationPoolsField.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, openstack/openstack-tenant/IpAddressList.tsx, openstack/openstack-tenant/RemoveRouterButton.tsx, openstack/openstack-tenant/RemoveRouterInterfaceButton.tsx, openstack/openstack-tenant/StaticRoutesTable.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, project/ProjectManageContainer.tsx, project/team/ProjectUsersBulkRemoveButton.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestItemActions.tsx, proposals/review/ReviewDeleteAction.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/documents/RemoveDocumentButton.tsx, rancher/cluster/team/KeycloakMembershipBulkRemoveAction.tsx, rancher/cluster/team/KeycloakMembershipRowActions.tsx, user/hooks/HookRemoveButton.tsx, user/keys/KeyRemoveButton.tsx",
+    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerManageContainer.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, customer/team/UsersBulkRemoveButton.tsx, form/DateField.tsx, form/WideImageField.tsx, invoices/details/InvoiceItemDelete.tsx, issues/comments/CommentActions.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/offerings/RemoveButton.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/update/ImageUploadField.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, openstack/openstack-floating-ips/DestroyBulkFloatingIpsAction.tsx, openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx, openstack/openstack-security-groups/DestroyBulkSecurityGroupsAction.tsx, openstack/openstack-subnet/AllocationPoolsField.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, openstack/openstack-tenant/IpAddressList.tsx, openstack/openstack-tenant/RemoveRouterButton.tsx, openstack/openstack-tenant/RemoveRouterInterfaceButton.tsx, openstack/openstack-tenant/StaticRoutesTable.tsx, openstack/openstack-tenant/actions/SubnetsTable.tsx, openstack/openstack-tenant/actions/VolumeTypesTable.tsx, project/ProjectManageContainer.tsx, project/team/ProjectUsersBulkRemoveButton.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestItemActions.tsx, proposals/review/ReviewDeleteAction.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/documents/RemoveDocumentButton.tsx, rancher/cluster/team/KeycloakMembershipBulkRemoveAction.tsx, rancher/cluster/team/KeycloakMembershipRowActions.tsx, user/hooks/HookRemoveButton.tsx, user/keys/KeyRemoveButton.tsx",
     "message": "Remove"
   },
   "Removed organizations cannot be restored!": {
@@ -11142,6 +11178,10 @@
   "Security groups details": {
     "description": "openstack/openstack-instance/OpenStackSecurityGroupsList.tsx, openstack/openstack-security-groups/OpenStackSecurityGroupsDialog.tsx",
     "message": "Security groups details"
+  },
+  "Security groups have been removed from resource successfully.": {
+    "description": "openstack/openstack-security-groups/DestroyBulkSecurityGroupsAction.tsx",
+    "message": "Security groups have been removed from resource successfully."
   },
   "Security groups": {
     "description": "marketplace/resources/details/fetchData.tsx, openstack/openstack-backup/actions/BackupRestoreDialog.tsx, openstack/openstack-instance/OpenStackInstanceSummary.tsx, openstack/openstack-instance/OpenstackInstanceDetails.tsx, openstack/openstack-instance/actions/update-security-groups/UpdateSecurityGroupsForm.tsx, openstack/openstack-instance/deploy/FormSecurityGroupsField.tsx, openstack/openstack-instance/tabs.ts, openstack/openstack-security-groups/SecurityGroupsList.tsx, openstack/openstack-tenant/OpenstackPortSummary.tsx, openstack/openstack-tenant/tabs.ts, rancher/cluster/ClusterSecurityGroupsList.tsx, rancher/cluster/create/FormRancherSecurityGroupsStep.tsx, rancher/cluster/create/steps.ts",
@@ -12751,6 +12791,10 @@
     "description": "user/support/UserEditRows.tsx",
     "message": "The date the user has joined"
   },
+  "The default security group cannot be deleted.": {
+    "description": "openstack/openstack-security-groups/DestroyBulkSecurityGroupsAction.tsx",
+    "message": "The default security group cannot be deleted."
+  },
   "The endpoint for endpoint discovery.": {
     "description": "administration/providers/ProviderForm.tsx",
     "message": "The endpoint for endpoint discovery."
@@ -14207,6 +14251,10 @@
     "description": "marketplace/offerings/update/endpoints/DeleteEndpointButton.tsx",
     "message": "Unable to remove endpoint."
   },
+  "Unable to remove floating IPs from resource.": {
+    "description": "openstack/openstack-floating-ips/DestroyBulkFloatingIpsAction.tsx",
+    "message": "Unable to remove floating IPs from resource."
+  },
   "Unable to remove hook.": {
     "description": "user/hooks/HookRemoveButton.tsx",
     "message": "Unable to remove hook."
@@ -14242,6 +14290,10 @@
   "Unable to remove router.": {
     "description": "openstack/openstack-tenant/RemoveRouterButton.tsx",
     "message": "Unable to remove router."
+  },
+  "Unable to remove security groups from resource.": {
+    "description": "openstack/openstack-security-groups/DestroyBulkSecurityGroupsAction.tsx",
+    "message": "Unable to remove security groups from resource."
   },
   "Unable to remove the filter.": {
     "description": "table/SavedFilterSelect.tsx",
@@ -15906,6 +15958,14 @@
   "You are about to delete {connection} synchronisation. This action cannot be undone.": {
     "description": "administration/remote-offering-sync/RemoteSyncDeleteAction.tsx",
     "message": "You are about to delete {connection} synchronisation. This action cannot be undone."
+  },
+  "You are about to remove these floating IPs from the resource.": {
+    "description": "openstack/openstack-floating-ips/DestroyBulkFloatingIpsAction.tsx",
+    "message": "You are about to remove these floating IPs from the resource."
+  },
+  "You are about to remove these security groups from the resource.": {
+    "description": "openstack/openstack-security-groups/DestroyBulkSecurityGroupsAction.tsx",
+    "message": "You are about to remove these security groups from the resource."
   },
   "You are about to remove these users from the organization. Once removed, they'll immediately lose access and all associated permissions.": {
     "description": "customer/team/UsersBulkRemoveButton.tsx",
