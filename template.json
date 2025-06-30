@@ -576,7 +576,7 @@
     "message": "Address"
   },
   "Admin password": {
-    "description": "azure/sql/AzureSQLServerDetails.tsx, azure/vm/AzureVirtualMachineDetails.tsx, azure/vm/AzureVirtualMachineSummary.tsx",
+    "description": "azure/common/AzureCredentials.tsx, azure/vm/AzureVirtualMachineSummary.tsx",
     "message": "Admin password"
   },
   "Admin state": {
@@ -584,7 +584,7 @@
     "message": "Admin state"
   },
   "Admin username": {
-    "description": "azure/sql/AzureSQLServerDetails.tsx, azure/vm/AzureVirtualMachineDetails.tsx, azure/vm/AzureVirtualMachineSummary.tsx",
+    "description": "azure/common/AzureCredentials.tsx, azure/vm/AzureVirtualMachineSummary.tsx",
     "message": "Admin username"
   },
   "Administration": {
