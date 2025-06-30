@@ -1149,11 +1149,6 @@
   dependencies:
     "@hapi/hoek" "^9.0.0"
 
-"@hey-api/client-fetch@^0.8.3":
-  version "0.8.4"
-  resolved "https://registry.yarnpkg.com/@hey-api/client-fetch/-/client-fetch-0.8.4.tgz#2dc2d368b4dd2137789f46adcae68ccd04ea2adb"
-  integrity sha512-SWtUjVEFIUdiJGR2NiuF0njsSrSdTe7WHWkp3BLH3DEl2bRhiflOnBo29NSDdrY90hjtTQiTQkBxUgGOF29Xzg==
-
 "@humanfs/core@^0.19.1":
   version "0.19.1"
   resolved "https://registry.yarnpkg.com/@humanfs/core/-/core-0.19.1.tgz#17c55ca7d426733fe3c561906b8173c336b40a77"
@@ -10947,12 +10942,10 @@ wait-on@8.0.3:
     minimist "^1.2.8"
     rxjs "^7.8.2"
 
-waldur-js-client@^1.0.4-dev.98:
-  version "1.0.4-dev.98"
-  resolved "https://registry.yarnpkg.com/waldur-js-client/-/waldur-js-client-1.0.4-dev.98.tgz#32f1e87166beab8daf7b1558c8cdf2bd2c344a67"
-  integrity sha512-te8FZQaQfNfxSWhFbolfRrO4Nw4waGACGq4mrKANWDhZ1QdO8v1DKEHz9hB1u3sA0FREn08MBx29r3vC2Ecyog==
-  dependencies:
-    "@hey-api/client-fetch" "^0.8.3"
+waldur-js-client@^1.0.4-dev.104:
+  version "1.0.4-dev.104"
+  resolved "https://registry.yarnpkg.com/waldur-js-client/-/waldur-js-client-1.0.4-dev.104.tgz#95de831f7aeb20d13a01bf11a5517fe1f13275b3"
+  integrity sha512-loj4uBly8pWqCgt0XPhJI7P0czm2rorpmyNY+p2Wfi62vz8ATqEX5x2qZnr4Dt80jpF2Pl5cUwL0iEXMxkqbYA==
 
 walk-up-path@^4.0.0:
   version "4.0.0"
