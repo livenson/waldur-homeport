@@ -10907,6 +10907,10 @@
     "description": "proposals/details/CallRoundsList.tsx, proposals/details/PublicCallDetailsContainer.tsx, proposals/round/RoundUIView.tsx, proposals/update/CallUpdateContainer.tsx, proposals/update/rounds/CallRoundsList.tsx",
     "message": "Rounds"
   },
+  "Router IPs": {
+    "description": "rancher/cluster/dashboard/ClusterSummary.tsx",
+    "message": "Router IPs"
+  },
   "Router interface was added.": {
     "description": "openstack/openstack-tenant/AddRouterInterfaceDialog.tsx",
     "message": "Router interface was added."

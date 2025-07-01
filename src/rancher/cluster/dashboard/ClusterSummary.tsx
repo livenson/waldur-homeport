@@ -38,6 +38,14 @@ export const ClusterSummary: FC<{
         />
         <Field
           className="mb-2"
+          label={translate('Router IPs')}
+          value={resourceScope?.router_ips.join(',') || 'N/A'}
+          hasCopy={Boolean(resourceScope?.router_ips?.length)}
+          labelCol={6}
+          valueCol={6}
+        />
+        <Field
+          className="mb-2"
           label={translate('Longhorn')}
           labelCol={6}
           valueCol={6}
