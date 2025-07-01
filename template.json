@@ -1347,6 +1347,10 @@
     "description": "rancher/catalog/CatalogDeleteButton.tsx",
     "message": "Are you sure you would like to delete Rancher catalog {catalog}?"
   },
+  "Are you sure you would like to delete broadcast {broadcast}?": {
+    "description": "broadcasts/BroadcastDeleteButton.tsx",
+    "message": "Are you sure you would like to delete broadcast {broadcast}?"
+  },
   "Are you sure you would like to delete project {projectName}?": {
     "description": "project/useProjectDelete.tsx",
     "message": "Are you sure you would like to delete project {projectName}?"
@@ -1778,6 +1782,10 @@
   "Brief description of the project.": {
     "description": "proposals/proposal/create/ProjectDetailsStep.tsx, proposals/proposal/create/ProjectDetailsSummary.tsx",
     "message": "Brief description of the project."
+  },
+  "Broadcast has been deleted.": {
+    "description": "broadcasts/BroadcastDeleteButton.tsx",
+    "message": "Broadcast has been deleted."
   },
   "Broadcast has been save as a template.": {
     "description": "broadcasts/BroadcastSaveAsTemplateDialog.tsx",
@@ -3335,6 +3343,10 @@
     "description": "invitations/MultiDeleteAction.tsx",
     "message": "Delete all selected invitations."
   },
+  "Delete broadcast": {
+    "description": "broadcasts/BroadcastDeleteButton.tsx",
+    "message": "Delete broadcast"
+  },
   "Delete catalog": {
     "description": "rancher/catalog/CatalogDeleteButton.tsx",
     "message": "Delete catalog"
@@ -3428,7 +3440,7 @@
     "message": "Delete workload"
   },
   "Delete": {
-    "description": "administration/agreements/UserAgreementDeleteButton.tsx, administration/remote-offering-sync/RemoteSyncDeleteAction.tsx, customer/credits/DeleteCreditButton.tsx, customer/credits/ProjectDeleteCreditButton.tsx, customer/details/CustomerRemoveDialog.tsx, customer/payment-profiles/PaymentProfileDeleteButton.tsx, customer/payments/DeletePaymentButton.tsx, customer/service-accounts/ServiceAccountDeleteAction.tsx, invitations/InvitationDeleteButton.tsx, invitations/MultiDeleteAction.tsx, marketplace/offerings/images/DeleteImageButton.tsx, marketplace/offerings/list/DeleteOfferingButton.tsx, marketplace/offerings/list/OfferingActions.test.tsx, marketplace/offerings/update/components/DeleteComponentButton.tsx, marketplace/offerings/update/endpoints/DeleteEndpointButton.tsx, marketplace/offerings/update/options/DeleteOptionButton.tsx, marketplace/offerings/update/roles/DeleteRoleButton.tsx, marketplace/resources/users/DeleteUserButton.tsx, marketplace/service-providers/ProviderOfferingUserDeleteButton.tsx, modal/DeleteConfirmationDialog.tsx, openstack/openstack-backup/actions/NetworksList.tsx, openstack/openstack-instance/actions/update-floating-ips/FloatingIpRow.tsx, openstack/openstack-security-groups/rule-editor/ActionsField.tsx, project/DeleteAction.tsx, project/manage/ProjectDelete.tsx, rancher/catalog/CatalogDeleteButton.tsx, rancher/cluster/WorkloadActions.tsx, resource/actions/ResourceDeleteButton.tsx, user/support/DangerActionDialog.tsx, user/support/UserDelete.tsx",
+    "description": "administration/agreements/UserAgreementDeleteButton.tsx, administration/remote-offering-sync/RemoteSyncDeleteAction.tsx, broadcasts/BroadcastDeleteButton.tsx, customer/credits/DeleteCreditButton.tsx, customer/credits/ProjectDeleteCreditButton.tsx, customer/details/CustomerRemoveDialog.tsx, customer/payment-profiles/PaymentProfileDeleteButton.tsx, customer/payments/DeletePaymentButton.tsx, customer/service-accounts/ServiceAccountDeleteAction.tsx, invitations/InvitationDeleteButton.tsx, invitations/MultiDeleteAction.tsx, marketplace/offerings/images/DeleteImageButton.tsx, marketplace/offerings/list/DeleteOfferingButton.tsx, marketplace/offerings/list/OfferingActions.test.tsx, marketplace/offerings/update/components/DeleteComponentButton.tsx, marketplace/offerings/update/endpoints/DeleteEndpointButton.tsx, marketplace/offerings/update/options/DeleteOptionButton.tsx, marketplace/offerings/update/roles/DeleteRoleButton.tsx, marketplace/resources/users/DeleteUserButton.tsx, marketplace/service-providers/ProviderOfferingUserDeleteButton.tsx, modal/DeleteConfirmationDialog.tsx, openstack/openstack-backup/actions/NetworksList.tsx, openstack/openstack-instance/actions/update-floating-ips/FloatingIpRow.tsx, openstack/openstack-security-groups/rule-editor/ActionsField.tsx, project/DeleteAction.tsx, project/manage/ProjectDelete.tsx, rancher/catalog/CatalogDeleteButton.tsx, rancher/cluster/WorkloadActions.tsx, resource/actions/ResourceDeleteButton.tsx, user/support/DangerActionDialog.tsx, user/support/UserDelete.tsx",
     "message": "Delete"
   },
   "Deleting PostgreSQL server will cause deletion of all databases created within server.": {
@@ -13738,6 +13750,10 @@
   "Unable to delete attachment.": {
     "description": "issues/attachments/effects.ts",
     "message": "Unable to delete attachment."
+  },
+  "Unable to delete broadcast.": {
+    "description": "broadcasts/BroadcastDeleteButton.tsx",
+    "message": "Unable to delete broadcast."
   },
   "Unable to delete catalog.": {
     "description": "rancher/catalog/CatalogDeleteButton.tsx",
