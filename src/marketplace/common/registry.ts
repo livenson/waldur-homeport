@@ -13,7 +13,7 @@ import {
   ManagedRancherOffering,
   RancherOffering,
 } from '@waldur/rancher/cluster/create/marketplace';
-import { SlurmOffering, SlurmRemoteOffering } from '@waldur/slurm/marketplace';
+import { SlurmOffering, SiteAgentOffering } from '@waldur/slurm/marketplace';
 import { BasicOffering, SupportOffering } from '@waldur/support/marketplace';
 import { vmWareOffering } from '@waldur/vmware/marketplace';
 
@@ -212,7 +212,7 @@ registerOfferingType(OpenStackVolumeOffering);
 registerOfferingType(RancherOffering);
 registerOfferingType(ManagedRancherOffering);
 registerOfferingType(SlurmOffering);
-registerOfferingType(SlurmRemoteOffering);
+registerOfferingType(SiteAgentOffering);
 registerOfferingType(SupportOffering);
 registerOfferingType(BasicOffering);
 registerOfferingType(vmWareOffering);
