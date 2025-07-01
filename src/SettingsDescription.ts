@@ -835,6 +835,12 @@ export const SettingsDescription = [
     description: translate('OIDC auth settings'),
     items: [
       {
+        key: 'OIDC_AUTH_URL',
+        description: translate('OIDC authentication endpoint URL.'),
+        default: '',
+        type: 'string',
+      },
+      {
         key: 'OIDC_INTROSPECTION_URL',
         description: translate('OIDC introspection endpoint URL for validating access tokens.'),
         default: '',
