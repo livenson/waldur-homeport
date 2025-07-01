@@ -7652,7 +7652,7 @@
     "message": "Offering LEXIS link options have been updated successfully."
   },
   "Offering UUID": {
-    "description": "marketplace/orders/details/OrderMetadataTab.tsx, slurm/SlurmForm.tsx",
+    "description": "marketplace/orders/details/OrderMetadataTab.tsx",
     "message": "Offering UUID"
   },
   "Offering billable?": {
@@ -15858,10 +15858,6 @@
   "Waiting for support": {
     "description": "issues/list/IssuesFilter.tsx",
     "message": "Waiting for support"
-  },
-  "Waldur API URL": {
-    "description": "slurm/SlurmForm.tsx",
-    "message": "Waldur API URL"
   },
   "Waldur deployment settings": {
     "description": "features/FeaturesDescription.ts",
