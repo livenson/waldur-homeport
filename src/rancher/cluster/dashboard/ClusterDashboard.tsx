@@ -20,13 +20,13 @@ export const ClusterDashboard: FC<{
         </Card.Body>
       </Card>
 
-      <Card className="card-bordered">
-        <Card.Body>
-          {showExperimentalUiComponents && (
+      {showExperimentalUiComponents && (
+        <Card className="card-bordered">
+          <Card.Body>
             <ClusterStatistics resourceScope={resourceScope} />
-          )}
-        </Card.Body>
-      </Card>
+          </Card.Body>
+        </Card>
+      )}
     </>
   );
 };

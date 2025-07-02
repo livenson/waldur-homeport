@@ -20,30 +20,34 @@ export const ClusterSummary: FC<{
           labelCol={6}
           valueCol={6}
         />
-        <Field
-          className="mb-2"
-          label={translate('Load balancer IPs')}
-          value={
-            resourceScope?.public_ips
-              .map((item) =>
-                item.external_ip_address
-                  ? `${item.ip_address}/${item.external_ip_address}`
-                  : item.ip_address,
-              )
-              .join(',') || 'N/A'
-          }
-          hasCopy={Boolean(resourceScope?.public_ips?.length)}
-          labelCol={6}
-          valueCol={6}
-        />
-        <Field
-          className="mb-2"
-          label={translate('Router IPs')}
-          value={resourceScope?.router_ips.join(',') || 'N/A'}
-          hasCopy={Boolean(resourceScope?.router_ips?.length)}
-          labelCol={6}
-          valueCol={6}
-        />
+        {resourceScope?.public_ips?.length > 0 && (
+          <Field
+            className="mb-2"
+            label={translate('Load balancer IPs')}
+            value={
+              resourceScope?.public_ips
+                .map((item) =>
+                  item.external_ip_address
+                    ? `${item.ip_address}/${item.external_ip_address}`
+                    : item.ip_address,
+                )
+                .join(',') || 'N/A'
+            }
+            hasCopy={Boolean(resourceScope?.public_ips?.length)}
+            labelCol={6}
+            valueCol={6}
+          />
+        )}
+        {resourceScope?.router_ips?.length > 0 && (
+          <Field
+            className="mb-2"
+            label={translate('Router IPs')}
+            value={resourceScope?.router_ips.join(',') || 'N/A'}
+            hasCopy={Boolean(resourceScope?.router_ips?.length)}
+            labelCol={6}
+            valueCol={6}
+          />
+        )}
         <Field
           className="mb-2"
           label={translate('Longhorn')}
