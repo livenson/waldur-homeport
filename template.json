@@ -10655,9 +10655,9 @@
     "description": "marketplace/service-providers/RestrictOfferingUser.tsx",
     "message": "Restriction status has been updated."
   },
-  "Restroing": {
+  "Restoring": {
     "description": "resource/state/constants.ts",
-    "message": "Restroing"
+    "message": "Restoring"
   },
   "Result of last run": {
     "description": "administration/remote-offering-sync/RemoteSyncLastRunResultsAction.tsx",
