@@ -7627,6 +7627,10 @@
     "description": "SettingsDescription.ts",
     "message": "OIDC auth settings"
   },
+  "OIDC authentication endpoint URL.": {
+    "description": "SettingsDescription.ts",
+    "message": "OIDC authentication endpoint URL."
+  },
   "OIDC introspection endpoint URL for validating access tokens.": {
     "description": "SettingsDescription.ts",
     "message": "OIDC introspection endpoint URL for validating access tokens."
