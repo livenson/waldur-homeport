@@ -556,7 +556,7 @@
     "message": "Additional account description invisible to user"
   },
   "Additional configuration": {
-    "description": "proposals/proposal/create/resource-requests-step/ResourceRequestFormDialog.tsx, rancher/cluster/create/managed-steps.ts, support/deploy-steps.ts",
+    "description": "marketplace/deploy/steps/constants.ts, proposals/proposal/create/resource-requests-step/ResourceRequestFormDialog.tsx",
     "message": "Additional configuration"
   },
   "Additional quotas": {
