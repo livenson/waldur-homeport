@@ -35,13 +35,19 @@ These steps outline the process of generating the TypeScript SDK from the Waldur
     cp waldur-typescript-sdk ../js-client/src
     ```
 
-3. **Linking a local version of the Waldur SDK with Yarn.**
+3. **Building a local version of the Waldur SDK with Yarn.**
+    In the `js-client` directory, run:
+    ```bash
+    yarn build
+    ```
+
+4. **Linking a local version of the Waldur SDK with Yarn.**
     In the `js-client` directory, run:
     ```bash
     yarn link
     ```
 
-4. **Enable locally installed Waldur SDK in Waldur HomePort.**
+5. **Enable locally installed Waldur SDK in Waldur HomePort.**
     This command will symlink your local Waldur SDK into Waldur HomePort for development and testing. In `waldur-homeport` directory, run:
     ```bash
     yarn link waldur-js-client
