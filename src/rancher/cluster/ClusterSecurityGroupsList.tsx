@@ -36,7 +36,7 @@ export const ClusterSecurityGroupsList: FunctionComponent<{
         // ManagedRancher marketplace resource scope is a Rancher marketplace resource
         // and not a Rancher cluster directly because of uniqueness constraint.
         // We need to use resource_uuid from the scope to filter security groups.
-        cluster_uuid: resourceScope.resource_uuid,
+        cluster_uuid: resourceScope.resource_uuid || resourceScope.uuid,
       }) satisfies RancherClusterSecurityGroupsListData['query'],
     [resourceScope],
   );

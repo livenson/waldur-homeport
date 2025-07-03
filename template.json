@@ -1299,10 +1299,6 @@
     "description": "proposals/proposal/create-review/ProposalReviewCreatePage.tsx",
     "message": "Are you sure you want to submit this review for the {name} proposal?"
   },
-  "Are you sure you want to synchronise project team members? User roles will be synced with the backend.": {
-    "description": "project/team/SyncMembersButton.tsx",
-    "message": "Are you sure you want to synchronise project team members? User roles will be synced with the backend."
-  },
   "Are you sure you want to synchronise {count} resources?": {
     "description": "marketplace/resources/mass-actions/MultiPullAction.tsx",
     "message": "Are you sure you want to synchronise {count} resources?"
@@ -13250,6 +13246,10 @@
   "This action will disable account access": {
     "description": "user/support/UserStatus.tsx",
     "message": "This action will disable account access"
+  },
+  "This action will send an event requesting to synchronise membership information to all Waldur site agents connected with resources in this project.": {
+    "description": "project/team/SyncMembersButton.tsx",
+    "message": "This action will send an event requesting to synchronise membership information to all Waldur site agents connected with resources in this project."
   },
   "This field is only editable when startup script is enabled.": {
     "description": "openstack/openstack-instance/deploy/FormStartupScriptStep.tsx",
