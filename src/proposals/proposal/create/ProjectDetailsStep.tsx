@@ -171,7 +171,9 @@ export const ProjectDetailsStep = (props: VStepperFormStepProps) => {
           'Expected project duration in days once resources have been granted. {extra_msg}',
           {
             extra_msg: call?.fixed_duration_in_days
-              ? `This field set automatically based on the call's fixed duration.`
+              ? translate(
+                  "This field set automatically based on the call's fixed duration.",
+                )
               : '',
           },
         )}
