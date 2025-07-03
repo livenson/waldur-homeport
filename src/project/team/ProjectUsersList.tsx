@@ -22,6 +22,7 @@ import { ProjectPermisionActions } from './ProjectPermisionActions';
 import { ProjectPermissionsLogButton } from './ProjectPermissionsLogButton';
 import { ProjectUsersBulkRemoveButton } from './ProjectUsersBulkRemoveButton';
 import { ProjectUsersListFilter } from './ProjectUsersListFilter';
+import { SyncMembersButton } from './SyncMembersButton';
 import { TeamDropdownActions } from './TeamDropdownActions';
 
 const mandatoryFields = [
@@ -33,7 +34,6 @@ const mandatoryFields = [
   'role_name',
   'user_username',
 ];
-
 const mapStateToFilter = createSelector(
   getFormValues(PROJECT_USERS_LIST_FILTER_FORM_ID),
   (filterValues: any) => {
@@ -119,6 +119,16 @@ export const ProjectUsersList = ({
       hasQuery={true}
       tableActions={
         <>
+          <SyncMembersButton
+            project={
+              project ||
+              ({
+                uuid: projectUuid,
+                customer_uuid: customerUuid,
+              } as any)
+            }
+            refetch={tableProps.fetch}
+          />
           <ProjectPermissionsLogButton projectId={projectUuid} />
           <TeamDropdownActions
             project={
