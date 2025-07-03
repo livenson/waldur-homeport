@@ -39,7 +39,7 @@ export const ProjectDashboard: FunctionComponent<{}> = () => {
     staleTime: 5 * 60 * 1000,
   });
 
-  const { callback, canInvite } = useCreateInvitation({
+  const { callback, canInvite, loadingProjects } = useCreateInvitation({
     project: project,
     roleTypes: ['project'],
   });
@@ -124,6 +124,7 @@ export const ProjectDashboard: FunctionComponent<{}> = () => {
             onBadgeClick={goToUsers}
             onAddClick={callback}
             showAdd={canInvite}
+            loadingAdd={loadingProjects}
             className="h-100"
             nameKey="user_full_name"
             emailKey="user_email"
