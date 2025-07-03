@@ -114,7 +114,7 @@
   }
   &.form-check-custom {
     align-items: start;
-    justify-content: end;
+    display: inline-flex;
   }
   &.form-check-solid {
     .form-check-input {
