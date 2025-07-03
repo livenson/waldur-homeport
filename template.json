@@ -13163,6 +13163,10 @@
     "description": "core/validators.ts, customer/cost-policies/CostPolicyForm.tsx",
     "message": "This field is required."
   },
+  "This field set automatically based on the call's fixed duration.": {
+    "description": "proposals/proposal/create/ProjectDetailsStep.tsx",
+    "message": "This field set automatically based on the call's fixed duration."
+  },
   "This message will be sent on {date}.": {
     "description": "broadcasts/BroadcastFooter.tsx",
     "message": "This message will be sent on {date}."
