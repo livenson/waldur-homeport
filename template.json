@@ -2488,7 +2488,7 @@
     "message": "Confirmation notification template"
   },
   "Confirmation": {
-    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, broadcasts/BroadcastSendButton.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerCallManagerPanel.tsx, customer/details/CustomerLocationRow.tsx, customer/payment-profiles/PaymentProfileDeleteButton.tsx, customer/payments/DeletePaymentButton.tsx, customer/service-accounts/ServiceAccountDeleteAction.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, invoices/details/InvoiceItemDelete.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/ColumnRow.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/deploy/DeployForm.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/images/DeleteImageButton.tsx, marketplace/offerings/update/components/DeleteComponentButton.tsx, marketplace/offerings/update/endpoints/DeleteEndpointButton.tsx, marketplace/offerings/update/options/DeleteOptionButton.tsx, marketplace/offerings/update/plans/ArchivePlanButton.tsx, marketplace/offerings/update/roles/DeleteRoleButton.tsx, marketplace/orders/actions/OrderUnlinkButton.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, marketplace/resources/resource-pending/OrderErredView.tsx, marketplace/resources/users/DeleteUserButton.tsx, marketplace/service-providers/OfferingPermissionRemoveButton.tsx, marketplace/service-providers/RestrictOfferingUser.tsx, openstack/openstack-security-groups/UnlinkSecurityGroupAction.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, openstack/openstack-tenant/actions/ActivatePortAction.tsx, openstack/openstack-tenant/actions/TogglePortSecurityAction.tsx, openstack/openstack-tenant/actions/UnlinkPortAction.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/create/ProposalSubmissionStep.tsx, proposals/proposal/create/utils.ts, proposals/review/ReviewDeleteAction.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/CallActions.tsx, proposals/update/documents/RemoveDocumentButton.tsx, rancher/cluster/create/FormNodesStep.tsx, rancher/cluster/team/KeycloakMembershipRowActions.tsx, resource/actions/AsyncActionButton.tsx, resource/actions/AsyncActionItem.tsx, resource/actions/ResourceDeleteButton.tsx, user/support/UserDelete.tsx, user/support/UserStatus.tsx",
+    "description": "administration/TokenDeleteButton.tsx, administration/announcements/AnnouncementDeleteAction.tsx, administration/organizations/OrganizationGroupDeleteButton.tsx, administration/roles/RoleDeleteButton.tsx, administration/service-desk/issue-templates/IssueTemplateDeleteAction.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, broadcasts/BroadcastSendButton.tsx, broadcasts/BroadcastTemplateDeleteButton.tsx, customer/cost-policies/CostPolicyDeleteButton.tsx, customer/details/AccessSubnetDeleteButton.tsx, customer/details/CustomerCallManagerPanel.tsx, customer/details/CustomerLocationRow.tsx, customer/payment-profiles/PaymentProfileDeleteButton.tsx, customer/payments/DeletePaymentButton.tsx, customer/service-accounts/ServiceAccountDeleteAction.tsx, customer/team/DeleteProjectUserButton.tsx, customer/team/UserRemoveButton.tsx, invoices/details/InvoiceItemDelete.tsx, marketplace/category/admin/CategoryDeleteAction.tsx, marketplace/category/admin/ColumnRow.tsx, marketplace/category/admin/GroupDeleteButton.tsx, marketplace/deploy/DeployForm.tsx, marketplace/offerings/details/policies/PolicyDeleteButton.tsx, marketplace/offerings/images/DeleteImageButton.tsx, marketplace/offerings/update/components/DeleteComponentButton.tsx, marketplace/offerings/update/endpoints/DeleteEndpointButton.tsx, marketplace/offerings/update/options/DeleteOptionButton.tsx, marketplace/offerings/update/plans/ArchivePlanButton.tsx, marketplace/offerings/update/roles/DeleteRoleButton.tsx, marketplace/orders/actions/OrderUnlinkButton.tsx, marketplace/resources/lexis/LexisLinkDeleteButton.tsx, marketplace/resources/resource-pending/OrderErredView.tsx, marketplace/resources/users/DeleteUserButton.tsx, marketplace/service-providers/OfferingPermissionRemoveButton.tsx, marketplace/service-providers/RestrictOfferingUser.tsx, openstack/openstack-security-groups/UnlinkSecurityGroupAction.tsx, openstack/openstack-tenant/DeleteMigrationAction.tsx, openstack/openstack-tenant/actions/ActivatePortAction.tsx, openstack/openstack-tenant/actions/TogglePortSecurityAction.tsx, openstack/openstack-tenant/actions/UnlinkPortAction.tsx, project/team/UserRemoveButton.tsx, proposals/details/CallOfferingDeleteButton.tsx, proposals/proposal/create/ProposalSubmissionStep.tsx, proposals/proposal/create/utils.ts, proposals/review/ReviewDeleteAction.tsx, proposals/team/UserRemoveButton.tsx, proposals/update/CallActions.tsx, proposals/update/documents/RemoveDocumentButton.tsx, proposals/update/general/EditGeneralInfoDialog.tsx, rancher/cluster/create/FormNodesStep.tsx, rancher/cluster/team/KeycloakMembershipRowActions.tsx, resource/actions/AsyncActionButton.tsx, resource/actions/AsyncActionItem.tsx, resource/actions/ResourceDeleteButton.tsx, user/support/UserDelete.tsx, user/support/UserStatus.tsx",
     "message": "Confirmation"
   },
   "Confirming that data is correct": {
@@ -3871,6 +3871,10 @@
     "description": "proposals/update/general/CallGeneralSection.tsx",
     "message": "Edit external URL"
   },
+  "Edit fixed duration for granted projects (in days)": {
+    "description": "proposals/update/general/CallGeneralSection.tsx",
+    "message": "Edit fixed duration for granted projects (in days)"
+  },
   "Edit item": {
     "description": "invoices/details/InvoiceItemUpdate.tsx",
     "message": "Edit item"
@@ -4535,8 +4539,12 @@
     "description": "customer/credits/CreditExpandableRow.tsx",
     "message": "Expected consumption"
   },
+  "Expected project duration in days once resources have been granted. {extra_msg}": {
+    "description": "proposals/proposal/create/ProjectDetailsStep.tsx",
+    "message": "Expected project duration in days once resources have been granted. {extra_msg}"
+  },
   "Expected project duration in days once resources have been granted.": {
-    "description": "proposals/proposal/create/ProjectDetailsStep.tsx, proposals/proposal/create/ProjectDetailsSummary.tsx",
+    "description": "proposals/proposal/create/ProjectDetailsSummary.tsx",
     "message": "Expected project duration in days once resources have been granted."
   },
   "Expiration time": {
@@ -4806,6 +4814,10 @@
   "Fixed date": {
     "description": "proposals/utils.ts",
     "message": "Fixed date"
+  },
+  "Fixed duration for granted projects (in days)": {
+    "description": "proposals/update/general/CallGeneralSection.tsx, proposals/update/general/EditGeneralInfoDialog.tsx",
+    "message": "Fixed duration for granted projects (in days)"
   },
   "Fixed price": {
     "description": "marketplace/offerings/update/components/ComponentAccountingTypeField.tsx",
@@ -10631,6 +10643,10 @@
     "description": "openstack/openstack-backup/actions/RestoreAction.tsx, openstack/openstack-snapshot/RestoreSnapshotAction.tsx",
     "message": "Restore"
   },
+  "Restoring": {
+    "description": "resource/state/constants.ts",
+    "message": "Restoring"
+  },
   "Restrict member access": {
     "description": "marketplace/resources/details/utils.tsx, marketplace/resources/list/CategoryResourcesList.tsx, marketplace/resources/list/ProviderResourcesList.tsx, marketplace/resources/list/utils.tsx",
     "message": "Restrict member access"
@@ -10654,10 +10670,6 @@
   "Restriction status has been updated.": {
     "description": "marketplace/service-providers/RestrictOfferingUser.tsx",
     "message": "Restriction status has been updated."
-  },
-  "Restoring": {
-    "description": "resource/state/constants.ts",
-    "message": "Restoring"
   },
   "Result of last run": {
     "description": "administration/remote-offering-sync/RemoteSyncLastRunResultsAction.tsx",
@@ -13190,6 +13202,10 @@
   "This value is invalid JSON.": {
     "description": "resource/actions/ResourceActionDialog.tsx",
     "message": "This value is invalid JSON."
+  },
+  "This will also update durations of connected proposals in Draft or In Review states. Continue?": {
+    "description": "proposals/update/general/EditGeneralInfoDialog.tsx",
+    "message": "This will also update durations of connected proposals in Draft or In Review states. Continue?"
   },
   "Thumbnail": {
     "description": "marketplace/offerings/images/OfferingImagesList.tsx",
