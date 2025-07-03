@@ -14111,6 +14111,10 @@
     "description": "marketplace/details/plan/PlanDetailsDialog.tsx",
     "message": "Unable to load plan details."
   },
+  "Unable to load project permissions": {
+    "description": "customer/workspace/fetchCustomer.tsx",
+    "message": "Unable to load project permissions"
+  },
   "Unable to load project types.": {
     "description": "project/create/TypeGroup.tsx",
     "message": "Unable to load project types."
