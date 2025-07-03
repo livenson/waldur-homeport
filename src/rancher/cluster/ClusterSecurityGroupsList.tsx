@@ -55,9 +55,11 @@ export const ClusterSecurityGroupsList: FunctionComponent<{
       expandableRow={SecurityGroupRulesList}
       rowActions={RowActions}
       tableActions={
-        <SetManagementSecurityGroupButton
-          clusterId={resourceScope.resource_uuid}
-        />
+        resourceScope.resource_uuid ? (
+          <SetManagementSecurityGroupButton
+            clusterId={resourceScope.resource_uuid}
+          />
+        ) : null
       }
     />
   );
