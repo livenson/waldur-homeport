@@ -1299,6 +1299,10 @@
     "description": "proposals/proposal/create-review/ProposalReviewCreatePage.tsx",
     "message": "Are you sure you want to submit this review for the {name} proposal?"
   },
+  "Are you sure you want to synchronise project team members? User roles will be synced with the backend.": {
+    "description": "project/team/SyncMembersButton.tsx",
+    "message": "Are you sure you want to synchronise project team members? User roles will be synced with the backend."
+  },
   "Are you sure you want to synchronise {count} resources?": {
     "description": "marketplace/resources/mass-actions/MultiPullAction.tsx",
     "message": "Are you sure you want to synchronise {count} resources?"
@@ -9339,6 +9343,10 @@
     "description": "rancher/cluster/team/AddResourceAccessDialog.tsx",
     "message": "Project member"
   },
+  "Project members have been synchronised successfully.": {
+    "description": "project/team/SyncMembersButton.tsx",
+    "message": "Project members have been synchronised successfully."
+  },
   "Project name is required.": {
     "description": "project/import/Step5PreviewAndImport.tsx",
     "message": "Project name is required."
@@ -12511,8 +12519,12 @@
     "description": "administration/remote-offering-sync/RemoteSyncSynchroniseAction.tsx",
     "message": "Synchronisation has been successful."
   },
+  "Synchronise members": {
+    "description": "project/team/SyncMembersButton.tsx",
+    "message": "Synchronise members"
+  },
   "Synchronise": {
-    "description": "administration/remote-offering-sync/RemoteSyncSynchroniseAction.tsx, marketplace/resources/actions/SyncResourceAction.tsx, marketplace/resources/mass-actions/MultiPullAction.tsx, openstack/openstack-tenant/actions/PullFloatingIpsAction.tsx, openstack/openstack-tenant/actions/PullSecurityGroupsAction.tsx, openstack/openstack-tenant/actions/PullServerGroupsAction.tsx, resource/actions/PullActionItem.tsx",
+    "description": "administration/remote-offering-sync/RemoteSyncSynchroniseAction.tsx, marketplace/resources/actions/SyncResourceAction.tsx, marketplace/resources/mass-actions/MultiPullAction.tsx, openstack/openstack-tenant/actions/PullFloatingIpsAction.tsx, openstack/openstack-tenant/actions/PullSecurityGroupsAction.tsx, openstack/openstack-tenant/actions/PullServerGroupsAction.tsx, project/team/SyncMembersButton.tsx, resource/actions/PullActionItem.tsx",
     "message": "Synchronise"
   },
   "Synchronize": {
@@ -14510,6 +14522,10 @@
   "Unable to sync Google Calendar.": {
     "description": "marketplace/offerings/update/integration/GoogleCalendarActions.tsx",
     "message": "Unable to sync Google Calendar."
+  },
+  "Unable to synchronise project members.": {
+    "description": "project/team/SyncMembersButton.tsx",
+    "message": "Unable to synchronise project members."
   },
   "Unable to synchronise resource.": {
     "description": "resource/actions/PullActionItem.tsx",
