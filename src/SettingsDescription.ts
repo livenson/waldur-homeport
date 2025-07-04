@@ -770,6 +770,12 @@ export const SettingsDescription = [
         default: '',
         type: 'string',
       },
+      {
+        key: 'DEACTIVATE_USER_IF_NO_ROLES',
+        description: translate('Deactivate user if all roles are revoked (except staff/support)'),
+        default: false,
+        type: 'boolean',
+      },
     ],
   },
   {
