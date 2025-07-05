@@ -1,6 +1,6 @@
 import { TrashIcon } from '@phosphor-icons/react';
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import { projectsDeleteUser } from 'waldur-js-client';
 
 import { formatJsxTemplate, translate } from '@waldur/i18n';
@@ -10,18 +10,14 @@ import { hasPermission } from '@waldur/permissions/hasPermission';
 import { showErrorResponse, showSuccess } from '@waldur/store/notify';
 import { ActionButton } from '@waldur/table/ActionButton';
 import { useUser } from '@waldur/workspace/hooks';
-import { getProject } from '@waldur/workspace/selectors';
 
-export const ProjectUsersBulkRemoveButton = ({ rows, refetch }) => {
+export const ProjectUsersBulkRemoveButton = ({ rows, refetch, project }) => {
   const currentUser = useUser();
-  const project = useSelector(getProject);
+
   const canRemoveUsers = hasPermission(currentUser, {
     permission: PermissionEnum.DELETE_PROJECT_PERMISSION,
-    projectId: project.uuid,
+    projectId: project?.uuid,
   });
-  if (!canRemoveUsers) {
-    return null;
-  }
 
   const [isRemoving, setIsRemoving] = useState(false);
   const dispatch = useDispatch();
@@ -49,7 +45,7 @@ export const ProjectUsersBulkRemoveButton = ({ rows, refetch }) => {
         translate(
           'Remove selected users from the project: {projectName}',
           {
-            projectName: <strong>{project.name}</strong>,
+            projectName: <strong>{project?.name}</strong>,
           },
           formatJsxTemplate,
         ),
@@ -87,6 +83,10 @@ export const ProjectUsersBulkRemoveButton = ({ rows, refetch }) => {
       setIsRemoving(false);
     }
   };
+
+  if (!canRemoveUsers || !project) {
+    return null;
+  }
 
   return (
     <ActionButton
