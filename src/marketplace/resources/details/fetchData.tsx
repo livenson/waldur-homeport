@@ -46,6 +46,7 @@ export const getResourceTabs = ({
   const tabs: PageBarTab<{
     resource: Resource;
     resourceScope;
+    nestedScope?;
     scope;
     offering: PublicOfferingDetails;
     refetch: () => void;
@@ -300,21 +301,22 @@ export const getResourceTabs = ({
 };
 
 export const fetchData = async (resource: Resource) => {
-  let scope;
+  let scope, nestedScope;
   if (resource.scope) {
-    if (resource.offering_type === MANAGED_RANCHER) {
-      resource = (
-        await marketplaceResourcesDetailsRetrieve({
-          path: { uuid: resource.uuid },
-        })
-      ).data;
-    }
     scope = (
       await marketplaceResourcesDetailsRetrieve({
         path: { uuid: resource.uuid },
       })
     ).data;
   }
+  if (resource.offering_type === MANAGED_RANCHER) {
+    nestedScope = (
+      await marketplaceResourcesDetailsRetrieve({
+        path: { uuid: scope.uuid },
+      })
+    ).data;
+  }
+
   const offering = await marketplaceResourcesOfferingRetrieve({
     path: { uuid: resource.uuid },
   }).then((response) => response.data);
@@ -332,6 +334,7 @@ export const fetchData = async (resource: Resource) => {
 
   return {
     scope,
+    nestedScope,
     components,
     offering,
     lexisLinksCount,

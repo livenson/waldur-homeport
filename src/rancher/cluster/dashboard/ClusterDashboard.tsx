@@ -8,22 +8,22 @@ import { ClusterStatistics } from './ClusterStatistics';
 import { ClusterSummary } from './ClusterSummary';
 
 export const ClusterDashboard: FC<{
-  resourceScope: RancherCluster;
+  nestedScope?: RancherCluster;
   refetch: () => void;
-}> = ({ resourceScope, refetch }) => {
+}> = ({ nestedScope, refetch }) => {
   const showExperimentalUiComponents = isExperimentalUiComponentsVisible();
   return (
     <>
       <Card className="card-bordered mb-6">
         <Card.Body>
-          <ClusterSummary resourceScope={resourceScope} refetch={refetch} />
+          <ClusterSummary resourceScope={nestedScope} refetch={refetch} />
         </Card.Body>
       </Card>
 
       {showExperimentalUiComponents && (
         <Card className="card-bordered">
           <Card.Body>
-            <ClusterStatistics resourceScope={resourceScope} />
+            <ClusterStatistics resourceScope={nestedScope} />
           </Card.Body>
         </Card>
       )}
