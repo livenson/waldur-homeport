@@ -3199,17 +3199,17 @@
     "description": "rancher/cluster/create/DataVolumePanel.tsx",
     "message": "Data volume #{index}"
   },
+  "Data volume size (GB)": {
+    "description": "openstack/openstack-instance/deploy/FormHardwareConfigurationStep.tsx, rancher/cluster/create/ManagedFormNodesStep.tsx",
+    "message": "Data volume size (GB)"
+  },
   "Data volume size": {
-    "description": "openstack/openstack-instance/OpenstackInstanceDetails.tsx, rancher/cluster/create/ManagedFormNodesStep.tsx",
+    "description": "openstack/openstack-instance/OpenstackInstanceDetails.tsx",
     "message": "Data volume size"
   },
   "Data volume type": {
-    "description": "openstack/openstack-instance/OpenstackInstanceDetails.tsx, rancher/cluster/create/ManagedFormNodesStep.tsx",
+    "description": "openstack/openstack-instance/OpenstackInstanceDetails.tsx, openstack/openstack-instance/deploy/FormHardwareConfigurationStep.tsx, rancher/cluster/create/ManagedFormNodesStep.tsx",
     "message": "Data volume type"
-  },
-  "Data volume": {
-    "description": "openstack/openstack-instance/deploy/FormHardwareConfigurationStep.tsx",
-    "message": "Data volume"
   },
   "Datacite DOI": {
     "description": "marketplace/offerings/details/PublicOfferingAttributesSection.tsx",
@@ -3258,6 +3258,10 @@
   "Days": {
     "description": "invoices/details/ResourceLimitPeriodsTable.tsx",
     "message": "Days"
+  },
+  "Deactivate user if all roles are revoked (except staff/support)": {
+    "description": "SettingsDescription.ts",
+    "message": "Deactivate user if all roles are revoked (except staff/support)"
   },
   "Deactivating": {
     "description": "resource/state/constants.ts",
@@ -3572,7 +3576,7 @@
     "message": "Detach"
   },
   "Detachable and resizable data disk": {
-    "description": "openstack/openstack-instance/deploy/FormHardwareConfigurationStep.tsx",
+    "description": "openstack/openstack-instance/deploy/FormHardwareConfigurationStep.tsx, rancher/cluster/create/ManagedFormNodesStep.tsx",
     "message": "Detachable and resizable data disk"
   },
   "Detaching": {
@@ -4868,7 +4872,7 @@
     "message": "Flavor name: {flavor_name}"
   },
   "Flavor": {
-    "description": "marketplace/resources/details/openstack-instance/InstanceMainComponent.tsx, openstack/openstack-backup/actions/BackupRestoreDialog.tsx, openstack/openstack-instance/OpenstackInstanceDetails.tsx, openstack/openstack-instance/deploy/FormHardwareConfigurationStep.tsx, rancher/cluster/create/NodeFlavorGroup.tsx",
+    "description": "marketplace/resources/details/openstack-instance/InstanceMainComponent.tsx, openstack/openstack-backup/actions/BackupRestoreDialog.tsx, openstack/openstack-instance/OpenstackInstanceDetails.tsx, openstack/openstack-instance/deploy/FlavorTable.tsx, rancher/cluster/create/NodeFlavorGroup.tsx",
     "message": "Flavor"
   },
   "Flavors matching this regex expression will not be pulled from the backend.": {
@@ -4992,7 +4996,7 @@
     "message": "Full price list of {offeringName} offering"
   },
   "GB": {
-    "description": "openstack/openstack-volume/actions/ExtendDialog.tsx, rancher/cluster/create/FormLonghornStep.tsx, rancher/cluster/create/ManagedFormNodesStep.tsx, rancher/cluster/create/SystemVolumeSizeGroup.tsx, rancher/cluster/create/VolumeSizeGroup.tsx, vmware/deploy/FormMemoryStep.tsx",
+    "description": "openstack/openstack-volume/actions/ExtendDialog.tsx, rancher/cluster/create/FormLonghornStep.tsx, rancher/cluster/create/SystemVolumeSizeGroup.tsx, rancher/cluster/create/VolumeSizeGroup.tsx, vmware/deploy/FormMemoryStep.tsx",
     "message": "GB"
   },
   "GLAuth configuration for {offering}": {
@@ -8039,10 +8043,6 @@
     "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
     "message": "OpenStack flavor name for server node"
   },
-  "OpenStack flavor": {
-    "description": "rancher/cluster/create/ManagedFormNodesStep.tsx",
-    "message": "OpenStack flavor"
-  },
   "OpenStack instance has been unlinked from Rancher node.": {
     "description": "rancher/node/actions/UnlinkAction.tsx",
     "message": "OpenStack instance has been unlinked from Rancher node."
@@ -9804,7 +9804,7 @@
     "message": "RAM usage"
   },
   "RAM": {
-    "description": "marketplace/resources/details/openstack-instance/InstanceComponents.tsx, openstack/openstack-instance/deploy/FormHardwareConfigurationStep.tsx, openstack/openstack-tenant/TenantFlavorsList.tsx, rancher/node/RancherNodeSummary.tsx, resource/utils.tsx",
+    "description": "marketplace/resources/details/openstack-instance/InstanceComponents.tsx, openstack/openstack-instance/deploy/FlavorTable.tsx, openstack/openstack-tenant/TenantFlavorsList.tsx, rancher/node/RancherNodeSummary.tsx, resource/utils.tsx",
     "message": "RAM"
   },
   "Rancher access key": {
@@ -11232,7 +11232,7 @@
     "message": "Search for project"
   },
   "Search": {
-    "description": "core/AsyncSearchBox.tsx, marketplace/offerings/update/integration/ScriptEditorHeader.tsx, navigation/header/breadcrumb/BreadcrumbDropdown.tsx, openstack/openstack-instance/deploy/FormHardwareConfigurationStep.tsx, openstack/openstack-instance/deploy/FormImageStep.tsx, table/TableColumnsButton.tsx, table/TableQuery.tsx",
+    "description": "core/AsyncSearchBox.tsx, marketplace/offerings/update/integration/ScriptEditorHeader.tsx, navigation/header/breadcrumb/BreadcrumbDropdown.tsx, openstack/openstack-instance/deploy/FormHardwareConfigurationStep.tsx, openstack/openstack-instance/deploy/FormImageStep.tsx, rancher/cluster/create/ManagedFormNodesStep.tsx, table/TableColumnsButton.tsx, table/TableQuery.tsx",
     "message": "Search"
   },
   "Search...": {
@@ -12615,17 +12615,17 @@
     "description": "openstack/openstack-volume/actions/utils.ts",
     "message": "System volume couldn't be detached."
   },
+  "System volume size (GB)": {
+    "description": "openstack/openstack-instance/deploy/FormHardwareConfigurationStep.tsx",
+    "message": "System volume size (GB)"
+  },
   "System volume size": {
     "description": "openstack/openstack-instance/OpenstackInstanceDetails.tsx, rancher/cluster/create/SystemVolumeSizeGroup.tsx",
     "message": "System volume size"
   },
   "System volume type": {
-    "description": "openstack/openstack-instance/OpenstackInstanceDetails.tsx, rancher/cluster/create/SystemVolumeTypeGroup.tsx",
+    "description": "openstack/openstack-instance/OpenstackInstanceDetails.tsx, openstack/openstack-instance/deploy/FormHardwareConfigurationStep.tsx, rancher/cluster/create/SystemVolumeTypeGroup.tsx",
     "message": "System volume type"
-  },
-  "System volume": {
-    "description": "openstack/openstack-instance/deploy/FormHardwareConfigurationStep.tsx",
-    "message": "System volume"
   },
   "System": {
     "description": "marketplace/resources/resource-pending/OrderErredView.tsx",
@@ -12840,7 +12840,7 @@
     "message": "Thank you for your response!"
   },
   "The CPU quota is over the limit": {
-    "description": "openstack/openstack-instance/deploy/FormHardwareConfigurationStep.tsx",
+    "description": "openstack/openstack-instance/deploy/FlavorTable.tsx",
     "message": "The CPU quota is over the limit"
   },
   "The OIDC claim to be used as the value for the first name field.": {
@@ -12852,7 +12852,7 @@
     "message": "The OIDC claim to be used as the value for the last name field."
   },
   "The RAM quota is over the limit": {
-    "description": "openstack/openstack-instance/deploy/FormHardwareConfigurationStep.tsx",
+    "description": "openstack/openstack-instance/deploy/FlavorTable.tsx",
     "message": "The RAM quota is over the limit"
   },
   "The announcement has been updated.": {
@@ -12972,7 +12972,7 @@
     "message": "The image used in marketplace order header."
   },
   "The image's minimum RAM is over the flavor RAM": {
-    "description": "openstack/openstack-instance/deploy/FormHardwareConfigurationStep.tsx",
+    "description": "openstack/openstack-instance/deploy/FlavorTable.tsx",
     "message": "The image's minimum RAM is over the flavor RAM"
   },
   "The imported data format does not match the template format.": {
@@ -15947,12 +15947,16 @@
     "description": "openstack/openstack-volume/actions/ExtendDialog.tsx, openstack/openstack-volume/deploy/steps.ts",
     "message": "Volume name"
   },
+  "Volume size (GB)": {
+    "description": "openstack/openstack-volume/deploy/FormVolumeStep.tsx",
+    "message": "Volume size (GB)"
+  },
   "Volume size is not enough for minimum disk of flavor and image. (min disk: {value} GB)": {
     "description": "openstack/openstack-instance/deploy/FormAbstractVolumeFields.tsx",
     "message": "Volume size is not enough for minimum disk of flavor and image. (min disk: {value} GB)"
   },
   "Volume size": {
-    "description": "openstack/openstack-instance/deploy/FormAbstractVolumeFields.tsx, rancher/cluster/create/VolumeSizeGroup.tsx",
+    "description": "rancher/cluster/create/VolumeSizeGroup.tsx",
     "message": "Volume size"
   },
   "Volume snapshot has been created.": {
@@ -15964,7 +15968,7 @@
     "message": "Volume snapshot has been restored."
   },
   "Volume type": {
-    "description": "openstack/openstack-instance/OpenStackInstanceVolumeBadge.tsx, openstack/openstack-volume/OpenStackVolumeSummary.tsx, openstack/openstack-volume/OpenstackVolumeDetails.tsx, openstack/openstack-volume/actions/RetypeDialog.tsx, rancher/cluster/create/VolumeTypeGroup.tsx",
+    "description": "openstack/openstack-instance/OpenStackInstanceVolumeBadge.tsx, openstack/openstack-volume/OpenStackVolumeSummary.tsx, openstack/openstack-volume/OpenstackVolumeDetails.tsx, openstack/openstack-volume/actions/RetypeDialog.tsx, openstack/openstack-volume/deploy/FormVolumeStep.tsx, rancher/cluster/create/VolumeTypeGroup.tsx",
     "message": "Volume type"
   },
   "Volume types mapping": {
@@ -16448,7 +16452,7 @@
     "message": "first name"
   },
   "flavors": {
-    "description": "openstack/openstack-instance/deploy/FormHardwareConfigurationStep.tsx, openstack/openstack-tenant/TenantFlavorsList.tsx",
+    "description": "openstack/openstack-instance/deploy/FlavorTable.tsx, openstack/openstack-tenant/TenantFlavorsList.tsx",
     "message": "flavors"
   },
   "floating IPs": {
@@ -16712,7 +16716,7 @@
     "message": "vCPU count"
   },
   "vCPU": {
-    "description": "marketplace/resources/details/openstack-instance/InstanceComponents.tsx, openstack/openstack-instance/deploy/FormHardwareConfigurationStep.tsx, resource/utils.tsx",
+    "description": "marketplace/resources/details/openstack-instance/InstanceComponents.tsx, openstack/openstack-instance/deploy/FlavorTable.tsx, resource/utils.tsx",
     "message": "vCPU"
   },
   "vCores": {
