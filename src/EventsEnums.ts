@@ -1,13 +1,13 @@
 // WARNING: This file is auto-generated from src/waldur_core/core/management/commands/print_events_enums.py
 // Do not edit it manually. All manual changes would be overridden.
 
-export const Eventgroup.access_subnetsEnum = {
+export const Access_subnetsEnum = {
   access_subnet_creation_succeeded: 'access_subnet_creation_succeeded',
   access_subnet_deletion_succeeded: 'access_subnet_deletion_succeeded',
   access_subnet_update_succeeded: 'access_subnet_update_succeeded',
 };
 
-export const Eventgroup.authEnum = {
+export const AuthEnum = {
   auth_logged_in_with_username: 'auth_logged_in_with_username',
   auth_logged_out: 'auth_logged_out',
   auth_login_failed_with_username: 'auth_login_failed_with_username',
@@ -15,12 +15,12 @@ export const Eventgroup.authEnum = {
   token_lifetime_updated: 'token_lifetime_updated',
 };
 
-export const Eventgroup.callEnum = {
+export const CallEnum = {
   call_document_added: 'call_document_added',
   call_document_removed: 'call_document_removed',
 };
 
-export const Eventgroup.creditsEnum = {
+export const CreditsEnum = {
   allowed_offerings_have_been_updated: 'allowed_offerings_have_been_updated',
   create_of_credit_by_staff: 'create_of_credit_by_staff',
   reduction_of_customer_credit: 'reduction_of_customer_credit',
@@ -35,7 +35,7 @@ export const Eventgroup.creditsEnum = {
   update_of_credit_by_staff: 'update_of_credit_by_staff',
 };
 
-export const Eventgroup.customersEnum = {
+export const CustomersEnum = {
   allowed_offerings_have_been_updated: 'allowed_offerings_have_been_updated',
   create_of_credit_by_staff: 'create_of_credit_by_staff',
   customer_creation_succeeded: 'customer_creation_succeeded',
@@ -55,7 +55,7 @@ export const Eventgroup.customersEnum = {
   update_of_credit_by_staff: 'update_of_credit_by_staff',
 };
 
-export const Eventgroup.invoicesEnum = {
+export const InvoicesEnum = {
   allowed_offerings_have_been_updated: 'allowed_offerings_have_been_updated',
   create_of_credit_by_staff: 'create_of_credit_by_staff',
   invoice_canceled: 'invoice_canceled',
@@ -78,7 +78,7 @@ export const Eventgroup.invoicesEnum = {
   update_of_credit_by_staff: 'update_of_credit_by_staff',
 };
 
-export const Eventgroup.offering_accountingEnum = {
+export const Offering_accountingEnum = {
   marketplace_offering_component_created: 'marketplace_offering_component_created',
   marketplace_offering_component_deleted: 'marketplace_offering_component_deleted',
   marketplace_offering_component_updated: 'marketplace_offering_component_updated',
@@ -90,13 +90,13 @@ export const Eventgroup.offering_accountingEnum = {
   marketplace_plan_updated: 'marketplace_plan_updated',
 };
 
-export const Eventgroup.permissionsEnum = {
+export const PermissionsEnum = {
   role_granted: 'role_granted',
   role_revoked: 'role_revoked',
   role_updated: 'role_updated',
 };
 
-export const Eventgroup.projectsEnum = {
+export const ProjectsEnum = {
   project_creation_succeeded: 'project_creation_succeeded',
   project_deletion_succeeded: 'project_deletion_succeeded',
   project_deletion_triggered: 'project_deletion_triggered',
@@ -106,13 +106,13 @@ export const Eventgroup.projectsEnum = {
   project_update_succeeded: 'project_update_succeeded',
 };
 
-export const Eventgroup.proposalEnum = {
+export const ProposalEnum = {
   proposal_canceled: 'proposal_canceled',
   proposal_document_added: 'proposal_document_added',
   proposal_document_removed: 'proposal_document_removed',
 };
 
-export const Eventgroup.providersEnum = {
+export const ProvidersEnum = {
   marketplace_resource_create_canceled: 'marketplace_resource_create_canceled',
   marketplace_resource_create_failed: 'marketplace_resource_create_failed',
   marketplace_resource_create_requested: 'marketplace_resource_create_requested',
@@ -130,7 +130,7 @@ export const Eventgroup.providersEnum = {
   resource_robot_account_updated: 'resource_robot_account_updated',
 };
 
-export const Eventgroup.resourcesEnum = {
+export const ResourcesEnum = {
   marketplace_order_approved: 'marketplace_order_approved',
   marketplace_order_completed: 'marketplace_order_completed',
   marketplace_order_created: 'marketplace_order_created',
@@ -260,16 +260,16 @@ export const Eventgroup.resourcesEnum = {
   resource_update_succeeded: 'resource_update_succeeded',
 };
 
-export const Eventgroup.reviewEnum = {
+export const ReviewEnum = {
   review_canceled: 'review_canceled',
 };
 
-export const Eventgroup.sshEnum = {
+export const SshEnum = {
   ssh_key_creation_succeeded: 'ssh_key_creation_succeeded',
   ssh_key_deletion_succeeded: 'ssh_key_deletion_succeeded',
 };
 
-export const Eventgroup.supportEnum = {
+export const SupportEnum = {
   attachment_created: 'attachment_created',
   attachment_deleted: 'attachment_deleted',
   attachment_updated: 'attachment_updated',
@@ -278,7 +278,7 @@ export const Eventgroup.supportEnum = {
   issue_update_succeeded: 'issue_update_succeeded',
 };
 
-export const Eventgroup.usersEnum = {
+export const UsersEnum = {
   auth_logged_in_with_saml2: 'auth_logged_in_with_saml2',
   auth_logged_out_with_saml2: 'auth_logged_out_with_saml2',
   freeipa_profile_created: 'freeipa_profile_created',
