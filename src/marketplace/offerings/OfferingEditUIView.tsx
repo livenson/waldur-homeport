@@ -15,6 +15,7 @@ import { OFFERING_TYPE_CUSTOM_SCRIPTS } from '@waldur/marketplace-script/constan
 import { useBreadcrumbs, usePageHero } from '@waldur/navigation/context';
 import { PageBarTab } from '@waldur/navigation/types';
 import { usePageTabsTransmitter } from '@waldur/navigation/usePageTabsTransmitter';
+import { TENANT_TYPE } from '@waldur/openstack/constants';
 
 import {
   allowToUpdateService,
@@ -89,6 +90,21 @@ const PlansSection = lazyComponent(() =>
 const OfferingImagesList = lazyComponent(() =>
   import('./images/OfferingImagesList').then((module) => ({
     default: module.OfferingImagesList,
+  })),
+);
+const TenantImagesTable = lazyComponent(() =>
+  import('./openstack-tenant/TenantImagesTable').then((module) => ({
+    default: module.TenantImagesTable,
+  })),
+);
+const TenantFlavorsTable = lazyComponent(() =>
+  import('./openstack-tenant/TenantFlavorsTable').then((module) => ({
+    default: module.TenantFlavorsTable,
+  })),
+);
+const TenantVolumeTypesTable = lazyComponent(() =>
+  import('./openstack-tenant/TenantVolumeTypesTable').then((module) => ({
+    default: module.TenantVolumeTypesTable,
   })),
 );
 const RolesSection = lazyComponent(() =>
@@ -178,6 +194,30 @@ const getTabs = (offering: Offering): PageBarTab[] => {
             }
           : null,
       ].filter(Boolean),
+    });
+  }
+
+  if (offering.type === TENANT_TYPE) {
+    tabs.push({
+      key: 'system_information',
+      title: translate('System information'),
+      children: [
+        {
+          key: 'images',
+          component: TenantImagesTable,
+          title: translate('Images'),
+        },
+        {
+          key: 'flavors',
+          component: TenantFlavorsTable,
+          title: translate('Flavors'),
+        },
+        {
+          key: 'volume-types',
+          component: TenantVolumeTypesTable,
+          title: translate('Volume types'),
+        },
+      ],
     });
   }
 
