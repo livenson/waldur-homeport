@@ -4884,7 +4884,7 @@
     "message": "Flavors regex"
   },
   "Flavors": {
-    "description": "openstack/openstack-tenant/TenantFlavorsList.tsx, openstack/openstack-tenant/tabs.ts, reporting/openstack/FlavorsList.tsx, reporting/openstack/VmTypeOverview.tsx",
+    "description": "marketplace/offerings/OfferingEditUIView.tsx, openstack/openstack-tenant/TenantFlavorsList.tsx, openstack/openstack-tenant/tabs.ts, reporting/openstack/FlavorsList.tsx, reporting/openstack/VmTypeOverview.tsx",
     "message": "Flavors"
   },
   "Floating IP count": {
@@ -12603,6 +12603,10 @@
     "description": "administration/routes.ts",
     "message": "System info"
   },
+  "System information": {
+    "description": "marketplace/offerings/OfferingEditUIView.tsx",
+    "message": "System information"
+  },
   "System role": {
     "description": "administration/roles/RolesList.tsx",
     "message": "System role"
@@ -15972,7 +15976,7 @@
     "message": "Volume types mapping"
   },
   "Volume types": {
-    "description": "openstack/openstack-tenant/actions/MigrateTenantDialog.tsx, openstack/openstack-tenant/tabs.ts, openstack/openstack-volume/TenantVolumeTypesList.tsx",
+    "description": "marketplace/offerings/OfferingEditUIView.tsx, openstack/openstack-tenant/actions/MigrateTenantDialog.tsx, openstack/openstack-tenant/tabs.ts, openstack/openstack-volume/TenantVolumeTypesList.tsx",
     "message": "Volume types"
   },
   "Volume": {
