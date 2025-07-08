@@ -6403,6 +6403,10 @@
     "description": "core/InfiniteList.tsx, marketplace/deploy/steps/FormCloudStep.tsx",
     "message": "Loading more..."
   },
+  "Loading projects": {
+    "description": "project/create/NameGroup.tsx",
+    "message": "Loading projects"
+  },
   "Loading total cost": {
     "description": "customer/list/TotalCostComponent.tsx",
     "message": "Loading total cost"
@@ -14203,10 +14207,6 @@
     "description": "marketplace/details/plan/PlanDetailsDialog.tsx",
     "message": "Unable to load plan details."
   },
-  "Unable to load project permissions": {
-    "description": "customer/workspace/fetchCustomer.tsx",
-    "message": "Unable to load project permissions"
-  },
   "Unable to load project types.": {
     "description": "project/create/TypeGroup.tsx",
     "message": "Unable to load project types."
@@ -14216,7 +14216,7 @@
     "message": "Unable to load project users"
   },
   "Unable to load projects": {
-    "description": "rancher/cluster/team/AddResourceAccessDialog.tsx",
+    "description": "customer/workspace/fetchCustomer.tsx, rancher/cluster/team/AddResourceAccessDialog.tsx",
     "message": "Unable to load projects"
   },
   "Unable to load providers and settings configuration.": {
