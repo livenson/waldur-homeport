@@ -1,6 +1,9 @@
+import { useToggle } from 'react-use';
 import { Field } from 'redux-form';
 
+import { AwesomeCheckbox } from '@waldur/core/AwesomeCheckbox';
 import { FormGroup } from '@waldur/form';
+import { AwesomeCheckboxField } from '@waldur/form/AwesomeCheckboxField';
 import { VStepperFormStepCard } from '@waldur/form/VStepperFormStep';
 import { translate } from '@waldur/i18n';
 import { FormStepProps } from '@waldur/marketplace/deploy/types';
@@ -10,12 +13,25 @@ import { OpenStackSubnetField } from '../OpenStackSubnetField';
 import { validatePrivateCIDR } from '../utils';
 
 export const FormInternalNetworkStep = (props: FormStepProps) => {
+  const [advancedEnabled, setAdvancedEnabled] = useToggle(false);
+
   return (
     <VStepperFormStepCard
       title={translate('Internal network')}
       id={props.id}
       disabled={props.disabled}
       disabledTooltip={props.disabledTooltip}
+      actions={
+        <div className="ms-auto">
+          <AwesomeCheckbox
+            value={advancedEnabled}
+            onChange={setAdvancedEnabled}
+            size="sm"
+            className="align-self-center"
+            label={translate('Advanced configuration')}
+          />
+        </div>
+      }
     >
       <Field
         name="attributes.subnet_cidr"
@@ -32,6 +48,23 @@ export const FormInternalNetworkStep = (props: FormStepProps) => {
       >
         <OpenStackAllocationPool />
       </Field>
+      {advancedEnabled && (
+        <>
+          <Field
+            name="attributes.skip_creation_of_default_router"
+            component={FormGroup}
+          >
+            <AwesomeCheckboxField
+              label={translate('Skip creation of default router')}
+            />
+          </Field>
+          <Field name="attributes.skip_connection_extnet" component={FormGroup}>
+            <AwesomeCheckboxField
+              label={translate('Skip connection to external network')}
+            />
+          </Field>
+        </>
+      )}
     </VStepperFormStepCard>
   );
 };

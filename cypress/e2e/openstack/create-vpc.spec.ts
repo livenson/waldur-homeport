@@ -1,5 +1,5 @@
 const enterAndCheckCidrInput = (input, should: 'exist' | 'not.exist') => {
-  cy.get('#step-internal-network input')
+  cy.get('#step-internal-network input[name="attributes.subnet_cidr"]')
     .clear()
     .type(input, { delay: 0 })
     .get('#step-internal-network .text-danger')
