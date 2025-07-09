@@ -2583,10 +2583,6 @@
     "description": "proposals/review/ReviewViewAction.tsx",
     "message": "Continue review"
   },
-  "Continue working": {
-    "description": "core/AuthTokenExpirationManager.tsx",
-    "message": "Continue working"
-  },
   "Continue": {
     "description": "invitations/actions/create/FormButtons.tsx, marketplace/service-providers/CampaignFooter.tsx",
     "message": "Continue"
@@ -6895,6 +6891,10 @@
     "description": "openstack/openstack-tenant/TenantImagesList.tsx",
     "message": "Minimal disk"
   },
+  "Minimal team count for resource provisioning": {
+    "description": "marketplace/offerings/update/integration/LifecyclePolicySection.tsx",
+    "message": "Minimal team count for resource provisioning"
+  },
   "Minimal value": {
     "description": "marketplace/offerings/update/options/OptionForm.tsx",
     "message": "Minimal value"
@@ -7055,13 +7055,13 @@
     "description": "core/validators.ts",
     "message": "Must be {length} characters or less."
   },
+  "Must be {max} characters or less.": {
+    "description": "form/utils.ts",
+    "message": "Must be {max} characters or less."
+  },
   "Must be {n} or less.": {
     "description": "core/validators.ts",
     "message": "Must be {n} or less."
-  },
-  "Must be {{max}} characters or less.": {
-    "description": "form/utils.ts",
-    "message": "Must be {{max}} characters or less."
   },
   "Must start with a country prefix ie EE34501234215": {
     "description": "invitations/actions/create/EmailsListGroup.tsx",
@@ -10451,6 +10451,10 @@
     "description": "rancher/cluster/create/FormNodesStep.tsx",
     "message": "Required nodes"
   },
+  "Required team role for resource provisioning": {
+    "description": "marketplace/offerings/update/integration/LifecyclePolicySection.tsx",
+    "message": "Required team role for resource provisioning"
+  },
   "Required": {
     "description": "marketplace/offerings/update/options/OptionForm.tsx",
     "message": "Required"
@@ -12182,10 +12186,6 @@
   "Sign in": {
     "description": "auth/valimo/AuthValimoDialog.tsx, navigation/header/UserDropdown.tsx",
     "message": "Sign in"
-  },
-  "Sign out": {
-    "description": "core/AuthTokenExpirationManager.tsx",
-    "message": "Sign out"
   },
   "Single sign-on using SAML2-based identity federation.": {
     "description": "administration/providers/IdentityProvidersList.tsx",
@@ -16379,10 +16379,6 @@
     "description": "auth/AuthHeader.tsx",
     "message": "Your session has expired, please enter credentials to continue."
   },
-  "Your session will expire in: <Countdown></Countown>.": {
-    "description": "core/AuthTokenExpirationManager.tsx",
-    "message": "Your session will expire in: <Countdown></Countown>."
-  },
   "Your {field} is required": {
     "description": "user/support/UserEditRows.tsx",
     "message": "Your {field} is required"
@@ -16894,10 +16890,6 @@
   "{name} ({questions_count} questions)": {
     "description": "marketplace-checklist/useChecklist.tsx",
     "message": "{name} ({questions_count} questions)"
-  },
-  "{number} seconds": {
-    "description": "core/AuthTokenExpirationManager.tsx",
-    "message": "{number} seconds"
   },
   "{n} valid, {m} errors found": {
     "description": "marketplace/offerings/import-users/Step2PreviewAndImport.tsx",
