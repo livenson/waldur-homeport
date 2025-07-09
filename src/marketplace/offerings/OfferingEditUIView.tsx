@@ -123,8 +123,6 @@ const getOfferingData = async (offering_uuid: string) => {
   return { offering, category };
 };
 
-export type OfferingData = Awaited<ReturnType<typeof getOfferingData>>;
-
 const getTabs = (offering: Offering): PageBarTab[] => {
   const tabs: PageBarTab[] = [
     {
