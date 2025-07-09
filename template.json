@@ -591,6 +591,10 @@
     "description": "administration/routes.ts, navigation/sidebar/AdminMenu.tsx",
     "message": "Administration"
   },
+  "Advanced configuration": {
+    "description": "openstack/deploy/FormInternalNetworkStep.tsx",
+    "message": "Advanced configuration"
+  },
   "Advanced options": {
     "description": "vmware/deploy/FormAdvancedOptionsStep.tsx, vmware/deploy/steps.ts",
     "message": "Advanced options"
@@ -602,6 +606,10 @@
   "Affected resource": {
     "description": "issues/IssueInfo.tsx, issues/create/ResourceGroup.tsx",
     "message": "Affected resource"
+  },
+  "Affiliations field": {
+    "description": "administration/providers/ProviderForm.tsx",
+    "message": "Affiliations field"
   },
   "Affiliations": {
     "description": "marketplace/service-providers/ProviderUsersList.tsx, user/support/UserDetailsTable.tsx, user/support/UserEditRows.tsx, user/support/UserList.tsx",
@@ -2194,6 +2202,10 @@
   "Civil engineering": {
     "description": "project/OECD_FOS_2007_CODES.ts",
     "message": "Civil engineering"
+  },
+  "Civil number field": {
+    "description": "administration/providers/ProviderForm.tsx",
+    "message": "Civil number field"
   },
   "Civil number": {
     "description": "invitations/InvitationExpandableRow.tsx, invitations/actions/create/EmailsListGroup.tsx, user/support/UserList.tsx",
@@ -4070,6 +4082,10 @@
   "Email change request has been cancelled.": {
     "description": "user/support/useEmailChange.ts",
     "message": "Email change request has been cancelled."
+  },
+  "Email field": {
+    "description": "administration/providers/ProviderForm.tsx",
+    "message": "Email field"
   },
   "Email for access user": {
     "description": "SettingsDescription.ts",
@@ -12200,12 +12216,16 @@
     "message": "Size"
   },
   "Skip connection to external network": {
-    "description": "openstack/OpenStackPackageDetails.tsx, openstack/openstack-tenant/actions/MigrateTenantDialog.tsx",
+    "description": "openstack/OpenStackPackageDetails.tsx, openstack/deploy/FormInternalNetworkStep.tsx, openstack/openstack-tenant/actions/MigrateTenantDialog.tsx",
     "message": "Skip connection to external network"
   },
   "Skip connection to extnet": {
     "description": "openstack/openstack-tenant/MigrationExpandableRow.tsx",
     "message": "Skip connection to extnet"
+  },
+  "Skip creation of default router": {
+    "description": "openstack/deploy/FormInternalNetworkStep.tsx",
+    "message": "Skip creation of default router"
   },
   "Skip floating IP assignment": {
     "description": "openstack/openstack-backup/actions/utils.tsx, openstack/openstack-instance/utils.ts",
@@ -12890,6 +12910,18 @@
   "The CPU quota is over the limit": {
     "description": "openstack/openstack-instance/deploy/FlavorTable.tsx",
     "message": "The CPU quota is over the limit"
+  },
+  "The OIDC claim to be used as the value for the affiliations field.": {
+    "description": "administration/providers/ProviderForm.tsx",
+    "message": "The OIDC claim to be used as the value for the affiliations field."
+  },
+  "The OIDC claim to be used as the value for the civil_number field.": {
+    "description": "administration/providers/ProviderForm.tsx",
+    "message": "The OIDC claim to be used as the value for the civil_number field."
+  },
+  "The OIDC claim to be used as the value for the email field.": {
+    "description": "administration/providers/ProviderForm.tsx",
+    "message": "The OIDC claim to be used as the value for the email field."
   },
   "The OIDC claim to be used as the value for the first name field.": {
     "description": "administration/providers/ProviderForm.tsx",
