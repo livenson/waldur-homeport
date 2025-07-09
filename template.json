@@ -2248,7 +2248,7 @@
     "message": "Close rounds"
   },
   "Close": {
-    "description": "administration/TelemetryExampleDialog.tsx, booking/components/BookingResourceDetailsDialog.tsx, broadcasts/RecipientsListDialog.tsx, marketplace/details/plan/EstimateUsageComponentDialog.tsx, marketplace/offerings/images/ImageDetailsDialog.tsx, marketplace/offerings/update/integration/GLAuthConfigDialog.tsx, marketplace/referral/OfferingReferralsDialog.tsx, marketplace/resources/details/ResourceTeamDialog.tsx, marketplace/resources/usage/ResourceShowUsageDialog.tsx, marketplace/service-providers/ProviderProjectResourcesDialog.tsx, navigation/UpgradeNotificationDialog.tsx, resource/summary/ResourceMetadataDialog.tsx, resource/summary/ResourceSummaryModal.tsx",
+    "description": "administration/TelemetryExampleDialog.tsx, booking/components/BookingResourceDetailsDialog.tsx, broadcasts/RecipientsListDialog.tsx, invitations/InvitationConfirmDialog.tsx, marketplace/details/plan/EstimateUsageComponentDialog.tsx, marketplace/offerings/images/ImageDetailsDialog.tsx, marketplace/offerings/update/integration/GLAuthConfigDialog.tsx, marketplace/referral/OfferingReferralsDialog.tsx, marketplace/resources/details/ResourceTeamDialog.tsx, marketplace/resources/usage/ResourceShowUsageDialog.tsx, marketplace/service-providers/ProviderProjectResourcesDialog.tsx, navigation/UpgradeNotificationDialog.tsx, resource/summary/ResourceMetadataDialog.tsx, resource/summary/ResourceSummaryModal.tsx",
     "message": "Close"
   },
   "Closed issues (this month)": {
@@ -6039,6 +6039,10 @@
     "description": "table/utils.tsx",
     "message": "Items"
   },
+  "Jane Smith": {
+    "description": "proposals/update/role-mapping/CallRoleMappingsList.tsx",
+    "message": "Jane Smith"
+  },
   "Job has been submitted.": {
     "description": "slurm/details/SubmitJobDialog.tsx",
     "message": "Job has been submitted."
@@ -6054,6 +6058,10 @@
   "Jobs": {
     "description": "marketplace/resources/details/fetchData.tsx, slurm/details/AllocationJobsTable.tsx",
     "message": "Jobs"
+  },
+  "John Doe": {
+    "description": "proposals/update/role-mapping/CallRoleMappingsList.tsx",
+    "message": "John Doe"
   },
   "Keep existing offering permissions when moving to a new organization": {
     "description": "marketplace/offerings/list/MoveOfferingDialog.tsx",
@@ -6618,6 +6626,10 @@
   "Management security group has been updated.": {
     "description": "rancher/cluster/SetManagementSecurityGroupDialog.tsx",
     "message": "Management security group has been updated."
+  },
+  "Manager": {
+    "description": "proposals/update/role-mapping/CallRoleMappingsList.tsx",
+    "message": "Manager"
   },
   "Managers": {
     "description": "proposals/team/TeamSection.tsx, proposals/update/CallUpdateContainer.tsx",
@@ -10852,7 +10864,7 @@
     "message": "Reviewer identity visible to submitters"
   },
   "Reviewer": {
-    "description": "proposals/proposal/create-review/CreateReviewDialog.tsx, proposals/review/CustomerReviewsList.tsx, proposals/round/proposals/ProposalExpandableRow.tsx",
+    "description": "proposals/proposal/create-review/CreateReviewDialog.tsx, proposals/review/CustomerReviewsList.tsx, proposals/round/proposals/ProposalExpandableRow.tsx, proposals/update/role-mapping/CallRoleMappingsList.tsx",
     "message": "Reviewer"
   },
   "Reviewers": {
@@ -10931,12 +10943,16 @@
     "description": "permissions/events.tsx",
     "message": "Role management events"
   },
+  "Role mapping": {
+    "description": "proposals/update/CallUpdateContainer.tsx",
+    "message": "Role mapping"
+  },
   "Role name": {
     "description": "user/affiliations/UserAffiliationsList.tsx",
     "message": "Role name"
   },
   "Role": {
-    "description": "administration/InvitationList.tsx, customer/team/CustomerUsersListExpandableRow.tsx, customer/team/TeamTableComponent.tsx, invitations/GroupInvitationsList.tsx, invitations/InvitationRoleFilter.tsx, invitations/InvitationsList.tsx, invitations/actions/RoleGroup.tsx, invitations/actions/create/EmailsListGroup.tsx, marketplace/offerings/update/integration/ScriptEditorHeader.tsx, marketplace/offerings/update/roles/RolesSection.tsx, marketplace/resources/users/AddUserDialog.tsx, marketplace/resources/users/ResourceUsersList.tsx, project/team/InvitationsList.tsx, project/team/ProjectUsersListFilter.tsx, project/team/RoleGroup.tsx, proposals/team/InvitationsList.tsx, rancher/cluster/create/NodeRoleGroup.tsx, rancher/cluster/team/AddResourceAccessDialog.tsx, rancher/cluster/team/KeycloakMembershipExpandableRow.tsx, user/UserPermissionRequestsList.tsx, user/affiliations/PermissionDetails.tsx, user/support/UserFilter.tsx",
+    "description": "administration/InvitationList.tsx, customer/team/CustomerUsersListExpandableRow.tsx, customer/team/TeamTableComponent.tsx, invitations/GroupInvitationsList.tsx, invitations/InvitationRoleFilter.tsx, invitations/InvitationsList.tsx, invitations/actions/RoleGroup.tsx, invitations/actions/create/EmailsListGroup.tsx, marketplace/offerings/update/integration/ScriptEditorHeader.tsx, marketplace/offerings/update/roles/RolesSection.tsx, marketplace/resources/users/AddUserDialog.tsx, marketplace/resources/users/ResourceUsersList.tsx, project/team/InvitationsList.tsx, project/team/ProjectUsersListFilter.tsx, project/team/RoleGroup.tsx, proposals/team/InvitationsList.tsx, proposals/update/role-mapping/CallRoleMappingsList.tsx, rancher/cluster/create/NodeRoleGroup.tsx, rancher/cluster/team/AddResourceAccessDialog.tsx, rancher/cluster/team/KeycloakMembershipExpandableRow.tsx, user/UserPermissionRequestsList.tsx, user/affiliations/PermissionDetails.tsx, user/support/UserFilter.tsx",
     "message": "Role"
   },
   "Roles and permissions": {
@@ -15632,7 +15648,7 @@
     "message": "User's"
   },
   "User": {
-    "description": "customer/team/UserGroup.tsx, events/BaseEventsList.tsx, events/ExpandableEventDetailsTable.tsx, issues/feedback/SupportFeedbackList.tsx, issues/feedback/SupportFeedbackListFilter.tsx, marketplace/offerings/details/CreateOfferingUserDialog.tsx, marketplace/offerings/details/permissions/OfferingPermissionCreateDialog.tsx, marketplace/offerings/details/permissions/OfferingPermissionsList.tsx, marketplace/resources/usage/ResourceUsageForm.tsx, marketplace/resources/users/AddUserDialog.tsx, marketplace/resources/users/ResourceUsersList.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx, marketplace/service-providers/OfferingPermissionCreateDialog.tsx, marketplace/service-providers/OfferingPermissionsList.tsx, marketplace/service-providers/ProviderOfferingUsersList.tsx, marketplace/service-providers/ProviderUsersList.tsx, project/team/AddUserDialog.tsx, project/team/UserGroup.tsx, proposals/team/AddUserDialog.tsx, rancher/cluster/team/KeycloakMembershipList.tsx, slurm/details/AllocationJobsTable.tsx, support/SupportEventsFilter.tsx, user/UserManageContainer.tsx",
+    "description": "customer/team/UserGroup.tsx, events/BaseEventsList.tsx, events/ExpandableEventDetailsTable.tsx, issues/feedback/SupportFeedbackList.tsx, issues/feedback/SupportFeedbackListFilter.tsx, marketplace/offerings/details/CreateOfferingUserDialog.tsx, marketplace/offerings/details/permissions/OfferingPermissionCreateDialog.tsx, marketplace/offerings/details/permissions/OfferingPermissionsList.tsx, marketplace/resources/usage/ResourceUsageForm.tsx, marketplace/resources/users/AddUserDialog.tsx, marketplace/resources/users/ResourceUsersList.tsx, marketplace/service-providers/CreateProviderOfferingUserDialog.tsx, marketplace/service-providers/OfferingPermissionCreateDialog.tsx, marketplace/service-providers/OfferingPermissionsList.tsx, marketplace/service-providers/ProviderOfferingUsersList.tsx, marketplace/service-providers/ProviderUsersList.tsx, project/team/AddUserDialog.tsx, project/team/UserGroup.tsx, proposals/team/AddUserDialog.tsx, proposals/update/role-mapping/CallRoleMappingsList.tsx, rancher/cluster/team/KeycloakMembershipList.tsx, slurm/details/AllocationJobsTable.tsx, support/SupportEventsFilter.tsx, user/UserManageContainer.tsx",
     "message": "User"
   },
   "Username anonymized prefix": {
@@ -16452,7 +16468,7 @@
     "message": "first name"
   },
   "flavors": {
-    "description": "openstack/openstack-instance/deploy/FlavorTable.tsx, openstack/openstack-tenant/TenantFlavorsList.tsx",
+    "description": "openstack/openstack-instance/deploy/FlavorTable.tsx",
     "message": "flavors"
   },
   "floating IPs": {
@@ -16474,10 +16490,6 @@
   "horizontal pod autoscalers": {
     "description": "rancher/cluster/hpas/ClusterHPAList.tsx",
     "message": "horizontal pod autoscalers"
-  },
-  "images": {
-    "description": "openstack/openstack-tenant/TenantImagesList.tsx",
-    "message": "images"
   },
   "ingresses": {
     "description": "rancher/cluster/ClusterIngressesList.tsx",
@@ -16734,10 +16746,6 @@
   "volume snapshot": {
     "description": "openstack/openstack-snapshot/EditDialog.tsx",
     "message": "volume snapshot"
-  },
-  "volume types": {
-    "description": "openstack/openstack-volume/TenantVolumeTypesList.tsx",
-    "message": "volume types"
   },
   "volumes": {
     "description": "openstack/openstack-volume/InstanceVolumesList.tsx, openstack/openstack-volume/TenantVolumesList.tsx",
