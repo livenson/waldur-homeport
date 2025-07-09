@@ -128,7 +128,7 @@
     "message": "API token"
   },
   "Abbreviation": {
-    "description": "administration/organizations/OrganizationGroupOrganizationsList.tsx, customer/details/CustomerDetailsPanel.tsx, customer/details/EditFieldDialog.tsx, customer/list/CustomerList.tsx, marketplace/offerings/expandable/OfferingCustomersList.tsx, marketplace/service-providers/ProviderDetailsBody.tsx, reporting/quotas/CustomerQuotasList.tsx, user/affiliations/OrganizationsList.tsx",
+    "description": "administration/organizations/OrganizationGroupOrganizationsList.tsx, customer/details/CustomerDetailsPanel.tsx, customer/details/EditFieldDialog.tsx, customer/import/utils.ts, customer/list/CustomerList.tsx, marketplace/offerings/expandable/OfferingCustomersList.tsx, marketplace/service-providers/ProviderDetailsBody.tsx, reporting/quotas/CustomerQuotasList.tsx, user/affiliations/OrganizationsList.tsx",
     "message": "Abbreviation"
   },
   "About": {
@@ -572,7 +572,7 @@
     "message": "Additionally service provider can charge for usage of the following components"
   },
   "Address": {
-    "description": "customer/details/CustomerDetailsPanel.tsx, customer/details/EditFieldDialog.tsx, openstack/openstack-floating-ips/OpenStackFloatingIpSummary.tsx, user/affiliations/OrganizationsList.tsx",
+    "description": "customer/details/CustomerDetailsPanel.tsx, customer/details/EditFieldDialog.tsx, customer/import/utils.ts, openstack/openstack-floating-ips/OpenStackFloatingIpSummary.tsx, user/affiliations/OrganizationsList.tsx",
     "message": "Address"
   },
   "Admin password": {
@@ -644,7 +644,7 @@
     "message": "Agreement no:"
   },
   "Agreement number": {
-    "description": "customer/details/CustomerDetailsPanel.tsx, customer/details/EditFieldDialog.tsx, customer/list/CustomerList.tsx, customer/payment-profiles/PaymentProfileCreateDialog.tsx, customer/payment-profiles/PaymentProfileUpdateDialog.tsx, user/affiliations/OrganizationsList.tsx",
+    "description": "customer/details/CustomerDetailsPanel.tsx, customer/details/EditFieldDialog.tsx, customer/import/utils.ts, customer/list/CustomerList.tsx, customer/payment-profiles/PaymentProfileCreateDialog.tsx, customer/payment-profiles/PaymentProfileUpdateDialog.tsx, user/affiliations/OrganizationsList.tsx",
     "message": "Agreement number"
   },
   "Agreement type": {
@@ -1415,6 +1415,10 @@
     "description": "administration/roles/RolesList.tsx",
     "message": "Assigned users count"
   },
+  "At least one organization is required.": {
+    "description": "customer/import/Step3PreviewAndImport.tsx",
+    "message": "At least one organization is required."
+  },
   "At least one project is required.": {
     "description": "project/import/Step5PreviewAndImport.tsx",
     "message": "At least one project is required."
@@ -1656,11 +1660,11 @@
     "message": "Backing up"
   },
   "Bank account": {
-    "description": "customer/details/CustomerBillingPanel.tsx, customer/details/EditFieldDialog.tsx, user/affiliations/OrganizationsList.tsx",
+    "description": "customer/details/CustomerBillingPanel.tsx, customer/details/EditFieldDialog.tsx, customer/import/utils.ts, user/affiliations/OrganizationsList.tsx",
     "message": "Bank account"
   },
   "Bank name": {
-    "description": "customer/details/CustomerBillingPanel.tsx, customer/details/EditFieldDialog.tsx, user/affiliations/OrganizationsList.tsx",
+    "description": "customer/details/CustomerBillingPanel.tsx, customer/details/EditFieldDialog.tsx, customer/import/utils.ts, user/affiliations/OrganizationsList.tsx",
     "message": "Bank name"
   },
   "Base image name": {
@@ -1831,12 +1835,16 @@
     "description": "invitations/actions/create/BulkUpload.tsx",
     "message": "Bulk import contacts"
   },
+  "Bulk import of organizations": {
+    "description": "customer/import/OrganizationImportDialog.tsx",
+    "message": "Bulk import of organizations"
+  },
   "Bulk import of projects": {
     "description": "project/import/ProjectImportDialog.tsx",
     "message": "Bulk import of projects"
   },
   "Bulk import": {
-    "description": "marketplace/offerings/import-users/UserImportButton.tsx, marketplace/offerings/import-users/UserImportDialog.tsx, project/import/ProjectImportButton.tsx",
+    "description": "customer/import/OrganizationImportButton.tsx, marketplace/offerings/import-users/UserImportButton.tsx, marketplace/offerings/import-users/UserImportDialog.tsx, project/import/ProjectImportButton.tsx",
     "message": "Bulk import"
   },
   "Business hours": {
@@ -2652,7 +2660,7 @@
     "message": "Country list has been updated"
   },
   "Country": {
-    "description": "customer/details/CustomerDetailsPanel.tsx, customer/list/SelectCountryField.tsx, user/affiliations/OrganizationsList.tsx",
+    "description": "customer/details/CustomerDetailsPanel.tsx, customer/import/utils.ts, customer/list/SelectCountryField.tsx, user/affiliations/OrganizationsList.tsx",
     "message": "Country"
   },
   "Coupon": {
@@ -3312,7 +3320,7 @@
     "message": "Default resource termination offset in days"
   },
   "Default tax percent": {
-    "description": "user/affiliations/OrganizationsList.tsx",
+    "description": "customer/import/utils.ts, user/affiliations/OrganizationsList.tsx",
     "message": "Default tax percent"
   },
   "Default tenant category": {
@@ -3776,7 +3784,7 @@
     "message": "Download full price list"
   },
   "Download template": {
-    "description": "marketplace/offerings/import-users/Step1UploadFile.tsx, project/import/ProjectImportDialog.tsx",
+    "description": "customer/import/OrganizationImportDialog.tsx, marketplace/offerings/import-users/Step1UploadFile.tsx, project/import/ProjectImportDialog.tsx",
     "message": "Download template"
   },
   "Download": {
@@ -4080,7 +4088,7 @@
     "message": "Email verification has been sent. Please check your inbox."
   },
   "Email": {
-    "description": "administration/InvitationList.tsx, administration/hooks/HooksList.tsx, administration/organizations/OrganizationGroupOrganizationsList.tsx, administration/providers/ProviderUsersDialog.tsx, broadcasts/RecipientsList.tsx, customer/details/CustomerContactPanel.tsx, customer/details/EditFieldDialog.tsx, customer/list/ExportAsEmailDialog.tsx, customer/list/OrganizationCard.tsx, customer/team/TeamTableComponent.tsx, customer/team/UserGroup.tsx, invitations/InvitationsList.tsx, invitations/actions/create/EmailsListGroup.tsx, project/team/InvitationsList.tsx, project/team/UserGroup.tsx, proposals/round/reviewers/RoundReviewersList.tsx, proposals/team/InvitationsList.tsx, rancher/cluster/team/AddResourceAccessDialog.tsx, rancher/cluster/team/KeycloakMembershipList.tsx, user/affiliations/OrganizationsList.tsx, user/affiliations/SummaryTeamTable.tsx, user/hooks/HookTypeField.tsx, user/support/UserDetailsTable.tsx, user/support/UserEditRows.tsx, user/support/UserEmailChangeDialog.tsx, user/support/UserList.tsx",
+    "description": "administration/InvitationList.tsx, administration/hooks/HooksList.tsx, administration/organizations/OrganizationGroupOrganizationsList.tsx, administration/providers/ProviderUsersDialog.tsx, broadcasts/RecipientsList.tsx, customer/details/CustomerContactPanel.tsx, customer/details/EditFieldDialog.tsx, customer/import/Step3PreviewAndImport.tsx, customer/list/ExportAsEmailDialog.tsx, customer/list/OrganizationCard.tsx, customer/team/TeamTableComponent.tsx, customer/team/UserGroup.tsx, invitations/InvitationsList.tsx, invitations/actions/create/EmailsListGroup.tsx, project/team/InvitationsList.tsx, project/team/UserGroup.tsx, proposals/round/reviewers/RoundReviewersList.tsx, proposals/team/InvitationsList.tsx, rancher/cluster/team/AddResourceAccessDialog.tsx, rancher/cluster/team/KeycloakMembershipList.tsx, user/affiliations/OrganizationsList.tsx, user/affiliations/SummaryTeamTable.tsx, user/hooks/HookTypeField.tsx, user/support/UserDetailsTable.tsx, user/support/UserEditRows.tsx, user/support/UserEmailChangeDialog.tsx, user/support/UserList.tsx",
     "message": "Email"
   },
   "Email: {email}": {
@@ -4751,6 +4759,10 @@
     "description": "marketplace/category/admin/ColumnRow.tsx",
     "message": "Filesize"
   },
+  "Fill the template with your organization details, then upload it in the next step.": {
+    "description": "customer/import/Step1DownloadTemplate.tsx",
+    "message": "Fill the template with your organization details, then upload it in the next step."
+  },
   "Fill the template with your project and resource details, then upload it in the next step.": {
     "description": "project/import/Step3DownloadTemplate.tsx",
     "message": "Fill the template with your project and resource details, then upload it in the next step."
@@ -5252,7 +5264,7 @@
     "message": "Home organization domain name"
   },
   "Homepage": {
-    "description": "customer/details/CustomerContactPanel.tsx, customer/details/EditFieldDialog.tsx",
+    "description": "customer/details/CustomerContactPanel.tsx, customer/details/EditFieldDialog.tsx, customer/import/utils.ts",
     "message": "Homepage"
   },
   "Hook has been removed.": {
@@ -5488,7 +5500,7 @@
     "message": "Impersonation is not available for users without active session."
   },
   "Import & create": {
-    "description": "project/import/ProjectImportDialog.tsx",
+    "description": "customer/import/OrganizationImportDialog.tsx, project/import/ProjectImportDialog.tsx",
     "message": "Import & create"
   },
   "Import YAML": {
@@ -5755,6 +5767,14 @@
     "description": "issues/comments/IssueCommentItem.tsx",
     "message": "Internal"
   },
+  "Invalid email address": {
+    "description": "core/validators.ts",
+    "message": "Invalid email address"
+  },
+  "Invalid email": {
+    "description": "customer/import/Step3PreviewAndImport.tsx",
+    "message": "Invalid email"
+  },
   "Invalid email: {email}": {
     "description": "customer/cost-policies/CostPolicyForm.tsx",
     "message": "Invalid email: {email}"
@@ -5764,12 +5784,16 @@
     "message": "Invalid files"
   },
   "Invalid format, please import a .csv file": {
-    "description": "marketplace/offerings/import-users/Step1UploadFile.tsx, project/import/Step4UploadFile.tsx",
+    "description": "customer/import/Step2UploadFile.tsx, marketplace/offerings/import-users/Step1UploadFile.tsx, project/import/Step4UploadFile.tsx",
     "message": "Invalid format, please import a .csv file"
   },
   "Invalid offering": {
     "description": "marketplace/offerings/import-users/Step2PreviewAndImport.tsx",
     "message": "Invalid offering"
+  },
+  "Invalid tax percent": {
+    "description": "customer/import/Step3PreviewAndImport.tsx",
+    "message": "Invalid tax percent"
   },
   "Invalid user": {
     "description": "marketplace/offerings/import-users/Step2PreviewAndImport.tsx",
@@ -6911,8 +6935,12 @@
     "description": "project/import/Step5PreviewAndImport.tsx",
     "message": "Missing date"
   },
+  "Missing email": {
+    "description": "customer/import/Step3PreviewAndImport.tsx",
+    "message": "Missing email"
+  },
   "Missing name": {
-    "description": "project/import/Step5PreviewAndImport.tsx",
+    "description": "customer/import/Step3PreviewAndImport.tsx, project/import/Step5PreviewAndImport.tsx",
     "message": "Missing name"
   },
   "Missing username": {
@@ -7090,6 +7118,10 @@
   "Name is required field.": {
     "description": "project/validators.tsx",
     "message": "Name is required field."
+  },
+  "Name is required.": {
+    "description": "customer/import/Step3PreviewAndImport.tsx",
+    "message": "Name is required."
   },
   "Name is too short, names should be at least two alphanumeric characters.": {
     "description": "core/validators.ts, openstack/utils.ts",
@@ -7507,6 +7539,10 @@
     "description": "marketplace/offerings/import-users/UserImportDialog.tsx",
     "message": "No valid offering user to import"
   },
+  "No valid organizations to import": {
+    "description": "customer/import/OrganizationImportDialog.tsx",
+    "message": "No valid organizations to import"
+  },
   "No valid projects to import": {
     "description": "project/import/ProjectImportDialog.tsx",
     "message": "No valid projects to import"
@@ -7708,7 +7744,7 @@
     "message": "OIDC introspection endpoint URL for validating access tokens."
   },
   "OK": {
-    "description": "administration/providers/ProviderDetailsDialog.tsx, administration/providers/ProviderUsersDialog.tsx, marketplace/resources/list/ResourceStateFilter.tsx, project/import/Step5PreviewAndImport.tsx, user/support/DangerActionDialog.tsx",
+    "description": "administration/providers/ProviderDetailsDialog.tsx, administration/providers/ProviderUsersDialog.tsx, customer/import/Step3PreviewAndImport.tsx, marketplace/resources/list/ResourceStateFilter.tsx, project/import/Step5PreviewAndImport.tsx, user/support/DangerActionDialog.tsx",
     "message": "OK"
   },
   "OR": {
@@ -8320,7 +8356,7 @@
     "message": "Organization invoice history"
   },
   "Organization name": {
-    "description": "administration/organizations/OrganizationCreditsList.tsx, user/support/UserEditRows.tsx",
+    "description": "administration/organizations/OrganizationCreditsList.tsx, customer/import/Step3PreviewAndImport.tsx, user/support/UserEditRows.tsx",
     "message": "Organization name"
   },
   "Organization quotas": {
@@ -8372,7 +8408,7 @@
     "message": "Organizations owner"
   },
   "Organizations": {
-    "description": "administration/dashboard/AdminStatistics.tsx, administration/organizations/OrganizationGroupOrganizationsList.tsx, administration/routes.ts, administration/service-accounts/ServiceAccountsTable.tsx, broadcasts/BroadcastExpandableRow.tsx, broadcasts/BroadcastForm.tsx, broadcasts/RecipientsList.tsx, customer/list/CustomerList.tsx, marketplace/offerings/OfferingDetailsUIView.tsx, marketplace/offerings/expandable/OfferingCustomersList.tsx, marketplace/resources/details/ResourceDetailsContainer.tsx, marketplace/service-providers/ProviderOrganizationsList.tsx, marketplace/service-providers/ProviderUserCustomersList.tsx, marketplace/service-providers/utils.ts, navigation/header/search/SearchPopover.tsx, navigation/sidebar/OrganizationsListMenu.tsx, organization/OrganizationUIView.tsx, project/ProjectContainer.tsx, proposals/round/RoundUIView.tsx, proposals/utils.ts, user/affiliations/OrganizationsList.tsx",
+    "description": "administration/dashboard/AdminStatistics.tsx, administration/organizations/OrganizationGroupOrganizationsList.tsx, administration/routes.ts, administration/service-accounts/ServiceAccountsTable.tsx, broadcasts/BroadcastExpandableRow.tsx, broadcasts/BroadcastForm.tsx, broadcasts/RecipientsList.tsx, customer/import/Step3PreviewAndImport.tsx, customer/list/CustomerList.tsx, marketplace/offerings/OfferingDetailsUIView.tsx, marketplace/offerings/expandable/OfferingCustomersList.tsx, marketplace/resources/details/ResourceDetailsContainer.tsx, marketplace/service-providers/ProviderOrganizationsList.tsx, marketplace/service-providers/ProviderUserCustomersList.tsx, marketplace/service-providers/utils.ts, navigation/header/search/SearchPopover.tsx, navigation/sidebar/OrganizationsListMenu.tsx, organization/OrganizationUIView.tsx, project/ProjectContainer.tsx, proposals/round/RoundUIView.tsx, proposals/utils.ts, user/affiliations/OrganizationsList.tsx",
     "message": "Organizations"
   },
   "Other (manual input)": {
@@ -8756,7 +8792,7 @@
     "message": "Philosophy, ethics and religion"
   },
   "Phone number": {
-    "description": "customer/details/CustomerContactPanel.tsx, customer/details/EditFieldDialog.tsx, user/affiliations/OrganizationsList.tsx, user/support/UserEditRows.tsx, user/support/UserList.tsx",
+    "description": "customer/details/CustomerContactPanel.tsx, customer/details/EditFieldDialog.tsx, customer/import/utils.ts, user/affiliations/OrganizationsList.tsx, user/support/UserEditRows.tsx, user/support/UserList.tsx",
     "message": "Phone number"
   },
   "Phone numbers": {
@@ -8863,12 +8899,8 @@
     "description": "auth/SigninForm.tsx",
     "message": "Please enter username and password."
   },
-  "Please fix (step {step}) or skip records with errors": {
-    "description": "project/import/Step5PreviewAndImport.tsx",
-    "message": "Please fix (step {step}) or skip records with errors"
-  },
   "Please fix data or skip records with errors": {
-    "description": "marketplace/offerings/import-users/Step2PreviewAndImport.tsx",
+    "description": "customer/import/Step3PreviewAndImport.tsx, marketplace/offerings/import-users/Step2PreviewAndImport.tsx, project/import/Step5PreviewAndImport.tsx",
     "message": "Please fix data or skip records with errors"
   },
   "Please give us a moment to validate your invitation.": {
@@ -8876,7 +8908,7 @@
     "message": "Please give us a moment to validate your invitation."
   },
   "Please import a file.": {
-    "description": "marketplace/offerings/import-users/Step1UploadFile.tsx, project/import/Step4UploadFile.tsx",
+    "description": "customer/import/Step2UploadFile.tsx, marketplace/offerings/import-users/Step1UploadFile.tsx, project/import/Step4UploadFile.tsx",
     "message": "Please import a file."
   },
   "Please log in to submit a proposal.": {
@@ -9084,7 +9116,7 @@
     "message": "Postal code"
   },
   "Postal": {
-    "description": "user/affiliations/OrganizationsList.tsx",
+    "description": "customer/import/utils.ts, user/affiliations/OrganizationsList.tsx",
     "message": "Postal"
   },
   "Powered by": {
@@ -9116,7 +9148,7 @@
     "message": "Preserve project permissions"
   },
   "Preview & import": {
-    "description": "marketplace/offerings/import-users/UserImportDialog.tsx, project/import/ProjectImportDialog.tsx",
+    "description": "customer/import/OrganizationImportDialog.tsx, marketplace/offerings/import-users/UserImportDialog.tsx, project/import/ProjectImportDialog.tsx",
     "message": "Preview & import"
   },
   "Preview changes": {
@@ -9952,7 +9984,7 @@
     "message": "Registered at:"
   },
   "Registration code": {
-    "description": "customer/details/CustomerDetailsPanel.tsx, customer/details/EditFieldDialog.tsx, customer/list/CustomerList.tsx, user/affiliations/OrganizationsList.tsx",
+    "description": "customer/details/CustomerDetailsPanel.tsx, customer/details/EditFieldDialog.tsx, customer/import/utils.ts, customer/list/CustomerList.tsx, user/affiliations/OrganizationsList.tsx",
     "message": "Registration code"
   },
   "Registration method": {
@@ -12360,7 +12392,7 @@
     "message": "Statistics"
   },
   "Status": {
-    "description": "administration/InvitationList.tsx, administration/announcements/AnnouncementFilter.tsx, administration/notifications/NotificationFilter.tsx, administration/providers/ProviderUsersDialog.tsx, customer/payment-profiles/PaymentProfileList.tsx, invitations/GroupInvitationsList.tsx, invitations/InvitationsList.tsx, issues/list/IssuesFilter.tsx, issues/list/IssuesList.tsx, marketplace/offerings/OfferingBreadcrumbPopover.tsx, marketplace/offerings/details/ConnectionStatusIndicator.tsx, marketplace/offerings/import-users/Step2PreviewAndImport.tsx, marketplace/offerings/update/plans/PlansSection.tsx, marketplace/resources/details/utils.tsx, marketplace/service-providers/ProviderCampaignsList.tsx, navigation/BackendHealthStatusDialog.tsx, openstack/openstack-tenant/TenantPortsList.tsx, project/import/Step5PreviewAndImport.tsx, project/team/InvitationsList.tsx, proposals/offering-requests/OfferingRequestsTableFilter.tsx, proposals/round/proposals/ProposalExpandableRow.tsx, proposals/team/InvitationsList.tsx, rancher/cluster/team/KeycloakMembershipExpandableRow.tsx, rancher/cluster/team/KeycloakMembershipList.tsx, user/support/UserFilter.tsx, user/support/UserList.tsx",
+    "description": "administration/InvitationList.tsx, administration/announcements/AnnouncementFilter.tsx, administration/notifications/NotificationFilter.tsx, administration/providers/ProviderUsersDialog.tsx, customer/import/Step3PreviewAndImport.tsx, customer/payment-profiles/PaymentProfileList.tsx, invitations/GroupInvitationsList.tsx, invitations/InvitationsList.tsx, issues/list/IssuesFilter.tsx, issues/list/IssuesList.tsx, marketplace/offerings/OfferingBreadcrumbPopover.tsx, marketplace/offerings/details/ConnectionStatusIndicator.tsx, marketplace/offerings/import-users/Step2PreviewAndImport.tsx, marketplace/offerings/update/plans/PlansSection.tsx, marketplace/resources/details/utils.tsx, marketplace/service-providers/ProviderCampaignsList.tsx, navigation/BackendHealthStatusDialog.tsx, openstack/openstack-tenant/TenantPortsList.tsx, project/import/Step5PreviewAndImport.tsx, project/team/InvitationsList.tsx, proposals/offering-requests/OfferingRequestsTableFilter.tsx, proposals/round/proposals/ProposalExpandableRow.tsx, proposals/team/InvitationsList.tsx, rancher/cluster/team/KeycloakMembershipExpandableRow.tsx, rancher/cluster/team/KeycloakMembershipList.tsx, user/support/UserFilter.tsx, user/support/UserList.tsx",
     "message": "Status"
   },
   "Stay on current": {
@@ -12502,6 +12534,10 @@
   "Subtotal": {
     "description": "invoices/details/InvoiceDetails.tsx, invoices/list/MonthOverview.tsx, marketplace/details/plan/TotalLimitComponentsTable.tsx",
     "message": "Subtotal"
+  },
+  "Successfully imported {n} organizations": {
+    "description": "customer/import/OrganizationImportDialog.tsx",
+    "message": "Successfully imported {n} organizations"
   },
   "Successfully imported {n} projects and {m} resources": {
     "description": "project/import/ProjectImportDialog.tsx",
@@ -12698,6 +12734,10 @@
   "Targets": {
     "description": "rancher/cluster/ClusterIngressesList.tsx",
     "message": "Targets"
+  },
+  "Tax percent must be a number": {
+    "description": "customer/import/Step3PreviewAndImport.tsx",
+    "message": "Tax percent must be a number"
   },
   "Tax percentage": {
     "description": "customer/details/CustomerBillingPanel.tsx, customer/details/EditFieldDialog.tsx",
@@ -12996,11 +13036,11 @@
     "message": "The image's minimum RAM is over the flavor RAM"
   },
   "The imported data format does not match the template format.": {
-    "description": "marketplace/offerings/import-users/Step1UploadFile.tsx, project/import/Step4UploadFile.tsx",
+    "description": "customer/import/Step2UploadFile.tsx, marketplace/offerings/import-users/Step1UploadFile.tsx, project/import/Step4UploadFile.tsx",
     "message": "The imported data format does not match the template format."
   },
   "The imported file is empty.": {
-    "description": "marketplace/offerings/import-users/Step1UploadFile.tsx, project/import/Step4UploadFile.tsx",
+    "description": "customer/import/Step2UploadFile.tsx, marketplace/offerings/import-users/Step1UploadFile.tsx, project/import/Step4UploadFile.tsx",
     "message": "The imported file is empty."
   },
   "The invoice has been marked as paid.": {
@@ -13056,7 +13096,7 @@
     "message": "The notification has been enabled"
   },
   "The number of records exceeds the allowed limit.": {
-    "description": "marketplace/offerings/import-users/Step1UploadFile.tsx",
+    "description": "customer/import/Step2UploadFile.tsx, marketplace/offerings/import-users/Step1UploadFile.tsx",
     "message": "The number of records exceeds the allowed limit."
   },
   "The offering UUID is not specified in one or more records.": {
@@ -13314,6 +13354,10 @@
   "This template includes all required fields for HPC project import: {fields} (required), {components} (offering specific).": {
     "description": "project/import/Step3DownloadTemplate.tsx",
     "message": "This template includes all required fields for HPC project import: {fields} (required), {components} (offering specific)."
+  },
+  "This template includes all required fields for organization import: {fields} (required) etc.": {
+    "description": "customer/import/Step1DownloadTemplate.tsx",
+    "message": "This template includes all required fields for organization import: {fields} (required) etc."
   },
   "This token won't be shown again, but you can regenerate it later.": {
     "description": "customer/service-accounts/ServiceAccountShowInfoDialog.tsx",
@@ -15336,12 +15380,16 @@
     "message": "Upload failed, please try again"
   },
   "Upload file": {
-    "description": "project/import/ProjectImportDialog.tsx",
+    "description": "customer/import/OrganizationImportDialog.tsx, project/import/ProjectImportDialog.tsx",
     "message": "Upload file"
   },
   "Upload supporting documentation": {
     "description": "proposals/proposal/create/ProjectDetailsStep.tsx",
     "message": "Upload supporting documentation"
+  },
+  "Upload your completed organization template file": {
+    "description": "customer/import/Step2UploadFile.tsx",
+    "message": "Upload your completed organization template file"
   },
   "Upload your completed project and resources template file": {
     "description": "project/import/Step4UploadFile.tsx",
@@ -15712,7 +15760,7 @@
     "message": "Users"
   },
   "VAT code": {
-    "description": "customer/details/CustomerBillingPanel.tsx, customer/details/EditFieldDialog.tsx, user/affiliations/OrganizationsList.tsx",
+    "description": "customer/details/CustomerBillingPanel.tsx, customer/details/EditFieldDialog.tsx, customer/import/utils.ts, user/affiliations/OrganizationsList.tsx",
     "message": "VAT code"
   },
   "VAT is included": {
@@ -15778,6 +15826,10 @@
   "VPC vCPU": {
     "description": "reporting/quotas/constants.tsx",
     "message": "VPC vCPU"
+  },
+  "Valid email is required.": {
+    "description": "customer/import/Step3PreviewAndImport.tsx",
+    "message": "Valid email is required."
   },
   "Valid runtime states for operation: {validStates}.": {
     "description": "resource/actions/base.ts",
@@ -15848,7 +15900,7 @@
     "message": "Verify server certificate"
   },
   "Verify your data before importing": {
-    "description": "marketplace/offerings/import-users/Step2PreviewAndImport.tsx, project/import/Step5PreviewAndImport.tsx",
+    "description": "customer/import/Step3PreviewAndImport.tsx, marketplace/offerings/import-users/Step2PreviewAndImport.tsx, project/import/Step5PreviewAndImport.tsx",
     "message": "Verify your data before importing"
   },
   "Verifying email change": {
@@ -16520,7 +16572,7 @@
     "message": "last name"
   },
   "max. {size}": {
-    "description": "marketplace/offerings/import-users/Step1UploadFile.tsx, proposals/proposal/create/UploadDocumentationFiles.tsx",
+    "description": "marketplace/offerings/import-users/Step1UploadFile.tsx, project/import/TemplateUploaderField.tsx, proposals/proposal/create/UploadDocumentationFiles.tsx",
     "message": "max. {size}"
   },
   "milli CPUs": {
@@ -16788,7 +16840,7 @@
     "message": "{count} countries selected"
   },
   "{count} duplicate records were removed.": {
-    "description": "marketplace/offerings/import-users/Step2PreviewAndImport.tsx",
+    "description": "customer/import/Step3PreviewAndImport.tsx, marketplace/offerings/import-users/Step2PreviewAndImport.tsx",
     "message": "{count} duplicate records were removed."
   },
   "{count} hour": {
