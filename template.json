@@ -6595,6 +6595,10 @@
     "description": "features/FeaturesDescription.ts",
     "message": "Make the project start date mandatory."
   },
+  "Manage backend resources": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Manage backend resources"
+  },
   "Manage campaign": {
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Manage campaign"
