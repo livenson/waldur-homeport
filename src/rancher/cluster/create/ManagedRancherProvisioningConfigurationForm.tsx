@@ -60,6 +60,7 @@ const VOLUME_SIZE_FIELD: Partial<OfferingEditField> = {
     required: true,
     validate: required,
     min: 1,
+    max: 1000000,
     parse: parseIntField,
     format: formatIntField,
   },
