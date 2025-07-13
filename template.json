@@ -6779,13 +6779,13 @@
     "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
     "message": "Maximum number of CPU for cluster tenants"
   },
-  "Maximum number of RAM for a cluster tenants": {
+  "Maximum number of RAM for a cluster tenants (GB)": {
     "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
-    "message": "Maximum number of RAM for a cluster tenants"
+    "message": "Maximum number of RAM for a cluster tenants (GB)"
   },
-  "Maximum number of disk space for a cluster tenants": {
+  "Maximum number of disk space for a cluster tenants (GB)": {
     "description": "rancher/cluster/create/ManagedRancherProvisioningConfigurationForm.tsx",
-    "message": "Maximum number of disk space for a cluster tenants"
+    "message": "Maximum number of disk space for a cluster tenants (GB)"
   },
   "Maximum number of instances in a single tenant": {
     "description": "openstack/OpenStackPluginOptionsForm.tsx",
