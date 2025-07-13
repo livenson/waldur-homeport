@@ -5323,6 +5323,14 @@
     "description": "invoices/details/ResourceLimitPeriodsTable.tsx",
     "message": "Hours"
   },
+  "How maintenance notifications are delivered. Choices: AdminAnnouncement or BroadcastMessage.": {
+    "description": "SettingsDescription.ts",
+    "message": "How maintenance notifications are delivered. Choices: AdminAnnouncement or BroadcastMessage."
+  },
+  "How many minutes before scheduled maintenance users should be notified.": {
+    "description": "SettingsDescription.ts",
+    "message": "How many minutes before scheduled maintenance users should be notified."
+  },
   "Human-friendly name of the Waldur deployment.": {
     "description": "SettingsDescription.ts",
     "message": "Human-friendly name of the Waldur deployment."
