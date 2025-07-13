@@ -186,12 +186,12 @@ const fields: OfferingEditField[] = [
     ...VOLUME_SIZE_FIELD,
   },
   {
-    label: translate('Maximum number of RAM for a cluster tenants'),
+    label: translate('Maximum number of RAM for a cluster tenants (GB)'),
     key: 'plugin_options.managed_rancher_tenant_max_ram',
     ...VOLUME_SIZE_FIELD,
   },
   {
-    label: translate('Maximum number of disk space for a cluster tenants'),
+    label: translate('Maximum number of disk space for a cluster tenants (GB)'),
     key: 'plugin_options.managed_rancher_tenant_max_disk',
     ...VOLUME_SIZE_FIELD,
   },
