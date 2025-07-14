@@ -1371,6 +1371,10 @@
     "description": "user/keys/KeyRemoveButton.tsx",
     "message": "Are you sure you would like to delete the key?"
   },
+  "Are you sure you would like to delete the mapping?": {
+    "description": "proposals/update/role-mapping/RoleMappingDeleteAction.tsx",
+    "message": "Are you sure you would like to delete the mapping?"
+  },
   "Are you sure you would like to delete the user agreement?": {
     "description": "administration/agreements/UserAgreementDeleteButton.tsx",
     "message": "Are you sure you would like to delete the user agreement?"
@@ -2863,6 +2867,10 @@
     "description": "administration/roles/PermissionOptions.tsx, marketplace/robot-accounts/CreateRobotAccountAction.tsx",
     "message": "Create robot account"
   },
+  "Create role mapping": {
+    "description": "proposals/update/role-mapping/RoleMappingFormDialog.tsx",
+    "message": "Create role mapping"
+  },
   "Create screenshot": {
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Create screenshot"
@@ -2896,7 +2904,7 @@
     "message": "Create user"
   },
   "Create": {
-    "description": "administration/announcements/AnnouncementForm.tsx, administration/organizations/OrganizationGroupForm.tsx, administration/remote-offering-sync/RemoteSyncFormDialog.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, customer/cost-policies/CostPolicyFormDialog.tsx, customer/create/CustomerCreateDialog.tsx, customer/credits/CreditFormDialog.tsx, customer/details/AccessSubnetForm.tsx, customer/service-accounts/ServiceAccountFormDialog.tsx, freeipa/FreeIPAAccountCreate.tsx, issues/create/IssueCreateForm.tsx, issues/list/IssueCreateButton.tsx, marketplace/category/admin/CategoryEditDialog.tsx, marketplace/category/admin/GroupFromDialog.tsx, marketplace/details/OrderSubmitButton.tsx, marketplace/offerings/actions/OfferingCreateDialog.tsx, marketplace/offerings/details/CreateOfferingUserButton.tsx, marketplace/offerings/details/policies/PolicyCreateDialog.tsx, marketplace/offerings/update/components/AddComponentDialog.tsx, marketplace/offerings/update/endpoints/AddEndpointDialog.tsx, marketplace/offerings/update/options/AddOptionDialog.tsx, marketplace/offerings/update/plans/AddPlanDialog.tsx, marketplace/offerings/update/roles/AddRoleDialog.tsx, marketplace/orders/list/OrderTypeCell.tsx, marketplace/orders/list/OrderTypeFilter.tsx, marketplace/resources/details/ResourceIssuesCard.tsx, marketplace/resources/users/AddUserDialog.tsx, marketplace/service-providers/CampaignCreateButton.tsx, marketplace/service-providers/CreateProviderOfferingUserButton.tsx, openstack/openstack-instance/actions/CreateBackupAction.tsx, openstack/openstack-tenant/CreateMigrationButton.tsx, openstack/openstack-tenant/actions/CreateFloatingIpAction.tsx, openstack/openstack-tenant/actions/CreateNetworkAction.tsx, openstack/openstack-tenant/actions/CreatePortAction.tsx, openstack/openstack-tenant/actions/CreateRouterAction.tsx, openstack/openstack-tenant/actions/CreateSecurityGroupAction.tsx, openstack/openstack-tenant/actions/CreateServerGroupAction.tsx, openstack/openstack-volume/actions/CreateSnapshotAction.tsx, project/create/ProjectCreateDialog.tsx, proposals/call-management/CallFormDialog.tsx, proposals/proposal/create/AddProposalDialog.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestFormDialog.tsx, proposals/proposal/create-review/CreateReviewDialog.tsx, proposals/update/offerings/CallOfferingCreateDialog.tsx, proposals/update/rounds/CallRoundCreateDialog.tsx, rancher/catalog/CatalogCreateButton.tsx, rancher/cluster/hpas/HPACreateButton.tsx, user/hooks/HookDetailsDialog.tsx",
+    "description": "administration/announcements/AnnouncementForm.tsx, administration/organizations/OrganizationGroupForm.tsx, administration/remote-offering-sync/RemoteSyncFormDialog.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, customer/cost-policies/CostPolicyFormDialog.tsx, customer/create/CustomerCreateDialog.tsx, customer/credits/CreditFormDialog.tsx, customer/details/AccessSubnetForm.tsx, customer/service-accounts/ServiceAccountFormDialog.tsx, freeipa/FreeIPAAccountCreate.tsx, issues/create/IssueCreateForm.tsx, issues/list/IssueCreateButton.tsx, marketplace/category/admin/CategoryEditDialog.tsx, marketplace/category/admin/GroupFromDialog.tsx, marketplace/details/OrderSubmitButton.tsx, marketplace/offerings/actions/OfferingCreateDialog.tsx, marketplace/offerings/details/CreateOfferingUserButton.tsx, marketplace/offerings/details/policies/PolicyCreateDialog.tsx, marketplace/offerings/update/components/AddComponentDialog.tsx, marketplace/offerings/update/endpoints/AddEndpointDialog.tsx, marketplace/offerings/update/options/AddOptionDialog.tsx, marketplace/offerings/update/plans/AddPlanDialog.tsx, marketplace/offerings/update/roles/AddRoleDialog.tsx, marketplace/orders/list/OrderTypeCell.tsx, marketplace/orders/list/OrderTypeFilter.tsx, marketplace/resources/details/ResourceIssuesCard.tsx, marketplace/resources/users/AddUserDialog.tsx, marketplace/service-providers/CampaignCreateButton.tsx, marketplace/service-providers/CreateProviderOfferingUserButton.tsx, openstack/openstack-instance/actions/CreateBackupAction.tsx, openstack/openstack-tenant/CreateMigrationButton.tsx, openstack/openstack-tenant/actions/CreateFloatingIpAction.tsx, openstack/openstack-tenant/actions/CreateNetworkAction.tsx, openstack/openstack-tenant/actions/CreatePortAction.tsx, openstack/openstack-tenant/actions/CreateRouterAction.tsx, openstack/openstack-tenant/actions/CreateSecurityGroupAction.tsx, openstack/openstack-tenant/actions/CreateServerGroupAction.tsx, openstack/openstack-volume/actions/CreateSnapshotAction.tsx, project/create/ProjectCreateDialog.tsx, proposals/call-management/CallFormDialog.tsx, proposals/proposal/create/AddProposalDialog.tsx, proposals/proposal/create/resource-requests-step/ResourceRequestFormDialog.tsx, proposals/proposal/create-review/CreateReviewDialog.tsx, proposals/update/offerings/CallOfferingCreateDialog.tsx, proposals/update/role-mapping/RoleMappingFormDialog.tsx, proposals/update/rounds/CallRoundCreateDialog.tsx, rancher/catalog/CatalogCreateButton.tsx, rancher/cluster/hpas/HPACreateButton.tsx, user/hooks/HookDetailsDialog.tsx",
     "message": "Create"
   },
   "Created at": {
@@ -3327,10 +3335,6 @@
     "description": "SettingsDescription.ts",
     "message": "Default logo for offering"
   },
-  "Default project role": {
-    "description": "proposals/update/general/CallGeneralSection.tsx, proposals/update/general/EditGeneralInfoDialog.tsx",
-    "message": "Default project role"
-  },
   "Default resource termination offset in days": {
     "description": "marketplace/offerings/update/integration/LifecyclePolicySection.tsx",
     "message": "Default resource termination offset in days"
@@ -3419,6 +3423,10 @@
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Delete lexis link"
   },
+  "Delete mapping": {
+    "description": "proposals/update/role-mapping/RoleMappingDeleteAction.tsx",
+    "message": "Delete mapping"
+  },
   "Delete offering user": {
     "description": "marketplace/service-providers/ProviderOfferingUserDeleteButton.tsx",
     "message": "Delete offering user"
@@ -3484,7 +3492,7 @@
     "message": "Delete workload"
   },
   "Delete": {
-    "description": "administration/agreements/UserAgreementDeleteButton.tsx, administration/remote-offering-sync/RemoteSyncDeleteAction.tsx, broadcasts/BroadcastDeleteButton.tsx, customer/credits/DeleteCreditButton.tsx, customer/credits/ProjectDeleteCreditButton.tsx, customer/details/CustomerRemoveDialog.tsx, customer/payment-profiles/PaymentProfileDeleteButton.tsx, customer/payments/DeletePaymentButton.tsx, customer/service-accounts/ServiceAccountDeleteAction.tsx, invitations/InvitationDeleteButton.tsx, invitations/MultiDeleteAction.tsx, marketplace/offerings/images/DeleteImageButton.tsx, marketplace/offerings/list/DeleteOfferingButton.tsx, marketplace/offerings/list/OfferingActions.test.tsx, marketplace/offerings/update/components/DeleteComponentButton.tsx, marketplace/offerings/update/endpoints/DeleteEndpointButton.tsx, marketplace/offerings/update/options/DeleteOptionButton.tsx, marketplace/offerings/update/roles/DeleteRoleButton.tsx, marketplace/resources/users/DeleteUserButton.tsx, marketplace/service-providers/ProviderOfferingUserDeleteButton.tsx, modal/DeleteConfirmationDialog.tsx, openstack/openstack-backup/actions/NetworksList.tsx, openstack/openstack-instance/actions/update-floating-ips/FloatingIpRow.tsx, openstack/openstack-security-groups/rule-editor/ActionsField.tsx, project/DeleteAction.tsx, project/manage/ProjectDelete.tsx, rancher/catalog/CatalogDeleteButton.tsx, rancher/cluster/WorkloadActions.tsx, resource/actions/ResourceDeleteButton.tsx, user/support/DangerActionDialog.tsx, user/support/UserDelete.tsx",
+    "description": "administration/agreements/UserAgreementDeleteButton.tsx, administration/remote-offering-sync/RemoteSyncDeleteAction.tsx, broadcasts/BroadcastDeleteButton.tsx, customer/credits/DeleteCreditButton.tsx, customer/credits/ProjectDeleteCreditButton.tsx, customer/details/CustomerRemoveDialog.tsx, customer/payment-profiles/PaymentProfileDeleteButton.tsx, customer/payments/DeletePaymentButton.tsx, customer/service-accounts/ServiceAccountDeleteAction.tsx, invitations/InvitationDeleteButton.tsx, invitations/MultiDeleteAction.tsx, marketplace/offerings/images/DeleteImageButton.tsx, marketplace/offerings/list/DeleteOfferingButton.tsx, marketplace/offerings/list/OfferingActions.test.tsx, marketplace/offerings/update/components/DeleteComponentButton.tsx, marketplace/offerings/update/endpoints/DeleteEndpointButton.tsx, marketplace/offerings/update/options/DeleteOptionButton.tsx, marketplace/offerings/update/roles/DeleteRoleButton.tsx, marketplace/resources/users/DeleteUserButton.tsx, marketplace/service-providers/ProviderOfferingUserDeleteButton.tsx, modal/DeleteConfirmationDialog.tsx, openstack/openstack-backup/actions/NetworksList.tsx, openstack/openstack-instance/actions/update-floating-ips/FloatingIpRow.tsx, openstack/openstack-security-groups/rule-editor/ActionsField.tsx, project/DeleteAction.tsx, project/manage/ProjectDelete.tsx, proposals/update/role-mapping/RoleMappingDeleteAction.tsx, rancher/catalog/CatalogDeleteButton.tsx, rancher/cluster/WorkloadActions.tsx, resource/actions/ResourceDeleteButton.tsx, user/support/DangerActionDialog.tsx, user/support/UserDelete.tsx",
     "message": "Delete"
   },
   "Deleting PostgreSQL server will cause deletion of all databases created within server.": {
@@ -3895,10 +3903,6 @@
     "description": "customer/credits/CreditFormDialog.tsx",
     "message": "Edit credit"
   },
-  "Edit default project role": {
-    "description": "proposals/update/general/CallGeneralSection.tsx",
-    "message": "Edit default project role"
-  },
   "Edit description": {
     "description": "proposals/update/general/CallGeneralSection.tsx",
     "message": "Edit description"
@@ -4002,6 +4006,10 @@
   "Edit role description": {
     "description": "administration/roles/RoleDescriptionEditDialog.tsx",
     "message": "Edit role description"
+  },
+  "Edit role mapping for {proposalRole}": {
+    "description": "proposals/update/role-mapping/RoleMappingFormDialog.tsx",
+    "message": "Edit role mapping for {proposalRole}"
   },
   "Edit role": {
     "description": "administration/roles/RoleEditButton.tsx, administration/roles/RoleEditDialog.tsx",
@@ -5451,6 +5459,10 @@
     "description": "marketplace/UserSecretOptionsForm.tsx",
     "message": "If defined, will be set as a password for all offering users"
   },
+  "If the project role is not set, corresponding users in proposal role will not be transferred to the project.": {
+    "description": "proposals/update/role-mapping/RoleMappingFormDialog.tsx",
+    "message": "If the project role is not set, corresponding users in proposal role will not be transferred to the project."
+  },
   "If true, notify users about resource changes from Marketplace perspective. Can generate duplicate events if plugins also log": {
     "description": "SettingsDescription.ts",
     "message": "If true, notify users about resource changes from Marketplace perspective. Can generate duplicate events if plugins also log"
@@ -6682,6 +6694,10 @@
   "Map categories": {
     "description": "marketplace/offerings/import/tabs.ts",
     "message": "Map categories"
+  },
+  "Mapping has been deleted.": {
+    "description": "proposals/update/role-mapping/RoleMappingDeleteAction.tsx",
+    "message": "Mapping has been deleted."
   },
   "Mapping of floating to external IPs": {
     "description": "openstack/OpenStackSecretOptionsForm.tsx",
@@ -9492,7 +9508,7 @@
     "message": "Project removal"
   },
   "Project role": {
-    "description": "customer/team/CustomerUsersListFilter.tsx, user/support/UserFilter.tsx",
+    "description": "customer/team/CustomerUsersListFilter.tsx, proposals/update/role-mapping/CallRoleMappingsList.tsx, proposals/update/role-mapping/RoleMappingFormDialog.tsx, user/support/UserFilter.tsx",
     "message": "Project role"
   },
   "Project roles": {
@@ -9591,6 +9607,10 @@
     "description": "proposals/proposal/create/utils.ts",
     "message": "Proposal has been rejected."
   },
+  "Proposal project role mappings": {
+    "description": "proposals/update/role-mapping/CallRoleMappingsList.tsx",
+    "message": "Proposal project role mappings"
+  },
   "Proposal review created successfully": {
     "description": "proposals/proposal/create-review/CreateReviewDialog.tsx",
     "message": "Proposal review created successfully"
@@ -9602,6 +9622,10 @@
   "Proposal review submitted successfully": {
     "description": "proposals/proposal/create-review/ProposalReviewCreatePage.tsx",
     "message": "Proposal review submitted successfully"
+  },
+  "Proposal role": {
+    "description": "proposals/update/role-mapping/CallRoleMappingsList.tsx, proposals/update/role-mapping/RoleMappingFormDialog.tsx",
+    "message": "Proposal role"
   },
   "Proposal settings": {
     "description": "SettingsDescription.ts",
@@ -11010,6 +11034,18 @@
   "Role management events": {
     "description": "permissions/events.tsx",
     "message": "Role management events"
+  },
+  "Role mapping has been created": {
+    "description": "proposals/update/role-mapping/RoleMappingFormDialog.tsx",
+    "message": "Role mapping has been created"
+  },
+  "Role mapping has been updated": {
+    "description": "proposals/update/role-mapping/RoleMappingFormDialog.tsx",
+    "message": "Role mapping has been updated"
+  },
+  "Role mapping": {
+    "description": "proposals/update/CallUpdateContainer.tsx",
+    "message": "Role mapping"
   },
   "Role name": {
     "description": "user/affiliations/UserAffiliationsList.tsx",
@@ -13867,6 +13903,10 @@
     "description": "customer/credits/CreateCreditButton.tsx, customer/credits/ProjectCreateCreditButton.tsx",
     "message": "Unable to create a credit"
   },
+  "Unable to create a role mapping.": {
+    "description": "proposals/update/role-mapping/RoleMappingFormDialog.tsx",
+    "message": "Unable to create a role mapping."
+  },
   "Unable to create a user agreement.": {
     "description": "administration/agreements/UserAgreementCreateDialog.tsx",
     "message": "Unable to create a user agreement."
@@ -14026,6 +14066,10 @@
   "Unable to delete invoice item.": {
     "description": "invoices/details/InvoiceItemDelete.tsx",
     "message": "Unable to delete invoice item."
+  },
+  "Unable to delete mapping.": {
+    "description": "proposals/update/role-mapping/RoleMappingDeleteAction.tsx",
+    "message": "Unable to delete mapping."
   },
   "Unable to delete offering user.": {
     "description": "marketplace/service-providers/ProviderOfferingUserDeleteButton.tsx",
@@ -15031,6 +15075,10 @@
     "description": "marketplace/service-providers/RestrictOfferingUser.tsx",
     "message": "Unable to update the restriction status."
   },
+  "Unable to update the role mapping.": {
+    "description": "proposals/update/role-mapping/RoleMappingFormDialog.tsx",
+    "message": "Unable to update the role mapping."
+  },
   "Unable to update username.": {
     "description": "marketplace/service-providers/ProviderOfferingUserUpdateDialog.tsx",
     "message": "Unable to update username."
@@ -15376,7 +15424,7 @@
     "message": "Update {resourceType}"
   },
   "Update": {
-    "description": "administration/hooks/HookUpdateButton.tsx, administration/service-desk/AdministrationServiceDeskUpdateDialog.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, booking/EditSchedulesDialog.tsx, broadcasts/BroadcastUpdateButton.tsx, customer/details/AccessSubnetForm.tsx, customer/payment-profiles/PaymentProfileUpdateDialog.tsx, customer/payments/PaymentUpdateDialog.tsx, marketplace/offerings/update/overview/EditGettingStartedDialog.tsx, marketplace/offerings/update/overview/EditOverviewDialog.tsx, marketplace/orders/list/OrderTypeCell.tsx, marketplace/orders/list/OrderTypeFilter.tsx, marketplace/resources/options/UpdateResourceOptionDialog.tsx, marketplace/service-providers/UpdateOfferingPermissionExpirationTimeDialog.tsx, openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx, openstack/openstack-tenant/SetRoutesDialog.tsx, table/SaveFilterDialog.tsx, table/TableFiltersMenu.tsx, user/hooks/HookDetailsDialog.tsx",
+    "description": "administration/hooks/HookUpdateButton.tsx, administration/service-desk/AdministrationServiceDeskUpdateDialog.tsx, administration/service-desk/issue-templates/IssueTemplateForm.tsx, booking/EditSchedulesDialog.tsx, broadcasts/BroadcastUpdateButton.tsx, customer/details/AccessSubnetForm.tsx, customer/payment-profiles/PaymentProfileUpdateDialog.tsx, customer/payments/PaymentUpdateDialog.tsx, marketplace/offerings/update/overview/EditGettingStartedDialog.tsx, marketplace/offerings/update/overview/EditOverviewDialog.tsx, marketplace/orders/list/OrderTypeCell.tsx, marketplace/orders/list/OrderTypeFilter.tsx, marketplace/resources/options/UpdateResourceOptionDialog.tsx, marketplace/service-providers/UpdateOfferingPermissionExpirationTimeDialog.tsx, openstack/openstack-instance/SetAllowedAddressPairsDialog.tsx, openstack/openstack-tenant/SetRoutesDialog.tsx, proposals/update/role-mapping/RoleMappingFormDialog.tsx, table/SaveFilterDialog.tsx, table/TableFiltersMenu.tsx, user/hooks/HookDetailsDialog.tsx",
     "message": "Update"
   },
   "Updating floating IPs": {
