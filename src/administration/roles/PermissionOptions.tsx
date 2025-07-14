@@ -51,6 +51,10 @@ export const PermissionOptions = [
         value: 'PROPOSAL.MANAGE_REVIEW',
       },
       {
+        label: translate('Update call'),
+        value: 'CALL.UPDATE',
+      },
+      {
         label: translate('Update permission call'),
         value: 'CALL.UPDATE_PERMISSION',
       },
