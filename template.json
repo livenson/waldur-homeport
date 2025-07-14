@@ -1808,11 +1808,11 @@
     "message": "Broadcast has been save as a template."
   },
   "Broadcast has been saved as a draft.": {
-    "description": "broadcasts/BroadcastFooter.tsx",
+    "description": "broadcasts/utils.ts",
     "message": "Broadcast has been saved as a draft."
   },
   "Broadcast has been sent.": {
-    "description": "broadcasts/BroadcastFooter.tsx, broadcasts/BroadcastSendButton.tsx",
+    "description": "broadcasts/BroadcastSendButton.tsx, broadcasts/utils.ts",
     "message": "Broadcast has been sent."
   },
   "Broadcast template has been created.": {
@@ -2696,7 +2696,7 @@
     "message": "Create a broadcast template"
   },
   "Create a broadcast": {
-    "description": "broadcasts/BroadcastCreateDialog.tsx",
+    "description": "broadcasts/BroadcastFormDialog.tsx",
     "message": "Create a broadcast"
   },
   "Create a campaign": {
@@ -7447,6 +7447,10 @@
     "description": "rancher/cluster/hpas/NamespaceAutocomplete.tsx",
     "message": "No namespaces"
   },
+  "No offerings found": {
+    "description": "broadcasts/BroadcastForm.tsx",
+    "message": "No offerings found"
+  },
   "No offerings": {
     "description": "customer/credits/constants.tsx, marketplace/offerings/details/OfferingAutocomplete.tsx",
     "message": "No offerings"
@@ -7464,7 +7468,7 @@
     "message": "No organization groups"
   },
   "No organizations found": {
-    "description": "marketplace/details/CustomerField.tsx",
+    "description": "broadcasts/BroadcastForm.tsx, marketplace/details/CustomerField.tsx",
     "message": "No organizations found"
   },
   "No organizations": {
@@ -7546,6 +7550,10 @@
   "No saved filter": {
     "description": "table/SavedFilterSelect.tsx",
     "message": "No saved filter"
+  },
+  "No templates found": {
+    "description": "broadcasts/BroadcastForm.tsx",
+    "message": "No templates found"
   },
   "No update": {
     "description": "marketplace/offerings/update/plans/PlanExpandableRow.tsx",
@@ -11211,6 +11219,10 @@
     "description": "customer/cost-policies/utils.ts",
     "message": "Schedule termination of existing resources"
   },
+  "Schedule the message to be sent at a specific time": {
+    "description": "broadcasts/BroadcastForm.tsx",
+    "message": "Schedule the message to be sent at a specific time"
+  },
   "Scheduled tasks": {
     "description": "administration/CeleryInfoPage.tsx",
     "message": "Scheduled tasks"
@@ -11374,6 +11386,10 @@
   "Select a date": {
     "description": "booking/offering/BookingResourcesCalendar.tsx",
     "message": "Select a date"
+  },
+  "Select a pre-defined template": {
+    "description": "broadcasts/BroadcastForm.tsx",
+    "message": "Select a pre-defined template"
   },
   "Select a project": {
     "description": "marketplace/resources/import/ResourceImportDialog.tsx, navigation/sidebar/marketplace-popup/MarketplacePopup.tsx",
@@ -11590,6 +11606,14 @@
   "Select source offering": {
     "description": "marketplace/resources/import/ResourceImportDialog.tsx",
     "message": "Select source offering"
+  },
+  "Select specific offerings to target": {
+    "description": "broadcasts/BroadcastForm.tsx",
+    "message": "Select specific offerings to target"
+  },
+  "Select specific organizations to target": {
+    "description": "broadcasts/BroadcastForm.tsx",
+    "message": "Select specific organizations to target"
   },
   "Select state...": {
     "description": "broadcasts/BroadcastFilter.tsx, invitations/InvitationStateFilter.tsx, invoices/list/InvoicesFilter.tsx, marketplace/offerings/list/OfferingStateFilter.tsx, marketplace/orders/list/OrderStateFilter.tsx, marketplace/resources/list/ResourceStateFilter.tsx, marketplace/resources/list/RuntimeStateFilter.tsx, marketplace/service-providers/ProviderCampaignStateFilter.tsx, marketplace-remote/RequestStateFilter.tsx, proposals/call-management/CallStateFilter.tsx, proposals/proposal/ProposalsTableFilter.tsx, proposals/review/ReviewsTableFilter.tsx, user/UserPermissionRequestsStateFilter.tsx",
@@ -13356,7 +13380,7 @@
     "message": "This field set automatically based on the call's fixed duration."
   },
   "This message will be sent on {date}.": {
-    "description": "broadcasts/BroadcastFooter.tsx",
+    "description": "broadcasts/utils.ts",
     "message": "This message will be sent on {date}."
   },
   "This name will be visible in accounting data.": {
@@ -14596,7 +14620,7 @@
     "message": "Unable to save a broadcast as a template."
   },
   "Unable to save broadcast.": {
-    "description": "broadcasts/BroadcastFooter.tsx",
+    "description": "broadcasts/utils.ts",
     "message": "Unable to save broadcast."
   },
   "Unable to save category columns. Please try again.": {
@@ -14608,7 +14632,7 @@
     "message": "Unable to save location."
   },
   "Unable to schedule broadcast.": {
-    "description": "broadcasts/BroadcastFooter.tsx",
+    "description": "broadcasts/utils.ts",
     "message": "Unable to schedule broadcast."
   },
   "Unable to schedule service synchronization.": {
@@ -14616,7 +14640,7 @@
     "message": "Unable to schedule service synchronization."
   },
   "Unable to send broadcast.": {
-    "description": "broadcasts/BroadcastFooter.tsx, broadcasts/BroadcastSendButton.tsx",
+    "description": "broadcasts/BroadcastSendButton.tsx, broadcasts/utils.ts",
     "message": "Unable to send broadcast."
   },
   "Unable to send feedback.": {
@@ -15124,7 +15148,7 @@
     "message": "Update a broadcast template"
   },
   "Update a broadcast": {
-    "description": "broadcasts/BroadcastUpdateDialog.tsx",
+    "description": "broadcasts/BroadcastFormDialog.tsx",
     "message": "Update a broadcast"
   },
   "Update a campaign": {
