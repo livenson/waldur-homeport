@@ -3,6 +3,7 @@ import { useDispatch } from 'react-redux';
 import {
   BroadcastMessage,
   broadcastMessagesCreate,
+  broadcastMessagesSchedule,
   broadcastMessagesSend,
   broadcastMessagesUpdate,
 } from 'waldur-js-client';
@@ -80,7 +81,11 @@ export const useBroadcastFormSubmit = (refetch, broadcastId = null) => {
             body: serializeBroadcast(formData),
           });
         }
-        if (!formData.send_at) {
+        if (formData.send_at) {
+          await broadcastMessagesSchedule({
+            path: { uuid: response.data.uuid },
+          });
+        } else {
           await broadcastMessagesSend({ path: { uuid: response.data.uuid } });
         }
         await refetch();
