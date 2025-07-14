@@ -2759,6 +2759,10 @@
     "description": "invitations/actions/GroupInvitationCreateDialog.tsx",
     "message": "Create group invitation"
   },
+  "Create highly available Neutron routers": {
+    "description": "openstack/OpenStackProvisioningConfigForm.tsx",
+    "message": "Create highly available Neutron routers"
+  },
   "Create horizontal pod autoscaler": {
     "description": "rancher/cluster/hpas/HPACreateDialog.tsx",
     "message": "Create horizontal pod autoscaler"
@@ -15178,6 +15182,10 @@
   "Update available": {
     "description": "navigation/AppFooter.tsx",
     "message": "Update available"
+  },
+  "Update call": {
+    "description": "administration/roles/PermissionOptions.tsx",
+    "message": "Update call"
   },
   "Update components": {
     "description": "administration/roles/PermissionOptions.tsx",
