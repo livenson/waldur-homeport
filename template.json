@@ -1375,6 +1375,10 @@
     "description": "proposals/update/role-mapping/RoleMappingDeleteAction.tsx",
     "message": "Are you sure you would like to delete the mapping?"
   },
+  "Are you sure you would like to delete the plan?": {
+    "description": "marketplace/offerings/update/plans/DeletePlanButton.tsx",
+    "message": "Are you sure you would like to delete the plan?"
+  },
   "Are you sure you would like to delete the user agreement?": {
     "description": "administration/agreements/UserAgreementDeleteButton.tsx",
     "message": "Are you sure you would like to delete the user agreement?"
@@ -3455,6 +3459,10 @@
     "description": "administration/roles/PermissionOptions.tsx",
     "message": "Delete permission"
   },
+  "Delete plan {name}?": {
+    "description": "marketplace/offerings/update/plans/DeletePlanButton.tsx",
+    "message": "Delete plan {name}?"
+  },
   "Delete project credit": {
     "description": "customer/credits/ProjectDeleteCreditButton.tsx",
     "message": "Delete project credit"
@@ -3492,7 +3500,7 @@
     "message": "Delete workload"
   },
   "Delete": {
-    "description": "administration/agreements/UserAgreementDeleteButton.tsx, administration/remote-offering-sync/RemoteSyncDeleteAction.tsx, broadcasts/BroadcastDeleteButton.tsx, customer/credits/DeleteCreditButton.tsx, customer/credits/ProjectDeleteCreditButton.tsx, customer/details/CustomerRemoveDialog.tsx, customer/payment-profiles/PaymentProfileDeleteButton.tsx, customer/payments/DeletePaymentButton.tsx, customer/service-accounts/ServiceAccountDeleteAction.tsx, invitations/InvitationDeleteButton.tsx, invitations/MultiDeleteAction.tsx, marketplace/offerings/images/DeleteImageButton.tsx, marketplace/offerings/list/DeleteOfferingButton.tsx, marketplace/offerings/list/OfferingActions.test.tsx, marketplace/offerings/update/components/DeleteComponentButton.tsx, marketplace/offerings/update/endpoints/DeleteEndpointButton.tsx, marketplace/offerings/update/options/DeleteOptionButton.tsx, marketplace/offerings/update/roles/DeleteRoleButton.tsx, marketplace/resources/users/DeleteUserButton.tsx, marketplace/service-providers/ProviderOfferingUserDeleteButton.tsx, modal/DeleteConfirmationDialog.tsx, openstack/openstack-backup/actions/NetworksList.tsx, openstack/openstack-instance/actions/update-floating-ips/FloatingIpRow.tsx, openstack/openstack-security-groups/rule-editor/ActionsField.tsx, project/DeleteAction.tsx, project/manage/ProjectDelete.tsx, proposals/update/role-mapping/RoleMappingDeleteAction.tsx, rancher/catalog/CatalogDeleteButton.tsx, rancher/cluster/WorkloadActions.tsx, resource/actions/ResourceDeleteButton.tsx, user/support/DangerActionDialog.tsx, user/support/UserDelete.tsx",
+    "description": "administration/agreements/UserAgreementDeleteButton.tsx, administration/remote-offering-sync/RemoteSyncDeleteAction.tsx, broadcasts/BroadcastDeleteButton.tsx, customer/credits/DeleteCreditButton.tsx, customer/credits/ProjectDeleteCreditButton.tsx, customer/details/CustomerRemoveDialog.tsx, customer/payment-profiles/PaymentProfileDeleteButton.tsx, customer/payments/DeletePaymentButton.tsx, customer/service-accounts/ServiceAccountDeleteAction.tsx, invitations/InvitationDeleteButton.tsx, invitations/MultiDeleteAction.tsx, marketplace/offerings/images/DeleteImageButton.tsx, marketplace/offerings/list/DeleteOfferingButton.tsx, marketplace/offerings/list/OfferingActions.test.tsx, marketplace/offerings/update/components/DeleteComponentButton.tsx, marketplace/offerings/update/endpoints/DeleteEndpointButton.tsx, marketplace/offerings/update/options/DeleteOptionButton.tsx, marketplace/offerings/update/plans/DeletePlanButton.tsx, marketplace/offerings/update/roles/DeleteRoleButton.tsx, marketplace/resources/users/DeleteUserButton.tsx, marketplace/service-providers/ProviderOfferingUserDeleteButton.tsx, modal/DeleteConfirmationDialog.tsx, openstack/openstack-backup/actions/NetworksList.tsx, openstack/openstack-instance/actions/update-floating-ips/FloatingIpRow.tsx, openstack/openstack-security-groups/rule-editor/ActionsField.tsx, project/DeleteAction.tsx, project/manage/ProjectDelete.tsx, proposals/update/role-mapping/RoleMappingDeleteAction.tsx, rancher/catalog/CatalogDeleteButton.tsx, rancher/cluster/WorkloadActions.tsx, resource/actions/ResourceDeleteButton.tsx, user/support/DangerActionDialog.tsx, user/support/UserDelete.tsx",
     "message": "Delete"
   },
   "Deleting PostgreSQL server will cause deletion of all databases created within server.": {
@@ -8891,6 +8899,10 @@
     "description": "marketplace/offerings/update/plans/AddPlanDialog.tsx",
     "message": "Plan has been created successfully."
   },
+  "Plan has been deleted.": {
+    "description": "marketplace/offerings/update/plans/DeletePlanButton.tsx",
+    "message": "Plan has been deleted."
+  },
   "Plan has been updated successfully.": {
     "description": "marketplace/offerings/update/plans/EditPlanDescriptionDialog.tsx",
     "message": "Plan has been updated successfully."
@@ -14082,6 +14094,10 @@
   "Unable to delete payment.": {
     "description": "customer/payments/DeletePaymentButton.tsx",
     "message": "Unable to delete payment."
+  },
+  "Unable to delete plan.": {
+    "description": "marketplace/offerings/update/plans/DeletePlanButton.tsx",
+    "message": "Unable to delete plan."
   },
   "Unable to delete policy.": {
     "description": "marketplace/offerings/details/policies/PolicyDeleteButton.tsx",
