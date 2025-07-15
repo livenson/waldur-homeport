@@ -40,7 +40,10 @@ describe('PolicyCreateForm', () => {
     ],
   };
 
-  const renderComponent = (type = 'cost', initialValues = {}) => {
+  const renderComponent = (
+    type: 'cost' | 'usage' = 'cost',
+    initialValues = {},
+  ) => {
     const queryClient = new QueryClient({
       defaultOptions: {
         queries: { retry: false },
@@ -73,11 +76,44 @@ describe('PolicyCreateForm', () => {
       isLoading: false,
       error: null,
       data: [
-        { name: 'Group 1', value: 'group-1-url' },
-        { name: 'Group 2', value: 'group-2-url' },
+        {
+          name: 'Group 1',
+          value: 'group-1-url',
+          url: 'group-1-url',
+          uuid: 'group-1-uuid',
+        },
+        {
+          name: 'Group 2',
+          value: 'group-2-url',
+          url: 'group-2-url',
+          uuid: 'group-2-uuid',
+        },
       ],
       refetch: vi.fn(),
-    });
+      disabled: false,
+      tooltip: undefined,
+      isError: false,
+      isPending: false,
+      isSuccess: true,
+      isPlaceholderData: false,
+      status: 'success' as const,
+      fetchStatus: 'idle' as const,
+      isRefetching: false,
+      isStale: false,
+      isLoadingError: false,
+      isRefetchError: false,
+      isFetched: true,
+      isFetchedAfterMount: true,
+      dataUpdatedAt: Date.now(),
+      errorUpdatedAt: 0,
+      failureCount: 0,
+      failureReason: null,
+      errorUpdateCount: 0,
+      isFetching: false,
+      isInitialLoading: false,
+      isPaused: false,
+      promise: Promise.resolve([]),
+    } as any);
   });
 
   afterEach(() => {
@@ -119,9 +155,32 @@ describe('PolicyCreateForm', () => {
     vi.mocked(useOrganizationGroups).mockReturnValue({
       isLoading: true,
       error: null,
-      data: null,
+      data: undefined,
       refetch: vi.fn(),
-    });
+      disabled: false,
+      tooltip: undefined,
+      isError: false,
+      isPending: true,
+      isSuccess: false,
+      isPlaceholderData: false,
+      status: 'pending' as const,
+      fetchStatus: 'fetching' as const,
+      isRefetching: false,
+      isStale: false,
+      isLoadingError: false,
+      isRefetchError: false,
+      isFetched: false,
+      isFetchedAfterMount: false,
+      dataUpdatedAt: 0,
+      errorUpdatedAt: 0,
+      failureCount: 0,
+      failureReason: null,
+      errorUpdateCount: 0,
+      isFetching: true,
+      isInitialLoading: true,
+      isPaused: false,
+      promise: Promise.resolve([]),
+    } as any);
 
     renderComponent('cost');
 
@@ -136,9 +195,32 @@ describe('PolicyCreateForm', () => {
     vi.mocked(useOrganizationGroups).mockReturnValue({
       isLoading: false,
       error: new Error('Failed to load'),
-      data: null,
+      data: undefined,
       refetch: mockRefetch,
-    });
+      disabled: false,
+      tooltip: undefined,
+      isError: true,
+      isPending: false,
+      isSuccess: false,
+      isPlaceholderData: false,
+      status: 'error' as const,
+      fetchStatus: 'idle' as const,
+      isRefetching: false,
+      isStale: false,
+      isLoadingError: true,
+      isRefetchError: false,
+      isFetched: true,
+      isFetchedAfterMount: true,
+      dataUpdatedAt: 0,
+      errorUpdatedAt: Date.now(),
+      failureCount: 1,
+      failureReason: new Error('Failed to load'),
+      errorUpdateCount: 1,
+      isFetching: false,
+      isInitialLoading: false,
+      isPaused: false,
+      promise: Promise.resolve([]),
+    } as any);
 
     renderComponent('cost');
 
