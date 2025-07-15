@@ -26,8 +26,6 @@ interface PolicyCreateDialogProps {
   >;
 }
 
-export const OFFERING_POLICY_FORM = 'offeringPolicyCreate';
-
 export const PolicyCreateDialog: FC<PolicyCreateDialogProps> = ({
   submitFn,
   type,
