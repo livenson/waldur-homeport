@@ -8603,6 +8603,10 @@
     "description": "auth/SigninForm.tsx, azure/sql/AzureSQLServerSummary.tsx, openstack/OpenStackForm.tsx, openstack/openstack-tenant/OpenStackTenantSummary.tsx, rancher/catalog/CatalogCreateDialog.tsx, vmware/VMwareForm.tsx",
     "message": "Password"
   },
+  "Paste your SSH public key here...": {
+    "description": "user/keys/KeyCreateDialog.tsx",
+    "message": "Paste your SSH public key here..."
+  },
   "Path to Kubernetes configuration file": {
     "description": "SettingsDescription.ts",
     "message": "Path to Kubernetes configuration file"
@@ -16622,6 +16626,10 @@
   "e.g. Used for automated backups": {
     "description": "customer/service-accounts/ServiceAccountFormDialog.tsx",
     "message": "e.g. Used for automated backups"
+  },
+  "e.g. my-ssh-key": {
+    "description": "user/keys/KeyCreateDialog.tsx",
+    "message": "e.g. my-ssh-key"
   },
   "e.g.": {
     "description": "administration/remote-offering-sync/RemoteSyncFormDialog.tsx, customer/create/CustomerCreateForm.tsx, customer/service-accounts/ServiceAccountFormDialog.tsx, invitations/actions/InvitationLinkField.tsx, marketplace/offerings/import/CredentialsTab.tsx, openstack/openstack-instance/deploy/FormNetworkSecurityStep.tsx, rancher/cluster/team/AddResourceAccessDialog.tsx, table/SaveFilterDialog.tsx",
