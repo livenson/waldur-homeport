@@ -63,6 +63,16 @@ export const FloatingIpsList: FunctionComponent<{ resourceScope }> = ({
           render: ({ row }) => <ResourceState resource={row} />,
         },
         {
+          title: translate('Internal address'),
+          render: ({ row }) => (
+            <>
+              {row.port_fixed_ips && row.port_fixed_ips.length > 0
+                ? row.port_fixed_ips.map((fip) => fip.ip_address).join(', ')
+                : 'N/A'}
+            </>
+          ),
+        },
+        {
           title: translate('Instance'),
           render: ({ row }) => {
             if (!row.instance_uuid) {
