@@ -5783,6 +5783,10 @@
     "description": "marketplace/resources/details/openstack-instance/InstanceMainComponent.tsx, openstack/openstack-instance/tabs.ts, openstack/openstack-tenant/TenantInstancesList.tsx",
     "message": "Internal IPs"
   },
+  "Internal address": {
+    "description": "openstack/openstack-floating-ips/FloatingIpsList.tsx",
+    "message": "Internal address"
+  },
   "Internal name": {
     "description": "marketplace/offerings/InternalNameField.tsx",
     "message": "Internal name"
