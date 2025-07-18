@@ -78,26 +78,31 @@ export const getResourceSummaryFields = ({
       label: translate('UUID'),
       value: resource.uuid,
       valueClass: 'ellipsis',
+      hasCopy: true,
     },
     {
       name: 'slug',
       label: translate('Slug'),
       value: resource.slug,
+      hasCopy: true,
     },
     {
       name: 'backend_id',
       label: translate('Backend ID'),
       value: resource.backend_id,
+      hasCopy: true,
     },
     {
       name: 'effective_id',
       label: translate('Effective ID'),
       value: resource.effective_id,
+      hasCopy: true,
     },
     {
       name: 'resource_uuid',
       label: translate('Plugin ID'),
       value: resource.resource_uuid,
+      hasCopy: true,
     },
     {
       name: 'paused',
@@ -145,11 +150,13 @@ export const getResourceSummaryFields = ({
       name: 'error_message',
       label: translate('Error message'),
       value: resource.error_message || scope?.error_message,
+      hasCopy: true,
     },
     {
       name: 'error_traceback',
       label: translate('Error traceback'),
       value: resource.error_traceback || scope?.error_traceback,
+      hasCopy: true,
     },
     resource.attributes
       ? {
