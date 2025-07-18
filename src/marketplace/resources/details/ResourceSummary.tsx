@@ -26,17 +26,7 @@ export const ResourceSummary: FunctionComponent<
   return (
     <>
       {fields.map((field) =>
-        field.custom ? (
-          field.custom
-        ) : (
-          <Field
-            key={field.name}
-            label={field.label}
-            value={field.value}
-            valueClass={field.valueClass}
-            helpText={field.helpText}
-          />
-        ),
+        field.custom ? field.custom : <Field key={field.name} {...field} />,
       )}
       {children}
     </>
